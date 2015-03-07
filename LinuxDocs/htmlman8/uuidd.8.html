@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   uuidd(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="uuidd(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="uuidd.8" name="uuidd.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     uuidd &mdash; UUID generation daemon
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       uuidd
+      </code>
+      [options]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="uuidd-8_sect1" name="uuidd-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       uuidd
+      </strong>
+     </span>
+     daemon is used by the UUID library to generate universally
+      unique identifiers (UUIDs), especially time-based UUIDs, in a
+      secure and guaranteed-unique fashion, even in the face of
+      large numbers of threads running on different CPUs trying to
+      grab UUIDs.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="uuidd-8_sect2" name="uuidd-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d,
+          &minus;&minus;debug
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Run uuidd in debugging mode. This prevents uuidd
+            from running as a daemon.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help screen and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;k,
+          &minus;&minus;kill
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        If currently a uuidd daemon is running, kill it.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n,
+          &minus;&minus;uuids
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        When issuing a test request to a running uuidd,
+            request a bulk response of
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+        UUIDs.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p,
+          &minus;&minus;pid
+         <em class="parameter">
+          <code>
+           path
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the pathname where the pid file should be
+            written. By default, the pid file is written to
+            /run/uuidd/uuidd.pid.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;P,
+          &minus;&minus;no&minus;pid
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not create pid file.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;F,
+          &minus;&minus;no&minus;fork
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not daemonize using double-fork.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;S,
+          &minus;&minus;socket&minus;activation
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not create the socket and instead expect it to be
+            provided by the calling process. Implies --no-fork and
+            --no-pid. As of this writing, this option is supposed
+            to be used only with systemd. This option must be
+            enabled with a configure option.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;q,
+          &minus;&minus;quiet
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Suppress some failure messages.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r,
+          &minus;&minus;random
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Test uuidd by trying to connect to a running uuidd
+            daemon and request it to return a random-based
+            UUID.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s,
+          &minus;&minus;socket
+         <em class="parameter">
+          <code>
+           path
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the pathname used for the unix-domain socket
+            used by uuidd. By default, the pathname used is
+            /run/uuidd/request. This is primarily for debugging
+            purposes, since the pathname is hard-coded in the
+            libuuid library.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;T,
+          &minus;&minus;timeout
+         <em class="parameter">
+          <code>
+           timeout
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify a timeout for uuidd. If specified, then
+            uuidd will exit after
+        <span class="command">
+         <strong>
+          timeout
+         </strong>
+        </span>
+        seconds of
+            inactivity.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t,
+          &minus;&minus;time
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Test uuidd by trying to connect to a running uuidd
+            daemon and request it to return a time-based UUID.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V,
+          &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output version information and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="uuidd-8_sect3" name="uuidd-8_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <p>
+     Start up a daemon, print 42 random keys, and then stop the
+      daemon.
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+uuidd -p /tmp/uuidd.pid -s /tmp/uuidd.socket
+uuidd -d -r -n 42 -s /tmp/uuidd.socket
+uuidd -d -k -s /tmp/uuidd.socket
+</pre>
+      </div>
+     </blockquote>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="uuidd-8_sect4" name="uuidd-8_sect4" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       uuidd
+      </strong>
+     </span>
+     daemon was written by Theodore Ts'o
+      &lt;tytso@mit.edu&gt;.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="uuidd-8_sect5" name="uuidd-8_sect5" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The uuidd daemon is part of the util-linux package and is
+      available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="uuidd-8_sect6" name="uuidd-8_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/uuid.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        uuid
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/uuidgen.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        uuidgen
+       </span>
+       (1)
+      </span>
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

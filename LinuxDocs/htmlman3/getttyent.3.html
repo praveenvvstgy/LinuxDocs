@@ -1,0 +1,543 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   getttyent(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="getttyent(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="getttyent.3" name="getttyent.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     getttyent, getttynam, setttyent, endttyent &mdash; get
+      ttys file entry
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;ttyent.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         struct ttyent
+            *
+         <strong>
+          getttyent
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <code>
+         void)
+        </code>
+        ;
+       </td>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         struct ttyent
+            *
+         <strong>
+          getttynam
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         name
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          setttyent
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <code>
+         void)
+        </code>
+        ;
+       </td>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          endttyent
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <code>
+         void)
+        </code>
+        ;
+       </td>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="getttyent-3_sect1" name="getttyent-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     These functions provide an interface to the file
+     <code class="constant">
+      _PATH_TTYS
+     </code>
+     (e.g.,
+     <code class="filename">
+      /etc/ttys
+     </code>
+     ).
+    </p>
+    <p>
+     The function
+     <code class="function">
+      setttyent
+     </code>
+     ()
+      opens the file or rewinds it if already open.
+    </p>
+    <p>
+     The function
+     <code class="function">
+      endttyent
+     </code>
+     ()
+      closes the file.
+    </p>
+    <p>
+     The function
+     <code class="function">
+      getttynam
+     </code>
+     ()
+      searches for a given terminal name in the file. It returns a
+      pointer to a
+     <span class="structname">
+      ttyent
+     </span>
+     structure
+      (description below).
+    </p>
+    <p>
+     The function
+     <code class="function">
+      getttyent
+     </code>
+     ()
+      opens the file
+     <code class="constant">
+      _PATH_TTYS
+     </code>
+     (if
+      necessary) and returns the first entry. If the file is
+      already open, the next entry. The
+     <span class="structname">
+      ttyent
+     </span>
+     structure has the form:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="structdef">
+       <table style="border-collapse: collapse;">
+        <colgroup span="1">
+         <col class="c1" span="1">
+         </col>
+         <col class="c2" span="1">
+         </col>
+         <col class="c3" span="1">
+         </col>
+         <col class="c4" span="1">
+         </col>
+         <col class="c5" span="1">
+         </col>
+        </colgroup>
+        <tbody>
+         <tr>
+          <td align="left" class="structdefhdr" colspan="1" rowspan="1" style="">
+           struct
+          </td>
+          <td align="left" class="structdefhdr" colspan="4" rowspan="1" style="">
+           <span class="structname">
+            ttyent
+           </span>
+           &nbsp;{
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            char
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           *
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             ty_name
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;terminal&nbsp;device&nbsp;name&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            char
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           *
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             ty_getty
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;command&nbsp;to&nbsp;execute,&nbsp;usually&nbsp;getty&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            char
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           *
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             ty_type
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;terminal&nbsp;type&nbsp;for&nbsp;termcap&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            int
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             ty_status
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;status&nbsp;flags&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            char
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           *
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             ty_window
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;command&nbsp;to&nbsp;start&nbsp;up&nbsp;window&nbsp;manager&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            char
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           *
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             ty_comment
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;comment&nbsp;field&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td align="left" class="structdefftr" colspan="5" rowspan="1" style="">
+           };
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     <em class="parameter">
+      <code>
+       ty_status
+      </code>
+     </em>
+     can
+      be:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#define TTY_ON     0x01  /* enable logins (start ty_getty program) */
+#define TTY_SECURE 0x02  /* allow UID 0 to login */
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="getttyent-3_sect2" name="getttyent-3_sect2" shape="rect">
+    </a>
+    <h2>
+     ATTRIBUTES
+    </h2>
+    <div class="refsect2">
+     <a id="getttyent-3_sect3" name="getttyent-3_sect3" shape="rect">
+     </a>
+     <h3>
+      Multithreading (see pthreads(7))
+     </h3>
+     <p>
+      The
+      <code class="function">
+       getttyent
+      </code>
+      () function
+        returns a pointer to a static variable, so it is not
+        thread-safe.
+     </p>
+     <p>
+      The
+      <code class="function">
+       setttyent
+      </code>
+      () and
+      <code class="function">
+       endttyent
+      </code>
+      () functions use a
+        static variable, so they are not thread-safe.
+     </p>
+     <p>
+      The
+      <code class="function">
+       getttynam
+      </code>
+      () function
+        calls thread-unsafe function
+      <code class="function">
+       getttyent
+      </code>
+      () so it is not thread-safe.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="getttyent-3_sect4" name="getttyent-3_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     Not in POSIX.1-2001. Present on the BSDs, and perhaps
+      other systems.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getttyent-3_sect5" name="getttyent-3_sect5" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     Under Linux, the file
+     <code class="filename">
+      /etc/ttys
+     </code>
+     , and the functions described
+      above, are not used.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getttyent-3_sect6" name="getttyent-3_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/ttyname.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ttyname
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/ttyslot.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ttyslot
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="getttyent-3_sect7" name="getttyent-3_sect7" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

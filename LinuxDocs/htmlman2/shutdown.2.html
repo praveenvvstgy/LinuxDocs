@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   shutdown(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="shutdown(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="shutdown.2" name="shutdown.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     shutdown &mdash; shut down part of a full-duplex
+      connection
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;sys/socket.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          shutdown
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         sockfd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         how
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="shutdown-2_sect1" name="shutdown-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      shutdown
+     </code>
+     () call causes
+      all or part of a full-duplex connection on the socket
+      associated with
+     <em class="parameter">
+      <code>
+       sockfd
+      </code>
+     </em>
+     to be shut down. If
+     <em class="parameter">
+      <code>
+       how
+      </code>
+     </em>
+     is
+     <code class="constant">
+      SHUT_RD
+     </code>
+     , further receptions will be
+      disallowed. If
+     <em class="parameter">
+      <code>
+       how
+      </code>
+     </em>
+     is
+     <code class="constant">
+      SHUT_WR
+     </code>
+     , further transmissions
+      will be disallowed. If
+     <em class="parameter">
+      <code>
+       how
+      </code>
+     </em>
+     is
+     <code class="constant">
+      SHUT_RDWR
+     </code>
+     , further receptions and
+      transmissions will be disallowed.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="shutdown-2_sect2" name="shutdown-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success, zero is returned. On error, &minus;1 is
+      returned, and
+     <code class="varname">
+      errno
+     </code>
+     is set
+      appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="shutdown-2_sect3" name="shutdown-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EBADF
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          sockfd
+         </code>
+        </em>
+        is
+            not a valid descriptor.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        An invalid value was specified in
+        <em class="parameter">
+         <code>
+          how
+         </code>
+        </em>
+        (but see BUGS).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOTCONN
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The specified socket is not connected.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOTSOCK
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          sockfd
+         </code>
+        </em>
+        is a
+            file, not a socket.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="shutdown-2_sect4" name="shutdown-2_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     POSIX.1-2001, 4.4BSD (the
+     <code class="function">
+      shutdown
+     </code>
+     () function call first appeared in
+      4.2BSD).
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="shutdown-2_sect5" name="shutdown-2_sect5" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The constants
+     <code class="constant">
+      SHUT_RD
+     </code>
+     ,
+     <code class="constant">
+      SHUT_WR
+     </code>
+     ,
+     <code class="constant">
+      SHUT_RDWR
+     </code>
+     have the value 0, 1, 2,
+      respectively, and are defined in
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      sys/socket.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+     since glibc-2.1.91.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="shutdown-2_sect6" name="shutdown-2_sect6" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     As currently implemented, checks for the validity of
+     <em class="parameter">
+      <code>
+       how
+      </code>
+     </em>
+     are done in
+      domain-specific code, and not all domains perform these
+      checks. Most notably, UNIX domain sockets simply ignore
+      invalid values; this may change in the future.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="shutdown-2_sect7" name="shutdown-2_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/connect.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        connect
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/socket.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        socket
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/socket.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        socket
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="shutdown-2_sect8" name="shutdown-2_sect8" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

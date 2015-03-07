@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   gnutls_pubkey_get_preferred_hash_algorithm(3) &mdash;
+  Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="gnutls_pubkey_get_preferred_hash_algorithm(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="gnutls-pubkey-get-preferred-hash-algorithm.3" name="gnutls-pubkey-get-preferred-hash-algorithm.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     gnutls_pubkey_get_preferred_hash_algorithm &mdash; API
+      function
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;gnutls/abstract.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          gnutls_pubkey_get_preferred_hash_algorithm
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_pubkey_t
+        <var class="pdparam">
+         key
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_digest_algorithm_t *
+        <var class="pdparam">
+         hash
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int *
+        <var class="pdparam">
+         mand
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-pubkey-get-preferred-hash-algorithm-3_sect1" name="gnutls-pubkey-get-preferred-hash-algorithm-3_sect1" shape="rect">
+    </a>
+    <h2>
+     ARGUMENTS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_pubkey_t
+          key
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Holds the certificate
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_digest_algorithm_t *
+          hash
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The result of the call with the hash algorithm used
+            for signature
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          unsigned int *
+          mand
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        If non zero it means that the algorithm MUST use
+            this hash. May be NULL.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-pubkey-get-preferred-hash-algorithm-3_sect2" name="gnutls-pubkey-get-preferred-hash-algorithm-3_sect2" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This function will read the certifcate and return the
+      appropriate digest algorithm to use for signing with this
+      certificate. Some certificates (i.e. DSA might not be able to
+      sign without the preferred algorithm).
+    </p>
+    <p>
+     To get the signature algorithm instead of just the hash
+      use
+     <code class="function">
+      gnutls_pk_to_sign
+     </code>
+     () with
+      the algorithm of the certificate/key and the provided
+     <em class="parameter">
+      <code>
+       hash
+      </code>
+     </em>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-pubkey-get-preferred-hash-algorithm-3_sect3" name="gnutls-pubkey-get-preferred-hash-algorithm-3_sect3" shape="rect">
+    </a>
+    <h2>
+     RETURNS
+    </h2>
+    <p>
+     the 0 if the hash algorithm is found. A negative error
+      code is returned on error.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-pubkey-get-preferred-hash-algorithm-3_sect4" name="gnutls-pubkey-get-preferred-hash-algorithm-3_sect4" shape="rect">
+    </a>
+    <h2>
+     SINCE
+    </h2>
+    <p>
+     2.12.0
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-pubkey-get-preferred-hash-algorithm-3_sect5" name="gnutls-pubkey-get-preferred-hash-algorithm-3_sect5" shape="rect">
+    </a>
+    <h2>
+     REPORTING BUGS
+    </h2>
+    <p>
+     Report bugs to &lt;bugs@gnutls.org&gt;.
+    </p>
+    <p>
+     Home page: http://www.gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-pubkey-get-preferred-hash-algorithm-3_sect7" name="gnutls-pubkey-get-preferred-hash-algorithm-3_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <em class="citetitle">
+      gnutls
+     </em>
+     is maintained as a Texinfo manual. If
+      the /usr/share/doc/gnutls/ directory does not contain the
+      HTML form visit
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <a class="literalurl" href="http://www.gnutls.org/manual/" shape="rect" target="_top">
+         http://www.gnutls.org/manual/
+        </a>
+       </p>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

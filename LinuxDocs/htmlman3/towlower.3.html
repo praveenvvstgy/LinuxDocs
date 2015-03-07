@@ -1,0 +1,470 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   towlower(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="towlower(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="towlower.3" name="towlower.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     towlower, towlower_l &mdash; convert a wide character to
+      lowercase
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;wctype.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         wint_t
+         <strong>
+          towlower
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        wint_t
+        <var class="pdparam">
+         wc
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         wint_t
+         <strong>
+          towlower_l
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        wint_t
+        <var class="pdparam">
+         wc
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        locale_t
+        <var class="pdparam">
+         locale
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              towlower_l
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestver" colspan="1" rowspan="1" style="">
+             Since
+                      glibc 2.10:
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &gt;= 700
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestver" colspan="1" rowspan="1" style="">
+             Before
+                      glibc 2.10:
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _GNU_SOURCE
+             </code>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="towlower-3_sect1" name="towlower-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      towlower
+     </code>
+     () function is
+      the wide-character equivalent of the
+     <a class="link" href="../htmlman3/toupper.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tolower
+       </span>
+       (3)
+      </span>
+     </a>
+     function. If
+     <em class="parameter">
+      <code>
+       wc
+      </code>
+     </em>
+     is an uppercase
+      wide character, and there exists a lowercase equivalent in
+      the current locale, it returns the lowercase equivalent of
+     <em class="parameter">
+      <code>
+       wc
+      </code>
+     </em>
+     . In all other
+      cases,
+     <em class="parameter">
+      <code>
+       wc
+      </code>
+     </em>
+     is returned
+      unchanged.
+    </p>
+    <p>
+     The
+     <code class="function">
+      towupper_l
+     </code>
+     () function
+      performs the same task, but performs the conversion based on
+      the character type information in the locale specified by
+     <em class="parameter">
+      <code>
+       locale
+      </code>
+     </em>
+     . The behavior
+      of
+     <code class="function">
+      towupper_l
+     </code>
+     () is undefined if
+     <em class="parameter">
+      <code>
+       locale
+      </code>
+     </em>
+     is the special
+      locale object
+     <code class="constant">
+      LC_GLOBAL_LOCALE
+     </code>
+     (see
+     <a class="link" href="../htmlman3/duplocale.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        duplocale
+       </span>
+       (3)
+      </span>
+     </a>
+     ) or is not a
+      valid locale object handle.
+    </p>
+    <p>
+     The argument
+     <em class="parameter">
+      <code>
+       wc
+      </code>
+     </em>
+     must be representable as a
+     <span class="type">
+      wchar_t
+     </span>
+     and be a valid character in the locale or be the value
+     <code class="constant">
+      WEOF
+     </code>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="towlower-3_sect2" name="towlower-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       wc
+      </code>
+     </em>
+     was
+      convertible to lowercase,
+     <code class="function">
+      towlower
+     </code>
+     () returns its lowercase
+      equivalent; otherwise it returns
+     <em class="parameter">
+      <code>
+       wc
+      </code>
+     </em>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="towlower-3_sect3" name="towlower-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ATTRIBUTES
+    </h2>
+    <div class="refsect2">
+     <a id="towlower-3_sect4" name="towlower-3_sect4" shape="rect">
+     </a>
+     <h3>
+      Multithreading (see pthreads(7))
+     </h3>
+     <p>
+      The
+      <code class="function">
+       towlower
+      </code>
+      () function is
+        thread-safe with exceptions. It can be safely used in
+        multithreaded applications, as long as
+      <a class="link" href="../htmlman3/setlocale.3.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         setlocale
+        </span>
+        (3)
+       </span>
+      </a>
+      is not
+        called to change the locale during its execution.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="towlower-3_sect5" name="towlower-3_sect5" shape="rect">
+    </a>
+    <h2>
+     VERSIONS
+    </h2>
+    <p>
+     The
+     <code class="function">
+      towlower_l
+     </code>
+     () function
+      first appeared in glibc 2.3.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="towlower-3_sect6" name="towlower-3_sect6" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     <code class="function">
+      towlower
+     </code>
+     (): C99,
+      POSIX.1-2001 (XSI); present as an XSI extension in
+      POSIX.1-2008, but marked obsolete.
+    </p>
+    <p>
+     <code class="function">
+      towlower_l
+     </code>
+     ():
+      POSIX.1-2008.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="towlower-3_sect7" name="towlower-3_sect7" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The behavior of these functions depends on the
+     <code class="constant">
+      LC_CTYPE
+     </code>
+     category of the
+      locale.
+    </p>
+    <p>
+     These functions are not very appropriate for dealing with
+      Unicode characters, because Unicode knows about three cases:
+      upper, lower and title case.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="towlower-3_sect8" name="towlower-3_sect8" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/iswlower.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        iswlower
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/towctrans.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        towctrans
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/towupper.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        towupper
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/locale.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        locale
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="towlower-3_sect9" name="towlower-3_sect9" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

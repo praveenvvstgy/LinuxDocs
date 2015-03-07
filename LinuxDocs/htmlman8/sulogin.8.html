@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   sulogin(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="sulogin(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="sulogin.8" name="sulogin.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     sulogin &mdash; Single-user login
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       sulogin
+      </code>
+      [options] [tty]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="sulogin-8_sect1" name="sulogin-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       sulogin
+      </strong>
+     </span>
+     is
+      invoked by
+     <span class="command">
+      <strong>
+       init
+      </strong>
+     </span>
+     when the system goes into single user mode.
+    </p>
+    <p>
+     The user is prompted:
+    </p>
+    <p>
+     Give root password for system maintenance
+    </p>
+    <p>
+     (or type Control&minus;D for normal startup):
+    </p>
+    <p>
+     <span class="command">
+      <strong>
+       sulogin
+      </strong>
+     </span>
+     will
+      be connected to the current terminal, or to the optional tty
+      device that can be specified on the command line (typically
+     <code class="filename">
+      /dev/console
+     </code>
+     ).
+    </p>
+    <p>
+     After the user exits the single-user shell or presses
+      control&minus;D at the prompt, the system will continue to
+      boot.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="sulogin-8_sect2" name="sulogin-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;e
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;force
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        If the default method of obtaining the root password
+            via
+        <a class="link" href="../htmlman3/getpwnam.3.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           getpwnam
+          </span>
+          (3)
+         </span>
+        </a>
+        from the
+            system fails, manually examine
+        <code class="filename">
+         /etc/passwd
+        </code>
+        and
+        <code class="filename">
+         /etc/shadow
+        </code>
+        to get the password. If
+            they are damaged or nonexistent, sulogin will start a
+            root shell without asking for a password.
+       </p>
+       <p>
+        Only use the
+        <code class="option">
+         &minus;e
+        </code>
+        option if you are sure the console is physically
+            protected against unauthorized access.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;login&minus;shell
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specifying this option causes sulogin to start the
+            shell process as a login shell.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;timeout
+        </code>
+        <span class="command">
+         <strong>
+          seconds
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the maximum amount of time to wait for user
+            input. By default, sulogin will wait forever.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="sulogin-8_sect3" name="sulogin-8_sect3" shape="rect">
+    </a>
+    <h2>
+     ENVIRONMENT VARIABLES
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       sulogin
+      </strong>
+     </span>
+     looks for the environment variable
+     <code class="constant">
+      SUSHELL
+     </code>
+     or
+     <span class="command">
+      <strong>
+       sushell
+      </strong>
+     </span>
+     to determine what
+      shell to start. If the environment variable is not set, it
+      will try to execute root's shell from
+     <code class="filename">
+      /etc/passwd
+     </code>
+     . If that fails it will fall
+      back to
+     <code class="filename">
+      /bin/sh
+     </code>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="sulogin-8_sect4" name="sulogin-8_sect4" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       sulogin
+      </strong>
+     </span>
+     was
+      written by Miquel van Smoorenburg for sysvinit and later
+      ported to util-linux by Dave Reisner and Karel Zak.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="sulogin-8_sect5" name="sulogin-8_sect5" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The sulogin command is part of the util-linux package and
+      is available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

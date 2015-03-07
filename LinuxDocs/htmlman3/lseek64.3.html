@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   lseek64(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="lseek64(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="lseek64.3" name="lseek64.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     lseek64 &mdash; reposition 64-bit read/write file
+      offset
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#define _LARGEFILE64_SOURCE      /* See feature_test_macros(7) */
+#include &lt;sys/types.h&gt;
+#include &lt;unistd.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         off64_t
+         <strong>
+          lseek64
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         fd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        off64_t
+        <var class="pdparam">
+         offset
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         whence
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="lseek64-3_sect1" name="lseek64-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <a class="link" href="../htmlman2/lseek.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        lseek
+       </span>
+       (2)
+      </span>
+     </a>
+     family of
+      functions reposition the offset of the open file associated
+      with the file descriptor
+     <em class="parameter">
+      <code>
+       fd
+      </code>
+     </em>
+     to
+     <em class="parameter">
+      <code>
+       offset
+      </code>
+     </em>
+     bytes relative to the
+      start, current position, or end of the file, when
+     <em class="parameter">
+      <code>
+       whence
+      </code>
+     </em>
+     has the value
+     <code class="constant">
+      SEEK_SET
+     </code>
+     ,
+     <code class="constant">
+      SEEK_CUR
+     </code>
+     , or
+     <code class="constant">
+      SEEK_END
+     </code>
+     , respectively.
+    </p>
+    <p>
+     For more details, return value, and errors, see
+     <a class="link" href="../htmlman2/lseek.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        lseek
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     Four interfaces are available:
+     <a class="link" href="../htmlman2/lseek.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        lseek
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <code class="function">
+      lseek64
+     </code>
+     (),
+     <a class="link" href="../htmlman2/llseek.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        llseek
+       </span>
+       (2)
+      </span>
+     </a>
+     , and the raw
+      system call
+     <a class="link" href="../htmlman2/llseek.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        _llseek
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+    <div class="refsect2">
+     <a id="lseek64-3_sect2" name="lseek64-3_sect2" shape="rect">
+     </a>
+     <h3>
+      lseek
+     </h3>
+     <p>
+      Prototype:
+     </p>
+     <div class="informalexample">
+      <pre class="programlisting" xml:space="preserve">
+  <code class="function">    off_t lseek</code>(<em class="parameter"><code>int fd</code></em>, <em class="parameter"><code>off_t offset</code></em>, <em class="parameter"><code>int whence</code></em>);
+</pre>
+     </div>
+     <p>
+      <a class="link" href="../htmlman2/lseek.2.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         lseek
+        </span>
+        (2)
+       </span>
+      </a>
+      uses the type
+      <span class="type">
+       off_t
+      </span>
+      . This is a 32-bit signed
+        type on 32-bit architectures, unless one compiles with
+     </p>
+     <div class="informalexample">
+      <pre class="programlisting" xml:space="preserve">
+    #define _FILE_OFFSET_BITS 64
+</pre>
+     </div>
+     <p>
+      in which case it is a 64-bit signed type.
+     </p>
+    </div>
+    <div class="refsect2">
+     <a id="lseek64-3_sect3" name="lseek64-3_sect3" shape="rect">
+     </a>
+     <h3>
+      lseek64
+     </h3>
+     <p>
+      Prototype:
+     </p>
+     <div class="informalexample">
+      <pre class="programlisting" xml:space="preserve">
+  <code class="function">    off64_t lseek64</code>(<em class="parameter"><code>int fd</code></em>, <em class="parameter"><code>off64_t offset</code></em>, <em class="parameter"><code>int whence</code></em>);
+</pre>
+     </div>
+     <p>
+      The library routine
+      <code class="function">
+       lseek64
+      </code>
+      () uses a 64-bit type even when
+      <span class="type">
+       off_t
+      </span>
+      is a 32-bit type. Its
+        prototype (and the type
+      <span class="type">
+       off64_t
+      </span>
+      )
+        is available only when one compiles with
+     </p>
+     <div class="informalexample">
+      <pre class="programlisting" xml:space="preserve">
+    #define _LARGEFILE64_SOURCE
+</pre>
+     </div>
+     <p>
+      The function
+      <code class="function">
+       lseek64
+      </code>
+      () is
+        available since glibc 2.1, and is defined to be an alias
+        for
+      <code class="function">
+       llseek
+      </code>
+      ().
+     </p>
+    </div>
+    <div class="refsect2">
+     <a id="lseek64-3_sect4" name="lseek64-3_sect4" shape="rect">
+     </a>
+     <h3>
+      llseek
+     </h3>
+     <p>
+      Prototype:
+     </p>
+     <div class="informalexample">
+      <pre class="programlisting" xml:space="preserve">
+  <code class="function">    loff_t llseek</code>(<em class="parameter"><code>int fd</code></em>, <em class="parameter"><code>loff_t offset</code></em>, <em class="parameter"><code>int whence</code></em>);
+</pre>
+     </div>
+     <p>
+      The type
+      <span class="type">
+       loff_t
+      </span>
+      is a 64-bit
+        signed type. The library routine
+      <code class="function">
+       llseek
+      </code>
+      () is available and glibc and works
+        without special defines. However, the glibc headers do not
+        provide a prototype. Users should add the above prototype,
+        or something equivalent, to their own source. When users
+        complained about data loss caused by a miscompilation of
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        e2fsck
+       </span>
+       (8)
+      </span>
+      , glibc 2.1.3 added
+        the link-time warning
+     </p>
+     <div class="blockquote">
+      <blockquote class="blockquote">
+       <p>
+        "the
+        <span class="quote">
+         &ldquo;
+         <span class="quote">
+          llseek
+         </span>
+         &rdquo;
+        </span>
+        function may be
+            dangerous; use
+        <span class="quote">
+         &ldquo;
+         <span class="quote">
+          lseek64
+         </span>
+         &rdquo;
+        </span>
+        instead."
+       </p>
+      </blockquote>
+     </div>
+     <p>
+      This makes this function unusable if one desires a
+        warning-free compilation.
+     </p>
+    </div>
+    <div class="refsect2">
+     <a id="lseek64-3_sect5" name="lseek64-3_sect5" shape="rect">
+     </a>
+     <h3>
+      _llseek
+     </h3>
+     <p>
+      All the above functions are implemented in terms of this
+        system call. The prototype is:
+     </p>
+     <div class="informalexample">
+      <pre class="programlisting" xml:space="preserve">
+  <code class="function">    int _llseek</code>(<em class="parameter"><code>int fd</code></em>, <em class="parameter"><code>off_t offset_hi</code></em>, <em class="parameter"><code>off_t offset_lo</code></em>, <em class="parameter"><code>loff_t *result</code></em>, <em class="parameter"><code>int whence</code></em>);
+</pre>
+     </div>
+     <p>
+      For more details, see
+      <a class="link" href="../htmlman2/llseek.2.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         llseek
+        </span>
+        (2)
+       </span>
+      </a>
+      .
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="lseek64-3_sect6" name="lseek64-3_sect6" shape="rect">
+    </a>
+    <h2>
+     ATTRIBUTES
+    </h2>
+    <div class="refsect2">
+     <a id="lseek64-3_sect7" name="lseek64-3_sect7" shape="rect">
+     </a>
+     <h3>
+      Multithreading (see pthreads(7))
+     </h3>
+     <p>
+      The
+      <code class="function">
+       lseek64
+      </code>
+      () function is
+        thread-safe.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="lseek64-3_sect8" name="lseek64-3_sect8" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/llseek.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        llseek
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/lseek.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        lseek
+       </span>
+       (2)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="lseek64-3_sect9" name="lseek64-3_sect9" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

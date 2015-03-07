@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   ldap_tls(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="ldap_tls(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="ldap-tls.3" name="ldap-tls.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     ldap_start_tls, ldap_start_tls_s, ldap_tls_inplace,
+      ldap_install_tls &mdash; LDAP TLS initialization routines
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;ldap.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          ldap_start_tls
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        LDAP *
+        <var class="pdparam">
+         ld
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          ldap_start_tls_s
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        LDAP *
+        <var class="pdparam">
+         ld
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        LDAPControl **
+        <var class="pdparam">
+         serverctrls
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        LDAPControl **
+        <var class="pdparam">
+         clientctrls
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          ldap_tls_inplace
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        LDAP *
+        <var class="pdparam">
+         ld
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          ldap_install_tls
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        LDAP *
+        <var class="pdparam">
+         ld
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ldap-tls-3_sect1" name="ldap-tls-3_sect1" shape="rect">
+    </a>
+    <h2>
+     LIBRARY
+    </h2>
+    <p>
+     OpenLDAP LDAP (libldap, &minus;lldap)
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ldap-tls-3_sect2" name="ldap-tls-3_sect2" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     These routines are used to initiate TLS processing on an
+      LDAP session.
+     <code class="function">
+      ldap_start_tls_s
+     </code>
+     () sends a StartTLS request
+      to a server, waits for the reply, and then installs TLS
+      handlers on the session if the request succeeded. The routine
+      returns
+     <code class="constant">
+      LDAP_SUCCESS
+     </code>
+     if
+      everything succeeded, otherwise it returns an LDAP error
+      code.
+     <code class="function">
+      ldap_start_tls
+     </code>
+     () sends a
+      StartTLS request to a server and does nothing else. It
+      returns
+     <code class="constant">
+      LDAP_SUCCESS
+     </code>
+     if the
+      request was sent successfully.
+     <code class="function">
+      ldap_tls_inplace
+     </code>
+     () returns 1 if TLS
+      handlers have been installed on the specified session, 0
+      otherwise.
+     <code class="function">
+      ldap_install_tls
+     </code>
+     ()
+      installs the TLS handlers on the given session. It returns
+     <span class="errorname">
+      LDAP_LOCAL_ERROR
+     </span>
+     if TLS is
+      already installed.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ldap-tls-3_sect3" name="ldap-tls-3_sect3" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/ldap.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/ldap_error.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap_error
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ldap-tls-3_sect4" name="ldap-tls-3_sect4" shape="rect">
+    </a>
+    <h2>
+     ACKNOWLEDGEMENTS
+    </h2>
+    <p>
+     <span class="emphasis">
+      <em>
+       OpenLDAP Software
+      </em>
+     </span>
+     is developed and maintained by The OpenLDAP Project
+      &lt;
+     <a class="literalurl" href="http://www.openldap.org/" shape="rect" target="_top">
+      http://www.openldap.org/
+     </a>
+     &gt;.
+     <span class="emphasis">
+      <em>
+       OpenLDAP Software
+      </em>
+     </span>
+     is derived from
+      University of Michigan LDAP 3.3 Release.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,1035 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   scandir(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="scandir(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="scandir.3" name="scandir.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     scandir, scandirat, alphasort, versionsort &mdash; scan a
+      directory for matching entries
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;dirent.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          scandir
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         dirp
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        struct dirent ***
+        <var class="pdparam">
+         namelist
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         (*filter)
+        </var>
+        <code>
+         (
+        </code>
+        const struct
+            dirent *
+        <code>
+         )
+        </code>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         (*compar)
+        </var>
+        <code>
+         (
+        </code>
+        const struct
+            dirent **, const struct dirent
+            **
+        <code>
+         )
+        </code>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          alphasort
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const struct dirent **
+        <var class="pdparam">
+         a
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const struct dirent **
+        <var class="pdparam">
+         b
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          versionsort
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const struct dirent **
+        <var class="pdparam">
+         a
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const struct dirent **
+        <var class="pdparam">
+         b
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+
+#include &lt;fcntl.h&gt;           /* Definition of AT_* constants */
+#include &lt;dirent.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          scandirat
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         dirfd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         dirp
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        struct dirent ***
+        <var class="pdparam">
+         namelist
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         (*filter)
+        </var>
+        <code>
+         (
+        </code>
+        const struct
+            dirent *
+        <code>
+         )
+        </code>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         (*compar)
+        </var>
+        <code>
+         (
+        </code>
+        const struct
+            dirent **, const struct dirent
+            **
+        <code>
+         )
+        </code>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              scandir
+             </code>
+             (),
+             <code class="function">
+              alphasort
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _BSD_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _SVID_SOURCE
+             </code>
+            </td>
+           </tr>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             || /* Since glibc 2.10:
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             */
+                      (
+             <code class="constant">
+              _POSIX_C_SOURCE
+             </code>
+             &gt;=
+                      200809L ||
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &gt;=
+                      700)
+            </td>
+           </tr>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              versionsort
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _GNU_SOURCE
+             </code>
+            </td>
+           </tr>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              scandirat
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _GNU_SOURCE
+             </code>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="scandir-3_sect1" name="scandir-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      scandir
+     </code>
+     () function scans
+      the directory
+     <em class="parameter">
+      <code>
+       dirp
+      </code>
+     </em>
+     ,
+      calling
+     <code class="function">
+      filter
+     </code>
+     () on each
+      directory entry. Entries for which
+     <code class="function">
+      filter
+     </code>
+     () returns nonzero are stored in
+      strings allocated via
+     <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        malloc
+       </span>
+       (3)
+      </span>
+     </a>
+     , sorted using
+     <a class="link" href="../htmlman3/qsort.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        qsort
+       </span>
+       (3)
+      </span>
+     </a>
+     with the
+      comparison function
+     <code class="function">
+      compar
+     </code>
+     (),
+      and collected in array
+     <em class="parameter">
+      <code>
+       namelist
+      </code>
+     </em>
+     which is allocated via
+     <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        malloc
+       </span>
+       (3)
+      </span>
+     </a>
+     . If
+     <em class="parameter">
+      <code>
+       filter
+      </code>
+     </em>
+     is NULL, all entries are
+      selected.
+    </p>
+    <p>
+     The
+     <code class="function">
+      alphasort
+     </code>
+     () and
+     <code class="function">
+      versionsort
+     </code>
+     () functions can be
+      used as the comparison function
+     <em class="parameter">
+      <code>
+       compar
+      </code>
+     </em>
+     (). The former sorts
+      directory entries using
+     <a class="link" href="../htmlman3/strcoll.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        strcoll
+       </span>
+       (3)
+      </span>
+     </a>
+     , the latter
+      using
+     <a class="link" href="../htmlman3/strverscmp.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        strverscmp
+       </span>
+       (3)
+      </span>
+     </a>
+     on the
+      strings
+     <em class="replaceable">
+      <code>
+       (*a)&minus;&gt;d_name
+      </code>
+     </em>
+     and
+     <em class="replaceable">
+      <code>
+       (*b)&minus;&gt;d_name
+      </code>
+     </em>
+     .
+    </p>
+    <div class="refsect2">
+     <a id="scandir-3_sect2" name="scandir-3_sect2" shape="rect">
+     </a>
+     <h3>
+      scandirat()
+     </h3>
+     <p>
+      The
+      <code class="function">
+       scandirat
+      </code>
+      () function
+        operates in exactly the same way as
+      <code class="function">
+       scandir
+      </code>
+      (), except for the differences
+        described here.
+     </p>
+     <p>
+      If the pathname given in
+      <em class="parameter">
+       <code>
+        dirp
+       </code>
+      </em>
+      is relative, then it is
+        interpreted relative to the directory referred to by the
+        file descriptor
+      <em class="parameter">
+       <code>
+        dirfd
+       </code>
+      </em>
+      (rather than relative
+        to the current working directory of the calling process, as
+        is done by
+      <code class="function">
+       scandir
+      </code>
+      () for a
+        relative pathname).
+     </p>
+     <p>
+      If
+      <em class="parameter">
+       <code>
+        dirp
+       </code>
+      </em>
+      is
+        relative and
+      <em class="parameter">
+       <code>
+        dirfd
+       </code>
+      </em>
+      is the special value
+      <code class="constant">
+       AT_FDCWD
+      </code>
+      , then
+      <em class="parameter">
+       <code>
+        dirp
+       </code>
+      </em>
+      is interpreted relative
+        to the current working directory of the calling process
+        (like
+      <code class="function">
+       scandir
+      </code>
+      ()).
+     </p>
+     <p>
+      If
+      <em class="parameter">
+       <code>
+        dirp
+       </code>
+      </em>
+      is
+        absolute, then
+      <em class="parameter">
+       <code>
+        dirfd
+       </code>
+      </em>
+      is ignored.
+     </p>
+     <p>
+      See
+      <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         openat
+        </span>
+        (2)
+       </span>
+      </a>
+      for an
+        explanation of the need for
+      <code class="function">
+       scandirat
+      </code>
+      ().
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="scandir-3_sect3" name="scandir-3_sect3" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     The
+     <code class="function">
+      scandir
+     </code>
+     () function
+      returns the number of directory entries selected. On error,
+      &minus;1 is returned, with
+     <code class="varname">
+      errno
+     </code>
+     set to indicate the cause of the error.
+    </p>
+    <p>
+     The
+     <code class="function">
+      alphasort
+     </code>
+     () and
+     <code class="function">
+      versionsort
+     </code>
+     () functions return
+      an integer less than, equal to, or greater than zero if the
+      first argument is considered to be respectively less than,
+      equal to, or greater than the second.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="scandir-3_sect4" name="scandir-3_sect4" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOENT
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The path in
+        <em class="parameter">
+         <code>
+          dirp
+         </code>
+        </em>
+        does not exist.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOMEM
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Insufficient memory to complete the operation.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOTDIR
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The path in
+        <em class="parameter">
+         <code>
+          dirp
+         </code>
+        </em>
+        is not a
+            directory.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     The following additional errors can occur for
+     <code class="function">
+      scandirat
+     </code>
+     ():
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EBADF
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          dirfd
+         </code>
+        </em>
+        is not
+            a valid file descriptor.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOTDIR
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          dirp
+         </code>
+        </em>
+        is a
+            relative path and
+        <em class="parameter">
+         <code>
+          dirfd
+         </code>
+        </em>
+        is a file
+            descriptor referring to a file other than a
+            directory.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="scandir-3_sect5" name="scandir-3_sect5" shape="rect">
+    </a>
+    <h2>
+     VERSIONS
+    </h2>
+    <p>
+     <code class="function">
+      versionsort
+     </code>
+     () was added to
+      glibc in version 2.1.
+    </p>
+    <p>
+     <code class="function">
+      scandirat
+     </code>
+     () was added to
+      glibc in version 2.15.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="scandir-3_sect6" name="scandir-3_sect6" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     <code class="function">
+      alphasort
+     </code>
+     (),
+     <code class="function">
+      scandir
+     </code>
+     (): 4.3BSD, POSIX.1-2008.
+    </p>
+    <p>
+     <code class="function">
+      versionsort
+     </code>
+     () and
+     <code class="function">
+      scandirat
+     </code>
+     () are GNU
+      extensions.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="scandir-3_sect7" name="scandir-3_sect7" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     Since glibc 2.1,
+     <code class="function">
+      alphasort
+     </code>
+     ()
+      calls
+     <a class="link" href="../htmlman3/strcoll.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        strcoll
+       </span>
+       (3)
+      </span>
+     </a>
+     ; earlier it used
+     <a class="link" href="../htmlman3/strcmp.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        strcmp
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="scandir-3_sect8" name="scandir-3_sect8" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#define _SVID_SOURCE
+/* print files in current directory in reverse order */
+#include &lt;dirent.h&gt;
+
+int
+main(void)
+{
+    struct dirent **namelist;
+    int n;
+
+    n = scandir(".", &amp;namelist, NULL, alphasort);
+    if (n &lt; 0)
+        perror("scandir");
+    else {
+        while (n&minus;&minus;) {
+            printf("%s\n", namelist[n]&minus;&gt;d_name);
+            free(namelist[n]);
+        }
+        free(namelist);
+    }
+}
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="scandir-3_sect9" name="scandir-3_sect9" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/closedir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        closedir
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/fnmatch.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fnmatch
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/opendir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        opendir
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/readdir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        readdir
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/rewinddir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        rewinddir
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/seekdir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        seekdir
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/strcmp.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        strcmp
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/strcoll.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        strcoll
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/strverscmp.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        strverscmp
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/telldir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        telldir
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="scandir-3_sect10" name="scandir-3_sect10" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

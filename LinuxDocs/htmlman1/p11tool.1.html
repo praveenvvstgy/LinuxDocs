@@ -1,0 +1,1025 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   p11tool(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="p11tool(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="p11tool.1" name="p11tool.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     p11tool &mdash; GnuTLS PKCS #11 tool
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       p11tool
+      </code>
+      [
+      <code class="option">
+       &minus;flag
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        value
+       </code>
+      </em>
+      ] ...] [
+      <code class="option">
+       &minus;&minus;opt&minus;name
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        [=|]value
+       </code>
+      </em>
+      ] ...] [
+      <em class="replaceable">
+       <code>
+        url
+       </code>
+      </em>
+      ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="p11tool-1_sect1" name="p11tool-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Program that allows handling data from PKCS #11 smart
+      cards and security modules.
+    </p>
+    <p>
+     To use PKCS #11 tokens with gnutls the configuration file
+      /etc/gnutls/pkcs11.conf has to exist and contain a number of
+      lines of the form 'load=/usr/lib/opensc-pkcs11.so'.
+      Alternatively the p11-kit configuration files have to be
+      setup.
+    </p>
+    <p>
+     To provide the PIN for all the operations below use the
+      environment variable GNUTLS_PIN.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="p11tool-1_sect2" name="p11tool-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+         ,
+          &minus;&minus;debug=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable debugging. This option takes an integer
+            number as its argument. The value of
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+        is constrained
+            to being:
+       </p>
+       <div class="blockquote">
+        <blockquote class="blockquote">
+         <div class="informalexample">
+          <pre class="programlisting" xml:space="preserve">
+in the range  0 through 9999
+</pre>
+         </div>
+        </blockquote>
+       </div>
+       <p>
+        Specifies the debug level.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;outfile=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output file.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;list&minus;tokens
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        List all available tokens.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;export
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Export the object specified by the URL.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;export&minus;chain
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Export the certificate specified by the URL and its
+            chain of trust.
+       </p>
+       <p>
+        Exports the certificate specified by the URL and
+            generates its chain of trust based on the stored
+            certificates in the module.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;list&minus;mechanisms
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        List all available mechanisms in a token.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;list&minus;all
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        List all available objects in a token.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;list&minus;all&minus;certs
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        List all available certificates in a token.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;list&minus;certs
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        List all certificates that have an associated
+            private key.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;list&minus;all&minus;privkeys
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        List all available private keys in a token.
+       </p>
+       <p>
+        Lists all the private keys in a token that match the
+            specified URL.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;list&minus;privkeys
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This is an alias for the
+        <code class="option">
+         &minus;&minus;list&minus;all&minus;privkeys
+        </code>
+        option.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;list&minus;keys
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This is an alias for the
+        <code class="option">
+         &minus;&minus;list&minus;all&minus;privkeys
+        </code>
+        option.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;list&minus;all&minus;trusted
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        List all available certificates marked as
+            trusted.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;initialize
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Initializes a PKCS #11 token.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;write
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Writes the loaded objects to a PKCS #11 token.
+       </p>
+       <p>
+        It can be used to write private keys, certificates
+            or secret keys to a token.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;delete
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Deletes the objects matching the PKCS #11 URL.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;generate&minus;random=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Generate random data. This option takes an integer
+            number as its argument.
+       </p>
+       <p>
+        Asks the token to generate a number of bytes of
+            random bytes.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;generate&minus;rsa
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Generate an RSA private-public key pair.
+       </p>
+       <p>
+        Generates an RSA private-public key pair on the
+            specified token.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;generate&minus;dsa
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Generate an RSA private-public key pair.
+       </p>
+       <p>
+        Generates an RSA private-public key pair on the
+            specified token.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;generate&minus;ecc
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Generate an RSA private-public key pair.
+       </p>
+       <p>
+        Generates an RSA private-public key pair on the
+            specified token.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;label=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets a label for the write operation.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;trusted,
+         <code class="option">
+          &minus;&minus;no&minus;trusted
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Marks the object to be written as trusted. The
+        <em class="replaceable">
+         <code>
+          no&minus;trusted
+         </code>
+        </em>
+        form
+            will disable the option.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;private,
+         <code class="option">
+          &minus;&minus;no&minus;private
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Marks the object to be written as private. The
+        <em class="replaceable">
+         <code>
+          no&minus;private
+         </code>
+        </em>
+        form
+            will disable the option. This option is enabled by
+            default.
+       </p>
+       <p>
+        The written object will require a PIN to be
+            used.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;login,
+         <code class="option">
+          &minus;&minus;no&minus;login
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Force (user) login to token. The
+        <em class="replaceable">
+         <code>
+          no&minus;login
+         </code>
+        </em>
+        form
+            will disable the option.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;so&minus;login,
+         <code class="option">
+          &minus;&minus;no&minus;so&minus;login
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Force security officer login to token. The
+        <em class="replaceable">
+         <code>
+          no&minus;so&minus;login
+         </code>
+        </em>
+        form will disable the option.
+       </p>
+       <p>
+        Forces login to the token as security officer
+            (admin).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;admin&minus;login
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This is an alias for the
+        <code class="option">
+         &minus;&minus;so&minus;login
+        </code>
+        option.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;detailed&minus;url,
+         <code class="option">
+          &minus;&minus;no&minus;detailed&minus;url
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print detailed URLs. The
+        <em class="replaceable">
+         <code>
+          no&minus;detailed&minus;url
+         </code>
+        </em>
+        form will disable the option.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;secret&minus;key=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Provide a hex encoded secret key.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;load&minus;privkey=
+         <em class="parameter">
+          <code>
+           file
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Private key file to use.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;load&minus;pubkey=
+         <em class="parameter">
+          <code>
+           file
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Public key file to use.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;load&minus;certificate=
+         <em class="parameter">
+          <code>
+           file
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Certificate file to use.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          &minus;8,
+          &minus;&minus;pkcs8
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use PKCS #8 format for private keys.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;bits=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the number of bits for key generate. This
+            option takes an integer number as its argument.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;sec&minus;param=
+         <span class="emphasis">
+          <em>
+           security
+          parameter
+          </em>
+         </span>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the security level.
+       </p>
+       <p>
+        This is alternative to the bits option. Available
+            options are [low, legacy, normal, high, ultra].
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;inder,
+         <code class="option">
+          &minus;&minus;no&minus;inder
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use DER/RAW format for input. The
+        <em class="replaceable">
+         <code>
+          no&minus;inder
+         </code>
+        </em>
+        form
+            will disable the option.
+       </p>
+       <p>
+        Use DER/RAW format for input certificates and
+            private keys.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;inraw
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This is an alias for the
+        <code class="option">
+         &minus;&minus;inder
+        </code>
+        option.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;outder,
+         <code class="option">
+          &minus;&minus;no&minus;outder
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use DER format for output certificates, private
+            keys, and DH parameters. The
+        <em class="replaceable">
+         <code>
+          no&minus;outder
+         </code>
+        </em>
+        form
+            will disable the option.
+       </p>
+       <p>
+        The output will be in DER or RAW format.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;outraw
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This is an alias for the
+        <code class="option">
+         &minus;&minus;outder
+        </code>
+        option.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;provider=
+         <em class="parameter">
+          <code>
+           file
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the PKCS #11 provider library.
+       </p>
+       <p>
+        This will override the default options in
+            /etc/gnutls/pkcs11.conf
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display usage information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;!,
+          &minus;&minus;more&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Pass the extended usage information through a
+            pager.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+          [{
+         <em class="replaceable">
+          <code>
+           v|c|n
+          </code>
+         </em>
+         }],
+          &minus;&minus;version[={
+         <em class="replaceable">
+          <code>
+           v|c|n
+          </code>
+         </em>
+         }]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output version of program and exit. The default mode
+            is `v', a simple version. The `c' mode will print
+            copyright information and `n' will print the full
+            copyright notice.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="p11tool-1_sect3" name="p11tool-1_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <p>
+     To view all tokens in your system use:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ p11tool &minus;&minus;list&minus;tokens
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     To view all objects in a token use:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ p11tool &minus;&minus;login &minus;&minus;list&minus;all "pkcs11:TOKEN&minus;URL"
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     To store a private key and a certificate in a token
+      run:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ p11tool &minus;&minus;login &minus;&minus;write "pkcs11:URL" &minus;&minus;load&minus;privkey key.pem           &minus;&minus;label "Mykey"
+$ p11tool &minus;&minus;login &minus;&minus;write "pkcs11:URL" &minus;&minus;load&minus;certificate cert.pem           &minus;&minus;label "Mykey"
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     Note that some tokens require the same label to be used
+      for the certificate and its corresponding private key.
+    </p>
+    <p>
+     To generate an RSA private key inside the token use:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ p11tool &minus;&minus;login &minus;&minus;generate&minus;rsa &minus;&minus;bits 1024 &minus;&minus;label "MyNewKey"           &minus;&minus;outfile MyNewKey.pub "pkcs11:TOKEN&minus;URL"
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     The bits parameter in the above example is explicitly set
+      because some tokens only support a limited number of bits.
+      The output file is the corresponding public key. This key can
+      be used to general a certificate request with certtool.
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+certtool &minus;&minus;generate&minus;request &minus;&minus;load&minus;privkey "pkcs11:KEY&minus;URL"    &minus;&minus;load&minus;pubkey MyNewKey.pub &minus;&minus;outfile request.pem
+</pre>
+      </div>
+     </blockquote>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="p11tool-1_sect4" name="p11tool-1_sect4" shape="rect">
+    </a>
+    <h2>
+     EXIT STATUS
+    </h2>
+    <p>
+     One of the following exit values will be returned:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+<code class="constant">0</code> (EXIT_SUCCESS)
+</pre>
+    </div>
+    <p>
+     Successful program execution.
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+<code class="constant">1</code> (EXIT_FAILURE)
+</pre>
+    </div>
+    <p>
+     The operation failed or the command syntax was not
+      valid.
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+<code class="constant">70</code> (EX_SOFTWARE)
+</pre>
+    </div>
+    <p>
+     libopts had an internal operational error. Please report
+      it to autogen-users@lists.sourceforge.net. Thank you.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="p11tool-1_sect5" name="p11tool-1_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     certtool (1)
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="p11tool-1_sect6" name="p11tool-1_sect6" shape="rect">
+    </a>
+    <h2>
+     AUTHORS
+    </h2>
+    <p>
+     Nikos Mavrogiannopoulos, Simon Josefsson and others; see
+      /usr/share/doc/gnutls/AUTHORS for a complete list.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="p11tool-1_sect8" name="p11tool-1_sect8" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     Please send bug reports to: bugs@gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="p11tool-1_sect9" name="p11tool-1_sect9" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     This manual page was
+     <span class="command">
+      <strong>
+       AutoGen
+      </strong>
+     </span>
+     -erated from the
+     <span class="command">
+      <strong>
+       p11tool
+      </strong>
+     </span>
+     option
+      definitions.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

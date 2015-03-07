@@ -1,0 +1,693 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   setbuf(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="setbuf(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="setbuf.3" name="setbuf.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     setbuf, setbuffer, setlinebuf, setvbuf &mdash; stream
+      buffering operations
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;stdio.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          setbuf
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        char *
+        <var class="pdparam">
+         buf
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          setbuffer
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        char *
+        <var class="pdparam">
+         buf
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         size
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          setlinebuf
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          setvbuf
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        char *
+        <var class="pdparam">
+         buf
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         mode
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         size
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              setbuffer
+             </code>
+             (),
+             <code class="function">
+              setlinebuf
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _BSD_SOURCE
+             </code>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setbuf-3_sect1" name="setbuf-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The three types of buffering available are unbuffered,
+      block buffered, and line buffered. When an output stream is
+      unbuffered, information appears on the destination file or
+      terminal as soon as written; when it is block buffered many
+      characters are saved up and written as a block; when it is
+      line buffered characters are saved up until a newline is
+      output or input is read from any stream attached to a
+      terminal device (typically
+     <code class="varname">
+      stdin
+     </code>
+     ). The function
+     <a class="link" href="../htmlman3/fflush.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fflush
+       </span>
+       (3)
+      </span>
+     </a>
+     may be used to
+      force the block out early. (See
+     <a class="link" href="../htmlman3/fclose.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fclose
+       </span>
+       (3)
+      </span>
+     </a>
+     .) Normally all
+      files are block buffered. When the first I/O operation occurs
+      on a file,
+     <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        malloc
+       </span>
+       (3)
+      </span>
+     </a>
+     is called, and a
+      buffer is obtained. If a stream refers to a terminal (as
+     <code class="varname">
+      stdout
+     </code>
+     normally does), it is
+      line buffered. The standard error stream
+     <code class="varname">
+      stderr
+     </code>
+     is always unbuffered by default.
+    </p>
+    <p>
+     The
+     <code class="function">
+      setvbuf
+     </code>
+     () function may
+      be used on any open stream to change its buffer. The
+     <em class="parameter">
+      <code>
+       mode
+      </code>
+     </em>
+     argument must be
+      one of the following three macros:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="variablelist">
+       <dl class="variablelist">
+        <dt>
+         <span class="term">
+          <code class="constant">
+           _IONBF
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          unbuffered
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="constant">
+           _IOLBF
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          line buffered
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="constant">
+           _IOFBF
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          fully buffered
+         </p>
+        </dd>
+       </dl>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     Except for unbuffered files, the
+     <em class="parameter">
+      <code>
+       buf
+      </code>
+     </em>
+     argument should point to a
+      buffer at least
+     <em class="parameter">
+      <code>
+       size
+      </code>
+     </em>
+     bytes long; this buffer will be used instead of the current
+      buffer. If the argument
+     <em class="parameter">
+      <code>
+       buf
+      </code>
+     </em>
+     is NULL, only the mode is
+      affected; a new buffer will be allocated on the next read or
+      write operation. The
+     <code class="function">
+      setvbuf
+     </code>
+     ()
+      function may be used only after opening a stream and before
+      any other operations have been performed on it.
+    </p>
+    <p>
+     The other three calls are, in effect, simply aliases for
+      calls to
+     <code class="function">
+      setvbuf
+     </code>
+     (). The
+     <code class="function">
+      setbuf
+     </code>
+     () function is exactly
+      equivalent to the call
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       setvbuf(stream, buf, buf ? _IOFBF : _IONBF,
+          BUFSIZ);
+      </p>
+     </blockquote>
+    </div>
+    <p>
+     The
+     <code class="function">
+      setbuffer
+     </code>
+     () function is
+      the same, except that the size of the buffer is up to the
+      caller, rather than being determined by the default
+     <code class="constant">
+      BUFSIZ
+     </code>
+     . The
+     <code class="function">
+      setlinebuf
+     </code>
+     () function is exactly equivalent
+      to the call:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       setvbuf(stream, NULL, _IOLBF, 0);
+      </p>
+     </blockquote>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setbuf-3_sect2" name="setbuf-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     The function
+     <code class="function">
+      setvbuf
+     </code>
+     ()
+      returns 0 on success. It returns nonzero on failure
+      (
+     <em class="parameter">
+      <code>
+       mode
+      </code>
+     </em>
+     is invalid or
+      the request cannot be honored). It may set
+     <code class="varname">
+      errno
+     </code>
+     on failure.
+    </p>
+    <p>
+     The other functions do not return a value.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setbuf-3_sect3" name="setbuf-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ATTRIBUTES
+    </h2>
+    <div class="refsect2">
+     <a id="setbuf-3_sect4" name="setbuf-3_sect4" shape="rect">
+     </a>
+     <h3>
+      Multithreading (see pthreads(7))
+     </h3>
+     <p>
+      The
+      <code class="function">
+       setbuf
+      </code>
+      (),
+      <code class="function">
+       setbuffer
+      </code>
+      (),
+      <code class="function">
+       setlinebuf
+      </code>
+      (), and
+      <code class="function">
+       setvbuf
+      </code>
+      () functions are thread-safe.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setbuf-3_sect5" name="setbuf-3_sect5" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     The
+     <code class="function">
+      setbuf
+     </code>
+     () and
+     <code class="function">
+      setvbuf
+     </code>
+     () functions conform to
+      C89 and C99.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setbuf-3_sect6" name="setbuf-3_sect6" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     You must make sure that the space that
+     <em class="parameter">
+      <code>
+       buf
+      </code>
+     </em>
+     points to still exists by
+      the time
+     <em class="parameter">
+      <code>
+       stream
+      </code>
+     </em>
+     is
+      closed, which also happens at program termination. For
+      example, the following is invalid:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#include &lt;stdio.h&gt;
+
+int
+main(void)
+{
+    char buf[BUFSIZ];
+    setbuf(stdin, buf);
+    printf("Hello, world!\n");
+    return 0;
+}
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setbuf-3_sect7" name="setbuf-3_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/fclose.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fclose
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/fflush.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fflush
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/fopen.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fopen
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/fread.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fread
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        malloc
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/printf.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        printf
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/puts.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        puts
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="setbuf-3_sect8" name="setbuf-3_sect8" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

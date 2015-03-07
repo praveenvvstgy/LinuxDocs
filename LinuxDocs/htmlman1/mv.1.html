@@ -1,0 +1,525 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   mv(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="mv(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="mv.1" name="mv.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     mv &mdash; move (rename) files
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       mv
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...] [
+      <code class="option">
+       &minus;T
+      </code>
+      ]
+      <em class="replaceable">
+       <code>
+        SOURCE
+       </code>
+      </em>
+      <em class="replaceable">
+       <code>
+        DEST
+       </code>
+      </em>
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       mv
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...]
+      <em class="replaceable">
+       <code>
+        SOURCE
+       </code>
+      </em>
+      ...
+      <em class="replaceable">
+       <code>
+        DIRECTORY
+       </code>
+      </em>
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       mv
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...]
+      <code class="option">
+       &minus;t
+      </code>
+      <em class="replaceable">
+       <code>
+        DIRECTORY
+       </code>
+      </em>
+      <em class="replaceable">
+       <code>
+        SOURCE
+       </code>
+      </em>
+      ...
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="mv-1_sect1" name="mv-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.
+    </p>
+    <p>
+     Mandatory arguments to long options are mandatory for
+      short options too.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;backup
+        </code>
+        [=
+        <code class="constant">
+         CONTROL
+        </code>
+        ]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        make a backup of each existing destination file
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;b
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        like
+        <code class="option">
+         &minus;&minus;backup
+        </code>
+        but does not
+            accept an argument
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;force
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not prompt before overwriting
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;interactive
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        prompt before overwrite
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;no&minus;clobber
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not overwrite an existing file
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     If you specify more than one of
+     <code class="option">
+      &minus;i
+     </code>
+     ,
+     <code class="option">
+      &minus;f
+     </code>
+     ,
+     <code class="option">
+      &minus;n
+     </code>
+     , only the final one takes
+      effect.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;strip&minus;trailing&minus;slashes
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        remove any trailing slashes from each SOURCE
+            argument
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;S
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;suffix
+        </code>
+        =
+        <code class="constant">
+         SUFFIX
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        override the usual backup suffix
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;target&minus;directory
+        </code>
+        =
+        <em class="parameter">
+         <code>
+          DIRECTORY
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        move all SOURCE arguments into DIRECTORY
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;T
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;no&minus;target&minus;directory
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        treat DEST as a normal file
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;update
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        move only when the SOURCE file is newer than the
+            destination file or when the destination file is
+            missing
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;verbose
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        explain what is being done
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;Z
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;context
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        set SELinux security context of destination file to
+            default type
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display this help and exit
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output version information and exit
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     The backup suffix is '~', unless set with
+     <code class="option">
+      &minus;&minus;suffix
+     </code>
+     or SIMPLE_BACKUP_SUFFIX.
+      The version control method may be selected via the
+     <code class="option">
+      &minus;&minus;backup
+     </code>
+     option or
+      through the VERSION_CONTROL environment variable. Here are
+      the values:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        none, off
+       </span>
+      </dt>
+      <dd>
+       <p>
+        never make backups (even if
+        <code class="option">
+         &minus;&minus;backup
+        </code>
+        is given)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        numbered, t
+       </span>
+      </dt>
+      <dd>
+       <p>
+        make numbered backups
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        existing, nil
+       </span>
+      </dt>
+      <dd>
+       <p>
+        numbered if numbered backups exist, simple
+            otherwise
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        simple, never
+       </span>
+      </dt>
+      <dd>
+       <p>
+        always make simple backups
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     GNU coreutils online help: &lt;
+     <a class="literalurl" href="http://www.gnu.org/software/coreutils/" shape="rect" target="_top">
+      http://www.gnu.org/software/coreutils/
+     </a>
+     &gt; Report
+      mv translation bugs to &lt;
+     <a class="literalurl" href="http://translationproject.org/team/" shape="rect" target="_top">
+      http://translationproject.org/team/
+     </a>
+     &gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mv-1_sect2" name="mv-1_sect2" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Written by Mike Parker, David MacKenzie, and Jim
+      Meyering.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mv-1_sect4" name="mv-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/rename.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        rename
+       </span>
+       (2)
+      </span>
+     </a>
+    </p>
+    <p>
+     The full documentation for
+     <span class="command">
+      <strong>
+       mv
+      </strong>
+     </span>
+     is maintained as a
+      Texinfo manual. If the
+     <span class="command">
+      <strong>
+       info
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       mv
+      </strong>
+     </span>
+     programs are properly
+      installed at your site, the command
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <span class="emphasis">
+         <em>
+          info coreutils 'mv
+            invocation'
+         </em>
+        </span>
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p>
+     should give you access to the complete manual.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

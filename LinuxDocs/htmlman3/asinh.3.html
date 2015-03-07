@@ -1,0 +1,502 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   asinh(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="asinh(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="asinh.3" name="asinh.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     asinh, asinhf, asinhl &mdash; inverse hyperbolic sine
+      function
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;math.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         double
+         <strong>
+          asinh
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        double
+        <var class="pdparam">
+         x
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         float
+         <strong>
+          asinhf
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        float
+        <var class="pdparam">
+         x
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         long double
+         <strong>
+          asinhl
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        long double
+        <var class="pdparam">
+         x
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              asinh
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _BSD_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _SVID_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &gt;= 500 ||
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &amp;&amp;
+             <code class="constant">
+              _XOPEN_SOURCE_EXTENDED
+             </code>
+             ||
+             <code class="constant">
+              _ISOC99_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _POSIX_C_SOURCE
+             </code>
+             &gt;=
+                      200112L;
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             or
+             <span class="command">
+              <strong>
+               cc
+              </strong>
+             </span>
+             <code class="option">
+              -std=c99
+             </code>
+            </td>
+           </tr>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              asinhf
+             </code>
+             (),
+             <code class="function">
+              asinhl
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _BSD_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _SVID_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &gt;= 600 ||
+             <code class="constant">
+              _ISOC99_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _POSIX_C_SOURCE
+             </code>
+             &gt;= 200112L;
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             or
+             <span class="command">
+              <strong>
+               cc
+              </strong>
+             </span>
+             <code class="option">
+              -std=c99
+             </code>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <p>
+         Link with
+         <code class="option">
+          &minus;lm
+         </code>
+         .
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="asinh-3_sect1" name="asinh-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      asinh
+     </code>
+     () function
+      calculates the inverse hyperbolic sine of
+     <em class="parameter">
+      <code>
+       x
+      </code>
+     </em>
+     ; that is the value whose
+      hyperbolic sine is
+     <em class="parameter">
+      <code>
+       x
+      </code>
+     </em>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="asinh-3_sect2" name="asinh-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success, these functions return the inverse hyperbolic
+      sine of
+     <em class="parameter">
+      <code>
+       x
+      </code>
+     </em>
+     .
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       x
+      </code>
+     </em>
+     is a NaN, a
+      NaN is returned.
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       x
+      </code>
+     </em>
+     is +0
+      (&minus;0), +0 (&minus;0) is returned.
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       x
+      </code>
+     </em>
+     is positive
+      infinity (negative infinity), positive infinity (negative
+      infinity) is returned.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="asinh-3_sect3" name="asinh-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <p>
+     No errors occur.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="asinh-3_sect4" name="asinh-3_sect4" shape="rect">
+    </a>
+    <h2>
+     ATTRIBUTES
+    </h2>
+    <div class="refsect2">
+     <a id="asinh-3_sect5" name="asinh-3_sect5" shape="rect">
+     </a>
+     <h3>
+      Multithreading (see pthreads(7))
+     </h3>
+     <p>
+      The
+      <code class="function">
+       asinh
+      </code>
+      (),
+      <code class="function">
+       asinhf
+      </code>
+      (), and
+      <code class="function">
+       asinhl
+      </code>
+      () functions are thread-safe.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="asinh-3_sect6" name="asinh-3_sect6" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     C99, POSIX.1-2001. The variant returning
+     <span class="type">
+      double
+     </span>
+     also conforms to SVr4, 4.3BSD, C89.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="asinh-3_sect7" name="asinh-3_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/acosh.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        acosh
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/atanh.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        atanh
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/casinh.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        casinh
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/cosh.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        cosh
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/sinh.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sinh
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/tanh.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tanh
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="asinh-3_sect8" name="asinh-3_sect8" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

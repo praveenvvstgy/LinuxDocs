@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   whereis(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="whereis(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="whereis.1" name="whereis.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     whereis &mdash; locate the binary, source, and manual page
+      files for a command
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       whereis
+      </code>
+      [options] [
+      <code class="option">
+       &minus;BMS
+      </code>
+      directory...
+      <code class="option">
+       &minus;f
+      </code>
+      ] name...
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="whereis-1_sect1" name="whereis-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       whereis
+      </strong>
+     </span>
+     locates the binary, source and manual files for the specified
+      command names. The supplied names are first stripped of
+      leading pathname components and any (single) trailing
+      extension of the form .
+     <span class="command">
+      <strong>
+       ext
+      </strong>
+     </span>
+     (for example:
+     <em class="replaceable">
+      <code>
+       .c
+      </code>
+     </em>
+     ) Prefixes of
+     <em class="replaceable">
+      <code>
+       s.
+      </code>
+     </em>
+     resulting from
+      use of source code control are also dealt with.
+     <span class="command">
+      <strong>
+       whereis
+      </strong>
+     </span>
+     then attempts to
+      locate the desired program in the standard Linux places, and
+      in the places specified by
+     <em class="replaceable">
+      <code>
+       $PATH
+      </code>
+     </em>
+     and
+     <em class="replaceable">
+      <code>
+       $MANPATH
+      </code>
+     </em>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="whereis-1_sect2" name="whereis-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;b
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Search only for binaries.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;m
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Search only for manuals.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Search only for sources.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Only show the command names that have unusual
+            entries. A command is said to be unusual if it does not
+            have just one entry of each explicitly requested type.
+            Thus '
+        <span class="emphasis">
+         <em>
+          whereis &minus;m
+            &minus;u *
+         </em>
+        </span>
+        ' asks for those files in the
+            current directory which have no documentation file, or
+            more than one.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;B
+        </code>
+        <span class="command">
+         <strong>
+          list
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Limit the places where
+        <span class="command">
+         <strong>
+          whereis
+         </strong>
+        </span>
+        searches for
+            binaries, by a whitespace-separated list of
+            directories.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;M
+        </code>
+        <span class="command">
+         <strong>
+          list
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Limit the places where
+        <span class="command">
+         <strong>
+          whereis
+         </strong>
+        </span>
+        searches for
+            manuals, by a whitespace-separated list of
+            directories.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;S
+        </code>
+        <span class="command">
+         <strong>
+          list
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Limit the places where
+        <span class="command">
+         <strong>
+          whereis
+         </strong>
+        </span>
+        searches for
+            sources, by a whitespace-separated list of
+            directories.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Terminates the directory list and signals the start
+            of filenames. It
+        <span class="emphasis">
+         <em>
+          must
+         </em>
+        </span>
+        be used when any of the
+        <code class="option">
+         &minus;B
+        </code>
+        ,
+        <code class="option">
+         &minus;M
+        </code>
+        , or
+        <code class="option">
+         &minus;S
+        </code>
+        options is used.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output list of effective lookup paths the
+        <span class="command">
+         <strong>
+          whereis
+         </strong>
+        </span>
+        is using. When non of
+        <code class="option">
+         &minus;B
+        </code>
+        ,
+        <code class="option">
+         &minus;M
+        </code>
+        , or
+        <code class="option">
+         &minus;S
+        </code>
+        is specified the option will
+            out hard coded paths that the command was able to find
+            on system.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="whereis-1_sect3" name="whereis-1_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <p>
+     To find all files in
+     <code class="filename">
+      /usr/bin
+     </code>
+     which are not documented in
+     <code class="filename">
+      /usr/man/man1
+     </code>
+     or have no source
+      in
+     <code class="filename">
+      /usr/src
+      <code class="literal">
+       :
+      </code>
+     </code>
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <span class="emphasis">
+         <em>
+          $ cd
+            /usr/bin
+         </em>
+        </span>
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p>
+     <span class="emphasis">
+      <em>
+       $ whereis &minus;u &minus;ms
+      &minus;M /usr/man/man1 &minus;S /usr/src &minus;f
+      *
+      </em>
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="whereis-1_sect4" name="whereis-1_sect4" shape="rect">
+    </a>
+    <h2>
+     FILE SEARCH PATHS
+    </h2>
+    <p>
+     By default
+     <span class="command">
+      <strong>
+       whereis
+      </strong>
+     </span>
+     tries to find files
+      from hard-coded paths, which are defined with glob patterns.
+      The command attempst to use contents of
+     <em class="replaceable">
+      <code>
+       $PATH
+      </code>
+     </em>
+     and
+     <em class="replaceable">
+      <code>
+       $MANPATH
+      </code>
+     </em>
+     environment
+      variables as default search path. The easiest way to know
+      what paths are in use is to add
+     <code class="option">
+      &minus;l
+     </code>
+     listing option. Effects of the
+     <code class="option">
+      &minus;B
+     </code>
+     ,
+     <code class="option">
+      &minus;M
+     </code>
+     , and
+     <code class="option">
+      &minus;S
+     </code>
+     are display with
+     <code class="option">
+      &minus;l
+     </code>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="whereis-1_sect5" name="whereis-1_sect5" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The whereis command is part of the util-linux package and
+      is available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

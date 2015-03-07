@@ -1,0 +1,616 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   stdio_ext(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="stdio_ext(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="stdio-ext.3" name="stdio-ext.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     __fbufsize, __flbf, __fpending, __fpurge, __freadable,
+      __freading, __fsetlocking, __fwritable, __fwriting, _flushlbf
+      &mdash; interfaces to stdio FILE structure
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#include &lt;stdio.h&gt;
+#include &lt;stdio_ext.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         size_t
+         <strong>
+          __fbufsize
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         size_t
+         <strong>
+          __fpending
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          __flbf
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          __freadable
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          __fwritable
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          __freading
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          __fwriting
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          __fsetlocking
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         type
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          _flushlbf
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <code>
+         void)
+        </code>
+        ;
+       </td>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          __fpurge
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="stdio-ext-3_sect1" name="stdio-ext-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Solaris introduced routines to allow portable access to
+      the internals of the
+     <span class="type">
+      FILE
+     </span>
+     structure, and glibc also implemented these.
+    </p>
+    <p>
+     The
+     <code class="function">
+      __fbufsize
+     </code>
+     () function
+      returns the size of the buffer currently used by the given
+      stream.
+    </p>
+    <p>
+     The
+     <code class="function">
+      __fpending
+     </code>
+     () function
+      returns the number of bytes in the output buffer. For
+      wide-oriented streams the unit is wide characters. This
+      function is undefined on buffers in reading mode, or opened
+      read-only.
+    </p>
+    <p>
+     The
+     <code class="function">
+      __flbf
+     </code>
+     () function
+      returns a nonzero value if the stream is line-buffered, and
+      zero otherwise.
+    </p>
+    <p>
+     The
+     <code class="function">
+      __freadable
+     </code>
+     () function
+      returns a nonzero value if the stream allows reading, and
+      zero otherwise.
+    </p>
+    <p>
+     The
+     <code class="function">
+      __fwritable
+     </code>
+     () function
+      returns a nonzero value if the stream allows writing, and
+      zero otherwise.
+    </p>
+    <p>
+     The
+     <code class="function">
+      __freading
+     </code>
+     () function
+      returns a nonzero value if the stream is read-only, or if the
+      last operation on the stream was a read operation, and zero
+      otherwise.
+    </p>
+    <p>
+     The
+     <code class="function">
+      __fwriting
+     </code>
+     () function
+      returns a nonzero value if the stream is write-only (or
+      append-only), or if the last operation on the stream was a
+      write operation, and zero otherwise.
+    </p>
+    <p>
+     The
+     <code class="function">
+      __fsetlocking
+     </code>
+     () function
+      can be used to select the desired type of locking on the
+      stream. It returns the current type. The
+     <em class="parameter">
+      <code>
+       type
+      </code>
+     </em>
+     argument can take the
+      following three values:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FSETLOCKING_INTERNAL
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Perform implicit locking around every operation on
+            the given stream (except for the *_unlocked ones). This
+            is the default.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FSETLOCKING_BYCALLER
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The caller will take care of the locking (possibly
+            using
+        <a class="link" href="../htmlman3/flockfile.3.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           flockfile
+          </span>
+          (3)
+         </span>
+        </a>
+        in case
+            there is more than one thread), and the stdio routines
+            will not do locking until the state is reset to
+        <code class="constant">
+         FSETLOCKING_INTERNAL
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FSETLOCKING_QUERY
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Don't change the type of locking. (Only return
+            it.)
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     The
+     <code class="function">
+      _flushlbf
+     </code>
+     () function
+      flushes all line-buffered streams. (Presumably so that output
+      to a terminal is forced out, say before reading keyboard
+      input.)
+    </p>
+    <p>
+     The
+     <code class="function">
+      __fpurge
+     </code>
+     () function
+      discards the contents of the stream's buffer.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="stdio-ext-3_sect2" name="stdio-ext-3_sect2" shape="rect">
+    </a>
+    <h2>
+     ATTRIBUTES
+    </h2>
+    <div class="refsect2">
+     <a id="stdio-ext-3_sect3" name="stdio-ext-3_sect3" shape="rect">
+     </a>
+     <h3>
+      Multithreading (see pthreads(7))
+     </h3>
+     <p>
+      The
+      <code class="function">
+       __fbufsize
+      </code>
+      (),
+      <code class="function">
+       __fpending
+      </code>
+      (),
+      <code class="function">
+       __fpurge
+      </code>
+      () and
+      <code class="function">
+       __fsetlocking
+      </code>
+      () functions do not lock the
+        stream, so they are not thread-safe.
+     </p>
+     <p>
+      The
+      <code class="function">
+       __flbf
+      </code>
+      (),
+      <code class="function">
+       __freadable
+      </code>
+      (),
+      <code class="function">
+       __freading
+      </code>
+      (),
+      <code class="function">
+       __fwritable
+      </code>
+      (),
+      <code class="function">
+       __fwriting
+      </code>
+      () and
+      <code class="function">
+       _flushlbf
+      </code>
+      () functions are
+        thread-safe.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="stdio-ext-3_sect4" name="stdio-ext-3_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/flockfile.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        flockfile
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/fpurge.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fpurge
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="stdio-ext-3_sect5" name="stdio-ext-3_sect5" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

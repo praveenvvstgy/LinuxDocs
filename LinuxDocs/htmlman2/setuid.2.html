@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   setuid(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="setuid(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="setuid.2" name="setuid.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     setuid &mdash; set user identity
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#include &lt;sys/types.h&gt;
+#include &lt;unistd.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          setuid
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        uid_t
+        <var class="pdparam">
+         uid
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setuid-2_sect1" name="setuid-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      setuid
+     </code>
+     () sets the effective
+      user ID of the calling process. If the effective UID of the
+      caller is root, the real UID and saved set-user-ID are also
+      set.
+    </p>
+    <p>
+     Under Linux,
+     <code class="function">
+      setuid
+     </code>
+     () is
+      implemented like the POSIX version with the
+     <code class="constant">
+      _POSIX_SAVED_IDS
+     </code>
+     feature. This allows a
+      set-user-ID (other than root) program to drop all of its user
+      privileges, do some un-privileged work, and then reengage the
+      original effective user ID in a secure manner.
+    </p>
+    <p>
+     If the user is root or the program is set-user-ID-root,
+      special care must be taken. The
+     <code class="function">
+      setuid
+     </code>
+     () function checks the effective user
+      ID of the caller and if it is the superuser, all
+      process-related user ID's are set to
+     <em class="parameter">
+      <code>
+       uid
+      </code>
+     </em>
+     . After this has occurred,
+      it is impossible for the program to regain root
+      privileges.
+    </p>
+    <p>
+     Thus, a set-user-ID-root program wishing to temporarily
+      drop root privileges, assume the identity of an unprivileged
+      user, and then regain root privileges afterward cannot use
+     <code class="function">
+      setuid
+     </code>
+     (). You can accomplish
+      this with
+     <a class="link" href="../htmlman2/seteuid.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        seteuid
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setuid-2_sect2" name="setuid-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success, zero is returned. On error, &minus;1 is
+      returned, and
+     <code class="varname">
+      errno
+     </code>
+     is set
+      appropriately.
+    </p>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <p>
+         there are cases where
+         <code class="function">
+          setuid
+         </code>
+         () can fail even when the
+              caller is UID 0; it is a grave security error to omit
+              checking for a failure return from
+         <code class="function">
+          setuid
+         </code>
+         ().
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setuid-2_sect3" name="setuid-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EAGAIN
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The call would change the caller's real UID (i.e.,
+        <em class="parameter">
+         <code>
+          uid
+         </code>
+        </em>
+        does not
+            match the caller's real UID), but there was a temporary
+            failure allocating the necessary kernel data
+            structures.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EAGAIN
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          uid
+         </code>
+        </em>
+        does not
+            match the real user ID of the caller and this call
+            would bring the number of processes belonging to the
+            real user ID
+        <em class="parameter">
+         <code>
+          uid
+         </code>
+        </em>
+        over the caller's
+        <code class="constant">
+         RLIMIT_NPROC
+        </code>
+        resource
+            limit. Since Linux 3.1, this error case no longer
+            occurs (but robust applications should check for this
+            error); see the description of
+        <span class="errorname">
+         EAGAIN
+        </span>
+        in
+        <a class="link" href="../htmlman2/execve.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           execve
+          </span>
+          (2)
+         </span>
+        </a>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EPERM
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The user is not privileged (Linux: does not have the
+        <code class="constant">
+         CAP_SETUID
+        </code>
+        capability)
+            and
+        <em class="parameter">
+         <code>
+          uid
+         </code>
+        </em>
+        does
+            not match the real UID or saved set-user-ID of the
+            calling process.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setuid-2_sect4" name="setuid-2_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     SVr4, POSIX.1-2001. Not quite compatible with the 4.4BSD
+      call, which sets all of the real, saved, and effective user
+      IDs.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setuid-2_sect5" name="setuid-2_sect5" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     Linux has the concept of the filesystem user ID, normally
+      equal to the effective user ID. The
+     <code class="function">
+      setuid
+     </code>
+     () call also sets the filesystem user
+      ID of the calling process. See
+     <a class="link" href="../htmlman2/setfsuid.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setfsuid
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       uid
+      </code>
+     </em>
+     is
+      different from the old effective UID, the process will be
+      forbidden from leaving core dumps.
+    </p>
+    <p>
+     The original Linux
+     <code class="function">
+      setuid
+     </code>
+     ()
+      system call supported only 16-bit user IDs. Subsequently,
+      Linux 2.4 added
+     <code class="function">
+      setuid32
+     </code>
+     ()
+      supporting 32-bit IDs. The glibc
+     <code class="function">
+      setuid
+     </code>
+     () wrapper function transparently
+      deals with the variation across kernel versions.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setuid-2_sect6" name="setuid-2_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/getuid.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getuid
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/seteuid.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        seteuid
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/setfsuid.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setfsuid
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/setreuid.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setreuid
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/capabilities.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        capabilities
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/credentials.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        credentials
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="setuid-2_sect7" name="setuid-2_sect7" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

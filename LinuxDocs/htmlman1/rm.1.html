@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   rm(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="rm(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="rm.1" name="rm.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     rm &mdash; remove files or directories
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       rm
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...]
+      <em class="replaceable">
+       <code>
+        FILE
+       </code>
+      </em>
+      ...
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="rm-1_sect1" name="rm-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This manual page documents the GNU version of
+     <span class="command">
+      <strong>
+       rm
+      </strong>
+     </span>
+     .
+     <span class="command">
+      <strong>
+       rm
+      </strong>
+     </span>
+     removes each specified
+      file. By default, it does not remove directories.
+    </p>
+    <p>
+     If the
+     <code class="option">
+      &minus;I
+     </code>
+     or
+     <code class="option">
+      &minus;&minus;interactive=once
+     </code>
+     option is given, and there are more than three files or the
+     <code class="option">
+      &minus;r
+     </code>
+     ,
+     <code class="option">
+      &minus;R
+     </code>
+     , or
+     <code class="option">
+      &minus;&minus;recursive
+     </code>
+     are given, then
+     <span class="command">
+      <strong>
+       rm
+      </strong>
+     </span>
+     prompts the
+      user for whether to proceed with the entire operation. If the
+      response is not affirmative, the entire command is
+      aborted.
+    </p>
+    <p>
+     Otherwise, if a file is unwritable, standard input is a
+      terminal, and the
+     <code class="option">
+      &minus;f
+     </code>
+     or
+     <code class="option">
+      &minus;&minus;force
+     </code>
+     option is not
+      given, or the
+     <code class="option">
+      &minus;i
+     </code>
+     or
+     <code class="option">
+      &minus;&minus;interactive=always
+     </code>
+     option is given,
+     <span class="command">
+      <strong>
+       rm
+      </strong>
+     </span>
+     prompts the user for
+      whether to remove the file. If the response is not
+      affirmative, the file is skipped.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="rm-1_sect2" name="rm-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <p>
+     Remove (unlink) the FILE(s).
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;force
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        ignore nonexistent files and arguments, never
+            prompt
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        prompt before every removal
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;I
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        prompt once before removing more than three files,
+            or when removing recursively; less intrusive than
+        <code class="option">
+         &minus;i
+        </code>
+        , while still
+            giving protection against most mistakes
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;interactive
+        </code>
+        [=
+        <code class="constant">
+         WHEN
+        </code>
+        ]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        prompt according to WHEN: never, once (
+        <code class="option">
+         &minus;I
+        </code>
+        ), or always (
+        <code class="option">
+         &minus;i
+        </code>
+        ); without WHEN, prompt
+            always
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;one&minus;file&minus;system
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        when removing a hierarchy recursively, skip any
+            directory that is on a file system different from that
+            of the corresponding command line argument
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;no&minus;preserve&minus;root
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not treat '/' specially
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;preserve&minus;root
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not remove '/' (default)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r
+        </code>
+        ,
+        <code class="option">
+         &minus;R
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;recursive
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        remove directories and their contents
+            recursively
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;dir
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        remove empty directories
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;verbose
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        explain what is being done
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display this help and exit
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output version information and exit
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     By default, rm does not remove directories. Use the
+     <code class="option">
+      &minus;&minus;recursive
+     </code>
+     (
+     <code class="option">
+      &minus;r
+     </code>
+     or
+     <code class="option">
+      &minus;R
+     </code>
+     ) option to remove each listed
+      directory, too, along with all of its contents.
+    </p>
+    <p>
+     To remove a file whose name starts with a '&minus;', for
+      example '&minus;foo', use one of these commands:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+rm -- -foo
+rm ./-foo
+</pre>
+    </div>
+    <p>
+     Note that if you use rm to remove a file, it might be
+      possible to recover some of its contents, given sufficient
+      expertise and/or time. For greater assurance that the
+      contents are truly unrecoverable, consider using shred.
+    </p>
+    <p>
+     GNU coreutils online help: &lt;
+     <a class="literalurl" href="http://www.gnu.org/software/coreutils/" shape="rect" target="_top">
+      http://www.gnu.org/software/coreutils/
+     </a>
+     &gt; Report
+      rm translation bugs to &lt;
+     <a class="literalurl" href="http://translationproject.org/team/" shape="rect" target="_top">
+      http://translationproject.org/team/
+     </a>
+     &gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="rm-1_sect3" name="rm-1_sect3" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Written by Paul Rubin, David MacKenzie, Richard M.
+      Stallman, and Jim Meyering.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="rm-1_sect5" name="rm-1_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/unlink.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        unlink
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/unlink.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        unlink
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       chattr
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman1/shred.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        shred
+       </span>
+       (1)
+      </span>
+     </a>
+    </p>
+    <p>
+     The full documentation for
+     <span class="command">
+      <strong>
+       rm
+      </strong>
+     </span>
+     is maintained as a
+      Texinfo manual. If the
+     <span class="command">
+      <strong>
+       info
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       rm
+      </strong>
+     </span>
+     programs are properly
+      installed at your site, the command
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <span class="emphasis">
+         <em>
+          info coreutils 'rm
+            invocation'
+         </em>
+        </span>
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p>
+     should give you access to the complete manual.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

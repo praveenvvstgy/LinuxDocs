@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   closedir(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="closedir(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="closedir.3" name="closedir.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     closedir &mdash; close a directory
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#include &lt;sys/types.h&gt;
+
+#include &lt;dirent.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          closedir
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        DIR *
+        <var class="pdparam">
+         dirp
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="closedir-3_sect1" name="closedir-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      closedir
+     </code>
+     () function
+      closes the directory stream associated with
+     <em class="parameter">
+      <code>
+       dirp
+      </code>
+     </em>
+     . A successful call to
+     <code class="function">
+      closedir
+     </code>
+     () also closes the
+      underlying file descriptor associated with
+     <em class="parameter">
+      <code>
+       dirp
+      </code>
+     </em>
+     . The directory stream
+      descriptor
+     <em class="parameter">
+      <code>
+       dirp
+      </code>
+     </em>
+     is
+      not available after this call.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="closedir-3_sect2" name="closedir-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     The
+     <code class="function">
+      closedir
+     </code>
+     () function
+      returns 0 on success. On error, &minus;1 is returned, and
+     <code class="varname">
+      errno
+     </code>
+     is set appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="closedir-3_sect3" name="closedir-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EBADF
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Invalid directory stream descriptor
+        <em class="parameter">
+         <code>
+          dirp
+         </code>
+        </em>
+        .
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="closedir-3_sect4" name="closedir-3_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     SVr4, POSIX.1-2001, 4.3BSD.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="closedir-3_sect5" name="closedir-3_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/close.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        close
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/opendir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        opendir
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/readdir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        readdir
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/rewinddir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        rewinddir
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/scandir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        scandir
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/seekdir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        seekdir
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/telldir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        telldir
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="closedir-3_sect6" name="closedir-3_sect6" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

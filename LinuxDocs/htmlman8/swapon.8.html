@@ -1,0 +1,692 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   swapon(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="swapon(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="swapon.8" name="swapon.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     swapon, swapoff &mdash; enable/disable devices and files
+      for paging and swapping
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       swapon
+      </code>
+      [options] [
+        specialfile... ]
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       swapoff
+      </code>
+      [
+      <code class="option">
+       &minus;va
+      </code>
+      ] [ specialfile... ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="swapon-8_sect1" name="swapon-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       swapon
+      </strong>
+     </span>
+     is
+      used to specify devices on which paging and swapping are to
+      take place.
+    </p>
+    <p>
+     The device or file used is given by the
+     <em class="parameter">
+      <code>
+       specialfile
+      </code>
+     </em>
+     parameter. It may
+      be of the form
+     <code class="option">
+      &minus;L
+     </code>
+     <span class="emphasis">
+      <em>
+       label
+      </em>
+     </span>
+     or
+     <code class="option">
+      &minus;U
+     </code>
+     <span class="emphasis">
+      <em>
+       uuid
+      </em>
+     </span>
+     to indicate a device by label
+      or uuid.
+    </p>
+    <p>
+     Calls to
+     <span class="command">
+      <strong>
+       swapon
+      </strong>
+     </span>
+     normally occur in
+      the system boot scripts making all swap devices available, so
+      that the paging and swapping activity is interleaved across
+      several devices and files.
+    </p>
+    <p>
+     <span class="command">
+      <strong>
+       swapoff
+      </strong>
+     </span>
+     disables swapping on the specified devices and files. When
+      the
+     <code class="option">
+      &minus;a
+     </code>
+     flag is given,
+      swapping is disabled on all known swap devices and files (as
+      found in
+     <code class="filename">
+      /proc/swaps
+     </code>
+     or
+     <code class="filename">
+      /etc/fstab
+     </code>
+     ).
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;a,
+          &minus;&minus;all
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        All devices marked as ``swap'' in
+        <code class="filename">
+         /etc/fstab
+        </code>
+        are made available, except
+            for those with the ``noauto'' option. Devices that are
+            already being used as swap are silently skipped.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d,
+          &minus;&minus;discard
+        </code>
+        [=
+        <span class="command">
+         <strong>
+          policy
+         </strong>
+        </span>
+        ]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable swap discards, if the swap backing device
+            supports the discard or trim operation. This may
+            improve performance on some Solid State Devices, but
+            often it does not. The option allows one to select
+            between two available swap discard policies:
+        <code class="option">
+         &minus;&minus;discard=once
+        </code>
+        to perform a single-time discard operation for the
+            whole swap area at swapon; or
+        <code class="option">
+         &minus;&minus;discard=pages
+        </code>
+        to discard
+            freed swap pages before they are reused, while
+            swapping. If no policy is selected, the default
+            behavior is to enable both discard types. The
+        <code class="filename">
+         /etc/fstab
+        </code>
+        mount options
+        <em class="replaceable">
+         <code>
+          discard,
+         </code>
+        </em>
+        <em class="replaceable">
+         <code>
+          discard=once,
+         </code>
+        </em>
+        or
+        <em class="replaceable">
+         <code>
+          discard=pages
+         </code>
+        </em>
+        may be
+            also used to enable discard flags.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;e,
+          &minus;&minus;ifexists
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Silently skip devices that do not exist. The
+        <code class="filename">
+         /etc/fstab
+        </code>
+        mount option
+        <span class="command">
+         <strong>
+          nofail
+         </strong>
+        </span>
+        may be also used to skip non-existing device.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f,
+          &minus;&minus;fixpgsz
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Reinitialize (exec /sbin/mkswap) the swap space if
+            its page size does not match that of the current
+            running kernel.
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          mkswap
+         </span>
+         (2)
+        </span>
+        initializes the
+            whole device and does not check for bad blocks.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,&minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;L
+         <em class="parameter">
+          <code>
+           label
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use the partition that has the specified
+        <em class="replaceable">
+         <code>
+          label
+         </code>
+        </em>
+        . (For this,
+            access to
+        <code class="filename">
+         /proc/partitions
+        </code>
+        is needed.)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p,
+          &minus;&minus;priority
+         <em class="parameter">
+          <code>
+           priority
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the priority of the swap device.
+        <span class="command">
+         <strong>
+          priority
+         </strong>
+        </span>
+        is a value between &minus;1 and 32767. Higher numbers
+            indicate higher priority. See
+        <a class="link" href="../htmlman2/swapon.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           swapon
+          </span>
+          (2)
+         </span>
+        </a>
+        for a full
+            description of swap priorities. Add
+        <em class="replaceable">
+         <code>
+          pri=
+         </code>
+        </em>
+        <em class="replaceable">
+         <code>
+          value
+         </code>
+        </em>
+        to the option
+            field of
+        <code class="filename">
+         /etc/fstab
+        </code>
+        for
+            use with
+        <span class="emphasis">
+         <em>
+          swapon
+            -a
+         </em>
+        </span>
+        . When priority is not defined it
+            defaults to &minus;1.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s,
+          &minus;&minus;summary
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display swap usage summary by device. Equivalent to
+            "cat /proc/swaps". Not available before Linux
+            2.1.25.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;show
+        </code>
+        [
+        <span class="command">
+         <strong>
+          column
+         </strong>
+        </span>
+        ,
+          ...]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display definable device table similar to
+        <code class="option">
+         &minus;&minus;summary
+        </code>
+        output. See &minus;&minus;help output for
+        <span class="command">
+         <strong>
+          column
+         </strong>
+        </span>
+        list.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;noheadings
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not print headings when displaying
+        <code class="option">
+         &minus;&minus;show
+        </code>
+        output.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;raw
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display
+        <code class="option">
+         &minus;&minus;show
+        </code>
+        output without
+            aligning table columns.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;bytes
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display swap size in bytes in
+        <code class="option">
+         &minus;&minus;show
+        </code>
+        output instead of
+            user friendly size and unit.
+        <code class="option">
+         &minus;U
+         <em class="parameter">
+          <code>
+           uuid
+          </code>
+         </em>
+        </code>
+        Use the
+            partition that has the specified
+        <em class="replaceable">
+         <code>
+          uuid
+         </code>
+        </em>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v,
+          &minus;&minus;verbose
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Be verbose.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V,
+          &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="swapon-8_sect2" name="swapon-8_sect2" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     You should not use
+     <span class="command">
+      <strong>
+       swapon
+      </strong>
+     </span>
+     on a file with
+      holes. Swap over NFS may not work.
+    </p>
+    <p>
+     <span class="command">
+      <strong>
+       swapon
+      </strong>
+     </span>
+     automatically detects and rewrites swap space signature with
+      old software suspend data (e.g S1SUSPEND, S2SUSPEND, ...).
+      The problem is that if we don't do it, then we get data
+      corruption the next time an attempt at unsuspending is
+      made.
+    </p>
+    <p>
+     <span class="command">
+      <strong>
+       swapon
+      </strong>
+     </span>
+     may
+      not work correctly when using a swap file with some versions
+      of btrfs. This is due to the swap file implementation in the
+      kernel expecting to be able to write to the file directly,
+      without the assistance of the file system. Since btrfs is a
+      copy-on-write file system, the file location may not be
+      static and corruption can result. Btrfs actively disallows
+      the use of files on its file systems by refusing to map the
+      file. This can be seen in the system log as "swapon: swapfile
+      has holes." One possible workaround is to map the file to a
+      loopback device. This will allow the file system to determine
+      the mapping properly but may come with a performance
+      impact.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="swapon-8_sect3" name="swapon-8_sect3" shape="rect">
+    </a>
+    <h2>
+     ENVIRONMENT
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <em class="replaceable">
+         <code>
+          LIBMOUNT_DEBUG=0xffff
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        enables debug output.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="swapon-8_sect4" name="swapon-8_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/swapon.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        swapon
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/swapon.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        swapoff
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman5/fstab.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fstab
+       </span>
+       (5)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       init
+      </span>
+      (8)
+     </span>
+     ,
+     <a class="link" href="../htmlman8/mkswap.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mkswap
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       rc
+      </span>
+      (8)
+     </span>
+     ,
+     <a class="link" href="../htmlman8/mount.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mount
+       </span>
+       (8)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="swapon-8_sect5" name="swapon-8_sect5" shape="rect">
+    </a>
+    <h2>
+     FILES
+    </h2>
+    <p>
+     <code class="filename">
+      /dev/sd??
+     </code>
+     standard paging
+      devices
+    </p>
+    <p>
+     <code class="filename">
+      /etc/fstab
+     </code>
+     ascii filesystem
+      description table
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="swapon-8_sect6" name="swapon-8_sect6" shape="rect">
+    </a>
+    <h2>
+     HISTORY
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       swapon
+      </strong>
+     </span>
+     command appeared in 4.0BSD.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="swapon-8_sect7" name="swapon-8_sect7" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The swapon command is part of the util-linux package and
+      is available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

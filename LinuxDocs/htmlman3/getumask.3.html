@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   getumask(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="getumask(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="getumask.3" name="getumask.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     getumask &mdash; get file creation mask
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#define _GNU_SOURCE              /* See feature_test_macros(7) */
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         mode_t
+         <strong>
+          getumask
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <code>
+         void)
+        </code>
+        ;
+       </td>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="getumask-3_sect1" name="getumask-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This function returns the current file creation mask. It
+      is equivalent to
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+mode_t getumask(void)
+{
+    mode_t mask = umask( 0 );
+    umask(mask);
+    return mask;
+}
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     except that it is documented to be thread-safe (that is,
+      shares a lock with the
+     <a class="link" href="../htmlman2/umask.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        umask
+       </span>
+       (2)
+      </span>
+     </a>
+     library call).
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getumask-3_sect2" name="getumask-3_sect2" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     This is a vaporware GNU extension.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getumask-3_sect3" name="getumask-3_sect3" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     This function is documented but not implemented yet in
+      glibc, as at version 2.9.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getumask-3_sect4" name="getumask-3_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/umask.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        umask
+       </span>
+       (2)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="getumask-3_sect5" name="getumask-3_sect5" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

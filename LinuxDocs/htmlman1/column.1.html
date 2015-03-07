@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   column(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="column(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="column.1" name="column.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     column &mdash; columnate lists
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       column
+      </code>
+      [options] [ file...
+        ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="column-1_sect1" name="column-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       column
+      </strong>
+     </span>
+     utility formats its input into multiple columns. By default,
+      rows are filled before columns. Input is taken from
+     <em class="parameter">
+      <code>
+       file
+      </code>
+     </em>
+     , or otherwise
+      from standard input. Empty lines are ignored.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="column-1_sect2" name="column-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;c,
+          &minus;&minus;columns
+        </code>
+        <span class="command">
+         <strong>
+          width
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output is formatted to a width specified as number
+            of characters.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t,
+          &minus;&minus;table
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Determine the number of columns the input contains
+            and create a table. Columns are delimited with
+            whitespace, by default, or with the characters supplied
+            using the
+        <code class="option">
+         &minus;&minus;output&minus;separator
+        </code>
+        option. Table output is useful for pretty-printing.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s,
+          &minus;&minus;separator
+        </code>
+        <span class="command">
+         <strong>
+          separators
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the possible input item delimiters (default
+            is whitespace).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o,
+          &minus;&minus;output&minus;separator
+        </code>
+        <span class="command">
+         <strong>
+          string
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the columns delimiter for table output
+            (default is two spaces).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;x,
+          &minus;&minus;fillrows
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Fill columns before filling rows.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="column-1_sect3" name="column-1_sect3" shape="rect">
+    </a>
+    <h2>
+     ENVIRONMENT
+    </h2>
+    <p>
+     The environment variable COLUMNS is used to determine the
+      size of the screen if no other information is available.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="column-1_sect4" name="column-1_sect4" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+sed 's/#.*//' /etc/fstab | column -t
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="column-1_sect5" name="column-1_sect5" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     The util-linux version 2.23 changed
+     <code class="option">
+      &minus;s
+     </code>
+     option to be non-greedy, for
+      example:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+$ printf "a:b:c\n1::3\n" | column  -t -s ':'
+</pre>
+    </div>
+    <p>
+     old output:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+a  b  c
+1  3
+</pre>
+    </div>
+    <p>
+     new output (since util-linux 2.23)
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+a  b  c
+1     3
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="column-1_sect6" name="column-1_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/colrm.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        colrm
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/ls.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ls
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/paste.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        paste
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/sort.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sort
+       </span>
+       (1)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="column-1_sect7" name="column-1_sect7" shape="rect">
+    </a>
+    <h2>
+     HISTORY
+    </h2>
+    <p>
+     The column command appeared in 4.3BSD-Reno.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="column-1_sect8" name="column-1_sect8" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The column command is part of the util-linux package and
+      is available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,632 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   setns(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="setns(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="setns.2" name="setns.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     setns &mdash; reassociate thread with a namespace
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#define _GNU_SOURCE              /* See feature_test_macros(7) */
+#include &lt;sched.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          setns
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         fd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         nstype
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setns-2_sect1" name="setns-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Given a file descriptor referring to a namespace,
+      reassociate the calling thread with that namespace.
+    </p>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       fd
+      </code>
+     </em>
+     argument is
+      a file descriptor referring to one of the namespace entries
+      in a
+     <code class="filename">
+      /proc/[pid]/ns/
+     </code>
+     directory;
+      see
+     <a class="link" href="../htmlman5/proc.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        proc
+       </span>
+       (5)
+      </span>
+     </a>
+     for further
+      information on
+     <code class="filename">
+      /proc/[pid]/ns/
+     </code>
+     .
+      The calling thread will be reassociated with the
+      corresponding namespace, subject to any constraints imposed
+      by the
+     <em class="parameter">
+      <code>
+       nstype
+      </code>
+     </em>
+     argument.
+    </p>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       nstype
+      </code>
+     </em>
+     argument specifies which type of namespace the calling thread
+      may be reassociated with. This argument can have one of the
+      following values:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         0
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Allow any type of namespace to be joined.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         CLONE_NEWIPC
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          fd
+         </code>
+        </em>
+        must
+            refer to an IPC namespace.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         CLONE_NEWNET
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          fd
+         </code>
+        </em>
+        must
+            refer to a network namespace.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         CLONE_NEWUTS
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          fd
+         </code>
+        </em>
+        must
+            refer to a UTS namespace.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     Specifying
+     <em class="parameter">
+      <code>
+       nstype
+      </code>
+     </em>
+     as 0 suffices if the caller knows (or does not care) what
+      type of namespace is referred to by
+     <em class="parameter">
+      <code>
+       fd
+      </code>
+     </em>
+     . Specifying a nonzero value
+      for
+     <em class="parameter">
+      <code>
+       nstype
+      </code>
+     </em>
+     is useful
+      if the caller does not know what type of namespace is
+      referred to by
+     <em class="parameter">
+      <code>
+       fd
+      </code>
+     </em>
+     and
+      wants to ensure that the namespace is of a particular type.
+      (The caller might not know the type of the namespace referred
+      to by
+     <em class="parameter">
+      <code>
+       fd
+      </code>
+     </em>
+     if the file
+      descriptor was opened by another process and, for example,
+      passed to the caller via a UNIX domain socket.)
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setns-2_sect2" name="setns-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success,
+     <code class="function">
+      setns
+     </code>
+     () returns
+      0. On failure, &minus;1 is returned and
+     <code class="varname">
+      errno
+     </code>
+     is set to indicate the error.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setns-2_sect3" name="setns-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EBADF
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          fd
+         </code>
+        </em>
+        is not a
+            valid file descriptor.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          fd
+         </code>
+        </em>
+        refers to
+            a namespace whose type does not match that specified in
+        <em class="parameter">
+         <code>
+          nstype
+         </code>
+        </em>
+        , or
+            there is problem with reassociating the the thread with
+            the specified namespace.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOMEM
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Cannot allocate sufficient memory to change the
+            specified namespace.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EPERM
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The calling thread did not have the required
+            privilege (
+        <code class="constant">
+         CAP_SYS_ADMIN
+        </code>
+        )
+            for this operation.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setns-2_sect4" name="setns-2_sect4" shape="rect">
+    </a>
+    <h2>
+     VERSIONS
+    </h2>
+    <p>
+     The
+     <code class="function">
+      setns
+     </code>
+     () system call
+      first appeared in Linux in kernel 3.0; library support was
+      added to glibc in version 2.14.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setns-2_sect5" name="setns-2_sect5" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     The
+     <code class="function">
+      setns
+     </code>
+     () system call is
+      Linux-specific.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setns-2_sect6" name="setns-2_sect6" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     Not all of the attributes that can be shared when a new
+      thread is created using
+     <a class="link" href="../htmlman2/clone.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clone
+       </span>
+       (2)
+      </span>
+     </a>
+     can be changed
+      using
+     <code class="function">
+      setns
+     </code>
+     ().
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setns-2_sect7" name="setns-2_sect7" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <p>
+     The program below takes two or more arguments. The first
+      argument specifies the pathname of a namespace file in an
+      existing
+     <code class="filename">
+      /proc/[pid]/ns/
+     </code>
+     directory. The remaining arguments specify a command and its
+      arguments. The program opens the namespace file, joins that
+      namespace using
+     <code class="function">
+      setns
+     </code>
+     (), and
+      executes the specified command inside that namespace.
+    </p>
+    <p>
+     The following shell session demonstrates the use of this
+      program (compiled as a binary named
+     <em class="replaceable">
+      <code>
+       ns_exec
+      </code>
+     </em>
+     ) in conjunction with
+      the
+     <code class="constant">
+      CLONE_NEWUTS
+     </code>
+     example
+      program in the
+     <a class="link" href="../htmlman2/clone.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clone
+       </span>
+       (2)
+      </span>
+     </a>
+     man page (complied
+      as a binary named
+     <em class="replaceable">
+      <code>
+       newuts
+      </code>
+     </em>
+     ).
+    </p>
+    <p>
+     We begin by executing the example program in
+     <a class="link" href="../htmlman2/clone.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clone
+       </span>
+       (2)
+      </span>
+     </a>
+     in the background.
+      That program creates a child in a separate UTS namespace. The
+      child changes the hostname in its namespace, and then both
+      processes display the hostnames in their UTS namespaces, so
+      that we can see that they are different.
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ <em class="replaceable"><code>su</code></em>                   # Need privilege for namespace operations
+Password:
+# <span class="emphasis"><em>./newuts bizarro &amp;</em></span>
+[1] 3549
+clone() returned 3550
+uts.nodename in child:  bizarro
+uts.nodename in parent: antero
+# <span class="emphasis"><em>uname &minus;n</em></span>             # Verify hostname in the shell
+antero
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     We then run the program shown below, using it to execute a
+      shell. Inside that shell, we verify that the hostname is the
+      one set by the child created by the first program:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+# <span class="emphasis"><em>./ns_exec /proc/3550/ns/uts /bin/bash</em></span>
+# <span class="emphasis"><em>uname &minus;n</em></span>             # Executed in shell started by ns_exec
+bizarro
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <div class="refsect2">
+     <a id="setns-2_sect8" name="setns-2_sect8" shape="rect">
+     </a>
+     <h3>
+      Program source
+     </h3>
+     <div class="informalexample">
+      <pre class="programlisting" xml:space="preserve">
+#define _GNU_SOURCE
+#include &lt;fcntl.h&gt;
+#include &lt;sched.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+#define errExit(msg)    do { perror(msg); exit(EXIT_FAILURE); \
+                        } while (0)
+
+int
+main(int argc, char *argv[])
+{
+    int fd;
+
+    if (argc &lt; 3) {
+        fprintf(stderr, "%s /proc/PID/ns/FILE cmd args...\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    fd = open(argv[1], O_RDONLY);   /* Get descriptor for namespace */
+    if (fd == &minus;1)
+        errExit("open");
+
+    if (setns(fd, 0) == &minus;1)         /* Join that namespace */
+        errExit("setns");
+
+    execvp(argv[2], &amp;argv[2]);      /* Execute a command in namespace */
+    errExit("execvp");
+}
+</pre>
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setns-2_sect9" name="setns-2_sect9" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/clone.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clone
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/fork.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fork
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/vfork.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        vfork
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman5/proc.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        proc
+       </span>
+       (5)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/unix.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        unix
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="setns-2_sect10" name="setns-2_sect10" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

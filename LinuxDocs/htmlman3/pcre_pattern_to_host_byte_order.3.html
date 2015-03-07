@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pcre_pattern_to_host_byte_order(3) &mdash; Linux manual
+  pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pcre_pattern_to_host_byte_order(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="pcre-pattern-to-host-byte-order.3" name="pcre-pattern-to-host-byte-order.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     PCRE &mdash; Perl-compatible regular expressions
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#include &lt;pcre.h&gt;
+
+int pcre_pattern_to_host_byte_order(pcre *<code class="function">code</code>,
+     pcre_extra *<code class="function">extra</code>, const unsigned char *<code class="function">tables</code>);
+
+int pcre16_pattern_to_host_byte_order(pcre16 *<code class="function">code</code>,
+     pcre16_extra *<code class="function">extra</code>, const unsigned char *<code class="function">tables</code>);
+
+int pcre32_pattern_to_host_byte_order(pcre32 *<code class="function">code</code>,
+     pcre32_extra *<code class="function">extra</code>, const unsigned char *<code class="function">tables</code>);
+  
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pcre-pattern-to-host-byte-order-3_sect1" name="pcre-pattern-to-host-byte-order-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This function ensures that the bytes in 2-byte and 4-byte
+      values in a compiled pattern are in the correct order for the
+      current host. It is useful when a pattern that has been
+      compiled on one host is transferred to another that might
+      have different endianness. The arguments are:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+ <code class="function">code</code>         A compiled regular expression
+ <code class="function">extra</code>        Points to an associated <em class="replaceable"><code>pcre[16|32]_extra</code></em> structure,
+                or is NULL
+ <code class="function">tables</code>       Pointer to character tables, or NULL to
+                set the built-in default
+</pre>
+    </div>
+    <p>
+     The result is 0 for success, a negative PCRE_ERROR_xxx
+      value otherwise.
+    </p>
+    <p>
+     There is a complete description of the PCRE native API in
+      the
+     <a class="link" href="../htmlman3/pcreapi.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pcreapi
+       </span>
+       (3)
+      </span>
+     </a>
+     page and a
+      description of the POSIX API in the
+     <a class="link" href="../htmlman3/pcreposix.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pcreposix
+       </span>
+       (3)
+      </span>
+     </a>
+     page.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

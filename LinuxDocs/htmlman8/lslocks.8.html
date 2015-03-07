@@ -1,0 +1,409 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   lslocks(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="lslocks(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="lslocks.8" name="lslocks.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     lslocks &mdash; list local system locks
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       lslocks
+      </code>
+      [options]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="lslocks-8_sect1" name="lslocks-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       lslocks
+      </strong>
+     </span>
+     lists information about all the currently held file locks in
+      a Linux system.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="lslocks-8_sect2" name="lslocks-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n,
+          &minus;&minus;noheadings
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not print a header line.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o,
+          &minus;&minus;output
+         <em class="parameter">
+          <code>
+           list
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify which output columns to print. Use
+        <code class="option">
+         &minus;&minus;help
+        </code>
+        to get a
+            list of all supported columns.
+       </p>
+       <p>
+        The default list of columns may be extended if
+        <span class="command">
+         <strong>
+          list
+         </strong>
+        </span>
+        is
+            specified in the format
+        <em class="replaceable">
+         <code>
+          +list
+         </code>
+        </em>
+        (e.g.
+        <span class="emphasis">
+         <em>
+          lslocks -o
+            +BLOCKER
+         </em>
+        </span>
+        ).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p,
+          &minus;&minus;pid
+         <em class="parameter">
+          <code>
+           pid
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display only the locks held by the process with this
+        <span class="command">
+         <strong>
+          pid
+         </strong>
+        </span>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r,
+          &minus;&minus;raw
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use the raw output format.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u,
+          &minus;&minus;notruncate
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not truncate text in columns.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="lslocks-8_sect3" name="lslocks-8_sect3" shape="rect">
+    </a>
+    <h2>
+     OUTPUT
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         COMMAND
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The command name of the process holding the
+            lock.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         PID
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The process ID of the process which holds the
+            lock.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         TYPE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The type of lock; can be FLOCK (created with
+            flock(2)) or POSIX (created with fcntl(2) and
+            lockf(3)).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         SIZE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Size of the locked file.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         MODE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The lock's access permissions (read, write). If the
+            process is blocked and waiting for the lock, then the
+            mode is postfixed with an '*' (asterisk).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         M
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Whether the lock is mandatory; 0 means no (meaning
+            the lock is only advisory), 1 means yes. (See
+            fcntl(2)).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         START
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Relative byte offset of the lock.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         END
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Ending offset of the lock.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         PATH
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Full path of the lock. If none is found, or there
+            are no permissions to read the path, it will fall back
+            to the device's mountpoint. The path might be
+            truncated; use
+        <code class="option">
+         &minus;&minus;notruncate
+        </code>
+        to get the
+            full path.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         BLOCKER
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The PID of the process which blocks the lock.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="lslocks-8_sect4" name="lslocks-8_sect4" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+The lslocks command is meant to replace the lslk(8) command, originally written by
+Victor A. Abell &lt;abe@purdue.edu&gt; and unmaintained since 2001.
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="lslocks-8_sect5" name="lslocks-8_sect5" shape="rect">
+    </a>
+    <h2>
+     AUTHORS
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+Davidlohr Bueso &lt;dave@gnu.org&gt;
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="lslocks-8_sect6" name="lslocks-8_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/flock.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        flock
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/fcntl.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fcntl
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       lockf
+      </span>
+      (2)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="lslocks-8_sect7" name="lslocks-8_sect7" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The lslocks command is part of the util-linux package and
+      is available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   blockdev(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="blockdev(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="blockdev.8" name="blockdev.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     blockdev &mdash; call block device ioctls from the command
+      line
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       blockdev
+      </code>
+      [
+      <code class="option">
+       &minus;q
+      </code>
+      ] [
+      <code class="option">
+       &minus;v
+      </code>
+      ] command [ command... ] device [
+        device... ]
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       blockdev
+      </code>
+      <code class="option">
+       &minus;&minus;report
+      </code>
+      [ device... ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="blockdev-8_sect1" name="blockdev-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The utility
+     <span class="command">
+      <strong>
+       blockdev
+      </strong>
+     </span>
+     allows one to call
+      block device ioctls from the command line.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="blockdev-8_sect2" name="blockdev-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print version and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;q
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Be quiet.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Be verbose.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;report
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print a report for the specified device. It is
+            possible to give multiple devices. If none is given,
+            all devices which appear in /proc/partitions are shown.
+            Note that the partition StartSec is in 512-byte
+            sectors.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="blockdev-8_sect3" name="blockdev-8_sect3" shape="rect">
+    </a>
+    <h2>
+     COMMANDS
+    </h2>
+    <p>
+     It is possible to give multiple devices and multiple
+      commands.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;flushbufs
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Flush buffers.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;getalignoff
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Get alignment offset.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;getbsz
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print blocksize in bytes.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;getdiscardzeroes
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Get discard zeroes support status.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;getfra
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Get filesystem readahead in 512-byte sectors.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;getiomin
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Get minimum I/O size.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;getioopt
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Get optimal I/O size.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;getmaxsect
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Get max sectors per request
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;getpbsz
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Get physical block (sector) size.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;getra
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print readahead (in 512-byte sectors).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;getro
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Get read-only. Print 1 if the device is read-only, 0
+            otherwise.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;getsize64
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print device size in bytes.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;getsize
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print device size (32-bit!) in sectors. Deprecated
+            in favor of the --getsz option.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;getss
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print sectorsize in bytes - usually 512.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;getsz
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Get size in 512-byte sectors.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;rereadpt
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Reread partition table
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;setbsz
+        </code>
+        <span class="command">
+         <strong>
+          bytes
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set blocksize. Note that the block size is specific
+            to the current file descriptor opening the block
+            device, so the change of block size only persists for
+            as long as blockdev has the device open, and is lost
+            once blockdev exits.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;setfra
+        </code>
+        <span class="command">
+         <strong>
+          sectors
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set filesystem readahead (same like --setra on 2.6
+            kernels).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;setra
+        </code>
+        <span class="command">
+         <strong>
+          sectors
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set readahead (in 512-byte sectors).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;setro
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set read-only.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;setrw
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set read-write.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="blockdev-8_sect4" name="blockdev-8_sect4" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     blockdev was written by Andries E. Brouwer and rewritten
+      by Karel Zak.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="blockdev-8_sect5" name="blockdev-8_sect5" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The blockdev command is part of the util-linux package and
+      is available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   zdump(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="zdump(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="zdump.8" name="zdump.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     zdump &mdash; timezone dumper
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       zdump
+      </code>
+      [
+      <code class="option">
+       &minus;&minus;version
+      </code>
+      ] [
+      <code class="option">
+       &minus;&minus;help
+      </code>
+      ] [
+      <code class="option">
+       &minus;v
+      </code>
+      ] [
+      <code class="option">
+       &minus;c.RI
+      </code>
+      [ loyear fB,fR ] hiyear ]
+        [zonename...]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="zdump-8_sect1" name="zdump-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       Zdump
+      </strong>
+     </span>
+     prints
+      the current time in each
+     <em class="parameter">
+      <code>
+       zonename
+      </code>
+     </em>
+     named on the command
+      line.
+    </p>
+    <p>
+     These options are available:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output version information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output short usage and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        For each
+        <em class="parameter">
+         <code>
+          zonename
+         </code>
+        </em>
+        on the command
+            line, print the time at the lowest possible time value,
+            the time one day after the lowest possible time value,
+            the times both one second before and exactly at each
+            detected time discontinuity, the time at one day less
+            than the highest possible time value, and the time at
+            the highest possible time value. Each line ends with
+        <em class="replaceable">
+         <code>
+          isdst=1
+         </code>
+        </em>
+        if
+            the given time is Daylight Saving Time or
+        <em class="replaceable">
+         <code>
+          isdst=0
+         </code>
+        </em>
+        otherwise.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;c
+        </code>
+        [
+        <em class="parameter">
+         <code>
+          loyear
+         </code>
+        </em>
+        <span class="emphasis">
+         <em>
+          ,
+         </em>
+        </span>
+        ]
+        <em class="parameter">
+         <code>
+          hiyear
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Cut off the verbose output near the start of the
+            given year(s). The output still includes the lowest
+            possible time value and one day after it, and the
+            highest possible time value preceded by the time value
+            one day before it.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="zdump-8_sect2" name="zdump-8_sect2" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman5/tzfile.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tzfile
+       </span>
+       (5)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/zic.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        zic
+       </span>
+       (8)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="zdump-8_sect3" name="zdump-8_sect3" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

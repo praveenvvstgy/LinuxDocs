@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pam_strerror(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pam_strerror(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry" title="pam_strerror(3) &mdash; Linux manual pages">
+   <a id="pam-strerror.3" name="pam-strerror.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <a id="pam_strerror-name" name="pam_strerror-name" shape="rect">
+    </a>
+    <h2>
+     Name
+    </h2>
+    <p>
+     pam_strerror &mdash; return string describing PAM error
+      code
+    </p>
+   </div>
+   <div class="refsynopsisdiv" title="Synopsis">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <a id="pam_strerror-synopsis" name="pam_strerror-synopsis" shape="rect">
+     </a>
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;security/pam_appl.h&gt;
+</pre>
+     <table border="0" cellpadding="0" cellspacing="0" class="funcprototype-table" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         const char
+            *
+         <strong>
+          pam_strerror
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        pam_handle_t *
+        <var class="pdparam">
+         pamh
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         errnum
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1" title="DESCRIPTION">
+    <a id="pam_strerror-description" name="pam_strerror-description" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      pam_strerror
+     </code>
+     function
+      returns a pointer to a string describing the error code
+      passed in the argument
+     <span class="emphasis">
+      <em>
+       errnum
+      </em>
+     </span>
+     , possibly using the
+      LC_MESSAGES part of the current locale to select the
+      appropriate language. This string must not be modified by the
+      application. No library function will modify this string.
+    </p>
+   </div>
+   <div class="refsect1" title="RETURN VALUES">
+    <a id="pam_strerror-return_values" name="pam_strerror-return_values" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUES
+    </h2>
+    <p>
+     This function returns always a pointer to a string.
+    </p>
+   </div>
+   <div class="refsect1" title="SEE ALSO">
+    <a id="pam_strerror-see_also" name="pam_strerror-see_also" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman8/pam.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam
+       </span>
+       (8)
+      </span>
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

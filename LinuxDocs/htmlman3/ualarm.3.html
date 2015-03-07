@@ -1,0 +1,601 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   ualarm(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="ualarm(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="ualarm.3" name="ualarm.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     ualarm &mdash; schedule signal after given number of
+      microseconds
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;unistd.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         useconds_t
+         <strong>
+          ualarm
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        useconds_t
+        <var class="pdparam">
+         usecs
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        useconds_t
+        <var class="pdparam">
+         interval
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              ualarm
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestver" colspan="1" rowspan="1" style="">
+             Since
+                      glibc 2.12:
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _BSD_SOURCE
+             </code>
+             ||
+                      (
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &gt;= 500 ||
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &amp;&amp;
+             <code class="constant">
+              _XOPEN_SOURCE_EXTENDED
+             </code>
+             )
+                      &amp;&amp; !(
+             <code class="constant">
+              _POSIX_C_SOURCE
+             </code>
+             &gt;=
+                      200809L ||
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &gt;=
+                      700)
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestver" colspan="1" rowspan="1" style="">
+             Before
+                      glibc 2.12:
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _BSD_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &gt;= 500 ||
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &amp;&amp;
+             <code class="constant">
+              _XOPEN_SOURCE_EXTENDED
+             </code>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ualarm-3_sect1" name="ualarm-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      ualarm
+     </code>
+     () function causes
+      the signal
+     <code class="constant">
+      SIGALRM
+     </code>
+     to be sent
+      to the invoking process after (not less than)
+     <em class="parameter">
+      <code>
+       usecs
+      </code>
+     </em>
+     microseconds. The delay
+      may be lengthened slightly by any system activity or by the
+      time spent processing the call or by the granularity of
+      system timers.
+    </p>
+    <p>
+     Unless caught or ignored, the
+     <code class="constant">
+      SIGALRM
+     </code>
+     signal will terminate the
+      process.
+    </p>
+    <p>
+     If the
+     <em class="parameter">
+      <code>
+       interval
+      </code>
+     </em>
+     argument is nonzero, further
+     <code class="constant">
+      SIGALRM
+     </code>
+     signals will be sent every
+     <em class="parameter">
+      <code>
+       interval
+      </code>
+     </em>
+     microseconds
+      after the first.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ualarm-3_sect2" name="ualarm-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     This function returns the number of microseconds remaining
+      for any alarm that was previously set, or 0 if no alarm was
+      pending.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ualarm-3_sect3" name="ualarm-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINTR
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Interrupted by a signal.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          usecs
+         </code>
+        </em>
+        or
+        <em class="parameter">
+         <code>
+          interval
+         </code>
+        </em>
+        is not
+            smaller than 1000000. (On systems where that is
+            considered an error.)
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ualarm-3_sect4" name="ualarm-3_sect4" shape="rect">
+    </a>
+    <h2>
+     ATTRIBUTES
+    </h2>
+    <div class="refsect2">
+     <a id="ualarm-3_sect5" name="ualarm-3_sect5" shape="rect">
+     </a>
+     <h3>
+      Multithreading (see pthreads(7))
+     </h3>
+     <p>
+      The
+      <code class="function">
+       ualarm
+      </code>
+      () function is
+        thread-safe.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ualarm-3_sect6" name="ualarm-3_sect6" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     4.3BSD, POSIX.1-2001. POSIX.1-2001 marks
+     <code class="function">
+      ualarm
+     </code>
+     () as obsolete. POSIX.1-2008 removes
+      the specification of
+     <code class="function">
+      ualarm
+     </code>
+     ().
+      4.3BSD, SUSv2, and POSIX do not define any errors.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ualarm-3_sect7" name="ualarm-3_sect7" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     POSIX.1-2001 does not specify what happens if the
+     <em class="parameter">
+      <code>
+       usecs
+      </code>
+     </em>
+     argument is 0.
+      On Linux (and probably most other systems), the effect is to
+      cancel any pending alarm.
+    </p>
+    <p>
+     The type
+     <span class="type">
+      useconds_t
+     </span>
+     is an
+      unsigned integer type capable of holding integers in the
+      range [0,1000000]. On the original BSD implementation, and in
+      glibc before version 2.1, the arguments to
+     <code class="function">
+      ualarm
+     </code>
+     () were instead typed as
+     <span class="type">
+      unsigned int
+     </span>
+     . Programs will be more portable if
+      they never mention
+     <span class="type">
+      useconds_t
+     </span>
+     explicitly.
+    </p>
+    <p>
+     The interaction of this function with other timer
+      functions such as
+     <a class="link" href="../htmlman2/alarm.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        alarm
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/sleep.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sleep
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/nanosleep.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        nanosleep
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/getitimer.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setitimer
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/timer_create.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        timer_create
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/timer_delete.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        timer_delete
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/timer_getoverrun.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        timer_getoverrun
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/timer_settime.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        timer_gettime
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/timer_settime.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        timer_settime
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/usleep.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        usleep
+       </span>
+       (3)
+      </span>
+     </a>
+     is
+      unspecified.
+    </p>
+    <p>
+     This function is obsolete. Use
+     <a class="link" href="../htmlman2/getitimer.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setitimer
+       </span>
+       (2)
+      </span>
+     </a>
+     or POSIX
+      interval timers (
+     <a class="link" href="../htmlman2/timer_create.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        timer_create
+       </span>
+       (2)
+      </span>
+     </a>
+     , etc.)
+      instead.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ualarm-3_sect8" name="ualarm-3_sect8" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/alarm.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        alarm
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/getitimer.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getitimer
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/nanosleep.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        nanosleep
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/select.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        select
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/getitimer.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setitimer
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/usleep.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        usleep
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/time.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        time
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="ualarm-3_sect9" name="ualarm-3_sect9" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

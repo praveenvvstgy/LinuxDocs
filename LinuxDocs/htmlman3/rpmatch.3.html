@@ -1,0 +1,458 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   rpmatch(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="rpmatch(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="rpmatch.3" name="rpmatch.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     rpmatch &mdash; determine if the answer to a question is
+      affirmative or negative
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;stdlib.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          rpmatch
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         response
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              rpmatch
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _SVID_SOURCE
+             </code>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="rpmatch-3_sect1" name="rpmatch-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      rpmatch
+     </code>
+     () handles a user
+      response to yes or no questions, with support for
+      internationalization.
+    </p>
+    <p>
+     <em class="parameter">
+      <code>
+       response
+      </code>
+     </em>
+     should be
+      a null-terminated string containing a user-supplied response,
+      perhaps obtained with
+     <a class="link" href="../htmlman3/fgetc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fgets
+       </span>
+       (3)
+      </span>
+     </a>
+     or
+     <a class="link" href="../htmlman3/getline.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getline
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     The user's language preference is taken into account per
+      the environment variables
+     <code class="constant">
+      LANG
+     </code>
+     ,
+     <code class="constant">
+      LC_MESSAGES
+     </code>
+     , and
+     <code class="constant">
+      LC_ALL
+     </code>
+     , if the program has called
+     <a class="link" href="../htmlman3/setlocale.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setlocale
+       </span>
+       (3)
+      </span>
+     </a>
+     to effect
+      their changes.
+    </p>
+    <p>
+     Regardless of the locale, responses matching
+     <em class="replaceable">
+      <code>
+       ^[Yy]
+      </code>
+     </em>
+     are always accepted as
+      affirmative, and those matching
+     <em class="replaceable">
+      <code>
+       ^[Nn]
+      </code>
+     </em>
+     are always accepted as
+      negative.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="rpmatch-3_sect2" name="rpmatch-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     After examining
+     <em class="parameter">
+      <code>
+       response
+      </code>
+     </em>
+     ,
+     <code class="function">
+      rpmatch
+     </code>
+     () returns 0 for a recognized
+      negative response ("no"), 1 for a recognized positive
+      response ("yes"), and &minus;1 when the value of
+     <em class="parameter">
+      <code>
+       response
+      </code>
+     </em>
+     is unrecognized.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="rpmatch-3_sect3" name="rpmatch-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <p>
+     A return value of &minus;1 may indicate either an invalid
+      input, or some other error. It is incorrect to only test if
+      the return value is nonzero.
+    </p>
+    <p>
+     <code class="function">
+      rpmatch
+     </code>
+     () can fail for any
+      of the reasons that
+     <a class="link" href="../htmlman3/regex.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        regcomp
+       </span>
+       (3)
+      </span>
+     </a>
+     or
+     <a class="link" href="../htmlman3/regex.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        regexec
+       </span>
+       (3)
+      </span>
+     </a>
+     can fail; the
+      cause of the error is not available from
+     <code class="varname">
+      errno
+     </code>
+     or anywhere else, but indicates a
+      failure of the regex engine (but this case is
+      indistinguishable from that of an unrecognized value of
+     <em class="parameter">
+      <code>
+       response
+      </code>
+     </em>
+     ).
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="rpmatch-3_sect4" name="rpmatch-3_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     <code class="function">
+      rpmatch
+     </code>
+     () is not required by
+      any standard, but is available on a few other systems.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="rpmatch-3_sect5" name="rpmatch-3_sect5" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     The
+     <code class="function">
+      rpmatch
+     </code>
+     () implementation
+      looks at only the first character of
+     <em class="parameter">
+      <code>
+       response
+      </code>
+     </em>
+     . As a consequence,
+      "nyes" returns 0, and "ynever; not in a million years"
+      returns 1. It would be preferable to accept input strings
+      much more strictly, for example (using the extended regular
+      expression notation described in
+     <a class="link" href="../htmlman7/regex.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        regex
+       </span>
+       (7)
+      </span>
+     </a>
+     ):
+     <em class="replaceable">
+      <code>
+       ^([yY]|yes|YES)$
+      </code>
+     </em>
+     and
+     <em class="replaceable">
+      <code>
+       ^([nN]|no|NO)$
+      </code>
+     </em>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="rpmatch-3_sect6" name="rpmatch-3_sect6" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <p>
+     The following program displays the results when
+     <code class="function">
+      rpmatch
+     </code>
+     () is applied to the
+      string given in the program's command-line argument.
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#define _SVID_SOURCE
+#include &lt;locale.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdio.h&gt;
+
+int
+main(int argc, char *argv[])
+{
+    if (argc != 2 || strcmp(argv[1], "&minus;&minus;help") == 0) {
+        fprintf(stderr, "%s response\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    setlocale(LC_ALL, "");
+    printf("rpmatch() returns: %d\n", rpmatch(argv[1]));
+    exit(EXIT_SUCCESS);
+}
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="rpmatch-3_sect7" name="rpmatch-3_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/fgetc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fgets
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/getline.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getline
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/nl_langinfo.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        nl_langinfo
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/regex.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        regcomp
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/setlocale.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setlocale
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="rpmatch-3_sect8" name="rpmatch-3_sect8" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

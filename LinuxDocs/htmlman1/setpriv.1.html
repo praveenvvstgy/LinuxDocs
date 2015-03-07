@@ -1,0 +1,694 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   setpriv(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="setpriv(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="setpriv.1" name="setpriv.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     setpriv &mdash; run a program with different Linux
+      privilege settings
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       setpriv
+      </code>
+      [options] program
+        [arguments]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setpriv-1_sect1" name="setpriv-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Sets or queries various Linux privilege settings that are
+      inherited across
+     <a class="link" href="../htmlman2/execve.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        execve
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setpriv-1_sect2" name="setpriv-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTION
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;dump
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Dumps current privilege state. Specify more than
+            once to show extra, mostly useless, information.
+            Incompatible with all other options.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;no&minus;new&minus;privs
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets the
+        <span class="command">
+         <strong>
+          no_new_privs
+         </strong>
+        </span>
+        bit.
+            With this bit set,
+        <a class="link" href="../htmlman2/execve.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           execve
+          </span>
+          (2)
+         </span>
+        </a>
+        will not
+            grant new privileges. For example, the setuid and
+            setgid bits as well as file capabilities will be
+            disabled. (Executing binaries with these bits set will
+            still work, but they will not gain privilege. Certain
+            LSMs, especially AppArmor, may result in failures to
+            execute certain programs.) This bit is inherited by
+            child processes and cannot be unset. See
+        <a class="link" href="../htmlman2/prctl.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           prctl
+          </span>
+          (2)
+         </span>
+        </a>
+        and
+        <code class="filename">
+         Documentation/prctl/no_new_privs.txt
+        </code>
+        in the Linux kernel source.
+       </p>
+       <p>
+        The no_new_privs bit is supported since Linux
+            3.5.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;inh&minus;caps
+        </code>
+        <em class="replaceable">
+         <code>
+          (+|&minus;)cap
+         </code>
+        </em>
+        ,
+        <em class="replaceable">
+         <code>
+          ...
+         </code>
+        </em>
+        or
+        <code class="option">
+         &minus;&minus;bounding&minus;set
+        </code>
+        <em class="replaceable">
+         <code>
+          (+|&minus;)cap
+         </code>
+        </em>
+        ,
+        <em class="replaceable">
+         <code>
+          ...
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets inheritable capabilities or capability bounding
+            set. See
+        <a class="link" href="../htmlman7/capabilities.7.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           capabilities
+          </span>
+          (7)
+         </span>
+        </a>
+        . The
+            argument is a comma-separated list of
+        <em class="replaceable">
+         <code>
+          +cap
+         </code>
+        </em>
+        and
+        <code class="option">
+         &minus;cap
+        </code>
+        entries, which add or remove
+            an entry respectively.
+        <em class="replaceable">
+         <code>
+          +all
+         </code>
+        </em>
+        and
+        <code class="option">
+         &minus;all
+        </code>
+        can be used to add or remove
+            all caps. The set of capabilities starts out as the
+            current inheritable set for
+        <code class="option">
+         &minus;&minus;inh&minus;caps
+        </code>
+        and the
+            current bounding set for
+        <code class="option">
+         &minus;&minus;bounding&minus;set
+        </code>
+        . If
+            you drop something from the bounding set without also
+            dropping it from the inheritable set, you are likely to
+            become confused. Do not do that.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;list&minus;caps
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Lists all known capabilities. Must be specified
+            alone.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;ruid
+        </code>
+        <span class="command">
+         <strong>
+          uid
+         </strong>
+        </span>
+        ,
+        <code class="option">
+         &minus;&minus;euid
+        </code>
+        <span class="command">
+         <strong>
+          uid
+         </strong>
+        </span>
+        ,
+        <code class="option">
+         &minus;&minus;reuid
+        </code>
+        <span class="command">
+         <strong>
+          uid
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets the real, effective, or both
+        <span class="command">
+         <strong>
+          uid
+         </strong>
+        </span>
+        s. The uid
+            argument can be given as textual login name.
+       </p>
+       <p>
+        Setting
+        <span class="command">
+         <strong>
+          uid
+         </strong>
+        </span>
+        or
+        <span class="command">
+         <strong>
+          gid
+         </strong>
+        </span>
+        does not change
+            capabilities, although the exec call at the end might
+            change capabilities. This means that, if you are root,
+            you probably want to do something like:
+       </p>
+       <p>
+        &minus;&minus;reuid=1000 &minus;&minus;regid=1000
+            &minus;&minus;caps=&minus;all
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;rgid
+        </code>
+        <span class="command">
+         <strong>
+          gid
+         </strong>
+        </span>
+        ,
+        <code class="option">
+         &minus;&minus;egid
+        </code>
+        <span class="command">
+         <strong>
+          gid
+         </strong>
+        </span>
+        ,
+        <code class="option">
+         &minus;&minus;regid
+        </code>
+        <span class="command">
+         <strong>
+          gid
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets the real, effective, or both
+        <span class="command">
+         <strong>
+          gid
+         </strong>
+        </span>
+        s. The gid
+            argument can be given as textual group name.
+       </p>
+       <p>
+        For safety, you must specify one of
+            &minus;&minus;keep&minus;groups,
+            &minus;&minus;clear&minus;groups, or
+            &minus;&minus;groups if you set any primary
+        <span class="command">
+         <strong>
+          gid
+         </strong>
+        </span>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;clear&minus;groups
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Clears supplementary groups.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;keep&minus;groups
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Preserves supplementary groups. Only useful in
+            conjunction with &minus;&minus;rgid,
+            &minus;&minus;egid, or &minus;&minus;regid.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;groups
+        </code>
+        <span class="command">
+         <strong>
+          group
+         </strong>
+        </span>
+        ,
+        <em class="replaceable">
+         <code>
+          ...
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets supplementary groups.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;securebits
+        </code>
+        <em class="replaceable">
+         <code>
+          (+|&minus;)securebit
+         </code>
+        </em>
+        ,
+        <em class="replaceable">
+         <code>
+          ...
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets or clears securebits. The valid securebits are
+        <span class="command">
+         <strong>
+          noroot
+         </strong>
+        </span>
+        ,
+        <span class="command">
+         <strong>
+          noroot_locked
+         </strong>
+        </span>
+        ,
+        <span class="command">
+         <strong>
+          no_setuid_fixup
+         </strong>
+        </span>
+        ,
+        <span class="command">
+         <strong>
+          no_setuid_fixup_locked
+         </strong>
+        </span>
+        ,
+            and
+        <span class="command">
+         <strong>
+          keep_caps_locked
+         </strong>
+        </span>
+        .
+        <span class="command">
+         <strong>
+          keep_caps
+         </strong>
+        </span>
+        is cleared by
+        <a class="link" href="../htmlman2/execve.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           execve
+          </span>
+          (2)
+         </span>
+        </a>
+        and is
+            therefore not allowed.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;selinux&minus;label
+        </code>
+        <span class="command">
+         <strong>
+          label
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Requests a particular SELinux transition (using a
+            transition on exec, not dyntrans). This will fail and
+            cause
+        <a class="link" href="../htmlman1/setpriv.1.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           setpriv
+          </span>
+          (1)
+         </span>
+        </a>
+        to abort
+            if SELinux is not in use, and the transition may be
+            ignored or cause
+        <a class="link" href="../htmlman2/execve.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           execve
+          </span>
+          (2)
+         </span>
+        </a>
+        to fail at
+            SELinux's whim. (In particular, this is unlikely to
+            work in conjunction with
+        <span class="command">
+         <strong>
+          no_new_privs
+         </strong>
+        </span>
+        .) This
+            is similar to
+        <a class="link" href="../htmlman1/runcon.1.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           runcon
+          </span>
+          (1)
+         </span>
+        </a>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;apparmor&minus;profile
+        </code>
+        <span class="command">
+         <strong>
+          profile
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Requests a particular AppArmor profile (using a
+            transition on exec). This will fail and cause
+        <a class="link" href="../htmlman1/setpriv.1.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           setpriv
+          </span>
+          (1)
+         </span>
+        </a>
+        to abort
+            if AppArmor is not in use, and the transition may be
+            ignored or cause
+        <a class="link" href="../htmlman2/execve.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           execve
+          </span>
+          (2)
+         </span>
+        </a>
+        to fail at
+            AppArmor's whim.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setpriv-1_sect3" name="setpriv-1_sect3" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     If applying any specified option fails,
+     <em class="parameter">
+      <code>
+       program
+      </code>
+     </em>
+     will not be run and
+     <span class="command">
+      <strong>
+       setpriv
+      </strong>
+     </span>
+     will
+      return with exit code 127.
+    </p>
+    <p>
+     Be careful with this tool &minus;&minus; it may have
+      unexpected security consequences. For example, setting
+      no_new_privs and then execing a program that is
+      SELinux&minus;confined (as this tool would do) may prevent
+      the SELinux restrictions from taking effect.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setpriv-1_sect4" name="setpriv-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/prctl.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        prctl
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       capability
+      </span>
+      (7)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setpriv-1_sect5" name="setpriv-1_sect5" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     <a class="literalurl" href="mailto:luto%20REMOVE%20@%20THIS%20amacapital.net" shape="rect" target="_top">
+      Andy Lutomirski
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setpriv-1_sect6" name="setpriv-1_sect6" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       setpriv
+      </strong>
+     </span>
+     command is part of the util-linux package and is available
+      from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

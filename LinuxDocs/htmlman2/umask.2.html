@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   umask(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="umask(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="umask.2" name="umask.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     umask &mdash; set file mode creation mask
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         mode_t
+         <strong>
+          umask
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        mode_t
+        <var class="pdparam">
+         mask
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="umask-2_sect1" name="umask-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      umask
+     </code>
+     () sets the calling
+      process's file mode creation mask (umask) to
+     <em class="parameter">
+      <code>
+       mask
+      </code>
+     </em>
+     &amp; 0777 (i.e., only the
+      file permission bits of
+     <em class="parameter">
+      <code>
+       mask
+      </code>
+     </em>
+     are used), and returns the
+      previous value of the mask.
+    </p>
+    <p>
+     The umask is used by
+     <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        open
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/mkdir.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mkdir
+       </span>
+       (2)
+      </span>
+     </a>
+     , and other system
+      calls that create files to modify the permissions placed on
+      newly created files or directories. Specifically, permissions
+      in the umask are turned off from the
+     <em class="replaceable">
+      <code>
+       mode
+      </code>
+     </em>
+     argument to
+     <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        open
+       </span>
+       (2)
+      </span>
+     </a>
+     and
+     <a class="link" href="../htmlman2/mkdir.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mkdir
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     The constants that should be used to specify
+     <em class="parameter">
+      <code>
+       mask
+      </code>
+     </em>
+     are described under
+     <a class="link" href="../htmlman2/stat.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        stat
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     The typical default value for the process umask is
+     <span class="emphasis">
+      <em>
+       S_IWGRP | S_IWOTH
+      </em>
+     </span>
+     (octal 022). In the usual case where the
+     <em class="replaceable">
+      <code>
+       mode
+      </code>
+     </em>
+     argument to
+     <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        open
+       </span>
+       (2)
+      </span>
+     </a>
+     is specified
+      as:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+    S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH
+</pre>
+    </div>
+    <p>
+     (octal 0666) when creating a new file, the permissions on
+      the resulting file will be:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+    S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH
+</pre>
+    </div>
+    <p>
+     (because 0666 &amp; ~022 = 0644; i.e.,
+      rw&minus;r&minus;&minus;r&minus;&minus;).
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="umask-2_sect2" name="umask-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     This system call always succeeds and the previous value of
+      the mask is returned.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="umask-2_sect3" name="umask-2_sect3" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     SVr4, 4.3BSD, POSIX.1-2001.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="umask-2_sect4" name="umask-2_sect4" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     A child process created via
+     <a class="link" href="../htmlman2/fork.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fork
+       </span>
+       (2)
+      </span>
+     </a>
+     inherits its
+      parent's umask. The umask is left unchanged by
+     <a class="link" href="../htmlman2/execve.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        execve
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     The umask setting also affects the permissions assigned to
+      POSIX IPC objects (
+     <a class="link" href="../htmlman3/mq_open.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mq_open
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/sem_open.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sem_open
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/shm_open.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        shm_open
+       </span>
+       (3)
+      </span>
+     </a>
+     ), FIFOs
+      (
+     <a class="link" href="../htmlman3/mkfifo.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mkfifo
+       </span>
+       (3)
+      </span>
+     </a>
+     ), and UNIX domain
+      sockets (
+     <a class="link" href="../htmlman7/unix.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        unix
+       </span>
+       (7)
+      </span>
+     </a>
+     ) created by the
+      process. The umask does not affect the permissions assigned
+      to System V IPC objects created by the process (using
+     <a class="link" href="../htmlman2/msgget.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        msgget
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/semget.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        semget
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/shmget.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        shmget
+       </span>
+       (2)
+      </span>
+     </a>
+     ).
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="umask-2_sect5" name="umask-2_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/chmod.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        chmod
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/mkdir.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mkdir
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        open
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/stat.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        stat
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       acl
+      </span>
+      (5)
+     </span>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="umask-2_sect6" name="umask-2_sect6" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

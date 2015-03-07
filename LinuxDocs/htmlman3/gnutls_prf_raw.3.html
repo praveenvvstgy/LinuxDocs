@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   gnutls_prf_raw(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="gnutls_prf_raw(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="gnutls-prf-raw.3" name="gnutls-prf-raw.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     gnutls_prf_raw &mdash; API function
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;gnutls/gnutls.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          gnutls_prf_raw
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_session_t
+        <var class="pdparam">
+         session
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         label_size
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         label
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         seed_size
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         seed
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         outsize
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        char *
+        <var class="pdparam">
+         out
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-prf-raw-3_sect1" name="gnutls-prf-raw-3_sect1" shape="rect">
+    </a>
+    <h2>
+     ARGUMENTS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_session_t
+          session
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        is a
+        <span class="type">
+         gnutls_session_t
+        </span>
+        structure.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          size_t
+          label_size
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        length of the
+        <em class="parameter">
+         <code>
+          label
+         </code>
+        </em>
+        variable.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          const
+          char * label
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        label used in PRF computation, typically a short
+            string.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          size_t
+          seed_size
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        length of the
+        <em class="parameter">
+         <code>
+          seed
+         </code>
+        </em>
+        variable.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          const
+          char * seed
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        optional extra data to seed the PRF with.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          size_t
+          outsize
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        size of pre&minus;allocated output buffer to hold
+            the output.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          char *
+          out
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        pre&minus;allocated buffer to hold the generated
+            data.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-prf-raw-3_sect2" name="gnutls-prf-raw-3_sect2" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Apply the TLS Pseudo&minus;Random&minus;Function (PRF) on
+      the master secret and the provided data.
+    </p>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       label
+      </code>
+     </em>
+     variable
+      usually contains a string denoting the purpose for the
+      generated data. The
+     <em class="parameter">
+      <code>
+       seed
+      </code>
+     </em>
+     usually contains data such
+      as the client and server random, perhaps together with some
+      additional data that is added to guarantee uniqueness of the
+      output for a particular purpose.
+    </p>
+    <p>
+     Because the output is not guaranteed to be unique for a
+      particular session unless
+     <em class="parameter">
+      <code>
+       seed
+      </code>
+     </em>
+     includes the client random
+      and server random fields (the PRF would output the same data
+      on another connection resumed from the first one), it is not
+      recommended to use this function directly. The
+     <code class="function">
+      gnutls_prf
+     </code>
+     () function seeds the PRF with
+      the client and server random fields directly, and is
+      recommended if you want to generate pseudo random data unique
+      for each session.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-prf-raw-3_sect3" name="gnutls-prf-raw-3_sect3" shape="rect">
+    </a>
+    <h2>
+     RETURNS
+    </h2>
+    <p>
+     <span class="errorname">
+      GNUTLS_E_SUCCESS
+     </span>
+     on
+      success, or an error code.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-prf-raw-3_sect4" name="gnutls-prf-raw-3_sect4" shape="rect">
+    </a>
+    <h2>
+     REPORTING BUGS
+    </h2>
+    <p>
+     Report bugs to &lt;bugs@gnutls.org&gt;.
+    </p>
+    <p>
+     Home page: http://www.gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-prf-raw-3_sect6" name="gnutls-prf-raw-3_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <em class="citetitle">
+      gnutls
+     </em>
+     is maintained as a Texinfo manual. If
+      the /usr/share/doc/gnutls/ directory does not contain the
+      HTML form visit
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <a class="literalurl" href="http://www.gnutls.org/manual/" shape="rect" target="_top">
+         http://www.gnutls.org/manual/
+        </a>
+       </p>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

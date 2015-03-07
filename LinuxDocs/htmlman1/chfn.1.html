@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   chfn(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="chfn(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="chfn.1" name="chfn.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     chfn &mdash; change your finger information
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       chfn
+      </code>
+      [
+      <code class="option">
+       &minus;f
+      </code>
+      full&minus;name ] [
+      <code class="option">
+       &minus;o
+      </code>
+      office ] [
+      <code class="option">
+       &minus;p
+      </code>
+      office&minus;phone ] [
+      <code class="option">
+       &minus;h
+      </code>
+      home&minus;phone ]
+        [
+      <code class="option">
+       &minus;u
+      </code>
+      ] [
+      <code class="option">
+       &minus;v
+      </code>
+      ] [username]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="chfn-1_sect1" name="chfn-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       chfn
+      </strong>
+     </span>
+     is used
+      to change your finger information. This information is stored
+      in the
+     <code class="filename">
+      /etc/passwd
+     </code>
+     file, and is
+      displayed by the
+     <span class="command">
+      <strong>
+       finger
+      </strong>
+     </span>
+     program. The Linux
+     <span class="command">
+      <strong>
+       finger
+      </strong>
+     </span>
+     command
+      will display four pieces of information that can be changed
+      by
+     <span class="command">
+      <strong>
+       chfn
+      </strong>
+     </span>
+     : your
+      real name, your work room and phone, and your home phone.
+    </p>
+    <p>
+     <span class="command">
+      <strong>
+       chfn
+      </strong>
+     </span>
+     is used
+      to change local entries only. Use ypchfn, lchfn or any other
+      implementation for non-local entries.
+    </p>
+    <div class="refsect2">
+     <a id="chfn-1_sect2" name="chfn-1_sect2" shape="rect">
+     </a>
+     <h3>
+      COMMAND LINE
+     </h3>
+     <p>
+      Any of the four pieces of information can be specified
+        on the command line. If no information is given on the
+        command line,
+      <span class="command">
+       <strong>
+        chfn
+       </strong>
+      </span>
+      enters interactive
+        mode.
+     </p>
+    </div>
+    <div class="refsect2">
+     <a id="chfn-1_sect3" name="chfn-1_sect3" shape="rect">
+     </a>
+     <h3>
+      INTERACTIVE MODE
+     </h3>
+     <p>
+      In interactive mode,
+      <span class="command">
+       <strong>
+        chfn
+       </strong>
+      </span>
+      will prompt for each
+        field. At a prompt, you can enter the new information, or
+        just press return to leave the field unchanged. Enter the
+        keyword "none" to make the field blank.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="chfn-1_sect4" name="chfn-1_sect4" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f,
+          &minus;&minus;full&minus;name
+          full&minus;name
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify your real name.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o,
+          &minus;&minus;office office
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify your office room number.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p,
+          &minus;&minus;office&minus;phone
+          office&minus;phone
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify your office phone number.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;home&minus;phone
+          home&minus;phone
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify your home phone number.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v,
+          &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="chfn-1_sect5" name="chfn-1_sect5" shape="rect">
+    </a>
+    <h2>
+     EXIT STATUS
+    </h2>
+    <p>
+     Returns 0 if operation was successful, 1 if operation
+      failed or command syntax was not valid.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="chfn-1_sect6" name="chfn-1_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       finger
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman5/passwd.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        passwd
+       </span>
+       (5)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="chfn-1_sect7" name="chfn-1_sect7" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Salvatore Valente &lt;svalente@mit.edu&gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="chfn-1_sect8" name="chfn-1_sect8" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The chfn command is part of the util-linux package and is
+      available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

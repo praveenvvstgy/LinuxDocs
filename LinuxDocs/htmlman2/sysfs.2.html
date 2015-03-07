@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   sysfs(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="sysfs(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="sysfs.2" name="sysfs.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     sysfs &mdash; get filesystem type information
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          sysfs
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         option
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         fsname
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          sysfs
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         option
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int
+        <var class="pdparam">
+         fs_index
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        char *
+        <var class="pdparam">
+         buf
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          sysfs
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         option
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="sysfs-2_sect1" name="sysfs-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      sysfs
+     </code>
+     () returns information
+      about the filesystem types currently present in the kernel.
+      The specific form of the
+     <code class="function">
+      sysfs
+     </code>
+     () call and the information returned
+      depends on the
+     <em class="parameter">
+      <code>
+       option
+      </code>
+     </em>
+     in effect:
+    </p>
+    <div class="orderedlist">
+     <ol class="orderedlist" type="1">
+      <li class="listitem">
+       <p>
+        Translate the filesystem identifier string
+        <em class="parameter">
+         <code>
+          fsname
+         </code>
+        </em>
+        into a
+            filesystem type index.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        Translate the filesystem type index
+        <em class="parameter">
+         <code>
+          fs_index
+         </code>
+        </em>
+        into a
+            null-terminated filesystem identifier string. This
+            string will be written to the buffer pointed to by
+        <em class="parameter">
+         <code>
+          buf
+         </code>
+        </em>
+        . Make sure
+            that
+        <em class="parameter">
+         <code>
+          buf
+         </code>
+        </em>
+        has
+            enough space to accept the string.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        Return the total number of filesystem types
+            currently present in the kernel.
+       </p>
+      </li>
+     </ol>
+    </div>
+    <p>
+     The numbering of the filesystem type indexes begins with
+      zero.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="sysfs-2_sect2" name="sysfs-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success,
+     <code class="function">
+      sysfs
+     </code>
+     () returns
+      the filesystem index for option
+     <code class="constant">
+      1
+     </code>
+     , zero for option
+     <code class="constant">
+      2
+     </code>
+     , and the number of currently configured
+      filesystems for option
+     <code class="constant">
+      3
+     </code>
+     . On
+      error, &minus;1 is returned, and
+     <code class="varname">
+      errno
+     </code>
+     is set appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="sysfs-2_sect3" name="sysfs-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EFAULT
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Either
+        <em class="parameter">
+         <code>
+          fsname
+         </code>
+        </em>
+        or
+        <em class="parameter">
+         <code>
+          buf
+         </code>
+        </em>
+        is outside your
+            accessible address space.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          fsname
+         </code>
+        </em>
+        is
+            not a valid filesystem type identifier;
+        <em class="parameter">
+         <code>
+          fs_index
+         </code>
+        </em>
+        is
+            out-of-bounds;
+        <em class="parameter">
+         <code>
+          option
+         </code>
+        </em>
+        is invalid.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="sysfs-2_sect4" name="sysfs-2_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     SVr4.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="sysfs-2_sect5" name="sysfs-2_sect5" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     This System-V derived system call is obsolete; don't use
+      it. On systems with
+     <code class="filename">
+      /proc
+     </code>
+     , the
+      same information can be obtained via
+     <code class="filename">
+      /proc/filesystems
+     </code>
+     ; use that interface
+      instead.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="sysfs-2_sect6" name="sysfs-2_sect6" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     There is no libc or glibc support. There is no way to
+      guess how large
+     <em class="parameter">
+      <code>
+       buf
+      </code>
+     </em>
+     should be.
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="sysfs-2_sect7" name="sysfs-2_sect7" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

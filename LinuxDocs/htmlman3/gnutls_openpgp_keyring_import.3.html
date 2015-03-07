@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   gnutls_openpgp_keyring_import(3) &mdash; Linux manual
+  pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="gnutls_openpgp_keyring_import(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="gnutls-openpgp-keyring-import.3" name="gnutls-openpgp-keyring-import.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     gnutls_openpgp_keyring_import &mdash; API function
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;gnutls/openpgp.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          gnutls_openpgp_keyring_import
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_openpgp_keyring_t
+        <var class="pdparam">
+         keyring
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const gnutls_datum_t *
+        <var class="pdparam">
+         data
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_openpgp_crt_fmt_t
+        <var class="pdparam">
+         format
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-openpgp-keyring-import-3_sect1" name="gnutls-openpgp-keyring-import-3_sect1" shape="rect">
+    </a>
+    <h2>
+     ARGUMENTS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_openpgp_keyring_t
+          keyring
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The structure to store the parsed key.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          const
+          gnutls_datum_t * data
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The RAW or BASE64 encoded keyring.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_openpgp_crt_fmt_t
+          format
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        One of
+        <code class="function">
+         gnutls_openpgp_keyring_fmt
+        </code>
+        elements.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-openpgp-keyring-import-3_sect2" name="gnutls-openpgp-keyring-import-3_sect2" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This function will convert the given RAW or Base64 encoded
+      keyring to the native
+     <span class="type">
+      gnutls_openpgp_keyring_t
+     </span>
+     format. The output
+      will be stored in 'keyring'.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-openpgp-keyring-import-3_sect3" name="gnutls-openpgp-keyring-import-3_sect3" shape="rect">
+    </a>
+    <h2>
+     RETURNS
+    </h2>
+    <p>
+     <span class="errorname">
+      GNUTLS_E_SUCCESS
+     </span>
+     on
+      success, or an error code.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-openpgp-keyring-import-3_sect4" name="gnutls-openpgp-keyring-import-3_sect4" shape="rect">
+    </a>
+    <h2>
+     REPORTING BUGS
+    </h2>
+    <p>
+     Report bugs to &lt;bugs@gnutls.org&gt;.
+    </p>
+    <p>
+     Home page: http://www.gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-openpgp-keyring-import-3_sect6" name="gnutls-openpgp-keyring-import-3_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <em class="citetitle">
+      gnutls
+     </em>
+     is maintained as a Texinfo manual. If
+      the /usr/share/doc/gnutls/ directory does not contain the
+      HTML form visit
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <a class="literalurl" href="http://www.gnutls.org/manual/" shape="rect" target="_top">
+         http://www.gnutls.org/manual/
+        </a>
+       </p>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

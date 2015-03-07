@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   gnutls_x509_crt_get_policy(3) &mdash; Linux manual
+  pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="gnutls_x509_crt_get_policy(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="gnutls-x509-crt-get-policy.3" name="gnutls-x509-crt-get-policy.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     gnutls_x509_crt_get_policy &mdash; API function
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;gnutls/x509.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          gnutls_x509_crt_get_policy
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_x509_crt_t
+        <var class="pdparam">
+         crt
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         indx
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        struct gnutls_x509_policy_st *
+        <var class="pdparam">
+         policy
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int *
+        <var class="pdparam">
+         critical
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crt-get-policy-3_sect1" name="gnutls-x509-crt-get-policy-3_sect1" shape="rect">
+    </a>
+    <h2>
+     ARGUMENTS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_x509_crt_t
+          crt
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        should contain a
+        <span class="type">
+         gnutls_x509_crt_t
+        </span>
+        structure
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          int
+          indx
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This specifies which policy to return. Use (0) to
+            get the first one.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          struct
+          gnutls_x509_policy_st * policy
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        A pointer to a policy structure.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          unsigned int *
+          critical
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        will be non&minus;zero if the extension is marked as
+            critical
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crt-get-policy-3_sect2" name="gnutls-x509-crt-get-policy-3_sect2" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This function will extract the certificate policy
+      (extension 2.5.29.32) specified by the given index.
+    </p>
+    <p>
+     The policy returned by this function must be deinitialized
+      by using
+     <code class="function">
+      gnutls_x509_policy_release
+     </code>
+     ().
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crt-get-policy-3_sect3" name="gnutls-x509-crt-get-policy-3_sect3" shape="rect">
+    </a>
+    <h2>
+     RETURNS
+    </h2>
+    <p>
+     On success,
+     <span class="errorname">
+      GNUTLS_E_SUCCESS
+     </span>
+     (0) is returned,
+     <span class="errorname">
+      GNUTLS_E_REQUESTED_DATA_NOT_AVAILABLE
+     </span>
+     if
+      the extension is not present, otherwise a negative error
+      value.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crt-get-policy-3_sect4" name="gnutls-x509-crt-get-policy-3_sect4" shape="rect">
+    </a>
+    <h2>
+     SINCE
+    </h2>
+    <p>
+     3.1.5
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crt-get-policy-3_sect5" name="gnutls-x509-crt-get-policy-3_sect5" shape="rect">
+    </a>
+    <h2>
+     REPORTING BUGS
+    </h2>
+    <p>
+     Report bugs to &lt;bugs@gnutls.org&gt;.
+    </p>
+    <p>
+     Home page: http://www.gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crt-get-policy-3_sect7" name="gnutls-x509-crt-get-policy-3_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <em class="citetitle">
+      gnutls
+     </em>
+     is maintained as a Texinfo manual. If
+      the /usr/share/doc/gnutls/ directory does not contain the
+      HTML form visit
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <a class="literalurl" href="http://www.gnutls.org/manual/" shape="rect" target="_top">
+         http://www.gnutls.org/manual/
+        </a>
+       </p>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   chown(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="chown(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="chown.1" name="chown.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     chown &mdash; change file owner and group
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       chown
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...] [
+      <em class="replaceable">
+       <code>
+        OWNER][:[GROUP]
+       </code>
+      </em>
+      ]
+      <em class="replaceable">
+       <code>
+        FILE
+       </code>
+      </em>
+      ...
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       chown
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...]
+      <code class="option">
+       &minus;&minus;reference
+      </code>
+      =
+      <em class="replaceable">
+       <code>
+        RFILE
+       </code>
+      </em>
+      <em class="replaceable">
+       <code>
+        FILE
+       </code>
+      </em>
+      ...
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="chown-1_sect1" name="chown-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This manual page documents the GNU version of
+     <span class="command">
+      <strong>
+       chown
+      </strong>
+     </span>
+     .
+     <span class="command">
+      <strong>
+       chown
+      </strong>
+     </span>
+     changes the user
+      and/or group ownership of each given file. If only an owner
+      (a user name or numeric user ID) is given, that user is made
+      the owner of each given file, and the files' group is not
+      changed. If the owner is followed by a colon and a group name
+      (or numeric group ID), with no spaces between them, the group
+      ownership of the files is changed as well. If a colon but no
+      group name follows the user name, that user is made the owner
+      of the files and the group of the files is changed to that
+      user's login group. If the colon and group are given, but the
+      owner is omitted, only the group of the files is changed; in
+      this case,
+     <span class="command">
+      <strong>
+       chown
+      </strong>
+     </span>
+     performs the same
+      function as
+     <span class="command">
+      <strong>
+       chgrp
+      </strong>
+     </span>
+     . If only a colon is
+      given, or if the entire operand is empty, neither the owner
+      nor the group is changed.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="chown-1_sect2" name="chown-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <p>
+     Change the owner and/or group of each FILE to OWNER and/or
+      GROUP. With
+     <code class="option">
+      &minus;&minus;reference
+     </code>
+     , change the owner and
+      group of each FILE to those of RFILE.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;c
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;changes
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        like verbose but report only when a change is
+            made
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;silent
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;quiet
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        suppress most error messages
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;verbose
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output a diagnostic for every file processed
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;dereference
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        affect the referent of each symbolic link (this is
+            the default), rather than the symbolic link itself
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;no&minus;dereference
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        affect symbolic links instead of any referenced file
+            (useful only on systems that can change the ownership
+            of a symlink)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;from
+        </code>
+        =
+        <code class="constant">
+         CURRENT_OWNER
+        </code>
+        :CURRENT_GROUP
+       </span>
+      </dt>
+      <dd>
+       <p>
+        change the owner and/or group of each file only if
+            its current owner and/or group match those specified
+            here. Either may be omitted, in which case a match is
+            not required for the omitted attribute
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;no&minus;preserve&minus;root
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not treat '/' specially (the default)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;preserve&minus;root
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        fail to operate recursively on '/'
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;reference
+        </code>
+        =
+        <code class="constant">
+         RFILE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use RFILE's owner and group rather than specifying
+            OWNER:GROUP values
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;R
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;recursive
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        operate on files and directories recursively
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     The following options modify how a hierarchy is traversed
+      when the
+     <code class="option">
+      &minus;R
+     </code>
+     option is also
+      specified. If more than one is specified, only the final one
+      takes effect.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;H
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        if a command line argument is a symbolic link to a
+            directory, traverse it
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;L
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        traverse every symbolic link to a directory
+            encountered
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;P
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not traverse any symbolic links (default)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display this help and exit
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output version information and exit
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     Owner is unchanged if missing. Group is unchanged if
+      missing, but changed to login group if implied by a ':'
+      following a symbolic OWNER. OWNER and GROUP may be numeric as
+      well as symbolic.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="chown-1_sect3" name="chown-1_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+chown root /u
+</pre>
+    </div>
+    <p>
+     Change the owner of /u to "root".
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+chown root:staff /u
+</pre>
+    </div>
+    <p>
+     Likewise, but also change its group to "staff".
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+chown &minus;hR root /u
+</pre>
+    </div>
+    <p>
+     Change the owner of /u and subfiles to "root".
+    </p>
+    <p>
+     GNU coreutils online help: &lt;
+     <a class="literalurl" href="http://www.gnu.org/software/coreutils/" shape="rect" target="_top">
+      http://www.gnu.org/software/coreutils/
+     </a>
+     &gt; Report
+      chown translation bugs to &lt;
+     <a class="literalurl" href="http://translationproject.org/team/" shape="rect" target="_top">
+      http://translationproject.org/team/
+     </a>
+     &gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="chown-1_sect4" name="chown-1_sect4" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Written by David MacKenzie and Jim Meyering.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="chown-1_sect6" name="chown-1_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/chown.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        chown
+       </span>
+       (2)
+      </span>
+     </a>
+    </p>
+    <p>
+     The full documentation for
+     <span class="command">
+      <strong>
+       chown
+      </strong>
+     </span>
+     is maintained as a
+      Texinfo manual. If the
+     <span class="command">
+      <strong>
+       info
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       chown
+      </strong>
+     </span>
+     programs are properly
+      installed at your site, the command
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <span class="emphasis">
+         <em>
+          info coreutils 'chown
+            invocation'
+         </em>
+        </span>
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p>
+     should give you access to the complete manual.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

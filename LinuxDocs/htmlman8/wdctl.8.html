@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   wdctl(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="wdctl(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="wdctl.8" name="wdctl.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     wdctl &mdash; show hardware watchdog status
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       wdctl
+      </code>
+      [options] [ device...
+        ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="wdctl-8_sect1" name="wdctl-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Show hardware watchdog status. The default device is
+     <code class="filename">
+      /dev/watchdog
+     </code>
+     . If more than one
+      device is specified then the output is separated by one blank
+      line.
+    </p>
+    <p>
+     Note that number of supported watchdog features is
+      hardware specific.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="wdctl-8_sect2" name="wdctl-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;flags
+        </code>
+        <span class="command">
+         <strong>
+          list
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print selected flags only.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;F
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;noflags
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not print information about flags.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;noheadings
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not print a header line for flags table.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;I
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;noident
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not print watchdog identity information.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;T
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;notimeouts
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not print watchdog timeouts.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;settimeout
+        </code>
+        <span class="command">
+         <strong>
+          seconds
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set the watchdog timeout in seconds.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;output
+        </code>
+        <span class="command">
+         <strong>
+          list
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Define the output columns to use in table of
+            watchdog flags. If no output arrangement is specified,
+            then a default set is used. Use
+        <code class="option">
+         &minus;&minus;help
+        </code>
+        to get list of all
+            supported columns.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;O
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;oneline
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print all wanted information on one line in
+            key="value" output format.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;raw
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use the raw output format.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;x
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;flags&minus;only
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Same as
+        <code class="option">
+         &minus;I
+            &minus;T
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="wdctl-8_sect3" name="wdctl-8_sect3" shape="rect">
+    </a>
+    <h2>
+     AUTHORS
+    </h2>
+    <p>
+     <a class="literalurl" href="mailto:kzak%20REMOVE%20@%20THIS%20redhat.com" shape="rect" target="_top">
+      Karel Zak
+     </a>
+    </p>
+    <p>
+     <a class="literalurl" href="mailto:lennart%20REMOVE%20@%20THIS%20poettering.net" shape="rect" target="_top">
+      Lennart Poettering
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="wdctl-8_sect4" name="wdctl-8_sect4" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       wdctl
+      </strong>
+     </span>
+     command is part of the util-linux package and is available
+      from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   malloc_stats(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="malloc_stats(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="malloc-stats.3" name="malloc-stats.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     malloc_stats &mdash; print memory allocation
+      statistics
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;malloc.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          malloc_stats
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <code>
+         void)
+        </code>
+        ;
+       </td>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="malloc-stats-3_sect1" name="malloc-stats-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      malloc_stats
+     </code>
+     () function
+      prints (on standard error) statistics about memory allocated
+      by
+     <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        malloc
+       </span>
+       (3)
+      </span>
+     </a>
+     and related
+      functions. For each arena (allocation area), this function
+      prints the total amount of memory allocated and the total
+      number of bytes consumed by in-use allocations. (These two
+      values correspond to the
+     <code class="function">
+      arena
+     </code>
+     and
+     <code class="function">
+      uordblks
+     </code>
+     fields retrieved
+      by
+     <a class="link" href="../htmlman3/mallinfo.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mallinfo
+       </span>
+       (3)
+      </span>
+     </a>
+     .) In addition,
+      the function prints the sum of these two statistics for all
+      arenas, and the maximum number of blocks and bytes that were
+      ever simultaneously allocated using
+     <a class="link" href="../htmlman2/mmap.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mmap
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="malloc-stats-3_sect2" name="malloc-stats-3_sect2" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     This function is a GNU extension.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="malloc-stats-3_sect3" name="malloc-stats-3_sect3" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     More detailed information about memory allocations in the
+      main arena can be obtained using
+     <a class="link" href="../htmlman3/mallinfo.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mallinfo
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="malloc-stats-3_sect4" name="malloc-stats-3_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/mmap.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mmap
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/mallinfo.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mallinfo
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        malloc
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/malloc_info.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        malloc_info
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/mallopt.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mallopt
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="malloc-stats-3_sect5" name="malloc-stats-3_sect5" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

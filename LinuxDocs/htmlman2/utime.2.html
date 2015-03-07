@@ -1,0 +1,727 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   utime(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="utime(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="utime.2" name="utime.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     utime, utimes &mdash; change file last access and
+      modification times
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#include &lt;sys/types.h&gt;
+#include &lt;utime.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          utime
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         filename
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const struct utimbuf *
+        <var class="pdparam">
+         times
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;sys/time.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          utimes
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         filename
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const struct timeval
+        <var class="pdparam">
+         times[2]
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="utime-2_sect1" name="utime-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <p>
+         modern applications may prefer to use the
+              interfaces described in
+         <a class="link" href="../htmlman2/utimensat.2.html" shape="rect" target="_top">
+          <span class="citerefentry">
+           <span class="refentrytitle">
+            utimensat
+           </span>
+           (2)
+          </span>
+         </a>
+         .
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+    <p>
+     The
+     <code class="function">
+      utime
+     </code>
+     () system call
+      changes the access and modification times of the inode
+      specified by
+     <em class="parameter">
+      <code>
+       filename
+      </code>
+     </em>
+     to the
+     <em class="replaceable">
+      <code>
+       actime
+      </code>
+     </em>
+     and
+     <em class="replaceable">
+      <code>
+       modtime
+      </code>
+     </em>
+     fields of
+     <em class="parameter">
+      <code>
+       times
+      </code>
+     </em>
+     respectively.
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       times
+      </code>
+     </em>
+     is NULL,
+      then the access and modification times of the file are set to
+      the current time.
+    </p>
+    <p>
+     Changing timestamps is permitted when: either the process
+      has appropriate privileges, or the effective user ID equals
+      the user ID of the file, or
+     <em class="parameter">
+      <code>
+       times
+      </code>
+     </em>
+     is NULL and the process
+      has write permission for the file.
+    </p>
+    <p>
+     The
+     <span class="structname">
+      utimbuf
+     </span>
+     structure
+      is:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="structdef">
+       <table style="border-collapse: collapse;">
+        <colgroup span="1">
+         <col class="c1" span="1">
+         </col>
+         <col class="c2" span="1">
+         </col>
+         <col class="c3" span="1">
+         </col>
+         <col class="c4" span="1">
+         </col>
+         <col class="c5" span="1">
+         </col>
+        </colgroup>
+        <tbody>
+         <tr>
+          <td align="left" class="structdefhdr" colspan="1" rowspan="1" style="">
+           struct
+          </td>
+          <td align="left" class="structdefhdr" colspan="4" rowspan="1" style="">
+           <span class="structname">
+            utimbuf
+           </span>
+           &nbsp;{
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            time_t
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             actime
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;access&nbsp;time&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            time_t
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             modtime
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;modification&nbsp;time&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td align="left" class="structdefftr" colspan="5" rowspan="1" style="">
+           };
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     The
+     <code class="function">
+      utime
+     </code>
+     () system call
+      allows specification of timestamps with a resolution of 1
+      second.
+    </p>
+    <p>
+     The
+     <code class="function">
+      utimes
+     </code>
+     () system call is
+      similar, but the
+     <em class="parameter">
+      <code>
+       times
+      </code>
+     </em>
+     argument refers to an
+      array rather than a structure. The elements of this array are
+     <span class="structname">
+      timeval
+     </span>
+     structures, which
+      allow a precision of 1 microsecond for specifying timestamps.
+      The
+     <span class="structname">
+      timeval
+     </span>
+     structure is:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="structdef">
+       <table style="border-collapse: collapse;">
+        <colgroup span="1">
+         <col class="c1" span="1">
+         </col>
+         <col class="c2" span="1">
+         </col>
+         <col class="c3" span="1">
+         </col>
+         <col class="c4" span="1">
+         </col>
+         <col class="c5" span="1">
+         </col>
+        </colgroup>
+        <tbody>
+         <tr>
+          <td align="left" class="structdefhdr" colspan="1" rowspan="1" style="">
+           struct
+          </td>
+          <td align="left" class="structdefhdr" colspan="4" rowspan="1" style="">
+           <span class="structname">
+            timeval
+           </span>
+           &nbsp;{
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            long
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             tv_sec
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;seconds&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            long
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             tv_usec
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;microseconds&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td align="left" class="structdefftr" colspan="5" rowspan="1" style="">
+           };
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     <em class="parameter">
+      <code>
+       times
+      </code>
+     </em>
+     [0] specifies
+      the new access time, and
+     <em class="parameter">
+      <code>
+       times
+      </code>
+     </em>
+     [1] specifies the new
+      modification time. If
+     <em class="parameter">
+      <code>
+       times
+      </code>
+     </em>
+     is NULL, then analogously
+      to
+     <code class="function">
+      utime
+     </code>
+     (), the access and
+      modification times of the file are set to the current
+      time.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="utime-2_sect2" name="utime-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success, zero is returned. On error, &minus;1 is
+      returned, and
+     <code class="varname">
+      errno
+     </code>
+     is set
+      appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="utime-2_sect3" name="utime-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EACCES
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Search permission is denied for one of the
+            directories in the path prefix of
+        <em class="replaceable">
+         <code>
+          path
+         </code>
+        </em>
+        (see also
+        <a class="link" href="../htmlman7/path_resolution.7.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           path_resolution
+          </span>
+          (7)
+         </span>
+        </a>
+        ).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EACCES
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          times
+         </code>
+        </em>
+        is
+            NULL, the caller's effective user ID does not match the
+            owner of the file, the caller does not have write
+            access to the file, and the caller is not privileged
+            (Linux: does not have either the
+        <code class="constant">
+         CAP_DAC_OVERRIDE
+        </code>
+        or the
+        <code class="constant">
+         CAP_FOWNER
+        </code>
+        capability).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOENT
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          filename
+         </code>
+        </em>
+        does not exist.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EPERM
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          times
+         </code>
+        </em>
+        is not
+            NULL, the caller's effective UID does not match the
+            owner of the file, and the caller is not privileged
+            (Linux: does not have the
+        <code class="constant">
+         CAP_FOWNER
+        </code>
+        capability).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EROFS
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="replaceable">
+         <code>
+          path
+         </code>
+        </em>
+        resides on a read-only filesystem.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="utime-2_sect4" name="utime-2_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     <code class="function">
+      utime
+     </code>
+     (): SVr4, POSIX.1-2001.
+      POSIX.1-2008 marks
+     <code class="function">
+      utime
+     </code>
+     () as
+      obsolete.
+    </p>
+    <p>
+     <code class="function">
+      utimes
+     </code>
+     (): 4.3BSD,
+      POSIX.1-2001.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="utime-2_sect5" name="utime-2_sect5" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     Linux does not allow changing the timestamps on an
+      immutable file, or setting the timestamps to something other
+      than the current time on an append-only file.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="utime-2_sect6" name="utime-2_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       chattr
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman2/futimesat.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        futimesat
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/stat.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        stat
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/utimensat.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        utimensat
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/utimensat.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        futimens
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/futimes.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        futimes
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="utime-2_sect7" name="utime-2_sect7" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

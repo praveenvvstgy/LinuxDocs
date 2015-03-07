@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   termio(7) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="termio(7) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="termio.7" name="termio.7" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     termio &mdash; System V terminal driver interface
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="termio-7_sect1" name="termio-7_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <em class="replaceable">
+      <code>
+       termio
+      </code>
+     </em>
+     is the
+      name of the old System V terminal driver interface. This
+      interface defined a
+     <em class="replaceable">
+      <code>
+       termio
+      </code>
+     </em>
+     structure used to
+      store terminal settings, and a range of
+     <a class="link" href="../htmlman2/ioctl.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ioctl
+       </span>
+       (2)
+      </span>
+     </a>
+     operations to get
+      and set terminal attributes.
+    </p>
+    <p>
+     The
+     <em class="replaceable">
+      <code>
+       termio
+      </code>
+     </em>
+     interface is now obsolete: POSIX.1-1990 standardized a
+      modified version of this interface, under the name
+     <em class="replaceable">
+      <code>
+       termios
+      </code>
+     </em>
+     . The POSIX.1 data
+      structure differs slightly from the System V version, and
+      POSIX.1 defined a suite of functions to replace the various
+     <a class="link" href="../htmlman2/ioctl.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ioctl
+       </span>
+       (2)
+      </span>
+     </a>
+     operations that
+      existed in System V. (This was done because
+     <a class="link" href="../htmlman2/ioctl.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ioctl
+       </span>
+       (2)
+      </span>
+     </a>
+     was
+      unstandardized, and its variadic third argument does not
+      allow argument type checking.)
+    </p>
+    <p>
+     If you're looking for page called "termio", then you can
+      probably find most of the information that you seek in either
+     <a class="link" href="../htmlman3/termios.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        termios
+       </span>
+       (3)
+      </span>
+     </a>
+     or
+     <a class="link" href="../htmlman4/tty_ioctl.4.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tty_ioctl
+       </span>
+       (4)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="termio-7_sect2" name="termio-7_sect2" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/reset.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        reset
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/setterm.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setterm
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/stty.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        stty
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/termios.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        termios
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman4/tty.4.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tty
+       </span>
+       (4)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman4/tty_ioctl.4.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tty_ioctl
+       </span>
+       (4)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="termio-7_sect3" name="termio-7_sect3" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

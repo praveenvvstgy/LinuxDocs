@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   setup(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="setup(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="setup.2" name="setup.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     setup &mdash; setup devices and filesystems, mount root
+      filesystem
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;unistd.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          setup
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <code>
+         void)
+        </code>
+        ;
+       </td>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setup-2_sect1" name="setup-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      setup
+     </code>
+     () is called once from
+      within
+     <code class="filename">
+      linux/init/main.c
+     </code>
+     . It
+      calls initialization functions for devices and filesystems
+      configured into the kernel and then mounts the root
+      filesystem.
+    </p>
+    <p>
+     No user process may call
+     <code class="function">
+      setup
+     </code>
+     (). Any user process, even a process
+      with superuser permission, will receive
+     <span class="errorname">
+      EPERM
+     </span>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setup-2_sect2" name="setup-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     <code class="function">
+      setup
+     </code>
+     () always returns
+      &minus;1 for a user process.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setup-2_sect3" name="setup-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EPERM
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Always, for a user process.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setup-2_sect4" name="setup-2_sect4" shape="rect">
+    </a>
+    <h2>
+     VERSIONS
+    </h2>
+    <p>
+     Since Linux 2.1.121, no such function exists anymore.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setup-2_sect5" name="setup-2_sect5" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     This function is Linux-specific, and should not be used in
+      programs intended to be portable, or indeed in any programs
+      at all.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setup-2_sect6" name="setup-2_sect6" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The calling sequence varied: at some times
+     <code class="function">
+      setup
+     </code>
+     () has had a single argument
+     <span class="emphasis">
+      <em>
+       void *BIOS
+      </em>
+     </span>
+     and at
+      other times a single argument
+     <span class="emphasis">
+      <em>
+       int
+      magic
+      </em>
+     </span>
+     .
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="setup-2_sect7" name="setup-2_sect7" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

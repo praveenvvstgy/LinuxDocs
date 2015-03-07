@@ -1,0 +1,692 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   times(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="times(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="times.2" name="times.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     times &mdash; get process times
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;sys/times.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         clock_t
+         <strong>
+          times
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        struct tms *
+        <var class="pdparam">
+         buf
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="times-2_sect1" name="times-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      times
+     </code>
+     () stores the current
+      process times in the
+     <span class="emphasis">
+      <em>
+       struct
+      tms
+      </em>
+     </span>
+     that
+     <em class="parameter">
+      <code>
+       buf
+      </code>
+     </em>
+     points to. The
+     <span class="emphasis">
+      <em>
+       struct tms
+      </em>
+     </span>
+     is as defined in
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      sys/times.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="structdef">
+       <table style="border-collapse: collapse;">
+        <colgroup span="1">
+         <col class="c1" span="1">
+         </col>
+         <col class="c2" span="1">
+         </col>
+         <col class="c3" span="1">
+         </col>
+         <col class="c4" span="1">
+         </col>
+         <col class="c5" span="1">
+         </col>
+        </colgroup>
+        <tbody>
+         <tr>
+          <td align="left" class="structdefhdr" colspan="1" rowspan="1" style="">
+           struct
+          </td>
+          <td align="left" class="structdefhdr" colspan="4" rowspan="1" style="">
+           <span class="structname">
+            tms
+           </span>
+           &nbsp;{
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            clock_t
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             tms_utime
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;user&nbsp;time&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            clock_t
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             tms_stime
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;system&nbsp;time&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            clock_t
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             tms_cutime
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;user&nbsp;time&nbsp;of&nbsp;children&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            clock_t
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             tms_cstime
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;system&nbsp;time&nbsp;of&nbsp;children&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td align="left" class="structdefftr" colspan="5" rowspan="1" style="">
+           };
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       tms_utime
+      </code>
+     </em>
+     field contains the CPU time spent executing instructions of
+      the calling process. The
+     <em class="parameter">
+      <code>
+       tms_stime
+      </code>
+     </em>
+     field contains the
+      CPU time spent in the system while executing tasks on behalf
+      of the calling process. The
+     <em class="parameter">
+      <code>
+       tms_cutime
+      </code>
+     </em>
+     field contains the
+      sum of the
+     <em class="parameter">
+      <code>
+       tms_utime
+      </code>
+     </em>
+     and
+     <em class="parameter">
+      <code>
+       tms_cutime
+      </code>
+     </em>
+     values
+      for all waited-for terminated children. The
+     <em class="parameter">
+      <code>
+       tms_cstime
+      </code>
+     </em>
+     field contains the
+      sum of the
+     <em class="parameter">
+      <code>
+       tms_stime
+      </code>
+     </em>
+     and
+     <em class="parameter">
+      <code>
+       tms_cstime
+      </code>
+     </em>
+     values
+      for all waited-for terminated children.
+    </p>
+    <p>
+     Times for terminated children (and their descendants) are
+      added in at the moment
+     <a class="link" href="../htmlman2/wait.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        wait
+       </span>
+       (2)
+      </span>
+     </a>
+     or
+     <a class="link" href="../htmlman2/wait.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        waitpid
+       </span>
+       (2)
+      </span>
+     </a>
+     returns their
+      process ID. In particular, times of grandchildren that the
+      children did not wait for are never seen.
+    </p>
+    <p>
+     All times reported are in clock ticks.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="times-2_sect2" name="times-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     <code class="function">
+      times
+     </code>
+     () returns the number
+      of clock ticks that have elapsed since an arbitrary point in
+      the past. The return value may overflow the possible range of
+      type
+     <span class="type">
+      clock_t
+     </span>
+     . On error,
+     <span class="emphasis">
+      <em>
+       (clock_t) &minus;1
+      </em>
+     </span>
+     is
+      returned, and
+     <code class="varname">
+      errno
+     </code>
+     is set
+      appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="times-2_sect3" name="times-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EFAULT
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <span class="structname">
+         tms
+        </span>
+        points outside
+            the process's address space.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="times-2_sect4" name="times-2_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     SVr4, 4.3BSD, POSIX.1-2001.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="times-2_sect5" name="times-2_sect5" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The number of clock ticks per second can be obtained
+      using:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       sysconf(_SC_CLK_TCK);
+      </p>
+     </blockquote>
+    </div>
+    <p>
+     In POSIX.1-1996 the symbol
+     <code class="constant">
+      CLK_TCK
+     </code>
+     (defined in
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      time.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+     is
+      mentioned as obsolescent. It is obsolete now.
+    </p>
+    <p>
+     In Linux kernel versions before 2.6.9, if the disposition
+      of
+     <code class="constant">
+      SIGCHLD
+     </code>
+     is set to
+     <code class="constant">
+      SIG_IGN
+     </code>
+     , then the times of
+      terminated children are automatically included in the
+     <em class="parameter">
+      <code>
+       tms_cstime
+      </code>
+     </em>
+     and
+     <em class="parameter">
+      <code>
+       tms_cutime
+      </code>
+     </em>
+     fields,
+      although POSIX.1-2001 says that this should happen only if
+      the calling process
+     <a class="link" href="../htmlman2/wait.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        wait
+       </span>
+       (2)
+      </span>
+     </a>
+     s on its children.
+      This nonconformance is rectified in Linux 2.6.9 and
+      later.
+    </p>
+    <p>
+     On Linux, the
+     <em class="parameter">
+      <code>
+       buf
+      </code>
+     </em>
+     argument can be specified as NULL, with the result that
+     <code class="function">
+      times
+     </code>
+     () just returns a function
+      result. However, POSIX does not specify this behavior, and
+      most other UNIX implementations require a non-NULL value for
+     <em class="parameter">
+      <code>
+       buf
+      </code>
+     </em>
+     .
+    </p>
+    <p>
+     Note that
+     <a class="link" href="../htmlman3/clock.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clock
+       </span>
+       (3)
+      </span>
+     </a>
+     also returns a
+      value of type
+     <span class="type">
+      clock_t
+     </span>
+     , but this
+      value is measured in units of
+     <code class="constant">
+      CLOCKS_PER_SEC
+     </code>
+     , not the clock ticks used by
+     <code class="function">
+      times
+     </code>
+     ().
+    </p>
+    <p>
+     On Linux, the "arbitrary point in the past" from which the
+      return value of
+     <code class="function">
+      times
+     </code>
+     () is
+      measured has varied across kernel versions. On Linux 2.4 and
+      earlier this point is the moment the system was booted. Since
+      Linux 2.6, this point is
+     <span class="emphasis">
+      <em>
+       (2^32/HZ)
+      &minus; 300
+      </em>
+     </span>
+     (i.e., about 429 million) seconds
+      before system boot time. This variability across kernel
+      versions (and across UNIX implementations), combined with the
+      fact that the returned value may overflow the range of
+     <span class="type">
+      clock_t
+     </span>
+     , means that a portable
+      application would be wise to avoid using this value. To
+      measure changes in elapsed time, use
+     <a class="link" href="../htmlman2/clock_getres.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clock_gettime
+       </span>
+       (2)
+      </span>
+     </a>
+     instead.
+    </p>
+    <div class="refsect2">
+     <a id="times-2_sect6" name="times-2_sect6" shape="rect">
+     </a>
+     <h3>
+      Historical
+     </h3>
+     <p>
+      SVr1-3 returns
+      <span class="type">
+       long
+      </span>
+      and the
+        struct members are of type
+      <span class="type">
+       time_t
+      </span>
+      although they store clock ticks, not seconds since the
+        Epoch. V7 used
+      <span class="type">
+       long
+      </span>
+      for the
+        struct members, because it had no type
+      <span class="type">
+       time_t
+      </span>
+      yet.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="times-2_sect7" name="times-2_sect7" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     A limitation of the Linux system call conventions on some
+      architectures (notably i386) means that on Linux 2.6 there is
+      a small time window (41 seconds) soon after boot when
+     <code class="function">
+      times
+     </code>
+     () can return &minus;1,
+      falsely indicating that an error occurred. The same problem
+      can occur when the return value wraps past the maximum value
+      that can be stored in
+     <span class="type">
+      clock_t
+     </span>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="times-2_sect8" name="times-2_sect8" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       time
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman2/getrusage.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getrusage
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/wait.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        wait
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/clock.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clock
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/sysconf.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sysconf
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/time.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        time
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="times-2_sect9" name="times-2_sect9" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

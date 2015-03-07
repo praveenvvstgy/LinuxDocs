@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   cacheflush(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="cacheflush(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="cacheflush.2" name="cacheflush.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     cacheflush &mdash; flush contents of instruction and/or
+      data cache
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;asm/cachectl.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          cacheflush
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        char *
+        <var class="pdparam">
+         addr
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         nbytes
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         cache
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="cacheflush-2_sect1" name="cacheflush-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      cacheflush
+     </code>
+     () flushes the
+      contents of the indicated cache(s) for the user addresses in
+      the range
+     <em class="parameter">
+      <code>
+       addr
+      </code>
+     </em>
+     to
+     <em class="replaceable">
+      <code>
+       (addr+nbytes-1)
+      </code>
+     </em>
+     .
+     <em class="parameter">
+      <code>
+       cache
+      </code>
+     </em>
+     may be one
+      of:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         ICACHE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Flush the instruction cache.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         DCACHE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Write back to memory and invalidate the affected
+            valid cache lines.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         BCACHE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Same as
+        <em class="replaceable">
+         <code>
+          (ICACHE|DCACHE)
+         </code>
+        </em>
+        .
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="cacheflush-2_sect2" name="cacheflush-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     <code class="function">
+      cacheflush
+     </code>
+     () returns 0 on
+      success or &minus;1 on error. If errors are detected,
+     <code class="varname">
+      errno
+     </code>
+     will indicate the
+      error.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="cacheflush-2_sect3" name="cacheflush-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EFAULT
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Some or all of the address range
+        <em class="parameter">
+         <code>
+          addr
+         </code>
+        </em>
+        to
+        <em class="replaceable">
+         <code>
+          (addr+nbytes-1)
+         </code>
+        </em>
+        is not
+            accessible.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          cache
+         </code>
+        </em>
+        is not
+            one of
+        <code class="constant">
+         ICACHE
+        </code>
+        ,
+        <code class="constant">
+         DCACHE
+        </code>
+        , or
+        <code class="constant">
+         BCACHE
+        </code>
+        .
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="cacheflush-2_sect4" name="cacheflush-2_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     This Linux-specific system call is available only on
+      MIPS-based systems. It should not be used in programs
+      intended to be portable.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="cacheflush-2_sect5" name="cacheflush-2_sect5" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     The current implementation ignores the
+     <em class="parameter">
+      <code>
+       addr
+      </code>
+     </em>
+     and
+     <em class="parameter">
+      <code>
+       nbytes
+      </code>
+     </em>
+     arguments. Therefore,
+      the whole cache is always flushed.
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="cacheflush-2_sect6" name="cacheflush-2_sect6" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

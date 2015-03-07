@@ -1,0 +1,682 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   setlocale(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="setlocale(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="setlocale.3" name="setlocale.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     setlocale &mdash; set the current locale
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;locale.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         char
+            *
+         <strong>
+          setlocale
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         category
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         locale
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setlocale-3_sect1" name="setlocale-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      setlocale
+     </code>
+     () function is
+      used to set or query the program's current locale.
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       locale
+      </code>
+     </em>
+     is not
+      NULL, the program's current locale is modified according to
+      the arguments. The argument
+     <em class="parameter">
+      <code>
+       category
+      </code>
+     </em>
+     determines which parts
+      of the program's current locale should be modified.
+    </p>
+    <div class="informaltable">
+     <table style="border-collapse: collapse;">
+      <colgroup span="1">
+       <col class="c0" span="1">
+       </col>
+       <col class="c1" span="1">
+       </col>
+      </colgroup>
+      <tbody>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <em class="parameter">
+          <code>
+           Category
+          </code>
+         </em>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          Governs
+         </code>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="constant">
+          LC_ALL
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         All of the locale
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="constant">
+          LC_ADDRESS
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <p>
+          Formatting of addresses and
+         </p>
+         <p>
+          geography-related items (*)
+         </p>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="constant">
+          LC_COLLATE
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         String collation
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="constant">
+          LC_CTYPE
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Character
+              classification
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="constant">
+          LC_IDENTIFICATION
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Metadata describing the
+              locale (*)
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="constant">
+          LC_MEASUREMENT
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <p>
+          Settings related to measurements
+         </p>
+         <p>
+          (metric versus US customary) (*)
+         </p>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="constant">
+          LC_MESSAGES
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Localizable
+              natural-language messages
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="constant">
+          LC_MONETARY
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Formatting of monetary
+              values
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="constant">
+          LC_NAME
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Formatting of salutations
+              for persons (*)
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="constant">
+          LC_NUMERIC
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Formatting of nonmonetary
+              numeric values
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="constant">
+          LC_PAPER
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Settings related to the
+              standard paper size (*)
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="constant">
+          LC_TELEPHONE
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Formats to be used with
+              telephone services (*)
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="constant">
+          LC_TIME
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Formatting of date and time
+              values
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     The categories marked with an asterisk in the above table
+      are GNU extensions. For further information on these locale
+      categories, see
+     <a class="link" href="../htmlman7/locale.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        locale
+       </span>
+       (7)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     The argument
+     <em class="parameter">
+      <code>
+       locale
+      </code>
+     </em>
+     is a pointer to a
+      character string containing the required setting of
+     <em class="parameter">
+      <code>
+       category
+      </code>
+     </em>
+     . Such a
+      string is either a well-known constant like "C" or "da_DK"
+      (see below), or an opaque string that was returned by another
+      call of
+     <code class="function">
+      setlocale
+     </code>
+     ().
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       locale
+      </code>
+     </em>
+     is an
+      empty string,
+     <code class="literal">
+      ""
+     </code>
+     each part of
+      the locale that should be modified is set according to the
+      environment variables. The details are
+      implementation-dependent. For glibc, first (regardless of
+     <em class="parameter">
+      <code>
+       category
+      </code>
+     </em>
+     ), the
+      environment variable
+     <code class="constant">
+      LC_ALL
+     </code>
+     is
+      inspected, next the environment variable with the same name
+      as the category (see the table above), and finally the
+      environment variable
+     <code class="constant">
+      LANG
+     </code>
+     . The
+      first existing environment variable is used. If its value is
+      not a valid locale specification, the locale is unchanged,
+      and
+     <code class="function">
+      setlocale
+     </code>
+     () returns
+      NULL.
+    </p>
+    <p>
+     The locale
+     <span class="quote">
+      &ldquo;
+      <span class="quote">
+       C
+      </span>
+      &rdquo;
+     </span>
+     or
+     <span class="quote">
+      &ldquo;
+      <span class="quote">
+       POSIX
+      </span>
+      &rdquo;
+     </span>
+     is a portable locale; its
+     <code class="constant">
+      LC_CTYPE
+     </code>
+     part corresponds to the 7-bit
+      ASCII character set.
+    </p>
+    <p>
+     A locale name is typically of the form
+     <em class="replaceable">
+      <code>
+       language
+      </code>
+     </em>
+     [_
+     <em class="replaceable">
+      <code>
+       territory
+      </code>
+     </em>
+     ][.
+     <em class="replaceable">
+      <code>
+       codeset
+      </code>
+     </em>
+     ][@
+     <em class="replaceable">
+      <code>
+       modifier
+      </code>
+     </em>
+     ], where
+     <em class="replaceable">
+      <code>
+       language
+      </code>
+     </em>
+     is an ISO 639
+      language code,
+     <em class="replaceable">
+      <code>
+       territory
+      </code>
+     </em>
+     is an ISO 3166
+      country code, and
+     <em class="replaceable">
+      <code>
+       codeset
+      </code>
+     </em>
+     is a character set or
+      encoding identifier like
+     <em class="replaceable">
+      <code>
+       ISO-8859-1
+      </code>
+     </em>
+     or
+     <em class="replaceable">
+      <code>
+       UTF-8
+      </code>
+     </em>
+     . For a list of all
+      supported locales, try "locale &minus;a", cf.
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       locale
+      </span>
+      (1)
+     </span>
+     .
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       locale
+      </code>
+     </em>
+     is NULL,
+      the current locale is only queried, not modified.
+    </p>
+    <p>
+     On startup of the main program, the portable
+     <span class="quote">
+      &ldquo;
+      <span class="quote">
+       C
+      </span>
+      &rdquo;
+     </span>
+     locale is selected as default. A program may be made portable
+      to all locales by calling:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+    setlocale(LC_ALL, "");
+</pre>
+    </div>
+    <p>
+     after program initialization, by using the values returned
+      from a
+     <a class="link" href="../htmlman3/localeconv.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        localeconv
+       </span>
+       (3)
+      </span>
+     </a>
+     call for
+      locale-dependent information, by using the multibyte and wide
+      character functions for text processing if
+     <span class="emphasis">
+      <em>
+       MB_CUR_MAX &gt; 1
+      </em>
+     </span>
+     , and by using
+     <a class="link" href="../htmlman3/strcoll.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        strcoll
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       wcscoll
+      </span>
+      (3)
+     </span>
+     or
+     <a class="link" href="../htmlman3/strxfrm.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        strxfrm
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       wcsxfrm
+      </span>
+      (3)
+     </span>
+     to compare
+      strings.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setlocale-3_sect2" name="setlocale-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     A successful call to
+     <code class="function">
+      setlocale
+     </code>
+     () returns an opaque string that
+      corresponds to the locale set. This string may be allocated
+      in static storage. The string returned is such that a
+      subsequent call with that string and its associated category
+      will restore that part of the process's locale. The return
+      value is NULL if the request cannot be honored.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setlocale-3_sect3" name="setlocale-3_sect3" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     C89, C99, POSIX.1-2001.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setlocale-3_sect4" name="setlocale-3_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       locale
+      </span>
+      (1)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       localedef
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman3/isalpha.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        isalpha
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/localeconv.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        localeconv
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/nl_langinfo.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        nl_langinfo
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/rpmatch.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        rpmatch
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/strcoll.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        strcoll
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/strftime.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        strftime
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/charsets.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        charsets
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/locale.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        locale
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="setlocale-3_sect5" name="setlocale-3_sect5" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,556 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   rexec(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="rexec(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="rexec.3" name="rexec.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     rexec, rexec_af &mdash; return stream to a remote
+      command
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#define _BSD_SOURCE              /* See feature_test_macros(7) */
+#include &lt;netdb.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          rexec
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        char **
+        <var class="pdparam">
+         ahost
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         inport
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         user
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         passwd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         cmd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int *
+        <var class="pdparam">
+         fd2p
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          rexec_af
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        char **
+        <var class="pdparam">
+         ahost
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         inport
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         user
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         passwd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         cmd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int *
+        <var class="pdparam">
+         fd2p
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        sa_family_t
+        <var class="pdparam">
+         af
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="rexec-3_sect1" name="rexec-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This interface is obsoleted by
+     <a class="link" href="../htmlman3/rcmd.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        rcmd
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     The
+     <code class="function">
+      rexec
+     </code>
+     () function looks
+      up the host *
+     <em class="parameter">
+      <code>
+       ahost
+      </code>
+     </em>
+     using
+     <a class="link" href="../htmlman3/gethostbyname.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        gethostbyname
+       </span>
+       (3)
+      </span>
+     </a>
+     , returning
+      &minus;1 if the host does not exist. Otherwise, *
+     <em class="parameter">
+      <code>
+       ahost
+      </code>
+     </em>
+     is set to the standard
+      name of the host. If a username and password are both
+      specified, then these are used to authenticate to the foreign
+      host; otherwise the environment and then the
+     <em class="replaceable">
+      <code>
+       .netrc
+      </code>
+     </em>
+     file in user's home
+      directory are searched for appropriate information. If all
+      this fails, the user is prompted for the information.
+    </p>
+    <p>
+     The port
+     <em class="parameter">
+      <code>
+       inport
+      </code>
+     </em>
+     specifies which well-known DARPA Internet port to use for the
+      connection; the call
+     <span class="emphasis">
+      <em>
+       getservbyname("exec", "tcp")
+      </em>
+     </span>
+     (see
+     <a class="link" href="../htmlman3/getservent.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getservent
+       </span>
+       (3)
+      </span>
+     </a>
+     ) will return
+      a pointer to a structure that contains the necessary port.
+      The protocol for connection is described in detail in
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       rexecd
+      </span>
+      (8)
+     </span>
+     .
+    </p>
+    <p>
+     If the connection succeeds, a socket in the Internet
+      domain of type
+     <code class="constant">
+      SOCK_STREAM
+     </code>
+     is
+      returned to the caller, and given to the remote command as
+     <code class="varname">
+      stdin
+     </code>
+     and
+     <code class="varname">
+      stdout
+     </code>
+     . If
+     <em class="parameter">
+      <code>
+       fd2p
+      </code>
+     </em>
+     is nonzero, then an
+      auxiliary channel to a control process will be setup, and a
+      descriptor for it will be placed in *
+     <em class="parameter">
+      <code>
+       fd2p
+      </code>
+     </em>
+     . The control process will
+      return diagnostic output from the command (unit 2) on this
+      channel, and will also accept bytes on this channel as being
+      UNIX signal numbers, to be forwarded to the process group of
+      the command. The diagnostic information returned does not
+      include remote authorization failure, as the secondary
+      connection is set up after authorization has been verified.
+      If
+     <em class="parameter">
+      <code>
+       fd2p
+      </code>
+     </em>
+     is 0, then
+      the
+     <code class="varname">
+      stderr
+     </code>
+     (unit 2 of the remote
+      command) will be made the same as the
+     <code class="varname">
+      stdout
+     </code>
+     and no provision is made for sending
+      arbitrary signals to the remote process, although you may be
+      able to get its attention by using out-of-band data.
+    </p>
+    <div class="refsect2">
+     <a id="rexec-3_sect2" name="rexec-3_sect2" shape="rect">
+     </a>
+     <h3>
+      rexec_af()
+     </h3>
+     <p>
+      The
+      <code class="function">
+       rexec
+      </code>
+      () function works
+        over IPv4 (
+      <code class="constant">
+       AF_INET
+      </code>
+      ). By
+        contrast, the
+      <code class="function">
+       rexec_af
+      </code>
+      ()
+        function provides an extra argument,
+      <em class="parameter">
+       <code>
+        af
+       </code>
+      </em>
+      , that allows the caller to
+        select the protocol. This argument can be specified as
+      <code class="constant">
+       AF_INET
+      </code>
+      ,
+      <code class="constant">
+       AF_INET6
+      </code>
+      , or
+      <code class="constant">
+       AF_UNSPEC
+      </code>
+      (to allow the implementation to
+        select the protocol).
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="rexec-3_sect3" name="rexec-3_sect3" shape="rect">
+    </a>
+    <h2>
+     VERSIONS
+    </h2>
+    <p>
+     The
+     <code class="function">
+      rexec_af
+     </code>
+     () function was
+      added to glibc in version 2.2.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="rexec-3_sect4" name="rexec-3_sect4" shape="rect">
+    </a>
+    <h2>
+     ATTRIBUTES
+    </h2>
+    <div class="refsect2">
+     <a id="rexec-3_sect5" name="rexec-3_sect5" shape="rect">
+     </a>
+     <h3>
+      Multithreading (see pthreads(7))
+     </h3>
+     <p>
+      The
+      <code class="function">
+       rexec
+      </code>
+      () and
+      <code class="function">
+       rexec_af
+      </code>
+      () functions are not
+        thread-safe.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="rexec-3_sect6" name="rexec-3_sect6" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     These functions are not in POSIX.1-2001. The
+     <code class="function">
+      rexec
+     </code>
+     () function first appeared in 4.2BSD,
+      and is present on the BSDs, Solaris, and many other systems.
+      The
+     <code class="function">
+      rexec_af
+     </code>
+     () function is more
+      recent, and less widespread.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="rexec-3_sect7" name="rexec-3_sect7" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     The
+     <code class="function">
+      rexec
+     </code>
+     () function sends
+      the unencrypted password across the network.
+    </p>
+    <p>
+     The underlying service is considered a big security hole
+      and therefore not enabled on many sites; see
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       rexecd
+      </span>
+      (8)
+     </span>
+     for explanations.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="rexec-3_sect8" name="rexec-3_sect8" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/rcmd.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        rcmd
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       rexecd
+      </span>
+      (8)
+     </span>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="rexec-3_sect9" name="rexec-3_sect9" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

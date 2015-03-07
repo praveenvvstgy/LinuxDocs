@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pthread_kill_other_threads_np(3) &mdash; Linux manual
+  pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pthread_kill_other_threads_np(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="pthread-kill-other-threads-np.3" name="pthread-kill-other-threads-np.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     pthread_kill_other_threads_np &mdash; terminate all other
+      threads in process
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;pthread.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          pthread_kill_other_threads_np
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <code>
+         void)
+        </code>
+        ;
+       </td>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-kill-other-threads-np-3_sect1" name="pthread-kill-other-threads-np-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      pthread_kill_other_threads_np
+     </code>
+     () has an
+      effect only in the LinuxThreads threading implementation. On
+      that implementation, calling this function causes the
+      immediate termination of all threads in the application,
+      except the calling thread. The cancellation state and
+      cancellation type of the to-be-terminated threads are
+      ignored, and the cleanup handlers are not called in those
+      threads.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-kill-other-threads-np-3_sect2" name="pthread-kill-other-threads-np-3_sect2" shape="rect">
+    </a>
+    <h2>
+     ATTRIBUTES
+    </h2>
+    <div class="refsect2">
+     <a id="pthread-kill-other-threads-np-3_sect3" name="pthread-kill-other-threads-np-3_sect3" shape="rect">
+     </a>
+     <h3>
+      Multithreading (see pthreads(7))
+     </h3>
+     <p>
+      The
+      <code class="function">
+       pthread_kill_other_threads_np
+      </code>
+      () function
+        is thread-safe.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-kill-other-threads-np-3_sect4" name="pthread-kill-other-threads-np-3_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     This function is a nonstandard GNU extension; hence the
+      suffix "_np" (nonportable) in the name.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-kill-other-threads-np-3_sect5" name="pthread-kill-other-threads-np-3_sect5" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     <code class="function">
+      pthread_kill_other_threads_np
+     </code>
+     () is intended
+      to be called just before a thread calls
+     <a class="link" href="../htmlman2/execve.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        execve
+       </span>
+       (2)
+      </span>
+     </a>
+     or a similar
+      function. This function is designed to address a limitation
+      in the obsolete LinuxThreads implementation whereby the other
+      threads of an application are not automatically terminated
+      (as POSIX.1-2001 requires) during
+     <a class="link" href="../htmlman2/execve.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        execve
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     In the NPTL threading implementation,
+     <code class="function">
+      pthread_kill_other_threads_np
+     </code>
+     () exists, but
+      does nothing. (Nothing needs to be done, because the
+      implementation does the right thing during an
+     <a class="link" href="../htmlman2/execve.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        execve
+       </span>
+       (2)
+      </span>
+     </a>
+     .)
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-kill-other-threads-np-3_sect6" name="pthread-kill-other-threads-np-3_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/execve.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        execve
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pthread_cancel.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_cancel
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pthread_setcancelstate.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_setcancelstate
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pthread_setcancelstate.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_setcanceltype
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/pthreads.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthreads
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="pthread-kill-other-threads-np-3_sect7" name="pthread-kill-other-threads-np-3_sect7" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

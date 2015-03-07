@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   nl(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="nl(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="nl.1" name="nl.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     nl &mdash; number lines of files
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       nl
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...] [
+      <em class="replaceable">
+       <code>
+        FILE
+       </code>
+      </em>
+      ...]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="nl-1_sect1" name="nl-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Write each FILE to standard output, with line numbers
+      added. With no FILE, or when FILE is &minus;, read standard
+      input.
+    </p>
+    <p>
+     Mandatory arguments to long options are mandatory for
+      short options too.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;b
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;body&minus;numbering
+        </code>
+        =
+        <code class="constant">
+         STYLE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use STYLE for numbering body lines
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;section&minus;delimiter
+        </code>
+        =
+        <code class="constant">
+         CC
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use CC for separating logical pages
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;footer&minus;numbering
+        </code>
+        =
+        <code class="constant">
+         STYLE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use STYLE for numbering footer lines
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;header&minus;numbering
+        </code>
+        =
+        <code class="constant">
+         STYLE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use STYLE for numbering header lines
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;line&minus;increment
+        </code>
+        =
+        <code class="constant">
+         NUMBER
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        line number increment at each line
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;join&minus;blank&minus;lines
+        </code>
+        =
+        <code class="constant">
+         NUMBER
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        group of NUMBER empty lines counted as one
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;number&minus;format
+        </code>
+        =
+        <code class="constant">
+         FORMAT
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        insert line numbers according to FORMAT
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;no&minus;renumber
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not reset line numbers at logical pages
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;number&minus;separator
+        </code>
+        =
+        <code class="constant">
+         STRING
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        add STRING after (possible) line number
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;starting&minus;line&minus;number
+        </code>
+        =
+        <code class="constant">
+         NUMBER
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        first line number on each logical page
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;w
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;number&minus;width
+        </code>
+        =
+        <code class="constant">
+         NUMBER
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use NUMBER columns for line numbers
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display this help and exit
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output version information and exit
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     By default, selects
+     <code class="option">
+      &minus;v1
+     </code>
+     <code class="option">
+      &minus;i1
+     </code>
+     <code class="option">
+      &minus;l1
+     </code>
+     <code class="option">
+      &minus;sTAB
+     </code>
+     <code class="option">
+      &minus;w6
+     </code>
+     <code class="option">
+      &minus;nrn
+     </code>
+     <code class="option">
+      &minus;hn
+     </code>
+     <code class="option">
+      &minus;bt
+     </code>
+     <code class="option">
+      &minus;fn
+     </code>
+     . CC are two delimiter characters
+      for separating logical pages, a missing second character
+      implies :. Type \\ for \. STYLE is one of:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="literal">
+         a
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        number all lines
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="literal">
+         t
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        number only nonempty lines
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="literal">
+         n
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        number no lines
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <em class="parameter">
+         <code>
+          pBRE
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        number only lines that contain a match for the basic
+            regular expression, BRE
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     FORMAT is one of:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="command">
+         <strong>
+          ln
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        left justified, no leading zeros
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <em class="parameter">
+         <code>
+          rn
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        right justified, no leading zeros
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <em class="parameter">
+         <code>
+          rz
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        right justified, leading zeros
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     GNU coreutils online help: &lt;
+     <a class="literalurl" href="http://www.gnu.org/software/coreutils/" shape="rect" target="_top">
+      http://www.gnu.org/software/coreutils/
+     </a>
+     &gt; Report
+      nl translation bugs to &lt;
+     <a class="literalurl" href="http://translationproject.org/team/" shape="rect" target="_top">
+      http://translationproject.org/team/
+     </a>
+     &gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="nl-1_sect2" name="nl-1_sect2" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Written by Scott Bartram and David MacKenzie.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="nl-1_sect4" name="nl-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <span class="command">
+      <strong>
+       nl
+      </strong>
+     </span>
+     is maintained as a
+      Texinfo manual. If the
+     <span class="command">
+      <strong>
+       info
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       nl
+      </strong>
+     </span>
+     programs are properly
+      installed at your site, the command
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <span class="emphasis">
+         <em>
+          info coreutils 'nl
+            invocation'
+         </em>
+        </span>
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p>
+     should give you access to the complete manual.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,760 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   test(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="test(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="test.1" name="test.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     test &mdash; check file types and compare values
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       test
+      </code>
+      <em class="replaceable">
+       <code>
+        EXPRESSION
+       </code>
+      </em>
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       test
+      </code>
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       [
+      </code>
+      expression ]
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       [
+      </code>
+      ]
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       [
+      </code>
+      OPTION
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="test-1_sect1" name="test-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Exit with the status determined by EXPRESSION.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display this help and exit
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output version information and exit
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     An omitted EXPRESSION defaults to false. Otherwise,
+      EXPRESSION is true or false and sets exit status. It is one
+      of:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        ( EXPRESSION )
+       </span>
+      </dt>
+      <dd>
+       <p>
+        EXPRESSION is true
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        ! EXPRESSION
+       </span>
+      </dt>
+      <dd>
+       <p>
+        EXPRESSION is false
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        EXPRESSION1
+        <code class="option">
+         &minus;a
+        </code>
+        EXPRESSION2
+       </span>
+      </dt>
+      <dd>
+       <p>
+        both EXPRESSION1 and EXPRESSION2 are true
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        EXPRESSION1
+        <code class="option">
+         &minus;o
+        </code>
+        EXPRESSION2
+       </span>
+      </dt>
+      <dd>
+       <p>
+        either EXPRESSION1 or EXPRESSION2 is true
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+        STRING
+       </span>
+      </dt>
+      <dd>
+       <p>
+        the length of STRING is nonzero
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         STRING
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        equivalent to
+        <code class="option">
+         &minus;n
+        </code>
+        STRING
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;z
+        </code>
+        STRING
+       </span>
+      </dt>
+      <dd>
+       <p>
+        the length of STRING is zero
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        STRING1 = STRING2
+       </span>
+      </dt>
+      <dd>
+       <p>
+        the strings are equal
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        STRING1 != STRING2
+       </span>
+      </dt>
+      <dd>
+       <p>
+        the strings are not equal
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        INTEGER1
+        <code class="option">
+         &minus;eq
+        </code>
+        INTEGER2
+       </span>
+      </dt>
+      <dd>
+       <p>
+        INTEGER1 is equal to INTEGER2
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        INTEGER1
+        <code class="option">
+         &minus;ge
+        </code>
+        INTEGER2
+       </span>
+      </dt>
+      <dd>
+       <p>
+        INTEGER1 is greater than or equal to INTEGER2
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        INTEGER1
+        <code class="option">
+         &minus;gt
+        </code>
+        INTEGER2
+       </span>
+      </dt>
+      <dd>
+       <p>
+        INTEGER1 is greater than INTEGER2
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        INTEGER1
+        <code class="option">
+         &minus;le
+        </code>
+        INTEGER2
+       </span>
+      </dt>
+      <dd>
+       <p>
+        INTEGER1 is less than or equal to INTEGER2
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        INTEGER1
+        <code class="option">
+         &minus;lt
+        </code>
+        INTEGER2
+       </span>
+      </dt>
+      <dd>
+       <p>
+        INTEGER1 is less than INTEGER2
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        INTEGER1
+        <code class="option">
+         &minus;ne
+        </code>
+        INTEGER2
+       </span>
+      </dt>
+      <dd>
+       <p>
+        INTEGER1 is not equal to INTEGER2
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        FILE1
+        <code class="option">
+         &minus;ef
+        </code>
+        FILE2
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE1 and FILE2 have the same device and inode
+            numbers
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        FILE1
+        <code class="option">
+         &minus;nt
+        </code>
+        FILE2
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE1 is newer (modification date) than FILE2
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        FILE1
+        <code class="option">
+         &minus;ot
+        </code>
+        FILE2
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE1 is older than FILE2
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;b
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists and is block special
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;c
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists and is character special
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists and is a directory
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;e
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists and is a regular file
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;g
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists and is set&minus;group&minus;ID
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;G
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists and is owned by the effective group
+            ID
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists and is a symbolic link (same as
+        <code class="option">
+         &minus;L
+        </code>
+        )
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;k
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists and has its sticky bit set
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;L
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists and is a symbolic link (same as
+        <code class="option">
+         &minus;h
+        </code>
+        )
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;O
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists and is owned by the effective user
+            ID
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists and is a named pipe
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists and read permission is granted
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists and has a size greater than zero
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;S
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists and is a socket
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+        </code>
+        FD
+       </span>
+      </dt>
+      <dd>
+       <p>
+        file descriptor FD is opened on a terminal
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists and its set&minus;user&minus;ID bit is
+            set
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;w
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists and write permission is granted
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;x
+        </code>
+        FILE
+       </span>
+      </dt>
+      <dd>
+       <p>
+        FILE exists and execute (or search) permission is
+            granted
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     Except for
+     <code class="option">
+      &minus;h
+     </code>
+     and
+     <code class="option">
+      &minus;L
+     </code>
+     , all FILE&minus;related
+      tests dereference symbolic links. Beware that parentheses
+      need to be escaped (e.g., by backslashes) for shells. INTEGER
+      may also be
+     <code class="option">
+      &minus;l
+     </code>
+     STRING,
+      which evaluates to the length of STRING.
+    </p>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <p>
+         [ honors the
+         <code class="option">
+          &minus;&minus;help
+         </code>
+         and
+         <code class="option">
+          &minus;&minus;version
+         </code>
+         options, but
+              test does not. test treats each of those as it treats
+              any other nonempty STRING.
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <p>
+         Your shell may have its own version of test and/or
+              [, which usually supersedes the version described
+              here. Please refer to your shell's documentation for
+              details about the options it supports.
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+    <p>
+     GNU coreutils online help: &lt;
+     <a class="literalurl" href="http://www.gnu.org/software/coreutils/" shape="rect" target="_top">
+      http://www.gnu.org/software/coreutils/
+     </a>
+     &gt; Report
+      test translation bugs to &lt;
+     <a class="literalurl" href="http://translationproject.org/team/" shape="rect" target="_top">
+      http://translationproject.org/team/
+     </a>
+     &gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="test-1_sect2" name="test-1_sect2" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Written by Kevin Braunsdorf and Matthew Bradburn.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="test-1_sect4" name="test-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <span class="command">
+      <strong>
+       test
+      </strong>
+     </span>
+     is maintained as a
+      Texinfo manual. If the
+     <span class="command">
+      <strong>
+       info
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       test
+      </strong>
+     </span>
+     programs are properly
+      installed at your site, the command
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <span class="emphasis">
+         <em>
+          info coreutils 'test
+            invocation'
+         </em>
+        </span>
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p>
+     should give you access to the complete manual.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

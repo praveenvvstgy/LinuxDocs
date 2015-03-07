@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   getgid(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="getgid(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="getgid.2" name="getgid.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     getgid, getegid &mdash; get group identity
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#include &lt;unistd.h&gt;
+#include &lt;sys/types.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         gid_t
+         <strong>
+          getgid
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <code>
+         void)
+        </code>
+        ;
+       </td>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         gid_t
+         <strong>
+          getegid
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <code>
+         void)
+        </code>
+        ;
+       </td>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="getgid-2_sect1" name="getgid-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      getgid
+     </code>
+     () returns the real
+      group ID of the calling process.
+    </p>
+    <p>
+     <code class="function">
+      getegid
+     </code>
+     () returns the
+      effective group ID of the calling process.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getgid-2_sect2" name="getgid-2_sect2" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <p>
+     These functions are always successful.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getgid-2_sect3" name="getgid-2_sect3" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     POSIX.1-2001, 4.3BSD.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getgid-2_sect4" name="getgid-2_sect4" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The original Linux
+     <code class="function">
+      getgid
+     </code>
+     ()
+      and
+     <code class="function">
+      getegid
+     </code>
+     () system calls
+      supported only 16-bit group IDs. Subsequently, Linux 2.4
+      added
+     <code class="function">
+      getgid32
+     </code>
+     () and
+     <code class="function">
+      getegid32
+     </code>
+     (), supporting 32-bit
+      IDs. The glibc
+     <code class="function">
+      getgid
+     </code>
+     () and
+     <code class="function">
+      getegid
+     </code>
+     () wrapper functions
+      transparently deal with the variations across kernel
+      versions.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getgid-2_sect5" name="getgid-2_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/getresuid.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getresgid
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/setgid.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setgid
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/setreuid.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setregid
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/credentials.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        credentials
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="getgid-2_sect6" name="getgid-2_sect6" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

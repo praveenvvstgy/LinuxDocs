@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pcre_get_stringnumber(3) &mdash; Linux manual
+  pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pcre_get_stringnumber(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="pcre-get-stringnumber.3" name="pcre-get-stringnumber.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     PCRE &mdash; Perl-compatible regular expressions
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;pcre.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pcre_get_stringnumber
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const pcre *
+        <var class="pdparam">
+         code
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         name
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pcre16_get_stringnumber
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const pcre16 *
+        <var class="pdparam">
+         code
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        PCRE_SPTR16
+        <var class="pdparam">
+         name
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pcre32_get_stringnumber
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const pcre32 *
+        <var class="pdparam">
+         code
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        PCRE_SPTR32
+        <var class="pdparam">
+         name
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pcre-get-stringnumber-3_sect1" name="pcre-get-stringnumber-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This convenience function finds the number of a named
+      substring capturing parenthesis in a compiled pattern. Its
+      arguments are:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+ code    Compiled regular expression
+ name    Name whose number is required
+</pre>
+    </div>
+    <p>
+     The yield of the function is the number of the parenthesis
+      if the name is found, or PCRE_ERROR_NOSUBSTRING otherwise.
+      When duplicate names are allowed (PCRE_DUPNAMES is set), it
+      is not defined which of the numbers is returned by
+     <code class="function">
+      pcre[16|32]_get_stringnumber
+     </code>
+     ().
+      You can obtain the complete list by calling
+     <code class="function">
+      pcre[16|32]_get_stringtable_entries
+     </code>
+     ().
+    </p>
+    <p>
+     There is a complete description of the PCRE native API in
+      the
+     <a class="link" href="../htmlman3/pcreapi.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pcreapi
+       </span>
+       (3)
+      </span>
+     </a>
+     page and a
+      description of the POSIX API in the
+     <a class="link" href="../htmlman3/pcreposix.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pcreposix
+       </span>
+       (3)
+      </span>
+     </a>
+     page.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

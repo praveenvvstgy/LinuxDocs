@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pthread_setname_np(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pthread_setname_np(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="pthread-setname-np.3" name="pthread-setname-np.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     pthread_setname_np, pthread_getname_np &mdash; set/get the
+      name of a thread
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#define _GNU_SOURCE              /* See feature_test_macros(7) */
+#include &lt;pthread.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pthread_setname_np
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        pthread_t
+        <var class="pdparam">
+         thread
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         name
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pthread_getname_np
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        pthread_t
+        <var class="pdparam">
+         thread
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        char *
+        <var class="pdparam">
+         name
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         len
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <p>
+         Compile and link with
+         <code class="option">
+          &minus;pthread
+         </code>
+         .
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-setname-np-3_sect1" name="pthread-setname-np-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     By default, all the threads created using
+     <code class="function">
+      pthread_create
+     </code>
+     () inherit the program name.
+      The
+     <code class="function">
+      pthread_setname_np
+     </code>
+     ()
+      function can be used to set a unique name for a thread, which
+      can be useful for debugging multithreaded applications. The
+      thread name is a meaningful C language string, whose length
+      is restricted to 16 characters, including the terminating
+      null byte ('\0'). The
+     <em class="parameter">
+      <code>
+       thread
+      </code>
+     </em>
+     argument specifies the
+      thread whose name is to be changed;
+     <em class="parameter">
+      <code>
+       name
+      </code>
+     </em>
+     specifies the new
+      name.
+    </p>
+    <p>
+     The
+     <code class="function">
+      pthread_getname_np
+     </code>
+     ()
+      function can be used to retrieve the name of the thread. The
+     <em class="parameter">
+      <code>
+       thread
+      </code>
+     </em>
+     argument
+      specifies the thread whose name is to be retrieved. The
+      buffer
+     <em class="parameter">
+      <code>
+       name
+      </code>
+     </em>
+     is used
+      to return the thread name;
+     <em class="parameter">
+      <code>
+       len
+      </code>
+     </em>
+     specifies the number of
+      bytes available in
+     <em class="parameter">
+      <code>
+       name
+      </code>
+     </em>
+     . The buffer specified by
+     <em class="parameter">
+      <code>
+       name
+      </code>
+     </em>
+     should be at
+      least 16 characters in length. The returned thread name in
+      the output buffer will be null terminated.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-setname-np-3_sect2" name="pthread-setname-np-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success, these functions return 0; on error, they
+      return a nonzero error number.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-setname-np-3_sect3" name="pthread-setname-np-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <p>
+     The
+     <code class="function">
+      pthread_setname_np
+     </code>
+     ()
+      function can fail with the following error:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ERANGE
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The length of the string specified pointed to by
+        <em class="parameter">
+         <code>
+          name
+         </code>
+        </em>
+        exceeds
+            the allowed limit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     The
+     <code class="function">
+      pthread_getname_np
+     </code>
+     ()
+      function can fail with the following error:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ERANGE
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The buffer specified by
+        <em class="parameter">
+         <code>
+          name
+         </code>
+        </em>
+        and
+        <em class="parameter">
+         <code>
+          len
+         </code>
+        </em>
+        is too small to hold
+            the thread name.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     If either of these functions fails to open
+     <code class="filename">
+      /proc/self/task/[tid]/comm
+     </code>
+     , then the call
+      may fail with one of the errors described in
+     <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        open
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-setname-np-3_sect4" name="pthread-setname-np-3_sect4" shape="rect">
+    </a>
+    <h2>
+     VERSIONS
+    </h2>
+    <p>
+     These functions first appeared in glibc in version
+      2.12.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-setname-np-3_sect5" name="pthread-setname-np-3_sect5" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     These functions are nonstandard GNU extensions.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-setname-np-3_sect6" name="pthread-setname-np-3_sect6" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     <code class="function">
+      pthread_setname_np
+     </code>
+     ()
+      internally writes to the thread-specific
+     <code class="function">
+      comm
+     </code>
+     file under the
+     <code class="filename">
+      /proc
+     </code>
+     filesystem:
+     <code class="filename">
+      /proc/self/task/[tid]/comm
+     </code>
+     .
+     <code class="function">
+      pthread_getname_np
+     </code>
+     () retrieves it from the
+      same location.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-setname-np-3_sect7" name="pthread-setname-np-3_sect7" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <p>
+     The program below demonstrates the use of
+     <code class="function">
+      pthread_setname_np
+     </code>
+     () and
+     <code class="function">
+      pthread_getname_np
+     </code>
+     ().
+    </p>
+    <p>
+     The following shell session shows a sample run of the
+      program:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$<span class="emphasis"><em> ./a.out</em></span>
+Created a thread. Default name is: a.out
+The thread name after setting it is THREADFOO.
+<code class="literal">^Z</code>                           # Suspend the program
+[1]+  Stopped           ./a.out
+$ <span class="emphasis"><em>ps H -C a.out -o 'pid tid cmd comm'</em></span>
+  PID   TID CMD                         COMMAND
+ 5990  5990 ./a.out                     a.out
+ 5990  5991 ./a.out                     THREADFOO
+$ <span class="emphasis"><em>cat /proc/5990/task/5990/comm</em></span>
+a.out
+$ <span class="emphasis"><em>cat /proc/5990/task/5991/comm</em></span>
+THREADFOO
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <div class="refsect2">
+     <a id="pthread-setname-np-3_sect8" name="pthread-setname-np-3_sect8" shape="rect">
+     </a>
+     <h3>
+      Program source
+     </h3>
+     <div class="informalexample">
+      <pre class="programlisting" xml:space="preserve">
+#define _GNU_SOURCE
+#include &lt;pthread.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define NAMELEN 16
+
+#define errExitEN(en, msg) \
+            do { errno = en; perror(msg); exit(EXIT_FAILURE); \
+        } while (0)
+
+static void *
+threadfunc(void *parm)
+{
+    sleep(5);          // allow main program to set the thread name
+    return NULL;
+}
+
+int
+main(int argc, char **argv)
+{
+    pthread_t thread;
+    int rc;
+    char thread_name[NAMELEN];
+
+    rc = pthread_create(&amp;thread, NULL, threadfunc, NULL);
+    if (rc != 0)
+        errExitEN(rc, "pthread_create");
+
+    rc = pthread_getname_np(thread, thread_name, NAMELEN);
+    if (rc != 0)
+        errExitEN(rc, "pthread_getname_np");
+
+    printf("Created a thread. Default name is: %s\n", thread_name);
+    rc = pthread_setname_np(thread, (argc &gt; 1) ? argv[1] : "THREADFOO");
+    if (rc != 0)
+        errExitEN(rc, "pthread_setname_np");
+
+    sleep(2);
+
+    rc = pthread_getname_np(thread, thread_name,
+                            (argc &gt; 2) ? atoi(argv[1]) : NAMELEN);
+    if (rc != 0)
+        errExitEN(rc, "pthread_getname_np");
+    printf("The thread name after setting it is %s.\n", thread_name);
+
+    rc = pthread_join(thread, NULL);
+    if (rc != 0)
+        errExitEN(rc, "pthread_join");
+
+    printf("Done\n");
+    exit(EXIT_SUCCESS);
+}
+</pre>
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-setname-np-3_sect9" name="pthread-setname-np-3_sect9" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/prctl.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        prctl
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pthread_create.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_create
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/pthreads.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthreads
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="pthread-setname-np-3_sect10" name="pthread-setname-np-3_sect10" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

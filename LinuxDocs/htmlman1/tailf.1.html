@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   tailf(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="tailf(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="tailf.1" name="tailf.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     tailf &mdash; follow the growth of a log file
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       tailf
+      </code>
+      [OPTION] file
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="tailf-1_sect1" name="tailf-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       tailf
+      </strong>
+     </span>
+     will
+      print out the last 10 lines of a file and then wait for the
+      file to grow. It is similar to
+     <span class="emphasis">
+      <em>
+       tail -f
+      </em>
+     </span>
+     but does not access the
+      file when it is not growing. This has the side effect of not
+      updating the access time for the file, so a filesystem flush
+      does not occur periodically when no log activity is
+      happening.
+    </p>
+    <p>
+     <span class="command">
+      <strong>
+       tailf
+      </strong>
+     </span>
+     is
+      extremely useful for monitoring log files on a laptop when
+      logging is infrequent and the user desires that the hard disk
+      spin down to conserve battery life.
+    </p>
+    <p>
+     Mandatory arguments to long options are mandatory for
+      short options too.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;lines
+        </code>
+        =
+        <code class="constant">
+         N
+        </code>
+        ,
+        <code class="option">
+         &minus;N
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output the last
+        <code class="constant">
+         N
+        </code>
+        lines, instead of the last 10.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="tailf-1_sect2" name="tailf-1_sect2" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     This program was originally written by Rik Faith
+      (faith@acm.org) and may be freely distributed under the terms
+      of the X11/MIT License. There is ABSOLUTELY NO WARRANTY for
+      this program.
+    </p>
+    <p>
+     The latest inotify based implementation was written by
+      Karel Zak (kzak@redhat.com).
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="tailf-1_sect3" name="tailf-1_sect3" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/tail.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tail
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       less
+      </span>
+      (1)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="tailf-1_sect4" name="tailf-1_sect4" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The tailf command is part of the util-linux package and is
+      available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

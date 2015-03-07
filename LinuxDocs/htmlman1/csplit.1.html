@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   csplit(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="csplit(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="csplit.1" name="csplit.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     csplit &mdash; split a file into sections determined by
+      context lines
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       csplit
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...]
+      <em class="replaceable">
+       <code>
+        FILE
+       </code>
+      </em>
+      <em class="replaceable">
+       <code>
+        PATTERN
+       </code>
+      </em>
+      ...
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="csplit-1_sect1" name="csplit-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Output pieces of FILE separated by PATTERN(s) to files
+      'xx00', 'xx01', ..., and output byte counts of each piece to
+      standard output.
+    </p>
+    <p>
+     Mandatory arguments to long options are mandatory for
+      short options too.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;b
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;suffix&minus;format
+        </code>
+        =
+        <code class="constant">
+         FORMAT
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use sprintf FORMAT instead of %02d
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;prefix
+        </code>
+        =
+        <code class="constant">
+         PREFIX
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use PREFIX instead of 'xx'
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;k
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;keep&minus;files
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not remove output files on errors
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;m
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;suppress&minus;matched
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        suppress the lines matching PATTERN
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;digits
+        </code>
+        =
+        <code class="constant">
+         DIGITS
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use specified number of digits instead of 2
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;quiet
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;silent
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not print counts of output file sizes
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;z
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;elide&minus;empty&minus;files
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        remove empty output files
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display this help and exit
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output version information and exit
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     Read standard input if FILE is &minus;. Each PATTERN may
+      be:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         INTEGER
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        copy up to but not including specified line
+            number
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="filename">
+         /REGEXP/[OFFSET]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        copy up to but not including a matching line
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        %REGEXP%[OFFSET]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        skip to, but not including a matching line
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        {INTEGER}
+       </span>
+      </dt>
+      <dd>
+       <p>
+        repeat the previous pattern specified number of
+            times
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        {*}
+       </span>
+      </dt>
+      <dd>
+       <p>
+        repeat the previous pattern as many times as
+            possible
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     A line OFFSET is a required '+' or '&minus;' followed by a
+      positive integer.
+    </p>
+    <p>
+     GNU coreutils online help: &lt;
+     <a class="literalurl" href="http://www.gnu.org/software/coreutils/" shape="rect" target="_top">
+      http://www.gnu.org/software/coreutils/
+     </a>
+     &gt; Report
+      csplit translation bugs to &lt;
+     <a class="literalurl" href="http://translationproject.org/team/" shape="rect" target="_top">
+      http://translationproject.org/team/
+     </a>
+     &gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="csplit-1_sect2" name="csplit-1_sect2" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Written by Stuart Kemp and David MacKenzie.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="csplit-1_sect4" name="csplit-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <span class="command">
+      <strong>
+       csplit
+      </strong>
+     </span>
+     is maintained as a
+      Texinfo manual. If the
+     <span class="command">
+      <strong>
+       info
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       csplit
+      </strong>
+     </span>
+     programs are
+      properly installed at your site, the command
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <span class="emphasis">
+         <em>
+          info coreutils 'csplit
+            invocation'
+         </em>
+        </span>
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p>
+     should give you access to the complete manual.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

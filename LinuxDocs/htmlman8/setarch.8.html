@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   setarch(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="setarch(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="setarch.8" name="setarch.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     setarch &mdash; change reported architecture in new
+      program environment and set personality flags
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       setarch
+      </code>
+      &lt;arch&gt;
+        [options] [ program [arguments] ]
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       arch
+      </code>
+      [options] [ program
+        [arguments] ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setarch-8_sect1" name="setarch-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       setarch
+      </strong>
+     </span>
+     This
+      utility currently only affects the output of uname -m. For
+      example, on an AMD64 system, running 'setarch i386 program'
+      will cause 'program' to see
+     <span class="command">
+      <strong>
+       i686
+      </strong>
+     </span>
+     (or other relevant
+      arch) instead of
+     <span class="command">
+      <strong>
+       x86_64
+      </strong>
+     </span>
+     as machine type. It
+      also allows to set various personality options. The default
+     <em class="parameter">
+      <code>
+       program
+      </code>
+     </em>
+     is
+      /bin/sh.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setarch-8_sect2" name="setarch-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;verbose
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Be verbose.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit. (The help text is also
+            displayed when
+        <span class="command">
+         <strong>
+          setarch
+         </strong>
+        </span>
+        receives no
+            arguments.)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;uname&minus;2.6
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Causes the program to see a kernel version number
+            beginning with 2.6.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          &minus;3
+         </em>
+        </span>
+        ,
+        <code class="option">
+         &minus;&minus;3gb
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specifies that processes should use a maximum of 3GB
+            of address space on systems where it is supported
+            (ADDR_LIMIT_3GB).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;4gb
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Ignored (for backward compatibility only).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;list
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        List architectures that can be set.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;B
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;32bit
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Turns on ADDR_LIMIT_32BIT.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;F
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;fdpic&minus;funcptrs
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Userspace function pointers point to descriptors
+            (turns on FDPIC_FUNCPTRS).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;I
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;short&minus;inode
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Turns on SHORT_INODE.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;L
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;addr&minus;compat&minus;layout
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Changes the way virtual memory is allocated (turns
+            on the ADDR_COMPAT_LAYOUT).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;R
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;addr&minus;no&minus;randomize
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Disables randomization of the virtual address space
+            (turns on ADDR_NO_RANDOMIZE).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;S
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;whole&minus;seconds
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Turns on WHOLE_SECONDS.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;T
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;sticky&minus;timeouts
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Turns on STICKY_TIMEOUTS.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;X
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;read&minus;implies&minus;exec
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Turns on READ_IMPLIES_EXEC.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;Z
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;mmap&minus;page&minus;zero
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Turns on MMAP_PAGE_ZERO.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setarch-8_sect3" name="setarch-8_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <p>
+     setarch ppc32 rpmbuild --target=ppc --rebuild
+      foo.src.rpm
+    </p>
+    <p>
+     setarch ppc32 -v -vL3 rpmbuild --target=ppc --rebuild
+      bar.src.rpm
+    </p>
+    <p>
+     setarch ppc32 --32bit rpmbuild --target=ppc --rebuild
+      foo.src.rpm
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setarch-8_sect4" name="setarch-8_sect4" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     <a class="literalurl" href="mailto:sopwith%20REMOVE%20@%20THIS%20redhat.com" shape="rect" target="_top">
+      Elliot Lee
+     </a>
+    </p>
+    <p>
+     <a class="literalurl" href="mailto:jnovy%20REMOVE%20@%20THIS%20redhat.com" shape="rect" target="_top">
+      Jindrich Novy
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setarch-8_sect5" name="setarch-8_sect5" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The setarch command is part of the util-linux package and
+      is available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

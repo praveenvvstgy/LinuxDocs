@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   popen(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="popen(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="popen.3" name="popen.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     popen, pclose &mdash; pipe stream to or from a process
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;stdio.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         FILE
+            *
+         <strong>
+          popen
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         command
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         type
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pclose
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              popen
+             </code>
+             (),
+             <code class="function">
+              pclose
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _POSIX_C_SOURCE
+             </code>
+             &gt;= 2 ||
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _BSD_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _SVID_SOURCE
+             </code>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="popen-3_sect1" name="popen-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      popen
+     </code>
+     () function opens a
+      process by creating a pipe, forking, and invoking the shell.
+      Since a pipe is by definition unidirectional, the
+     <em class="parameter">
+      <code>
+       type
+      </code>
+     </em>
+     argument may specify only
+      reading or writing, not both; the resulting stream is
+      correspondingly read-only or write-only.
+    </p>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       command
+      </code>
+     </em>
+     argument is a pointer to a null-terminated string containing
+      a shell command line. This command is passed to
+     <code class="filename">
+      /bin/sh
+     </code>
+     using the
+     <code class="option">
+      &minus;c
+     </code>
+     flag; interpretation, if any, is
+      performed by the shell. The
+     <em class="parameter">
+      <code>
+       type
+      </code>
+     </em>
+     argument is a pointer to a
+      null-terminated string which must contain either the letter
+      'r' for reading or the letter 'w' for writing. Since glibc
+      2.9, this argument can additionally include the letter 'e',
+      which causes the close-on-exec flag (
+     <code class="constant">
+      FD_CLOEXEC
+     </code>
+     ) to be set on the underlying
+      file descriptor; see the description of the
+     <code class="constant">
+      O_CLOEXEC
+     </code>
+     flag in
+     <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        open
+       </span>
+       (2)
+      </span>
+     </a>
+     for reasons why
+      this may be useful.
+    </p>
+    <p>
+     The return value from
+     <code class="function">
+      popen
+     </code>
+     () is a normal standard I/O stream in
+      all respects save that it must be closed with
+     <code class="function">
+      pclose
+     </code>
+     () rather than
+     <a class="link" href="../htmlman3/fclose.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fclose
+       </span>
+       (3)
+      </span>
+     </a>
+     . Writing to such
+      a stream writes to the standard input of the command; the
+      command's standard output is the same as that of the process
+      that called
+     <code class="function">
+      popen
+     </code>
+     (), unless
+      this is altered by the command itself. Conversely, reading
+      from the stream reads the command's standard output, and the
+      command's standard input is the same as that of the process
+      that called
+     <code class="function">
+      popen
+     </code>
+     ().
+    </p>
+    <p>
+     Note that output
+     <code class="function">
+      popen
+     </code>
+     ()
+      streams are fully buffered by default.
+    </p>
+    <p>
+     The
+     <code class="function">
+      pclose
+     </code>
+     () function waits
+      for the associated process to terminate and returns the exit
+      status of the command as returned by
+     <a class="link" href="../htmlman2/wait4.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        wait4
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="popen-3_sect2" name="popen-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     The
+     <code class="function">
+      popen
+     </code>
+     () function returns
+      NULL if the
+     <a class="link" href="../htmlman2/fork.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fork
+       </span>
+       (2)
+      </span>
+     </a>
+     or
+     <a class="link" href="../htmlman2/pipe.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pipe
+       </span>
+       (2)
+      </span>
+     </a>
+     calls fail, or if
+      it cannot allocate memory.
+    </p>
+    <p>
+     The
+     <code class="function">
+      pclose
+     </code>
+     () function
+      returns &minus;1 if
+     <a class="link" href="../htmlman2/wait4.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        wait4
+       </span>
+       (2)
+      </span>
+     </a>
+     returns an error,
+      or some other error is detected. In the event of an error,
+      these functions set
+     <code class="varname">
+      errno
+     </code>
+     to
+      indicate the cause of the error.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="popen-3_sect3" name="popen-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <p>
+     The
+     <code class="function">
+      popen
+     </code>
+     () function does
+      not set
+     <code class="varname">
+      errno
+     </code>
+     if memory
+      allocation fails. If the underlying
+     <a class="link" href="../htmlman2/fork.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fork
+       </span>
+       (2)
+      </span>
+     </a>
+     or
+     <a class="link" href="../htmlman2/pipe.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pipe
+       </span>
+       (2)
+      </span>
+     </a>
+     fails,
+     <code class="varname">
+      errno
+     </code>
+     is set appropriately. If the
+     <em class="parameter">
+      <code>
+       type
+      </code>
+     </em>
+     argument is
+      invalid, and this condition is detected,
+     <code class="varname">
+      errno
+     </code>
+     is set to
+     <span class="errorname">
+      EINVAL
+     </span>
+     .
+    </p>
+    <p>
+     If
+     <code class="function">
+      pclose
+     </code>
+     () cannot obtain
+      the child status,
+     <code class="varname">
+      errno
+     </code>
+     is set
+      to
+     <span class="errorname">
+      ECHILD
+     </span>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="popen-3_sect4" name="popen-3_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     POSIX.1-2001.
+    </p>
+    <p>
+     The 'e' value for
+     <em class="parameter">
+      <code>
+       type
+      </code>
+     </em>
+     is a Linux extension.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="popen-3_sect5" name="popen-3_sect5" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     Since the standard input of a command opened for reading
+      shares its seek offset with the process that called
+     <code class="function">
+      popen
+     </code>
+     (), if the original
+      process has done a buffered read, the command's input
+      position may not be as expected. Similarly, the output from a
+      command opened for writing may become intermingled with that
+      of the original process. The latter can be avoided by calling
+     <a class="link" href="../htmlman3/fflush.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fflush
+       </span>
+       (3)
+      </span>
+     </a>
+     before
+     <code class="function">
+      popen
+     </code>
+     ().
+    </p>
+    <p>
+     Failure to execute the shell is indistinguishable from the
+      shell's failure to execute command, or an immediate exit of
+      the command. The only hint is an exit status of 127.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="popen-3_sect6" name="popen-3_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       sh
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman2/fork.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fork
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/pipe.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pipe
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/wait4.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        wait4
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/fclose.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fclose
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/fflush.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fflush
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/fopen.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fopen
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/stdio.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        stdio
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/system.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        system
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="popen-3_sect7" name="popen-3_sect7" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

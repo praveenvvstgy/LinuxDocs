@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   strsignal(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="strsignal(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="strsignal.3" name="strsignal.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     strsignal &mdash; return string describing signal
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;string.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         char
+            *
+         <strong>
+          strsignal
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         sig
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              strsignal
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestver" colspan="1" rowspan="1" style="">
+             Since
+                      glibc 2.10:
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &gt;= 700 ||
+             <code class="constant">
+              _POSIX_C_SOURCE
+             </code>
+             &gt;=
+                      200809L
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestver" colspan="1" rowspan="1" style="">
+             Before
+                      glibc 2.10:
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _GNU_SOURCE
+             </code>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+extern const char * const sys_siglist[];
+  
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="strsignal-3_sect1" name="strsignal-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      strsignal
+     </code>
+     () function
+      returns a string describing the signal number passed in the
+      argument
+     <em class="parameter">
+      <code>
+       sig
+      </code>
+     </em>
+     . The
+      string can be used only until the next call to
+     <code class="function">
+      strsignal
+     </code>
+     ().
+    </p>
+    <p>
+     The array
+     <code class="varname">
+      sys_siglist
+     </code>
+     holds
+      the signal description strings indexed by signal number. The
+     <code class="function">
+      strsignal
+     </code>
+     () function should be
+      used if possible instead of this array.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="strsignal-3_sect2" name="strsignal-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     The
+     <code class="function">
+      strsignal
+     </code>
+     () function
+      returns the appropriate description string, or an unknown
+      signal message if the signal number is invalid. On some
+      systems (but not on Linux), NULL may instead be returned for
+      an invalid signal number.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="strsignal-3_sect3" name="strsignal-3_sect3" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     POSIX.1-2008. Present on Solaris and the BSDs.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="strsignal-3_sect4" name="strsignal-3_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/psignal.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        psignal
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/strerror.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        strerror
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="strsignal-3_sect5" name="strsignal-3_sect5" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

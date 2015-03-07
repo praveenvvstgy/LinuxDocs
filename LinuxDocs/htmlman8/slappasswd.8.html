@@ -1,0 +1,713 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   slappasswd(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="slappasswd(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="slappasswd.8" name="slappasswd.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     slappasswd &mdash; OpenLDAP password utility
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       SBINDIR/slappasswd
+      </code>
+      [
+      <code class="option">
+       &minus;v
+      </code>
+      ] [
+      <code class="option">
+       &minus;u
+      </code>
+      ] [
+      <code class="option">
+       &minus;g
+      </code>
+      |
+      <code class="option">
+       &minus;s
+      </code>
+      secret |
+      <code class="option">
+       &minus;T
+      </code>
+      file ] [
+      <code class="option">
+       &minus;h
+      </code>
+      hash ] [
+      <code class="option">
+       &minus;c
+      </code>
+      salt&minus;format ] [
+      <code class="option">
+       &minus;n
+      </code>
+      ] [
+      <code class="option">
+       &minus;o
+      </code>
+      option[= value] ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="slappasswd-8_sect1" name="slappasswd-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <em class="replaceable">
+      <code>
+       Slappasswd
+      </code>
+     </em>
+     is
+      used to generate an userPassword value suitable for use with
+     <a class="link" href="../htmlman1/ldapmodify.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldapmodify
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman5/slapd.conf.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd.conf
+       </span>
+       (5)
+      </span>
+     </a>
+     <em class="replaceable">
+      <code>
+       rootpw
+      </code>
+     </em>
+     configuration
+      directive or the
+     <a class="link" href="../htmlman5/slapd-config.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd-config
+       </span>
+       (5)
+      </span>
+     </a>
+     <em class="replaceable">
+      <code>
+       olcRootPW
+      </code>
+     </em>
+     configuration
+      directive.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="slappasswd-8_sect2" name="slappasswd-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        enable verbose mode.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Generate RFC 2307 userPassword values (the default).
+            Future versions of this program may generate
+            alternative syntaxes by default. This option is
+            provided for forward compatibility.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+          secret
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The secret to hash. If this,
+        <code class="option">
+         &minus;g
+        </code>
+        and
+        <code class="option">
+         &minus;T
+        </code>
+        are absent, the user will be
+            prompted for the secret to hash.
+        <code class="option">
+         &minus;s
+        </code>
+        ,
+        <code class="option">
+         &minus;g
+        </code>
+        and
+        <code class="option">
+         &minus;T
+        </code>
+        are mutually exclusive
+            flags.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;g
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Generate the secret. If this,
+        <code class="option">
+         &minus;s
+        </code>
+        and
+        <code class="option">
+         &minus;T
+        </code>
+        are absent, the user will be
+            prompted for the secret to hash.
+        <code class="option">
+         &minus;s
+        </code>
+        ,
+        <code class="option">
+         &minus;g
+        </code>
+        and
+        <code class="option">
+         &minus;T
+        </code>
+        are mutually exclusive flags.
+            If this is present,
+        <em class="replaceable">
+         <code>
+          {CLEARTEXT}
+         </code>
+        </em>
+        is used as
+            scheme.
+        <code class="option">
+         &minus;g
+        </code>
+        and
+        <code class="option">
+         &minus;h
+        </code>
+        are mutually
+            exclusive flags.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;T
+          file
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Hash the contents of the file. If this,
+        <code class="option">
+         &minus;g
+        </code>
+        and
+        <code class="option">
+         &minus;s
+        </code>
+        are absent, the user will be
+            prompted for the secret to hash.
+        <code class="option">
+         &minus;s
+        </code>
+        ,
+        <code class="option">
+         &minus;g
+        </code>
+        and
+        <code class="option">
+         &minus;T
+        </code>
+        and mutually exclusive
+            flags.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+          scheme
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        If
+        <code class="option">
+         &minus;h
+        </code>
+        is
+            specified, one of the following RFC 2307 schemes may be
+            specified:
+        <em class="replaceable">
+         <code>
+          {CRYPT}
+         </code>
+        </em>
+        ,
+        <em class="replaceable">
+         <code>
+          {MD5}
+         </code>
+        </em>
+        ,
+        <em class="replaceable">
+         <code>
+          {SMD5}
+         </code>
+        </em>
+        ,
+        <em class="replaceable">
+         <code>
+          {SSHA}
+         </code>
+        </em>
+        , and
+        <em class="replaceable">
+         <code>
+          {SHA}
+         </code>
+        </em>
+        . The default is
+        <em class="replaceable">
+         <code>
+          {SSHA}
+         </code>
+        </em>
+        .
+       </p>
+       <p>
+        Note that scheme names may need to be protected, due
+            to
+        <code class="literal">
+         {
+        </code>
+        and
+        <code class="literal">
+         }
+        </code>
+        , from expansion by the user's
+            command interpreter.
+       </p>
+       <p>
+        <em class="replaceable">
+         <code>
+          {SHA}
+         </code>
+        </em>
+        and
+        <em class="replaceable">
+         <code>
+          {SSHA}
+         </code>
+        </em>
+        use
+            the SHA-1 algorithm (FIPS 160-1), the latter with a
+            seed.
+       </p>
+       <p>
+        <em class="replaceable">
+         <code>
+          {MD5}
+         </code>
+        </em>
+        and
+        <em class="replaceable">
+         <code>
+          {SMD5}
+         </code>
+        </em>
+        use
+            the MD5 algorithm (RFC 1321), the latter with a
+            seed.
+       </p>
+       <p>
+        <em class="replaceable">
+         <code>
+          {CRYPT}
+         </code>
+        </em>
+        uses the
+        <a class="link" href="../htmlman3/crypt.3.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           crypt
+          </span>
+          (3)
+         </span>
+        </a>
+        .
+       </p>
+       <p>
+        <em class="replaceable">
+         <code>
+          {CLEARTEXT}
+         </code>
+        </em>
+        indicates
+            that the new password should be added to userPassword
+            as clear text. Unless
+        <em class="replaceable">
+         <code>
+          {CLEARTEXT}
+         </code>
+        </em>
+        is used,
+            this flag is incompatible with option
+        <code class="option">
+         &minus;g
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;c
+          crypt&minus;salt&minus;format
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the format of the salt passed to
+        <a class="link" href="../htmlman3/crypt.3.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           crypt
+          </span>
+          (3)
+         </span>
+        </a>
+        when
+            generating {CRYPT} passwords. This string needs to be
+            in
+        <a class="link" href="../htmlman3/printf.3.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           sprintf
+          </span>
+          (3)
+         </span>
+        </a>
+        format and
+            may include one (and only one)
+        <em class="replaceable">
+         <code>
+          %s
+         </code>
+        </em>
+        conversion. This
+            conversion will be substituted with a string of random
+            characters from [A&minus;Za&minus;z0&minus;9./]. For
+            example, '
+        <em class="replaceable">
+         <code>
+          %.2s
+         </code>
+        </em>
+        ' provides a two
+            character salt and '
+        <em class="replaceable">
+         <code>
+          $1$%.8s
+         </code>
+        </em>
+        ' tells some
+            versions of
+        <a class="link" href="../htmlman3/crypt.3.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           crypt
+          </span>
+          (3)
+         </span>
+        </a>
+        to use an
+            MD5 algorithm and provides 8 random characters of salt.
+            The default is '
+        <em class="replaceable">
+         <code>
+          %s
+         </code>
+        </em>
+        '
+        <code class="literal">
+         ,
+        </code>
+        which provides 31 characters of
+            salt.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Omit the trailing newline; useful to pipe the
+            credentials into a command.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o
+          option[=value]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify an
+        <em class="replaceable">
+         <code>
+          option
+         </code>
+        </em>
+        with a(n
+            optional)
+        <em class="replaceable">
+         <code>
+          value
+         </code>
+        </em>
+        . Possible generic
+            options/values are:
+       </p>
+       <div class="informalexample">
+        <pre class="programlisting" xml:space="preserve">
+              module&minus;path=&lt;pathspec&gt; (see `<span class="command"><strong>modulepath</strong></span>' in slapd.conf(5))
+              module&minus;load=&lt;filename&gt; (see `<span class="command"><strong>moduleload</strong></span>' in slapd.conf(5))
+</pre>
+       </div>
+       <p>
+        You can load a dynamically loadable password hash
+            module by using this option.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="slappasswd-8_sect3" name="slappasswd-8_sect3" shape="rect">
+    </a>
+    <h2>
+     LIMITATIONS
+    </h2>
+    <p>
+     The practice of storing hashed passwords in userPassword
+      violates Standard Track (RFC 4519) schema specifications and
+      may hinder interoperability. A new attribute type,
+      authPassword, to hold hashed passwords has been defined (RFC
+      3112), but is not yet implemented in
+     <a class="link" href="../htmlman8/slapd.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd
+       </span>
+       (8)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     It should also be noted that the behavior of
+     <a class="link" href="../htmlman3/crypt.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        crypt
+       </span>
+       (3)
+      </span>
+     </a>
+     is platform
+      specific.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="slappasswd-8_sect4" name="slappasswd-8_sect4" shape="rect">
+    </a>
+    <h2>
+     SECURITY CONSIDERATIONS
+    </h2>
+    <p>
+     Use of hashed passwords does not protect passwords during
+      protocol transfer. TLS or other eavesdropping protections
+      should be in-place before using LDAP simple bind.
+    </p>
+    <p>
+     The hashed password values should be protected as if they
+      were clear text passwords.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="slappasswd-8_sect5" name="slappasswd-8_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/ldappasswd.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldappasswd
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/ldapmodify.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldapmodify
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/slapd.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman5/slapd.conf.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd.conf
+       </span>
+       (5)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman5/slapd-config.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd-config
+       </span>
+       (5)
+      </span>
+     </a>
+     ,
+     <span class="emphasis">
+      <em>
+       RFC 2307
+      </em>
+     </span>
+     ,
+     <span class="emphasis">
+      <em>
+       RFC 4519
+      </em>
+     </span>
+     ,
+     <span class="emphasis">
+      <em>
+       RFC 3112
+      </em>
+     </span>
+    </p>
+    <p>
+     "OpenLDAP Administrator's Guide"
+      (http://www.OpenLDAP.org/doc/admin/)
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="slappasswd-8_sect6" name="slappasswd-8_sect6" shape="rect">
+    </a>
+    <h2>
+     ACKNOWLEDGEMENTS
+    </h2>
+    <p>
+     <span class="emphasis">
+      <em>
+       OpenLDAP Software
+      </em>
+     </span>
+     is developed and maintained by The OpenLDAP Project
+      &lt;
+     <a class="literalurl" href="http://www.openldap.org/" shape="rect" target="_top">
+      http://www.openldap.org/
+     </a>
+     &gt;.
+     <span class="emphasis">
+      <em>
+       OpenLDAP Software
+      </em>
+     </span>
+     is derived from
+      University of Michigan LDAP 3.3 Release.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

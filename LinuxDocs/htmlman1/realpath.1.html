@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   realpath(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="realpath(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="realpath.1" name="realpath.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     realpath &mdash; print the resolved path
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       realpath
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...]
+      <em class="replaceable">
+       <code>
+        FILE
+       </code>
+      </em>
+      ...
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="realpath-1_sect1" name="realpath-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Print the resolved absolute file name; all but the last
+      component must exist
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;e
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;canonicalize&minus;existing
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        all components of the path must exist
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;m
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;canonicalize&minus;missing
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        no components of the path need exist
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;L
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;logical
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        resolve '..' components before symlinks
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;P
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;physical
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        resolve symlinks as encountered (default)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;q
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;quiet
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        suppress most error messages
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;relative&minus;to
+        </code>
+        =
+        <em class="parameter">
+         <code>
+          FILE
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print the resolved path relative to FILE
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;relative&minus;base
+        </code>
+        =
+        <em class="parameter">
+         <code>
+          FILE
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print absolute paths unless paths below FILE
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;strip
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;no&minus;symlinks
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        don't expand symlinks
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;z
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;zero
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        separate output with NUL rather than newline
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display this help and exit
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output version information and exit
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     GNU coreutils online help: &lt;
+     <a class="literalurl" href="http://www.gnu.org/software/coreutils/" shape="rect" target="_top">
+      http://www.gnu.org/software/coreutils/
+     </a>
+     &gt; Report
+      realpath translation bugs to &lt;
+     <a class="literalurl" href="http://translationproject.org/team/" shape="rect" target="_top">
+      http://translationproject.org/team/
+     </a>
+     &gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="realpath-1_sect2" name="realpath-1_sect2" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Written by Padraig Brady.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="realpath-1_sect4" name="realpath-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/readlink.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        readlink
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/readlink.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        readlink
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/realpath.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        realpath
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+    <p>
+     The full documentation for
+     <span class="command">
+      <strong>
+       realpath
+      </strong>
+     </span>
+     is maintained as a
+      Texinfo manual. If the
+     <span class="command">
+      <strong>
+       info
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       realpath
+      </strong>
+     </span>
+     programs are
+      properly installed at your site, the command
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <span class="emphasis">
+         <em>
+          info coreutils 'realpath
+            invocation'
+         </em>
+        </span>
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p>
+     should give you access to the complete manual.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

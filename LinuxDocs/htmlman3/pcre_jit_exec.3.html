@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pcre_exec(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pcre_exec(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="pcre-jit-exec.3" name="pcre-jit-exec.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     PCRE &mdash; Perl-compatible regular expressions
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#include &lt;pcre.h&gt;
+
+int pcre_jit_exec(const pcre *<code class="function">code</code>, const pcre_extra *<code class="function">extra</code>,
+     const char *<code class="function">subject</code>, int <code class="function">length</code>, int <code class="function">startoffset</code>,
+     int <code class="function">options</code>, int *<code class="function">ovector</code>, int <code class="function">ovecsize</code>,
+     pcre_jit_stack *<code class="function">jstack</code>);
+
+int pcre16_jit_exec(const pcre16 *<code class="function">code</code>, const pcre16_extra *<code class="function">extra</code>,
+     PCRE_SPTR16 <code class="function">subject</code>, int <code class="function">length</code>, int <code class="function">startoffset</code>,
+     int <code class="function">options</code>, int *<code class="function">ovector</code>, int <code class="function">ovecsize</code>,
+     pcre_jit_stack *<code class="function">jstack</code>);
+
+int pcre32_jit_exec(const pcre32 *<code class="function">code</code>, const pcre32_extra *<code class="function">extra</code>,
+     PCRE_SPTR32 <code class="function">subject</code>, int <code class="function">length</code>, int <code class="function">startoffset</code>,
+     int <code class="function">options</code>, int *<code class="function">ovector</code>, int <code class="function">ovecsize</code>,
+     pcre_jit_stack *<code class="function">jstack</code>);
+  
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pcre-jit-exec-3_sect1" name="pcre-jit-exec-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This function matches a compiled regular expression that
+      has been successfully studied with one of the JIT options
+      against a given subject string, using a matching algorithm
+      that is similar to Perl's. It is a "fast path" interface to
+      JIT, and it bypasses some of the sanity checks that
+     <code class="function">
+      pcre_exec
+     </code>
+     () applies. It returns
+      offsets to captured substrings. Its arguments are:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+ <code class="function">code</code>         Points to the compiled pattern
+ <code class="function">extra</code>        Points to an associated <em class="replaceable"><code>pcre[16|32]_extra</code></em> structure,
+                or is NULL
+ <code class="function">subject</code>      Points to the subject string
+ <code class="function">length</code>       Length of the subject string, in bytes
+ <code class="function">startoffset</code>  Offset in bytes in the subject at which to
+                start matching
+ <code class="function">options</code>      Option bits
+ <code class="function">ovector</code>      Points to a vector of ints for result offsets
+ <code class="function">ovecsize</code>     Number of elements in the vector (a multiple of 3)
+ <code class="function">jstack</code>       Pointer to a JIT stack
+</pre>
+    </div>
+    <p>
+     The allowed options are:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+ PCRE_NOTBOL            Subject string is not the beginning of a line
+ PCRE_NOTEOL            Subject string is not the end of a line
+ PCRE_NOTEMPTY          An empty string is not a valid match
+ PCRE_NOTEMPTY_ATSTART  An empty string at the start of the subject
+                          is not a valid match
+ PCRE_NO_UTF16_CHECK    Do not check the subject for UTF-16
+                          validity (only relevant if PCRE_UTF16
+                          was set at compile time)
+ PCRE_NO_UTF32_CHECK    Do not check the subject for UTF-32
+                          validity (only relevant if PCRE_UTF32
+                          was set at compile time)
+ PCRE_NO_UTF8_CHECK     Do not check the subject for UTF-8
+                          validity (only relevant if PCRE_UTF8
+                          was set at compile time)
+ PCRE_PARTIAL           ) Return PCRE_ERROR_PARTIAL for a partial
+ PCRE_PARTIAL_SOFT      )   match if no full matches are found
+ PCRE_PARTIAL_HARD      Return PCRE_ERROR_PARTIAL for a partial match
+                          if that is found before a full match
+</pre>
+    </div>
+    <p>
+     However, the PCRE_NO_UTF[8|16|32]_CHECK options have no
+      effect, as this check is never applied. For details of
+      partial matching, see the
+     <a class="link" href="../htmlman3/pcrepartial.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pcrepartial
+       </span>
+       (3)
+      </span>
+     </a>
+     page. A
+     <code class="function">
+      pcre_extra
+     </code>
+     structure contains
+      the following fields:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+ <code class="function">flags</code>            Bits indicating which fields are set
+ <code class="function">study_data</code>       Opaque data from <code class="function">pcre[16|32]_study</code>()
+ <code class="function">match_limit</code>      Limit on internal resource use
+ <code class="function">match_limit_recursion</code>  Limit on internal recursion depth
+ <code class="function">callout_data</code>     Opaque data passed back to callouts
+ <code class="function">tables</code>           Points to character tables or is NULL
+ <code class="function">mark</code>             For passing back a *MARK pointer
+ <code class="function">executable_jit</code>   Opaque data from JIT compilation
+</pre>
+    </div>
+    <p>
+     The flag bits are PCRE_EXTRA_STUDY_DATA,
+      PCRE_EXTRA_MATCH_LIMIT, PCRE_EXTRA_MATCH_LIMIT_RECURSION,
+      PCRE_EXTRA_CALLOUT_DATA, PCRE_EXTRA_TABLES, PCRE_EXTRA_MARK
+      and PCRE_EXTRA_EXECUTABLE_JIT.
+    </p>
+    <p>
+     There is a complete description of the PCRE native API in
+      the
+     <a class="link" href="../htmlman3/pcreapi.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pcreapi
+       </span>
+       (3)
+      </span>
+     </a>
+     page and a
+      description of the JIT API in the
+     <a class="link" href="../htmlman3/pcrejit.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pcrejit
+       </span>
+       (3)
+      </span>
+     </a>
+     page.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

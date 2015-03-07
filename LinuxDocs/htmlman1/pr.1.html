@@ -1,0 +1,755 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pr(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pr(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="pr.1" name="pr.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     pr &mdash; convert text files for printing
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       pr
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...] [
+      <em class="replaceable">
+       <code>
+        FILE
+       </code>
+      </em>
+      ...]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pr-1_sect1" name="pr-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Paginate or columnate FILE(s) for printing.
+    </p>
+    <p>
+     Mandatory arguments to long options are mandatory for
+      short options too.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        +FIRST_PAGE[:LAST_PAGE],
+        <code class="option">
+         &minus;&minus;pages
+        </code>
+        =
+        <em class="replaceable">
+         <code>
+          FIRST_PAGE[
+         </code>
+        </em>
+        :LAST_PAGE]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        begin [stop] printing with page
+            FIRST_[LAST_]PAGE
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;COLUMN
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;columns
+        </code>
+        =
+        <code class="constant">
+         COLUMN
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output COLUMN columns and print columns down, unless
+        <code class="option">
+         &minus;a
+        </code>
+        is used. Balance
+            number of lines in the columns on each page
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;a
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;across
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print columns across rather than down, used together
+            with
+        <code class="option">
+         &minus;COLUMN
+        </code>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;c
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;show&minus;control&minus;chars
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use hat notation (^G) and octal backslash
+            notation
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;double&minus;space
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        double space the output
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;D
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;date&minus;format
+        </code>
+        =
+        <code class="constant">
+         FORMAT
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use FORMAT for the header date
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;e[CHAR[WIDTH]]
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;expand&minus;tabs
+        </code>
+        [=
+        <em class="replaceable">
+         <code>
+          CHAR[WIDTH]
+         </code>
+        </em>
+        ]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        expand input CHARs (TABs) to tab WIDTH (8)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;F
+        </code>
+        ,
+        <code class="option">
+         &minus;f
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;form&minus;feed
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use form feeds instead of newlines to separate pages
+            (by a 3&minus;line page header with
+        <code class="option">
+         &minus;F
+        </code>
+        or a 5&minus;line header and
+            trailer without
+        <code class="option">
+         &minus;F
+        </code>
+        )
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;header
+        </code>
+        =
+        <code class="constant">
+         HEADER
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use a centered HEADER instead of filename in page
+            header,
+        <code class="option">
+         &minus;h
+        </code>
+        "" prints
+            a blank line, don't use
+        <code class="option">
+         &minus;h
+        </code>
+        ""
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i[CHAR[WIDTH]]
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;output&minus;tabs
+        </code>
+        [=
+        <em class="replaceable">
+         <code>
+          CHAR[WIDTH]
+         </code>
+        </em>
+        ]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        replace spaces with CHARs (TABs) to tab WIDTH
+            (8)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;J
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;join&minus;lines
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        merge full lines, turns off
+        <code class="option">
+         &minus;W
+        </code>
+        line truncation, no column
+            alignment,
+        <code class="option">
+         &minus;&minus;sep&minus;string
+        </code>
+        [=
+        <code class="constant">
+         STRING
+        </code>
+        ]
+            sets separators
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;length
+        </code>
+        =
+        <code class="constant">
+         PAGE_LENGTH
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        set the page length to PAGE_LENGTH (66) lines
+            (default number of lines of text 56, and with
+        <code class="option">
+         &minus;F
+        </code>
+        63)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;m
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;merge
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print all files in parallel, one in each column,
+            truncate lines, but join lines of full length with
+        <code class="option">
+         &minus;J
+        </code>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n[SEP[DIGITS]]
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;number&minus;lines
+        </code>
+        [=
+        <em class="replaceable">
+         <code>
+          SEP[DIGITS]
+         </code>
+        </em>
+        ]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        number lines, use DIGITS (5) digits, then SEP (TAB),
+            default counting starts with 1st line of input file
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;N
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;first&minus;line&minus;number
+        </code>
+        =
+        <code class="constant">
+         NUMBER
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        start counting with NUMBER at 1st line of first page
+            printed (see +FIRST_PAGE)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;indent
+        </code>
+        =
+        <code class="constant">
+         MARGIN
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        offset each line with MARGIN (zero) spaces, do not
+            affect
+        <code class="option">
+         &minus;w
+        </code>
+        or
+        <code class="option">
+         &minus;W
+        </code>
+        , MARGIN will be
+            added to PAGE_WIDTH
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;no&minus;file&minus;warnings
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        omit warning when a file cannot be opened
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s[CHAR]
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;separator
+        </code>
+        [=
+        <code class="constant">
+         CHAR
+        </code>
+        ]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        separate columns by a single character, default for
+            CHAR is the &lt;TAB&gt; character without
+        <code class="option">
+         &minus;w
+        </code>
+        and 'no char' with
+        <code class="option">
+         &minus;w
+        </code>
+        <code class="option">
+         &minus;s[CHAR]
+        </code>
+        turns off line
+            truncation of all 3 column options (
+        <code class="option">
+         &minus;COLUMN
+        </code>
+        |&minus;a
+        <code class="option">
+         &minus;COLUMN
+        </code>
+        |&minus;m) except
+        <code class="option">
+         &minus;w
+        </code>
+        is set
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;S[STRING]
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;sep&minus;string
+        </code>
+        [=
+        <code class="constant">
+         STRING
+        </code>
+        ]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        separate columns by STRING, without
+        <code class="option">
+         &minus;S
+        </code>
+        : Default separator &lt;TAB&gt;
+            with
+        <code class="option">
+         &minus;J
+        </code>
+        and
+            &lt;space&gt; otherwise (same as
+        <code class="option">
+         &minus;S
+        </code>
+        " "), no effect on column
+            options
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;omit&minus;header
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        omit page headers and trailers
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;T
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;omit&minus;pagination
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        omit page headers and trailers, eliminate any
+            pagination by form feeds set in input files
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;show&minus;nonprinting
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use octal backslash notation
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;w
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;width
+        </code>
+        =
+        <code class="constant">
+         PAGE_WIDTH
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        set page width to PAGE_WIDTH (72) characters for
+            multiple text&minus;column output only,
+        <code class="option">
+         &minus;s[char]
+        </code>
+        turns off (72)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;W
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;page&minus;width
+        </code>
+        =
+        <code class="constant">
+         PAGE_WIDTH
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        set page width to PAGE_WIDTH (72) characters always,
+            truncate lines, except
+        <code class="option">
+         &minus;J
+        </code>
+        option is set, no interference
+            with
+        <code class="option">
+         &minus;S
+        </code>
+        or
+        <code class="option">
+         &minus;s
+        </code>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display this help and exit
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output version information and exit
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     <code class="option">
+      &minus;t
+     </code>
+     is implied if
+      PAGE_LENGTH &lt;= 10. With no FILE, or when FILE is &minus;,
+      read standard input.
+    </p>
+    <p>
+     GNU coreutils online help: &lt;
+     <a class="literalurl" href="http://www.gnu.org/software/coreutils/" shape="rect" target="_top">
+      http://www.gnu.org/software/coreutils/
+     </a>
+     &gt; Report
+      pr translation bugs to &lt;
+     <a class="literalurl" href="http://translationproject.org/team/" shape="rect" target="_top">
+      http://translationproject.org/team/
+     </a>
+     &gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pr-1_sect2" name="pr-1_sect2" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Written by Pete TerMaat and Roland Huebner.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pr-1_sect4" name="pr-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <span class="command">
+      <strong>
+       pr
+      </strong>
+     </span>
+     is maintained as a
+      Texinfo manual. If the
+     <span class="command">
+      <strong>
+       info
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       pr
+      </strong>
+     </span>
+     programs are properly
+      installed at your site, the command
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <span class="emphasis">
+         <em>
+          info coreutils 'pr
+            invocation'
+         </em>
+        </span>
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p>
+     should give you access to the complete manual.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

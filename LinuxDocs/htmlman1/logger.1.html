@@ -1,0 +1,734 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   logger(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="logger(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="logger.1" name="logger.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     logger &mdash; a shell command interface to the syslog(3)
+      system log module
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       logger
+      </code>
+      [options]
+        [message]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="logger-1_sect1" name="logger-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       logger
+      </strong>
+     </span>
+     makes
+      entries in the system log. It provides a shell command
+      interface to the
+     <a class="link" href="../htmlman3/syslog.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        syslog
+       </span>
+       (3)
+      </span>
+     </a>
+     system log
+      module.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="logger-1_sect2" name="logger-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;udp
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use datagram (UDP) only. By default the connection
+            is tried to the
+        <span class="command">
+         <strong>
+          syslog
+         </strong>
+        </span>
+        port defined
+            in /etc/services, which is often
+        <code class="constant">
+         514
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;id
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Log the process ID of the logger process with each
+            line.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;server
+        </code>
+        <span class="command">
+         <strong>
+          server
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Write to the specified remote syslog
+        <span class="command">
+         <strong>
+          server
+         </strong>
+        </span>
+        instead of to
+            the builtin syslog routines. Unless
+        <code class="option">
+         &minus;&minus;udp
+        </code>
+        or
+        <code class="option">
+         &minus;&minus;tcp
+        </code>
+        is specified,
+        <span class="command">
+         <strong>
+          logger
+         </strong>
+        </span>
+        will first try to use UDP, but if thist fails a TCP
+            connection is attempted.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;P
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;port
+        </code>
+        <span class="command">
+         <strong>
+          port
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use the specified
+        <span class="command">
+         <strong>
+          port
+         </strong>
+        </span>
+        .
+        <code class="option">
+         &minus;f
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;file
+        </code>
+        <span class="command">
+         <strong>
+          file
+         </strong>
+        </span>
+        Log the contents
+            of the specified
+        <span class="command">
+         <strong>
+          file
+         </strong>
+        </span>
+        . This option
+            cannot be combined with a command-line message.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;priority
+        </code>
+        <span class="command">
+         <strong>
+          priority
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enter the message into the log with the specified
+        <span class="command">
+         <strong>
+          priority
+         </strong>
+        </span>
+        .
+            The priority may be specified numerically or as a
+        <em class="replaceable">
+         <code>
+          facility.level
+         </code>
+        </em>
+        pair.
+            For example,
+        <code class="option">
+         &minus;p
+        </code>
+        <em class="replaceable">
+         <code>
+          local3.info
+         </code>
+        </em>
+        logs the message as informational in the local3
+            facility. The default is
+        <em class="replaceable">
+         <code>
+          user.notice
+         </code>
+        </em>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;prio&minus;prefix
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Look for a syslog prefix on every line read from
+            standard input. This prefix is a number within angle
+            brackets that contains both the facility and the level.
+            This decimal prefix is constructed by multiplying the
+            facility by 8 and then adding the level. Thus, for
+            example,
+        <em class="replaceable">
+         <code>
+          local0.info
+         </code>
+        </em>
+        ,
+            facility=16 and level=6, becomes
+        <em class="replaceable">
+         <code>
+          &lt;134&gt;
+         </code>
+        </em>
+        .
+       </p>
+       <p>
+        If the prefix contains no facility, the facility
+            defaults to what is specified by the
+        <code class="option">
+         &minus;p
+        </code>
+        option. Similarly, if no
+            prefix is provided, the line is logged using the
+        <code class="option">
+         &minus;p
+        </code>
+        <span class="command">
+         <strong>
+          priority
+         </strong>
+        </span>
+        .
+       </p>
+       <p>
+        This option doesn't affect a command-line
+            message.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;stderr
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output the message to standard error as well as to
+            the system log.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;T
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;tcp
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use stream (TCP) only. By default the connection is
+            tried to the
+        <em class="replaceable">
+         <code>
+          syslog-conn
+         </code>
+        </em>
+        port
+            defined in /etc/services, which is often
+        <code class="constant">
+         601
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;tag
+        </code>
+        <span class="command">
+         <strong>
+          tag
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Mark every line to be logged with the specified
+        <span class="command">
+         <strong>
+          tag
+         </strong>
+        </span>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;socket
+        </code>
+        <span class="command">
+         <strong>
+          socket
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Write to the specified
+        <span class="command">
+         <strong>
+          socket
+         </strong>
+        </span>
+        instead of to
+            the builtin syslog routines.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        End the argument list. This is to allow the
+        <em class="parameter">
+         <code>
+          message
+         </code>
+        </em>
+        to
+            start with a hyphen (&minus;).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <em class="parameter">
+         <code>
+          message
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Write this
+        <em class="parameter">
+         <code>
+          message
+         </code>
+        </em>
+        to the log; if
+            not specified, and the
+        <code class="option">
+         &minus;f
+        </code>
+        flag is not provided, standard
+            input is logged.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       logger
+      </strong>
+     </span>
+     utility exits 0 on success, and &gt;0 if an error occurs.
+    </p>
+    <p>
+     Valid facility names are:
+     <span class="command">
+      <strong>
+       auth
+      </strong>
+     </span>
+     ,authpriv (for security
+      information of a sensitive nature),
+     <span class="command">
+      <strong>
+       cron
+      </strong>
+     </span>
+     ,daemon
+     <code class="literal">
+      ,
+     </code>
+     <span class="command">
+      <strong>
+       ftp
+      </strong>
+     </span>
+     ,kern (can't be
+      generated from user process),
+     <span class="command">
+      <strong>
+       lpr
+      </strong>
+     </span>
+     ,mail
+     <code class="literal">
+      ,
+     </code>
+     <span class="command">
+      <strong>
+       news
+      </strong>
+     </span>
+     ,security (deprecated
+      synonym for
+     <span class="command">
+      <strong>
+       auth
+      </strong>
+     </span>
+     ),syslog
+     <code class="literal">
+      ,
+     </code>
+     <span class="command">
+      <strong>
+       user
+      </strong>
+     </span>
+     ,uucp
+     <code class="literal">
+      ,
+     </code>
+     and
+     <span class="command">
+      <strong>
+       local0
+      </strong>
+     </span>
+     <span class="command">
+      <strong>
+       to
+      </strong>
+     </span>
+     <span class="command">
+      <strong>
+       local7
+      </strong>
+     </span>
+     , inclusive.
+    </p>
+    <p>
+     Valid level names are:
+     <span class="command">
+      <strong>
+       alert
+      </strong>
+     </span>
+     ,crit
+     <code class="literal">
+      ,
+     </code>
+     <span class="command">
+      <strong>
+       debug
+      </strong>
+     </span>
+     ,emerg
+     <code class="literal">
+      ,
+     </code>
+     <span class="command">
+      <strong>
+       err
+      </strong>
+     </span>
+     ,error (deprecated
+      synonym for
+     <span class="command">
+      <strong>
+       err
+      </strong>
+     </span>
+     ),info
+     <code class="literal">
+      ,
+     </code>
+     <span class="command">
+      <strong>
+       notice
+      </strong>
+     </span>
+     ,panic (deprecated
+      synonym for
+     <span class="command">
+      <strong>
+       emerg
+      </strong>
+     </span>
+     ),warning
+     <code class="literal">
+      ,
+     </code>
+     <span class="command">
+      <strong>
+       warn
+      </strong>
+     </span>
+     (deprecated synonym
+      for
+     <span class="command">
+      <strong>
+       warning
+      </strong>
+     </span>
+     ).
+      For the priority order and intended purposes of these levels,
+      see
+     <a class="link" href="../htmlman3/syslog.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        syslog
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="logger-1_sect3" name="logger-1_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <p>
+     logger System rebooted
+    </p>
+    <p>
+     logger &minus;p local0.notice &minus;t HOSTIDM &minus;f
+      /dev/idmc
+    </p>
+    <p>
+     logger &minus;n loghost.example.com System rebooted
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="logger-1_sect4" name="logger-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/syslog.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        syslog
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       syslogd
+      </span>
+      (8)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="logger-1_sect5" name="logger-1_sect5" shape="rect">
+    </a>
+    <h2>
+     STANDARDS
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       logger
+      </strong>
+     </span>
+     command is expected to be IEEE Std 1003.2 ("POSIX.2")
+      compatible.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="logger-1_sect6" name="logger-1_sect6" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The logger command is part of the util-linux package and
+      is available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

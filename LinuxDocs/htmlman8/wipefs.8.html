@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   wipefs(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="wipefs(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="wipefs.8" name="wipefs.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     wipefs &mdash; wipe a signature from a device
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       wipefs
+      </code>
+      [
+      <code class="option">
+       &minus;ahnpqtV
+      </code>
+      ] [
+      <code class="option">
+       &minus;o
+      </code>
+      offset ] device...
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="wipefs-8_sect1" name="wipefs-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       wipefs
+      </strong>
+     </span>
+     can
+      erase filesystem, raid or partition-table signatures (magic
+      strings) from the specified
+     <em class="parameter">
+      <code>
+       device
+      </code>
+     </em>
+     to make the signatures
+      invisible for libblkid.
+    </p>
+    <p>
+     <span class="command">
+      <strong>
+       wipefs
+      </strong>
+     </span>
+     does
+      not erase the filesystem itself nor any other data from the
+      device. When used without options
+     <code class="option">
+      &minus;a
+     </code>
+     or
+     <em class="parameter">
+      <code>
+       &minus;o
+      </code>
+     </em>
+     , it lists all visible
+      filesystems and the offsets of their basic signatures.
+    </p>
+    <p>
+     Note that some filesystems or some partition tables store
+      more magic strings on the devices. The
+     <span class="command">
+      <strong>
+       wipefs
+      </strong>
+     </span>
+     command lists only
+      the first offset where a magic string has been detected. The
+      device is not scanned for additional magic strings for the
+      same filesystem. It is possible that after
+     <span class="command">
+      <strong>
+       wipefs
+      </strong>
+     </span>
+     -o
+     <em class="parameter">
+      <code>
+       offset
+      </code>
+     </em>
+     the same filesystem or
+      partition table will still be visible by another magic string
+      on another offset.
+    </p>
+    <p>
+     When used with option
+     <code class="option">
+      &minus;a
+     </code>
+     , all magic strings that are visible
+      for libblkid are erased.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="wipefs-8_sect2" name="wipefs-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;a,
+          &minus;&minus;all
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Erase all available signatures. The set of erased
+            signatures can be restricted with the
+        <code class="option">
+         &minus;t
+        </code>
+        <span class="command">
+         <strong>
+          list
+         </strong>
+        </span>
+        option.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;b,
+          &minus;&minus;backup
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Create a signature backup to the file
+            $HOME/wipefs-&lt;devname&gt;-&lt;offset&gt;.bak. For
+            more details see EXAMPLES section.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f,
+          &minus;&minus;force
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Force erasure, even if the filesystem is mounted.
+            This is required in order to erase the partition table
+            on a block device.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n,
+          &minus;&minus;no&minus;act
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Causes everything to be done except for the write()
+            call.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o,
+          &minus;&minus;offset
+         <em class="parameter">
+          <code>
+           offset
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the location (in bytes) of the signature
+            which should be erased from the device. The
+        <em class="parameter">
+         <code>
+          offset
+         </code>
+        </em>
+        number may include
+            a "0x" prefix; then the number will be interpreted as a
+            hex value. It is possible to specify multiple
+        <em class="parameter">
+         <code>
+          &minus;o
+         </code>
+        </em>
+        options.
+       </p>
+       <p>
+        The
+        <em class="parameter">
+         <code>
+          offset
+         </code>
+        </em>
+        argument may be followed by the multiplicative suffixes
+            KiB (=1024), MiB (=1024*1024), and so on for GiB, TiB,
+            PiB, EiB, ZiB and YiB (the "iB" is optional, e.g. "K"
+            has the same meaning as "KiB"), or the suffixes KB
+            (=1000), MB (=1000*1000), and so on for GB, TB, PB, EB,
+            ZB and YB.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p,
+          &minus;&minus;parsable
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print out in parsable instead of printable format.
+            Encode all potentially unsafe characters of a string to
+            the corresponding hex value prefixed by '\x'.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;q,
+          &minus;&minus;quiet
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Suppress output messages after successful signature
+            wipe.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t,
+          &minus;&minus;types
+         <em class="parameter">
+          <code>
+           list
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Limit the set of printed or erased signatures. More
+            than one type may be specified in a comma-separated
+            list. The list or individual types can be prefixed with
+            'no' to specify the types on which no action should be
+            taken. For more details see mount(8).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V,
+          &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="wipefs-8_sect3" name="wipefs-8_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          wipefs
+          --all --backup /dev/sdb
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Erases all signatures from the device /dev/sdb and
+            creates a signature backup file
+            ~/wipefs-sdb-&lt;offset&gt;.bak for each signature.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="function">
+         dd
+          if=~/wipefs-sdb-0x00000438.bak of=/dev/sdb
+          seek=$((0x00000438)) bs=1
+          conv=notrunc
+        </code>
+        ()
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Restores ext2 signature from the backup file
+            ~/wipefs-sdb-0x00000438.bak.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="wipefs-8_sect4" name="wipefs-8_sect4" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Karel Zak &lt;kzak@redhat.com&gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="wipefs-8_sect5" name="wipefs-8_sect5" shape="rect">
+    </a>
+    <h2>
+     ENVIRONMENT
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          Setting
+          LIBBLKID_DEBUG=0xffff enables debug
+          output.
+         </em>
+        </span>
+       </span>
+      </dt>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="wipefs-8_sect6" name="wipefs-8_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman8/blkid.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        blkid
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/findfs.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        findfs
+       </span>
+       (8)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="wipefs-8_sect7" name="wipefs-8_sect7" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The wipefs command is part of the util-linux package and
+      is available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

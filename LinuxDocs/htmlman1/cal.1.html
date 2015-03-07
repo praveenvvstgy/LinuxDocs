@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   cal(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="cal(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="cal.1" name="cal.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     cal &mdash; display a calendar
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       cal
+      </code>
+      [options] [ [ [day]
+        month ] year ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="cal-1_sect1" name="cal-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       cal
+      </strong>
+     </span>
+     displays
+      a simple calendar. If no arguments are specified, the current
+      month is displayed.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="cal-1_sect2" name="cal-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          &minus;1
+         </em>
+        </span>
+        ,
+        <code class="option">
+         &minus;&minus;one
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display single month output. (This is the
+            default.)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          &minus;3
+         </em>
+        </span>
+        ,
+        <code class="option">
+         &minus;&minus;three
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display three months spanning the date.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;sunday
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display Sunday as the first day of the week.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;m
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;monday
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display Monday as the first day of the week.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;j
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;julian
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display Julian dates (days one-based, numbered from
+            January 1).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;y
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;year
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display a calendar for the whole year.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;color
+        </code>
+        [
+        <span class="command">
+         <strong>
+          when
+         </strong>
+        </span>
+        ]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Colorize output. The
+        <span class="command">
+         <strong>
+          when
+         </strong>
+        </span>
+        can be
+        <span class="command">
+         <strong>
+          never
+         </strong>
+        </span>
+        ,
+        <span class="command">
+         <strong>
+          auto
+         </strong>
+        </span>
+        , or
+        <span class="command">
+         <strong>
+          always
+         </strong>
+        </span>
+        .
+            Never will turn off colorizing in all situations. Auto
+            is default, and it will make colorizing to be in use if
+            output is done to terminal. Always will allow colors to
+            be outputed when
+        <span class="command">
+         <strong>
+          cal
+         </strong>
+        </span>
+        outputs to pipe,
+            or is called from a script.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="cal-1_sect3" name="cal-1_sect3" shape="rect">
+    </a>
+    <h2>
+     PARAMETERS
+    </h2>
+    <p>
+     A single parameter specifies the year to be displayed;
+      note the year must be fully specified:
+     <span class="emphasis">
+      <em>
+       cal 89
+      </em>
+     </span>
+     will not display a calendar
+      for 1989.
+    </p>
+    <p>
+     Two parameters denote the month (1 - 12) and year.
+    </p>
+    <p>
+     Three parameters denote the day (1-31), month and year,
+      and the day will be highlighted if the calendar is displayed
+      on a terminal. If no parameters are specified, the current
+      month's calendar is displayed.
+    </p>
+    <p>
+     A year starts on Jan 1. The first day of the week is
+      determined by the locale.
+    </p>
+    <p>
+     The Gregorian Reformation is assumed to have occurred in
+      1752 on the 3rd of September. By this time, most countries
+      had recognized the reformation (although a few did not
+      recognize it until the early 1900's). Ten days following that
+      date were eliminated by the reformation, so the calendar for
+      that month is a bit unusual.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="cal-1_sect4" name="cal-1_sect4" shape="rect">
+    </a>
+    <h2>
+     HISTORY
+    </h2>
+    <p>
+     A cal command appeared in Version 6 AT&amp;T UNIX.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="cal-1_sect5" name="cal-1_sect5" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The cal command is part of the util-linux package and is
+      available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

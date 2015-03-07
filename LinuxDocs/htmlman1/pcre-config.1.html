@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pcre-config(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pcre-config(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="pcre-config.1" name="pcre-config.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     pcre-config &mdash; program to return PCRE
+      configuration
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       pcre-config [--prefix]
+        [--exec-prefix] [--version] [--libs]
+      </code>
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       [--libs16]
+      </code>
+      [
+      <code class="option">
+       &minus;&minus;libs32
+      </code>
+      ] [
+      <code class="option">
+       &minus;&minus;libs&minus;cpp
+      </code>
+      ] [
+      <code class="option">
+       &minus;&minus;libs&minus;posix
+      </code>
+      ]
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       [--cflags]
+      </code>
+      [
+      <code class="option">
+       &minus;&minus;cflags&minus;posix
+      </code>
+      ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pcre-config-1_sect1" name="pcre-config-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       pcre-config
+      </strong>
+     </span>
+     returns the configuration of the installed PCRE libraries and
+      the options required to compile a program to use them. Some
+      of the options apply only to the 8-bit, or 16-bit, or 32-bit
+      libraries, respectively, and are not available if only one of
+      those libraries has been built. If an unavailable option is
+      encountered, the "usage" information is output.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcre-config-1_sect2" name="pcre-config-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;prefix
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Writes the directory prefix used in the PCRE
+            installation for architecture independent files
+            (
+        <code class="filename">
+         /usr
+        </code>
+        on many systems,
+        <code class="filename">
+         /usr/local
+        </code>
+        on some
+            systems) to the standard output.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;exec&minus;prefix
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Writes the directory prefix used in the PCRE
+            installation for architecture dependent files (normally
+            the same as
+        <code class="option">
+         &minus;&minus;prefix
+        </code>
+        ) to the standard
+            output.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Writes the version number of the installed PCRE
+            libraries to the standard output.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;libs
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Writes to the standard output the command line
+            options required to link with the 8-bit PCRE library
+            (
+        <code class="option">
+         &minus;lpcre
+        </code>
+        on many
+            systems).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;libs16
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Writes to the standard output the command line
+            options required to link with the 16-bit PCRE library
+            (
+        <code class="option">
+         &minus;lpcre16
+        </code>
+        on many
+            systems).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <em class="parameter">
+         <code>
+          &minus;&minus;libs32
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Writes to the standard output the command line
+            options required to link with the 32-bit PCRE library
+            (
+        <code class="option">
+         &minus;lpcre32
+        </code>
+        on many
+            systems).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <em class="parameter">
+         <code>
+          &minus;&minus;libs-cpp
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Writes to the standard output the command line
+            options required to link with PCRE's C++ wrapper
+            library (
+        <code class="option">
+         &minus;lpcrecpp
+        </code>
+        <code class="option">
+         &minus;lpcre
+        </code>
+        on many
+            systems).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <em class="parameter">
+         <code>
+          &minus;&minus;libs-posix
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Writes to the standard output the command line
+            options required to link with PCRE's POSIX API wrapper
+            library (
+        <code class="option">
+         &minus;lpcreposix
+        </code>
+        <code class="option">
+         &minus;lpcre
+        </code>
+        on many
+            systems).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;cflags
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Writes to the standard output the command line
+            options required to compile files that use PCRE (this
+            may include some
+        <code class="option">
+         &minus;I
+        </code>
+        options, but is blank on many systems).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <em class="parameter">
+         <code>
+          &minus;&minus;cflags-posix
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Writes to the standard output the command line
+            options required to compile files that use PCRE's POSIX
+            API wrapper library (this may include some
+        <code class="option">
+         &minus;I
+        </code>
+        options, but is blank on many
+            systems).
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pcre-config-1_sect3" name="pcre-config-1_sect3" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <em class="replaceable">
+      <code>
+       pcre(3)
+      </code>
+     </em>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcre-config-1_sect4" name="pcre-config-1_sect4" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     This manual page was originally written by Mark Baker for
+      the Debian GNU/Linux system. It has been subsequently revised
+      as a generic PCRE man page.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcre-config-1_sect5" name="pcre-config-1_sect5" shape="rect">
+    </a>
+    <h2>
+     REVISION
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+Last updated: 24 June 2012
+</pre>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pcre_exec(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pcre_exec(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="pcre-exec.3" name="pcre-exec.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     PCRE &mdash; Perl-compatible regular expressions
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;pcre.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pcre_exec
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const pcre *
+        <var class="pdparam">
+         code
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const pcre_extra *
+        <var class="pdparam">
+         extra
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         subject
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         length
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         startoffset
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         options
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int *
+        <var class="pdparam">
+         ovector
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         ovecsize
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pcre16_exec
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const pcre16 *
+        <var class="pdparam">
+         code
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const pcre16_extra *
+        <var class="pdparam">
+         extra
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        PCRE_SPTR16
+        <var class="pdparam">
+         subject
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         length
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         startoffset
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         options
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int *
+        <var class="pdparam">
+         ovector
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         ovecsize
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pcre32_exec
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const pcre32 *
+        <var class="pdparam">
+         code
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const pcre32_extra *
+        <var class="pdparam">
+         extra
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        PCRE_SPTR32
+        <var class="pdparam">
+         subject
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         length
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         startoffset
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         options
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int *
+        <var class="pdparam">
+         ovector
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         ovecsize
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pcre-exec-3_sect1" name="pcre-exec-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This function matches a compiled regular expression
+      against a given subject string, using a matching algorithm
+      that is similar to Perl's. It returns offsets to captured
+      substrings. Its arguments are:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+ code         Points to the compiled pattern
+ extra        Points to an associated <em class="replaceable"><code>pcre[16|32]_extra</code></em> structure,
+                or is NULL
+ subject      Points to the subject string
+ length       Length of the subject string
+ startoffset  Offset in the subject at which to start matching
+ options      Option bits
+ ovector      Points to a vector of ints for result offsets
+ ovecsize     Number of elements in the vector (a multiple of 3)
+</pre>
+    </div>
+    <p>
+     The units for
+     <em class="parameter">
+      <code>
+       length
+      </code>
+     </em>
+     and
+     <em class="parameter">
+      <code>
+       startoffset
+      </code>
+     </em>
+     are bytes for
+     <code class="function">
+      pcre_exec
+     </code>
+     (), 16-bit data items
+      for
+     <code class="function">
+      pcre16_exec
+     </code>
+     (), and 32-bit
+      items for
+     <code class="function">
+      pcre32_exec
+     </code>
+     (). The
+      options are:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+ PCRE_ANCHORED          Match only at the first position
+ PCRE_BSR_ANYCRLF       \R matches only CR, LF, or CRLF
+ PCRE_BSR_UNICODE       \R matches all Unicode line endings
+ PCRE_NEWLINE_ANY       Recognize any Unicode newline sequence
+ PCRE_NEWLINE_ANYCRLF   Recognize CR, LF, &amp; CRLF as newline sequences
+ PCRE_NEWLINE_CR        Recognize CR as the only newline sequence
+ PCRE_NEWLINE_CRLF      Recognize CRLF as the only newline sequence
+ PCRE_NEWLINE_LF        Recognize LF as the only newline sequence
+ PCRE_NOTBOL            Subject string is not the beginning of a line
+ PCRE_NOTEOL            Subject string is not the end of a line
+ PCRE_NOTEMPTY          An empty string is not a valid match
+ PCRE_NOTEMPTY_ATSTART  An empty string at the start of the subject
+                          is not a valid match
+ PCRE_NO_START_OPTIMIZE Do not do "start-match" optimizations
+ PCRE_NO_UTF16_CHECK    Do not check the subject for UTF-16
+                          validity (only relevant if PCRE_UTF16
+                          was set at compile time)
+ PCRE_NO_UTF32_CHECK    Do not check the subject for UTF-32
+                          validity (only relevant if PCRE_UTF32
+                          was set at compile time)
+ PCRE_NO_UTF8_CHECK     Do not check the subject for UTF-8
+                          validity (only relevant if PCRE_UTF8
+                          was set at compile time)
+ PCRE_PARTIAL           ) Return PCRE_ERROR_PARTIAL for a partial
+ PCRE_PARTIAL_SOFT      )   match if no full matches are found
+ PCRE_PARTIAL_HARD      Return PCRE_ERROR_PARTIAL for a partial match
+                          if that is found before a full match
+</pre>
+    </div>
+    <p>
+     For details of partial matching, see the
+     <a class="link" href="../htmlman3/pcrepartial.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pcrepartial
+       </span>
+       (3)
+      </span>
+     </a>
+     page. A
+     <code class="function">
+      pcre_extra
+     </code>
+     structure contains
+      the following fields:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+ flags            Bits indicating which fields are set
+ study_data       Opaque data from <code class="function">pcre[16|32]_study</code>()
+ match_limit      Limit on internal resource use
+ match_limit_recursion  Limit on internal recursion depth
+ callout_data     Opaque data passed back to callouts
+ tables           Points to character tables or is NULL
+ mark             For passing back a *MARK pointer
+ executable_jit   Opaque data from JIT compilation
+</pre>
+    </div>
+    <p>
+     The flag bits are PCRE_EXTRA_STUDY_DATA,
+      PCRE_EXTRA_MATCH_LIMIT, PCRE_EXTRA_MATCH_LIMIT_RECURSION,
+      PCRE_EXTRA_CALLOUT_DATA, PCRE_EXTRA_TABLES, PCRE_EXTRA_MARK
+      and PCRE_EXTRA_EXECUTABLE_JIT.
+    </p>
+    <p>
+     There is a complete description of the PCRE native API in
+      the
+     <a class="link" href="../htmlman3/pcreapi.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pcreapi
+       </span>
+       (3)
+      </span>
+     </a>
+     page and a
+      description of the POSIX API in the
+     <a class="link" href="../htmlman3/pcreposix.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pcreposix
+       </span>
+       (3)
+      </span>
+     </a>
+     page.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

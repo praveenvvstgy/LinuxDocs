@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pcre_config(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pcre_config(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="pcre-config.3" name="pcre-config.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     PCRE &mdash; Perl-compatible regular expressions
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#include &lt;pcre.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pcre_config
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         int what
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         void
+            *where
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pcre16_config
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         int what
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         void
+            *where
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pcre32_config
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         int what
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         void
+            *where
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pcre-config-3_sect1" name="pcre-config-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This function makes it possible for a client program to
+      find out which optional features are available in the version
+      of the PCRE library it is using. The arguments are as
+      follows:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+ <code class="function">what</code>     A code specifying what information is required
+ <code class="function">where</code>    Points to where to put the data
+</pre>
+    </div>
+    <p>
+     The
+     <code class="function">
+      where
+     </code>
+     argument must
+      point to an integer variable, except for
+      PCRE_CONFIG_MATCH_LIMIT and
+      PCRE_CONFIG_MATCH_LIMIT_RECURSION, when it must point to an
+      unsigned long integer. The available codes are:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+ PCRE_CONFIG_JIT           Availability of just-in-time compiler
+                             support (1=yes 0=no)
+ PCRE_CONFIG_JITTARGET     String containing information about the
+                             target architecture for the JIT compiler,
+                             or NULL if there is no JIT support
+ PCRE_CONFIG_LINK_SIZE     Internal link size: 2, 3, or 4
+ PCRE_CONFIG_PARENS_LIMIT  Parentheses nesting limit
+ PCRE_CONFIG_MATCH_LIMIT   Internal resource limit
+ PCRE_CONFIG_MATCH_LIMIT_RECURSION
+                           Internal recursion depth limit
+ PCRE_CONFIG_NEWLINE       Value of the default newline sequence:
+                               13 (0x000d)    for CR
+                               10 (0x000a)    for LF
+                             3338 (0x0d0a)    for CRLF
+                               -2             for ANYCRLF
+                               -1             for ANY
+ PCRE_CONFIG_BSR           Indicates what \R matches by default:
+                                0             all Unicode line endings
+                                1             CR, LF, or CRLF only
+ PCRE_CONFIG_POSIX_MALLOC_THRESHOLD
+                           Threshold of return slots, above which
+                             <code class="function">malloc</code>() is used by the POSIX API
+ PCRE_CONFIG_STACKRECURSE  Recursion implementation (1=stack 0=heap)
+ PCRE_CONFIG_UTF16         Availability of UTF-16 support (1=yes
+                              0=no); option for <code class="function">pcre16_config</code>()
+ PCRE_CONFIG_UTF32         Availability of UTF-32 support (1=yes
+                              0=no); option for <code class="function">pcre32_config</code>()
+ PCRE_CONFIG_UTF8          Availability of UTF-8 support (1=yes 0=no);
+                             option for <code class="function">pcre_config</code>()
+ PCRE_CONFIG_UNICODE_PROPERTIES
+                           Availability of Unicode property support
+                             (1=yes 0=no)
+</pre>
+    </div>
+    <p>
+     The function yields 0 on success or PCRE_ERROR_BADOPTION
+      otherwise. That error is also given if PCRE_CONFIG_UTF16 or
+      PCRE_CONFIG_UTF32 is passed to
+     <code class="function">
+      pcre_config
+     </code>
+     (), if PCRE_CONFIG_UTF8 or
+      PCRE_CONFIG_UTF32 is passed to
+     <code class="function">
+      pcre16_config
+     </code>
+     (), or if PCRE_CONFIG_UTF8 or
+      PCRE_CONFIG_UTF16 is passed to
+     <code class="function">
+      pcre32_config
+     </code>
+     ().
+    </p>
+    <p>
+     There is a complete description of the PCRE native API in
+      the
+     <a class="link" href="../htmlman3/pcreapi.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pcreapi
+       </span>
+       (3)
+      </span>
+     </a>
+     page and a
+      description of the POSIX API in the
+     <a class="link" href="../htmlman3/pcreposix.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pcreposix
+       </span>
+       (3)
+      </span>
+     </a>
+     page.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

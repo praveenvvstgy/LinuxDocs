@@ -1,0 +1,483 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   gnutls_ocsp_resp_get_single(3) &mdash; Linux manual
+  pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="gnutls_ocsp_resp_get_single(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="gnutls-ocsp-resp-get-single.3" name="gnutls-ocsp-resp-get-single.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     gnutls_ocsp_resp_get_single &mdash; API function
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;gnutls/ocsp.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          gnutls_ocsp_resp_get_single
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_ocsp_resp_t
+        <var class="pdparam">
+         resp
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned
+        <var class="pdparam">
+         indx
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_digest_algorithm_t *
+        <var class="pdparam">
+         digest
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_datum_t *
+        <var class="pdparam">
+         issuer_name_hash
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_datum_t *
+        <var class="pdparam">
+         issuer_key_hash
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_datum_t *
+        <var class="pdparam">
+         serial_number
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int *
+        <var class="pdparam">
+         cert_status
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        time_t *
+        <var class="pdparam">
+         this_update
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        time_t *
+        <var class="pdparam">
+         next_update
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        time_t *
+        <var class="pdparam">
+         revocation_time
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int *
+        <var class="pdparam">
+         revocation_reason
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-ocsp-resp-get-single-3_sect1" name="gnutls-ocsp-resp-get-single-3_sect1" shape="rect">
+    </a>
+    <h2>
+     ARGUMENTS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_ocsp_resp_t
+          resp
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        should contain a
+        <span class="type">
+         gnutls_ocsp_resp_t
+        </span>
+        structure
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="type">
+         unsigned
+          indx
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specifies response number to get. Use (0) to get the
+            first one.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_digest_algorithm_t *
+          digest
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output variable with
+        <span class="type">
+         gnutls_digest_algorithm_t
+        </span>
+        hash
+            algorithm
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_datum_t *
+          issuer_name_hash
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output buffer with hash of issuer's DN
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_datum_t *
+          issuer_key_hash
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output buffer with hash of issuer's public key
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_datum_t *
+          serial_number
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output buffer with serial number of certificate to
+            check
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          unsigned int *
+          cert_status
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        a certificate status, a
+        <span class="type">
+         gnutls_ocsp_cert_status_t
+        </span>
+        enum.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          time_t
+          * this_update
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        time at which the status is known to be correct.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          time_t
+          * next_update
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        when newer information will be available, or
+            (time_t)&minus;1 if unspecified
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          time_t
+          * revocation_time
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        when
+        <em class="parameter">
+         <code>
+          cert_status
+         </code>
+        </em>
+        is
+        <code class="constant">
+         GNUTLS_OCSP_CERT_REVOKED
+        </code>
+        ,
+            holds time of revocation.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          unsigned int *
+          revocation_reason
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        revocation reason, a
+        <span class="type">
+         gnutls_x509_crl_reason_t
+        </span>
+        enum.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-ocsp-resp-get-single-3_sect2" name="gnutls-ocsp-resp-get-single-3_sect2" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This function will return the certificate information of
+      the
+     <em class="parameter">
+      <code>
+       indx
+      </code>
+     </em>
+     'ed response
+      in the Basic OCSP Response
+     <em class="parameter">
+      <code>
+       resp
+      </code>
+     </em>
+     . The information returned
+      corresponds to the OCSP SingleResponse structure except the
+      final singleExtensions.
+    </p>
+    <p>
+     Each of the pointers to output variables may be NULL to
+      indicate that the caller is not interested in that value.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-ocsp-resp-get-single-3_sect3" name="gnutls-ocsp-resp-get-single-3_sect3" shape="rect">
+    </a>
+    <h2>
+     RETURNS
+    </h2>
+    <p>
+     On success,
+     <span class="errorname">
+      GNUTLS_E_SUCCESS
+     </span>
+     (0) is returned,
+      otherwise a negative error code is returned. If you have
+      reached the last CertID available
+     <span class="errorname">
+      GNUTLS_E_REQUESTED_DATA_NOT_AVAILABLE
+     </span>
+     will
+      be returned.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-ocsp-resp-get-single-3_sect4" name="gnutls-ocsp-resp-get-single-3_sect4" shape="rect">
+    </a>
+    <h2>
+     REPORTING BUGS
+    </h2>
+    <p>
+     Report bugs to &lt;bugs@gnutls.org&gt;.
+    </p>
+    <p>
+     Home page: http://www.gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-ocsp-resp-get-single-3_sect6" name="gnutls-ocsp-resp-get-single-3_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <em class="citetitle">
+      gnutls
+     </em>
+     is maintained as a Texinfo manual. If
+      the /usr/share/doc/gnutls/ directory does not contain the
+      HTML form visit
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <a class="literalurl" href="http://www.gnutls.org/manual/" shape="rect" target="_top">
+         http://www.gnutls.org/manual/
+        </a>
+       </p>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

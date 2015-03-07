@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pam_syslog(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pam_syslog(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry" title="pam_syslog(3) &mdash; Linux manual pages">
+   <a id="pam-syslog.3" name="pam-syslog.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <a id="pam_syslog-name" name="pam_syslog-name" shape="rect">
+    </a>
+    <h2>
+     Name
+    </h2>
+    <p>
+     pam_syslog, pam_vsyslog &mdash; send messages to the
+      system logger
+    </p>
+   </div>
+   <div class="refsynopsisdiv" title="Synopsis">
+    <a id="pam_syslog-synopsis" name="pam_syslog-synopsis" shape="rect">
+    </a>
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;syslog.h&gt;
+</pre>
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;security/pam_ext.h&gt;
+</pre>
+     <table border="0" cellpadding="0" cellspacing="0" class="funcprototype-table" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          pam_syslog
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        pam_handle_t *
+        <var class="pdparam">
+         pamh
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         priority
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         fmt
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         ...
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+     <table border="0" cellpadding="0" cellspacing="0" class="funcprototype-table" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          pam_vsyslog
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        pam_handle_t *
+        <var class="pdparam">
+         pamh
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         priority
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         fmt
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        va_list
+        <var class="pdparam">
+         args
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1" title="DESCRIPTION">
+    <a id="pam_syslog-description" name="pam_syslog-description" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      pam_syslog
+     </code>
+     function logs
+      messages using
+     <a class="link" href="../htmlman3/syslog.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        syslog
+       </span>
+       (3)
+      </span>
+     </a>
+     and is intended
+      for internal use by Linux-PAM and PAM service modules. The
+     <span class="emphasis">
+      <em>
+       priority
+      </em>
+     </span>
+     argument is
+      formed by ORing the facility and the level values as
+      documented in the
+     <a class="link" href="../htmlman3/syslog.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        syslog
+       </span>
+       (3)
+      </span>
+     </a>
+     manual page.
+    </p>
+    <p>
+     The
+     <code class="function">
+      pam_vsyslog
+     </code>
+     function
+      performs the same task as
+     <code class="function">
+      pam_syslog()
+     </code>
+     with the difference that it
+      takes a set of arguments which have been obtained using the
+     <a class="link" href="../htmlman3/stdarg.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        stdarg
+       </span>
+       (3)
+      </span>
+     </a>
+     variable argument
+      list macros.
+    </p>
+   </div>
+   <div class="refsect1" title="SEE ALSO">
+    <a id="pam_syslog-see_also" name="pam_syslog-see_also" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman8/pam.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam
+       </span>
+       (8)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1" title="STANDARDS">
+    <a id="pam_syslog-standards" name="pam_syslog-standards" shape="rect">
+    </a>
+    <h2>
+     STANDARDS
+    </h2>
+    <p>
+     The
+     <code class="function">
+      pam_syslog
+     </code>
+     and
+     <code class="function">
+      pam_vsyslog
+     </code>
+     functions are
+      Linux-PAM extensions.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

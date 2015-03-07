@@ -1,0 +1,798 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   lseek(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="lseek(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="lseek.2" name="lseek.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     lseek &mdash; reposition read/write file offset
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#include &lt;sys/types.h&gt;
+#include &lt;unistd.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         off_t
+         <strong>
+          lseek
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         fd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        off_t
+        <var class="pdparam">
+         offset
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         whence
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="lseek-2_sect1" name="lseek-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      lseek
+     </code>
+     () function
+      repositions the offset of the open file associated with the
+      file descriptor
+     <em class="parameter">
+      <code>
+       fd
+      </code>
+     </em>
+     to
+      the argument
+     <em class="parameter">
+      <code>
+       offset
+      </code>
+     </em>
+     according to the directive
+     <em class="parameter">
+      <code>
+       whence
+      </code>
+     </em>
+     as follows:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         SEEK_SET
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The offset is set to
+        <em class="parameter">
+         <code>
+          offset
+         </code>
+        </em>
+        bytes.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         SEEK_CUR
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The offset is set to its current location plus
+        <em class="parameter">
+         <code>
+          offset
+         </code>
+        </em>
+        bytes.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         SEEK_END
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The offset is set to the size of the file plus
+        <em class="parameter">
+         <code>
+          offset
+         </code>
+        </em>
+        bytes.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     The
+     <code class="function">
+      lseek
+     </code>
+     () function allows
+      the file offset to be set beyond the end of the file (but
+      this does not change the size of the file). If data is later
+      written at this point, subsequent reads of the data in the
+      gap (a "hole") return null bytes ('\0') until data is
+      actually written into the gap.
+    </p>
+    <div class="refsect2">
+     <a id="lseek-2_sect2" name="lseek-2_sect2" shape="rect">
+     </a>
+     <h3>
+      Seeking file data and holes
+     </h3>
+     <p>
+      Since version 3.1, Linux supports the following
+        additional values for
+      <em class="parameter">
+       <code>
+        whence
+       </code>
+      </em>
+      :
+     </p>
+     <div class="variablelist">
+      <dl class="variablelist">
+       <dt>
+        <span class="term">
+         <code class="constant">
+          SEEK_DATA
+         </code>
+        </span>
+       </dt>
+       <dd>
+        <p>
+         Adjust the file offset to the next location in the
+              file greater than or equal to
+         <em class="parameter">
+          <code>
+           offset
+          </code>
+         </em>
+         containing data.
+              If
+         <em class="parameter">
+          <code>
+           offset
+          </code>
+         </em>
+         points to data, then the file offset is set to
+         <em class="parameter">
+          <code>
+           offset
+          </code>
+         </em>
+         .
+        </p>
+       </dd>
+       <dt>
+        <span class="term">
+         <code class="constant">
+          SEEK_HOLE
+         </code>
+        </span>
+       </dt>
+       <dd>
+        <p>
+         Adjust the file offset to the next hole in the
+              file greater than or equal to
+         <em class="parameter">
+          <code>
+           offset
+          </code>
+         </em>
+         . If
+         <em class="parameter">
+          <code>
+           offset
+          </code>
+         </em>
+         points into the
+              middle of a hole, then the file offset is set to
+         <em class="parameter">
+          <code>
+           offset
+          </code>
+         </em>
+         . If
+              there is no hole past
+         <em class="parameter">
+          <code>
+           offset
+          </code>
+         </em>
+         , then the file
+              offset is adjusted to the end of the file (i.e.,
+              there is an implicit hole at the end of any
+              file).
+        </p>
+       </dd>
+      </dl>
+     </div>
+     <p>
+      In both of the above cases,
+      <code class="function">
+       lseek
+      </code>
+      () fails if
+      <em class="parameter">
+       <code>
+        offset
+       </code>
+      </em>
+      points past the end of
+        the file.
+     </p>
+     <p>
+      These operations allow applications to map holes in a
+        sparsely allocated file. This can be useful for
+        applications such as file backup tools, which can save
+        space when creating backups and preserve holes, if they
+        have a mechanism for discovering holes.
+     </p>
+     <p>
+      For the purposes of these operations, a hole is a
+        sequence of zeros that (normally) has not been allocated in
+        the underlying file storage. However, a filesystem is not
+        obliged to report holes, so these operations are not a
+        guaranteed mechanism for mapping the storage space actually
+        allocated to a file. (Furthermore, a sequence of zeros that
+        actually has been written to the underlying storage may not
+        be reported as a hole.) In the simplest implementation, a
+        filesystem can support the operations by making
+      <code class="constant">
+       SEEK_HOLE
+      </code>
+      always return the
+        offset of the end of the file, and making
+      <code class="constant">
+       SEEK_DATA
+      </code>
+      always return
+      <em class="parameter">
+       <code>
+        offset
+       </code>
+      </em>
+      (i.e., even if the
+        location referred to by
+      <em class="parameter">
+       <code>
+        offset
+       </code>
+      </em>
+      is a hole, it can be
+        considered to consist of data that is a sequence of
+        zeros).
+     </p>
+     <p>
+      The
+      <code class="constant">
+       _GNU_SOURCE
+      </code>
+      feature
+        test macro must be defined in order to obtain the
+        definitions of
+      <code class="constant">
+       SEEK_DATA
+      </code>
+      and
+      <code class="constant">
+       SEEK_HOLE
+      </code>
+      from
+      <code class="literal">
+       &lt;
+      </code>
+      <code class="filename">
+       unistd.h
+      </code>
+      <code class="literal">
+       &gt;
+      </code>
+     </p>
+     <p>
+      The
+      <code class="constant">
+       SEEK_HOLE
+      </code>
+      and
+      <code class="constant">
+       SEEK_DATA
+      </code>
+      operations are
+        supported for the following filesystems:
+     </p>
+     <div class="itemizedlist">
+      <ul class="itemizedlist" style="list-style-type: disc;">
+       <li class="listitem">
+        <p>
+         Btrfs (since Linux 3.1)
+        </p>
+       </li>
+       <li class="listitem">
+        <p>
+         OCFS (since Linux 3.2)
+        </p>
+       </li>
+       <li class="listitem">
+        <p>
+         XFS (since Linux 3.5)
+        </p>
+       </li>
+       <li class="listitem">
+        <p>
+         ext4 (since Linux 3.8)
+        </p>
+       </li>
+       <li class="listitem">
+        <p>
+         tmpfs (since Linux 3.8)
+        </p>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="lseek-2_sect3" name="lseek-2_sect3" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     Upon successful completion,
+     <code class="function">
+      lseek
+     </code>
+     () returns the resulting offset
+      location as measured in bytes from the beginning of the file.
+      On error, the value
+     <span class="emphasis">
+      <em>
+       (off_t)
+      &minus;1
+      </em>
+     </span>
+     is returned and
+     <code class="varname">
+      errno
+     </code>
+     is set to indicate the error.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="lseek-2_sect4" name="lseek-2_sect4" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EBADF
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          fd
+         </code>
+        </em>
+        is not an
+            open file descriptor.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          whence
+         </code>
+        </em>
+        is
+            not valid. Or: the resulting file offset would be
+            negative, or beyond the end of a seekable device.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EOVERFLOW
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The resulting file offset cannot be represented in
+            an
+        <span class="type">
+         off_t
+        </span>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ESPIPE
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          fd
+         </code>
+        </em>
+        is
+            associated with a pipe, socket, or FIFO.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENXIO
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          whence
+         </code>
+        </em>
+        is
+        <code class="constant">
+         SEEK_DATA
+        </code>
+        or
+        <code class="constant">
+         SEEK_HOLE
+        </code>
+        , and the current file
+            offset is beyond the end of the file.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="lseek-2_sect5" name="lseek-2_sect5" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     SVr4, 4.3BSD, POSIX.1-2001.
+    </p>
+    <p>
+     <code class="constant">
+      SEEK_DATA
+     </code>
+     and
+     <code class="constant">
+      SEEK_HOLE
+     </code>
+     are nonstandard extensions also
+      present in Solaris, FreeBSD, and DragonFly BSD; they are
+      proposed for inclusion in the next POSIX revision (Issue
+      8).
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="lseek-2_sect6" name="lseek-2_sect6" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     See
+     <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        open
+       </span>
+       (2)
+      </span>
+     </a>
+     for a discussion of
+      the relationship between file descriptors, open file
+      descriptions, and files.
+    </p>
+    <p>
+     Some devices are incapable of seeking and POSIX does not
+      specify which devices must support
+     <code class="function">
+      lseek
+     </code>
+     ().
+    </p>
+    <p>
+     On Linux, using
+     <code class="function">
+      lseek
+     </code>
+     () on a
+      terminal device returns
+     <span class="errorname">
+      ESPIPE
+     </span>
+     .
+    </p>
+    <p>
+     When converting old code, substitute values for
+     <em class="parameter">
+      <code>
+       whence
+      </code>
+     </em>
+     with the following
+      macros:
+    </p>
+    <div class="informaltable">
+     <table style="border-collapse: collapse;">
+      <colgroup span="1">
+       <col class="c0" span="1">
+       </col>
+       <col class="c1" span="1">
+       </col>
+      </colgroup>
+      <tbody>
+       <tr>
+        <td align="center" colspan="1" rowspan="1" style="">
+         old
+        </td>
+        <td align="center" colspan="1" rowspan="1" style="">
+         new
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         0
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         SEEK_SET
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         1
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         SEEK_CUR
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         SEEK_END
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         L_SET
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         SEEK_SET
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         L_INCR
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         SEEK_CUR
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         L_XTND
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         SEEK_END
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     Note that file descriptors created by
+     <a class="link" href="../htmlman2/dup.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        dup
+       </span>
+       (2)
+      </span>
+     </a>
+     or
+     <a class="link" href="../htmlman2/fork.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fork
+       </span>
+       (2)
+      </span>
+     </a>
+     share the current
+      file position pointer, so seeking on such files may be
+      subject to race conditions.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="lseek-2_sect7" name="lseek-2_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/dup.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        dup
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/fork.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fork
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        open
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/fseek.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fseek
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/lseek64.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        lseek64
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/posix_fallocate.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        posix_fallocate
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="lseek-2_sect8" name="lseek-2_sect8" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

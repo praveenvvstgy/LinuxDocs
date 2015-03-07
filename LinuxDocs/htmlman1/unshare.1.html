@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   unshare(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="unshare(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="unshare.1" name="unshare.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     unshare &mdash; run program with some namespaces unshared
+      from parent
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       unshare
+      </code>
+      [options] program
+        [arguments]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="unshare-1_sect1" name="unshare-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Unshares the indicated namespaces from the parent process
+      and then executes the specified program. The namespaces to be
+      unshared are indicated via options. Unshareable namespaces
+      are:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          mount
+          namespace
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Mounting and unmounting filesystems will not affect
+            the rest of the system (
+        <code class="constant">
+         CLONE_NEWNS
+        </code>
+        flag), except for
+            filesystems which are explicitly marked as shared (with
+        <span class="emphasis">
+         <em>
+          mount
+            --make-shared
+         </em>
+        </span>
+        ; see
+        <code class="filename">
+         /proc/self/mountinfo
+        </code>
+        for the
+        <span class="command">
+         <strong>
+          shared
+         </strong>
+        </span>
+        flags).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          UTS
+          namespace
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Setting hostname or domainname will not affect the
+            rest of the system. (
+        <code class="constant">
+         CLONE_NEWUTS
+        </code>
+        flag)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          IPC
+          namespace
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The process will have an independent namespace for
+            System V message queues, semaphore sets and shared
+            memory segments. (
+        <code class="constant">
+         CLONE_NEWIPC
+        </code>
+        flag)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          network
+          namespace
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The process will have independent IPv4 and IPv6
+            stacks, IP routing tables, firewall rules, the
+        <code class="filename">
+         /proc/net
+        </code>
+        and
+        <code class="filename">
+         /sys/class/net
+        </code>
+        directory
+            trees, sockets, etc. (
+        <code class="constant">
+         CLONE_NEWNET
+        </code>
+        flag)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          pid
+          namespace
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Children will have a distinct set of PID to process
+            mappings from their parent. (
+        <code class="constant">
+         CLONE_NEWPID
+        </code>
+        flag)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          user
+          namespace
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The process will have a distinct set of UIDs, GIDs
+            and capabilities. (
+        <code class="constant">
+         CLONE_NEWUSER
+        </code>
+        flag)
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     See
+     <a class="link" href="../htmlman2/clone.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clone
+       </span>
+       (2)
+      </span>
+     </a>
+     for the exact
+      semantics of the flags.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="unshare-1_sect2" name="unshare-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i,
+          &minus;&minus;ipc
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Unshare the IPC namespace.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;m,
+          &minus;&minus;mount
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Unshare the mount namespace.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n,
+          &minus;&minus;net
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Unshare the network namespace.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p,
+          &minus;&minus;pid
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Unshare the pid namespace. See also the
+        <code class="option">
+         &minus;&minus;fork
+        </code>
+        and
+        <code class="option">
+         &minus;&minus;mount&minus;proc
+        </code>
+        options.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u,
+          &minus;&minus;uts
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Unshare the UTS namespace.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;U,
+          &minus;&minus;user
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Unshare the user namespace.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f,
+          &minus;&minus;fork
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Fork the specified
+        <em class="parameter">
+         <code>
+          program
+         </code>
+        </em>
+        as a child
+            process of
+        <span class="command">
+         <strong>
+          unshare
+         </strong>
+        </span>
+        rather than
+            running it directly. This is useful when creating a new
+            pid namespace.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;mount&minus;proc[=
+         <em class="parameter">
+          <code>
+           mountpoint
+          </code>
+         </em>
+         ]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Just before running the program, mount the proc
+            filesystem at the
+        <span class="command">
+         <strong>
+          mountpoint
+         </strong>
+        </span>
+        (default
+            is /proc). This is useful when creating a new pid
+            namespace. It also implies creating a new mount
+            namespace since the /proc mount would otherwise mess up
+            existing programs on the system.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="unshare-1_sect3" name="unshare-1_sect3" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/unshare.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        unshare
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/clone.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clone
+       </span>
+       (2)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="unshare-1_sect4" name="unshare-1_sect4" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     None known so far.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="unshare-1_sect5" name="unshare-1_sect5" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Mikhail Gusarov &lt;dottedmag@dottedmag.net&gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="unshare-1_sect6" name="unshare-1_sect6" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The unshare command is part of the util-linux package and
+      is available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

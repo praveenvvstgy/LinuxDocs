@@ -1,0 +1,667 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   reboot(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="reboot(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="reboot.2" name="reboot.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     reboot &mdash; reboot or enable/disable Ctrl-Alt-Del
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+/* For libc4 and libc5 the library call and the system call
+   are identical, and since kernel version 2.1.30 there are
+   symbolic names LINUX_REBOOT_* for the constants and a
+   fourth argument to the call: */
+
+#include &lt;unistd.h&gt;
+#include &lt;linux/reboot.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          reboot
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         magic
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         magic2
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         cmd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        void *
+        <var class="pdparam">
+         arg
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+
+/* Under glibc some of the constants involved have gotten
+   symbolic names RB_*, and the library call is a 1-argument
+   wrapper around the 3-argument system call: */
+
+#include &lt;unistd.h&gt;
+#include &lt;sys/reboot.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          reboot
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         cmd
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="reboot-2_sect1" name="reboot-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      reboot
+     </code>
+     () call reboots
+      the system, or enables/disables the reboot keystroke
+      (abbreviated CAD, since the default is Ctrl-Alt-Delete; it
+      can be changed using
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       loadkeys
+      </span>
+      (1)
+     </span>
+     ).
+    </p>
+    <p>
+     This system call will fail (with
+     <span class="errorname">
+      EINVAL
+     </span>
+     ) unless
+     <em class="parameter">
+      <code>
+       magic
+      </code>
+     </em>
+     equals
+     <code class="constant">
+      LINUX_REBOOT_MAGIC1
+     </code>
+     (that is, 0xfee1dead)
+      and
+     <em class="parameter">
+      <code>
+       magic2
+      </code>
+     </em>
+     equals
+     <code class="constant">
+      LINUX_REBOOT_MAGIC2
+     </code>
+     (that is,
+      672274793). However, since 2.1.17 also
+     <code class="constant">
+      LINUX_REBOOT_MAGIC2A
+     </code>
+     (that is, 85072278)
+      and since 2.1.97 also
+     <code class="constant">
+      LINUX_REBOOT_MAGIC2B
+     </code>
+     (that is, 369367448)
+      and since 2.5.71 also
+     <code class="constant">
+      LINUX_REBOOT_MAGIC2C
+     </code>
+     (that is, 537993216)
+      are permitted as value for
+     <em class="parameter">
+      <code>
+       magic2
+      </code>
+     </em>
+     . (The hexadecimal values
+      of these constants are meaningful.) The
+     <em class="parameter">
+      <code>
+       cmd
+      </code>
+     </em>
+     argument can have the
+      following values:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         LINUX_REBOOT_CMD_CAD_OFF
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        (
+        <code class="constant">
+         RB_DISABLE_CAD
+        </code>
+        , 0).
+            CAD is disabled. This means that the CAD keystroke will
+            cause a
+        <code class="constant">
+         SIGINT
+        </code>
+        signal to
+            be sent to init (process 1), whereupon this process may
+            decide upon a proper action (maybe: kill all processes,
+            sync, reboot).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         LINUX_REBOOT_CMD_CAD_ON
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        (
+        <code class="constant">
+         RB_ENABLE_CAD
+        </code>
+        ,
+            0x89abcdef). CAD is enabled. This means that the CAD
+            keystroke will immediately cause the action associated
+            with
+        <code class="constant">
+         LINUX_REBOOT_CMD_RESTART
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         LINUX_REBOOT_CMD_HALT
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        (
+        <code class="constant">
+         RB_HALT_SYSTEM
+        </code>
+        ,
+            0xcdef0123; since Linux 1.1.76). The message "System
+            halted." is printed, and the system is halted. Control
+            is given to the ROM monitor, if there is one. If not
+            preceded by a
+        <a class="link" href="../htmlman2/sync.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           sync
+          </span>
+          (2)
+         </span>
+        </a>
+        , data will be
+            lost.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         LINUX_REBOOT_CMD_KEXEC
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        (
+        <code class="constant">
+         RB_KEXEC
+        </code>
+        , 0x45584543,
+            since Linux 2.6.13). Execute a kernel that has been
+            loaded earlier with
+        <a class="link" href="../htmlman2/kexec_load.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           kexec_load
+          </span>
+          (2)
+         </span>
+        </a>
+        . This
+            option is available only if the kernel was configured
+            with
+        <code class="constant">
+         CONFIG_KEXEC
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         LINUX_REBOOT_CMD_POWER_OFF
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        (
+        <code class="constant">
+         RB_POWER_OFF
+        </code>
+        ,
+            0x4321fedc; since Linux 2.1.30). The message "Power
+            down." is printed, the system is stopped, and all power
+            is removed from the system, if possible. If not
+            preceded by a
+        <a class="link" href="../htmlman2/sync.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           sync
+          </span>
+          (2)
+         </span>
+        </a>
+        , data will be
+            lost.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         LINUX_REBOOT_CMD_RESTART
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        (
+        <code class="constant">
+         RB_AUTOBOOT
+        </code>
+        ,
+            0x1234567). The message "Restarting system." is
+            printed, and a default restart is performed
+            immediately. If not preceded by a
+        <a class="link" href="../htmlman2/sync.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           sync
+          </span>
+          (2)
+         </span>
+        </a>
+        , data will be
+            lost.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         LINUX_REBOOT_CMD_RESTART2
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        (0xa1b2c3d4; since Linux 2.1.30). The message
+            "Restarting system with command '%s'" is printed, and a
+            restart (using the command string given in
+        <em class="parameter">
+         <code>
+          arg
+         </code>
+        </em>
+        ) is performed
+            immediately. If not preceded by a
+        <a class="link" href="../htmlman2/sync.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           sync
+          </span>
+          (2)
+         </span>
+        </a>
+        , data will be
+            lost.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         LINUX_REBOOT_CMD_SW_SUSPEND
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        (
+        <code class="constant">
+         RB_SW_SUSPEND
+        </code>
+        ,
+            0xd000fce1; since Linux 2.5.18). The system is
+            suspended (hibernated) to disk. This option is
+            available only if the kernel was configured with
+        <code class="constant">
+         CONFIG_HIBERNATION
+        </code>
+        .
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     Only the superuser may call
+     <code class="function">
+      reboot
+     </code>
+     ().
+    </p>
+    <p>
+     The precise effect of the above actions depends on the
+      architecture. For the i386 architecture, the additional
+      argument does not do anything at present (2.1.122), but the
+      type of reboot can be determined by kernel command-line
+      arguments ("reboot=...") to be either warm or cold, and
+      either hard or through the BIOS.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="reboot-2_sect2" name="reboot-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     For the values of
+     <em class="parameter">
+      <code>
+       cmd
+      </code>
+     </em>
+     that stop or restart the
+      system, a successful call to
+     <code class="function">
+      reboot
+     </code>
+     () does not return. For the other
+     <em class="parameter">
+      <code>
+       cmd
+      </code>
+     </em>
+     values, zero is
+      returned on success. In all cases, &minus;1 is returned on
+      failure, and
+     <code class="varname">
+      errno
+     </code>
+     is set
+      appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="reboot-2_sect3" name="reboot-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EFAULT
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Problem with getting user-space data under
+        <code class="constant">
+         LINUX_REBOOT_CMD_RESTART2
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Bad magic numbers or
+        <em class="parameter">
+         <code>
+          cmd
+         </code>
+        </em>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EPERM
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The calling process has insufficient privilege to
+            call
+        <code class="function">
+         reboot
+        </code>
+        (); the
+        <code class="constant">
+         CAP_SYS_BOOT
+        </code>
+        capability
+            is required.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="reboot-2_sect4" name="reboot-2_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     <code class="function">
+      reboot
+     </code>
+     () is Linux-specific,
+      and should not be used in programs intended to be
+      portable.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="reboot-2_sect5" name="reboot-2_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/sync.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sync
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/bootparam.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        bootparam
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/capabilities.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        capabilities
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/ctrlaltdel.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ctrlaltdel
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       halt
+      </span>
+      (8)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       reboot
+      </span>
+      (8)
+     </span>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="reboot-2_sect6" name="reboot-2_sect6" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   gai.conf(5) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="gai.conf(5) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="gai.conf.5" name="gai.conf.5" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     gai.conf &mdash; getaddrinfo(3) configuration file
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gai-conf-5_sect1" name="gai-conf-5_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     A call to
+     <a class="link" href="../htmlman3/getaddrinfo.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getaddrinfo
+       </span>
+       (3)
+      </span>
+     </a>
+     might return
+      multiple answers. According to RFC 3484 these answers must be
+      sorted so that the answer with the highest success rate is
+      first in the list. The RFC provides an algorithm for the
+      sorting. The static rules are not always adequate, though.
+      For this reason, the RFC also requires that system
+      administrators should have the possibility to dynamically
+      change the sorting. For the glibc implementation, this can be
+      achieved with the
+     <code class="filename">
+      /etc/gai.conf
+     </code>
+     file.
+    </p>
+    <p>
+     Each line in the configuration file consists of a keyword
+      and its parameters. White spaces in any place are ignored.
+      Lines starting with '#' are comments and are ignored.
+    </p>
+    <p>
+     The keywords currently recognized are:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <em class="replaceable">
+         <code>
+          label
+         </code>
+        </em>
+        <em class="replaceable">
+         <code>
+          netmask
+         </code>
+        </em>
+        <em class="replaceable">
+         <code>
+          precedence
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The value is added to the label table used in the
+            RFC 3484 sorting. If any
+        <em class="replaceable">
+         <code>
+          label
+         </code>
+        </em>
+        definition is
+            present in the configuration file is present, the
+            default table is not used. All the label definitions of
+            the default table which are to be maintained have to be
+            duplicated. Following the keyword, the line has to
+            contain a network mask and a label value.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <em class="replaceable">
+         <code>
+          precedence
+         </code>
+        </em>
+        <em class="replaceable">
+         <code>
+          netmask
+         </code>
+        </em>
+        <em class="replaceable">
+         <code>
+          precedence
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This keyword is similar to
+        <em class="replaceable">
+         <code>
+          label
+         </code>
+        </em>
+        , but instead the
+            value is added to the precedence table as specified in
+            RFC 3484. Once again, the presence of a single
+        <em class="replaceable">
+         <code>
+          precedence
+         </code>
+        </em>
+        line in the configuration file causes the default table
+            to not be used.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <em class="replaceable">
+         <code>
+          reload
+         </code>
+        </em>
+        &lt;
+        <em class="replaceable">
+         <code>
+          yes
+         </code>
+        </em>
+        |
+        <em class="replaceable">
+         <code>
+          no
+         </code>
+        </em>
+        &gt;
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This keyword controls whether a process checks
+            whether the configuration file has been changed since
+            the last time it was read. If the value is "
+        <em class="replaceable">
+         <code>
+          yes
+         </code>
+        </em>
+        ", the file is
+            reread. This might cause problems in multithreaded
+            applications and is generally a bad idea. The default
+            is "
+        <em class="replaceable">
+         <code>
+          no
+         </code>
+        </em>
+        ".
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <em class="replaceable">
+         <code>
+          scopev4
+         </code>
+        </em>
+        <em class="replaceable">
+         <code>
+          mask
+         </code>
+        </em>
+        <em class="replaceable">
+         <code>
+          value
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Add another rule to the RFC 3484 scope table for
+            IPv4 address. By default, the scope IDs described in
+            section 3.2 in RFC 3438 are used. Changing these
+            defaults should hardly ever be necessary.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gai-conf-5_sect2" name="gai-conf-5_sect2" shape="rect">
+    </a>
+    <h2>
+     FILES
+    </h2>
+    <p>
+     <code class="filename">
+      /etc/gai.conf
+     </code>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gai-conf-5_sect3" name="gai-conf-5_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <p>
+     The default table according to RFC 3484 would be specified
+      with the following configuration file:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+label  ::1/128       0
+label  ::/0          1
+label  2002::/16     2
+label ::/96          3
+label ::ffff:0:0/96  4
+precedence  ::1/128       50
+precedence  ::/0          40
+precedence  2002::/16     30
+precedence ::/96          20
+precedence ::ffff:0:0/96  10
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gai-conf-5_sect4" name="gai-conf-5_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/getaddrinfo.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getaddrinfo
+       </span>
+       (3)
+      </span>
+     </a>
+     , RFC
+      3484
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="gai-conf-5_sect5" name="gai-conf-5_sect5" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   tkill(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="tkill(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="tkill.2" name="tkill.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     tkill, tgkill &mdash; send a signal to a thread
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          tkill
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         tid
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         sig
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          tgkill
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         tgid
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         tid
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         sig
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        There are no glibc
+            wrappers for these system calls; see NOTES.
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="tkill-2_sect1" name="tkill-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      tgkill
+     </code>
+     () sends the signal
+     <em class="parameter">
+      <code>
+       sig
+      </code>
+     </em>
+     to the thread
+      with the thread ID
+     <em class="parameter">
+      <code>
+       tid
+      </code>
+     </em>
+     in the thread group
+     <em class="parameter">
+      <code>
+       tgid
+      </code>
+     </em>
+     . (By contrast,
+     <a class="link" href="../htmlman2/kill.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        kill
+       </span>
+       (2)
+      </span>
+     </a>
+     can be used to send
+      a signal only to a process (i.e., thread group) as a whole,
+      and the signal will be delivered to an arbitrary thread
+      within that process.)
+    </p>
+    <p>
+     <code class="function">
+      tkill
+     </code>
+     () is an obsolete
+      predecessor to
+     <code class="function">
+      tgkill
+     </code>
+     (). It
+      allows only the target thread ID to be specified, which may
+      result in the wrong thread being signaled if a thread
+      terminates and its thread ID is recycled. Avoid using this
+      system call.
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       tgid
+      </code>
+     </em>
+     is
+      specified as &minus;1,
+     <code class="function">
+      tgkill
+     </code>
+     ()
+      is equivalent to
+     <code class="function">
+      tkill
+     </code>
+     ().
+    </p>
+    <p>
+     These are the raw system call interfaces, meant for
+      internal thread library use.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="tkill-2_sect2" name="tkill-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success, zero is returned. On error, &minus;1 is
+      returned, and
+     <code class="varname">
+      errno
+     </code>
+     is set
+      appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="tkill-2_sect3" name="tkill-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        An invalid thread ID, thread group ID, or signal was
+            specified.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EPERM
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Permission denied. For the required permissions, see
+        <a class="link" href="../htmlman2/kill.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           kill
+          </span>
+          (2)
+         </span>
+        </a>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ESRCH
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        No process with the specified thread ID (and thread
+            group ID) exists.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="tkill-2_sect4" name="tkill-2_sect4" shape="rect">
+    </a>
+    <h2>
+     VERSIONS
+    </h2>
+    <p>
+     <code class="function">
+      tkill
+     </code>
+     () is supported since
+      Linux 2.4.19 / 2.5.4.
+     <code class="function">
+      tgkill
+     </code>
+     ()
+      was added in Linux 2.5.75.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="tkill-2_sect5" name="tkill-2_sect5" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     <code class="function">
+      tkill
+     </code>
+     () and
+     <code class="function">
+      tgkill
+     </code>
+     () are Linux-specific and should not
+      be used in programs that are intended to be portable.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="tkill-2_sect6" name="tkill-2_sect6" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     See the description of
+     <code class="constant">
+      CLONE_THREAD
+     </code>
+     in
+     <a class="link" href="../htmlman2/clone.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clone
+       </span>
+       (2)
+      </span>
+     </a>
+     for an explanation
+      of thread groups.
+    </p>
+    <p>
+     Glibc does not provide wrappers for these system calls;
+      call them using
+     <a class="link" href="../htmlman2/syscall.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        syscall
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="tkill-2_sect7" name="tkill-2_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/clone.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clone
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/gettid.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        gettid
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/kill.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        kill
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/rt_sigqueueinfo.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        rt_sigqueueinfo
+       </span>
+       (2)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="tkill-2_sect8" name="tkill-2_sect8" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

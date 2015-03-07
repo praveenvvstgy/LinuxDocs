@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   null(4) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="null(4) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="null.4" name="null.4" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     null, zero &mdash; data sink
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="null-4_sect1" name="null-4_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Data written to a
+     <code class="function">
+      null
+     </code>
+     or
+     <code class="function">
+      zero
+     </code>
+     special file is
+      discarded.
+    </p>
+    <p>
+     Reads from the
+     <code class="function">
+      null
+     </code>
+     special
+      file always return end of file (i.e.,
+     <a class="link" href="../htmlman2/read.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        read
+       </span>
+       (2)
+      </span>
+     </a>
+     returns 0), whereas
+      reads from
+     <code class="function">
+      zero
+     </code>
+     always return
+      bytes containing zero (\0 characters).
+    </p>
+    <p>
+     <code class="function">
+      null
+     </code>
+     and
+     <code class="function">
+      zero
+     </code>
+     are typically created by:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       mknod &minus;m 666 /dev/null c 1 3
+      </p>
+      <p>
+       mknod &minus;m 666 /dev/zero c 1 5
+      </p>
+      <p>
+       chown root:root /dev/null /dev/zero
+      </p>
+     </blockquote>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="null-4_sect2" name="null-4_sect2" shape="rect">
+    </a>
+    <h2>
+     FILES
+    </h2>
+    <p>
+     <code class="filename">
+      /dev/null
+     </code>
+    </p>
+    <p>
+     <code class="filename">
+      /dev/zero
+     </code>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="null-4_sect3" name="null-4_sect3" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     If these devices are not writable and readable for all
+      users, many programs will act strangely.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="null-4_sect4" name="null-4_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/chown.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        chown
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/mknod.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mknod
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman4/full.4.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        full
+       </span>
+       (4)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="null-4_sect5" name="null-4_sect5" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

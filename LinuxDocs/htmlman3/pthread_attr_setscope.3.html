@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pthread_attr_setscope(3) &mdash; Linux manual
+  pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pthread_attr_setscope(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="pthread-attr-setscope.3" name="pthread-attr-setscope.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     pthread_attr_setscope, pthread_attr_getscope &mdash;
+      set/get contention scope attribute in thread attributes
+      object
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;pthread.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pthread_attr_setscope
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        pthread_attr_t *
+        <var class="pdparam">
+         attr
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         scope
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pthread_attr_getscope
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const pthread_attr_t *
+        <var class="pdparam">
+         attr
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int *
+        <var class="pdparam">
+         scope
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <p>
+         Compile and link with
+         <code class="option">
+          &minus;pthread
+         </code>
+         .
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-attr-setscope-3_sect1" name="pthread-attr-setscope-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      pthread_attr_setscope
+     </code>
+     ()
+      function sets the contention scope attribute of the thread
+      attributes object referred to by
+     <em class="parameter">
+      <code>
+       attr
+      </code>
+     </em>
+     to the value specified in
+     <em class="parameter">
+      <code>
+       scope
+      </code>
+     </em>
+     . The contention
+      scope attribute defines the set of threads against which a
+      thread competes for resources such as the CPU. POSIX.1-2001
+      specifies two possible values for
+     <em class="parameter">
+      <code>
+       scope
+      </code>
+     </em>
+     :
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         PTHREAD_SCOPE_SYSTEM
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The thread competes for resources with all other
+            threads in all processes on the system that are in the
+            same scheduling allocation domain (a group of one or
+            more processors).
+        <code class="constant">
+         PTHREAD_SCOPE_SYSTEM
+        </code>
+        threads are
+            scheduled relative to one another according to their
+            scheduling policy and priority.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         PTHREAD_SCOPE_PROCESS
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The thread competes for resources with all other
+            threads in the same process that were also created with
+            the
+        <code class="constant">
+         PTHREAD_SCOPE_PROCESS
+        </code>
+        contention scope.
+        <code class="constant">
+         PTHREAD_SCOPE_PROCESS
+        </code>
+        threads are
+            scheduled relative to other threads in the process
+            according to their scheduling policy and priority.
+            POSIX.1-2001 leaves it unspecified how these threads
+            contend with other threads in other process on the
+            system or with other threads in the same process that
+            were created with the
+        <code class="constant">
+         PTHREAD_SCOPE_SYSTEM
+        </code>
+        contention
+            scope.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     POSIX.1-2001 requires that an implementation support at
+      least one of these contention scopes. Linux supports
+     <code class="constant">
+      PTHREAD_SCOPE_SYSTEM
+     </code>
+     , but not
+     <code class="constant">
+      PTHREAD_SCOPE_PROCESS
+     </code>
+     .
+    </p>
+    <p>
+     On systems that support multiple contention scopes, then,
+      in order for the parameter setting made by
+     <code class="function">
+      pthread_attr_setscope
+     </code>
+     () to have effect when
+      calling
+     <a class="link" href="../htmlman3/pthread_create.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_create
+       </span>
+       (3)
+      </span>
+     </a>
+     , the
+      caller must use
+     <a class="link" href="../htmlman3/pthread_attr_setinheritsched.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_attr_setinheritsched
+       </span>
+       (3)
+      </span>
+     </a>
+     to set the inherit-scheduler attribute of the attributes
+      object
+     <em class="parameter">
+      <code>
+       attr
+      </code>
+     </em>
+     to
+     <code class="constant">
+      PTHREAD_EXPLICIT_SCHED
+     </code>
+     .
+    </p>
+    <p>
+     The
+     <code class="function">
+      pthread_attr_getscope
+     </code>
+     ()
+      function returns the contention scope attribute of the thread
+      attributes object referred to by
+     <em class="parameter">
+      <code>
+       attr
+      </code>
+     </em>
+     in the buffer pointed to
+      by
+     <em class="parameter">
+      <code>
+       scope
+      </code>
+     </em>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-attr-setscope-3_sect2" name="pthread-attr-setscope-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success, these functions return 0; on error, they
+      return a nonzero error number.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-attr-setscope-3_sect3" name="pthread-attr-setscope-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <p>
+     <code class="function">
+      pthread_attr_setscope
+     </code>
+     () can
+      fail with the following errors:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        An invalid value was specified in
+        <em class="parameter">
+         <code>
+          scope
+         </code>
+        </em>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOTSUP
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          scope
+         </code>
+        </em>
+        specified the value
+        <code class="constant">
+         PTHREAD_SCOPE_PROCESS
+        </code>
+        , which is not
+            supported on Linux.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-attr-setscope-3_sect4" name="pthread-attr-setscope-3_sect4" shape="rect">
+    </a>
+    <h2>
+     ATTRIBUTES
+    </h2>
+    <div class="refsect2">
+     <a id="pthread-attr-setscope-3_sect5" name="pthread-attr-setscope-3_sect5" shape="rect">
+     </a>
+     <h3>
+      Multithreading (see pthreads(7))
+     </h3>
+     <p>
+      The
+      <code class="function">
+       pthread_attr_setscope
+      </code>
+      () and
+      <code class="function">
+       pthread_attr_getscope
+      </code>
+      () functions are
+        thread-safe.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-attr-setscope-3_sect6" name="pthread-attr-setscope-3_sect6" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     POSIX.1-2001.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-attr-setscope-3_sect7" name="pthread-attr-setscope-3_sect7" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The
+     <code class="constant">
+      PTHREAD_SCOPE_SYSTEM
+     </code>
+     contention scope typically indicates that a user-space thread
+      is bound directly to a single kernel-scheduling entity. This
+      is the case on Linux for the obsolete LinuxThreads
+      implementation and the modern NPTL implementation, which are
+      both 1:1 threading implementations.
+    </p>
+    <p>
+     POSIX.1-2001 specifies that the default contention scope
+      is implementation-defined.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-attr-setscope-3_sect8" name="pthread-attr-setscope-3_sect8" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/pthread_attr_init.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_attr_init
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pthread_attr_setaffinity_np.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_attr_setaffinity_np
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pthread_attr_setinheritsched.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_attr_setinheritsched
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pthread_attr_setschedparam.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_attr_setschedparam
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pthread_attr_setschedpolicy.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_attr_setschedpolicy
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pthread_create.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_create
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/pthreads.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthreads
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="pthread-attr-setscope-3_sect9" name="pthread-attr-setscope-3_sect9" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

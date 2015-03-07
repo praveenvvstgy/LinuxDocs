@@ -1,0 +1,943 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   setterm(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="setterm(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="setterm.1" name="setterm.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     setterm &mdash; set terminal attributes
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       setterm
+      </code>
+      [options]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setterm-1_sect1" name="setterm-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       setterm
+      </strong>
+     </span>
+     writes to standard output a character string that will invoke
+      the specified terminal capabilities. Where possible
+     <span class="command">
+      <strong>
+       terminfo
+      </strong>
+     </span>
+     is
+      consulted to find the string to use. Some options however
+      (marked "virtual consoles only" below) do not correspond to a
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       terminfo
+      </span>
+      (5)
+     </span>
+     capability. In this
+      case, if the terminal type is "con" or "linux" the string
+      that invokes the specified capabilities on the PC Minix
+      virtual console driver is output. Options that are not
+      implemented by the terminal are ignored.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setterm-1_sect2" name="setterm-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <p>
+     For boolean options (
+     <span class="command">
+      <strong>
+       on
+      </strong>
+     </span>
+     or
+     <span class="command">
+      <strong>
+       off
+      </strong>
+     </span>
+     ), the default is
+     <span class="command">
+      <strong>
+       on
+      </strong>
+     </span>
+     .
+    </p>
+    <p>
+     For conciseness, an
+     <code class="literal">
+      8-color
+     </code>
+     below is
+     <code class="literal">
+      black
+     </code>
+     ,
+     <code class="literal">
+      red
+     </code>
+     ,
+     <code class="literal">
+      green
+     </code>
+     ,
+     <code class="literal">
+      yellow
+     </code>
+     ,
+     <code class="literal">
+      blue
+     </code>
+     ,
+     <code class="literal">
+      magenta
+     </code>
+     ,
+     <code class="literal">
+      cyan
+     </code>
+     , or
+     <code class="literal">
+      white
+     </code>
+     .
+    </p>
+    <p>
+     A
+     <code class="literal">
+      16-color
+     </code>
+     is an
+     <code class="literal">
+      8-color
+     </code>
+     ,
+     <code class="literal">
+      grey
+     </code>
+     ,
+      or
+     <code class="literal">
+      bright
+     </code>
+     followed by
+     <code class="literal">
+      red
+     </code>
+     ,
+     <code class="literal">
+      green
+     </code>
+     ,
+     <code class="literal">
+      yellow
+     </code>
+     ,
+     <code class="literal">
+      blue
+     </code>
+     ,
+     <code class="literal">
+      magenta
+     </code>
+     ,
+     <code class="literal">
+      cyan
+     </code>
+     ,
+      or
+     <code class="literal">
+      white
+     </code>
+     .
+    </p>
+    <p>
+     The various color options may be set independently, at
+      least at virtual consoles, though the results of setting
+      multiple modes (for example,
+     <code class="option">
+      &minus;underline
+     </code>
+     and
+     <code class="option">
+      &minus;half&minus;bright
+     </code>
+     ) are
+      hardware-dependent.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;appcursorkeys [on|off] (virtual consoles
+          only)
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets Cursor Key Application Mode on or off. When on,
+            ESC O A, ESC O B, etc. will be sent for the cursor keys
+            instead of ESC [ A, ESC [ B, etc. See the "vi and
+            Cursor-Keys" section of the Text-Terminal-HOWTO for how
+            this can cause problems for vi users.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;append
+          [
+         <em class="replaceable">
+          <code>
+           1&minus;NR_CONS
+          </code>
+         </em>
+         ]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Like
+        <code class="option">
+         &minus;dump
+        </code>
+        , but
+            appends to the snapshot file instead of overwriting it.
+            Only works if no
+        <code class="option">
+         &minus;dump
+        </code>
+        options are given.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;background
+        </code>
+        <code class="literal">
+         8-color
+        </code>
+        |
+        <span class="command">
+         <strong>
+          default
+         </strong>
+        </span>
+        (virtual
+          consoles only)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets the background text color.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;blank
+          [
+         <em class="replaceable">
+          <code>
+           0&minus;60
+          </code>
+         </em>
+         |
+         <em class="parameter">
+          <code>
+           force
+          </code>
+         </em>
+         |
+         <em class="parameter">
+          <code>
+           poke
+          </code>
+         </em>
+         ] (virtual consoles
+          only)
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets the interval of inactivity, in minutes, after
+            which the screen will be automatically blanked (using
+            APM if available). Without an argument, gets the blank
+            status (returns which vt was blanked or zero for
+            unblanked vt).
+       </p>
+       <p>
+        The
+        <span class="command">
+         <strong>
+          force
+         </strong>
+        </span>
+        option keeps
+            screen blank even if a key is pressed.
+       </p>
+       <p>
+        The
+        <span class="command">
+         <strong>
+          poke
+         </strong>
+        </span>
+        option unblank
+            the screen.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;bfreq
+          [
+         <em class="parameter">
+          <code>
+           freqnumber
+          </code>
+         </em>
+         ]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets the bell frequency in Hz. Without an argument,
+            defaults to 0.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;blength [
+         <em class="replaceable">
+          <code>
+           0&minus;2000
+          </code>
+         </em>
+         ]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets the bell duration in milliseconds. Without an
+            argument, defaults to 0.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;blink
+          [on|off]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Turns blink mode on or off. Except at a virtual
+            console,
+        <code class="option">
+         &minus;blink off
+        </code>
+        turns off all attributes (bold, half-brightness, blink,
+            reverse).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;bold
+          [on|off]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Turns bold (extra bright) mode on or off. Except at
+            a virtual console,
+        <code class="option">
+         &minus;bold
+            off
+        </code>
+        turns off all attributes (bold,
+            half-brightness, blink, reverse).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;clear
+          [all]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Clears the screen and "homes" the cursor, as
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          clear
+         </span>
+         (1)
+        </span>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;clearrest
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Clears from the current cursor position to the end
+            of the screen.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;clrtabs [
+         <span class="emphasis">
+          <em>
+           tab1
+          tab2 tab3
+          </em>
+         </span>
+         ...] (virtual consoles
+          only)
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Clears tab stops from the given horizontal cursor
+            positions, in the range 1-160. Without arguments,
+            clears all tab stops.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;cursor
+          [on|off]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Turns the terminal's cursor on or off.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;default
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets the terminal's rendering options to the default
+            values.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;dump
+          [
+         <em class="replaceable">
+          <code>
+           1&minus;NR_CONS
+          </code>
+         </em>
+         ]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Writes a snapshot of the given virtual console (with
+            attributes) to the file specified in the
+        <code class="option">
+         &minus;file
+        </code>
+        option, overwriting its
+            contents; the default is screen.dump. Without an
+            argument, dumps the current virtual console. Overrides
+        <code class="option">
+         &minus;append
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;append
+          [
+         <em class="replaceable">
+          <code>
+           1&minus;NR_CONS
+          </code>
+         </em>
+         ]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Like
+        <code class="option">
+         &minus;dump
+        </code>
+        , but
+            appends to the snapshot file instead of overwriting it.
+            Only works if no
+        <code class="option">
+         &minus;dump
+        </code>
+        options are given.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;file
+          dumpfilename
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets the snapshot file name for any
+        <code class="option">
+         &minus;dump
+        </code>
+        or
+        <code class="option">
+         &minus;append
+        </code>
+        options on the same
+            command line. If this option is not present, the
+            default is screen.dump in the current directory. A path
+            name that exceeds system maximum will be truncated, see
+            PATH_MAX from linux/limits.h for the value.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;msg
+          [on|off] (virtual consoles only)
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enables or disables the sending of kernel
+        <code class="function">
+         printk
+        </code>
+        () messages to the
+            console.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;msglevel
+         <em class="replaceable">
+          <code>
+           1&minus;8
+          </code>
+         </em>
+         (virtual
+          consoles only)
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets the console logging level for kernel
+        <code class="function">
+         printk
+        </code>
+        () messages. All
+            messages strictly more important than this will be
+            printed, so a logging level of 0 has the same effect as
+        <code class="option">
+         &minus;msg on
+        </code>
+        and a logging
+            level of 8 will print all kernel messages.
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          klogd
+         </span>
+         (8)
+        </span>
+        may be a more
+            convenient interface to the logging of kernel
+            messages.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;powerdown [
+         <em class="replaceable">
+          <code>
+           0&minus;60
+          </code>
+         </em>
+         ]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets the VESA powerdown interval in minutes. Without
+            an argument, defaults to 0 (disable powerdown). If the
+            console is blanked or the monitor is in suspend mode,
+            then the monitor will go into vsync suspend mode or
+            powerdown mode respectively after this period of time
+            has elapsed.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;underline [on|off]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Turns underline mode on or off (see
+        <code class="option">
+         &minus;ulcolor
+        </code>
+        ).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;powersave [off]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Turns off monitor VESA powersaving features.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;powersave on|vsync
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Puts the monitor into VESA vsync suspend mode.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;powersavepowerdown
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Puts the monitor into VESA powerdown mode.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;powersavehsync
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Puts the monitor into VESA hsync suspend mode.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;regtabs [
+         <em class="replaceable">
+          <code>
+           1&minus;160
+          </code>
+         </em>
+         ] (virtual
+          consoles only)
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Clears all tab stops, then sets a regular tab stop
+            pattern, with one tab every specified number of
+            positions. Without an argument, defaults to 8.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;repeat
+          [on|off] (virtual consoles only)
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Turns keyboard repeat on or off.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;reset
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Displays the terminal reset string, which typically
+            resets the terminal to its power on state.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;reverse [on|off]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Turns reverse video mode on or off. Except at a
+            virtual console,
+        <code class="option">
+         &minus;reverse
+            off
+        </code>
+        turns off all attributes (bold,
+            half-brightness, blink, reverse).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;store
+          (virtual consoles only)
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Stores the terminal's current rendering options
+            (foreground and background colors) as the values to be
+            used at reset-to-default.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;tabs
+          [
+         <span class="emphasis">
+          <em>
+           tab1 tab2 tab3
+          </em>
+         </span>
+         ...] (virtual consoles only)
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets tab stops at the given horizontal cursor
+            positions, in the range 1-160. Without arguments, shows
+            the current tab stop settings.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;term
+          terminal_name
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Overrides the TERM environment variable.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;ulcolor
+        </code>
+        <code class="literal">
+         16-color
+        </code>
+        (virtual consoles
+          only)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets the color for underlined characters.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="setterm-1_sect3" name="setterm-1_sect3" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       tput
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman1/stty.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        stty
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       terminfo
+      </span>
+      (5)
+     </span>
+     ,
+     <a class="link" href="../htmlman4/tty.4.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tty
+       </span>
+       (4)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setterm-1_sect4" name="setterm-1_sect4" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     Differences between the Minix and Linux versions are not
+      documented.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="setterm-1_sect5" name="setterm-1_sect5" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The setterm command is part of the util-linux package and
+      is available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,863 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   getdents(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="getdents(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="getdents.2" name="getdents.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     getdents &mdash; get directory entries
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          getdents
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int
+        <var class="pdparam">
+         fd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        struct linux_dirent *
+        <var class="pdparam">
+         dirp
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int
+        <var class="pdparam">
+         count
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        There is no glibc wrapper
+            for this system call; see NOTES.
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="getdents-2_sect1" name="getdents-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This is not the function you are interested in. Look at
+     <a class="link" href="../htmlman3/readdir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        readdir
+       </span>
+       (3)
+      </span>
+     </a>
+     for the POSIX
+      conforming C library interface. This page documents the bare
+      kernel system call interface.
+    </p>
+    <p>
+     The system call
+     <code class="function">
+      getdents
+     </code>
+     ()
+      reads several
+     <span class="structname">
+      linux_dirent
+     </span>
+     structures from the directory referred to by the open file
+      descriptor
+     <em class="parameter">
+      <code>
+       fd
+      </code>
+     </em>
+     into
+      the buffer pointed to by
+     <em class="parameter">
+      <code>
+       dirp
+      </code>
+     </em>
+     . The argument
+     <em class="parameter">
+      <code>
+       count
+      </code>
+     </em>
+     specifies the size of
+      that buffer.
+    </p>
+    <p>
+     The
+     <span class="structname">
+      linux_dirent
+     </span>
+     structure
+      is declared as follows:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="structdef">
+       <table style="border-collapse: collapse;">
+        <colgroup span="1">
+         <col class="c1" span="1">
+         </col>
+         <col class="c2" span="1">
+         </col>
+         <col class="c3" span="1">
+         </col>
+         <col class="c4" span="1">
+         </col>
+         <col class="c5" span="1">
+         </col>
+        </colgroup>
+        <tbody>
+         <tr>
+          <td align="left" class="structdefhdr" colspan="1" rowspan="1" style="">
+           struct
+          </td>
+          <td align="left" class="structdefhdr" colspan="4" rowspan="1" style="">
+           <span class="structname">
+            linux_dirent
+           </span>
+           &nbsp;{
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            unsigned&nbsp;long
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             d_ino
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;Inode&nbsp;number&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            unsigned&nbsp;long
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             d_off
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;Offset&nbsp;to&nbsp;next&nbsp;linux_dirent&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            unsigned&nbsp;short
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             d_reclen
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;Length&nbsp;of&nbsp;this&nbsp;linux_dirent&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            char
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             d_name
+            </code>
+           </em>
+           [];
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;Filename&nbsp;(null-terminated)&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td align="left" colspan="5" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;length&nbsp;is&nbsp;actually&nbsp;(d_reclen&nbsp;\-&nbsp;2&nbsp;\-
+            <br/>
+            offsetof(struct&nbsp;linux_dirent,&nbsp;d_name))&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td align="left" colspan="5" rowspan="1" style="">
+           <div class="literallayout">
+            /*
+            <br/>
+            char&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pad;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Zero&nbsp;padding&nbsp;byte
+            <br/>
+            char&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d_type;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;File&nbsp;type&nbsp;(only&nbsp;since&nbsp;Linux
+            <br/>
+            //&nbsp;2.6.4);&nbsp;offset&nbsp;is&nbsp;(d_reclen&nbsp;\-&nbsp;1)
+            <br/>
+            */
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td align="left" class="structdefftr" colspan="5" rowspan="1" style="">
+           };
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     <em class="parameter">
+      <code>
+       d_ino
+      </code>
+     </em>
+     is an inode
+      number.
+     <em class="parameter">
+      <code>
+       d_off
+      </code>
+     </em>
+     is the
+      distance from the start of the directory to the start of the
+      next
+     <span class="structname">
+      linux_dirent
+     </span>
+     .
+     <em class="parameter">
+      <code>
+       d_reclen
+      </code>
+     </em>
+     is the size of this
+      entire
+     <span class="structname">
+      linux_dirent
+     </span>
+     .
+     <em class="parameter">
+      <code>
+       d_name
+      </code>
+     </em>
+     is a
+      null-terminated filename.
+    </p>
+    <p>
+     <em class="replaceable">
+      <code>
+       d_type
+      </code>
+     </em>
+     is a byte
+      at the end of the structure that indicates the file type. It
+      contains one of the following values (defined in
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      dirent.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         DT_BLK
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This is a block device.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         DT_CHR
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This is a character device.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         DT_DIR
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This is a directory.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         DT_FIFO
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This is a named pipe (FIFO).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         DT_LNK
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This is a symbolic link.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         DT_REG
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This is a regular file.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         DT_SOCK
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This is a UNIX domain socket.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         DT_UNKNOWN
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The file type is unknown.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     The
+     <em class="replaceable">
+      <code>
+       d_type
+      </code>
+     </em>
+     field
+      is implemented since Linux 2.6.4. It occupies a space that
+      was previously a zero-filled padding byte in the
+     <span class="structname">
+      linux_dirent
+     </span>
+     structure. Thus, on kernels
+      before 2.6.3, attempting to access this field always provides
+      the value 0 (
+     <code class="constant">
+      DT_UNKNOWN
+     </code>
+     ).
+    </p>
+    <p>
+     Currently, only some filesystems (among them: Btrfs, ext2,
+      ext3, and ext4) have full support for returning the file type
+      in
+     <em class="replaceable">
+      <code>
+       d_type
+      </code>
+     </em>
+     . All
+      applications must properly handle a return of
+     <code class="constant">
+      DT_UNKNOWN
+     </code>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getdents-2_sect2" name="getdents-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success, the number of bytes read is returned. On end
+      of directory, 0 is returned. On error, &minus;1 is returned,
+      and
+     <code class="varname">
+      errno
+     </code>
+     is set
+      appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getdents-2_sect3" name="getdents-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EBADF
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Invalid file descriptor
+        <em class="parameter">
+         <code>
+          fd
+         </code>
+        </em>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EFAULT
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Argument points outside the calling process's
+            address space.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Result buffer is too small.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOENT
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        No such directory.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOTDIR
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        File descriptor does not refer to a directory.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="getdents-2_sect4" name="getdents-2_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     SVr4.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getdents-2_sect5" name="getdents-2_sect5" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     Glibc does not provide a wrapper for this system call;
+      call it using
+     <a class="link" href="../htmlman2/syscall.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        syscall
+       </span>
+       (2)
+      </span>
+     </a>
+     . You will need
+      to define the
+     <span class="structname">
+      linux_dirent
+     </span>
+     structure yourself. However, you probably want to use
+     <a class="link" href="../htmlman3/readdir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        readdir
+       </span>
+       (3)
+      </span>
+     </a>
+     instead.
+    </p>
+    <p>
+     This call supersedes
+     <a class="link" href="../htmlman2/readdir.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        readdir
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     The original Linux
+     <code class="function">
+      getdents
+     </code>
+     () system call did not handle large
+      filesystems and large file offsets. Consequently, Linux 2.4
+      added
+     <code class="function">
+      getdents64
+     </code>
+     (), with wider
+      types for the
+     <em class="parameter">
+      <code>
+       d_ino
+      </code>
+     </em>
+     and
+     <em class="parameter">
+      <code>
+       d_off
+      </code>
+     </em>
+     fields
+      employed in the
+     <span class="structname">
+      linux_dirent
+     </span>
+     structure.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getdents-2_sect6" name="getdents-2_sect6" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <p>
+     The program below demonstrates the use of
+     <code class="function">
+      getdents
+     </code>
+     (). The following output shows an
+      example of what we see when running this program on an ext2
+      directory:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$<span class="emphasis"><em> ./a.out /testfs/</em></span>
+--------------- nread=120 ---------------
+i-node#  file type  d_reclen  d_off   d_name
+       2  directory    16         12  .
+       2  directory    16         24  ..
+      11  directory    24         44  lost+found
+      12  regular      16         56  a
+  228929  directory    16         68  sub
+   16353  directory    16         80  sub2
+  130817  directory    16       4096  sub3
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <div class="refsect2">
+     <a id="getdents-2_sect7" name="getdents-2_sect7" shape="rect">
+     </a>
+     <h3>
+      Program source
+     </h3>
+     <div class="informalexample">
+      <pre class="programlisting" xml:space="preserve">
+#define _GNU_SOURCE
+#include &lt;dirent.h&gt;     /* Defines DT_* constants */
+#include &lt;fcntl.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;sys/syscall.h&gt;
+
+#define handle_error(msg) \
+        do { perror(msg); exit(EXIT_FAILURE); } while (0)
+
+struct linux_dirent {
+    long           d_ino;
+    off_t          d_off;
+    unsigned short d_reclen;
+    char           d_name[];
+};
+
+#define BUF_SIZE 1024
+
+int
+main(int argc, char *argv[])
+{
+    int fd, nread;
+    char buf[BUF_SIZE];
+    struct linux_dirent *d;
+    int bpos;
+    char d_type;
+
+    fd = open(argc &gt; 1 ? argv[1] : ".", O_RDONLY | O_DIRECTORY);
+    if (fd == &minus;1)
+        handle_error("open");
+
+    for ( ; ; ) {
+        nread = syscall(SYS_getdents, fd, buf, BUF_SIZE);
+        if (nread == &minus;1)
+            handle_error("getdents");
+
+        if (nread == 0)
+            break;
+
+        printf("&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus; nread=%d &minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;&minus;\n", nread);
+        printf("i&minus;node#  file type  d_reclen  d_off   d_name\n");
+        for (bpos = 0; bpos &lt; nread;) {
+            d = (struct linux_dirent *) (buf + bpos);
+            printf("%8ld  ", d&minus;&gt;d_ino);
+            d_type = *(buf + bpos + d&minus;&gt;d_reclen &minus; 1);
+            printf("%&minus;10s ", (d_type == DT_REG) ?  "regular" :
+                             (d_type == DT_DIR) ?  "directory" :
+                             (d_type == DT_FIFO) ? "FIFO" :
+                             (d_type == DT_SOCK) ? "socket" :
+                             (d_type == DT_LNK) ?  "symlink" :
+                             (d_type == DT_BLK) ?  "block dev" :
+                             (d_type == DT_CHR) ?  "char dev" : "???");
+            printf("%4d %10lld  %s\n", d&minus;&gt;d_reclen,
+                    (long long) d&minus;&gt;d_off, d&minus;&gt;d_name);
+            bpos += d&minus;&gt;d_reclen;
+        }
+    }
+
+    exit(EXIT_SUCCESS);
+}
+</pre>
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="getdents-2_sect8" name="getdents-2_sect8" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/readdir.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        readdir
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/readdir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        readdir
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="getdents-2_sect9" name="getdents-2_sect9" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,1012 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   readlink(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="readlink(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="readlink.2" name="readlink.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     readlink, readlinkat &mdash; read value of a symbolic
+      link
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;unistd.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         ssize_t
+         <strong>
+          readlink
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         pathname
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        char *
+        <var class="pdparam">
+         buf
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         bufsiz
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+
+#include &lt;fcntl.h&gt;            /* Definition of AT_* constants */
+#include &lt;unistd.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         ssize_t
+         <strong>
+          readlinkat
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         dirfd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         pathname
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        char *
+        <var class="pdparam">
+         buf
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         bufsiz
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              readlink
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _BSD_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &gt;= 500 ||
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &amp;&amp;
+             <code class="constant">
+              _XOPEN_SOURCE_EXTENDED
+             </code>
+             ||
+             <code class="constant">
+              _POSIX_C_SOURCE
+             </code>
+             &gt;= 200112L
+            </td>
+           </tr>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              readlinkat
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestver" colspan="1" rowspan="1" style="">
+             Since
+                      glibc 2.10:
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &gt;= 700 ||
+             <code class="constant">
+              _POSIX_C_SOURCE
+             </code>
+             &gt;=
+                      200809L
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestver" colspan="1" rowspan="1" style="">
+             Before
+                      glibc 2.10:
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _ATFILE_SOURCE
+             </code>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="readlink-2_sect1" name="readlink-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      readlink
+     </code>
+     () places the
+      contents of the symbolic link
+     <em class="parameter">
+      <code>
+       pathname
+      </code>
+     </em>
+     in the buffer
+     <em class="parameter">
+      <code>
+       buf
+      </code>
+     </em>
+     , which has size
+     <em class="parameter">
+      <code>
+       bufsiz
+      </code>
+     </em>
+     .
+     <code class="function">
+      readlink
+     </code>
+     () does not append a null byte to
+     <em class="parameter">
+      <code>
+       buf
+      </code>
+     </em>
+     . It will truncate
+      the contents (to a length of
+     <em class="parameter">
+      <code>
+       bufsiz
+      </code>
+     </em>
+     characters), in case the
+      buffer is too small to hold all of the contents.
+    </p>
+    <div class="refsect2">
+     <a id="readlink-2_sect2" name="readlink-2_sect2" shape="rect">
+     </a>
+     <h3>
+      readlinkat()
+     </h3>
+     <p>
+      The
+      <code class="function">
+       readlinkat
+      </code>
+      () system
+        call operates in exactly the same way as
+      <code class="function">
+       readlink
+      </code>
+      (), except for the differences
+        described here.
+     </p>
+     <p>
+      If the pathname given in
+      <em class="parameter">
+       <code>
+        pathname
+       </code>
+      </em>
+      is relative, then it
+        is interpreted relative to the directory referred to by the
+        file descriptor
+      <em class="parameter">
+       <code>
+        dirfd
+       </code>
+      </em>
+      (rather than relative
+        to the current working directory of the calling process, as
+        is done by
+      <code class="function">
+       readlink
+      </code>
+      () for a
+        relative pathname).
+     </p>
+     <p>
+      If
+      <em class="parameter">
+       <code>
+        pathname
+       </code>
+      </em>
+      is
+        relative and
+      <em class="parameter">
+       <code>
+        dirfd
+       </code>
+      </em>
+      is the special value
+      <code class="constant">
+       AT_FDCWD
+      </code>
+      , then
+      <em class="parameter">
+       <code>
+        pathname
+       </code>
+      </em>
+      is interpreted
+        relative to the current working directory of the calling
+        process (like
+      <code class="function">
+       readlink
+      </code>
+      ()).
+     </p>
+     <p>
+      If
+      <em class="parameter">
+       <code>
+        pathname
+       </code>
+      </em>
+      is
+        absolute, then
+      <em class="parameter">
+       <code>
+        dirfd
+       </code>
+      </em>
+      is ignored.
+     </p>
+     <p>
+      Since Linux 2.6.39,
+      <em class="parameter">
+       <code>
+        pathname
+       </code>
+      </em>
+      can be an empty
+        string, in which case the call operates on the file
+        referred to by
+      <em class="parameter">
+       <code>
+        dirfd
+       </code>
+      </em>
+      (which may have been
+        obtained using the
+      <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         open
+        </span>
+        (2)
+       </span>
+      </a>
+      <code class="constant">
+       O_PATH
+      </code>
+      flag). In this case,
+      <em class="parameter">
+       <code>
+        dirfd
+       </code>
+      </em>
+      can refer to any type
+        of file, not just a directory.
+     </p>
+     <p>
+      See
+      <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         openat
+        </span>
+        (2)
+       </span>
+      </a>
+      for an
+        explanation of the need for
+      <code class="function">
+       readlinkat
+      </code>
+      ().
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="readlink-2_sect3" name="readlink-2_sect3" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success, these calls return the number of bytes placed
+      in
+     <em class="parameter">
+      <code>
+       buf
+      </code>
+     </em>
+     . On error,
+      &minus;1 is returned and
+     <code class="varname">
+      errno
+     </code>
+     is set to indicate the error.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="readlink-2_sect4" name="readlink-2_sect4" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EACCES
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Search permission is denied for a component of the
+            path prefix. (See also
+        <a class="link" href="../htmlman7/path_resolution.7.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           path_resolution
+          </span>
+          (7)
+         </span>
+        </a>
+        .)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EFAULT
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          buf
+         </code>
+        </em>
+        extends
+            outside the process's allocated address space.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          bufsiz
+         </code>
+        </em>
+        is
+            not positive.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The named file is not a symbolic link.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EIO
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        An I/O error occurred while reading from the
+            filesystem.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ELOOP
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Too many symbolic links were encountered in
+            translating the pathname.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENAMETOOLONG
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        A pathname, or a component of a pathname, was too
+            long.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOENT
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The named file does not exist.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOMEM
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Insufficient kernel memory was available.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOTDIR
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        A component of the path prefix is not a
+            directory.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     The following additional errors can occur for
+     <code class="function">
+      readlinkat
+     </code>
+     ():
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EBADF
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          dirfd
+         </code>
+        </em>
+        is not
+            a valid file descriptor.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOTDIR
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          pathname
+         </code>
+        </em>
+        is
+            relative and
+        <em class="parameter">
+         <code>
+          dirfd
+         </code>
+        </em>
+        is a file
+            descriptor referring to a file other than a
+            directory.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="readlink-2_sect5" name="readlink-2_sect5" shape="rect">
+    </a>
+    <h2>
+     VERSIONS
+    </h2>
+    <p>
+     <code class="function">
+      readlinkat
+     </code>
+     () was added to
+      Linux in kernel 2.6.16; library support was added to glibc in
+      version 2.4.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="readlink-2_sect6" name="readlink-2_sect6" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     <code class="function">
+      readlink
+     </code>
+     (): 4.4BSD
+      (
+     <code class="function">
+      readlink
+     </code>
+     () first appeared in
+      4.2BSD), POSIX.1-2001, POSIX.1-2008.
+    </p>
+    <p>
+     <code class="function">
+      readlinkat
+     </code>
+     ():
+      POSIX.1-2008.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="readlink-2_sect7" name="readlink-2_sect7" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     In versions of glibc up to and including glibc 2.4, the
+      return type of
+     <code class="function">
+      readlink
+     </code>
+     () was
+      declared as
+     <span class="type">
+      int
+     </span>
+     . Nowadays, the
+      return type is declared as
+     <span class="type">
+      ssize_t
+     </span>
+     ,
+      as (newly) required in POSIX.1-2001.
+    </p>
+    <p>
+     Using a statically sized buffer might not provide enough
+      room for the symbolic link contents. The required size for
+      the buffer can be obtained from the
+     <em class="replaceable">
+      <code>
+       stat.st_size
+      </code>
+     </em>
+     value returned
+      by a call to
+     <a class="link" href="../htmlman2/stat.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        lstat
+       </span>
+       (2)
+      </span>
+     </a>
+     on the link.
+      However, the number of bytes written by
+     <code class="function">
+      readlink
+     </code>
+     () and
+     <code class="function">
+      readlinkat
+     </code>
+     () should be checked to make sure
+      that the size of the symbolic link did not increase between
+      the calls. Dynamically allocating the buffer for
+     <code class="function">
+      readlink
+     </code>
+     () and
+     <code class="function">
+      readlinkat
+     </code>
+     () also addresses a common
+      portability problem when using
+     <code class="constant">
+      PATH_MAX
+     </code>
+     for the buffer size, as this
+      constant is not guaranteed to be defined per POSIX if the
+      system does not have such limit.
+    </p>
+    <div class="refsect2">
+     <a id="readlink-2_sect8" name="readlink-2_sect8" shape="rect">
+     </a>
+     <h3>
+      Glibc notes
+     </h3>
+     <p>
+      On older kernels where
+      <code class="function">
+       readlinkat
+      </code>
+      () is unavailable, the glibc
+        wrapper function falls back to the use of
+      <code class="function">
+       readlink
+      </code>
+      (). When
+      <em class="parameter">
+       <code>
+        pathname
+       </code>
+      </em>
+      is a relative
+        pathname, glibc constructs a pathname based on the symbolic
+        link in
+      <code class="filename">
+       /proc/self/fd
+      </code>
+      that
+        corresponds to the
+      <em class="parameter">
+       <code>
+        dirfd
+       </code>
+      </em>
+      argument.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="readlink-2_sect9" name="readlink-2_sect9" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <p>
+     The following program allocates the buffer needed by
+     <code class="function">
+      readlink
+     </code>
+     () dynamically from the
+      information provided by
+     <code class="function">
+      lstat
+     </code>
+     (), making sure there's no race
+      condition between the calls.
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+
+int
+main(int argc, char *argv[])
+{
+    struct stat sb;
+    char *linkname;
+    ssize_t r;
+
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s &lt;pathname&gt;\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    if (lstat(argv[1], &amp;sb) == &minus;1) {
+        perror("lstat");
+        exit(EXIT_FAILURE);
+    }
+
+    linkname = malloc(sb.st_size + 1);
+    if (linkname == NULL) {
+        fprintf(stderr, "insufficient memory\n");
+        exit(EXIT_FAILURE);
+    }
+
+    r = readlink(argv[1], linkname, sb.st_size + 1);
+
+    if (r == &minus;1) {
+        perror("readlink");
+        exit(EXIT_FAILURE);
+    }
+
+    if (r &gt; sb.st_size) {
+        fprintf(stderr, "symlink increased in size "
+                        "between lstat() and readlink()\n");
+        exit(EXIT_FAILURE);
+    }
+
+    linkname[r] = '\0';
+
+    printf("'%s' points to '%s'\n", argv[1], linkname);
+
+    exit(EXIT_SUCCESS);
+}
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="readlink-2_sect10" name="readlink-2_sect10" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/readlink.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        readlink
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/stat.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        lstat
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/stat.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        stat
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/symlink.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        symlink
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/path_resolution.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        path_resolution
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/symlink.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        symlink
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="readlink-2_sect11" name="readlink-2_sect11" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

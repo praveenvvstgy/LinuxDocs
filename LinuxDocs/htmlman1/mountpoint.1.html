@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   mountpoint(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="mountpoint(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="mountpoint.1" name="mountpoint.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     mountpoint &mdash; see if a directory is a mountpoint
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       mountpoint
+      </code>
+      [
+      <code class="option">
+       &minus;q
+      </code>
+      ] [
+      <code class="option">
+       &minus;d
+      </code>
+      ] directory
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       mountpoint
+      </code>
+      <code class="option">
+       &minus;x
+      </code>
+      device
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="mountpoint-1_sect1" name="mountpoint-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       mountpoint
+      </strong>
+     </span>
+     checks if the directory is mentioned in the
+      /proc/self/mountinfo file.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mountpoint-1_sect2" name="mountpoint-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;q,
+          &minus;&minus;quiet
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Be quiet - don't print anything.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d,
+          &minus;&minus;fs&minus;devno
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print major/minor device number of the filesystem on
+            stdout.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;x,
+          &minus;&minus;devno
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print major/minor device number of the blockdevice
+            on stdout.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="mountpoint-1_sect3" name="mountpoint-1_sect3" shape="rect">
+    </a>
+    <h2>
+     EXIT STATUS
+    </h2>
+    <p>
+     Zero if the directory is a mountpoint, non-zero if
+      not.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mountpoint-1_sect4" name="mountpoint-1_sect4" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Karel Zak &lt;kzak@redhat.com&gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mountpoint-1_sect5" name="mountpoint-1_sect5" shape="rect">
+    </a>
+    <h2>
+     ENVIRONMENT
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <em class="replaceable">
+         <code>
+          LIBMOUNT_DEBUG=0xffff
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        enables debug output.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="mountpoint-1_sect6" name="mountpoint-1_sect6" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The util-linux
+     <span class="command">
+      <strong>
+       mountpoint
+      </strong>
+     </span>
+     implementation
+      was written from scratch for libmount. The original version
+      for sysvinit suite was written by Miquel van Smoorenburg.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mountpoint-1_sect7" name="mountpoint-1_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman8/mount.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mount
+       </span>
+       (8)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mountpoint-1_sect8" name="mountpoint-1_sect8" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The mountpoint command is part of the util-linux package
+      and is available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

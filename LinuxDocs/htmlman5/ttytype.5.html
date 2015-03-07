@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   ttytype(5) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="ttytype(5) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="ttytype.5" name="ttytype.5" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     ttytype &mdash; terminal device to default terminal type
+      mapping
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ttytype-5_sect1" name="ttytype-5_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="filename">
+      /etc/ttytype
+     </code>
+     file
+      associates
+     <a class="link" href="../htmlman5/termcap.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        termcap
+       </span>
+       (5)
+      </span>
+     </a>
+     /
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       terminfo
+      </span>
+      (5)
+     </span>
+     terminal type names
+      with tty lines. Each line consists of a terminal type,
+      followed by whitespace, followed by a tty name (a device name
+      without the
+     <code class="filename">
+      /dev/
+     </code>
+     ) prefix.
+    </p>
+    <p>
+     This association is used by the program
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       tset
+      </span>
+      (1)
+     </span>
+     to set the environment
+      variable
+     <code class="constant">
+      TERM
+     </code>
+     to the default
+      terminal name for the user's current tty.
+    </p>
+    <p>
+     This facility was designed for a traditional time-sharing
+      environment featuring character-cell terminals hardwired to a
+      UNIX minicomputer. It is little used on modern workstation
+      and personal UNIX systems.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ttytype-5_sect2" name="ttytype-5_sect2" shape="rect">
+    </a>
+    <h2>
+     FILES
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="filename">
+         /etc/ttytype
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        the tty definitions file.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ttytype-5_sect3" name="ttytype-5_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <p>
+     A typical
+     <code class="filename">
+      /etc/ttytype
+     </code>
+     is:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       con80x25 tty1
+      </p>
+      <p>
+       vt320 ttys0
+      </p>
+     </blockquote>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ttytype-5_sect4" name="ttytype-5_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman5/termcap.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        termcap
+       </span>
+       (5)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       terminfo
+      </span>
+      (5)
+     </span>
+     ,
+     <a class="link" href="../htmlman8/agetty.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        agetty
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       mingetty
+      </span>
+      (8)
+     </span>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="ttytype-5_sect5" name="ttytype-5_sect5" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

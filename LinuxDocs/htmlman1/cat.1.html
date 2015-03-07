@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   cat(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="cat(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="cat.1" name="cat.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     cat &mdash; concatenate files and print on the standard
+      output
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       cat
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...] [
+      <em class="replaceable">
+       <code>
+        FILE
+       </code>
+      </em>
+      ...]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="cat-1_sect1" name="cat-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Concatenate FILE(s), or standard input, to standard
+      output.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;A
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;show&minus;all
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        equivalent to
+        <code class="option">
+         &minus;vET
+        </code>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;b
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;number&minus;nonblank
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        number nonempty output lines, overrides
+        <code class="option">
+         &minus;n
+        </code>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;e
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        equivalent to
+        <code class="option">
+         &minus;vE
+        </code>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;E
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;show&minus;ends
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display $ at end of each line
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;number
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        number all output lines
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;squeeze&minus;blank
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        suppress repeated empty output lines
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        equivalent to
+        <code class="option">
+         &minus;vT
+        </code>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;T
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;show&minus;tabs
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display TAB characters as ^I
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        (ignored)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;show&minus;nonprinting
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use ^ and M&minus; notation, except for LFD and
+            TAB
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display this help and exit
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output version information and exit
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     With no FILE, or when FILE is &minus;, read standard
+      input.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="cat-1_sect2" name="cat-1_sect2" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+cat f &minus; g
+</pre>
+    </div>
+    <p>
+     Output f's contents, then standard input, then g's
+      contents.
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+cat
+</pre>
+    </div>
+    <p>
+     Copy standard input to standard output.
+    </p>
+    <p>
+     GNU coreutils online help: &lt;
+     <a class="literalurl" href="http://www.gnu.org/software/coreutils/" shape="rect" target="_top">
+      http://www.gnu.org/software/coreutils/
+     </a>
+     &gt; Report
+      cat translation bugs to &lt;
+     <a class="literalurl" href="http://translationproject.org/team/" shape="rect" target="_top">
+      http://translationproject.org/team/
+     </a>
+     &gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="cat-1_sect3" name="cat-1_sect3" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Written by Torbjorn Granlund and Richard M. Stallman.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="cat-1_sect5" name="cat-1_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/tac.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tac
+       </span>
+       (1)
+      </span>
+     </a>
+    </p>
+    <p>
+     The full documentation for
+     <span class="command">
+      <strong>
+       cat
+      </strong>
+     </span>
+     is maintained as a
+      Texinfo manual. If the
+     <span class="command">
+      <strong>
+       info
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       cat
+      </strong>
+     </span>
+     programs are properly
+      installed at your site, the command
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <span class="emphasis">
+         <em>
+          info coreutils 'cat
+            invocation'
+         </em>
+        </span>
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p>
+     should give you access to the complete manual.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

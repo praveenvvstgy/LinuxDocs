@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   who(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="who(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="who.1" name="who.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     who &mdash; show who is logged on
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       who
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...] [
+      <em class="replaceable">
+       <code>
+        FILE
+       </code>
+      </em>
+      |
+      <em class="replaceable">
+       <code>
+        ARG1
+       </code>
+      </em>
+      <em class="replaceable">
+       <code>
+        ARG2
+       </code>
+      </em>
+      ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="who-1_sect1" name="who-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Print information about users who are currently logged
+      in.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;a
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;all
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        same as
+        <code class="option">
+         &minus;b
+        </code>
+        <code class="option">
+         &minus;d
+        </code>
+        <code class="option">
+         &minus;&minus;login
+        </code>
+        <code class="option">
+         &minus;p
+        </code>
+        <code class="option">
+         &minus;r
+        </code>
+        <code class="option">
+         &minus;t
+        </code>
+        <code class="option">
+         &minus;T
+        </code>
+        <code class="option">
+         &minus;u
+        </code>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;b
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;boot
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        time of last system boot
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;dead
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print dead processes
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;H
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;heading
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print line of column headings
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;login
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print system login processes
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;lookup
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        attempt to canonicalize hostnames via DNS
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;m
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        only hostname and user associated with stdin
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;process
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print active processes spawned by init
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;q
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;count
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        all login names and number of users logged on
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;runlevel
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print current runlevel
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;short
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print only name, line, and time (default)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;time
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print last system clock change
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;T
+        </code>
+        ,
+        <code class="option">
+         &minus;w
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;mesg
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        add user's message status as +, &minus; or ?
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;users
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        list users logged in
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;message
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        same as
+        <code class="option">
+         &minus;T
+        </code>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;writable
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        same as
+        <code class="option">
+         &minus;T
+        </code>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display this help and exit
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output version information and exit
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     If FILE is not specified, use
+     <code class="filename">
+      /var/run/utmp
+     </code>
+     .
+     <code class="filename">
+      /var/log/wtmp
+     </code>
+     as FILE is common. If ARG1
+      ARG2 given,
+     <code class="option">
+      &minus;m
+     </code>
+     presumed:
+      'am i' or 'mom likes' are usual.
+    </p>
+    <p>
+     GNU coreutils online help: &lt;
+     <a class="literalurl" href="http://www.gnu.org/software/coreutils/" shape="rect" target="_top">
+      http://www.gnu.org/software/coreutils/
+     </a>
+     &gt; Report
+      who translation bugs to &lt;
+     <a class="literalurl" href="http://translationproject.org/team/" shape="rect" target="_top">
+      http://translationproject.org/team/
+     </a>
+     &gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="who-1_sect2" name="who-1_sect2" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Written by Joseph Arceneaux, David MacKenzie, and Michael
+      Stone.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="who-1_sect4" name="who-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <span class="command">
+      <strong>
+       who
+      </strong>
+     </span>
+     is maintained as a
+      Texinfo manual. If the
+     <span class="command">
+      <strong>
+       info
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       who
+      </strong>
+     </span>
+     programs are properly
+      installed at your site, the command
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <span class="emphasis">
+         <em>
+          info coreutils 'who
+            invocation'
+         </em>
+        </span>
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p>
+     should give you access to the complete manual.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

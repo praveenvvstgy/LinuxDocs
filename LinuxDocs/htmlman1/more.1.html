@@ -1,0 +1,804 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   more(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="more(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="more.1" name="more.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     more &mdash; file perusal filter for crt viewing
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       more
+      </code>
+      [options] file [ ...
+        ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="more-1_sect1" name="more-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       more
+      </strong>
+     </span>
+     is a
+      filter for paging through text one screenful at a time. This
+      version is especially primitive. Users should realize that
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       less
+      </span>
+      (1)
+     </span>
+     provides
+     <a class="link" href="../htmlman1/more.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        more
+       </span>
+       (1)
+      </span>
+     </a>
+     emulation plus
+      extensive enhancements.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="more-1_sect2" name="more-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <p>
+     Command-line options are described below. Options are also
+      taken from the environment variable
+     <code class="constant">
+      MORE
+     </code>
+     (make sure to precede them with a dash
+      (``-'')) but command line options will override them.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;num
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <code class="option">
+         &minus;number
+        </code>
+        This
+            option specifies an integer
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+        which is the
+            screen size (in lines).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <span class="command">
+         <strong>
+          more
+         </strong>
+        </span>
+        will prompt the user with the message "[Press space to
+            continue, 'q' to quit.]" and will display "[Press 'h'
+            for instructions.]" instead of ringing the bell when an
+            illegal key is pressed.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <span class="command">
+         <strong>
+          more
+         </strong>
+        </span>
+        usually treats
+        <code class="literal">
+         ^L
+        </code>
+        (form
+            feed) as a special character, and will pause after any
+            line that contains a form feed. The
+        <code class="option">
+         &minus;l
+        </code>
+        option will prevent this
+            behavior.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Causes
+        <span class="command">
+         <strong>
+          more
+         </strong>
+        </span>
+        to count
+            logical, rather than screen lines (i.e., long lines are
+            not folded).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not scroll. Instead, clear the whole screen and
+            then display the text. Notice that this option is
+            switched on automatically if the executable is named
+        <span class="command">
+         <strong>
+          page
+         </strong>
+        </span>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;c
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not scroll. Instead, paint each screen from the
+            top, clearing the remainder of each line as it is
+            displayed.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Squeeze multiple blank lines into one.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Suppress underlining.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        +/
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The
+        <em class="replaceable">
+         <code>
+          +/
+         </code>
+        </em>
+        option specifies a string that will be searched for
+            before each file is displayed.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        +number
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Start at line
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+        .
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="more-1_sect3" name="more-1_sect3" shape="rect">
+    </a>
+    <h2>
+     COMMANDS
+    </h2>
+    <p>
+     Interactive commands for
+     <span class="command">
+      <strong>
+       more
+      </strong>
+     </span>
+     are based on
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       vi
+      </span>
+      (1)
+     </span>
+     . Some commands may be
+      preceded by a decimal number, called k in the descriptions
+      below. In the following descriptions,
+     <code class="literal">
+      ^X
+     </code>
+     means
+     <em class="replaceable">
+      <code>
+       control-X
+      </code>
+     </em>
+     .
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="variablelist">
+       <dl class="variablelist">
+        <dt>
+         <span class="term">
+          <code class="literal">
+           h
+          </code>
+          or
+          <code class="literal">
+           ?
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Help: display a summary of these commands. If
+                you forget all the other commands, remember this
+                one.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="constant">
+           SPACE
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Display next k lines of text. Defaults to
+                current screen size.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="literal">
+           z
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Display next k lines of text. Defaults to
+                current screen size. Argument becomes new
+                default.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="constant">
+           RETURN
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Display next k lines of text. Defaults to 1.
+                Argument becomes new default.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="literal">
+           d
+          </code>
+          or
+          <code class="literal">
+           ^D
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Scroll k lines. Default is current scroll size,
+                initially 11. Argument becomes new default.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="literal">
+           q
+          </code>
+          or
+          <code class="constant">
+           Q
+          </code>
+          or
+          <code class="constant">
+           INTERRUPT
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Exit.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="literal">
+           s
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Skip forward k lines of text. Defaults to 1.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="literal">
+           f
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Skip forward k screenfuls of text. Defaults to
+                1.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="literal">
+           b
+          </code>
+          or
+          <code class="literal">
+           ^B
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Skip backwards k screenfuls of text. Defaults to
+                1. Only works with files, not pipes.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="literal">
+           '
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Go to place where previous search started.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="literal">
+           =
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Display current line number.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="filename">
+           /pattern
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Search for kth occurrence of regular expression.
+                Defaults to 1.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="literal">
+           n
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Search for kth occurrence of last regular
+                expression. Defaults to 1.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <span class="command">
+           <strong>
+            !command
+           </strong>
+          </span>
+          or
+          <em class="replaceable">
+           <code>
+            :!command
+           </code>
+          </em>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Execute
+          <span class="command">
+           <strong>
+            command
+           </strong>
+          </span>
+          in a
+                subshell.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="literal">
+           v
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Start up an editor at current line. The editor
+                is taken from the environment variable
+          <code class="constant">
+           VISUAL
+          </code>
+          if defined, or
+          <code class="constant">
+           EDITOR
+          </code>
+          if
+          <code class="constant">
+           VISUAL
+          </code>
+          is not
+                defined, or defaults to
+          <span class="command">
+           <strong>
+            vi
+           </strong>
+          </span>
+          if neither
+          <code class="constant">
+           VISUAL
+          </code>
+          nor
+          <code class="constant">
+           EDITOR
+          </code>
+          is
+                defined.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="literal">
+           ^L
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Redraw screen.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          :n
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Go to kth next file. Defaults to 1.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          :P
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Go to kth previous file. Defaults to 1.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          :f
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Display current file name and line number.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="filename">
+           .
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Repeat previous command.
+         </p>
+        </dd>
+       </dl>
+      </div>
+     </blockquote>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="more-1_sect4" name="more-1_sect4" shape="rect">
+    </a>
+    <h2>
+     ENVIRONMENT
+    </h2>
+    <p>
+     More utilizes the following environment variables, if they
+      exist:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         MORE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This variable may be set with favored options to
+        <span class="command">
+         <strong>
+          more
+         </strong>
+        </span>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         SHELL
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Current shell in use (normally set by the shell at
+            login time).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         TERM
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specifies terminal type, used by more to get the
+            terminal characteristics necessary to manipulate the
+            screen.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         VISUAL
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Editor the user is preferring. Used when key command
+        <code class="literal">
+         v
+        </code>
+        is pressed.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         EDITOR
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Editor of choise when
+        <code class="constant">
+         VISUAL
+        </code>
+        is not specified.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="more-1_sect5" name="more-1_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       vi
+      </span>
+      (1)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       less
+      </span>
+      (1)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="more-1_sect6" name="more-1_sect6" shape="rect">
+    </a>
+    <h2>
+     AUTHORS
+    </h2>
+    <p>
+     Eric Shienbrood, UC Berkeley
+    </p>
+    <p>
+     Modified by Geoff Peck, UCB to add underlining, single
+      spacing
+    </p>
+    <p>
+     Modified by John Foderaro, UCB to add -c and MORE
+      environment variable
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="more-1_sect7" name="more-1_sect7" shape="rect">
+    </a>
+    <h2>
+     HISTORY
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       more
+      </strong>
+     </span>
+     command appeared in 3.0BSD. This man page documents
+     <span class="command">
+      <strong>
+       more
+      </strong>
+     </span>
+     version
+      5.19 (Berkeley 6/29/88), which is currently in use in the
+      Linux community. Documentation was produced using several
+      other versions of the man page, and extensive inspection of
+      the source code.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="more-1_sect8" name="more-1_sect8" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The more command is part of the util-linux package and is
+      available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

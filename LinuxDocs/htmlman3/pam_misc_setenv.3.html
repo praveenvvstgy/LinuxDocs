@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pam_misc_setenv(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pam_misc_setenv(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry" title="pam_misc_setenv(3) &mdash; Linux manual pages">
+   <a id="pam-misc-setenv.3" name="pam-misc-setenv.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <a id="pam_misc_setenv-name" name="pam_misc_setenv-name" shape="rect">
+    </a>
+    <h2>
+     Name
+    </h2>
+    <p>
+     pam_misc_setenv &mdash; BSD like PAM environment variable
+      setting
+    </p>
+   </div>
+   <div class="refsynopsisdiv" title="Synopsis">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <a id="pam_misc_setenv-synopsis" name="pam_misc_setenv-synopsis" shape="rect">
+     </a>
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;security/pam_misc.h&gt;
+</pre>
+     <table border="0" cellpadding="0" cellspacing="0" class="funcprototype-table" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pam_misc_setenv
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        pam_handle_t *
+        <var class="pdparam">
+         pamh
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         name
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         value
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         readonly
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1" title="DESCRIPTION">
+    <a id="pam_misc_setenv-description" name="pam_misc_setenv-description" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This function performs a task equivalent to
+     <a class="link" href="../htmlman3/pam_putenv.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam_putenv
+       </span>
+       (3)
+      </span>
+     </a>
+     , its syntax
+      is, however, more like the BSD style function;
+     <code class="function">
+      setenv()
+     </code>
+     . The
+     <em class="parameter">
+      <code>
+       name
+      </code>
+     </em>
+     and
+     <em class="parameter">
+      <code>
+       value
+      </code>
+     </em>
+     are concatenated with an
+      '=' to form a name=value and passed to
+     <code class="function">
+      pam_putenv()
+     </code>
+     . If, however, the PAM variable
+      is already set, the replacement will only be applied if the
+      last argument,
+     <em class="parameter">
+      <code>
+       readonly
+      </code>
+     </em>
+     , is zero.
+    </p>
+   </div>
+   <div class="refsect1" title="SEE ALSO">
+    <a id="pam_misc_setenv-see_also" name="pam_misc_setenv-see_also" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/pam_putenv.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam_putenv
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/pam.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam
+       </span>
+       (8)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1" title="STANDARDS">
+    <a id="pam_misc_setenv-standards" name="pam_misc_setenv-standards" shape="rect">
+    </a>
+    <h2>
+     STANDARDS
+    </h2>
+    <p>
+     The
+     <code class="function">
+      pam_misc_setenv
+     </code>
+     function
+      is part of the
+     <span class="command">
+      <strong>
+       libpam_misc
+      </strong>
+     </span>
+     Library and not
+      defined in any standard.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

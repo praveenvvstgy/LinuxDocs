@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   wall(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="wall(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="wall.1" name="wall.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     wall &mdash; write a message to users
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       wall
+      </code>
+      [
+      <code class="option">
+       &minus;n
+      </code>
+      ] [
+      <code class="option">
+       &minus;t
+      </code>
+      timeout ] [ message | file ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="wall-1_sect1" name="wall-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       wall
+      </strong>
+     </span>
+     displays a
+     <em class="parameter">
+      <code>
+       message
+      </code>
+     </em>
+     or
+      the contents of a
+     <em class="parameter">
+      <code>
+       file
+      </code>
+     </em>
+     or, by default, its
+      standard input, on the terminals of all currently logged in
+      users. The command will wrap lines that are longer than 79
+      characters. Short lines are whitespace padded to have 79
+      characters. The command will always put a carriage return and
+      new line at the end of each line.
+    </p>
+    <p>
+     Only the superuser can write on the terminals of users who
+      have chosen to deny messages or are using a program which
+      automatically denies messages.
+    </p>
+    <p>
+     Reading from a
+     <em class="parameter">
+      <code>
+       file
+      </code>
+     </em>
+     is refused when the
+      invoker is not superuser and the program is suid or sgid.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="wall-1_sect2" name="wall-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n,
+          &minus;&minus;nobanner
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Suppress the banner.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t,
+          &minus;&minus;timeout
+         <em class="parameter">
+          <code>
+           timeout
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Abandon the write attempt to the terminals after
+        <em class="parameter">
+         <code>
+          timeout
+         </code>
+        </em>
+        seconds. This
+        <em class="parameter">
+         <code>
+          timeout
+         </code>
+        </em>
+        must be a
+            positive integer. The default value is 300 seconds,
+            which is a legacy from the time when people ran
+            terminals over modem lines.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V,
+          &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="wall-1_sect3" name="wall-1_sect3" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     Some sessions, such as wdm, that have in the beginning of
+     <a class="link" href="../htmlman5/utmp.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        utmp
+       </span>
+       (5)
+      </span>
+     </a>
+     ut_type data a ':'
+      character will not get the message from
+     <span class="command">
+      <strong>
+       wall
+      </strong>
+     </span>
+     . This is done to avoid
+      write errors.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="wall-1_sect4" name="wall-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/mesg.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mesg
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       talk
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman1/write.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        write
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       shutdown
+      </span>
+      (8)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="wall-1_sect5" name="wall-1_sect5" shape="rect">
+    </a>
+    <h2>
+     HISTORY
+    </h2>
+    <p>
+     A
+     <span class="command">
+      <strong>
+       wall
+      </strong>
+     </span>
+     command appeared in Version 7 AT&amp;T UNIX.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="wall-1_sect6" name="wall-1_sect6" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The wall command is part of the util-linux package and is
+      available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

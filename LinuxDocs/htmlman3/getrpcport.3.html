@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   getrpcport(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="getrpcport(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="getrpcport.3" name="getrpcport.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     getrpcport &mdash; get RPC port number
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;rpc/rpc.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          getrpcport
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         host
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned long
+        <var class="pdparam">
+         prognum
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned long
+        <var class="pdparam">
+         versnum
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned
+        <var class="pdparam">
+         proto
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="getrpcport-3_sect1" name="getrpcport-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      getrpcport
+     </code>
+     () returns the
+      port number for version
+     <em class="parameter">
+      <code>
+       versnum
+      </code>
+     </em>
+     of the RPC program
+     <em class="parameter">
+      <code>
+       prognum
+      </code>
+     </em>
+     running on
+     <em class="parameter">
+      <code>
+       host
+      </code>
+     </em>
+     and using
+      protocol
+     <em class="parameter">
+      <code>
+       proto
+      </code>
+     </em>
+     . It
+      returns 0 if it cannot contact the portmapper, or if
+     <em class="parameter">
+      <code>
+       prognum
+      </code>
+     </em>
+     is not
+      registered. If
+     <em class="parameter">
+      <code>
+       prognum
+      </code>
+     </em>
+     is registered but not
+      with version
+     <em class="parameter">
+      <code>
+       versnum
+      </code>
+     </em>
+     ,
+      it will still return a port number (for some version of the
+      program) indicating that the program is indeed registered.
+      The version mismatch will be detected upon the first call to
+      the service.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getrpcport-3_sect2" name="getrpcport-3_sect2" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     Not in POSIX.1-2001. Present on the BSDs, Solaris, and
+      many other systems.
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="getrpcport-3_sect3" name="getrpcport-3_sect3" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   intro(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="intro(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="intro.3" name="intro.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     intro &mdash; introduction to library functions
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="intro-3_sect1" name="intro-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Section 3 of the manual describes all library functions
+      excluding the library functions (system call wrappers)
+      described in Section 2, which implement system calls.
+    </p>
+    <p>
+     Many of the functions described in the section are part of
+      the Standard C Library (
+     <code class="filename">
+      libc
+     </code>
+     Some functions are part of other libraries (e.g., the math
+      library,
+     <code class="filename">
+      libm
+     </code>
+     or the real-time
+      library,
+     <code class="filename">
+      librt
+     </code>
+     in which case
+      the manual page will indicate the linker option needed to
+      link against the required library (e.g.,
+     <code class="option">
+      &minus;lm
+     </code>
+     and
+     <code class="option">
+      &minus;lrt
+     </code>
+     , respectively, for the
+      aforementioned libraries).
+    </p>
+    <p>
+     In some cases, the programmer must define a feature test
+      macro in order to obtain the declaration of a function from
+      the header file specified in the man page SYNOPSIS section.
+      (Where required, these feature test macros must be defined
+      before including
+     <code class="function">
+      any
+     </code>
+     header
+      files.) In such cases, the required macro is described in the
+      man page. For further information on feature test macros, see
+     <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        feature_test_macros
+       </span>
+       (7)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="intro-3_sect2" name="intro-3_sect2" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     Certain terms and abbreviations are used to indicate UNIX
+      variants and standards to which calls in this section
+      conform. See
+     <a class="link" href="../htmlman7/standards.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        standards
+       </span>
+       (7)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="intro-3_sect3" name="intro-3_sect3" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <div class="refsect2">
+     <a id="intro-3_sect4" name="intro-3_sect4" shape="rect">
+     </a>
+     <h3>
+      Authors and copyright conditions
+     </h3>
+     <p>
+      Look at the header of the manual page source for the
+        author(s) and copyright conditions. Note that these can be
+        different from page to page!
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="intro-3_sect5" name="intro-3_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/intro.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        intro
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/errno.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        errno
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/capabilities.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        capabilities
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/credentials.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        credentials
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/environ.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        environ
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        feature_test_macros
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/libc.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        libc
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/math_error.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        math_error
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/path_resolution.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        path_resolution
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/pthreads.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthreads
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/signal.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        signal
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/standards.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        standards
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="intro-3_sect6" name="intro-3_sect6" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   ioctl(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="ioctl(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="ioctl.2" name="ioctl.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     ioctl &mdash; control device
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;sys/ioctl.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          ioctl
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         d
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned long
+        <var class="pdparam">
+         request
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         ...
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ioctl-2_sect1" name="ioctl-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      ioctl
+     </code>
+     () function
+      manipulates the underlying device parameters of special
+      files. In particular, many operating characteristics of
+      character special files (e.g., terminals) may be controlled
+      with
+     <code class="function">
+      ioctl
+     </code>
+     () requests. The
+      argument
+     <em class="parameter">
+      <code>
+       d
+      </code>
+     </em>
+     must be an
+      open file descriptor.
+    </p>
+    <p>
+     The second argument is a device-dependent request code.
+      The third argument is an untyped pointer to memory. It's
+      traditionally
+     <span class="type">
+      char *
+     </span>
+     <em class="replaceable">
+      <code>
+       argp
+      </code>
+     </em>
+     (from the days before
+     <span class="emphasis">
+      <em>
+       void *
+      </em>
+     </span>
+     was valid C),
+      and will be so named for this discussion.
+    </p>
+    <p>
+     An
+     <code class="function">
+      ioctl
+     </code>
+     ()
+     <em class="parameter">
+      <code>
+       request
+      </code>
+     </em>
+     has encoded in it
+      whether the argument is an
+     <em class="replaceable">
+      <code>
+       in
+      </code>
+     </em>
+     parameter or
+     <em class="replaceable">
+      <code>
+       out
+      </code>
+     </em>
+     parameter, and the size
+      of the argument
+     <em class="replaceable">
+      <code>
+       argp
+      </code>
+     </em>
+     in bytes. Macros and
+      defines used in specifying an
+     <code class="function">
+      ioctl
+     </code>
+     ()
+     <em class="parameter">
+      <code>
+       request
+      </code>
+     </em>
+     are located in the file
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      sys/ioctl.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ioctl-2_sect2" name="ioctl-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     Usually, on success zero is returned. A few
+     <code class="function">
+      ioctl
+     </code>
+     () requests use the return value as an
+      output parameter and return a nonnegative value on success.
+      On error, &minus;1 is returned, and
+     <code class="varname">
+      errno
+     </code>
+     is set appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ioctl-2_sect3" name="ioctl-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EBADF
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          d
+         </code>
+        </em>
+        is not a
+            valid descriptor.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EFAULT
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="replaceable">
+         <code>
+          argp
+         </code>
+        </em>
+        references an inaccessible memory area.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          request
+         </code>
+        </em>
+        or
+        <em class="replaceable">
+         <code>
+          argp
+         </code>
+        </em>
+        is not
+            valid.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOTTY
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          d
+         </code>
+        </em>
+        is not
+            associated with a character special device.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOTTY
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The specified request does not apply to the kind of
+            object that the descriptor
+        <em class="parameter">
+         <code>
+          d
+         </code>
+        </em>
+        references.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ioctl-2_sect4" name="ioctl-2_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     No single standard. Arguments, returns, and semantics of
+     <code class="function">
+      ioctl
+     </code>
+     () vary according to the
+      device driver in question (the call is used as a catch-all
+      for operations that don't cleanly fit the UNIX stream I/O
+      model). See
+     <a class="link" href="../htmlman2/ioctl_list.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ioctl_list
+       </span>
+       (2)
+      </span>
+     </a>
+     for a list of
+      many of the known
+     <code class="function">
+      ioctl
+     </code>
+     ()
+      calls. The
+     <code class="function">
+      ioctl
+     </code>
+     () function
+      call appeared in Version 7 AT&amp;T UNIX.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ioctl-2_sect5" name="ioctl-2_sect5" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     In order to use this call, one needs an open file
+      descriptor. Often the
+     <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        open
+       </span>
+       (2)
+      </span>
+     </a>
+     call has unwanted
+      side effects, that can be avoided under Linux by giving it
+      the
+     <code class="constant">
+      O_NONBLOCK
+     </code>
+     flag.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ioctl-2_sect6" name="ioctl-2_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/execve.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        execve
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/fcntl.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fcntl
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/ioctl_list.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ioctl_list
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        open
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman4/sd.4.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sd
+       </span>
+       (4)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman4/tty.4.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tty
+       </span>
+       (4)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="ioctl-2_sect7" name="ioctl-2_sect7" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

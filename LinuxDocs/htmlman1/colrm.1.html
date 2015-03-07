@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   colrm(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="colrm(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="colrm.1" name="colrm.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     colrm &mdash; remove columns from a file
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       colrm
+      </code>
+      [ first [last] ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="colrm-1_sect1" name="colrm-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       colrm
+      </strong>
+     </span>
+     removes selected columns from a file. Input is taken from
+      standard input. Output is sent to standard output.
+    </p>
+    <p>
+     If called with one parameter the columns of each line will
+      be removed starting with the specified
+     <em class="parameter">
+      <code>
+       first
+      </code>
+     </em>
+     column. If called with
+      two parameters the columns from the
+     <em class="parameter">
+      <code>
+       first
+      </code>
+     </em>
+     column to the
+     <em class="parameter">
+      <code>
+       last
+      </code>
+     </em>
+     column will be
+      removed.
+    </p>
+    <p>
+     Column numbering starts with column 1.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="colrm-1_sect2" name="colrm-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="colrm-1_sect3" name="colrm-1_sect3" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       awk
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman1/column.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        column
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/expand.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        expand
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/paste.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        paste
+       </span>
+       (1)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="colrm-1_sect4" name="colrm-1_sect4" shape="rect">
+    </a>
+    <h2>
+     HISTORY
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       colrm
+      </strong>
+     </span>
+     command appeared in 3.0BSD.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="colrm-1_sect5" name="colrm-1_sect5" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The colrm command is part of the util-linux package and is
+      available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   gnutls_priority_init(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="gnutls_priority_init(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="gnutls-priority-init.3" name="gnutls-priority-init.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     gnutls_priority_init &mdash; API function
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;gnutls/gnutls.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          gnutls_priority_init
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_priority_t *
+        <var class="pdparam">
+         priority_cache
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         priorities
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char **
+        <var class="pdparam">
+         err_pos
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-priority-init-3_sect1" name="gnutls-priority-init-3_sect1" shape="rect">
+    </a>
+    <h2>
+     ARGUMENTS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_priority_t *
+          priority_cache
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        is a
+        <span class="type">
+         gnutls_prioritity_t
+        </span>
+        structure.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          const
+          char * priorities
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        is a string describing priorities
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          const
+          char ** err_pos
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        In case of an error this will have the position in
+            the string the error occured
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-priority-init-3_sect2" name="gnutls-priority-init-3_sect2" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Sets priorities for the ciphers, key exchange methods,
+      macs and compression methods.
+    </p>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       priorities
+      </code>
+     </em>
+     option allows you to specify a colon separated list of the
+      cipher priorities to enable. Some keywords are defined to
+      provide quick access to common preferences.
+    </p>
+    <p>
+     Unless there is a special need, use the "NORMAL" keyword
+      to apply a reasonable security level, or "NORMAL:
+     <code class="constant">
+      COMPAT
+     </code>
+     " for compatibility.
+    </p>
+    <p>
+     "PERFORMANCE" means all the "secure" ciphersuites are
+      enabled, limited to 128 bit ciphers and sorted by terms of
+      speed performance.
+    </p>
+    <p>
+     "LEGACY" the NORMAL settings for GnuTLS 3.2.x or earlier.
+      There is no verification profile set, and the allowed DH
+      primes are considered weak today.
+    </p>
+    <p>
+     "NORMAL" means all "secure" ciphersuites. The
+      256&minus;bit ciphers are included as a fallback only. The
+      ciphers are sorted by security margin.
+    </p>
+    <p>
+     "PFS" means all "secure" ciphersuites that support perfect
+      forward secrecy. The 256&minus;bit ciphers are included as a
+      fallback only. The ciphers are sorted by security margin.
+    </p>
+    <p>
+     "SECURE128" means all "secure" ciphersuites of security
+      level 128&minus;bit or more.
+    </p>
+    <p>
+     "SECURE192" means all "secure" ciphersuites of security
+      level 192&minus;bit or more.
+    </p>
+    <p>
+     "SUITEB128" means all the NSA SuiteB ciphersuites with
+      security level of 128.
+    </p>
+    <p>
+     "SUITEB192" means all the NSA SuiteB ciphersuites with
+      security level of 192.
+    </p>
+    <p>
+     "EXPORT" means all ciphersuites are enabled, including the
+      low&minus;security 40 bit ciphers.
+    </p>
+    <p>
+     "NONE" means nothing is enabled. This disables even
+      protocols and compression methods.
+    </p>
+    <p>
+     "
+     <code class="constant">
+      KEYWORD
+     </code>
+     " The system
+      administrator imposed settings. The provided keywords will be
+      expanded from a configuration&minus;time provided file
+      &minus; default is: /etc/gnutls/default&minus;priorities. Any
+      keywords that follow it, will be appended to the expanded
+      string. If there is no system string, then the function will
+      fail. The system file should be formatted as "KEYWORD=VALUE",
+      e.g., "SYSTEM=NORMAL:&minus;ARCFOUR&minus;128".
+    </p>
+    <p>
+     Special keywords are "!", "&minus;" and "+". "!" or
+      "&minus;" appended with an algorithm will remove this
+      algorithm. "+" appended with an algorithm will add this
+      algorithm.
+    </p>
+    <p>
+     Check the GnuTLS manual section "Priority strings" for
+      detailed information.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-priority-init-3_sect3" name="gnutls-priority-init-3_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <p>
+     "NONE:+VERS&minus;TLS&minus;ALL:+MAC&minus;ALL:+RSA:+AES&minus;128&minus;CBC:+SIGN&minus;ALL:+COMP&minus;NULL"
+    </p>
+    <p>
+     "NORMAL:&minus;ARCFOUR&minus;128" means normal ciphers
+      except for ARCFOUR&minus;128.
+    </p>
+    <p>
+     "SECURE128:&minus;VERS&minus;SSL3.0:+COMP&minus;DEFLATE"
+      means that only secure ciphers are enabled, SSL3.0 is
+      disabled, and libz compression enabled.
+    </p>
+    <p>
+     "NONE:+VERS&minus;TLS&minus;ALL:+AES&minus;128&minus;CBC:+RSA:+SHA1:+COMP&minus;NULL:+SIGN&minus;RSA&minus;SHA1",
+    </p>
+    <p>
+     "NONE:+VERS&minus;TLS&minus;ALL:+AES&minus;128&minus;CBC:+ECDHE&minus;RSA:+SHA1:+COMP&minus;NULL:+SIGN&minus;RSA&minus;SHA1:+CURVE&minus;SECP256R1",
+    </p>
+    <p>
+     "SECURE256:+SECURE128",
+    </p>
+    <p>
+     Note that "NORMAL:
+     <code class="constant">
+      COMPAT
+     </code>
+     " is
+      the most compatible mode.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-priority-init-3_sect4" name="gnutls-priority-init-3_sect4" shape="rect">
+    </a>
+    <h2>
+     RETURNS
+    </h2>
+    <p>
+     On syntax error
+     <span class="errorname">
+      GNUTLS_E_INVALID_REQUEST
+     </span>
+     is returned,
+     <span class="errorname">
+      GNUTLS_E_SUCCESS
+     </span>
+     on success,
+      or an error code.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-priority-init-3_sect5" name="gnutls-priority-init-3_sect5" shape="rect">
+    </a>
+    <h2>
+     REPORTING BUGS
+    </h2>
+    <p>
+     Report bugs to &lt;bugs@gnutls.org&gt;.
+    </p>
+    <p>
+     Home page: http://www.gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-priority-init-3_sect7" name="gnutls-priority-init-3_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <em class="citetitle">
+      gnutls
+     </em>
+     is maintained as a Texinfo manual. If
+      the /usr/share/doc/gnutls/ directory does not contain the
+      HTML form visit
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <a class="literalurl" href="http://www.gnutls.org/manual/" shape="rect" target="_top">
+         http://www.gnutls.org/manual/
+        </a>
+       </p>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

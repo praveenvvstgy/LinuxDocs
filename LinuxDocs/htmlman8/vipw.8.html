@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   vipw(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="vipw(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="vipw.8" name="vipw.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     vipw, vigr &mdash; edit the password or group file
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       vipw
+      </code>
+      [options]
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       vigr
+      </code>
+      [options]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="vipw-8_sect1" name="vipw-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       vipw
+      </strong>
+     </span>
+     edits
+      the password file after setting the appropriate locks, and
+      does any necessary processing after the password file is
+      unlocked. If the password file is already locked for editing
+      by another user,
+     <span class="command">
+      <strong>
+       vipw
+      </strong>
+     </span>
+     will ask you to try
+      again later. The default editor for
+     <span class="command">
+      <strong>
+       vipw
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       vigr
+      </strong>
+     </span>
+     is
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       vi
+      </span>
+      (1)
+     </span>
+     .
+     <span class="command">
+      <strong>
+       vigr
+      </strong>
+     </span>
+     edits the group file
+      in the same manner as
+     <span class="command">
+      <strong>
+       vipw
+      </strong>
+     </span>
+     does the passwd
+      file.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="vipw-8_sect2" name="vipw-8_sect2" shape="rect">
+    </a>
+    <h2>
+     ENVIRONMENT
+    </h2>
+    <p>
+     If the following environment variable exists it will be
+      utilized by
+     <span class="command">
+      <strong>
+       vipw
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       vigr
+      </strong>
+     </span>
+     :
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         EDITOR
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The editor specified by the string
+        <code class="constant">
+         EDITOR
+        </code>
+        will be invoked instead of the
+            default editor
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          vi
+         </span>
+         (1)
+        </span>
+        .
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="vipw-8_sect3" name="vipw-8_sect3" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       passwd
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman2/flock.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        flock
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       vi
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman5/passwd.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        passwd
+       </span>
+       (5)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="vipw-8_sect4" name="vipw-8_sect4" shape="rect">
+    </a>
+    <h2>
+     HISTORY
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       vipw
+      </strong>
+     </span>
+     command appeared in 4.0BSD.
+    </p>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       vigr
+      </strong>
+     </span>
+     command appeared in Util-Linux 2.6.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="vipw-8_sect5" name="vipw-8_sect5" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The vigr and vipw commands are part of the util-linux
+      package and are available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

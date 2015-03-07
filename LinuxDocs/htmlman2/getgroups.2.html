@@ -1,0 +1,641 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   getgroups(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="getgroups(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="getgroups.2" name="getgroups.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     getgroups, setgroups &mdash; get/set list of supplementary
+      group IDs
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#include &lt;sys/types.h&gt;
+#include &lt;unistd.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          getgroups
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         size
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        gid_t
+        <var class="pdparam">
+         list[]
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;grp.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          setgroups
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         size
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const gid_t *
+        <var class="pdparam">
+         list
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              setgroups
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _BSD_SOURCE
+             </code>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="getgroups-2_sect1" name="getgroups-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      getgroups
+     </code>
+     () returns the
+      supplementary group IDs of the calling process in
+     <em class="parameter">
+      <code>
+       list
+      </code>
+     </em>
+     . The argument
+     <em class="parameter">
+      <code>
+       size
+      </code>
+     </em>
+     should be set to the
+      maximum number of items that can be stored in the buffer
+      pointed to by
+     <em class="parameter">
+      <code>
+       list
+      </code>
+     </em>
+     .
+      If the calling process is a member of more than
+     <em class="parameter">
+      <code>
+       size
+      </code>
+     </em>
+     supplementary groups, then
+      an error results. It is unspecified whether the effective
+      group ID of the calling process is included in the returned
+      list. (Thus, an application should also call
+     <a class="link" href="../htmlman2/getgid.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getegid
+       </span>
+       (2)
+      </span>
+     </a>
+     and add or
+      remove the resulting value.)
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       size
+      </code>
+     </em>
+     is zero,
+     <em class="parameter">
+      <code>
+       list
+      </code>
+     </em>
+     is not modified,
+      but the total number of supplementary group IDs for the
+      process is returned. This allows the caller to determine the
+      size of a dynamically allocated
+     <em class="parameter">
+      <code>
+       list
+      </code>
+     </em>
+     to be used in a further
+      call to
+     <code class="function">
+      getgroups
+     </code>
+     ().
+    </p>
+    <p>
+     <code class="function">
+      setgroups
+     </code>
+     () sets the
+      supplementary group IDs for the calling process. Appropriate
+      privileges (Linux: the
+     <code class="constant">
+      CAP_SETGID
+     </code>
+     capability) are required. The
+     <em class="parameter">
+      <code>
+       size
+      </code>
+     </em>
+     argument
+      specifies the number of supplementary group IDs in the buffer
+      pointed to by
+     <em class="parameter">
+      <code>
+       list
+      </code>
+     </em>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getgroups-2_sect2" name="getgroups-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success,
+     <code class="function">
+      getgroups
+     </code>
+     ()
+      returns the number of supplementary group IDs. On error,
+      &minus;1 is returned, and
+     <code class="varname">
+      errno
+     </code>
+     is set appropriately.
+    </p>
+    <p>
+     On success,
+     <code class="function">
+      setgroups
+     </code>
+     ()
+      returns 0. On error, &minus;1 is returned, and
+     <code class="varname">
+      errno
+     </code>
+     is set appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getgroups-2_sect3" name="getgroups-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EFAULT
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          list
+         </code>
+        </em>
+        has an
+            invalid address.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     <code class="function">
+      getgroups
+     </code>
+     () can additionally
+      fail with the following error:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          size
+         </code>
+        </em>
+        is less
+            than the number of supplementary group IDs, but is not
+            zero.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     <code class="function">
+      setgroups
+     </code>
+     () can additionally
+      fail with the following errors:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          size
+         </code>
+        </em>
+        is
+            greater than
+        <code class="constant">
+         NGROUPS_MAX
+        </code>
+        (32 before Linux 2.6.4; 65536 since Linux 2.6.4).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOMEM
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Out of memory.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EPERM
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The calling process has insufficient privilege.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="getgroups-2_sect4" name="getgroups-2_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     SVr4, 4.3BSD. The
+     <code class="function">
+      getgroups
+     </code>
+     () function is in POSIX.1-2001.
+      Since
+     <code class="function">
+      setgroups
+     </code>
+     () requires
+      privilege, it is not covered by POSIX.1-2001.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getgroups-2_sect5" name="getgroups-2_sect5" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     A process can have up to
+     <code class="constant">
+      NGROUPS_MAX
+     </code>
+     supplementary group IDs in
+      addition to the effective group ID. The constant
+     <code class="constant">
+      NGROUPS_MAX
+     </code>
+     is defined in
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      limits.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+     The set of supplementary group IDs is inherited from the
+      parent process, and preserved across an
+     <a class="link" href="../htmlman2/execve.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        execve
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     The maximum number of supplementary group IDs can be found
+      at run time using
+     <a class="link" href="../htmlman3/sysconf.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sysconf
+       </span>
+       (3)
+      </span>
+     </a>
+     :
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+    long ngroups_max;
+    ngroups_max = sysconf(_SC_NGROUPS_MAX);
+</pre>
+    </div>
+    <p>
+     The maximum return value of
+     <code class="function">
+      getgroups
+     </code>
+     () cannot be larger than one more
+      than this value. Since Linux 2.6.4, the maximum number of
+      supplementary group IDs is also exposed via the
+      Linux-specific read-only file,
+     <code class="filename">
+      /proc/sys/kernel/ngroups_max
+     </code>
+     .
+    </p>
+    <p>
+     The original Linux
+     <code class="function">
+      getgroups
+     </code>
+     () system call supported only
+      16-bit group IDs. Subsequently, Linux 2.4 added
+     <code class="function">
+      getgroups32
+     </code>
+     (), supporting 32-bit IDs. The
+      glibc
+     <code class="function">
+      getgroups
+     </code>
+     () wrapper
+      function transparently deals with the variation across kernel
+      versions.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getgroups-2_sect6" name="getgroups-2_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/getgid.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getgid
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/setgid.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setgid
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/getgrouplist.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getgrouplist
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/group_member.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        group_member
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/initgroups.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        initgroups
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/capabilities.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        capabilities
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/credentials.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        credentials
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="getgroups-2_sect7" name="getgroups-2_sect7" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

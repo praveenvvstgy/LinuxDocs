@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   mktemp(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="mktemp(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="mktemp.1" name="mktemp.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     mktemp &mdash; create a temporary file or directory
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       mktemp
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...] [
+      <em class="replaceable">
+       <code>
+        TEMPLATE
+       </code>
+      </em>
+      ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="mktemp-1_sect1" name="mktemp-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Create a temporary file or directory, safely, and print
+      its name. TEMPLATE must contain at least 3 consecutive 'X's
+      in last component. If TEMPLATE is not specified, use
+      tmp.XXXXXXXXXX, and
+     <code class="option">
+      &minus;&minus;tmpdir
+     </code>
+     is implied. Files are
+      created u+rw, and directories u+rwx, minus umask
+      restrictions.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;directory
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        create a directory, not a file
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;dry&minus;run
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not create anything; merely print a name
+            (unsafe)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;q
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;quiet
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        suppress diagnostics about file/dir&minus;creation
+            failure
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;suffix
+        </code>
+        =
+        <code class="constant">
+         SUFF
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        append SUFF to TEMPLATE; SUFF must not contain a
+            slash. This option is implied if TEMPLATE does not end
+            in X
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p
+        </code>
+        DIR,
+        <code class="option">
+         &minus;&minus;tmpdir
+        </code>
+        [=
+        <code class="constant">
+         DIR
+        </code>
+        ]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        interpret TEMPLATE relative to DIR; if DIR is not
+            specified, use $TMPDIR if set, else
+        <code class="filename">
+         /tmp
+        </code>
+        . With this option, TEMPLATE must
+            not be an absolute name; unlike with
+        <code class="option">
+         &minus;t
+        </code>
+        , TEMPLATE may contain slashes,
+            but mktemp creates only the final component
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        interpret TEMPLATE as a single file name component,
+            relative to a directory: $TMPDIR, if set; else the
+            directory specified via
+        <code class="option">
+         &minus;p
+        </code>
+        ; else
+        <code class="filename">
+         /tmp
+        </code>
+        [deprecated]
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display this help and exit
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output version information and exit
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     GNU coreutils online help: &lt;
+     <a class="literalurl" href="http://www.gnu.org/software/coreutils/" shape="rect" target="_top">
+      http://www.gnu.org/software/coreutils/
+     </a>
+     &gt; Report
+      mktemp translation bugs to &lt;
+     <a class="literalurl" href="http://translationproject.org/team/" shape="rect" target="_top">
+      http://translationproject.org/team/
+     </a>
+     &gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mktemp-1_sect2" name="mktemp-1_sect2" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Written by Jim Meyering and Eric Blake.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mktemp-1_sect4" name="mktemp-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/mkstemp.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mkstemp
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/mkdtemp.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mkdtemp
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/mktemp.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mktemp
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+    <p>
+     The full documentation for
+     <span class="command">
+      <strong>
+       mktemp
+      </strong>
+     </span>
+     is maintained as a
+      Texinfo manual. If the
+     <span class="command">
+      <strong>
+       info
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       mktemp
+      </strong>
+     </span>
+     programs are
+      properly installed at your site, the command
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <span class="emphasis">
+         <em>
+          info coreutils 'mktemp
+            invocation'
+         </em>
+        </span>
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p>
+     should give you access to the complete manual.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

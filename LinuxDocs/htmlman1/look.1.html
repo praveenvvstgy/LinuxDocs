@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   look(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="look(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="look.1" name="look.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     look &mdash; display lines beginning with a given
+      string
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       look
+      </code>
+      [options] string
+        [file]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="look-1_sect1" name="look-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       look
+      </strong>
+     </span>
+     utility displays any lines in
+     <em class="parameter">
+      <code>
+       file
+      </code>
+     </em>
+     which contain
+     <em class="parameter">
+      <code>
+       string
+      </code>
+     </em>
+     . As
+     <span class="command">
+      <strong>
+       look
+      </strong>
+     </span>
+     performs a binary
+      search, the lines in
+     <em class="parameter">
+      <code>
+       file
+      </code>
+     </em>
+     must be sorted (where
+      sort(1) got the same options
+     <code class="option">
+      &minus;d
+     </code>
+     and/or
+     <span class="emphasis">
+      <em>
+       &minus;f
+      </em>
+     </span>
+     that
+     <span class="command">
+      <strong>
+       look
+      </strong>
+     </span>
+     is invoked with).
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       file
+      </code>
+     </em>
+     is not
+      specified, the file
+     <code class="filename">
+      /usr/share/dict/words
+     </code>
+     is used, only
+      alphanumeric characters are compared and the case of
+      alphabetic characters is ignored.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="look-1_sect2" name="look-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;a,
+          &minus;&minus;alternative
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use the alternative dictionary file.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d,
+          &minus;&minus;alphanum
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use normal dictionary character set and order, i.e.
+            only alphanumeric characters are compared. (This is on
+            by default if no file is specified.)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f,
+          &minus;&minus;ignore&minus;case
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Ignore the case of alphabetic characters. (This is
+            on by default if no file is specified.)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t,
+          &minus;&minus;terminate
+         <em class="parameter">
+          <code>
+           character
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify a string termination character, i.e. only
+            the characters in
+        <em class="parameter">
+         <code>
+          string
+         </code>
+        </em>
+        up to and
+            including the first occurrence of
+        <span class="command">
+         <strong>
+          character
+         </strong>
+        </span>
+        are
+            compared.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V,
+          &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       look
+      </strong>
+     </span>
+     utility exits 0 if one or more lines were found and
+      displayed, 1 if no lines were found, and &gt;1 if an error
+      occurred.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="look-1_sect3" name="look-1_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+sort -d /etc/passwd -o /tmp/look.dict
+look -t: root:foobar /tmp/look.dict
+</pre>
+      </div>
+     </blockquote>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="look-1_sect4" name="look-1_sect4" shape="rect">
+    </a>
+    <h2>
+     FILES
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="filename">
+         /usr/share/dict/words
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        the dictionary
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="filename">
+         /usr/share/dict/web2
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        the alternative dictionary
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="look-1_sect5" name="look-1_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       grep
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman1/sort.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sort
+       </span>
+       (1)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="look-1_sect6" name="look-1_sect6" shape="rect">
+    </a>
+    <h2>
+     COMPATIBILITY
+    </h2>
+    <p>
+     The original manual page stated that tabs and blank
+      characters participated in comparisons when the alphanum
+      option was specified. This was incorrect, and the current man
+      page matches the historic implementation.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="look-1_sect7" name="look-1_sect7" shape="rect">
+    </a>
+    <h2>
+     HISTORY
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       look
+      </strong>
+     </span>
+     utility appeared in Version 7 AT&amp;T Unix.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="look-1_sect8" name="look-1_sect8" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The look command is part of the util-linux package and is
+      available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

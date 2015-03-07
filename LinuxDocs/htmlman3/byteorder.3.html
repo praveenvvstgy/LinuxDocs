@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   byteorder(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="byteorder(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="byteorder.3" name="byteorder.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     htonl, htons, ntohl, ntohs &mdash; convert values between
+      host and network byte order
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;arpa/inet.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         uint32_t
+         <strong>
+          htonl
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        uint32_t
+        <var class="pdparam">
+         hostlong
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         uint16_t
+         <strong>
+          htons
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        uint16_t
+        <var class="pdparam">
+         hostshort
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         uint32_t
+         <strong>
+          ntohl
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        uint32_t
+        <var class="pdparam">
+         netlong
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         uint16_t
+         <strong>
+          ntohs
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        uint16_t
+        <var class="pdparam">
+         netshort
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="byteorder-3_sect1" name="byteorder-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      htonl
+     </code>
+     () function
+      converts the unsigned integer
+     <em class="parameter">
+      <code>
+       hostlong
+      </code>
+     </em>
+     from host byte order
+      to network byte order.
+    </p>
+    <p>
+     The
+     <code class="function">
+      htons
+     </code>
+     () function
+      converts the unsigned short integer
+     <em class="parameter">
+      <code>
+       hostshort
+      </code>
+     </em>
+     from host byte order
+      to network byte order.
+    </p>
+    <p>
+     The
+     <code class="function">
+      ntohl
+     </code>
+     () function
+      converts the unsigned integer
+     <em class="parameter">
+      <code>
+       netlong
+      </code>
+     </em>
+     from network byte order
+      to host byte order.
+    </p>
+    <p>
+     The
+     <code class="function">
+      ntohs
+     </code>
+     () function
+      converts the unsigned short integer
+     <em class="parameter">
+      <code>
+       netshort
+      </code>
+     </em>
+     from network byte
+      order to host byte order.
+    </p>
+    <p>
+     On the i386 the host byte order is Least Significant Byte
+      first, whereas the network byte order, as used on the
+      Internet, is Most Significant Byte first.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="byteorder-3_sect2" name="byteorder-3_sect2" shape="rect">
+    </a>
+    <h2>
+     ATTRIBUTES
+    </h2>
+    <div class="refsect2">
+     <a id="byteorder-3_sect3" name="byteorder-3_sect3" shape="rect">
+     </a>
+     <h3>
+      Multithreading (see pthreads(7))
+     </h3>
+     <p>
+      The
+      <code class="function">
+       htonl
+      </code>
+      (),
+      <code class="function">
+       htons
+      </code>
+      (),
+      <code class="function">
+       ntohl
+      </code>
+      (), and
+      <code class="function">
+       ntohs
+      </code>
+      () functions are thread-safe.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="byteorder-3_sect4" name="byteorder-3_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     POSIX.1-2001.
+    </p>
+    <p>
+     Some systems require the inclusion of
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      netinet/in.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+     instead of
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      arpa/inet.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="byteorder-3_sect5" name="byteorder-3_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/endian.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        endian
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/gethostbyname.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        gethostbyname
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/getservent.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getservent
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="byteorder-3_sect6" name="byteorder-3_sect6" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

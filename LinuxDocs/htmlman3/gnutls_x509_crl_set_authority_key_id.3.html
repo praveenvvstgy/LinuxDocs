@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   gnutls_x509_crl_set_authority_key_id(3) &mdash; Linux
+  manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="gnutls_x509_crl_set_authority_key_id(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="gnutls-x509-crl-set-authority-key-id.3" name="gnutls-x509-crl-set-authority-key-id.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     gnutls_x509_crl_set_authority_key_id &mdash; API
+      function
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;gnutls/x509.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          gnutls_x509_crl_set_authority_key_id
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_x509_crl_t
+        <var class="pdparam">
+         crl
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const void *
+        <var class="pdparam">
+         id
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         id_size
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crl-set-authority-key-id-3_sect1" name="gnutls-x509-crl-set-authority-key-id-3_sect1" shape="rect">
+    </a>
+    <h2>
+     ARGUMENTS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_x509_crl_t
+          crl
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        a CRL of type
+        <span class="type">
+         gnutls_x509_crl_t
+        </span>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          const
+          void * id
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The key ID
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          size_t
+          id_size
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Holds the size of the serial field.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crl-set-authority-key-id-3_sect2" name="gnutls-x509-crl-set-authority-key-id-3_sect2" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This function will set the CRL's authority key ID
+      extension. Only the keyIdentifier field can be set with this
+      function. This may be used by an authority that holds
+      multiple private keys, to distinguish the used key.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crl-set-authority-key-id-3_sect3" name="gnutls-x509-crl-set-authority-key-id-3_sect3" shape="rect">
+    </a>
+    <h2>
+     RETURNS
+    </h2>
+    <p>
+     On success,
+     <span class="errorname">
+      GNUTLS_E_SUCCESS
+     </span>
+     (0) is returned,
+      otherwise a negative error value.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crl-set-authority-key-id-3_sect4" name="gnutls-x509-crl-set-authority-key-id-3_sect4" shape="rect">
+    </a>
+    <h2>
+     SINCE
+    </h2>
+    <p>
+     2.8.0
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crl-set-authority-key-id-3_sect5" name="gnutls-x509-crl-set-authority-key-id-3_sect5" shape="rect">
+    </a>
+    <h2>
+     REPORTING BUGS
+    </h2>
+    <p>
+     Report bugs to &lt;bugs@gnutls.org&gt;.
+    </p>
+    <p>
+     Home page: http://www.gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crl-set-authority-key-id-3_sect7" name="gnutls-x509-crl-set-authority-key-id-3_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <em class="citetitle">
+      gnutls
+     </em>
+     is maintained as a Texinfo manual. If
+      the /usr/share/doc/gnutls/ directory does not contain the
+      HTML form visit
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <a class="literalurl" href="http://www.gnutls.org/manual/" shape="rect" target="_top">
+         http://www.gnutls.org/manual/
+        </a>
+       </p>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

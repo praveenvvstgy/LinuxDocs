@@ -1,0 +1,585 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   listxattr(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="listxattr(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="listxattr.2" name="listxattr.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     listxattr, llistxattr, flistxattr &mdash; list extended
+      attribute names
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#include &lt;sys/types.h&gt;
+#include &lt;sys/xattr.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         ssize_t
+         <strong>
+          listxattr
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         path
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        char *
+        <var class="pdparam">
+         list
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         size
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         ssize_t
+         <strong>
+          llistxattr
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         path
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        char *
+        <var class="pdparam">
+         list
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         size
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         ssize_t
+         <strong>
+          flistxattr
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         fd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        char *
+        <var class="pdparam">
+         list
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         size
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="listxattr-2_sect1" name="listxattr-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Extended attributes are name:value pairs associated with
+      inodes (files, directories, symbolic links, etc.). They are
+      extensions to the normal attributes which are associated with
+      all inodes in the system (i.e., the
+     <a class="link" href="../htmlman2/stat.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        stat
+       </span>
+       (2)
+      </span>
+     </a>
+     data). A complete
+      overview of extended attributes concepts can be found in
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       attr
+      </span>
+      (5)
+     </span>
+     .
+    </p>
+    <p>
+     <code class="function">
+      listxattr
+     </code>
+     () retrieves the
+      list of extended attribute names associated with the given
+     <em class="parameter">
+      <code>
+       path
+      </code>
+     </em>
+     in the
+      filesystem. The retrieved list is placed in
+     <em class="parameter">
+      <code>
+       list
+      </code>
+     </em>
+     , a caller-allocated buffer
+      whose size (in bytes) is specified in the argument
+     <em class="parameter">
+      <code>
+       size
+      </code>
+     </em>
+     . The list is the set of
+      (null-terminated) names, one after the other. Names of
+      extended attributes to which the calling process does not
+      have access may be omitted from the list. The length of the
+      attribute name
+     <em class="parameter">
+      <code>
+       list
+      </code>
+     </em>
+     is returned.
+    </p>
+    <p>
+     <code class="function">
+      llistxattr
+     </code>
+     () is identical to
+     <code class="function">
+      listxattr
+     </code>
+     (), except in the case
+      of a symbolic link, where the list of names of extended
+      attributes associated with the link itself is retrieved, not
+      the file that it refers to.
+    </p>
+    <p>
+     <code class="function">
+      flistxattr
+     </code>
+     () is identical to
+     <code class="function">
+      listxattr
+     </code>
+     (), only the open file
+      referred to by
+     <em class="parameter">
+      <code>
+       fd
+      </code>
+     </em>
+     (as
+      returned by
+     <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        open
+       </span>
+       (2)
+      </span>
+     </a>
+     ) is interrogated in
+      place of
+     <em class="parameter">
+      <code>
+       path
+      </code>
+     </em>
+     .
+    </p>
+    <p>
+     A single extended attribute
+     <em class="replaceable">
+      <code>
+       name
+      </code>
+     </em>
+     is a simple
+      null-terminated string. The name includes a namespace prefix;
+      there may be several, disjoint namespaces associated with an
+      individual inode.
+    </p>
+    <p>
+     An empty buffer of
+     <em class="parameter">
+      <code>
+       size
+      </code>
+     </em>
+     zero can be passed into
+      these calls to return the current size of the list of
+      extended attribute names, which can be used to estimate the
+      size of a buffer which is sufficiently large to hold the list
+      of names.
+    </p>
+    <div class="refsect2">
+     <a id="listxattr-2_sect2" name="listxattr-2_sect2" shape="rect">
+     </a>
+     <h3>
+      Example
+     </h3>
+     <p>
+      The
+      <em class="parameter">
+       <code>
+        list
+       </code>
+      </em>
+      of
+        names is returned as an unordered array of null-terminated
+        character strings (attribute names are separated by null
+        bytes ('\0')), like this:
+     </p>
+     <div class="blockquote">
+      <blockquote class="blockquote">
+       <div class="informalexample">
+        <pre class="programlisting" xml:space="preserve">
+user.name1\0system.name1\0user.name2\0
+</pre>
+       </div>
+      </blockquote>
+     </div>
+     <p>
+      Filesystems like ext2, ext3 and XFS which implement
+        POSIX ACLs using extended attributes, might return a
+      <em class="parameter">
+       <code>
+        list
+       </code>
+      </em>
+      like this:
+     </p>
+     <div class="blockquote">
+      <blockquote class="blockquote">
+       <div class="informalexample">
+        <pre class="programlisting" xml:space="preserve">
+system.posix_acl_access\0system.posix_acl_default\0
+</pre>
+       </div>
+      </blockquote>
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="listxattr-2_sect3" name="listxattr-2_sect3" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success, a nonnegative number is returned indicating
+      the size of the extended attribute name list. On failure,
+      &minus;1 is returned and
+     <code class="varname">
+      errno
+     </code>
+     is set appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="listxattr-2_sect4" name="listxattr-2_sect4" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOTSUP
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Extended attributes are not supported by the
+            filesystem, or are disabled.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ERANGE
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The
+        <em class="parameter">
+         <code>
+          size
+         </code>
+        </em>
+        of
+            the
+        <em class="parameter">
+         <code>
+          list
+         </code>
+        </em>
+        buffer
+            is too small to hold the result.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     In addition, the errors documented in
+     <a class="link" href="../htmlman2/stat.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        stat
+       </span>
+       (2)
+      </span>
+     </a>
+     can also occur.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="listxattr-2_sect5" name="listxattr-2_sect5" shape="rect">
+    </a>
+    <h2>
+     VERSIONS
+    </h2>
+    <p>
+     These system calls have been available on Linux since
+      kernel 2.4; glibc support is provided since version 2.3.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="listxattr-2_sect6" name="listxattr-2_sect6" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     These system calls are Linux-specific.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="listxattr-2_sect7" name="listxattr-2_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       getfattr
+      </span>
+      (1)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       setfattr
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman2/getxattr.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getxattr
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        open
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/removexattr.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        removexattr
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/setxattr.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setxattr
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/stat.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        stat
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       attr
+      </span>
+      (5)
+     </span>
+     ,
+     <a class="link" href="../htmlman7/symlink.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        symlink
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="listxattr-2_sect8" name="listxattr-2_sect8" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

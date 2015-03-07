@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   group(5) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="group(5) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="group.5" name="group.5" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     group &mdash; user group file
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="group-5_sect1" name="group-5_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="filename">
+      /etc/group
+     </code>
+     file is a
+      text file that defines the groups on the system. There is one
+      entry per line, with the following format:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       group_name:password:GID:user_list
+      </p>
+     </blockquote>
+    </div>
+    <p>
+     The fields are as follows:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <em class="replaceable">
+         <code>
+          group_name
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        the name of the group.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <em class="replaceable">
+         <code>
+          password
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        the (encrypted) group password. If this field is
+            empty, no password is needed.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         GID
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        the numeric group ID.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <em class="replaceable">
+         <code>
+          user_list
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        a list of the usernames that are members of this
+            group, separated by commas.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="group-5_sect2" name="group-5_sect2" shape="rect">
+    </a>
+    <h2>
+     FILES
+    </h2>
+    <p>
+     /etc/group
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="group-5_sect3" name="group-5_sect3" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     As the 4.2BSD
+     <a class="link" href="../htmlman3/initgroups.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        initgroups
+       </span>
+       (3)
+      </span>
+     </a>
+     man page
+      says: No-one seems to keep
+     <code class="filename">
+      /etc/group
+     </code>
+     up-to-date.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="group-5_sect4" name="group-5_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/login.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        login
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/newgrp.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        newgrp
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/getgrent.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getgrent
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/getgrnam.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getgrnam
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman5/passwd.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        passwd
+       </span>
+       (5)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="group-5_sect5" name="group-5_sect5" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

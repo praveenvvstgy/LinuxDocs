@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   psktool(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="psktool(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="psktool.1" name="psktool.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     psktool &mdash; GnuTLS PSK tool
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       psktool
+      </code>
+      [
+      <code class="option">
+       &minus;flag
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        value
+       </code>
+      </em>
+      ] ...] [
+      <code class="option">
+       &minus;&minus;opt&minus;name
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        [=|]value
+       </code>
+      </em>
+      ] ...]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="psktool-1_sect1" name="psktool-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Program that generates random keys for use with TLS-PSK.
+      The keys are stored in hexadecimal format in a key file.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="psktool-1_sect2" name="psktool-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+         ,
+          &minus;&minus;debug=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable debugging. This option takes an integer
+            number as its argument. The value of
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+        is constrained
+            to being:
+       </p>
+       <div class="blockquote">
+        <blockquote class="blockquote">
+         <div class="informalexample">
+          <pre class="programlisting" xml:space="preserve">
+in the range  0 through 9999
+</pre>
+         </div>
+        </blockquote>
+       </div>
+       <p>
+        Specifies the debug level.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+         ,
+          &minus;&minus;keysize=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        specify the key size in bytes. This option takes an
+            integer number as its argument. The value of
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+        is
+            constrained to being:
+       </p>
+       <div class="blockquote">
+        <blockquote class="blockquote">
+         <div class="informalexample">
+          <pre class="programlisting" xml:space="preserve">
+in the range  0 through 512
+</pre>
+         </div>
+        </blockquote>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+         ,
+          &minus;&minus;username=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        specify a username.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+         ,
+          &minus;&minus;passwd=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        specify a password file.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display usage information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;!,
+          &minus;&minus;more&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Pass the extended usage information through a
+            pager.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+          [{
+         <em class="replaceable">
+          <code>
+           v|c|n
+          </code>
+         </em>
+         }],
+          &minus;&minus;version[={
+         <em class="replaceable">
+          <code>
+           v|c|n
+          </code>
+         </em>
+         }]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output version of program and exit. The default mode
+            is `v', a simple version. The `c' mode will print
+            copyright information and `n' will print the full
+            copyright notice.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="psktool-1_sect3" name="psktool-1_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <p>
+     To add a user 'psk_identity' in
+     <em class="replaceable">
+      <code>
+       passwd.psk
+      </code>
+     </em>
+     for use with
+      GnuTLS run:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ ./psktool &minus;u psk_identity &minus;p passwd.psk
+Generating a random key for user 'psk_identity'
+Key stored to passwd.psk
+$ cat psks.txt
+psk_identity:88f3824b3e5659f52d00e959bacab954b6540344
+$
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     This command will create
+     <em class="replaceable">
+      <code>
+       passwd.psk
+      </code>
+     </em>
+     if it does not
+      exist and will add user 'psk_identity' (you will also be
+      prompted for a password).
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="psktool-1_sect4" name="psktool-1_sect4" shape="rect">
+    </a>
+    <h2>
+     EXIT STATUS
+    </h2>
+    <p>
+     One of the following exit values will be returned:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         0
+        </code>
+        (EXIT_SUCCESS)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Successful program execution.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         1
+        </code>
+        (EXIT_FAILURE)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The operation failed or the command syntax was not
+            valid.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         70
+        </code>
+        (EX_SOFTWARE)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        libopts had an internal operational error. Please
+            report it to autogen-users@lists.sourceforge.net. Thank
+            you.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="psktool-1_sect5" name="psktool-1_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     gnutls&minus;cli&minus;debug (1), gnutls&minus;serv (1),
+      srptool (1), certtool (1)
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="psktool-1_sect6" name="psktool-1_sect6" shape="rect">
+    </a>
+    <h2>
+     AUTHORS
+    </h2>
+    <p>
+     Nikos Mavrogiannopoulos, Simon Josefsson and others; see
+      /usr/share/doc/gnutls/AUTHORS for a complete list.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="psktool-1_sect8" name="psktool-1_sect8" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     Please send bug reports to: bugs@gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="psktool-1_sect9" name="psktool-1_sect9" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     This manual page was
+     <span class="command">
+      <strong>
+       AutoGen
+      </strong>
+     </span>
+     -erated from the
+     <span class="command">
+      <strong>
+       psktool
+      </strong>
+     </span>
+     option
+      definitions.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

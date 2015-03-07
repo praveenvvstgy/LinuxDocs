@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   fgetc(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="fgetc(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="fgetc.3" name="fgetc.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     fgetc, fgets, getc, getchar, ungetc &mdash; input of
+      characters and strings
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;stdio.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          fgetc
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         char
+            *
+         <strong>
+          fgets
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        char *
+        <var class="pdparam">
+         s
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         size
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          getc
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          getchar
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <code>
+         void)
+        </code>
+        ;
+       </td>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          ungetc
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         c
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="fgetc-3_sect1" name="fgetc-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      fgetc
+     </code>
+     () reads the next
+      character from
+     <em class="parameter">
+      <code>
+       stream
+      </code>
+     </em>
+     and returns it as an
+     <span class="type">
+      unsigned char
+     </span>
+     cast to an
+     <span class="type">
+      int
+     </span>
+     , or
+     <code class="constant">
+      EOF
+     </code>
+     on end of file or error.
+    </p>
+    <p>
+     <code class="function">
+      getc
+     </code>
+     () is equivalent to
+     <code class="function">
+      fgetc
+     </code>
+     () except that it may be
+      implemented as a macro which evaluates
+     <em class="parameter">
+      <code>
+       stream
+      </code>
+     </em>
+     more than once.
+    </p>
+    <p>
+     <code class="function">
+      getchar
+     </code>
+     () is equivalent to
+     <code class="function">
+      getc
+     </code>
+     (
+     <code class="varname">
+      stdin
+     </code>
+     ).
+    </p>
+    <p>
+     <code class="function">
+      fgets
+     </code>
+     () reads in at most one
+      less than
+     <em class="parameter">
+      <code>
+       size
+      </code>
+     </em>
+     characters from
+     <em class="parameter">
+      <code>
+       stream
+      </code>
+     </em>
+     and stores them into the
+      buffer pointed to by
+     <em class="parameter">
+      <code>
+       s
+      </code>
+     </em>
+     . Reading stops after an
+     <code class="constant">
+      EOF
+     </code>
+     or a newline. If a newline
+      is read, it is stored into the buffer. A terminating null
+      byte ('\0') is stored after the last character in the
+      buffer.
+    </p>
+    <p>
+     <code class="function">
+      ungetc
+     </code>
+     () pushes
+     <em class="parameter">
+      <code>
+       c
+      </code>
+     </em>
+     back to
+     <em class="parameter">
+      <code>
+       stream
+      </code>
+     </em>
+     , cast to
+     <span class="type">
+      unsigned char
+     </span>
+     , where it is available for
+      subsequent read operations. Pushed-back characters will be
+      returned in reverse order; only one pushback is
+      guaranteed.
+    </p>
+    <p>
+     Calls to the functions described here can be mixed with
+      each other and with calls to other input functions from the
+     <code class="function">
+      stdio
+     </code>
+     library for the same
+      input stream.
+    </p>
+    <p>
+     For nonlocking counterparts, see
+     <a class="link" href="../htmlman3/unlocked_stdio.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        unlocked_stdio
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fgetc-3_sect2" name="fgetc-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     <code class="function">
+      fgetc
+     </code>
+     (),
+     <code class="function">
+      getc
+     </code>
+     () and
+     <code class="function">
+      getchar
+     </code>
+     () return the character read as an
+     <span class="type">
+      unsigned char
+     </span>
+     cast to an
+     <span class="type">
+      int
+     </span>
+     or
+     <code class="constant">
+      EOF
+     </code>
+     on end of file or error.
+    </p>
+    <p>
+     <code class="function">
+      fgets
+     </code>
+     () returns
+     <em class="parameter">
+      <code>
+       s
+      </code>
+     </em>
+     on success, and NULL on error
+      or when end of file occurs while no characters have been
+      read.
+    </p>
+    <p>
+     <code class="function">
+      ungetc
+     </code>
+     () returns
+     <em class="parameter">
+      <code>
+       c
+      </code>
+     </em>
+     on success, or
+     <code class="constant">
+      EOF
+     </code>
+     on error.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fgetc-3_sect3" name="fgetc-3_sect3" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     C89, C99, POSIX.1-2001.
+    </p>
+    <p>
+     It is not advisable to mix calls to input functions from
+      the
+     <code class="function">
+      stdio
+     </code>
+     library with
+      low-level calls to
+     <a class="link" href="../htmlman2/read.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        read
+       </span>
+       (2)
+      </span>
+     </a>
+     for the file
+      descriptor associated with the input stream; the results will
+      be undefined and very probably not what you want.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fgetc-3_sect4" name="fgetc-3_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/read.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        read
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/write.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        write
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/ferror.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ferror
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/fgetwc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fgetwc
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/fgetws.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fgetws
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/fopen.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fopen
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/fread.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fread
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/fseek.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fseek
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/getline.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getline
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/gets.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        gets
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/getwchar.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getwchar
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/puts.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        puts
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/scanf.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        scanf
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/ungetwc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ungetwc
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/unlocked_stdio.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        unlocked_stdio
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        feature_test_macros
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="fgetc-3_sect5" name="fgetc-3_sect5" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

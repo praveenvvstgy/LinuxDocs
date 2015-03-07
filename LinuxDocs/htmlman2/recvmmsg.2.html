@@ -1,0 +1,814 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   recvmmsg(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="recvmmsg(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="recvmmsg.2" name="recvmmsg.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     recvmmsg &mdash; receive multiple messages on a socket
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#define _GNU_SOURCE          /* See feature_test_macros(7) */
+#include &lt;sys/socket.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          recvmmsg
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         sockfd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        struct mmsghdr *
+        <var class="pdparam">
+         msgvec
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int
+        <var class="pdparam">
+         vlen
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int
+        <var class="pdparam">
+         flags
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        struct timespec *
+        <var class="pdparam">
+         timeout
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="recvmmsg-2_sect1" name="recvmmsg-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      recvmmsg
+     </code>
+     () system call
+      is an extension of
+     <a class="link" href="../htmlman2/recv.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        recvmsg
+       </span>
+       (2)
+      </span>
+     </a>
+     that allows the
+      caller to receive multiple messages from a socket using a
+      single system call. (This has performance benefits for some
+      applications.) A further extension over
+     <a class="link" href="../htmlman2/recv.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        recvmsg
+       </span>
+       (2)
+      </span>
+     </a>
+     is support for a
+      timeout on the receive operation.
+    </p>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       sockfd
+      </code>
+     </em>
+     argument is the file descriptor of the socket to receive data
+      from.
+    </p>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       msgvec
+      </code>
+     </em>
+     argument is a pointer to an array of
+     <span class="structname">
+      mmsghdr
+     </span>
+     structures. The size of this
+      array is specified in
+     <em class="parameter">
+      <code>
+       vlen
+      </code>
+     </em>
+     .
+    </p>
+    <p>
+     The
+     <span class="structname">
+      mmsghdr
+     </span>
+     structure is
+      defined in
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      sys/socket.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+     as:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="structdef">
+       <table style="border-collapse: collapse;">
+        <colgroup span="1">
+         <col class="c1" span="1">
+         </col>
+         <col class="c2" span="1">
+         </col>
+         <col class="c3" span="1">
+         </col>
+         <col class="c4" span="1">
+         </col>
+         <col class="c5" span="1">
+         </col>
+        </colgroup>
+        <tbody>
+         <tr>
+          <td align="left" class="structdefhdr" colspan="1" rowspan="1" style="">
+           struct
+          </td>
+          <td align="left" class="structdefhdr" colspan="4" rowspan="1" style="">
+           <span class="structname">
+            mmsghdr
+           </span>
+           &nbsp;{
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            struct&nbsp;msghdr
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             msg_hdr
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;Message&nbsp;header&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            unsigned&nbsp;int
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             msg_len
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;Number&nbsp;of&nbsp;received&nbsp;bytes&nbsp;for&nbsp;header&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td align="left" class="structdefftr" colspan="5" rowspan="1" style="">
+           };
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       msg_hdr
+      </code>
+     </em>
+     field
+      is a
+     <em class="replaceable">
+      <code>
+       msghdr
+      </code>
+     </em>
+     structure, as described in
+     <a class="link" href="../htmlman2/recv.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        recvmsg
+       </span>
+       (2)
+      </span>
+     </a>
+     . The
+     <em class="parameter">
+      <code>
+       msg_len
+      </code>
+     </em>
+     field is the number of
+      bytes returned for the message in the entry. This field has
+      the same value as the return value of a single
+     <a class="link" href="../htmlman2/recv.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        recvmsg
+       </span>
+       (2)
+      </span>
+     </a>
+     on the
+      header.
+    </p>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       flags
+      </code>
+     </em>
+     argument
+      contains flags ORed together. The flags are the same as
+      documented for
+     <a class="link" href="../htmlman2/recv.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        recvmsg
+       </span>
+       (2)
+      </span>
+     </a>
+     , with the
+      following addition:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         MSG_WAITFORONE
+        </code>
+        (since Linux
+          2.6.34)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Turns on
+        <code class="constant">
+         MSG_DONTWAIT
+        </code>
+        after the first message has been received.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       timeout
+      </code>
+     </em>
+     argument points to a
+     <span class="emphasis">
+      <em>
+       struct
+      timespec
+      </em>
+     </span>
+     (see
+     <a class="link" href="../htmlman2/clock_getres.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clock_gettime
+       </span>
+       (2)
+      </span>
+     </a>
+     ) defining
+      a timeout (seconds plus nanoseconds) for the receive
+      operation (
+     <span class="emphasis">
+      <em>
+       but see
+      BUGS!
+      </em>
+     </span>
+     ). (This interval will be rounded up to the
+      system clock granularity, and kernel scheduling delays mean
+      that the blocking interval may overrun by a small amount.) If
+     <em class="parameter">
+      <code>
+       timeout
+      </code>
+     </em>
+     is NULL, then
+      the operation blocks indefinitely.
+    </p>
+    <p>
+     A blocking
+     <code class="function">
+      recvmmsg
+     </code>
+     () call
+      blocks until
+     <em class="parameter">
+      <code>
+       vlen
+      </code>
+     </em>
+     messages have been received or until the timeout expires. A
+      nonblocking call reads as many messages as are available (up
+      to the limit specified by
+     <em class="parameter">
+      <code>
+       vlen
+      </code>
+     </em>
+     ) and returns
+      immediately.
+    </p>
+    <p>
+     On return from
+     <code class="function">
+      recvmmsg
+     </code>
+     (),
+      successive elements of
+     <em class="parameter">
+      <code>
+       msgvec
+      </code>
+     </em>
+     are updated to contain
+      information about each received message:
+     <em class="parameter">
+      <code>
+       msg_len
+      </code>
+     </em>
+     contains the size of
+      the received message; the subfields of
+     <em class="parameter">
+      <code>
+       msg_hdr
+      </code>
+     </em>
+     are updated as
+      described in
+     <a class="link" href="../htmlman2/recv.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        recvmsg
+       </span>
+       (2)
+      </span>
+     </a>
+     . The return
+      value of the call indicates the number of elements of
+     <em class="parameter">
+      <code>
+       msgvec
+      </code>
+     </em>
+     that have been
+      updated.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="recvmmsg-2_sect2" name="recvmmsg-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success,
+     <code class="function">
+      recvmmsg
+     </code>
+     ()
+      returns the number of messages received in
+     <em class="parameter">
+      <code>
+       msgvec
+      </code>
+     </em>
+     ; on error, &minus;1 is
+      returned, and
+     <code class="varname">
+      errno
+     </code>
+     is set to
+      indicate the error.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="recvmmsg-2_sect3" name="recvmmsg-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <p>
+     Errors are as for
+     <a class="link" href="../htmlman2/recv.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        recvmsg
+       </span>
+       (2)
+      </span>
+     </a>
+     . In addition,
+      the following error can occur:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          timeout
+         </code>
+        </em>
+        is
+            invalid.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="recvmmsg-2_sect4" name="recvmmsg-2_sect4" shape="rect">
+    </a>
+    <h2>
+     VERSIONS
+    </h2>
+    <p>
+     The
+     <code class="function">
+      recvmmsg
+     </code>
+     () system call
+      was added in Linux 2.6.33. Support in glibc was added in
+      version 2.12.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="recvmmsg-2_sect5" name="recvmmsg-2_sect5" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     <code class="function">
+      recvmmsg
+     </code>
+     () is
+      Linux-specific.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="recvmmsg-2_sect6" name="recvmmsg-2_sect6" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <p>
+     The following program uses
+     <code class="function">
+      recvmmsg
+     </code>
+     () to receive multiple messages on
+      a socket and stores them in multiple buffers. The call
+      returns if all buffers are filled or if the timeout specified
+      has expired.
+    </p>
+    <p>
+     The following snippet periodically generates UDP datagrams
+      containing a random number:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$<span class="emphasis"><em> while true; do echo $RANDOM &gt; /dev/udp/127.0.0.1/1234;</em></span>
+<span class="emphasis"><em>      sleep 0.25; done</em></span>
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     These datagrams are read by the example application, which
+      can give the following output:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$<span class="emphasis"><em> ./a.out</em></span>
+5 messages received
+1 11782
+2 11345
+3 304
+4 13514
+5 28421
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <div class="refsect2">
+     <a id="recvmmsg-2_sect7" name="recvmmsg-2_sect7" shape="rect">
+     </a>
+     <h3>
+      Program source
+     </h3>
+     <div class="informalexample">
+      <pre class="programlisting" xml:space="preserve">
+#define _GNU_SOURCE
+#include &lt;netinet/ip.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;sys/socket.h&gt;
+
+int
+main(void)
+{
+#define VLEN 10
+#define BUFSIZE 200
+#define TIMEOUT 1
+    int sockfd, retval, i;
+    struct sockaddr_in sa;
+    struct mmsghdr msgs[VLEN];
+    struct iovec iovecs[VLEN];
+    char bufs[VLEN][BUFSIZE+1];
+    struct timespec timeout;
+
+    sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+    if (sockfd == &minus;1) {
+        perror("socket()");
+        exit(EXIT_FAILURE);
+    }
+
+    sa.sin_family = AF_INET;
+    sa.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+    sa.sin_port = htons(1234);
+    if (bind(sockfd, (struct sockaddr *) &amp;sa, sizeof(sa)) == &minus;1) {
+        perror("bind()");
+        exit(EXIT_FAILURE);
+    }
+
+    memset(msgs, 0, sizeof(msgs));
+    for (i = 0; i &lt; VLEN; i++) {
+        iovecs[i].iov_base         = bufs[i];
+        iovecs[i].iov_len          = BUFSIZE;
+        msgs[i].msg_hdr.msg_iov    = &amp;iovecs[i];
+        msgs[i].msg_hdr.msg_iovlen = 1;
+    }
+
+    timeout.tv_sec = TIMEOUT;
+    timeout.tv_nsec = 0;
+
+    retval = recvmmsg(sockfd, msgs, VLEN, 0, &amp;timeout);
+    if (retval == &minus;1) {
+        perror("recvmmsg()");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("%d messages received\n", retval);
+    for (i = 0; i &lt; retval; i++) {
+        bufs[i][msgs[i].msg_len] = 0;
+        printf("%d %s", i+1, bufs[i]);
+    }
+    exit(EXIT_SUCCESS);
+}
+</pre>
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="recvmmsg-2_sect8" name="recvmmsg-2_sect8" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       timeout
+      </code>
+     </em>
+     argument does not work as intended. The timeout is checked
+      only after the receipt of each datagram, so that if up to
+     <em class="replaceable">
+      <code>
+       vlen&minus;1
+      </code>
+     </em>
+     datagrams are received before the timeout expires, but then
+      no further datagrams are received, the call will block
+      forever.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="recvmmsg-2_sect9" name="recvmmsg-2_sect9" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/clock_getres.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clock_gettime
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/recv.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        recvmsg
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/sendmmsg.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sendmmsg
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/send.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sendmsg
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/socket.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        socket
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/socket.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        socket
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="recvmmsg-2_sect10" name="recvmmsg-2_sect10" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

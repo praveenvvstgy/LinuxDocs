@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   utmpdump(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="utmpdump(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="utmpdump.1" name="utmpdump.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     utmpdump &mdash; dump UTMP and WTMP files in raw
+      format
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       utmpdump
+      </code>
+      [
+      <code class="option">
+       &minus;frohV
+      </code>
+      ] [filename]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="utmpdump-1_sect1" name="utmpdump-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       utmpdump
+      </strong>
+     </span>
+     is
+      a simple program to dump UTMP and WTMP files in raw format,
+      so they can be examined.
+     <span class="command">
+      <strong>
+       utmpdump
+      </strong>
+     </span>
+     eads from stdin
+      unless a
+     <em class="parameter">
+      <code>
+       filename
+      </code>
+     </em>
+     is
+      passed.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="utmpdump-1_sect2" name="utmpdump-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;follow
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output appended data as the file grows.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;reverse
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Undump, write back edited login information into
+            utmp or wtmp files.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;output
+        </code>
+        <span class="command">
+         <strong>
+          file
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Write command output to file instead of standard
+            output.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="utmpdump-1_sect3" name="utmpdump-1_sect3" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       utmpdump
+      </strong>
+     </span>
+     can
+      be useful in cases of corrupted utmp or wtmp entries. It can
+      dump out utmp/wtmp to an ASCII file, then that file can be
+      edited to remove bogus entries and reintegrated, using
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       utmpdump -r &lt; ascii_file &gt; wtmp
+      </p>
+     </blockquote>
+    </div>
+    <p>
+     but be warned as
+     <span class="command">
+      <strong>
+       utmpdump
+      </strong>
+     </span>
+     was written for
+      debugging purpose only.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="utmpdump-1_sect4" name="utmpdump-1_sect4" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     You may not use the option
+     <code class="option">
+      &minus;r
+     </code>
+     as the format for the utmp/wtmp
+      files strongly depends on the input format. This tool was not
+      written for normal use but for debugging.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="utmpdump-1_sect5" name="utmpdump-1_sect5" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Michael Krapp
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="utmpdump-1_sect6" name="utmpdump-1_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/last.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        last
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       w
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman1/who.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        who
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman5/utmp.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        utmp
+       </span>
+       (5)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="utmpdump-1_sect7" name="utmpdump-1_sect7" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The utmpdump command is part of the util-linux package and
+      is available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

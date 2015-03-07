@@ -1,0 +1,1739 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   fd(4) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="fd(4) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="fd.4" name="fd.4" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     fd &mdash; floppy disk device
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fd-4_sect1" name="fd-4_sect1" shape="rect">
+    </a>
+    <h2>
+     CONFIGURATION
+    </h2>
+    <p>
+     Floppy drives are block devices with major number 2.
+      Typically they are owned by
+     <em class="replaceable">
+      <code>
+       root.floppy
+      </code>
+     </em>
+     (i.e., user root,
+      group floppy) and have either mode 0660 (access checking via
+      group membership) or mode 0666 (everybody has access). The
+      minor numbers encode the device type, drive number, and
+      controller number. For each device type (that is, combination
+      of density and track count) there is a base minor number. To
+      this base number, add the drive's number on its controller
+      and 128 if the drive is on the secondary controller. In the
+      following device tables,
+     <em class="replaceable">
+      <code>
+       n
+      </code>
+     </em>
+     represents the drive
+      number.
+    </p>
+    <p>
+     If you use formats with more tracks than supported by your
+      drive, you may cause it mechanical damage. Trying once if
+      more tracks than the usual 40/80 are supported should not
+      damage it, but no warranty is given for that. If you are not
+      sure, don't create device entries for those formats, so as to
+      prevent their usage.
+    </p>
+    <p>
+     Drive-independent device files which automatically detect
+      the media format and capacity:
+    </p>
+    <div class="informaltable">
+     <table style="border-collapse: collapse;">
+      <colgroup span="1">
+       <col class="c0" span="1">
+       </col>
+       <col class="c1" span="1">
+       </col>
+      </colgroup>
+      <tbody>
+       <tr style="">
+        <td align="left" colspan="1" rowspan="1" style="">
+         Name
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Base minor #
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         0
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     5.25 inch double-density device files:
+    </p>
+    <div class="informaltable">
+     <table style="border-collapse: collapse;">
+      <colgroup span="1">
+       <col class="c0" span="1">
+       </col>
+       <col class="c1" span="1">
+       </col>
+       <col class="c2" span="1">
+       </col>
+       <col class="c3" span="1">
+       </col>
+       <col class="c4" span="1">
+       </col>
+       <col class="c5" span="1">
+       </col>
+      </colgroup>
+      <tbody>
+       <tr style="">
+        <td align="left" colspan="1" rowspan="1" style="">
+         Name
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Capac.
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Cyl.
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Sect.
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Heads
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Base minor #
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          d360
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         360K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         40
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         9
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         4
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     5.25 inch high-density device files:
+    </p>
+    <div class="informaltable">
+     <table style="border-collapse: collapse;">
+      <colgroup span="1">
+       <col class="c0" span="1">
+       </col>
+       <col class="c1" span="1">
+       </col>
+       <col class="c2" span="1">
+       </col>
+       <col class="c3" span="1">
+       </col>
+       <col class="c4" span="1">
+       </col>
+       <col class="c5" span="1">
+       </col>
+      </colgroup>
+      <tbody>
+       <tr style="">
+        <td align="left" colspan="1" rowspan="1" style="">
+         Name
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Capac.
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Cyl.
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Sect.
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Heads
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Base minor #
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          h360
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         360K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         40
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         9
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         20
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          h410
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         410K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         41
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         10
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         48
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          h420
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         420K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         42
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         10
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         64
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          h720
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         720K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         9
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         24
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          h880
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         880K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         11
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          h1200
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         1200K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         15
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         8
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          h1440
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         1440K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         18
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         40
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          h1476
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         1476K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         82
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         18
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         56
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          h1494
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         1494K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         83
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         18
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         72
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          h1600
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         1600K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         20
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         92
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     3.5 inch double-density device files:
+    </p>
+    <div class="informaltable">
+     <table style="border-collapse: collapse;">
+      <colgroup span="1">
+       <col class="c0" span="1">
+       </col>
+       <col class="c1" span="1">
+       </col>
+       <col class="c2" span="1">
+       </col>
+       <col class="c3" span="1">
+       </col>
+       <col class="c4" span="1">
+       </col>
+       <col class="c5" span="1">
+       </col>
+      </colgroup>
+      <tbody>
+       <tr style="">
+        <td align="left" colspan="1" rowspan="1" style="">
+         Name
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Capac.
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Cyl.
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Sect.
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Heads
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Base minor #
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u360
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         360K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         9
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         1
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         12
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u720
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         720K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         9
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         16
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u800
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         800K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         10
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         120
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u1040
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         1040K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         13
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         84
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u1120
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         1120K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         14
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         88
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     3.5 inch high-density device files:
+    </p>
+    <div class="informaltable">
+     <table style="border-collapse: collapse;">
+      <colgroup span="1">
+       <col class="c0" span="1">
+       </col>
+       <col class="c1" span="1">
+       </col>
+       <col class="c2" span="1">
+       </col>
+       <col class="c3" span="1">
+       </col>
+       <col class="c4" span="1">
+       </col>
+       <col class="c5" span="1">
+       </col>
+      </colgroup>
+      <tbody>
+       <tr style="">
+        <td align="left" colspan="1" rowspan="1" style="">
+         Name
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Capac.
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Cyl.
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Sect.
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Heads
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Base minor #
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u360
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         360K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         40
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         9
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         12
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u720
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         720K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         9
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         16
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u820
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         820K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         82
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         10
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         52
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u830
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         830K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         83
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         10
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         68
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u1440
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         1440K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         18
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         28
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u1600
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         1600K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         20
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         124
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u1680
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         1680K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         21
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         44
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u1722
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         1722K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         82
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         21
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         60
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u1743
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         1743K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         83
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         21
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         76
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u1760
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         1760K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         22
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         96
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u1840
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         1840K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         23
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         116
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u1920
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         1920K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         24
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         100
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     3.5 inch extra-density device files:
+    </p>
+    <div class="informaltable">
+     <table style="border-collapse: collapse;">
+      <colgroup span="1">
+       <col class="c0" span="1">
+       </col>
+       <col class="c1" span="1">
+       </col>
+       <col class="c2" span="1">
+       </col>
+       <col class="c3" span="1">
+       </col>
+       <col class="c4" span="1">
+       </col>
+       <col class="c5" span="1">
+       </col>
+      </colgroup>
+      <tbody>
+       <tr style="">
+        <td align="left" colspan="1" rowspan="1" style="">
+         Name
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Capac.
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Cyl.
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Sect.
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Heads
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Base minor #
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u2880
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2880K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         36
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         32
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          CompaQ
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2880K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         36
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         36
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u3200
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         3200K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         40
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         104
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u3520
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         3520K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         44
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         108
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <code class="function">
+          fd
+         </code>
+         <em class="replaceable">
+          <code>
+           n
+          </code>
+         </em>
+         <code class="function">
+          u3840
+         </code>
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         3840K
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         80
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         48
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         112
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="fd-4_sect2" name="fd-4_sect2" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      fd
+     </code>
+     special files access the
+      floppy disk drives in raw mode. The following
+     <a class="link" href="../htmlman2/ioctl.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ioctl
+       </span>
+       (2)
+      </span>
+     </a>
+     calls are
+      supported by
+     <code class="function">
+      fd
+     </code>
+     devices:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDCLRPRM
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        clears the media information of a drive (geometry of
+            disk in drive).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDSETPRM
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        sets the media information of a drive. The media
+            information will be lost when the media is changed.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDDEFPRM
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        sets the media information of a drive (geometry of
+            disk in drive). The media information will not be lost
+            when the media is changed. This will disable
+            autodetection. In order to reenable autodetection, you
+            have to issue an
+        <code class="constant">
+         FDCLRPRM
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDGETDRVTYP
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        returns the type of a drive (name parameter). For
+            formats which work in several drive types,
+        <code class="constant">
+         FDGETDRVTYP
+        </code>
+        returns a name which is
+            appropriate for the oldest drive type which supports
+            this format.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDFLUSH
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        invalidates the buffer cache for the given
+            drive.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDSETMAXERRS
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        sets the error thresholds for reporting errors,
+            aborting the operation, recalibrating, resetting, and
+            reading sector by sector.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDSETMAXERRS
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        gets the current error thresholds.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDGETDRVTYP
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        gets the internal name of the drive.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDWERRORCLR
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        clears the write error statistics.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDWERRORGET
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        reads the write error statistics. These include the
+            total number of write errors, the location and disk of
+            the first write error, and the location and disk of the
+            last write error. Disks are identified by a generation
+            number which is incremented at (almost) each disk
+            change.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDTWADDLE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Switch the drive motor off for a few microseconds.
+            This might be needed in order to access a disk whose
+            sectors are too close together.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDSETDRVPRM
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        sets various drive parameters.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDGETDRVPRM
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        reads these parameters back.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDGETDRVSTAT
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        gets the cached drive state (disk changed, write
+            protected et al.)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDPOLLDRVSTAT
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        polls the drive and return its state.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDGETFDCSTAT
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        gets the floppy controller state.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDRESET
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        resets the floppy controller under certain
+            conditions.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FDRAWCMD
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        sends a raw command to the floppy controller.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     For more precise information, consult also the
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      linux/fd.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+     and
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      linux/fdreg.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+     include files, as well as the
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       floppycontrol
+      </span>
+      (1)
+     </span>
+     manual
+      page.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fd-4_sect3" name="fd-4_sect3" shape="rect">
+    </a>
+    <h2>
+     FILES
+    </h2>
+    <p>
+     /dev/fd*
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fd-4_sect4" name="fd-4_sect4" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The various formats permit reading and writing many types
+      of disks. However, if a floppy is formatted with an
+      inter-sector gap that is too small, performance may drop, to
+      the point of needing a few seconds to access an entire track.
+      To prevent this, use interleaved formats.
+    </p>
+    <p>
+     It is not possible to read floppies which are formatted
+      using GCR (group code recording), which is used by Apple II
+      and Macintosh computers (800k disks).
+    </p>
+    <p>
+     Reading floppies which are hard sectored (one hole per
+      sector, with the index hole being a little skewed) is not
+      supported. This used to be common with older 8-inch
+      floppies.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fd-4_sect5" name="fd-4_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/chown.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        chown
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       floppycontrol
+      </span>
+      (1)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       getfdprm
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman1/mknod.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mknod
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       superformat
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman8/mount.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mount
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       setfdprm
+      </span>
+      (8)
+     </span>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="fd-4_sect6" name="fd-4_sect6" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

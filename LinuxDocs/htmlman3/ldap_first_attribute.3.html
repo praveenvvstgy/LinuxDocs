@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   ldap_first_attribute(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="ldap_first_attribute(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="ldap-first-attribute.3" name="ldap-first-attribute.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     ldap_first_attribute, ldap_next_attribute &mdash; step
+      through LDAP entry attributes
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;ldap.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         char
+            *
+         <strong>
+          ldap_first_attribute
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        LDAP *
+        <var class="pdparam">
+         ld
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        LDAPMessage *
+        <var class="pdparam">
+         entry
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        BerElement **
+        <var class="pdparam">
+         berptr
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         char
+            *
+         <strong>
+          ldap_next_attribute
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        LDAP *
+        <var class="pdparam">
+         ld
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        LDAPMessage *
+        <var class="pdparam">
+         entry
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        BerElement *
+        <var class="pdparam">
+         ber
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ldap-first-attribute-3_sect1" name="ldap-first-attribute-3_sect1" shape="rect">
+    </a>
+    <h2>
+     LIBRARY
+    </h2>
+    <p>
+     OpenLDAP LDAP (libldap, &minus;lldap)
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ldap-first-attribute-3_sect2" name="ldap-first-attribute-3_sect2" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      ldap_first_attribute
+     </code>
+     ()
+      and
+     <code class="function">
+      ldap_next_attribute
+     </code>
+     ()
+      routines are used to step through the attributes in an LDAP
+      entry.
+     <code class="function">
+      ldap_first_attribute
+     </code>
+     ()
+      takes an
+     <em class="parameter">
+      <code>
+       entry
+      </code>
+     </em>
+     as
+      returned by
+     <a class="link" href="../htmlman3/ldap_first_entry.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap_first_entry
+       </span>
+       (3)
+      </span>
+     </a>
+     or
+     <a class="link" href="../htmlman3/ldap_first_entry.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap_next_entry
+       </span>
+       (3)
+      </span>
+     </a>
+     and
+      returns a pointer to character string containing the first
+      attribute description in the entry.
+     <code class="function">
+      ldap_next_attribute
+     </code>
+     () returns the next
+      attribute description in the entry.
+    </p>
+    <p>
+     It also returns, in
+     <em class="parameter">
+      <code>
+       berptr
+      </code>
+     </em>
+     , a pointer to a
+      BerElement it has allocated to keep track of its current
+      position. This pointer should be passed to subsequent calls
+      to
+     <code class="function">
+      ldap_next_attribute
+     </code>
+     () and is
+      used to effectively step through the entry's attributes. The
+      caller is solely responsible for freeing the BerElement
+      pointed to by
+     <em class="parameter">
+      <code>
+       berptr
+      </code>
+     </em>
+     when it is no longer needed by calling
+     <a class="link" href="../htmlman3/lber-types.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ber_free
+       </span>
+       (3)
+      </span>
+     </a>
+     . When calling
+     <a class="link" href="../htmlman3/lber-types.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ber_free
+       </span>
+       (3)
+      </span>
+     </a>
+     in this
+      instance, be sure the second argument is 0.
+    </p>
+    <p>
+     The attribute names returned are suitable for inclusion in
+      a call to
+     <a class="link" href="../htmlman3/ldap_get_values.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap_get_values
+       </span>
+       (3)
+      </span>
+     </a>
+     to
+      retrieve the attribute's values.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ldap-first-attribute-3_sect3" name="ldap-first-attribute-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <p>
+     If an error occurs, NULL is returned and the ld_errno
+      field in the
+     <em class="parameter">
+      <code>
+       ld
+      </code>
+     </em>
+     parameter is set to indicate the error. See
+     <a class="link" href="../htmlman3/ldap_error.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap_error
+       </span>
+       (3)
+      </span>
+     </a>
+     for a
+      description of possible error codes.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ldap-first-attribute-3_sect4" name="ldap-first-attribute-3_sect4" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The
+     <code class="function">
+      ldap_first_attribute
+     </code>
+     ()
+      and
+     <code class="function">
+      ldap_next_attribute
+     </code>
+     ()
+      return dynamically allocated memory that must be freed by the
+      caller via
+     <a class="link" href="../htmlman3/ldap_memory.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap_memfree
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ldap-first-attribute-3_sect5" name="ldap-first-attribute-3_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/ldap.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/ldap_first_entry.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap_first_entry
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/ldap_get_values.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap_get_values
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/ldap_error.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap_error
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ldap-first-attribute-3_sect6" name="ldap-first-attribute-3_sect6" shape="rect">
+    </a>
+    <h2>
+     ACKNOWLEDGEMENTS
+    </h2>
+    <p>
+     <span class="emphasis">
+      <em>
+       OpenLDAP Software
+      </em>
+     </span>
+     is developed and maintained by The OpenLDAP Project
+      &lt;
+     <a class="literalurl" href="http://www.openldap.org/" shape="rect" target="_top">
+      http://www.openldap.org/
+     </a>
+     &gt;.
+     <span class="emphasis">
+      <em>
+       OpenLDAP Software
+      </em>
+     </span>
+     is derived from
+      University of Michigan LDAP 3.3 Release.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

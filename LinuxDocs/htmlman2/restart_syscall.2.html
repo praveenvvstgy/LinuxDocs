@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   restart_syscall(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="restart_syscall(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="restart-syscall.2" name="restart-syscall.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     restart_syscall &mdash; restart a system call after
+      interruption by a stop signal
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <p>
+     int restart_syscall(void);
+    </p>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        There is no glibc wrapper
+            for this system call; see NOTES.
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="restart-syscall-2_sect1" name="restart-syscall-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      restart_syscall
+     </code>
+     () system
+      call is used to restart certain system calls after a process
+      that was stopped by a signal (e.g.,
+     <code class="constant">
+      SIGSTOP
+     </code>
+     or
+     <code class="constant">
+      SIGTSTP
+     </code>
+     ) is later resumed after receiving a
+     <code class="constant">
+      SIGCONT
+     </code>
+     signal. This system
+      call is designed only for internal use by the kernel.
+    </p>
+    <p>
+     <code class="function">
+      restart_syscall
+     </code>
+     () is used
+      for restarting only those system calls that, when restarted,
+      should adjust their time-related parameters&mdash;namely
+     <a class="link" href="../htmlman2/poll.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        poll
+       </span>
+       (2)
+      </span>
+     </a>
+     (since Linux
+      2.6.24),
+     <a class="link" href="../htmlman2/nanosleep.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        nanosleep
+       </span>
+       (2)
+      </span>
+     </a>
+     (since Linux
+      2.6),
+     <a class="link" href="../htmlman2/clock_nanosleep.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clock_nanosleep
+       </span>
+       (2)
+      </span>
+     </a>
+     (since
+      Linux 2.6), and
+     <a class="link" href="../htmlman2/futex.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        futex
+       </span>
+       (2)
+      </span>
+     </a>
+     , when employed
+      with the
+     <code class="constant">
+      FUTEX_WAIT
+     </code>
+     (since
+      Linux 2.6.22) and
+     <code class="constant">
+      FUTEX_WAIT_BITSET
+     </code>
+     (since Linux 2.6.31)
+      operations.
+     <code class="function">
+      restart_syscall
+     </code>
+     ()
+      restarts the interrupted system call with a time argument
+      that is suitably adjusted to account for the time that has
+      already elapsed (including the time where the process was
+      stopped by a signal). Without the
+     <code class="function">
+      restart_syscall
+     </code>
+     () mechanism, restarting
+      these system calls would not correctly deduce the already
+      elapsed time when the process continued execution.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="restart-syscall-2_sect2" name="restart-syscall-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     The return value of
+     <code class="function">
+      restart_syscall
+     </code>
+     () is the return value of
+      whatever system call is being restarted.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="restart-syscall-2_sect3" name="restart-syscall-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <p>
+     <code class="varname">
+      errno
+     </code>
+     is set as per the
+      errors for whatever system call is being restarted by
+     <code class="function">
+      restart_syscall
+     </code>
+     ().
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="restart-syscall-2_sect4" name="restart-syscall-2_sect4" shape="rect">
+    </a>
+    <h2>
+     VERSIONS
+    </h2>
+    <p>
+     The
+     <code class="function">
+      restart_syscall
+     </code>
+     () system
+      call is present since Linux 2.6.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="restart-syscall-2_sect5" name="restart-syscall-2_sect5" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     This system call is Linux-specific.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="restart-syscall-2_sect6" name="restart-syscall-2_sect6" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     There is no glibc wrapper for this system call, because it
+      is intended for use only by the kernel and should never be
+      called by applications.
+    </p>
+    <p>
+     From user space, the operation of
+     <a class="link" href="../htmlman2/restart_syscall.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        restart_syscall
+       </span>
+       (2)
+      </span>
+     </a>
+     is
+      largely invisible: to the process that made the system call
+      that is restarted, it appears as though that system call
+      executed and returned in the usual fashion.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="restart-syscall-2_sect7" name="restart-syscall-2_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/sigaction.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sigaction
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/sigreturn.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sigreturn
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/signal.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        signal
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="restart-syscall-2_sect8" name="restart-syscall-2_sect8" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   fnmatch(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="fnmatch(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="fnmatch.3" name="fnmatch.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     fnmatch &mdash; match filename or pathname
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;fnmatch.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          fnmatch
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         pattern
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         string
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         flags
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="fnmatch-3_sect1" name="fnmatch-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      fnmatch
+     </code>
+     () function
+      checks whether the
+     <em class="parameter">
+      <code>
+       string
+      </code>
+     </em>
+     argument matches the
+     <em class="parameter">
+      <code>
+       pattern
+      </code>
+     </em>
+     argument,
+      which is a shell wildcard pattern.
+    </p>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       flags
+      </code>
+     </em>
+     argument
+      modifies the behavior; it is the bitwise OR of zero or more
+      of the following flags:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FNM_NOESCAPE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        If this flag is set, treat backslash as an ordinary
+            character, instead of an escape character.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FNM_PATHNAME
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        If this flag is set, match a slash in
+        <em class="parameter">
+         <code>
+          string
+         </code>
+        </em>
+        only with a slash
+            in
+        <em class="parameter">
+         <code>
+          pattern
+         </code>
+        </em>
+        and
+            not by an asterisk (*) or a question mark (?)
+            metacharacter, nor by a bracket expression ([])
+            containing a slash.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FNM_PERIOD
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        If this flag is set, a leading period in
+        <em class="parameter">
+         <code>
+          string
+         </code>
+        </em>
+        has to be matched
+            exactly by a period in
+        <em class="parameter">
+         <code>
+          pattern
+         </code>
+        </em>
+        . A period is
+            considered to be leading if it is the first character
+            in
+        <em class="parameter">
+         <code>
+          string
+         </code>
+        </em>
+        , or
+            if both
+        <code class="constant">
+         FNM_PATHNAME
+        </code>
+        is
+            set and the period immediately follows a slash.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FNM_FILE_NAME
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This is a GNU synonym for
+        <code class="constant">
+         FNM_PATHNAME
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FNM_LEADING_DIR
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        If this flag (a GNU extension) is set, the pattern
+            is considered to be matched if it matches an initial
+            segment of
+        <em class="parameter">
+         <code>
+          string
+         </code>
+        </em>
+        which is followed
+            by a slash. This flag is mainly for the internal use of
+            glibc and is implemented only in certain cases.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FNM_CASEFOLD
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        If this flag (a GNU extension) is set, the pattern
+            is matched case-insensitively.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="fnmatch-3_sect2" name="fnmatch-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     Zero if
+     <em class="parameter">
+      <code>
+       string
+      </code>
+     </em>
+     matches
+     <em class="parameter">
+      <code>
+       pattern
+      </code>
+     </em>
+     ,
+     <code class="constant">
+      FNM_NOMATCH
+     </code>
+     if there is no
+      match or another nonzero value if there is an error.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fnmatch-3_sect3" name="fnmatch-3_sect3" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     POSIX.2. The
+     <code class="constant">
+      FNM_FILE_NAME
+     </code>
+     ,
+     <code class="constant">
+      FNM_LEADING_DIR
+     </code>
+     , and
+     <code class="constant">
+      FNM_CASEFOLD
+     </code>
+     flags are GNU
+      extensions.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fnmatch-3_sect4" name="fnmatch-3_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       sh
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman3/glob.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        glob
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/scandir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        scandir
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/wordexp.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        wordexp
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/glob.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        glob
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="fnmatch-3_sect5" name="fnmatch-3_sect5" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

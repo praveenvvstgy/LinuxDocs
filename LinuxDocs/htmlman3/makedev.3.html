@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   makedev(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="makedev(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="makedev.3" name="makedev.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     makedev, major, minor &mdash; manage a device number
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#define _BSD_SOURCE              /* See feature_test_macros(7) */
+#include &lt;sys/types.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         dev_t
+         <strong>
+          makedev
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int
+        <var class="pdparam">
+         maj
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int
+        <var class="pdparam">
+         min
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         unsigned int
+         <strong>
+          major
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        dev_t
+        <var class="pdparam">
+         dev
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         unsigned int
+         <strong>
+          minor
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        dev_t
+        <var class="pdparam">
+         dev
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="makedev-3_sect1" name="makedev-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     A device ID consists of two parts: a major ID, identifying
+      the class of the device, and a minor ID, identifying a
+      specific instance of a device in that class. A device ID is
+      represented using the type
+     <span class="type">
+      dev_t
+     </span>
+     .
+    </p>
+    <p>
+     Given major and minor device IDs,
+     <code class="function">
+      makedev
+     </code>
+     () combines these to produce a
+      device ID, returned as the function result. This device ID
+      can be given to
+     <a class="link" href="../htmlman2/mknod.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mknod
+       </span>
+       (2)
+      </span>
+     </a>
+     , for example.
+    </p>
+    <p>
+     The
+     <code class="function">
+      major
+     </code>
+     () and
+     <code class="function">
+      minor
+     </code>
+     () functions perform the converse
+      task: given a device ID, they return, respectively, the major
+      and minor components. These macros can be useful to, for
+      example, decompose the device IDs in the structure returned
+      by
+     <a class="link" href="../htmlman2/stat.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        stat
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="makedev-3_sect2" name="makedev-3_sect2" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     The
+     <code class="function">
+      makedev
+     </code>
+     (),
+     <code class="function">
+      major
+     </code>
+     (), and
+     <code class="function">
+      minor
+     </code>
+     () functions are not specified in
+      POSIX.1, but are present on many other systems.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="makedev-3_sect3" name="makedev-3_sect3" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     These interfaces are defined as macros. Since glibc 2.3.3,
+      they have been aliases for three GNU-specific functions:
+     <code class="function">
+      gnu_dev_makedev
+     </code>
+     (),
+     <code class="function">
+      gnu_dev_major
+     </code>
+     (), and
+     <code class="function">
+      gnu_dev_minor
+     </code>
+     (). The latter names are
+      exported, but the traditional names are more portable.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="makedev-3_sect4" name="makedev-3_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/mknod.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mknod
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/stat.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        stat
+       </span>
+       (2)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="makedev-3_sect5" name="makedev-3_sect5" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

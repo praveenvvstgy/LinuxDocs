@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   expm1(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="expm1(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="expm1.3" name="expm1.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     expm1, expm1f, expm1l &mdash; exponential minus 1
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;math.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         double
+         <strong>
+          expm1
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        double
+        <var class="pdparam">
+         x
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         float
+         <strong>
+          expm1f
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        float
+        <var class="pdparam">
+         x
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         long double
+         <strong>
+          expm1l
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        long double
+        <var class="pdparam">
+         x
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              expm1
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _BSD_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _SVID_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &gt;= 500 ||
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &amp;&amp;
+             <code class="constant">
+              _XOPEN_SOURCE_EXTENDED
+             </code>
+             ||
+             <code class="constant">
+              _ISOC99_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _POSIX_C_SOURCE
+             </code>
+             &gt;=
+                      200112L;
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             or
+             <span class="command">
+              <strong>
+               cc
+              </strong>
+             </span>
+             <code class="option">
+              -std=c99
+             </code>
+            </td>
+           </tr>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              expm1f
+             </code>
+             (),
+             <code class="function">
+              expm1l
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _BSD_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _SVID_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &gt;= 600 ||
+             <code class="constant">
+              _ISOC99_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _POSIX_C_SOURCE
+             </code>
+             &gt;= 200112L;
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             or
+             <span class="command">
+              <strong>
+               cc
+              </strong>
+             </span>
+             <code class="option">
+              -std=c99
+             </code>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <p>
+         Link with
+         <code class="option">
+          &minus;lm
+         </code>
+         .
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="expm1-3_sect1" name="expm1-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <em class="replaceable">
+      <code>
+       expm1(x)
+      </code>
+     </em>
+     returns
+      a value equivalent to
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+    exp(x) &minus; 1
+</pre>
+    </div>
+    <p>
+     It is computed in a way that is accurate even if the value
+      of
+     <em class="parameter">
+      <code>
+       x
+      </code>
+     </em>
+     is near
+      zero&mdash;a case where
+     <span class="emphasis">
+      <em>
+       exp(x)
+      &minus; 1
+      </em>
+     </span>
+     would be inaccurate due to subtraction
+      of two numbers that are nearly equal.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="expm1-3_sect2" name="expm1-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success, these functions return
+     <span class="emphasis">
+      <em>
+       exp(x) &minus; 1
+      </em>
+     </span>
+     .
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       x
+      </code>
+     </em>
+     is a NaN, a
+      NaN is returned.
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       x
+      </code>
+     </em>
+     is +0
+      (&minus;0), +0 (&minus;0) is returned.
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       x
+      </code>
+     </em>
+     is positive
+      infinity, positive infinity is returned.
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       x
+      </code>
+     </em>
+     is negative
+      infinity, &minus;1 is returned.
+    </p>
+    <p>
+     If the result overflows, a range error occurs, and the
+      functions return -
+     <code class="constant">
+      HUGE_VAL
+     </code>
+     ,
+      -
+     <code class="constant">
+      HUGE_VALF
+     </code>
+     , or -
+     <code class="constant">
+      HUGE_VALL
+     </code>
+     , respectively.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="expm1-3_sect3" name="expm1-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <p>
+     See
+     <a class="link" href="../htmlman7/math_error.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        math_error
+       </span>
+       (7)
+      </span>
+     </a>
+     for
+      information on how to determine whether an error has occurred
+      when calling these functions.
+    </p>
+    <p>
+     The following errors can occur:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        Range error, overflow
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <code class="varname">
+         errno
+        </code>
+        is set to
+        <span class="errorname">
+         ERANGE
+        </span>
+        (but see BUGS).
+            An overflow floating-point exception (
+        <code class="constant">
+         FE_OVERFLOW
+        </code>
+        ) is raised.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="expm1-3_sect4" name="expm1-3_sect4" shape="rect">
+    </a>
+    <h2>
+     ATTRIBUTES
+    </h2>
+    <div class="refsect2">
+     <a id="expm1-3_sect5" name="expm1-3_sect5" shape="rect">
+     </a>
+     <h3>
+      Multithreading (see pthreads(7))
+     </h3>
+     <p>
+      The
+      <code class="function">
+       expm1
+      </code>
+      (),
+      <code class="function">
+       expm1f
+      </code>
+      (), and
+      <code class="function">
+       expm1l
+      </code>
+      () functions are thread-safe.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="expm1-3_sect6" name="expm1-3_sect6" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     C99, POSIX.1-2001.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="expm1-3_sect7" name="expm1-3_sect7" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     For some large negative
+     <em class="parameter">
+      <code>
+       x
+      </code>
+     </em>
+     values (where the function
+      result approaches &minus;1),
+     <code class="function">
+      expm1
+     </code>
+     () raises a bogus underflow
+      floating-point exception.
+    </p>
+    <p>
+     For some large positive
+     <em class="parameter">
+      <code>
+       x
+      </code>
+     </em>
+     values,
+     <code class="function">
+      expm1
+     </code>
+     () raises a bogus invalid
+      floating-point exception in addition to the expected overflow
+      exception, and returns a NaN instead of positive
+      infinity.
+    </p>
+    <p>
+     Before version 2.11, the glibc implementation did not set
+     <code class="varname">
+      errno
+     </code>
+     to
+     <span class="errorname">
+      ERANGE
+     </span>
+     when a range error occurred.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="expm1-3_sect8" name="expm1-3_sect8" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/exp.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        exp
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/log.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        log
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/log1p.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        log1p
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="expm1-3_sect9" name="expm1-3_sect9" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

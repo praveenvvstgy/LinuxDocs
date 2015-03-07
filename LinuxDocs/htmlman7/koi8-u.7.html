@@ -1,0 +1,2453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   koi8-u(7) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="koi8-u(7) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="koi8-u.7" name="koi8-u.7" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     koi8-u &mdash; Ukrainian character set encoded in octal,
+      decimal, and hexadecimal
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="koi8-u-7_sect1" name="koi8-u-7_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     KOI8-U (KOI8 Ukrainian, described in RFC 2310) is the
+      de-facto standard character set for encoding Ukrainian texts.
+      KOI8-U is compatible with KOI8-R (RFC 1489) for all Russian
+      letters, and extends KOI8-R with four Ukrainian letters (in
+      both uppercase and lowercase) in locations that are compliant
+      with ISO-IR-111.
+    </p>
+    <div class="refsect2">
+     <a id="koi8-u-7_sect2" name="koi8-u-7_sect2" shape="rect">
+     </a>
+     <h3>
+      KOI8-U characters
+     </h3>
+     <p>
+      The following table displays the characters in KOI8-U,
+        which are printable and unlisted in the
+      <a class="link" href="../htmlman7/ascii.7.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         ascii
+        </span>
+        (7)
+       </span>
+      </a>
+      manual page.
+     </p>
+     <div class="informaltable">
+      <table style="border-collapse: collapse;">
+       <colgroup span="1">
+        <col class="c0" span="1">
+        </col>
+        <col class="c1" span="1">
+        </col>
+        <col class="c2" span="1">
+        </col>
+        <col class="c3" span="1">
+        </col>
+        <col class="c4" span="1">
+        </col>
+       </colgroup>
+       <tbody>
+        <tr style="">
+         <td align="left" colspan="1" rowspan="1" style="">
+          Oct
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          Dec
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          Hex
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Char
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          Description
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          200
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          128
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          80
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ─
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS LIGHT
+                HORIZONTAL
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          201
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          129
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          81
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          │
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS LIGHT
+                VERTICAL
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          202
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          130
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          82
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ┌
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS LIGHT DOWN
+                AND RIGHT
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          203
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          131
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          83
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ┐
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS LIGHT DOWN
+                AND LEFT
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          204
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          132
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          84
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          └
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS LIGHT UP AND
+                RIGHT
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          205
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          133
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          85
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ┘
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS LIGHT UP AND
+                LEFT
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          206
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          134
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          86
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ├
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS LIGHT
+                VERTICAL AND RIGHT
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          207
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          135
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          87
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ┤
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS LIGHT
+                VERTICAL AND LEFT
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          210
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          136
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          88
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ┬
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS LIGHT DOWN
+                AND HORIZONTAL
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          211
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          137
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          89
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ┴
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS LIGHT UP AND
+                HORIZONTAL
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          212
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          138
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          8A
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ┼
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS LIGHT
+                VERTICAL AND HORIZONTAL
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          213
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          139
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          8B
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ▀
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          UPPER HALF BLOCK
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          214
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          140
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          8C
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ▄
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          LOWER HALF BLOCK
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          215
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          141
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          8D
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          █
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          FULL BLOCK
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          216
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          142
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          8E
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ▌
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          LEFT HALF BLOCK
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          217
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          143
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          8F
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ▐
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          RIGHT HALF BLOCK
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          220
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          144
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          90
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ░
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          LIGHT SHADE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          221
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          145
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          91
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ▒
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          MEDIUM SHADE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          222
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          146
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          92
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ▓
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          DARK SHADE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          223
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          147
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          93
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ⌠
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          TOP HALF INTEGRAL
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          224
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          148
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          94
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ■
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BLACK SQUARE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          225
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          149
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          95
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ∙
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BULLET OPERATOR
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          226
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          150
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          96
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          &radic;
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          SQUARE ROOT
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          227
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          151
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          97
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          &asymp;
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          ALMOST EQUAL TO
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          230
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          152
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          98
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          &le;
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          LESS-THAN OR EQUAL
+                TO
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          231
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          153
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          99
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          &ge;
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          GREATER-THAN OR EQUAL
+                TO
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          232
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          154
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          9A
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          &nbsp;
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          NO-BREAK SPACE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          233
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          155
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          9B
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ⌡
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOTTOM HALF INTEGRAL
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          234
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          156
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          9C
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          &deg;
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          DEGREE SIGN
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          235
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          157
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          9D
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          &sup2;
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          SUPERSCRIPT TWO
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          236
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          158
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          9E
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          &middot;
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          MIDDLE DOT
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          237
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          159
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          9F
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          &divide;
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          DIVISION SIGN
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          240
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          160
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          A0
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ═
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS DOUBLE
+                HORIZONTAL
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          241
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          161
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          A1
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ║
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS DOUBLE
+                VERTICAL
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          242
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          162
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          A2
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╒
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS DOWN SINGLE
+                AND RIGHT DOUBLE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          243
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          163
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          A3
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ё
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                IO
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          244
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          164
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          A4
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          є
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                UKRAINIAN IE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          245
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          165
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          A5
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╔
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS DOUBLE DOWN
+                AND RIGHT
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          246
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          166
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          A6
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          і
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          <p>
+           CYRILLIC SMALL LETTER
+          </p>
+          <p>
+           BYELORUSSIAN-UKRAINIAN I
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          247
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          167
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          A7
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ї
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER YI
+                (Ukrainian)
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          250
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          168
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          A8
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╗
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS DOUBLE DOWN
+                AND LEFT
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          251
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          169
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          A9
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╘
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS UP SINGLE
+                AND RIGHT DOUBLE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          252
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          170
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          AA
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╙
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS UP DOUBLE
+                AND RIGHT SINGLE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          253
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          171
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          AB
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╚
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS DOUBLE UP
+                AND RIGHT
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          254
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          172
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          AC
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╛
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS UP SINGLE
+                AND LEFT DOUBLE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          255
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          173
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          AD
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ґ
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER GHE
+                WITH UPTURN
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          256
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          174
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          AE
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╝
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS DOUBLE UP
+                AND LEFT
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          257
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          175
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          AF
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╞
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS VERTICAL
+                SINGLE AND RIGHT DOUBLE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          260
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          176
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          B0
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╟
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS VERTICAL
+                DOUBLE AND RIGHT SINGLE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          261
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          177
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          B1
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╠
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS DOUBLE
+                VERTICAL AND RIGHT
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          262
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          178
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          B2
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╡
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS VERTICAL
+                SINGLE AND LEFT DOUBLE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          263
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          179
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          B3
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Ё
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                IO
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          264
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          180
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          B4
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Є
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                UKRAINIAN IE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          265
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          181
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          B5
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╣
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS DOUBLE
+                VERTICAL AND LEFT
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          266
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          182
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          B6
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          І
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          <p>
+           CYRILLIC CAPITAL LETTER
+          </p>
+          <p>
+           BYELORUSSIAN-UKRAINIAN I
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          267
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          183
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          B7
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Ї
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                YI (Ukrainian)
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          270
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          184
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          B8
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╦
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS DOUBLE DOWN
+                AND HORIZONTAL
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          271
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          185
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          B9
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╧
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS UP SINGLE
+                AND HORIZONTAL DOUBLE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          272
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          186
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BA
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╨
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS UP DOUBLE
+                AND HORIZONTAL SINGLE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          273
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          187
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BB
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╩
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS DOUBLE UP
+                AND HORIZONTAL
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          274
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          188
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BC
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╪
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          <p>
+           BOX DRAWINGS VERTICAL SINGLE
+          </p>
+          <p>
+           AND HORIZONTAL DOUBLE
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          275
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          189
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BD
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Ґ
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                GHE WITH UPTURN
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          276
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          190
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BE
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ╬
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BOX DRAWINGS DOUBLE
+                VERTICAL AND HORIZONTAL
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          277
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          191
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          BF
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          &copy;
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          COPYRIGHT SIGN
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          300
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          192
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          C0
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ю
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                YU
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          301
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          193
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          C1
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          а
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                A
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          302
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          194
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          C2
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          б
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                BE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          303
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          195
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          C3
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ц
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                TSE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          304
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          196
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          C4
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          д
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                DE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          305
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          197
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          C5
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          е
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                IE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          306
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          198
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          C6
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ф
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                EF
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          307
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          199
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          C7
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          г
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                GHE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          310
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          200
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          C8
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          х
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                HA
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          311
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          201
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          C9
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          и
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                I
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          312
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          202
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CA
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          й
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                SHORT I
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          313
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          203
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CB
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          к
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                KA
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          314
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          204
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CC
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          л
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                EL
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          315
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          205
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CD
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          м
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                EM
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          316
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          206
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CE
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          н
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                EN
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          317
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          207
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CF
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          о
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                O
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          320
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          208
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          D0
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          п
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                PE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          321
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          209
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          D1
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          я
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                YA
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          322
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          210
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          D2
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          р
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                ER
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          323
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          211
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          D3
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          с
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                ES
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          324
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          212
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          D4
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          т
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                TE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          325
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          213
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          D5
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          у
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                U
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          326
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          214
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          D6
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ж
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                ZHE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          327
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          215
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          D7
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          в
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                VE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          330
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          216
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          D8
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ь
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                SOFT SIGN
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          331
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          217
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          D9
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ы
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                YERU
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          332
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          218
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          DA
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          з
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                ZE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          333
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          219
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          DB
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ш
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                SHA
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          334
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          220
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          DC
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          э
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                E
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          335
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          221
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          DD
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          щ
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                SHCHA
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          336
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          222
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          DE
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ч
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                CHE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          337
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          223
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          DF
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          ъ
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC SMALL LETTER
+                HARD SIGN
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          340
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          224
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          E0
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Ю
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                YU
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          341
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          225
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          E1
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          А
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                A
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          342
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          226
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          E2
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Б
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                BE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          343
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          227
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          E3
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Ц
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                TSE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          344
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          228
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          E4
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Д
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                DE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          345
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          229
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          E5
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Е
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                IE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          346
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          230
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          E6
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Ф
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                EF
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          347
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          231
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          E7
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Г
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                GHE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          350
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          232
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          E8
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Х
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                HA
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          351
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          233
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          E9
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          И
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                I
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          352
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          234
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          EA
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Й
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                SHORT I
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          353
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          235
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          EB
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          К
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                KA
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          354
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          236
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          EC
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Л
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                EL
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          355
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          237
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          ED
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          М
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                EM
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          356
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          238
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          EE
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Н
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                EN
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          357
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          239
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          EF
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          О
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                O
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          360
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          240
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          F0
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          П
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                PE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          361
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          241
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          F1
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Я
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                YA
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          362
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          242
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          F2
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Р
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                ER
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          363
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          243
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          F3
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          С
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                ES
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          364
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          244
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          F4
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Т
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                TE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          365
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          245
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          F5
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          У
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                U
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          366
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          246
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          F6
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Ж
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                ZHE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          367
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          247
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          F7
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          В
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                VE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          370
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          248
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          F8
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Ь
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                SOFT SIGN
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          371
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          249
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          F9
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Ы
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                YERU
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          372
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          250
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          FA
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          З
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                ZE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          373
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          251
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          FB
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Ш
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                SHA
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          374
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          252
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          FC
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Э
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                E
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          375
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          253
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          FD
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Щ
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                SHCHA
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          376
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          254
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          FE
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Ч
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                CHE
+         </td>
+        </tr>
+        <tr>
+         <td align="left" colspan="1" rowspan="1" style="">
+          377
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          255
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          FF
+         </td>
+         <td align="center" colspan="1" rowspan="1" style="">
+          Ъ
+         </td>
+         <td align="left" colspan="1" rowspan="1" style="">
+          CYRILLIC CAPITAL LETTER
+                HARD SIGN
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="koi8-u-7_sect3" name="koi8-u-7_sect3" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The differences from KOI8-R are in the hex positions A4,
+      A6, A7, AD, B4, B6, B7, and BD.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="koi8-u-7_sect4" name="koi8-u-7_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman7/ascii.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ascii
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/koi8-r.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        koi8-r
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="koi8-u-7_sect5" name="koi8-u-7_sect5" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

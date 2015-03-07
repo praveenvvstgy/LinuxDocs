@@ -1,0 +1,950 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   su(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="su(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="su.1" name="su.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     su &mdash; run a command with substitute user and group
+      ID
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       su
+      </code>
+      [options] [
+      <code class="option">
+       &minus;
+      </code>
+      ] [ user [ argument... ] ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="su-1_sect1" name="su-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       su
+      </strong>
+     </span>
+     allows to
+      run commands with a substitute user and group ID.
+    </p>
+    <p>
+     When called without arguments,
+     <span class="command">
+      <strong>
+       su
+      </strong>
+     </span>
+     defaults to running an
+      interactive shell as
+     <span class="command">
+      <strong>
+       root
+      </strong>
+     </span>
+     .
+    </p>
+    <p>
+     For backward compatibility
+     <span class="command">
+      <strong>
+       su
+      </strong>
+     </span>
+     defaults to not change
+      the current directory and to only set the environment
+      variables
+     <code class="constant">
+      HOME
+     </code>
+     and
+     <code class="constant">
+      SHELL
+     </code>
+     (plus
+     <code class="constant">
+      USER
+     </code>
+     and
+     <code class="constant">
+      LOGNAME
+     </code>
+     if the target
+     <em class="parameter">
+      <code>
+       user
+      </code>
+     </em>
+     is not root). It is
+      recommended to always use the
+     <code class="option">
+      &minus;&minus;login
+     </code>
+     option (instead of its
+      shortcut
+     <code class="option">
+      &minus;
+     </code>
+     ) to avoid side
+      effects caused by mixing environments.
+    </p>
+    <p>
+     This version of
+     <span class="command">
+      <strong>
+       su
+      </strong>
+     </span>
+     uses PAM for
+      authentication, account and session management. Some
+      configuration options found in other
+     <span class="command">
+      <strong>
+       su
+      </strong>
+     </span>
+     implementations, such as
+      support of a wheel group, have to be configured via PAM.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="su-1_sect2" name="su-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;c
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;command
+        </code>
+        =
+        <span class="command">
+         <strong>
+          command
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Pass
+        <span class="command">
+         <strong>
+          command
+         </strong>
+        </span>
+        to the shell
+            with the
+        <code class="option">
+         &minus;c
+        </code>
+        option.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;session&minus;command
+        </code>
+        =
+        <span class="command">
+         <strong>
+          command
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Same as
+        <code class="option">
+         &minus;c
+        </code>
+        but do
+            not create a new session (discouraged).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;fast
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Pass
+        <code class="option">
+         &minus;f
+        </code>
+        to the
+            shell, which may or may not be useful, depending on the
+            shell.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;g
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;group
+        </code>
+        =
+        <span class="command">
+         <strong>
+          group
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the primary group. This option is available
+            for the root user only.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;G
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;supp&minus;group
+        </code>
+        =
+        <span class="command">
+         <strong>
+          group
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify a supplemental group. This option is
+            available for the root user only.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;
+        </code>
+        ,
+        <code class="option">
+         &minus;l
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;login
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Starts the shell as login shell with an environment
+            similar to a real login:
+       </p>
+       <div class="blockquote">
+        <blockquote class="blockquote">
+         <div class="variablelist">
+          <dl class="variablelist">
+           <dt>
+            <span class="term">
+             <code class="literal">
+              o
+             </code>
+            </span>
+           </dt>
+           <dd>
+            <p>
+             clears all environment variables except
+             <code class="constant">
+              TERM
+             </code>
+            </p>
+           </dd>
+           <dt>
+            <span class="term">
+             <code class="literal">
+              o
+             </code>
+            </span>
+           </dt>
+           <dd>
+            <p>
+             initializes the environment variables
+             <code class="constant">
+              HOME
+             </code>
+             ,
+             <code class="constant">
+              SHELL
+             </code>
+             ,
+             <code class="constant">
+              USER
+             </code>
+             ,
+             <code class="constant">
+              LOGNAME
+             </code>
+             , and
+             <code class="constant">
+              PATH
+             </code>
+            </p>
+           </dd>
+           <dt>
+            <span class="term">
+             <code class="literal">
+              o
+             </code>
+            </span>
+           </dt>
+           <dd>
+            <p>
+             changes to the target user's home
+                      directory
+            </p>
+           </dd>
+           <dt>
+            <span class="term">
+             <code class="literal">
+              o
+             </code>
+            </span>
+           </dt>
+           <dd>
+            <p>
+             sets argv[0] of the shell to '
+             <code class="option">
+              &minus;
+             </code>
+             ' in order to make the
+                      shell a login shell
+            </p>
+           </dd>
+          </dl>
+         </div>
+        </blockquote>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;m
+        </code>
+        ,
+        <code class="option">
+         &minus;p
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;preserve&minus;environment
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Preserves the whole environment, i.e. it does not
+            set
+        <code class="constant">
+         HOME
+        </code>
+        ,
+        <code class="constant">
+         SHELL
+        </code>
+        ,
+        <code class="constant">
+         USER
+        </code>
+        nor
+        <code class="constant">
+         LOGNAME
+        </code>
+        . This option is ignored if
+            the option
+        <code class="option">
+         &minus;&minus;login
+        </code>
+        is specified.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;shell
+        </code>
+        =
+        <span class="command">
+         <strong>
+          shell
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Runs the specified
+        <span class="command">
+         <strong>
+          shell
+         </strong>
+        </span>
+        instead of the
+            default. The shell to run is selected according to the
+            following rules, in order:
+       </p>
+       <div class="blockquote">
+        <blockquote class="blockquote">
+         <div class="variablelist">
+          <dl class="variablelist">
+           <dt>
+            <span class="term">
+             <code class="literal">
+              o
+             </code>
+            </span>
+           </dt>
+           <dd>
+            <p>
+             the shell specified with
+             <code class="option">
+              &minus;&minus;shell
+             </code>
+            </p>
+           </dd>
+           <dt>
+            <span class="term">
+             <code class="literal">
+              o
+             </code>
+            </span>
+           </dt>
+           <dd>
+            <p>
+             the shell specified in the environment
+                      variable
+             <code class="constant">
+              SHELL
+             </code>
+             ,
+                      if the
+             <code class="option">
+              &minus;&minus;preserve&minus;environment
+             </code>
+             option is used
+            </p>
+           </dd>
+           <dt>
+            <span class="term">
+             <code class="literal">
+              o
+             </code>
+            </span>
+           </dt>
+           <dd>
+            <p>
+             the shell listed in the passwd entry of
+                      the target user
+            </p>
+           </dd>
+           <dt>
+            <span class="term">
+             <code class="literal">
+              o
+             </code>
+            </span>
+           </dt>
+           <dd>
+            <p>
+             /bin/sh
+            </p>
+           </dd>
+          </dl>
+         </div>
+        </blockquote>
+       </div>
+       <p>
+        If the target user has a restricted shell (i.e. not
+            listed in /etc/shells), the
+        <code class="option">
+         &minus;&minus;shell
+        </code>
+        option and the
+        <code class="constant">
+         SHELL
+        </code>
+        environment
+            variables are ignored unless the calling user is
+            root.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="su-1_sect3" name="su-1_sect3" shape="rect">
+    </a>
+    <h2>
+     SIGNALS
+    </h2>
+    <p>
+     Upon receiving either
+     <code class="constant">
+      SIGINT
+     </code>
+     ,
+     <code class="constant">
+      SIGQUIT
+     </code>
+     or
+     <code class="constant">
+      SIGTERM
+     </code>
+     ,
+     <span class="command">
+      <strong>
+       su
+      </strong>
+     </span>
+     terminates its child and
+      afterwards terminates itself with the received signal.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="su-1_sect4" name="su-1_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFIG FILES
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       su
+      </strong>
+     </span>
+     reads the
+     <code class="filename">
+      /etc/default/su
+     </code>
+     and
+     <code class="filename">
+      /etc/login.defs
+     </code>
+     configuration
+      files. The following configuration items are relevant for
+     <a class="link" href="../htmlman1/su.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        su
+       </span>
+       (1)
+      </span>
+     </a>
+     :
+    </p>
+    <p>
+     <code class="constant">
+      FAIL_DELAY
+     </code>
+     (number)
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       Delay in seconds in case of authentication failure.
+          Number must be a non-negative integer.
+      </p>
+     </blockquote>
+    </div>
+    <p>
+     <code class="constant">
+      ENV_PATH
+     </code>
+     (string)
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       Defines the PATH environment variable for a regular
+          user. The default value is
+       <code class="filename">
+        /usr/local/bin:/bin:/usr/bin
+       </code>
+       .
+      </p>
+     </blockquote>
+    </div>
+    <p>
+     <code class="constant">
+      ENV_ROOTPATH
+     </code>
+     (string)
+    </p>
+    <p>
+     <code class="constant">
+      ENV_SUPATH
+     </code>
+     (string)
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       Defines the PATH environment variable for root. The
+          default value is
+       <code class="filename">
+        /usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+       </code>
+       .
+      </p>
+     </blockquote>
+    </div>
+    <p>
+     <code class="constant">
+      ALWAYS_SET_PATH
+     </code>
+     (boolean)
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       If set to
+       <span class="command">
+        <strong>
+         yes
+        </strong>
+       </span>
+       and
+          &minus;&minus;login and
+          &minus;&minus;preserve&minus;environment were not
+          specified
+       <span class="command">
+        <strong>
+         su
+        </strong>
+       </span>
+       initializes
+       <code class="constant">
+        PATH
+       </code>
+       .
+      </p>
+     </blockquote>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="su-1_sect5" name="su-1_sect5" shape="rect">
+    </a>
+    <h2>
+     EXIT STATUS
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       su
+      </strong>
+     </span>
+     normally
+      returns the exit status of the command it executed. If the
+      command was killed by a signal,
+     <span class="command">
+      <strong>
+       su
+      </strong>
+     </span>
+     returns the number of
+      the signal plus 128.
+    </p>
+    <p>
+     Exit status generated by
+     <span class="command">
+      <strong>
+       su
+      </strong>
+     </span>
+     itself:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="variablelist">
+       <dl class="variablelist">
+        <dt>
+         <span class="term">
+          <code class="constant">
+           1
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          Generic error before executing the requested
+                command
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="constant">
+           126
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          The requested command could not be executed
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <code class="constant">
+           127
+          </code>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          The requested command could was not found
+         </p>
+        </dd>
+       </dl>
+      </div>
+     </blockquote>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="su-1_sect6" name="su-1_sect6" shape="rect">
+    </a>
+    <h2>
+     FILES
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="filename">
+         /etc/pam.d/su
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        default PAM configuration file
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="filename">
+         /etc/pam.d/su-l
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        PAM configuration file if &minus;&minus;login is
+            specified
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="filename">
+         /etc/default/su
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        command specific logindef config file
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="filename">
+         /etc/login.defs
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        global logindef config file
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="su-1_sect7" name="su-1_sect7" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     For security reasons
+     <span class="command">
+      <strong>
+       su
+      </strong>
+     </span>
+     always logs failed
+      log-in attempts to the btmp file, but it does not write to
+      the lastlog file at all. This solution allows to control
+     <span class="command">
+      <strong>
+       su
+      </strong>
+     </span>
+     behavior by
+      PAM configuration. If you want to use the pam_lastlog module
+      to print warning message about failed log-in attempts then
+      the pam_lastlog has to be configured to update lastlog file
+      too. For example by:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       session required pam_lastlog.so nowtmp
+      </p>
+     </blockquote>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="su-1_sect8" name="su-1_sect8" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       runuser
+      </span>
+      (8)
+     </span>
+     ,
+     <a class="link" href="../htmlman8/pam.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman5/shells.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        shells
+       </span>
+       (5)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       login.defs
+      </span>
+      (5)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="su-1_sect9" name="su-1_sect9" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Derived from coreutils' su which was based on an
+      implementation from David MacKenzie.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="su-1_sect10" name="su-1_sect10" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The su command is part of the util-linux package and is
+      available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

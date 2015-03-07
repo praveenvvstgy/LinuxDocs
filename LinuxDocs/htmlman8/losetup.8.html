@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   losetup(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="losetup(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="losetup.8" name="losetup.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     losetup &mdash; set up and control loop devices
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        Get info:
+       </span>
+      </dt>
+      <dd>
+       <div class="cmdsynopsis">
+        <p>
+         <code class="command">
+          losetup
+         </code>
+         loopdev
+        </p>
+       </div>
+       <div class="cmdsynopsis">
+        <p>
+         <code class="command">
+          losetup
+         </code>
+         <code class="option">
+          &minus;l
+         </code>
+         [
+         <code class="option">
+          &minus;a
+         </code>
+         ]
+        </p>
+       </div>
+       <div class="cmdsynopsis">
+        <p>
+         <code class="command">
+          losetup
+         </code>
+         <code class="option">
+          &minus;j
+         </code>
+         file [
+         <code class="option">
+          &minus;o
+         </code>
+         offset ]
+        </p>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        Delete loop:
+       </span>
+      </dt>
+      <dd>
+       <div class="cmdsynopsis">
+        <p>
+         <code class="command">
+          losetup
+         </code>
+         <code class="option">
+          &minus;d
+         </code>
+         loopdev...
+        </p>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        Delete all used loop
+          devices:
+       </span>
+      </dt>
+      <dd>
+       <div class="cmdsynopsis">
+        <p>
+         <code class="command">
+          losetup
+         </code>
+         <code class="option">
+          &minus;D
+         </code>
+        </p>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        Print name of first unused loop
+          device:
+       </span>
+      </dt>
+      <dd>
+       <div class="cmdsynopsis">
+        <p>
+         <code class="command">
+          losetup
+         </code>
+         <code class="option">
+          &minus;f
+         </code>
+        </p>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        Setup loop device:
+       </span>
+      </dt>
+      <dd>
+       <div class="cmdsynopsis">
+        <p>
+         <code class="command">
+          losetup
+         </code>
+         [
+         <code class="option">
+          &minus;o
+         </code>
+         offset ] [
+         <code class="option">
+          &minus;&minus;sizelimit
+         </code>
+         size ] [
+         <code class="option">
+          &minus;p
+         </code>
+         pfd ]
+              [
+         <code class="option">
+          &minus;rP
+         </code>
+         ]
+         <code class="option">
+          &minus;f
+         </code>
+         [
+         <code class="option">
+          &minus;&minus;show
+         </code>
+         ] | loopdev
+              file
+        </p>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        Resize loop device:
+       </span>
+      </dt>
+      <dd>
+       <div class="cmdsynopsis">
+        <p>
+         <code class="command">
+          losetup
+         </code>
+         <code class="option">
+          &minus;c
+         </code>
+         loopdev
+        </p>
+       </div>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="losetup-8_sect1" name="losetup-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       losetup
+      </strong>
+     </span>
+     is
+      used to associate loop devices with regular files or block
+      devices, to detach loop devices and to query the status of a
+      loop device. If only the
+     <em class="parameter">
+      <code>
+       loopdev
+      </code>
+     </em>
+     argument is given, the
+      status of the corresponding loop device is shown.
+    </p>
+    <p>
+     Note that the old output format (e.g. losetup -a) with
+      comma delimited strings is deprecated in favour of the --list
+      output format (e.g. losetup -a -l).
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="losetup-8_sect2" name="losetup-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <p>
+     +The
+     <em class="parameter">
+      <code>
+       size
+      </code>
+     </em>
+     and
+     <em class="parameter">
+      <code>
+       offset
+      </code>
+     </em>
+     arguments may
+      be followed by the multiplicative +suffixes KiB=1024,
+      MiB=1024*1024, and so on for GiB, TiB, PiB, EiB, ZiB and YiB
+      +(the "iB" is optional, e.g. "K" has the same meaning as
+      "KiB") or the suffixes +KB=1000, MB=1000*1000, and so on for
+      GB, TB, PB, EB, ZB and YB.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;a,
+          &minus;&minus;all
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        show status of all loop devices. Note that not all
+            information are accessible for non-root users. See also
+        <code class="option">
+         &minus;&minus;list
+        </code>
+        . The old
+            output format (as printed without --list) is
+            deprecated.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;c,
+          &minus;&minus;set&minus;capacity
+          loopdev
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        force loop driver to reread size of the file
+            associated with the specified loop device
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d,
+          &minus;&minus;detach loopdev...
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        detach the file or device associated with the
+            specified loop device(s)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;D,
+          &minus;&minus;detach&minus;all
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        detach all associated loop devices
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f,
+          &minus;&minus;find
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        find the first unused loop device. If a
+        <em class="parameter">
+         <code>
+          file
+         </code>
+        </em>
+        argument is present,
+            use this device. Otherwise, print its name
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print help
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;j,
+          &minus;&minus;associated file
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        show status of all loop devices associated with
+            given
+        <em class="parameter">
+         <code>
+          file
+         </code>
+        </em>
+       </p>
+       <p>
+        if a loop device or the -a option is specified,
+            print default columns for either the specified loop
+            device or all loop devices, default is to print info
+            about all devices. See also
+        <code class="option">
+         &minus;&minus;output
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;noheadings
+        </code>
+        and
+        <code class="option">
+         &minus;&minus;raw
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n,
+          &minus;&minus;noheadings
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        don't print headings for
+        <code class="option">
+         &minus;&minus;list
+        </code>
+        output format
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o,
+          &minus;&minus;offset offset
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        the data start is moved
+        <em class="parameter">
+         <code>
+          offset
+         </code>
+        </em>
+        bytes into the
+            specified file or device
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;O,
+          &minus;&minus;output columns
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        specify which columns are to be printed for the
+        <code class="option">
+         &minus;&minus;list
+        </code>
+        output
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;sizelimit size
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        the data end is set to no more than
+        <em class="parameter">
+         <code>
+          size
+         </code>
+        </em>
+        bytes after the data
+            start
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;P,
+          &minus;&minus;partscan
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        force kernel to scan partition table on newly
+            created loop device
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;raw
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use raw
+        <code class="option">
+         &minus;&minus;list
+        </code>
+        output format
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r,
+          &minus;&minus;read&minus;only
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        setup read-only loop device
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <em class="parameter">
+         <code>
+          &minus;&minus;show
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print device name if the
+        <em class="parameter">
+         <code>
+          &minus;f
+         </code>
+        </em>
+        option and a
+        <em class="parameter">
+         <code>
+          file
+         </code>
+        </em>
+        argument
+            are present.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v,
+          &minus;&minus;verbose
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        verbose mode
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="losetup-8_sect3" name="losetup-8_sect3" shape="rect">
+    </a>
+    <h2>
+     ENCRYPTION
+    </h2>
+    <p>
+     <span class="emphasis">
+      <em>
+       Cryptoloop is no longer
+      supported in favor of dm-crypt. For more details
+      see
+      </em>
+     </span>
+     <em class="replaceable">
+      <code>
+       cryptsetup(8).
+      </code>
+     </em>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="losetup-8_sect4" name="losetup-8_sect4" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       losetup
+      </strong>
+     </span>
+     returns 0 on success, nonzero on failure. When
+     <span class="command">
+      <strong>
+       losetup
+      </strong>
+     </span>
+     displays the status
+      of a loop device, it returns 1 if the device is not
+      configured and 2 if an error occurred which prevented from
+      determining the status of the device.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="losetup-8_sect5" name="losetup-8_sect5" shape="rect">
+    </a>
+    <h2>
+     FILES
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="filename">
+         /dev/loop[0..N]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        loop block devices
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="filename">
+         /dev/loop-control
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        loop control device
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="losetup-8_sect6" name="losetup-8_sect6" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <p>
+     The following commands can be used as an example of using
+      the loop device.
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+# dd if=/dev/zero of=~/file.img bs=1MiB count=10
+# losetup --find --show ~/file.img
+/dev/loop0
+# mkfs -t ext2 /dev/loop0
+# mount /dev/loop0 /mnt
+ ...
+# umount /dev/loop0
+# losetup --detach /dev/loop0
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="losetup-8_sect7" name="losetup-8_sect7" shape="rect">
+    </a>
+    <h2>
+     AUTHORS
+    </h2>
+    <p>
+     Karel Zak &lt;kzak@redhat.com&gt;, based on original
+      version from Theodore Ts'o &lt;tytso@athena.mit.edu&gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="losetup-8_sect8" name="losetup-8_sect8" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The losetup command is part of the util-linux package and
+      is available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   col(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="col(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="col.1" name="col.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     col &mdash; filter reverse line feeds from input
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       col
+      </code>
+      [options]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="col-1_sect1" name="col-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       col
+      </strong>
+     </span>
+     filters
+      out reverse (and half-reverse) line feeds so the output is in
+      the correct order with only forward and half-forward line
+      feeds, and replaces white-space characters with tabs where
+      possible. This can be useful in processing the output of
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       nroff
+      </span>
+      (1)
+     </span>
+     and
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       tbl
+      </span>
+      (1)
+     </span>
+     .
+    </p>
+    <p>
+     <span class="command">
+      <strong>
+       col
+      </strong>
+     </span>
+     reads
+      from standard input and writes to standard output.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="col-1_sect2" name="col-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;b
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;no&minus;backspaces
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not output any backspaces, printing only the last
+            character written to each column position.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;fine
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Forward half line feeds are permitted
+        <span class="command">
+         <strong>
+          fine
+         </strong>
+        </span>
+        mode. Normally
+            characters printed on a half-line boundary are printed
+            on the following line.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;pass
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Force unknown control sequences to be passed through
+            unchanged. Normally,
+        <span class="command">
+         <strong>
+          col
+         </strong>
+        </span>
+        will filter out
+            any control sequences from the input other than those
+            recognized and interpreted by itself, which are listed
+            below.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;tabs
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output tabs instead of multiple spaces.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;x
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;spaces
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output multiple spaces instead of tabs.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;lines
+        </code>
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Buffer at least
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+        lines in
+            memory. By default, 128 lines are buffered.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;H
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="col-1_sect3" name="col-1_sect3" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The control sequences for carriage motion that
+     <span class="command">
+      <strong>
+       col
+      </strong>
+     </span>
+     understands
+      and their decimal values are listed in the following
+      table:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="variablelist">
+       <dl class="variablelist">
+        <dt>
+         <span class="term">
+          ESC&minus;7
+         </span>
+        </dt>
+        <dd>
+         <p>
+          reverse line feed (escape then 7)
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          ESC&minus;8
+         </span>
+        </dt>
+        <dd>
+         <p>
+          half reverse line feed (escape then 8)
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          ESC&minus;9
+         </span>
+        </dt>
+        <dd>
+         <p>
+          half forward line feed (escape then 9)
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <span class="command">
+           <strong>
+            backspace
+           </strong>
+          </span>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          moves back one column (8); ignored in the first
+                column
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <span class="command">
+           <strong>
+            newline
+           </strong>
+          </span>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          forward line feed (10); also does carriage
+                return
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <span class="command">
+           <strong>
+            carriagereturn
+           </strong>
+          </span>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          (13)
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <span class="command">
+           <strong>
+            shiftin
+           </strong>
+          </span>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          shift to normal character set (15)
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <span class="command">
+           <strong>
+            shiftout
+           </strong>
+          </span>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          shift to alternate character set (14)
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <span class="command">
+           <strong>
+            space
+           </strong>
+          </span>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          moves forward one column (32)
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <span class="command">
+           <strong>
+            tab
+           </strong>
+          </span>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          moves forward to next tab stop (9)
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          <span class="command">
+           <strong>
+            verticaltab
+           </strong>
+          </span>
+         </span>
+        </dt>
+        <dd>
+         <p>
+          reverse line feed (11)
+         </p>
+        </dd>
+       </dl>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     All unrecognized control characters and escape sequences
+      are discarded.
+    </p>
+    <p>
+     <span class="command">
+      <strong>
+       col
+      </strong>
+     </span>
+     keeps
+      track of the character set as characters are read and makes
+      sure the character set is correct when they are output.
+    </p>
+    <p>
+     If the input attempts to back up to the last flushed line,
+     <span class="command">
+      <strong>
+       col
+      </strong>
+     </span>
+     will
+      display a warning message.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="col-1_sect4" name="col-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/expand.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        expand
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       nroff
+      </span>
+      (1)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       tbl
+      </span>
+      (1)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="col-1_sect5" name="col-1_sect5" shape="rect">
+    </a>
+    <h2>
+     STANDARDS
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       col
+      </strong>
+     </span>
+     utility conforms to the Single UNIX Specification, Version 2.
+      The
+     <code class="option">
+      &minus;l
+     </code>
+     option is an
+      extension to the standard.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="col-1_sect6" name="col-1_sect6" shape="rect">
+    </a>
+    <h2>
+     HISTORY
+    </h2>
+    <p>
+     A
+     <span class="command">
+      <strong>
+       col
+      </strong>
+     </span>
+     command appeared in Version 6 AT&amp;T UNIX.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="col-1_sect7" name="col-1_sect7" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The col command is part of the util-linux package and is
+      available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

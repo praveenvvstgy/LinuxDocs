@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   runcon(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="runcon(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="runcon.1" name="runcon.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     runcon &mdash; run command with specified security
+      context
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       runcon
+      </code>
+      <em class="replaceable">
+       <code>
+        CONTEXT
+       </code>
+      </em>
+      <em class="replaceable">
+       <code>
+        COMMAND
+       </code>
+      </em>
+      [
+      <em class="replaceable">
+       <code>
+        args
+       </code>
+      </em>
+      ]
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       runcon
+      </code>
+      [
+      <code class="option">
+       &minus;c
+      </code>
+      ] [
+      <code class="option">
+       &minus;u
+      </code>
+      <em class="replaceable">
+       <code>
+        USER
+       </code>
+      </em>
+      ] [
+      <code class="option">
+       &minus;r
+      </code>
+      <em class="replaceable">
+       <code>
+        ROLE
+       </code>
+      </em>
+      ] [
+      <code class="option">
+       &minus;t
+      </code>
+      <em class="replaceable">
+       <code>
+        TYPE
+       </code>
+      </em>
+      ] [
+      <code class="option">
+       &minus;l
+      </code>
+      <em class="replaceable">
+       <code>
+        RANGE
+       </code>
+      </em>
+      ]
+      <em class="replaceable">
+       <code>
+        COMMAND
+       </code>
+      </em>
+      [
+      <em class="replaceable">
+       <code>
+        args
+       </code>
+      </em>
+      ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="runcon-1_sect1" name="runcon-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Run COMMAND with completely-specified CONTEXT, or with
+      current or transitioned security context modified by one or
+      more of LEVEL, ROLE, TYPE, and USER.
+    </p>
+    <p>
+     If none of
+     <em class="parameter">
+      <code>
+       &minus;c
+      </code>
+     </em>
+     ,
+     <em class="parameter">
+      <code>
+       &minus;t
+      </code>
+     </em>
+     ,
+     <em class="parameter">
+      <code>
+       &minus;u
+      </code>
+     </em>
+     ,
+     <em class="parameter">
+      <code>
+       &minus;r
+      </code>
+     </em>
+     , or
+     <em class="parameter">
+      <code>
+       &minus;l
+      </code>
+     </em>
+     , is specified, the
+      first argument is used as the complete context. Any
+      additional arguments after
+     <em class="parameter">
+      <code>
+       COMMAND
+      </code>
+     </em>
+     are interpreted as
+      arguments to the command.
+    </p>
+    <p>
+     Note that only carefully-chosen contexts are likely to
+      successfully run.
+    </p>
+    <p>
+     Run a program in a different SELinux security context.
+      With neither CONTEXT nor COMMAND, print the current security
+      context.
+    </p>
+    <p>
+     Mandatory arguments to long options are mandatory for
+      short options too.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <em class="parameter">
+         <code>
+          CONTEXT
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Complete security context
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;c
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;compute
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        compute process transition context before
+            modifying
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;type
+        </code>
+        =
+        <em class="parameter">
+         <code>
+          TYPE
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        type (for same role as parent)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;user
+        </code>
+        =
+        <em class="parameter">
+         <code>
+          USER
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        user identity
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;role
+        </code>
+        =
+        <em class="parameter">
+         <code>
+          ROLE
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        role
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;range
+        </code>
+        =
+        <em class="parameter">
+         <code>
+          RANGE
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        levelrange
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display this help and exit
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output version information and exit
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     GNU coreutils online help: &lt;
+     <a class="literalurl" href="http://www.gnu.org/software/coreutils/" shape="rect" target="_top">
+      http://www.gnu.org/software/coreutils/
+     </a>
+     &gt; Report
+      runcon translation bugs to &lt;
+     <a class="literalurl" href="http://translationproject.org/team/" shape="rect" target="_top">
+      http://translationproject.org/team/
+     </a>
+     &gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="runcon-1_sect2" name="runcon-1_sect2" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Written by Russell Coker.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="runcon-1_sect4" name="runcon-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <span class="command">
+      <strong>
+       runcon
+      </strong>
+     </span>
+     is maintained as a
+      Texinfo manual. If the
+     <span class="command">
+      <strong>
+       info
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       runcon
+      </strong>
+     </span>
+     programs are
+      properly installed at your site, the command
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <span class="emphasis">
+         <em>
+          info coreutils 'runcon
+            invocation'
+         </em>
+        </span>
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p>
+     should give you access to the complete manual.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

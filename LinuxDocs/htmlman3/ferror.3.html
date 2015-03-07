@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   ferror(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="ferror(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="ferror.3" name="ferror.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     clearerr, feof, ferror, fileno &mdash; check and reset
+      stream status
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;stdio.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          clearerr
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          feof
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          ferror
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          fileno
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              fileno
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _POSIX_C_SOURCE
+             </code>
+             &gt;= 1 ||
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _POSIX_SOURCE
+             </code>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ferror-3_sect1" name="ferror-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The function
+     <code class="function">
+      clearerr
+     </code>
+     ()
+      clears the end-of-file and error indicators for the stream
+      pointed to by
+     <em class="parameter">
+      <code>
+       stream
+      </code>
+     </em>
+     .
+    </p>
+    <p>
+     The function
+     <code class="function">
+      feof
+     </code>
+     () tests
+      the end-of-file indicator for the stream pointed to by
+     <em class="parameter">
+      <code>
+       stream
+      </code>
+     </em>
+     , returning
+      nonzero if it is set. The end-of-file indicator can be
+      cleared only by the function
+     <code class="function">
+      clearerr
+     </code>
+     ().
+    </p>
+    <p>
+     The function
+     <code class="function">
+      ferror
+     </code>
+     () tests
+      the error indicator for the stream pointed to by
+     <em class="parameter">
+      <code>
+       stream
+      </code>
+     </em>
+     , returning nonzero if it
+      is set. The error indicator can be reset only by the
+     <code class="function">
+      clearerr
+     </code>
+     () function.
+    </p>
+    <p>
+     The function
+     <code class="function">
+      fileno
+     </code>
+     ()
+      examines the argument
+     <em class="parameter">
+      <code>
+       stream
+      </code>
+     </em>
+     and returns its integer
+      descriptor.
+    </p>
+    <p>
+     For nonlocking counterparts, see
+     <a class="link" href="../htmlman3/unlocked_stdio.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        unlocked_stdio
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ferror-3_sect2" name="ferror-3_sect2" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <p>
+     These functions should not fail and do not set the
+      external variable
+     <code class="varname">
+      errno
+     </code>
+     .
+      (However, in case
+     <code class="function">
+      fileno
+     </code>
+     ()
+      detects that its argument is not a valid stream, it must
+      return &minus;1 and set
+     <code class="varname">
+      errno
+     </code>
+     to
+     <span class="errorname">
+      EBADF
+     </span>
+     .)
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ferror-3_sect3" name="ferror-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ATTRIBUTES
+    </h2>
+    <div class="refsect2">
+     <a id="ferror-3_sect4" name="ferror-3_sect4" shape="rect">
+     </a>
+     <h3>
+      Multithreading (see pthreads(7))
+     </h3>
+     <p>
+      The
+      <code class="function">
+       clearerr
+      </code>
+      (),
+      <code class="function">
+       feof
+      </code>
+      (),
+      <code class="function">
+       ferror
+      </code>
+      (), and
+      <code class="function">
+       fileno
+      </code>
+      () functions are thread-safe.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ferror-3_sect5" name="ferror-3_sect5" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     The functions
+     <code class="function">
+      clearerr
+     </code>
+     (),
+     <code class="function">
+      feof
+     </code>
+     (), and
+     <code class="function">
+      ferror
+     </code>
+     () conform to C89, C99, POSIX.1-2001,
+      and POSIX.1-2008.
+    </p>
+    <p>
+     The function
+     <code class="function">
+      fileno
+     </code>
+     ()
+      conforms to POSIX.1-2001 and POSIX.1-2008.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ferror-3_sect6" name="ferror-3_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        open
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/fopen.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fdopen
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/stdio.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        stdio
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/unlocked_stdio.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        unlocked_stdio
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="ferror-3_sect7" name="ferror-3_sect7" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

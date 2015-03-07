@@ -1,0 +1,743 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   fpclassify(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="fpclassify(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="fpclassify.3" name="fpclassify.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     fpclassify, isfinite, isnormal, isnan, isinf &mdash;
+      floating-point classification macros
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;math.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          fpclassify
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         x
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          isfinite
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         x
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          isnormal
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         x
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          isnan
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         x
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          isinf
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         x
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              fpclassify
+             </code>
+             (),
+             <code class="function">
+              isfinite
+             </code>
+             (),
+             <code class="function">
+              isnormal
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &gt;= 600 ||
+             <code class="constant">
+              _ISOC99_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _POSIX_C_SOURCE
+             </code>
+             &gt;= 200112L;
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             or
+             <span class="command">
+              <strong>
+               cc
+              </strong>
+             </span>
+             <code class="option">
+              -std=c99
+             </code>
+            </td>
+           </tr>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              isnan
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _BSD_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _SVID_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _ISOC99_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _POSIX_C_SOURCE
+             </code>
+             &gt;= 200112L;
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             or
+             <span class="command">
+              <strong>
+               cc
+              </strong>
+             </span>
+             <code class="option">
+              -std=c99
+             </code>
+            </td>
+           </tr>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              isinf
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _BSD_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _SVID_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &gt;= 600 ||
+             <code class="constant">
+              _ISOC99_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _POSIX_C_SOURCE
+             </code>
+             &gt;= 200112L;
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             or
+             <span class="command">
+              <strong>
+               cc
+              </strong>
+             </span>
+             <code class="option">
+              -std=c99
+             </code>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <p>
+         Link with
+         <code class="option">
+          &minus;lm
+         </code>
+         .
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="fpclassify-3_sect1" name="fpclassify-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Floating point numbers can have special values, such as
+      infinite or NaN. With the macro
+     <code class="function">
+      fpclassify
+     </code>
+     (
+     <em class="parameter">
+      <code>
+       x
+      </code>
+     </em>
+     ) you can find out what type
+     <em class="parameter">
+      <code>
+       x
+      </code>
+     </em>
+     is. The macro takes
+      any floating-point expression as argument. The result is one
+      of the following values:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FP_NAN
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          x
+         </code>
+        </em>
+        is "Not a
+            Number".
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FP_INFINITE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          x
+         </code>
+        </em>
+        is either
+            positive infinity or negative infinity.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FP_ZERO
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          x
+         </code>
+        </em>
+        is
+            zero.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FP_SUBNORMAL
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          x
+         </code>
+        </em>
+        is too
+            small to be represented in normalized format.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         FP_NORMAL
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        if nothing of the above is correct then it must be a
+            normal floating-point number.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     The other macros provide a short answer to some standard
+      questions.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="function">
+         isfinite
+        </code>
+        (
+        <em class="parameter">
+         <code>
+          x
+         </code>
+        </em>
+        )
+       </span>
+      </dt>
+      <dd>
+       <p>
+        returns a nonzero value if
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     (fpclassify(x) != FP_NAN &amp;&amp; fpclassify(x) !=
+      FP_INFINITE)
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="function">
+         isnormal
+        </code>
+        (
+        <em class="parameter">
+         <code>
+          x
+         </code>
+        </em>
+        )
+       </span>
+      </dt>
+      <dd>
+       <p>
+        returns a nonzero value if (fpclassify(x) ==
+            FP_NORMAL)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="function">
+         isnan
+        </code>
+        (
+        <em class="parameter">
+         <code>
+          x
+         </code>
+        </em>
+        )
+       </span>
+      </dt>
+      <dd>
+       <p>
+        returns a nonzero value if (fpclassify(x) ==
+            FP_NAN)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="function">
+         isinf
+        </code>
+        (
+        <em class="parameter">
+         <code>
+          x
+         </code>
+        </em>
+        )
+       </span>
+      </dt>
+      <dd>
+       <p>
+        returns 1 if
+        <em class="parameter">
+         <code>
+          x
+         </code>
+        </em>
+        is positive infinity,
+            and &minus;1 if
+        <em class="parameter">
+         <code>
+          x
+         </code>
+        </em>
+        is negative
+            infinity.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="fpclassify-3_sect2" name="fpclassify-3_sect2" shape="rect">
+    </a>
+    <h2>
+     ATTRIBUTES
+    </h2>
+    <div class="refsect2">
+     <a id="fpclassify-3_sect3" name="fpclassify-3_sect3" shape="rect">
+     </a>
+     <h3>
+      Multithreading (see pthreads(7))
+     </h3>
+     <p>
+      The
+      <code class="function">
+       fpclassify
+      </code>
+      (),
+      <code class="function">
+       isfinite
+      </code>
+      (),
+      <code class="function">
+       isnormal
+      </code>
+      (),
+      <code class="function">
+       isnan
+      </code>
+      (), and
+      <code class="function">
+       isinf
+      </code>
+      () macros are thread-safe.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="fpclassify-3_sect4" name="fpclassify-3_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     C99, POSIX.1.
+    </p>
+    <p>
+     For
+     <code class="function">
+      isinf
+     </code>
+     (), the standards
+      merely say that the return value is nonzero if and only if
+      the argument has an infinite value.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fpclassify-3_sect5" name="fpclassify-3_sect5" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     In glibc 2.01 and earlier,
+     <code class="function">
+      isinf
+     </code>
+     () returns a nonzero value (actually:
+      1) if
+     <em class="parameter">
+      <code>
+       x
+      </code>
+     </em>
+     is positive
+      infinity or negative infinity. (This is all that C99
+      requires.)
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fpclassify-3_sect6" name="fpclassify-3_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/finite.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        finite
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/INFINITY.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        INFINITY
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/isgreater.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        isgreater
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/signbit.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        signbit
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="fpclassify-3_sect7" name="fpclassify-3_sect7" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   wcrtomb(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="wcrtomb(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="wcrtomb.3" name="wcrtomb.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     wcrtomb &mdash; convert a wide character to a multibyte
+      sequence
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;wchar.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         size_t
+         <strong>
+          wcrtomb
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        char *
+        <var class="pdparam">
+         s
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        wchar_t
+        <var class="pdparam">
+         wc
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        mbstate_t *
+        <var class="pdparam">
+         ps
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="wcrtomb-3_sect1" name="wcrtomb-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The main case for this function is when
+     <em class="parameter">
+      <code>
+       s
+      </code>
+     </em>
+     is not NULL and
+     <em class="parameter">
+      <code>
+       wc
+      </code>
+     </em>
+     is not a null wide character
+      (L'\0'). In this case, the
+     <code class="function">
+      wcrtomb
+     </code>
+     () function converts the wide
+      character
+     <em class="parameter">
+      <code>
+       wc
+      </code>
+     </em>
+     to its
+      multibyte representation and stores it at the beginning of
+      the character array pointed to by
+     <em class="parameter">
+      <code>
+       s
+      </code>
+     </em>
+     . It updates the shift state
+      *
+     <em class="parameter">
+      <code>
+       ps
+      </code>
+     </em>
+     , and returns the
+      length of said multibyte representation, that is, the number
+      of bytes written at
+     <em class="parameter">
+      <code>
+       s
+      </code>
+     </em>
+     .
+    </p>
+    <p>
+     A different case is when
+     <em class="parameter">
+      <code>
+       s
+      </code>
+     </em>
+     is not NULL, but
+     <em class="parameter">
+      <code>
+       wc
+      </code>
+     </em>
+     is a null wide character
+      (L'\0'). In this case, the
+     <code class="function">
+      wcrtomb
+     </code>
+     () function stores at the character
+      array pointed to by
+     <em class="parameter">
+      <code>
+       s
+      </code>
+     </em>
+     the shift sequence needed to bring *
+     <em class="parameter">
+      <code>
+       ps
+      </code>
+     </em>
+     back to the initial state,
+      followed by a '\0' byte. It updates the shift state
+      *
+     <em class="parameter">
+      <code>
+       ps
+      </code>
+     </em>
+     (i.e., brings it
+      into the initial state), and returns the length of the shift
+      sequence plus one, that is, the number of bytes written at
+     <em class="parameter">
+      <code>
+       s
+      </code>
+     </em>
+     .
+    </p>
+    <p>
+     A third case is when
+     <em class="parameter">
+      <code>
+       s
+      </code>
+     </em>
+     is NULL. In this case,
+     <em class="parameter">
+      <code>
+       wc
+      </code>
+     </em>
+     is ignored, and
+      the function effectively returns
+    </p>
+    <p>
+     wcrtomb(buf, L'\0', ps)
+    </p>
+    <p>
+     where
+     <code class="function">
+      buf
+     </code>
+     is an internal
+      anonymous buffer.
+    </p>
+    <p>
+     In all of the above cases, if
+     <em class="parameter">
+      <code>
+       ps
+      </code>
+     </em>
+     is NULL, a static anonymous
+      state known only to the
+     <code class="function">
+      wcrtomb
+     </code>
+     () function is used instead.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="wcrtomb-3_sect2" name="wcrtomb-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     The
+     <code class="function">
+      wcrtomb
+     </code>
+     () function
+      returns the number of bytes that have been or would have been
+      written to the byte array at
+     <em class="parameter">
+      <code>
+       s
+      </code>
+     </em>
+     . If
+     <em class="parameter">
+      <code>
+       wc
+      </code>
+     </em>
+     can not be represented as a
+      multibyte sequence (according to the current locale),
+     <span class="emphasis">
+      <em>
+       (size_t) &minus;1
+      </em>
+     </span>
+     is
+      returned, and
+     <code class="varname">
+      errno
+     </code>
+     set to
+     <span class="errorname">
+      EILSEQ
+     </span>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="wcrtomb-3_sect3" name="wcrtomb-3_sect3" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     C99.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="wcrtomb-3_sect4" name="wcrtomb-3_sect4" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The behavior of
+     <code class="function">
+      wcrtomb
+     </code>
+     ()
+      depends on the
+     <code class="constant">
+      LC_CTYPE
+     </code>
+     category of the current locale.
+    </p>
+    <p>
+     Passing NULL as
+     <em class="parameter">
+      <code>
+       ps
+      </code>
+     </em>
+     is not multithread safe.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="wcrtomb-3_sect5" name="wcrtomb-3_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/mbsinit.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mbsinit
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/wcsrtombs.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        wcsrtombs
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="wcrtomb-3_sect6" name="wcrtomb-3_sect6" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   gnutls_certificate_verify_peers3(3) &mdash; Linux manual
+  pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="gnutls_certificate_verify_peers3(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="gnutls-certificate-verify-peers3.3" name="gnutls-certificate-verify-peers3.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     gnutls_certificate_verify_peers3 &mdash; API function
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;gnutls/gnutls.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          gnutls_certificate_verify_peers3
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_session_t
+        <var class="pdparam">
+         session
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         hostname
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int *
+        <var class="pdparam">
+         status
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-certificate-verify-peers3-3_sect1" name="gnutls-certificate-verify-peers3-3_sect1" shape="rect">
+    </a>
+    <h2>
+     ARGUMENTS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_session_t
+          session
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        is a gnutls session
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          const
+          char * hostname
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        is the expected name of the peer; may be
+        <code class="constant">
+         NULL
+        </code>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          unsigned int *
+          status
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        is the output of the verification
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-certificate-verify-peers3-3_sect2" name="gnutls-certificate-verify-peers3-3_sect2" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This function will verify the peer's certificate and store
+      the status in the
+     <em class="parameter">
+      <code>
+       status
+      </code>
+     </em>
+     variable as a bitwise
+      or'd gnutls_certificate_status_t values or zero if the
+      certificate is trusted. Note that value in
+     <em class="parameter">
+      <code>
+       status
+      </code>
+     </em>
+     is set only when the
+      return value of this function is success (i.e, failure to
+      trust a certificate does not imply a negative return value).
+      The default verification flags used by this function can be
+      overriden using
+     <code class="function">
+      gnutls_certificate_set_verify_flags
+     </code>
+     (). See
+      the documentation of
+     <code class="function">
+      gnutls_certificate_verify_peers2
+     </code>
+     () for
+      details in the verification process.
+    </p>
+    <p>
+     If the
+     <em class="parameter">
+      <code>
+       hostname
+      </code>
+     </em>
+     provided is non&minus;NULL then this function will compare
+      the hostname in the certificate against the given. The
+      comparison will be accurate for ascii names; non&minus;ascii
+      names are compared byte&minus;by&minus;byte. If names do not
+      match the
+     <code class="constant">
+      GNUTLS_CERT_UNEXPECTED_OWNER
+     </code>
+     status flag
+      will be set.
+    </p>
+    <p>
+     In order to verify the purpose of the
+      end&minus;certificate (by checking the extended key usage),
+      use
+     <code class="function">
+      gnutls_certificate_verify_peers
+     </code>
+     ().
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-certificate-verify-peers3-3_sect3" name="gnutls-certificate-verify-peers3-3_sect3" shape="rect">
+    </a>
+    <h2>
+     RETURNS
+    </h2>
+    <p>
+     a negative error code on error and
+     <span class="errorname">
+      GNUTLS_E_SUCCESS
+     </span>
+     (0) on success.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-certificate-verify-peers3-3_sect4" name="gnutls-certificate-verify-peers3-3_sect4" shape="rect">
+    </a>
+    <h2>
+     SINCE
+    </h2>
+    <p>
+     3.1.4
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-certificate-verify-peers3-3_sect5" name="gnutls-certificate-verify-peers3-3_sect5" shape="rect">
+    </a>
+    <h2>
+     REPORTING BUGS
+    </h2>
+    <p>
+     Report bugs to &lt;bugs@gnutls.org&gt;.
+    </p>
+    <p>
+     Home page: http://www.gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-certificate-verify-peers3-3_sect7" name="gnutls-certificate-verify-peers3-3_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <em class="citetitle">
+      gnutls
+     </em>
+     is maintained as a Texinfo manual. If
+      the /usr/share/doc/gnutls/ directory does not contain the
+      HTML form visit
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <a class="literalurl" href="http://www.gnutls.org/manual/" shape="rect" target="_top">
+         http://www.gnutls.org/manual/
+        </a>
+       </p>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

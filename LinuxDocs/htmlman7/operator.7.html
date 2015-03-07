@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   operator(7) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="operator(7) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="operator.7" name="operator.7" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     operator &mdash; C operator precedence and order of
+      evaluation
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="operator-7_sect1" name="operator-7_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This manual page lists C operators and their precedence in
+      evaluation.
+    </p>
+    <div class="informaltable">
+     <table style="border-collapse: collapse;">
+      <colgroup span="1">
+       <col span="1">
+       </col>
+       <col span="1">
+       </col>
+      </colgroup>
+      <thead>
+       <tr>
+        <th align="left" colspan="1" rowspan="1" style="">
+         Operator
+        </th>
+        <th align="left" colspan="1" rowspan="1" style="">
+         Associativity
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         () [] &minus;&gt; .
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         left to right
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         ! ~ ++ &minus;&minus; +
+              &minus; (type) * &amp; sizeof
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         right to left
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         * / %
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         left to right
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         + &minus;
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         left to right
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         &lt;&lt; &gt;&gt;
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         left to right
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         &lt; &lt;= &gt; &gt;=
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         left to right
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         == !=
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         left to right
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         &amp;
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         left to right
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         ^
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         left to right
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         |
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         left to right
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         &amp;&amp;
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         left to right
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         ||
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         left to right
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         ?:
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         right to left
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         = += &minus;= *= /= %=
+              &lt;&lt;= &gt;&gt;= &amp;= ^= |=
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         right to left
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         ,
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         left to right
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </div>
+   <div class="colophon">
+    <a id="operator-7_sect2" name="operator-7_sect2" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

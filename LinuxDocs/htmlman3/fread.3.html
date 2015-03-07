@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   fread(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="fread(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="fread.3" name="fread.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     fread, fwrite &mdash; binary stream input/output
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;stdio.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         size_t
+         <strong>
+          fread
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        void *
+        <var class="pdparam">
+         ptr
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         size
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         nmemb
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         size_t
+         <strong>
+          fwrite
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const void *
+        <var class="pdparam">
+         ptr
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         size
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         nmemb
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        FILE *
+        <var class="pdparam">
+         stream
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="fread-3_sect1" name="fread-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The function
+     <code class="function">
+      fread
+     </code>
+     () reads
+     <em class="parameter">
+      <code>
+       nmemb
+      </code>
+     </em>
+     elements of
+      data, each
+     <em class="parameter">
+      <code>
+       size
+      </code>
+     </em>
+     bytes
+      long, from the stream pointed to by
+     <em class="parameter">
+      <code>
+       stream
+      </code>
+     </em>
+     , storing them at the
+      location given by
+     <em class="parameter">
+      <code>
+       ptr
+      </code>
+     </em>
+     .
+    </p>
+    <p>
+     The function
+     <code class="function">
+      fwrite
+     </code>
+     () writes
+     <em class="parameter">
+      <code>
+       nmemb
+      </code>
+     </em>
+     elements of
+      data, each
+     <em class="parameter">
+      <code>
+       size
+      </code>
+     </em>
+     bytes
+      long, to the stream pointed to by
+     <em class="parameter">
+      <code>
+       stream
+      </code>
+     </em>
+     , obtaining them from the
+      location given by
+     <em class="parameter">
+      <code>
+       ptr
+      </code>
+     </em>
+     .
+    </p>
+    <p>
+     For nonlocking counterparts, see
+     <a class="link" href="../htmlman3/unlocked_stdio.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        unlocked_stdio
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fread-3_sect2" name="fread-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success,
+     <code class="function">
+      fread
+     </code>
+     () and
+     <code class="function">
+      fwrite
+     </code>
+     () return the number of
+     <code class="function">
+      items
+     </code>
+     read or written. This
+      number equals the number of bytes transferred only when
+     <em class="parameter">
+      <code>
+       size
+      </code>
+     </em>
+     is 1. If an
+      error occurs, or the end of the file is reached, the return
+      value is a short item count (or zero).
+    </p>
+    <p>
+     <code class="function">
+      fread
+     </code>
+     () does not distinguish
+      between end-of-file and error, and callers must use
+     <a class="link" href="../htmlman3/ferror.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        feof
+       </span>
+       (3)
+      </span>
+     </a>
+     and
+     <a class="link" href="../htmlman3/ferror.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ferror
+       </span>
+       (3)
+      </span>
+     </a>
+     to determine
+      which occurred.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fread-3_sect3" name="fread-3_sect3" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     C89, POSIX.1-2001.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fread-3_sect4" name="fread-3_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/read.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        read
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/write.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        write
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/ferror.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        feof
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/ferror.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ferror
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/unlocked_stdio.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        unlocked_stdio
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="fread-3_sect5" name="fread-3_sect5" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

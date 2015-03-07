@@ -1,0 +1,1240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   ipv6(7) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="ipv6(7) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="ipv6.7" name="ipv6.7" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     ipv6 &mdash; Linux IPv6 protocol implementation
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#include &lt;sys/socket.h&gt;
+#include &lt;netinet/in.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         tcp6_socket =
+         <strong>
+          socket
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         AF_INET6
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         SOCK_STREAM
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         0
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         raw6_socket =
+         <strong>
+          socket
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         AF_INET6
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         SOCK_RAW
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         protocol
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         udp6_socket =
+         <strong>
+          socket
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         AF_INET6
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         SOCK_DGRAM
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         protocol
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ipv6-7_sect1" name="ipv6-7_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Linux 2.2 optionally implements the Internet Protocol,
+      version 6. This man page contains a description of the IPv6
+      basic API as implemented by the Linux kernel and glibc 2.1.
+      The interface is based on the BSD sockets interface; see
+     <a class="link" href="../htmlman7/socket.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        socket
+       </span>
+       (7)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     The IPv6 API aims to be mostly compatible with the IPv4
+      API (see
+     <a class="link" href="../htmlman7/ip.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ip
+       </span>
+       (7)
+      </span>
+     </a>
+     ). Only differences
+      are described in this man page.
+    </p>
+    <p>
+     To bind an
+     <em class="parameter">
+      <code>
+       AF_INET6
+      </code>
+     </em>
+     socket to any process,
+      the local address should be copied from the
+     <em class="replaceable">
+      <code>
+       in6addr_any
+      </code>
+     </em>
+     variable which
+      has
+     <em class="replaceable">
+      <code>
+       in6_addr
+      </code>
+     </em>
+     type.
+      In static initializations,
+     <code class="constant">
+      IN6ADDR_ANY_INIT
+     </code>
+     may also be used, which
+      expands to a constant expression. Both of them are in network
+      byte order.
+    </p>
+    <p>
+     The IPv6 loopback address (::1) is available in the global
+     <em class="replaceable">
+      <code>
+       in6addr_loopback
+      </code>
+     </em>
+     variable. For initializations,
+     <code class="constant">
+      IN6ADDR_LOOPBACK_INIT
+     </code>
+     should be used.
+    </p>
+    <p>
+     IPv4 connections can be handled with the v6 API by using
+      the v4-mapped-on-v6 address type; thus a program only needs
+      to support this API type to support both protocols. This is
+      handled transparently by the address handling functions in
+      the C library.
+    </p>
+    <p>
+     IPv4 and IPv6 share the local port space. When you get an
+      IPv4 connection or packet to a IPv6 socket, its source
+      address will be mapped to v6 and it will be mapped to v6.
+    </p>
+    <div class="refsect2">
+     <a id="ipv6-7_sect2" name="ipv6-7_sect2" shape="rect">
+     </a>
+     <h3>
+      Address format
+     </h3>
+     <div class="blockquote">
+      <blockquote class="blockquote">
+       <div class="structdef">
+        <table style="border-collapse: collapse;">
+         <colgroup span="1">
+          <col class="c1" span="1">
+          </col>
+          <col class="c2" span="1">
+          </col>
+          <col class="c3" span="1">
+          </col>
+          <col class="c4" span="1">
+          </col>
+          <col class="c5" span="1">
+          </col>
+         </colgroup>
+         <tbody>
+          <tr>
+           <td align="left" class="structdefhdr" colspan="1" rowspan="1" style="">
+            struct
+           </td>
+           <td align="left" class="structdefhdr" colspan="4" rowspan="1" style="">
+            <span class="structname">
+             sockaddr_in6
+            </span>
+            &nbsp;{
+           </td>
+          </tr>
+          <tr>
+           <td colspan="1" rowspan="1" style="">
+            &nbsp;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <span class="type">
+             sa_family_t
+            </span>
+           </td>
+           <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+            &nbsp;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <em class="structfield">
+             <code>
+              sin6_family
+             </code>
+            </em>
+            ;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <div class="literallayout">
+             /*&nbsp;AF_INET6&nbsp;*/
+            </div>
+           </td>
+          </tr>
+          <tr>
+           <td colspan="1" rowspan="1" style="">
+            &nbsp;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <span class="type">
+             in_port_t
+            </span>
+           </td>
+           <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+            &nbsp;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <em class="structfield">
+             <code>
+              sin6_port
+             </code>
+            </em>
+            ;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <div class="literallayout">
+             /*&nbsp;port&nbsp;number&nbsp;*/
+            </div>
+           </td>
+          </tr>
+          <tr>
+           <td colspan="1" rowspan="1" style="">
+            &nbsp;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <span class="type">
+             uint32_t
+            </span>
+           </td>
+           <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+            &nbsp;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <em class="structfield">
+             <code>
+              sin6_flowinfo
+             </code>
+            </em>
+            ;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <div class="literallayout">
+             /*&nbsp;IPv6&nbsp;flow&nbsp;information&nbsp;*/
+            </div>
+           </td>
+          </tr>
+          <tr>
+           <td colspan="1" rowspan="1" style="">
+            &nbsp;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <span class="type">
+             struct&nbsp;in6_addr
+            </span>
+           </td>
+           <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+            &nbsp;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <em class="structfield">
+             <code>
+              sin6_addr
+             </code>
+            </em>
+            ;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <div class="literallayout">
+             /*&nbsp;IPv6&nbsp;address&nbsp;*/
+            </div>
+           </td>
+          </tr>
+          <tr>
+           <td colspan="1" rowspan="1" style="">
+            &nbsp;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <span class="type">
+             uint32_t
+            </span>
+           </td>
+           <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+            &nbsp;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <em class="structfield">
+             <code>
+              sin6_scope_id
+             </code>
+            </em>
+            ;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <div class="literallayout">
+             /*&nbsp;Scope&nbsp;ID&nbsp;(new&nbsp;in&nbsp;2.4)&nbsp;*/
+            </div>
+           </td>
+          </tr>
+          <tr>
+           <td align="left" class="structdefftr" colspan="5" rowspan="1" style="">
+            };
+           </td>
+          </tr>
+          <tr>
+           <td align="left" class="structsep" colspan="5" rowspan="1" style="">
+           </td>
+          </tr>
+          <tr>
+           <td align="left" class="structdefhdr2" colspan="1" rowspan="1" style="">
+            struct
+           </td>
+           <td align="left" class="structdefhdr2" colspan="4" rowspan="1" style="">
+            <span class="structname">
+             in6_addr
+            </span>
+            &nbsp;{
+           </td>
+          </tr>
+          <tr>
+           <td colspan="1" rowspan="1" style="">
+            &nbsp;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <span class="type">
+             unsigned&nbsp;char
+            </span>
+           </td>
+           <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+            &nbsp;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <em class="structfield">
+             <code>
+              s6_addr
+             </code>
+            </em>
+            [16];
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            <div class="literallayout">
+             /*&nbsp;IPv6&nbsp;address&nbsp;*/
+            </div>
+           </td>
+          </tr>
+          <tr>
+           <td align="left" class="structdefftr" colspan="5" rowspan="1" style="">
+            };
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+      </blockquote>
+     </div>
+     <p>
+      <em class="parameter">
+       <code>
+        sin6_family
+       </code>
+      </em>
+      is
+        always set to
+      <em class="parameter">
+       <code>
+        AF_INET6
+       </code>
+      </em>
+      ;
+      <em class="parameter">
+       <code>
+        sin6_port
+       </code>
+      </em>
+      is the protocol
+        port (see
+      <em class="replaceable">
+       <code>
+        sin_port
+       </code>
+      </em>
+      in
+      <a class="link" href="../htmlman7/ip.7.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         ip
+        </span>
+        (7)
+       </span>
+      </a>
+      );
+      <em class="parameter">
+       <code>
+        sin6_flowinfo
+       </code>
+      </em>
+      is the IPv6
+        flow identifier;
+      <em class="parameter">
+       <code>
+        sin6_addr
+       </code>
+      </em>
+      is the 128-bit IPv6
+        address.
+      <em class="parameter">
+       <code>
+        sin6_scope_id
+       </code>
+      </em>
+      is an ID
+        depending on the scope of the address. It is new in Linux
+        2.4. Linux supports it only for link-local addresses, in
+        that case
+      <em class="parameter">
+       <code>
+        sin6_scope_id
+       </code>
+      </em>
+      contains the
+        interface index (see
+      <a class="link" href="../htmlman7/netdevice.7.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         netdevice
+        </span>
+        (7)
+       </span>
+      </a>
+      )
+     </p>
+     <p>
+      IPv6 supports several address types: unicast to address
+        a single host, multicast to address a group of hosts,
+        anycast to address the nearest member of a group of hosts
+        (not implemented in Linux), IPv4-on-IPv6 to address a IPv4
+        host, and other reserved address types.
+     </p>
+     <p>
+      The address notation for IPv6 is a group of 8 4-digit
+        hexadecimal numbers, separated with a ':'. "::" stands for
+        a string of 0 bits. Special addresses are ::1 for loopback
+        and ::FFFF:&lt;IPv4 address&gt; for
+        IPv4-mapped-on-IPv6.
+     </p>
+     <p>
+      The port space of IPv6 is shared with IPv4.
+     </p>
+    </div>
+    <div class="refsect2">
+     <a id="ipv6-7_sect3" name="ipv6-7_sect3" shape="rect">
+     </a>
+     <h3>
+      Socket options
+     </h3>
+     <p>
+      IPv6 supports some protocol-specific socket options that
+        can be set with
+      <a class="link" href="../htmlman2/getsockopt.2.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         setsockopt
+        </span>
+        (2)
+       </span>
+      </a>
+      and read
+        with
+      <a class="link" href="../htmlman2/getsockopt.2.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         getsockopt
+        </span>
+        (2)
+       </span>
+      </a>
+      . The socket
+        option level for IPv6 is
+      <code class="constant">
+       IPPROTO_IPV6
+      </code>
+      . A boolean integer flag is
+        zero when it is false, otherwise true.
+     </p>
+     <div class="variablelist">
+      <dl class="variablelist">
+       <dt>
+        <span class="term">
+         <code class="constant">
+          IPV6_ADDRFORM
+         </code>
+        </span>
+       </dt>
+       <dd>
+        <p>
+         Turn an
+         <em class="parameter">
+          <code>
+           AF_INET6
+          </code>
+         </em>
+         socket into a
+              socket of a different address family. Only
+         <code class="constant">
+          AF_INET
+         </code>
+         is currently
+              supported for that. It is allowed only for IPv6
+              sockets that are connected and bound to a
+              v4-mapped-on-v6 address. The argument is a pointer to
+              an integer containing
+         <code class="constant">
+          AF_INET
+         </code>
+         . This is useful to pass
+              v4-mapped sockets as file descriptors to programs
+              that don't know how to deal with the IPv6 API.
+        </p>
+       </dd>
+       <dt>
+        <span class="term">
+         <span class="emphasis">
+          <em>
+           IPV6_ADD_MEMBERSHIP,
+            IPV6_DROP_MEMBERSHIP
+          </em>
+         </span>
+        </span>
+       </dt>
+       <dd>
+        <p>
+         Control membership in multicast groups. Argument
+              is a pointer to a
+         <span class="emphasis">
+          <em>
+           struct
+              ipv6_mreq
+          </em>
+         </span>
+         .
+        </p>
+       </dd>
+       <dt>
+        <span class="term">
+         <code class="constant">
+          IPV6_MTU
+         </code>
+        </span>
+       </dt>
+       <dd>
+        <p>
+         <code class="function">
+          getsockopt
+         </code>
+         ():
+              Retrieve the current known path MTU of the current
+              socket. Only valid when the socket has been
+              connected. Returns an integer.
+        </p>
+        <p>
+         <code class="function">
+          setsockopt
+         </code>
+         (): Set
+              the MTU to be used for the socket. The MTU is limited
+              by the device MTU or the path MTU when path MTU
+              discovery is enabled. Argument is a pointer to
+              integer.
+        </p>
+       </dd>
+       <dt>
+        <span class="term">
+         <code class="constant">
+          IPV6_MTU_DISCOVER
+         </code>
+        </span>
+       </dt>
+       <dd>
+        <p>
+         Control path-MTU discovery on the socket. See
+         <code class="constant">
+          IP_MTU_DISCOVER
+         </code>
+         in
+         <a class="link" href="../htmlman7/ip.7.html" shape="rect" target="_top">
+          <span class="citerefentry">
+           <span class="refentrytitle">
+            ip
+           </span>
+           (7)
+          </span>
+         </a>
+         for
+              details.
+        </p>
+       </dd>
+       <dt>
+        <span class="term">
+         <code class="constant">
+          IPV6_MULTICAST_HOPS
+         </code>
+        </span>
+       </dt>
+       <dd>
+        <p>
+         Set the multicast hop limit for the socket.
+              Argument is a pointer to an integer. &minus;1 in the
+              value means use the route default, otherwise it
+              should be between 0 and 255.
+        </p>
+       </dd>
+       <dt>
+        <span class="term">
+         <code class="constant">
+          IPV6_MULTICAST_IF
+         </code>
+        </span>
+       </dt>
+       <dd>
+        <p>
+         Set the device for outgoing multicast packets on
+              the socket. This is allowed only for
+         <em class="parameter">
+          <code>
+           SOCK_DGRAM
+          </code>
+         </em>
+         and
+         <em class="parameter">
+          <code>
+           SOCK_RAW
+          </code>
+         </em>
+         socket. The argument is a pointer to an interface
+              index (see
+         <a class="link" href="../htmlman7/netdevice.7.html" shape="rect" target="_top">
+          <span class="citerefentry">
+           <span class="refentrytitle">
+            netdevice
+           </span>
+           (7)
+          </span>
+         </a>
+         ) in an
+              integer.
+        </p>
+       </dd>
+       <dt>
+        <span class="term">
+         <code class="constant">
+          IPV6_MULTICAST_LOOP
+         </code>
+        </span>
+       </dt>
+       <dd>
+        <p>
+         Control whether the socket sees multicast packets
+              that it has send itself. Argument is a pointer to
+              boolean.
+        </p>
+       </dd>
+       <dt>
+        <span class="term">
+         <code class="constant">
+          IPV6_RECVPKTINFO
+         </code>
+         (since Linux
+            2.6.14)
+        </span>
+       </dt>
+       <dd>
+        <p>
+         Set delivery of the
+         <code class="constant">
+          IPV6_PKTINFO
+         </code>
+         control message on
+              incoming datagrams. Such control messages contain a
+         <span class="emphasis">
+          <em>
+           struct
+              in6_pktinfo
+          </em>
+         </span>
+         , as per RFC 3542. Only
+              allowed for
+         <em class="parameter">
+          <code>
+           SOCK_DGRAM
+          </code>
+         </em>
+         or
+         <em class="parameter">
+          <code>
+           SOCK_RAW
+          </code>
+         </em>
+         sockets. Argument is a pointer to a boolean value in
+              an integer.
+        </p>
+       </dd>
+       <dt>
+        <span class="term">
+         <span class="emphasis">
+          <em>
+           IPV6_RTHDR, IPV6_AUTHHDR, IPV6_DSTOPTS,
+            IPV6_HOPOPTS, IPV6_FLOWINFO,
+            IPV6_HOPLIMIT
+          </em>
+         </span>
+        </span>
+       </dt>
+       <dd>
+        <p>
+         Set delivery of control messages for incoming
+              datagrams containing extension headers from the
+              received packet.
+         <code class="constant">
+          IPV6_RTHDR
+         </code>
+         delivers the routing
+              header,
+         <code class="constant">
+          IPV6_AUTHHDR
+         </code>
+         delivers the authentication header,
+         <code class="constant">
+          IPV6_DSTOPTS
+         </code>
+         delivers the
+              destination options,
+         <code class="constant">
+          IPV6_HOPOPTS
+         </code>
+         delivers the hop
+              options,
+         <code class="constant">
+          IPV6_FLOWINFO
+         </code>
+         delivers an integer containing the flow ID,
+         <code class="constant">
+          IPV6_HOPLIMIT
+         </code>
+         delivers
+              an integer containing the hop count of the packet.
+              The control messages have the same type as the socket
+              option. All these header options can also be set for
+              outgoing packets by putting the appropriate control
+              message into the control buffer of
+         <a class="link" href="../htmlman2/send.2.html" shape="rect" target="_top">
+          <span class="citerefentry">
+           <span class="refentrytitle">
+            sendmsg
+           </span>
+           (2)
+          </span>
+         </a>
+         . Only
+              allowed for
+         <em class="parameter">
+          <code>
+           SOCK_DGRAM
+          </code>
+         </em>
+         or
+         <em class="parameter">
+          <code>
+           SOCK_RAW
+          </code>
+         </em>
+         sockets. Argument is a pointer to a boolean
+              value.
+        </p>
+       </dd>
+       <dt>
+        <span class="term">
+         <code class="constant">
+          IPV6_RECVERR
+         </code>
+        </span>
+       </dt>
+       <dd>
+        <p>
+         Control receiving of asynchronous error options.
+              See
+         <code class="constant">
+          IP_RECVERR
+         </code>
+         in
+         <a class="link" href="../htmlman7/ip.7.html" shape="rect" target="_top">
+          <span class="citerefentry">
+           <span class="refentrytitle">
+            ip
+           </span>
+           (7)
+          </span>
+         </a>
+         for details.
+              Argument is a pointer to boolean.
+        </p>
+       </dd>
+       <dt>
+        <span class="term">
+         <code class="constant">
+          IPV6_ROUTER_ALERT
+         </code>
+        </span>
+       </dt>
+       <dd>
+        <p>
+         Pass forwarded packets containing a router alert
+              hop-by-hop option to this socket. Only allowed for
+         <em class="parameter">
+          <code>
+           SOCK_RAW
+          </code>
+         </em>
+         sockets. The tapped packets are not forwarded by the
+              kernel, it is the user's responsibility to send them
+              out again. Argument is a pointer to an integer. A
+              positive integer indicates a router alert option
+              value to intercept. Packets carrying a router alert
+              option with a value field containing this integer
+              will be delivered to the socket. A negative integer
+              disables delivery of packets with router alert
+              options to this socket.
+        </p>
+       </dd>
+       <dt>
+        <span class="term">
+         <code class="constant">
+          IPV6_UNICAST_HOPS
+         </code>
+        </span>
+       </dt>
+       <dd>
+        <p>
+         Set the unicast hop limit for the socket. Argument
+              is a pointer to an integer. &minus;1 in the value
+              means use the route default, otherwise it should be
+              between 0 and 255.
+        </p>
+       </dd>
+       <dt>
+        <span class="term">
+         <code class="constant">
+          IPV6_V6ONLY
+         </code>
+         (since Linux 2.4.21 and
+            2.6)
+        </span>
+       </dt>
+       <dd>
+        <p>
+         If this flag is set to true (nonzero), then the
+              socket is restricted to sending and receiving IPv6
+              packets only. In this case, an IPv4 and an IPv6
+              application can bind to a single port at the same
+              time.
+        </p>
+        <p>
+         If this flag is set to false (zero), then the
+              socket can be used to send and receive packets to and
+              from an IPv6 address or an IPv4-mapped IPv6
+              address.
+        </p>
+        <p>
+         The argument is a pointer to a boolean value in an
+              integer.
+        </p>
+        <p>
+         The default value for this flag is defined by the
+              contents of the file
+         <code class="filename">
+          /proc/sys/net/ipv6/bindv6only
+         </code>
+         . The
+              default value for that file is 0 (false).
+        </p>
+       </dd>
+      </dl>
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ipv6-7_sect4" name="ipv6-7_sect4" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENODEV
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The user tried to
+        <a class="link" href="../htmlman2/bind.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           bind
+          </span>
+          (2)
+         </span>
+        </a>
+        to a
+            link-local IPv6 address, but the
+        <em class="parameter">
+         <code>
+          sin6_scope_id
+         </code>
+        </em>
+        in the
+            supplied
+        <em class="replaceable">
+         <code>
+          sockaddr_in6
+         </code>
+        </em>
+        structure
+            is not a valid interface index.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ipv6-7_sect5" name="ipv6-7_sect5" shape="rect">
+    </a>
+    <h2>
+     VERSIONS
+    </h2>
+    <p>
+     Linux 2.4 will break binary compatibility for the
+     <em class="replaceable">
+      <code>
+       sockaddr_in6
+      </code>
+     </em>
+     for
+      64-bit hosts by changing the alignment of
+     <em class="replaceable">
+      <code>
+       in6_addr
+      </code>
+     </em>
+     and adding an
+      additional
+     <em class="parameter">
+      <code>
+       sin6_scope_id
+      </code>
+     </em>
+     field. The kernel
+      interfaces stay compatible, but a program including
+     <em class="replaceable">
+      <code>
+       sockaddr_in6
+      </code>
+     </em>
+     or
+     <em class="replaceable">
+      <code>
+       in6_addr
+      </code>
+     </em>
+     into other
+      structures may not be. This is not a problem for 32-bit hosts
+      like i386.
+    </p>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       sin6_flowinfo
+      </code>
+     </em>
+     field is new in Linux 2.4. It is transparently passed/read by
+      the kernel when the passed address length contains it. Some
+      programs that pass a longer address buffer and then check the
+      outgoing address length may break.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ipv6-7_sect6" name="ipv6-7_sect6" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The
+     <em class="replaceable">
+      <code>
+       sockaddr_in6
+      </code>
+     </em>
+     structure is bigger than the generic
+     <em class="replaceable">
+      <code>
+       sockaddr
+      </code>
+     </em>
+     . Programs that
+      assume that all address types can be stored safely in a
+     <span class="emphasis">
+      <em>
+       struct sockaddr
+      </em>
+     </span>
+     need
+      to be changed to use
+     <span class="emphasis">
+      <em>
+       struct
+      sockaddr_storage
+      </em>
+     </span>
+     for that instead.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ipv6-7_sect7" name="ipv6-7_sect7" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     The IPv6 extended API as in RFC 2292 is currently only
+      partly implemented; although the 2.2 kernel has near complete
+      support for receiving options, the macros for generating IPv6
+      options are missing in glibc 2.1.
+    </p>
+    <p>
+     IPSec support for EH and AH headers is missing.
+    </p>
+    <p>
+     Flow label management is not complete and not documented
+      here.
+    </p>
+    <p>
+     This man page is not complete.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ipv6-7_sect8" name="ipv6-7_sect8" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/cmsg.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        cmsg
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/ip.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ip
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+    <p>
+     RFC 2553: IPv6 BASIC API; Linux tries to be compliant to
+      this. RFC 2460: IPv6 specification.
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="ipv6-7_sect9" name="ipv6-7_sect9" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

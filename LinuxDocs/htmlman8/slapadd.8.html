@@ -1,0 +1,772 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   slapadd(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="slapadd(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="slapadd.8" name="slapadd.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     slapadd &mdash; Add entries to a SLAPD database
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       SBINDIR/slapadd
+      </code>
+      [
+      <code class="option">
+       &minus;b
+      </code>
+      suffix ] [
+      <code class="option">
+       &minus;c
+      </code>
+      ] [
+      <code class="option">
+       &minus;d
+      </code>
+      debug&minus;level ] [
+      <code class="option">
+       &minus;f
+      </code>
+      slapd.conf ] [
+      <code class="option">
+       &minus;F
+      </code>
+      confdir ] [
+      <code class="option">
+       &minus;g
+      </code>
+      ] [
+      <code class="option">
+       &minus;j
+      </code>
+      lineno ] [
+      <code class="option">
+       &minus;l
+      </code>
+      ldif&minus;file ] [
+      <code class="option">
+       &minus;n
+      </code>
+      dbnum ] [
+      <code class="option">
+       &minus;o
+      </code>
+      option[= value] ] [
+      <code class="option">
+       &minus;q
+      </code>
+      ] [
+      <code class="option">
+       &minus;s
+      </code>
+      ] [
+      <code class="option">
+       &minus;S
+      </code>
+      SID ] [
+      <code class="option">
+       &minus;u
+      </code>
+      ] [
+      <code class="option">
+       &minus;v
+      </code>
+      ] [
+      <code class="option">
+       &minus;w
+      </code>
+      ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="slapadd-8_sect1" name="slapadd-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <em class="replaceable">
+      <code>
+       Slapadd
+      </code>
+     </em>
+     is used
+      to add entries specified in LDAP Directory Interchange Format
+      (LDIF) to a
+     <a class="link" href="../htmlman8/slapd.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd
+       </span>
+       (8)
+      </span>
+     </a>
+     database. It opens
+      the given database determined by the database number or
+      suffix and adds entries corresponding to the provided LDIF to
+      the database. Databases configured as
+     <em class="replaceable">
+      <code>
+       subordinate
+      </code>
+     </em>
+     of this one are
+      also updated, unless
+     <code class="option">
+      &minus;g
+     </code>
+     is
+      specified. The LDIF input is read from standard input or the
+      specified file.
+    </p>
+    <p>
+     All files eventually created by
+     <span class="command">
+      <strong>
+       slapadd
+      </strong>
+     </span>
+     will belong to the
+      identity
+     <span class="command">
+      <strong>
+       slapadd
+      </strong>
+     </span>
+     is run as, so make
+      sure you either run
+     <span class="command">
+      <strong>
+       slapadd
+      </strong>
+     </span>
+     with the same
+      identity
+     <a class="link" href="../htmlman8/slapd.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd
+       </span>
+       (8)
+      </span>
+     </a>
+     will be run as
+      (see option
+     <code class="option">
+      &minus;u
+     </code>
+     in
+     <a class="link" href="../htmlman8/slapd.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd
+       </span>
+       (8)
+      </span>
+     </a>
+     ), or change file
+      ownership before running
+     <a class="link" href="../htmlman8/slapd.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd
+       </span>
+       (8)
+      </span>
+     </a>
+     .
+    </p>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <p>
+         Slapadd will also perform the relevant indexing
+              whilst adding the database if any are configured. For
+              specfic details, please see
+         <a class="link" href="../htmlman8/slapindex.8.html" shape="rect" target="_top">
+          <span class="citerefentry">
+           <span class="refentrytitle">
+            slapindex
+           </span>
+           (8)
+          </span>
+         </a>
+         .
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="slapadd-8_sect2" name="slapadd-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;b
+          suffix
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use the specified
+        <em class="parameter">
+         <code>
+          suffix
+         </code>
+        </em>
+        to determine which
+            database to add entries to. The
+        <code class="option">
+         &minus;b
+        </code>
+        cannot be used in conjunction
+            with the
+        <code class="option">
+         &minus;n
+        </code>
+        option.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;c
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        enable continue (ignore errors) mode.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+          debug&minus;level
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        enable debugging messages as defined by the
+            specified
+        <em class="parameter">
+         <code>
+          debug-level
+         </code>
+        </em>
+        ; see
+        <a class="link" href="../htmlman8/slapd.8.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           slapd
+          </span>
+          (8)
+         </span>
+        </a>
+        for
+            details.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+          slapd.conf
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        specify an alternative
+        <a class="link" href="../htmlman5/slapd.conf.5.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           slapd.conf
+          </span>
+          (5)
+         </span>
+        </a>
+        file.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;F
+          confdir
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        specify a config directory. If both
+        <code class="option">
+         &minus;f
+        </code>
+        and
+        <code class="option">
+         &minus;F
+        </code>
+        are specified, the config file
+            will be read and converted to config directory format
+            and written to the specified directory. If neither
+            option is specified, an attempt to read the default
+            config directory will be made before trying to use the
+            default config file. If a valid config directory exists
+            then the default config file is ignored. If dry-run
+            mode is also specified, no conversion will occur.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;g
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        disable subordinate gluing. Only the specified
+            database will be processed, and not its glued
+            subordinates (if any).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;j
+          lineno
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Jump to the specified line number in the LDIF file
+            before processing any entries. This allows a load that
+            was aborted due to errors in the input LDIF to be
+            resumed after the errors are corrected.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l
+          ldif&minus;file
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Read LDIF from the specified file instead of
+            standard input.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+          dbnum
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Add entries to the
+        <em class="parameter">
+         <code>
+          dbnum
+         </code>
+        </em>
+        -th database listed
+            in the configuration file. The
+        <code class="option">
+         &minus;n
+        </code>
+        cannot be used in conjunction
+            with the
+        <code class="option">
+         &minus;b
+        </code>
+        option.
+            To populate the config database
+        <a class="link" href="../htmlman5/slapd-config.5.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           slapd-config
+          </span>
+          (5)
+         </span>
+        </a>
+        , use
+        <code class="option">
+         &minus;n 0
+        </code>
+        as it is always
+            the first database. It must physically exist on the
+            filesystem prior to this, however.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o
+          option[=value]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify an
+        <em class="replaceable">
+         <code>
+          option
+         </code>
+        </em>
+        with a(n
+            optional)
+        <em class="replaceable">
+         <code>
+          value
+         </code>
+        </em>
+        . Possible generic
+            options/values are:
+       </p>
+       <div class="informalexample">
+        <pre class="programlisting" xml:space="preserve">
+              syslog=&lt;subsystems&gt;  (see `&minus;s' in slapd(8))
+              syslog&minus;level=&lt;level&gt; (see `&minus;S' in slapd(8))
+              syslog&minus;user=&lt;user&gt;   (see `&minus;l' in slapd(8))
+
+              schema-check={yes|no}
+              value-check={yes|no}
+</pre>
+       </div>
+       <p>
+        The
+        <em class="replaceable">
+         <code>
+          schema&minus;check
+         </code>
+        </em>
+        option toggles schema checking (default on); the
+        <em class="replaceable">
+         <code>
+          value&minus;check
+         </code>
+        </em>
+        option toggles value checking (default off). The latter
+            is incompatible with
+        <em class="parameter">
+         <code>
+          &minus;q
+         </code>
+        </em>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;q
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        enable quick (fewer integrity checks) mode. Does
+            fewer consistency checks on the input data, and no
+            consistency checks when writing the database. Improves
+            the load time but if any errors or interruptions occur
+            the resulting database will be unusable.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        disable schema checking. This option is intended to
+            be used when loading databases containing special
+            objects, such as fractional objects on a partial
+            replica. Loading normal objects which do not conform to
+            schema may result in unexpected and ill behavior.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;S
+          SID
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Server ID to use in generated entryCSN. Also used
+            for contextCSN if
+        <code class="option">
+         &minus;w
+        </code>
+        is set as well. Defaults to
+        <code class="constant">
+         0
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        enable dry-run (don't write to backend) mode.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        enable verbose mode.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;w
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        write syncrepl context information. After all
+            entries are added, the contextCSN will be updated with
+            the greatest CSN in the database.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="slapadd-8_sect3" name="slapadd-8_sect3" shape="rect">
+    </a>
+    <h2>
+     LIMITATIONS
+    </h2>
+    <p>
+     Your
+     <a class="link" href="../htmlman8/slapd.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd
+       </span>
+       (8)
+      </span>
+     </a>
+     should not be
+      running when you do this to ensure consistency of the
+      database.
+    </p>
+    <p>
+     <span class="command">
+      <strong>
+       slapadd
+      </strong>
+     </span>
+     may
+      not provide naming or schema checks. It is advisable to use
+     <a class="link" href="../htmlman1/ldapmodify.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldapadd
+       </span>
+       (1)
+      </span>
+     </a>
+     when adding new
+      entries into an existing directory.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="slapadd-8_sect4" name="slapadd-8_sect4" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <p>
+     To import the entries specified in file
+     <em class="replaceable">
+      <code>
+       ldif
+      </code>
+     </em>
+     into your
+     <a class="link" href="../htmlman8/slapd.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd
+       </span>
+       (8)
+      </span>
+     </a>
+     database give the
+      command:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+        SBINDIR/slapadd &minus;l ldif
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="slapadd-8_sect5" name="slapadd-8_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/ldap.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman5/ldif.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldif
+       </span>
+       (5)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/slapcat.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapcat
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/slapindex.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapindex
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/ldapmodify.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldapadd
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/slapd.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd
+       </span>
+       (8)
+      </span>
+     </a>
+    </p>
+    <p>
+     "OpenLDAP Administrator's Guide"
+      (http://www.OpenLDAP.org/doc/admin/)
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="slapadd-8_sect6" name="slapadd-8_sect6" shape="rect">
+    </a>
+    <h2>
+     ACKNOWLEDGEMENTS
+    </h2>
+    <p>
+     <span class="emphasis">
+      <em>
+       OpenLDAP Software
+      </em>
+     </span>
+     is developed and maintained by The OpenLDAP Project
+      &lt;
+     <a class="literalurl" href="http://www.openldap.org/" shape="rect" target="_top">
+      http://www.openldap.org/
+     </a>
+     &gt;.
+     <span class="emphasis">
+      <em>
+       OpenLDAP Software
+      </em>
+     </span>
+     is derived from
+      University of Michigan LDAP 3.3 Release.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

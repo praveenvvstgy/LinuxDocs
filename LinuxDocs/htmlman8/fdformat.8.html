@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   fdformat(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="fdformat(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="fdformat.8" name="fdformat.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     fdformat &mdash; low-level format a floppy disk
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       fdformat
+      </code>
+      [options]
+        device
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="fdformat-8_sect1" name="fdformat-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       fdformat
+      </strong>
+     </span>
+     does a low-level format on a floppy disk.
+     <em class="parameter">
+      <code>
+       device
+      </code>
+     </em>
+     is usually one of the
+      following (for floppy devices the major = 2, and the minor is
+      shown for informational purposes only):
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+        /dev/fd0d360  (minor = 4)
+        /dev/fd0h1200 (minor = 8)
+        /dev/fd0D360  (minor = 12)
+        /dev/fd0H360  (minor = 12)
+        /dev/fd0D720  (minor = 16)
+        /dev/fd0H720  (minor = 16)
+        /dev/fd0h360  (minor = 20)
+        /dev/fd0h720  (minor = 24)
+        /dev/fd0H1440 (minor = 28)
+
+        /dev/fd1d360  (minor = 5)
+        /dev/fd1h1200 (minor = 9)
+        /dev/fd1D360  (minor = 13)
+        /dev/fd1H360  (minor = 13)
+        /dev/fd1D720  (minor = 17)
+        /dev/fd1H720  (minor = 17)
+        /dev/fd1h360  (minor = 21)
+        /dev/fd1h720  (minor = 25)
+        /dev/fd1H1440 (minor = 29)
+</pre>
+    </div>
+    <p>
+     The generic floppy devices, /dev/fd0 and /dev/fd1, will
+      fail to work with
+     <span class="command">
+      <strong>
+       fdformat
+      </strong>
+     </span>
+     when a
+      non-standard format is being used, or if the format has not
+      been autodetected earlier. In this case, use
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       setfdprm
+      </span>
+      (8)
+     </span>
+     to load the disk
+      parameters.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fdformat-8_sect2" name="fdformat-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;no&minus;verify
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Skip the verification that is normally performed
+            after the formatting.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="fdformat-8_sect3" name="fdformat-8_sect3" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman4/fd.4.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fd
+       </span>
+       (4)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       setfdprm
+      </span>
+      (8)
+     </span>
+     ,
+     <a class="link" href="../htmlman8/mkfs.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mkfs
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       emkfs
+      </span>
+      (8)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fdformat-8_sect4" name="fdformat-8_sect4" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Werner Almesberger (almesber@nessie.cs.id.ethz.ch)
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fdformat-8_sect5" name="fdformat-8_sect5" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The fdformat command is part of the util-linux package and
+      is available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

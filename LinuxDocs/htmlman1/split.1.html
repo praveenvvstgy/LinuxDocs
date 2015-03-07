@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   split(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="split(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="split.1" name="split.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     split &mdash; split a file into pieces
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       split
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...] [
+      <em class="replaceable">
+       <code>
+        INPUT
+       </code>
+      </em>
+      [
+      <em class="replaceable">
+       <code>
+        PREFIX
+       </code>
+      </em>
+      ] ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="split-1_sect1" name="split-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Output fixed&minus;size pieces of INPUT to PREFIXaa,
+      PREFIXab, ...; default size is 1000 lines, and default PREFIX
+      is 'x'. With no INPUT, or when INPUT is &minus;, read
+      standard input.
+    </p>
+    <p>
+     Mandatory arguments to long options are mandatory for
+      short options too.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;a
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;suffix&minus;length
+        </code>
+        =
+        <code class="constant">
+         N
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        generate suffixes of length N (default 2)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;additional&minus;suffix
+        </code>
+        =
+        <code class="constant">
+         SUFFIX
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        append an additional SUFFIX to file names
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;b
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;bytes
+        </code>
+        =
+        <code class="constant">
+         SIZE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        put SIZE bytes per output file
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;C
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;line&minus;bytes
+        </code>
+        =
+        <code class="constant">
+         SIZE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        put at most SIZE bytes of lines per output file
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;numeric&minus;suffixes
+        </code>
+        [=
+        <code class="constant">
+         FROM
+        </code>
+        ]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use numeric suffixes instead of alphabetic; FROM
+            changes the start value (default 0)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;e
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;elide&minus;empty&minus;files
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not generate empty output files with
+            '&minus;n'
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;filter
+        </code>
+        =
+        <code class="constant">
+         COMMAND
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        write to shell COMMAND; file name is $FILE
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;lines
+        </code>
+        =
+        <code class="constant">
+         NUMBER
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        put NUMBER lines per output file
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;number
+        </code>
+        =
+        <code class="constant">
+         CHUNKS
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        generate CHUNKS output files; see explanation
+            below
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;unbuffered
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        immediately copy input to output with '&minus;n
+            r/...'
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;verbose
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print a diagnostic just before each output file is
+            opened
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display this help and exit
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output version information and exit
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     SIZE is an integer and optional unit (example: 10M is
+      10*1024*1024). Units are K, M, G, T, P, E, Z, Y (powers of
+      1024) or KB, MB, ... (powers of 1000).
+    </p>
+    <p>
+     CHUNKS may be: N split into N files based on size of input
+      K/N output Kth of N to stdout l/N split into N files without
+      splitting lines l/K/N output Kth of N to stdout without
+      splitting lines r/N like 'l' but use round robin distribution
+      r/K/N likewise but only output Kth of N to stdout
+    </p>
+    <p>
+     GNU coreutils online help: &lt;
+     <a class="literalurl" href="http://www.gnu.org/software/coreutils/" shape="rect" target="_top">
+      http://www.gnu.org/software/coreutils/
+     </a>
+     &gt; Report
+      split translation bugs to &lt;
+     <a class="literalurl" href="http://translationproject.org/team/" shape="rect" target="_top">
+      http://translationproject.org/team/
+     </a>
+     &gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="split-1_sect2" name="split-1_sect2" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Written by Torbjorn Granlund and Richard M. Stallman.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="split-1_sect4" name="split-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <span class="command">
+      <strong>
+       split
+      </strong>
+     </span>
+     is maintained as a
+      Texinfo manual. If the
+     <span class="command">
+      <strong>
+       info
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       split
+      </strong>
+     </span>
+     programs are properly
+      installed at your site, the command
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <span class="emphasis">
+         <em>
+          info coreutils 'split
+            invocation'
+         </em>
+        </span>
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p>
+     should give you access to the complete manual.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

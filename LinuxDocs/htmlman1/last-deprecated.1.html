@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   last-deprecated(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="last-deprecated(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="last-deprecated.1" name="last-deprecated.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     last-deprecated &mdash; indicate last logins by user or
+      terminal
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       last
+      </code>
+      [
+      <code class="option">
+       &minus;number
+      </code>
+      ] [
+      <code class="option">
+       &minus;f
+      </code>
+      filename ] [
+      <code class="option">
+       &minus;t
+      </code>
+      tty ] [
+      <code class="option">
+       &minus;h
+      </code>
+      hostname ] [
+      <code class="option">
+       &minus;i
+      </code>
+      address ] [
+      <code class="option">
+       &minus;l
+      </code>
+      ] [
+      <code class="option">
+       &minus;y
+      </code>
+      ] [ name... ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="last-deprecated-1_sect1" name="last-deprecated-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       Last
+      </strong>
+     </span>
+     looks
+      back in the
+     <span class="command">
+      <strong>
+       wtmp
+      </strong>
+     </span>
+     file which records all
+      logins and logouts for information about a user, a teletype
+      or any group of users and teletypes. Arguments specify names
+      of users or teletypes of interest. If multiple arguments are
+      given, the information which applies to any of the arguments
+      is printed. For example ``
+     <span class="emphasis">
+      <em>
+       last
+      rootconsole
+      </em>
+     </span>
+     '' would list all of root's sessions
+      as well as all sessions on the console terminal.
+     <span class="command">
+      <strong>
+       Last
+      </strong>
+     </span>
+     displays the sessions
+      of the specified users and teletypes, most recent first,
+      indicating the times at which the session began, the duration
+      of the session, and the teletype which the session took place
+      on. If the session is still continuing or was cut short by a
+      reboot,
+     <span class="command">
+      <strong>
+       last
+      </strong>
+     </span>
+     so
+      indicates.
+    </p>
+    <p>
+     The pseudo-user
+     <span class="command">
+      <strong>
+       reboot
+      </strong>
+     </span>
+     logs in at reboots
+      of the system.
+    </p>
+    <p>
+     <span class="command">
+      <strong>
+       Last
+      </strong>
+     </span>
+     with no
+      arguments displays a record of all logins and logouts, in
+      reverse order.
+    </p>
+    <p>
+     If
+     <span class="command">
+      <strong>
+       last
+      </strong>
+     </span>
+     is
+      interrupted, it indicates how far the search has progressed
+      in
+     <span class="command">
+      <strong>
+       wtmp
+      </strong>
+     </span>
+     . If
+      interrupted with a quit signal
+     <span class="command">
+      <strong>
+       last
+      </strong>
+     </span>
+     indicates how far the
+      search has progressed so far, and the search continues.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="last-deprecated-1_sect2" name="last-deprecated-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          &minus;
+         </em>
+        </span>
+        <code class="option">
+         number
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        limit the number of entries displayed to that
+            specified by
+        <code class="option">
+         number
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+        </code>
+        <em class="parameter">
+         <code>
+          filename
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use
+        <em class="parameter">
+         <code>
+          filename
+         </code>
+        </em>
+        as the name of the accounting file instead of
+        <code class="filename">
+         /var/log/wtmp
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        <em class="parameter">
+         <code>
+          hostname
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        List only logins from
+        <em class="parameter">
+         <code>
+          hostname
+         </code>
+        </em>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i
+        </code>
+        <span class="emphasis">
+         <em>
+          IP
+          address
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        List only logins from
+        <span class="emphasis">
+         <em>
+          IP
+            address
+         </em>
+        </span>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        List IP addresses of remote hosts instead of
+            truncated host names.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+        </code>
+        <em class="parameter">
+         <code>
+          tty
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        List only logins on
+        <em class="parameter">
+         <code>
+          tty
+         </code>
+        </em>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;y
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Also report year of dates.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="last-deprecated-1_sect3" name="last-deprecated-1_sect3" shape="rect">
+    </a>
+    <h2>
+     FILES
+    </h2>
+    <p>
+     /var/log/wtmp &mdash; login data base
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="last-deprecated-1_sect4" name="last-deprecated-1_sect4" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The last command is part of the util-linux package and is
+      available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

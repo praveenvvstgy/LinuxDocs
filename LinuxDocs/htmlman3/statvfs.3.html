@@ -1,0 +1,974 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   statvfs(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="statvfs(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="statvfs.3" name="statvfs.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     statvfs, fstatvfs &mdash; get filesystem statistics
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;sys/statvfs.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          statvfs
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         path
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        struct statvfs *
+        <var class="pdparam">
+         buf
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          fstatvfs
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         fd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        struct statvfs *
+        <var class="pdparam">
+         buf
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="statvfs-3_sect1" name="statvfs-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The function
+     <code class="function">
+      statvfs
+     </code>
+     ()
+      returns information about a mounted filesystem.
+     <em class="parameter">
+      <code>
+       path
+      </code>
+     </em>
+     is the pathname of any
+      file within the mounted filesystem.
+     <em class="parameter">
+      <code>
+       buf
+      </code>
+     </em>
+     is a pointer to a
+     <span class="structname">
+      statvfs
+     </span>
+     structure defined
+      approximately as follows:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="structdef">
+       <table style="border-collapse: collapse;">
+        <colgroup span="1">
+         <col class="c1" span="1">
+         </col>
+         <col class="c2" span="1">
+         </col>
+         <col class="c3" span="1">
+         </col>
+         <col class="c4" span="1">
+         </col>
+         <col class="c5" span="1">
+         </col>
+        </colgroup>
+        <tbody>
+         <tr>
+          <td align="left" class="structdefhdr" colspan="1" rowspan="1" style="">
+           struct
+          </td>
+          <td align="left" class="structdefhdr" colspan="4" rowspan="1" style="">
+           <span class="structname">
+            statvfs
+           </span>
+           &nbsp;{
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            unsigned&nbsp;long
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             f_bsize
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;filesystem&nbsp;block&nbsp;size&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            unsigned&nbsp;long
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             f_frsize
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;fragment&nbsp;size&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            fsblkcnt_t
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             f_blocks
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;size&nbsp;of&nbsp;fs&nbsp;in&nbsp;f_frsize&nbsp;units&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            fsblkcnt_t
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             f_bfree
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;#&nbsp;free&nbsp;blocks&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            fsblkcnt_t
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             f_bavail
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;#&nbsp;free&nbsp;blocks&nbsp;for&nbsp;unprivileged&nbsp;users&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            fsfilcnt_t
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             f_files
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;#&nbsp;inodes&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            fsfilcnt_t
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             f_ffree
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;#&nbsp;free&nbsp;inodes&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            fsfilcnt_t
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             f_favail
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;#&nbsp;free&nbsp;inodes&nbsp;for&nbsp;unprivileged&nbsp;users&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            unsigned&nbsp;long
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             f_fsid
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;filesystem&nbsp;ID&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            unsigned&nbsp;long
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             f_flag
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;mount&nbsp;flags&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            unsigned&nbsp;long
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             f_namemax
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;maximum&nbsp;filename&nbsp;length&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td align="left" class="structdefftr" colspan="5" rowspan="1" style="">
+           };
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     Here the types
+     <span class="type">
+      fsblkcnt_t
+     </span>
+     and
+     <span class="type">
+      fsfilcnt_t
+     </span>
+     are defined in
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      sys/types.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+     Both used to be
+     <span class="type">
+      unsigned long
+     </span>
+     .
+    </p>
+    <p>
+     The field
+     <em class="parameter">
+      <code>
+       f_flag
+      </code>
+     </em>
+     is a bit mask (of mount flags, see
+     <a class="link" href="../htmlman8/mount.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mount
+       </span>
+       (8)
+      </span>
+     </a>
+     ). Bits defined by
+      POSIX are
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         ST_RDONLY
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Read-only filesystem.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         ST_NOSUID
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set-user-ID/set-group-ID bits are ignored by
+        <a class="link" href="../htmlman3/exec.3.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           exec
+          </span>
+          (3)
+         </span>
+        </a>
+        .
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     It is unspecified whether all members of the returned
+      struct have meaningful values on all filesystems.
+    </p>
+    <p>
+     <code class="function">
+      fstatvfs
+     </code>
+     () returns the same
+      information about an open file referenced by descriptor
+     <em class="parameter">
+      <code>
+       fd
+      </code>
+     </em>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="statvfs-3_sect2" name="statvfs-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success, zero is returned. On error, &minus;1 is
+      returned, and
+     <code class="varname">
+      errno
+     </code>
+     is set
+      appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="statvfs-3_sect3" name="statvfs-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EACCES
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        (
+        <code class="function">
+         statvfs
+        </code>
+        ()) Search
+            permission is denied for a component of the path prefix
+            of
+        <em class="parameter">
+         <code>
+          path
+         </code>
+        </em>
+        . (See
+            also
+        <a class="link" href="../htmlman7/path_resolution.7.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           path_resolution
+          </span>
+          (7)
+         </span>
+        </a>
+        .)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EBADF
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        (
+        <code class="function">
+         fstatvfs
+        </code>
+        ())
+        <em class="parameter">
+         <code>
+          fd
+         </code>
+        </em>
+        is not a
+            valid open file descriptor.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EFAULT
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          Buf
+         </code>
+        </em>
+        or
+        <em class="parameter">
+         <code>
+          path
+         </code>
+        </em>
+        points to
+            an invalid address.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINTR
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This call was interrupted by a signal.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EIO
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        An I/O error occurred while reading from the
+            filesystem.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ELOOP
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        (
+        <code class="function">
+         statvfs
+        </code>
+        ()) Too many
+            symbolic links were encountered in translating
+        <em class="parameter">
+         <code>
+          path
+         </code>
+        </em>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENAMETOOLONG
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        (
+        <code class="function">
+         statvfs
+        </code>
+        ())
+        <em class="parameter">
+         <code>
+          path
+         </code>
+        </em>
+        is too long.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOENT
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        (
+        <code class="function">
+         statvfs
+        </code>
+        ()) The file
+            referred to by
+        <em class="parameter">
+         <code>
+          path
+         </code>
+        </em>
+        does not exist.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOMEM
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Insufficient kernel memory was available.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOSYS
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The filesystem does not support this call.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOTDIR
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        (
+        <code class="function">
+         statvfs
+        </code>
+        ()) A
+            component of the path prefix of
+        <em class="parameter">
+         <code>
+          path
+         </code>
+        </em>
+        is not a
+            directory.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EOVERFLOW
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Some values were too large to be represented in the
+            returned struct.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="statvfs-3_sect4" name="statvfs-3_sect4" shape="rect">
+    </a>
+    <h2>
+     ATTRIBUTES
+    </h2>
+    <div class="refsect2">
+     <a id="statvfs-3_sect5" name="statvfs-3_sect5" shape="rect">
+     </a>
+     <h3>
+      Multithreading (see pthreads(7))
+     </h3>
+     <p>
+      The
+      <code class="function">
+       statvfs
+      </code>
+      () and
+      <code class="function">
+       fstatvfs
+      </code>
+      () functions are
+        thread-safe.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="statvfs-3_sect6" name="statvfs-3_sect6" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     POSIX.1-2001.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="statvfs-3_sect7" name="statvfs-3_sect7" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The Linux kernel has system calls
+     <a class="link" href="../htmlman2/statfs.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        statfs
+       </span>
+       (2)
+      </span>
+     </a>
+     and
+     <a class="link" href="../htmlman2/statfs.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fstatfs
+       </span>
+       (2)
+      </span>
+     </a>
+     to support this
+      library call.
+    </p>
+    <p>
+     The current glibc implementations of
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+   pathconf(path, _PC_REC_XFER_ALIGN);
+   pathconf(path, _PC_ALLOC_SIZE_MIN);
+   pathconf(path, _PC_REC_MIN_XFER_SIZE);
+</pre>
+    </div>
+    <p>
+     respectively use the
+     <em class="parameter">
+      <code>
+       f_frsize
+      </code>
+     </em>
+     ,
+     <em class="parameter">
+      <code>
+       f_frsize
+      </code>
+     </em>
+     , and
+     <em class="parameter">
+      <code>
+       f_bsize
+      </code>
+     </em>
+     fields of the return
+      value of
+     <em class="replaceable">
+      <code>
+       statvfs(path,buf)
+      </code>
+     </em>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="statvfs-3_sect8" name="statvfs-3_sect8" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/statfs.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        statfs
+       </span>
+       (2)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="statvfs-3_sect9" name="statvfs-3_sect9" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

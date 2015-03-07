@@ -1,0 +1,542 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   chrt(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="chrt(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="chrt.1" name="chrt.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     chrt &mdash; manipulate the real-time attributes of a
+      process
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       chrt
+      </code>
+      [options] prio command
+        [arg...]
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       chrt
+      </code>
+      [options]
+      <code class="option">
+       &minus;p
+      </code>
+      [prio] pid
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="chrt-1_sect1" name="chrt-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       chrt
+      </strong>
+     </span>
+     sets or
+      retrieves the real-time scheduling attributes of an existing
+     <em class="parameter">
+      <code>
+       pid
+      </code>
+     </em>
+     , or runs
+     <em class="parameter">
+      <code>
+       command
+      </code>
+     </em>
+     with the
+      given attributes. Both policy (one of
+     <code class="constant">
+      SCHED_OTHER
+     </code>
+     ,
+     <code class="constant">
+      SCHED_FIFO
+     </code>
+     ,
+     <code class="constant">
+      SCHED_RR
+     </code>
+     ,
+     <code class="constant">
+      SCHED_BATCH
+     </code>
+     , or
+     <code class="constant">
+      SCHED_IDLE
+     </code>
+     ) and priority can be set and
+      retrieved.
+    </p>
+    <p>
+     The
+     <code class="constant">
+      SCHED_BATCH
+     </code>
+     policy is
+      supported since Linux 2.6.16. The
+     <code class="constant">
+      SCHED_IDLE
+     </code>
+     policy is supported since Linux
+      2.6.23.
+    </p>
+    <p>
+     The
+     <code class="constant">
+      SCHED_RESET_ON_FORK
+     </code>
+     flag
+      for policies SCHED_RR and SCHED_FIFO is supported since Linux
+      2.6.31.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="chrt-1_sect2" name="chrt-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;a,&minus;&minus;all&minus;tasks
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set or retrieve the scheduling attributes of all the
+            tasks (threads) for a given PID.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;b,&minus;&minus;batch
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set scheduling policy to
+        <code class="constant">
+         SCHED_BATCH
+        </code>
+        (Linux specific).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f,&minus;&minus;fifo
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set scheduling policy to
+        <code class="constant">
+         SCHED_FIFO
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i,&minus;&minus;idle
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set scheduling policy to
+        <code class="constant">
+         SCHED_IDLE
+        </code>
+        (Linux specific).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;m,&minus;&minus;max
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Show minimum and maximum valid priorities, then
+            exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o,&minus;&minus;other
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set policy scheduling policy to
+        <code class="constant">
+         SCHED_OTHER
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p,&minus;&minus;pid
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Operate on an existing PID and do not launch a new
+            task.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r,&minus;&minus;rr
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set scheduling policy to
+        <code class="constant">
+         SCHED_RR
+        </code>
+        . When policy is not defined
+            the
+        <code class="constant">
+         SCHED_RR
+        </code>
+        is used as
+            default.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;R,&minus;&minus;reset&minus;on&minus;fork
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Add
+        <code class="constant">
+         SCHED_RESET_ON_FORK
+        </code>
+        flag to the
+        <code class="constant">
+         SCHED_FIFO
+        </code>
+        or
+        <code class="constant">
+         SCHED_RR
+        </code>
+        scheduling
+            policy (Linux specific).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v,&minus;&minus;verbose
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Show status information.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,&minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V,&minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="chrt-1_sect3" name="chrt-1_sect3" shape="rect">
+    </a>
+    <h2>
+     USAGE
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        The default behavior is to run a
+          new command:
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <span class="command">
+         <strong>
+          chrt
+         </strong>
+        </span>
+        <em class="parameter">
+         <code>
+          prio
+         </code>
+        </em>
+        <em class="parameter">
+         <code>
+          command
+         </code>
+        </em>
+        [
+        <span class="command">
+         <strong>
+          arguments
+         </strong>
+        </span>
+        ]
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        You can also retrieve the
+          real-time attributes of an existing task:
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <span class="emphasis">
+         <em>
+          chrt &minus;p
+         </em>
+        </span>
+        <em class="parameter">
+         <code>
+          pid
+         </code>
+        </em>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        Or set them:
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <span class="emphasis">
+         <em>
+          chrt &minus;r
+            &minus;p
+         </em>
+        </span>
+        <span class="emphasis">
+         <em>
+          prio
+            pid
+         </em>
+        </span>
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="chrt-1_sect4" name="chrt-1_sect4" shape="rect">
+    </a>
+    <h2>
+     PERMISSIONS
+    </h2>
+    <p>
+     A user must possess
+     <code class="constant">
+      CAP_SYS_NICE
+     </code>
+     to change the scheduling
+      attributes of a process. Any user can retrieve the scheduling
+      information.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="chrt-1_sect5" name="chrt-1_sect5" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     Only
+     <code class="constant">
+      SCHED_FIFO
+     </code>
+     ,
+     <code class="constant">
+      SCHED_OTHER
+     </code>
+     and
+     <code class="constant">
+      SCHED_RR
+     </code>
+     are part of POSIX 1003.1b Process
+      Scheduling. The other scheduling attributes may be ignored on
+      some systems.
+    </p>
+    <p>
+     Linux default scheduling policy is
+     <code class="constant">
+      SCHED_OTHER
+     </code>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="chrt-1_sect6" name="chrt-1_sect6" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Written by Robert M. Love.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="chrt-1_sect7" name="chrt-1_sect7" shape="rect">
+    </a>
+    <h2>
+     COPYRIGHT
+    </h2>
+    <p>
+     Copyright &copy; 2004 Robert M. Love
+    </p>
+    <p>
+     This is free software; see the source for copying
+      conditions. There is NO warranty; not even for
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="chrt-1_sect8" name="chrt-1_sect8" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/taskset.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        taskset
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/nice.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        nice
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/renice.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        renice
+       </span>
+       (1)
+      </span>
+     </a>
+    </p>
+    <p>
+     See
+     <a class="link" href="../htmlman2/sched_setscheduler.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sched_setscheduler
+       </span>
+       (2)
+      </span>
+     </a>
+     for a
+      description of the Linux scheduling scheme.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="chrt-1_sect9" name="chrt-1_sect9" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The chrt command is part of the util-linux package and is
+      available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

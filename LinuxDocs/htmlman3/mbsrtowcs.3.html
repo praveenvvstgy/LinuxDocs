@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   mbsrtowcs(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="mbsrtowcs(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="mbsrtowcs.3" name="mbsrtowcs.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     mbsrtowcs &mdash; convert a multibyte string to a
+      wide-character string
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;wchar.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         size_t
+         <strong>
+          mbsrtowcs
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        wchar_t *
+        <var class="pdparam">
+         dest
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char **
+        <var class="pdparam">
+         src
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         len
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        mbstate_t *
+        <var class="pdparam">
+         ps
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="mbsrtowcs-3_sect1" name="mbsrtowcs-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       dest
+      </code>
+     </em>
+     is not
+      NULL, the
+     <code class="function">
+      mbsrtowcs
+     </code>
+     () function
+      converts the multibyte string *
+     <em class="parameter">
+      <code>
+       src
+      </code>
+     </em>
+     to a wide-character string
+      starting at
+     <em class="parameter">
+      <code>
+       dest
+      </code>
+     </em>
+     . At
+      most
+     <em class="parameter">
+      <code>
+       len
+      </code>
+     </em>
+     wide
+      characters are written to
+     <em class="parameter">
+      <code>
+       dest
+      </code>
+     </em>
+     . The shift state
+      *
+     <em class="parameter">
+      <code>
+       ps
+      </code>
+     </em>
+     is updated. The
+      conversion is effectively performed by repeatedly calling
+     <span class="emphasis">
+      <em>
+       mbrtowc(dest, *src, n,
+      ps)
+      </em>
+     </span>
+     where
+     <code class="literal">
+      n
+     </code>
+     is some
+      positive number, as long as this call succeeds, and then
+      incrementing
+     <em class="parameter">
+      <code>
+       dest
+      </code>
+     </em>
+     by
+      one and *
+     <em class="parameter">
+      <code>
+       src
+      </code>
+     </em>
+     by the
+      number of bytes consumed. The conversion can stop for three
+      reasons:
+    </p>
+    <div class="orderedlist">
+     <ol class="orderedlist" type="1">
+      <li class="listitem">
+       <p>
+        An invalid multibyte sequence has been encountered.
+            In this case, *
+        <em class="parameter">
+         <code>
+          src
+         </code>
+        </em>
+        is left pointing to
+            the invalid multibyte sequence,
+        <span class="emphasis">
+         <em>
+          (size_t) &minus;1
+         </em>
+        </span>
+        is
+            returned, and
+        <code class="varname">
+         errno
+        </code>
+        is set
+            to
+        <span class="errorname">
+         EILSEQ
+        </span>
+        .
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <em class="parameter">
+         <code>
+          len
+         </code>
+        </em>
+        non-L'\0' wide characters have been stored at
+        <em class="parameter">
+         <code>
+          dest
+         </code>
+        </em>
+        . In this
+            case, *
+        <em class="parameter">
+         <code>
+          src
+         </code>
+        </em>
+        is
+            left pointing to the next multibyte sequence to be
+            converted, and the number of wide characters written to
+        <em class="parameter">
+         <code>
+          dest
+         </code>
+        </em>
+        is
+            returned.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        The multibyte string has been completely converted,
+            including the terminating null wide character ('\0'),
+            which has the side effect of bringing back *
+        <em class="parameter">
+         <code>
+          ps
+         </code>
+        </em>
+        to the initial state.
+            In this case, *
+        <em class="parameter">
+         <code>
+          src
+         </code>
+        </em>
+        is set to NULL, and
+            the number of wide characters written to
+        <em class="parameter">
+         <code>
+          dest
+         </code>
+        </em>
+        , excluding the
+            terminating null wide character, is returned.
+       </p>
+      </li>
+     </ol>
+    </div>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       dest
+      </code>
+     </em>
+     is NULL,
+     <em class="parameter">
+      <code>
+       len
+      </code>
+     </em>
+     is ignored, and
+      the conversion proceeds as above, except that the converted
+      wide characters are not written out to memory, and that no
+      length limit exists.
+    </p>
+    <p>
+     In both of the above cases, if
+     <em class="parameter">
+      <code>
+       ps
+      </code>
+     </em>
+     is NULL, a static anonymous
+      state known only to the
+     <code class="function">
+      mbsrtowcs
+     </code>
+     () function is used instead.
+    </p>
+    <p>
+     The programmer must ensure that there is room for at least
+     <em class="parameter">
+      <code>
+       len
+      </code>
+     </em>
+     wide characters
+      at
+     <em class="parameter">
+      <code>
+       dest
+      </code>
+     </em>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mbsrtowcs-3_sect2" name="mbsrtowcs-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     The
+     <code class="function">
+      mbsrtowcs
+     </code>
+     () function
+      returns the number of wide characters that make up the
+      converted part of the wide-character string, not including
+      the terminating null wide character. If an invalid multibyte
+      sequence was encountered,
+     <span class="emphasis">
+      <em>
+       (size_t)
+      &minus;1
+      </em>
+     </span>
+     is returned, and
+     <code class="varname">
+      errno
+     </code>
+     set to
+     <span class="errorname">
+      EILSEQ
+     </span>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mbsrtowcs-3_sect3" name="mbsrtowcs-3_sect3" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     C99.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mbsrtowcs-3_sect4" name="mbsrtowcs-3_sect4" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The behavior of
+     <code class="function">
+      mbsrtowcs
+     </code>
+     ()
+      depends on the
+     <code class="constant">
+      LC_CTYPE
+     </code>
+     category of the current locale.
+    </p>
+    <p>
+     Passing NULL as
+     <em class="parameter">
+      <code>
+       ps
+      </code>
+     </em>
+     is not multithread safe.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mbsrtowcs-3_sect5" name="mbsrtowcs-3_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/iconv.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        iconv
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/mbrtowc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mbrtowc
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/mbsinit.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mbsinit
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/mbsnrtowcs.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mbsnrtowcs
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/mbstowcs.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mbstowcs
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="mbsrtowcs-3_sect6" name="mbsrtowcs-3_sect6" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

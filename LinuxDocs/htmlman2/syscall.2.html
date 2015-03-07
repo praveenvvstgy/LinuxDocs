@@ -1,0 +1,1049 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   syscall(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="syscall(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="syscall.2" name="syscall.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     syscall &mdash; indirect system call
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#define _GNU_SOURCE          /* See feature_test_macros(7) */
+#include &lt;unistd.h&gt;
+#include &lt;sys/syscall.h&gt;    /* For SYS_xxx definitions */
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         long
+         <strong>
+          syscall
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        long
+        <var class="pdparam">
+         number
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         ...
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="syscall-2_sect1" name="syscall-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      syscall
+     </code>
+     () is a small library
+      function that invokes the system call whose assembly language
+      interface has the specified
+     <em class="parameter">
+      <code>
+       number
+      </code>
+     </em>
+     with the specified
+      arguments. Employing
+     <code class="function">
+      syscall
+     </code>
+     ()
+      is useful, for example, when invoking a system call that has
+      no wrapper function in the C library.
+    </p>
+    <p>
+     <code class="function">
+      syscall
+     </code>
+     () saves CPU
+      registers before making the system call, restores the
+      registers upon return from the system call, and stores any
+      error code returned by the system call in
+     <a class="link" href="../htmlman3/errno.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        errno
+       </span>
+       (3)
+      </span>
+     </a>
+     if an error
+      occurs.
+    </p>
+    <p>
+     Symbolic constants for system call numbers can be found in
+      the header file
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      sys/syscall.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="syscall-2_sect2" name="syscall-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     The return value is defined by the system call being
+      invoked. In general, a 0 return value indicates success. A
+      &minus;1 return value indicates an error, and an error code
+      is stored in
+     <code class="varname">
+      errno
+     </code>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="syscall-2_sect3" name="syscall-2_sect3" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     <code class="function">
+      syscall
+     </code>
+     () first appeared in
+      4BSD.
+    </p>
+    <div class="refsect2">
+     <a id="syscall-2_sect4" name="syscall-2_sect4" shape="rect">
+     </a>
+     <h3>
+      Architecture-specific requirements
+     </h3>
+     <p>
+      Each architecture ABI has its own requirements on how
+        system call arguments are passed to the kernel. For system
+        calls that have a glibc wrapper (e.g., most system calls),
+        glibc handles the details of copying arguments to the right
+        registers in a manner suitable for the architecture.
+        However, when using
+      <code class="function">
+       syscall
+      </code>
+      ()
+        to make a system call, the caller might need to handle
+        architecture-dependent details; this requirement is most
+        commonly encountered on certain 32-bit architectures.
+     </p>
+     <p>
+      For example, on the ARM architecture Embedded ABI
+        (EABI), a 64-bit value (e.g.,
+      <span class="type">
+       long
+        long
+      </span>
+      ) must be aligned to an even register pair.
+        Thus, using
+      <code class="function">
+       syscall
+      </code>
+      () instead
+        of the wrapper provided by glibc, the
+      <code class="function">
+       readahead
+      </code>
+      () system call would be invoked
+        as follows on the ARM architecture with the EABI:
+     </p>
+     <div class="blockquote">
+      <blockquote class="blockquote">
+       <div class="informalexample">
+        <pre class="programlisting" xml:space="preserve">
+syscall(SYS_readahead, fd, 0,
+        (unsigned int) (offset &gt;&gt; 32),
+        (unsigned int) (offset &amp; 0xFFFFFFFF),
+        count);
+</pre>
+       </div>
+      </blockquote>
+     </div>
+     <p>
+      Since the offset argument is 64 bits, and the first
+        argument (
+      <em class="replaceable">
+       <code>
+        fd
+       </code>
+      </em>
+      ) is
+        passed in
+      <em class="replaceable">
+       <code>
+        r0
+       </code>
+      </em>
+      , the
+        caller must manually split and align the 64-bit value so
+        that it is passed in the
+      <em class="replaceable">
+       <code>
+        r2
+       </code>
+      </em>
+      /
+      <em class="replaceable">
+       <code>
+        r3
+       </code>
+      </em>
+      register pair. That
+        means inserting a dummy value into
+      <em class="replaceable">
+       <code>
+        r1
+       </code>
+      </em>
+      (the second argument of
+        0).
+     </p>
+     <p>
+      Similar issues can occur on MIPS with the O32 ABI, on
+        PowerPC with the 32-bit ABI, and on Xtensa.
+     </p>
+     <p>
+      The affected system calls are
+      <a class="link" href="../htmlman2/posix_fadvise.2.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         fadvise64_64
+        </span>
+        (2)
+       </span>
+      </a>
+      ,
+      <a class="link" href="../htmlman2/truncate.2.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         ftruncate64
+        </span>
+        (2)
+       </span>
+      </a>
+      ,
+      <a class="link" href="../htmlman2/posix_fadvise.2.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         posix_fadvise
+        </span>
+        (2)
+       </span>
+      </a>
+      ,
+      <a class="link" href="../htmlman2/pread.2.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         pread64
+        </span>
+        (2)
+       </span>
+      </a>
+      ,
+      <a class="link" href="../htmlman2/pread.2.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         pwrite64
+        </span>
+        (2)
+       </span>
+      </a>
+      ,
+      <a class="link" href="../htmlman2/readahead.2.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         readahead
+        </span>
+        (2)
+       </span>
+      </a>
+      ,
+      <a class="link" href="../htmlman2/sync_file_range.2.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         sync_file_range
+        </span>
+        (2)
+       </span>
+      </a>
+      , and
+      <a class="link" href="../htmlman2/truncate.2.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         truncate64
+        </span>
+        (2)
+       </span>
+      </a>
+      .
+     </p>
+    </div>
+    <div class="refsect2">
+     <a id="syscall-2_sect5" name="syscall-2_sect5" shape="rect">
+     </a>
+     <h3>
+      Architecture calling conventions
+     </h3>
+     <p>
+      Every architecture has its own way of invoking and
+        passing arguments to the kernel. The details for various
+        architectures are listed in the two tables below.
+     </p>
+     <p>
+      The first table lists the instruction used to transition
+        to kernel mode, (which might not be the fastest or best way
+        to transition to the kernel, so you might have to refer to
+      <a class="link" href="../htmlman7/vdso.7.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         vdso
+        </span>
+        (7)
+       </span>
+      </a>
+      ), the register
+        used to indicate the system call number, and the register
+        used to return the system call result.
+     </p>
+     <div class="informaltable">
+      <table style="border-collapse: collapse;">
+       <colgroup span="1">
+        <col class="c0" span="1">
+        </col>
+        <col class="c1" span="1">
+        </col>
+        <col class="c2" span="1">
+        </col>
+        <col class="c3" span="1">
+        </col>
+        <col class="c4" span="1">
+        </col>
+       </colgroup>
+       <tbody>
+        <tr style="">
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          arch/ABI
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          instruction
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          syscall #
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          retval
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          Notes
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          arm/OABI
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          swi
+                NR
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          -
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          a1
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          NR is
+                syscall #
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          arm/EABI
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          swi
+                0x0
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r7
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r0
+         </td>
+         <td class="auto-generated" colspan="1" rowspan="1" style="">
+          &nbsp;
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          blackfin
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          excpt
+                0x0
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          P0
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          R0
+         </td>
+         <td class="auto-generated" colspan="1" rowspan="1" style="">
+          &nbsp;
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          i386
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          int
+                $0x80
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          eax
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          eax
+         </td>
+         <td class="auto-generated" colspan="1" rowspan="1" style="">
+          &nbsp;
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          ia64
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          break
+                0x100000
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r15
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r10/r8
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          <p>
+           bool error/
+          </p>
+          <p>
+           errno value
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          parisc
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          ble
+                0x100(%sr2, %r0)
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r20
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r28
+         </td>
+         <td class="auto-generated" colspan="1" rowspan="1" style="">
+          &nbsp;
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          s390
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          svc
+                0
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r1
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r2
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          See
+                below
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          s390x
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          svc
+                0
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r1
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r2
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          See
+                below
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          sparc/32
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          t
+                0x10
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          g1
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          o0
+         </td>
+         <td class="auto-generated" colspan="1" rowspan="1" style="">
+          &nbsp;
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          sparc/64
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          t
+                0x6d
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          g1
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          o0
+         </td>
+         <td class="auto-generated" colspan="1" rowspan="1" style="">
+          &nbsp;
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          x86_64
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          syscall
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          rax
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          rax
+         </td>
+         <td class="auto-generated" colspan="1" rowspan="1" style="">
+          &nbsp;
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <p>
+      For s390 and s390x, NR (the system call number) may be
+        passed directly with "svc NR" if it is less than 256.
+     </p>
+     <p>
+      The second table shows the registers used to pass the
+        system call arguments.
+     </p>
+     <div class="informaltable">
+      <table style="border-collapse: collapse;">
+       <colgroup span="1">
+        <col class="c0" span="1">
+        </col>
+        <col class="c1" span="1">
+        </col>
+        <col class="c2" span="1">
+        </col>
+        <col class="c3" span="1">
+        </col>
+        <col class="c4" span="1">
+        </col>
+        <col class="c5" span="1">
+        </col>
+        <col class="c6" span="1">
+        </col>
+        <col class="c7" span="1">
+        </col>
+       </colgroup>
+       <tbody>
+        <tr style="">
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          arch/ABI
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          arg1
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          arg2
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          arg3
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          arg4
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          arg5
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          arg6
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          arg7
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          arm/OABI
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          a1
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          a2
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          a3
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          a4
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          v1
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          v2
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          v3
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          arm/EABI
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r0
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r1
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r2
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r3
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r4
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r5
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r6
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          blackfin
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          R0
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          R1
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          R2
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          R3
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          R4
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          R5
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          -
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          i386
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          ebx
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          ecx
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          edx
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          esi
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          edi
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          ebp
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          -
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          ia64
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          out0
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          out1
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          out2
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          out3
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          out4
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          out5
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          -
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          parisc
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r26
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r25
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r24
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r23
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r22
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r21
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          -
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          s390
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r2
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r3
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r4
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r5
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r6
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r7
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          -
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          s390x
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r2
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r3
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r4
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r5
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r6
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r7
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          -
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          sparc/32
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          o0
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          o1
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          o2
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          o3
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          o4
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          o5
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          -
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          sparc/64
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          o0
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          o1
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          o2
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          o3
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          o4
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          o5
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          -
+         </td>
+        </tr>
+        <tr>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          x86_64
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          rdi
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          rsi
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          rdx
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r10
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r8
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          r9
+         </td>
+         <td align="left" class="monospaced" colspan="1" rowspan="1" style="">
+          -
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <p>
+      Note that these tables don't cover the entire calling
+        convention&mdash;some architectures may indiscriminately
+        clobber other registers not listed here.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="syscall-2_sect6" name="syscall-2_sect6" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#define _GNU_SOURCE
+#include &lt;unistd.h&gt;
+#include &lt;sys/syscall.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;signal.h&gt;
+
+int
+main(int argc, char *argv[])
+{
+    pid_t tid;
+
+    tid = syscall(SYS_gettid);
+    tid = syscall(SYS_tgkill, getpid(), tid, SIGHUP);
+}
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="syscall-2_sect7" name="syscall-2_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/_syscall.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        _syscall
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/intro.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        intro
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/syscalls.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        syscalls
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/vdso.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        vdso
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="syscall-2_sect8" name="syscall-2_sect8" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

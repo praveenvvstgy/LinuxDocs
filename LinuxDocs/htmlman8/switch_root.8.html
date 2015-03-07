@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   switch_root(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="switch_root(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="switch-root.8" name="switch-root.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     switch_root &mdash; switch to another filesystem as the
+      root of the mount tree
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       switch_root
+      </code>
+      [
+      <code class="option">
+       &minus;hV
+      </code>
+      ]
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       switch_root
+      </code>
+      newroot init [
+        arg... ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="switch-root-8_sect1" name="switch-root-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       switch_root
+      </strong>
+     </span>
+     moves already mounted /proc, /dev and /sys to
+     <em class="parameter">
+      <code>
+       newroot
+      </code>
+     </em>
+     and makes
+     <em class="parameter">
+      <code>
+       newroot
+      </code>
+     </em>
+     the new root filesystem
+      and starts
+     <em class="parameter">
+      <code>
+       init
+      </code>
+     </em>
+     process.
+    </p>
+    <p>
+     <span class="emphasis">
+      <em>
+       WARNING: switch_root removes
+      recursively all files and directories on the current root
+      filesystem.
+      </em>
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="switch-root-8_sect2" name="switch-root-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V,
+          &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="switch-root-8_sect3" name="switch-root-8_sect3" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       switch_root
+      </strong>
+     </span>
+     returns 0 on success and 1 on failure.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="switch-root-8_sect4" name="switch-root-8_sect4" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     switch_root will fail to function if
+     <em class="parameter">
+      <code>
+       newroot
+      </code>
+     </em>
+     is not the root of a
+      mount. If you want to switch root into a directory that does
+      not meet this requirement then you can first use a
+      bind-mounting trick to turn any directory into a mount
+      point:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+        mount --bind $DIR $DIR
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="switch-root-8_sect5" name="switch-root-8_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman8/mount.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mount
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/chroot.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        chroot
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       init
+      </span>
+      (8)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       mkinitrd
+      </span>
+      (8)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="switch-root-8_sect6" name="switch-root-8_sect6" shape="rect">
+    </a>
+    <h2>
+     AUTHORS
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+Peter Jones &lt;pjones@redhat.com&gt;
+Jeremy Katz &lt;katzj@redhat.com&gt;
+Karel Zak &lt;kzak@redhat.com&gt;
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="switch-root-8_sect7" name="switch-root-8_sect7" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The switch_root command is part of the util-linux package
+      and is available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

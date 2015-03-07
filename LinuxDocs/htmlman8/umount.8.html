@@ -1,0 +1,538 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   umount(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="umount(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="umount.8" name="umount.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     umount &mdash; unmount file systems
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       umount
+      </code>
+      [
+      <code class="option">
+       &minus;hV
+      </code>
+      ]
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       umount
+      </code>
+      <code class="option">
+       &minus;a
+      </code>
+      [
+      <code class="option">
+       &minus;dflnrv
+      </code>
+      ] [
+      <code class="option">
+       &minus;t
+      </code>
+      vfstype ] [
+      <code class="option">
+       &minus;O
+      </code>
+      options ]
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       umount
+      </code>
+      [
+      <code class="option">
+       &minus;dflnrv
+      </code>
+      ] dir | device ...
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="umount-8_sect1" name="umount-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       umount
+      </strong>
+     </span>
+     command detaches the file system(s) mentioned from the file
+      hierarchy. A file system is specified by giving the directory
+      where it has been mounted. Giving the special device on which
+      the file system lives may also work, but is obsolete, mainly
+      because it will fail in case this device was mounted on more
+      than one directory.
+    </p>
+    <p>
+     Note that a file system cannot be unmounted when it is
+      `busy' - for example, when there are open files on it, or
+      when some process has its working directory there, or when a
+      swap file on it is in use. The offending process could even
+      be
+     <span class="command">
+      <strong>
+       umount
+      </strong>
+     </span>
+     itself - it opens libc, and libc in its turn may open for
+      example locale files. A lazy unmount avoids this problem.
+    </p>
+    <p>
+     Options for the
+     <span class="command">
+      <strong>
+       umount
+      </strong>
+     </span>
+     command:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print version and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print help message and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Verbose mode.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Unmount without writing in
+        <code class="filename">
+         /etc/mtab
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        In case unmounting fails, try to remount
+            read-only.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        In case the unmounted device was a loop device, also
+            free this loop device.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Don't call the /sbin/umount.&lt;filesystem&gt;
+            helper even if it exists. By default
+            /sbin/umount.&lt;filesystem&gt; helper is called if one
+            exists.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;a
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        All of the file systems described in
+        <code class="filename">
+         /etc/mtab
+        </code>
+        are unmounted. (With
+        <span class="command">
+         <strong>
+          umount
+         </strong>
+        </span>
+        version 2.7 and later: the
+        <code class="literal">
+         proc
+        </code>
+        filesystem is not unmounted.)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+          vfstype
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Indicate that the actions should only be taken on
+            file systems of the specified type. More than one type
+            may be specified in a comma separated list. The list of
+            file system types can be prefixed with
+        <code class="literal">
+         no
+        </code>
+        to specify the file system types on
+            which no action should be taken.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;O
+          options
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Indicate that the actions should only be taken on
+            file systems with the specified options in
+        <code class="filename">
+         /etc/fstab
+        </code>
+        . More than one option type
+            may be specified in a comma separated list. Each option
+            can be prefixed with
+        <code class="literal">
+         no
+        </code>
+        to
+            specify options for which no action should be
+            taken.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Force unmount (in case of an unreachable NFS
+            system). (Requires kernel 2.1.116 or later.)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Lazy unmount. Detach the filesystem from the
+            filesystem hierarchy now, and cleanup all references to
+            the filesystem as soon as it is not busy anymore.
+            (Requires kernel 2.4.11 or later.)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;no&minus;canonicalize
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Don't canonicalize paths. For more details about
+            this option see the
+        <a class="link" href="../htmlman8/mount.8.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           mount
+          </span>
+          (8)
+         </span>
+        </a>
+        man
+            page.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;fake
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Causes everything to be done except for the actual
+            system call; this ``fakes'' unmounting the filesystem.
+            It can be used to remove entries from
+        <code class="filename">
+         /etc/mtab
+        </code>
+        that were unmounted earlier
+            with the -n option.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="umount-8_sect2" name="umount-8_sect2" shape="rect">
+    </a>
+    <h2>
+     THE LOOP DEVICE
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       umount
+      </strong>
+     </span>
+     command will free the loop device (if any) associated with
+      the mount, in case it finds the option `loop=...' in
+     <code class="filename">
+      /etc/mtab
+     </code>
+     , or when the &minus;d
+      option was given. Any pending loop devices can be freed using
+      `losetup -d', see
+     <a class="link" href="../htmlman8/losetup.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        losetup
+       </span>
+       (8)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="umount-8_sect3" name="umount-8_sect3" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The syntax of external umount helpers is:
+    </p>
+    <p>
+     <code class="filename">
+      /sbin/umount.
+     </code>
+     <em class="replaceable">
+      <code>
+       &lt;suffix&gt;
+      </code>
+     </em>
+     {
+     <em class="parameter">
+      <code>
+       dir
+      </code>
+     </em>
+     |
+     <em class="parameter">
+      <code>
+       device
+      </code>
+     </em>
+     } [
+     <code class="option">
+      &minus;nlfvr
+     </code>
+     ] [
+     <code class="option">
+      &minus;t
+     </code>
+     <em class="replaceable">
+      <code>
+       type.subtype
+      </code>
+     </em>
+     ]
+    </p>
+    <p>
+     where the &lt;suffix&gt; is filesystem type or a value
+      from "uhelper=" or "helper=" mtab option. The &minus;t option
+      is used for filesystems with subtypes support (for example
+      /sbin/mount.fuse -t fuse.sshfs).
+    </p>
+    <p>
+     The uhelper= (unprivileged umount helper) is possible to
+      use when non-root user wants to umount a mountpoint which is
+      not defined in the /etc/fstab file (e.g devices mounted by
+      udisk).
+    </p>
+    <p>
+     The helper= mount option redirects all umount requests to
+      the /sbin/umount.&lt;helper&gt; independently on UID.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="umount-8_sect4" name="umount-8_sect4" shape="rect">
+    </a>
+    <h2>
+     FILES
+    </h2>
+    <p>
+     <code class="filename">
+      /etc/mtab
+     </code>
+     table of mounted
+      file systems
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="umount-8_sect5" name="umount-8_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/umount.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        umount
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/mount.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mount
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/losetup.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        losetup
+       </span>
+       (8)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="umount-8_sect6" name="umount-8_sect6" shape="rect">
+    </a>
+    <h2>
+     HISTORY
+    </h2>
+    <p>
+     A
+     <span class="command">
+      <strong>
+       umount
+      </strong>
+     </span>
+     command appeared in Version 6 AT&amp;T UNIX.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="umount-8_sect7" name="umount-8_sect7" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The umount command is part of the util-linux package and
+      is available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

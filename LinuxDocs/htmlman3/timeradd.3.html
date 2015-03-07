@@ -1,0 +1,676 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   timeradd(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="timeradd(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="timeradd.3" name="timeradd.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     timeradd, timersub, timercmp, timerclear, timerisset
+      &mdash; timeval operations
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;sys/time.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          timeradd
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        struct timeval *
+        <var class="pdparam">
+         a
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        struct timeval *
+        <var class="pdparam">
+         b
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        struct timeval *
+        <var class="pdparam">
+         res
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          timersub
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        struct timeval *
+        <var class="pdparam">
+         a
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        struct timeval *
+        <var class="pdparam">
+         b
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        struct timeval *
+        <var class="pdparam">
+         res
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          timerclear
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        struct timeval *
+        <var class="pdparam">
+         tvp
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          timerisset
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        struct timeval *
+        <var class="pdparam">
+         tvp
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          timercmp
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        struct timeval *
+        <var class="pdparam">
+         a
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        struct timeval *
+        <var class="pdparam">
+         b
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        <var class="pdparam">
+         CMP
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             All functions shown above:
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _BSD_SOURCE
+             </code>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="timeradd-3_sect1" name="timeradd-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The macros are provided to operate on
+     <span class="structname">
+      timeval
+     </span>
+     structures, defined in
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      sys/time.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+     as:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="structdef">
+       <table style="border-collapse: collapse;">
+        <colgroup span="1">
+         <col class="c1" span="1">
+         </col>
+         <col class="c2" span="1">
+         </col>
+         <col class="c3" span="1">
+         </col>
+         <col class="c4" span="1">
+         </col>
+         <col class="c5" span="1">
+         </col>
+        </colgroup>
+        <tbody>
+         <tr>
+          <td align="left" class="structdefhdr" colspan="1" rowspan="1" style="">
+           struct
+          </td>
+          <td align="left" class="structdefhdr" colspan="4" rowspan="1" style="">
+           <span class="structname">
+            timeval
+           </span>
+           &nbsp;{
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            time_t
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             tv_sec
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;seconds&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <span class="type">
+            suseconds_t
+           </span>
+          </td>
+          <td align="right" class="norightpad" colspan="1" rowspan="1" style="">
+           &nbsp;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <em class="structfield">
+            <code>
+             tv_usec
+            </code>
+           </em>
+           ;
+          </td>
+          <td align="left" colspan="1" rowspan="1" style="">
+           <div class="literallayout">
+            /*&nbsp;microseconds&nbsp;*/
+           </div>
+          </td>
+         </tr>
+         <tr>
+          <td align="left" class="structdefftr" colspan="5" rowspan="1" style="">
+           };
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     <code class="function">
+      timeradd
+     </code>
+     () adds the time
+      values in
+     <em class="parameter">
+      <code>
+       a
+      </code>
+     </em>
+     and
+     <em class="parameter">
+      <code>
+       b
+      </code>
+     </em>
+     , and places the sum
+      in the
+     <span class="structname">
+      timeval
+     </span>
+     pointed to by
+     <em class="parameter">
+      <code>
+       res
+      </code>
+     </em>
+     . The result is
+      normalized such that
+     <em class="replaceable">
+      <code>
+       res&minus;&gt;tv_usec
+      </code>
+     </em>
+     has a
+      value in the range 0 to 999,999.
+    </p>
+    <p>
+     <code class="function">
+      timersub
+     </code>
+     () subtracts the
+      time value in
+     <em class="parameter">
+      <code>
+       b
+      </code>
+     </em>
+     from
+      the time value in
+     <em class="parameter">
+      <code>
+       a
+      </code>
+     </em>
+     ,
+      and places the result in the
+     <span class="structname">
+      timeval
+     </span>
+     pointed to by
+     <em class="parameter">
+      <code>
+       res
+      </code>
+     </em>
+     . The result is normalized
+      such that
+     <em class="replaceable">
+      <code>
+       res&minus;&gt;tv_usec
+      </code>
+     </em>
+     has a
+      value in the range 0 to 999,999.
+    </p>
+    <p>
+     <code class="function">
+      timerclear
+     </code>
+     () zeros out the
+     <span class="structname">
+      timeval
+     </span>
+     structure pointed to
+      by
+     <em class="parameter">
+      <code>
+       tvp
+      </code>
+     </em>
+     , so that it
+      represents the Epoch: 1970-01-01 00:00:00 +0000 (UTC).
+    </p>
+    <p>
+     <code class="function">
+      timerisset
+     </code>
+     () returns true
+      (nonzero) if either field of the
+     <span class="structname">
+      timeval
+     </span>
+     structure pointed to by
+     <em class="parameter">
+      <code>
+       tvp
+      </code>
+     </em>
+     contains a
+      nonzero value.
+    </p>
+    <p>
+     <code class="function">
+      timercmp
+     </code>
+     () compares the
+      timer values in
+     <em class="parameter">
+      <code>
+       a
+      </code>
+     </em>
+     and
+     <em class="parameter">
+      <code>
+       b
+      </code>
+     </em>
+     using the
+      comparison operator
+     <em class="parameter">
+      <code>
+       CMP
+      </code>
+     </em>
+     , and returns true (nonzero)
+      or false (0) depending on the result of the comparison. Some
+      systems (but not Linux/glibc), have a broken
+     <code class="function">
+      timercmp
+     </code>
+     () implementation, in which
+     <em class="parameter">
+      <code>
+       CMP
+      </code>
+     </em>
+     of
+     <em class="replaceable">
+      <code>
+       &gt;=
+      </code>
+     </em>
+     ,
+     <em class="replaceable">
+      <code>
+       &lt;=
+      </code>
+     </em>
+     , and
+     <em class="replaceable">
+      <code>
+       ==
+      </code>
+     </em>
+     do not work; portable
+      applications can instead use
+    </p>
+    <p>
+     !timercmp(..., &lt;) !timercmp(..., &gt;) !timercmp(...,
+      !=)
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="timeradd-3_sect2" name="timeradd-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     <code class="function">
+      timerisset
+     </code>
+     () and
+     <code class="function">
+      timercmp
+     </code>
+     () return true
+      (nonzero) or false (0).
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="timeradd-3_sect3" name="timeradd-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <p>
+     No errors are defined.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="timeradd-3_sect4" name="timeradd-3_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     Not in POSIX.1-2001. Present on most BSD derivatives.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="timeradd-3_sect5" name="timeradd-3_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/gettimeofday.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        gettimeofday
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/time.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        time
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="timeradd-3_sect6" name="timeradd-3_sect6" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

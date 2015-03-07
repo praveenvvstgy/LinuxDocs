@@ -1,0 +1,391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   getsockname(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="getsockname(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="getsockname.2" name="getsockname.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     getsockname &mdash; get socket name
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;sys/socket.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          getsockname
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         sockfd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        struct sockaddr *
+        <var class="pdparam">
+         addr
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        socklen_t *
+        <var class="pdparam">
+         addrlen
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="getsockname-2_sect1" name="getsockname-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      getsockname
+     </code>
+     () returns the
+      current address to which the socket
+     <em class="parameter">
+      <code>
+       sockfd
+      </code>
+     </em>
+     is bound, in the buffer
+      pointed to by
+     <em class="parameter">
+      <code>
+       addr
+      </code>
+     </em>
+     .
+      The
+     <em class="parameter">
+      <code>
+       addrlen
+      </code>
+     </em>
+     argument
+      should be initialized to indicate the amount of space (in
+      bytes) pointed to by
+     <em class="parameter">
+      <code>
+       addr
+      </code>
+     </em>
+     . On return it contains the
+      actual size of the socket address.
+    </p>
+    <p>
+     The returned address is truncated if the buffer provided
+      is too small; in this case,
+     <em class="parameter">
+      <code>
+       addrlen
+      </code>
+     </em>
+     will return a value
+      greater than was supplied to the call.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getsockname-2_sect2" name="getsockname-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success, zero is returned. On error, &minus;1 is
+      returned, and
+     <code class="varname">
+      errno
+     </code>
+     is set
+      appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getsockname-2_sect3" name="getsockname-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EBADF
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The argument
+        <em class="parameter">
+         <code>
+          sockfd
+         </code>
+        </em>
+        is not a valid
+            descriptor.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EFAULT
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The
+        <em class="parameter">
+         <code>
+          addr
+         </code>
+        </em>
+        argument points to memory not in a valid part of the
+            process address space.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        <em class="parameter">
+         <code>
+          addrlen
+         </code>
+        </em>
+        is
+            invalid (e.g., is negative).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOBUFS
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Insufficient resources were available in the system
+            to perform the operation.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOTSOCK
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The argument
+        <em class="parameter">
+         <code>
+          sockfd
+         </code>
+        </em>
+        is a file, not a
+            socket.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="getsockname-2_sect4" name="getsockname-2_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     SVr4, 4.4BSD (the
+     <code class="function">
+      getsockname
+     </code>
+     () function call appeared in
+      4.2BSD), POSIX.1-2001.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getsockname-2_sect5" name="getsockname-2_sect5" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The third argument of
+     <code class="function">
+      getsockname
+     </code>
+     () is in reality an
+     <span class="emphasis">
+      <em>
+       int *
+      </em>
+     </span>
+     (and this is what 4.x BSD
+      and libc4 and libc5 have). Some POSIX confusion resulted in
+      the present
+     <span class="type">
+      socklen_t
+     </span>
+     , also used by
+      glibc. See also
+     <a class="link" href="../htmlman2/accept.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        accept
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="getsockname-2_sect6" name="getsockname-2_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/bind.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        bind
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/socket.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        socket
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/getifaddrs.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getifaddrs
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/ip.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ip
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/socket.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        socket
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/unix.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        unix
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="getsockname-2_sect7" name="getsockname-2_sect7" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

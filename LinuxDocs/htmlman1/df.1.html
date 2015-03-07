@@ -1,0 +1,500 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   df(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="df(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="df.1" name="df.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     df &mdash; report file system disk space usage
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       df
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...] [
+      <em class="replaceable">
+       <code>
+        FILE
+       </code>
+      </em>
+      ...]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="df-1_sect1" name="df-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This manual page documents the GNU version of
+     <span class="command">
+      <strong>
+       df
+      </strong>
+     </span>
+     .
+     <span class="command">
+      <strong>
+       df
+      </strong>
+     </span>
+     displays the amount of
+      disk space available on the file system containing each file
+      name argument. If no file name is given, the space available
+      on all currently mounted file systems is shown. Disk space is
+      shown in 1K blocks by default, unless the environment
+      variable POSIXLY_CORRECT is set, in which case 512-byte
+      blocks are used.
+    </p>
+    <p>
+     If an argument is the absolute file name of a disk device
+      node containing a mounted file system,
+     <span class="command">
+      <strong>
+       df
+      </strong>
+     </span>
+     shows the space
+      available on that file system rather than on the file system
+      containing the device node. This version of
+     <span class="command">
+      <strong>
+       df
+      </strong>
+     </span>
+     cannot show the space
+      available on unmounted file systems, because on most kinds of
+      systems doing so requires very nonportable intimate knowledge
+      of file system structures.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="df-1_sect2" name="df-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <p>
+     Show information about the file system on which each FILE
+      resides, or all file systems by default.
+    </p>
+    <p>
+     Mandatory arguments to long options are mandatory for
+      short options too.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;a
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;all
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        include dummy file systems
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;B
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;block&minus;size
+        </code>
+        =
+        <code class="constant">
+         SIZE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        scale sizes by SIZE before printing them; e.g.,
+            '&minus;BM' prints sizes in units of 1,048,576 bytes;
+            see SIZE format below
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;total
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        produce a grand total
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;human&minus;readable
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print sizes in human readable format (e.g., 1K 234M
+            2G)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;H
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;si
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        likewise, but use powers of 1000 not 1024
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;inodes
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        list inode information instead of block usage
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;k
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        like
+        <code class="option">
+         &minus;&minus;block&minus;size
+        </code>
+        =
+        <code class="constant">
+         1K
+        </code>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;local
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        limit listing to local file systems
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;no&minus;sync
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not invoke sync before getting usage info
+            (default)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;output
+        </code>
+        [=
+        <code class="constant">
+         FIELD_LIST
+        </code>
+        ]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use the output format defined by FIELD_LIST, or
+            print all fields if FIELD_LIST is omitted.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;P
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;portability
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use the POSIX output format
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;sync
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        invoke sync before getting usage info
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;type
+        </code>
+        =
+        <code class="constant">
+         TYPE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        limit listing to file systems of type TYPE
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;T
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;print&minus;type
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print file system type
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;x
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;exclude&minus;type
+        </code>
+        =
+        <code class="constant">
+         TYPE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        limit listing to file systems not of type TYPE
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        (ignored)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display this help and exit
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output version information and exit
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     Display values are in units of the first available SIZE
+      from
+     <code class="option">
+      &minus;&minus;block&minus;size
+     </code>
+     , and the
+      DF_BLOCK_SIZE, BLOCK_SIZE and BLOCKSIZE environment
+      variables. Otherwise, units default to 1024 bytes (or 512 if
+      POSIXLY_CORRECT is set).
+    </p>
+    <p>
+     SIZE is an integer and optional unit (example: 10M is
+      10*1024*1024). Units are K, M, G, T, P, E, Z, Y (powers of
+      1024) or KB, MB, ... (powers of 1000).
+    </p>
+    <p>
+     FIELD_LIST is a comma&minus;separated list of columns to
+      be included. Valid field names are: 'source', 'fstype',
+      'itotal', 'iused', 'iavail', 'ipcent', 'size', 'used',
+      'avail', 'pcent', 'file' and 'target' (see info page).
+    </p>
+    <p>
+     GNU coreutils online help: &lt;
+     <a class="literalurl" href="http://www.gnu.org/software/coreutils/" shape="rect" target="_top">
+      http://www.gnu.org/software/coreutils/
+     </a>
+     &gt; Report
+      df translation bugs to &lt;
+     <a class="literalurl" href="http://translationproject.org/team/" shape="rect" target="_top">
+      http://translationproject.org/team/
+     </a>
+     &gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="df-1_sect3" name="df-1_sect3" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Written by Torbjorn Granlund, David MacKenzie, and Paul
+      Eggert.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="df-1_sect5" name="df-1_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <span class="command">
+      <strong>
+       df
+      </strong>
+     </span>
+     is maintained as a
+      Texinfo manual. If the
+     <span class="command">
+      <strong>
+       info
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       df
+      </strong>
+     </span>
+     programs are properly
+      installed at your site, the command
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <span class="emphasis">
+         <em>
+          info coreutils 'df
+            invocation'
+         </em>
+        </span>
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p>
+     should give you access to the complete manual.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

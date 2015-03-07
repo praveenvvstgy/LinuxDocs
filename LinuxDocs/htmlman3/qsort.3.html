@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   qsort(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="qsort(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="qsort.3" name="qsort.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     qsort, qsort_r &mdash; sort an array
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;stdlib.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          qsort
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        void *
+        <var class="pdparam">
+         base
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         nmemb
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         size
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         (*compar)
+        </var>
+        <code>
+         (
+        </code>
+        const void *,
+            const void *
+        <code>
+         )
+        </code>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          qsort_r
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        void *
+        <var class="pdparam">
+         base
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         nmemb
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         size
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         (*compar)
+        </var>
+        <code>
+         (
+        </code>
+        const void *,
+            const void *, void *
+        <code>
+         )
+        </code>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        void *
+        <var class="pdparam">
+         arg
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              qsort_r
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _GNU_SOURCE
+             </code>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="qsort-3_sect1" name="qsort-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      qsort
+     </code>
+     () function sorts
+      an array with
+     <em class="parameter">
+      <code>
+       nmemb
+      </code>
+     </em>
+     elements of size
+     <em class="parameter">
+      <code>
+       size
+      </code>
+     </em>
+     . The
+     <em class="parameter">
+      <code>
+       base
+      </code>
+     </em>
+     argument points to the
+      start of the array.
+    </p>
+    <p>
+     The contents of the array are sorted in ascending order
+      according to a comparison function pointed to by
+     <em class="parameter">
+      <code>
+       compar
+      </code>
+     </em>
+     , which is called with
+      two arguments that point to the objects being compared.
+    </p>
+    <p>
+     The comparison function must return an integer less than,
+      equal to, or greater than zero if the first argument is
+      considered to be respectively less than, equal to, or greater
+      than the second. If two members compare as equal, their order
+      in the sorted array is undefined.
+    </p>
+    <p>
+     The
+     <code class="function">
+      qsort_r
+     </code>
+     () function is
+      identical to
+     <code class="function">
+      qsort
+     </code>
+     () except
+      that the comparison function
+     <em class="parameter">
+      <code>
+       compar
+      </code>
+     </em>
+     takes a third argument.
+      A pointer is passed to the comparison function via
+     <em class="parameter">
+      <code>
+       arg
+      </code>
+     </em>
+     . In this way, the
+      comparison function does not need to use global variables to
+      pass through arbitrary arguments, and is therefore reentrant
+      and safe to use in threads.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="qsort-3_sect2" name="qsort-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     The
+     <code class="function">
+      qsort
+     </code>
+     () and
+     <code class="function">
+      qsort_r
+     </code>
+     () functions return no value.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="qsort-3_sect3" name="qsort-3_sect3" shape="rect">
+    </a>
+    <h2>
+     VERSIONS
+    </h2>
+    <p>
+     <code class="function">
+      qsort_r
+     </code>
+     () was added to glibc
+      in version 2.8.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="qsort-3_sect4" name="qsort-3_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     The
+     <code class="function">
+      qsort
+     </code>
+     () function
+      conforms to SVr4, 4.3BSD, C89, C99.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="qsort-3_sect5" name="qsort-3_sect5" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     Library routines suitable for use as the
+     <em class="parameter">
+      <code>
+       compar
+      </code>
+     </em>
+     argument to
+     <code class="function">
+      qsort
+     </code>
+     () include
+     <a class="link" href="../htmlman3/scandir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        alphasort
+       </span>
+       (3)
+      </span>
+     </a>
+     and
+     <a class="link" href="../htmlman3/scandir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        versionsort
+       </span>
+       (3)
+      </span>
+     </a>
+     . To compare
+      C strings, the comparison function can call
+     <a class="link" href="../htmlman3/strcmp.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        strcmp
+       </span>
+       (3)
+      </span>
+     </a>
+     , as shown in the
+      example below.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="qsort-3_sect6" name="qsort-3_sect6" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <p>
+     For one example of use, see the example under
+     <a class="link" href="../htmlman3/bsearch.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        bsearch
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     Another example is the following program, which sorts the
+      strings given in its command-line arguments:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+static int
+cmpstringp(const void *p1, const void *p2)
+{
+    /* The actual arguments to this function are "pointers to
+       pointers to char", but strcmp(3) arguments are "pointers
+       to char", hence the following cast plus dereference */
+
+    return strcmp(* (char * const *) p1, * (char * const *) p2);
+}
+
+int
+main(int argc, char *argv[])
+{
+    int j;
+
+    if (argc &lt; 2) {
+        fprintf(stderr, "Usage: %s &lt;string&gt;...\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    qsort(&amp;argv[1], argc &minus; 1, sizeof(char *), cmpstringp);
+
+    for (j = 1; j &lt; argc; j++)
+        puts(argv[j]);
+    exit(EXIT_SUCCESS);
+}
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="qsort-3_sect7" name="qsort-3_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/sort.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sort
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/scandir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        alphasort
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/strcmp.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        strcmp
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/scandir.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        versionsort
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="qsort-3_sect8" name="qsort-3_sect8" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

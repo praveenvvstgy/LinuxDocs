@@ -1,0 +1,928 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   environ(7) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="environ(7) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="environ.7" name="environ.7" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     environ &mdash; user environment
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+extern char **environ;
+  
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="environ-7_sect1" name="environ-7_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The variable
+     <em class="replaceable">
+      <code>
+       environ
+      </code>
+     </em>
+     points to an array of
+      pointers to strings called the "environment". The last
+      pointer in this array has the value NULL. (This variable must
+      be declared in the user program, but is declared in the
+      header file
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      unistd.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+     if the
+     <code class="constant">
+      _GNU_SOURCE
+     </code>
+     feature test
+      macro is defined.) This array of strings is made available to
+      the process by the
+     <a class="link" href="../htmlman3/exec.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        exec
+       </span>
+       (3)
+      </span>
+     </a>
+     call that started
+      the process.
+    </p>
+    <p>
+     By convention the strings in
+     <em class="replaceable">
+      <code>
+       environ
+      </code>
+     </em>
+     have the form
+      "
+     <em class="replaceable">
+      <code>
+       name
+      </code>
+     </em>
+     <code class="literal">
+      =
+     </code>
+     <em class="replaceable">
+      <code>
+       value
+      </code>
+     </em>
+     ". Common examples
+      are:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         USER
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The name of the logged-in user (used by some
+            BSD-derived programs).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         LOGNAME
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The name of the logged-in user (used by some
+            System-V derived programs).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         HOME
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        A user's login directory, set by
+        <a class="link" href="../htmlman1/login.1.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           login
+          </span>
+          (1)
+         </span>
+        </a>
+        from the
+            password file
+        <a class="link" href="../htmlman5/passwd.5.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           passwd
+          </span>
+          (5)
+         </span>
+        </a>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         LANG
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The name of a locale to use for locale categories
+            when not overridden by
+        <code class="constant">
+         LC_ALL
+        </code>
+        or more specific environment
+            variables such as
+        <code class="constant">
+         LC_COLLATE
+        </code>
+        ,
+        <code class="constant">
+         LC_CTYPE
+        </code>
+        ,
+        <code class="constant">
+         LC_MESSAGES
+        </code>
+        ,
+        <code class="constant">
+         LC_MONETARY
+        </code>
+        ,
+        <code class="constant">
+         LC_NUMERIC
+        </code>
+        , and
+        <code class="constant">
+         LC_TIME
+        </code>
+        (see
+        <a class="link" href="../htmlman7/locale.7.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           locale
+          </span>
+          (7)
+         </span>
+        </a>
+        for further
+            details of the
+        <em class="replaceable">
+         <code>
+          LC_*
+         </code>
+        </em>
+        environment
+            variables).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         PATH
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The sequence of directory prefixes that
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          sh
+         </span>
+         (1)
+        </span>
+        and many other
+            programs apply in searching for a file known by an
+            incomplete pathname. The prefixes are separated by
+            '
+        <code class="literal">
+         :
+        </code>
+        '. (Similarly one has
+        <code class="constant">
+         CDPATH
+        </code>
+        used by some
+            shells to find the target of a change directory
+            command,
+        <code class="constant">
+         MANPATH
+        </code>
+        used by
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          man
+         </span>
+         (1)
+        </span>
+        to find manual
+            pages, and so on)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         PWD
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The current working directory. Set by some
+            shells.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         SHELL
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The pathname of the user's login shell.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         TERM
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The terminal type for which output is to be
+            prepared.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         PAGER
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The user's preferred utility to display text
+            files.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         EDITOR
+        </code>
+        /
+        <code class="constant">
+         VISUAL
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The user's preferred utility to edit text files.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     Further names may be placed in the environment by the
+     <em class="replaceable">
+      <code>
+       export
+      </code>
+     </em>
+     command and
+      "name=value" in
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       sh
+      </span>
+      (1)
+     </span>
+     , or by the
+     <span class="command">
+      <strong>
+       setenv
+      </strong>
+     </span>
+     command if you use
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       csh
+      </span>
+      (1)
+     </span>
+     . Arguments may also be
+      placed in the environment at the point of an
+     <a class="link" href="../htmlman3/exec.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        exec
+       </span>
+       (3)
+      </span>
+     </a>
+     . A C program can
+      manipulate its environment using the functions
+     <a class="link" href="../htmlman3/getenv.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getenv
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/putenv.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        putenv
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/setenv.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setenv
+       </span>
+       (3)
+      </span>
+     </a>
+     , and
+     <a class="link" href="../htmlman3/setenv.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        unsetenv
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     Note that the behavior of many programs and library
+      routines is influenced by the presence or value of certain
+      environment variables. A random collection:
+    </p>
+    <p>
+     The variables
+     <code class="constant">
+      LANG
+     </code>
+     ,
+     <code class="constant">
+      LANGUAGE
+     </code>
+     ,
+     <code class="constant">
+      NLSPATH
+     </code>
+     ,
+     <code class="constant">
+      LOCPATH
+     </code>
+     ,
+     <code class="constant">
+      LC_ALL
+     </code>
+     ,
+     <code class="constant">
+      LC_MESSAGES
+     </code>
+     , and so on influence locale
+      handling; see
+     <a class="link" href="../htmlman3/catopen.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        catopen
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       gettext
+      </span>
+      (3)
+     </span>
+     , and
+     <a class="link" href="../htmlman7/locale.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        locale
+       </span>
+       (7)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     <code class="constant">
+      TMPDIR
+     </code>
+     influences the path
+      prefix of names created by
+     <a class="link" href="../htmlman3/tmpnam.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tmpnam
+       </span>
+       (3)
+      </span>
+     </a>
+     and other
+      routines, and the temporary directory used by
+     <a class="link" href="../htmlman1/sort.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sort
+       </span>
+       (1)
+      </span>
+     </a>
+     and other
+      programs.
+    </p>
+    <p>
+     <code class="constant">
+      LD_LIBRARY_PATH
+     </code>
+     ,
+     <code class="constant">
+      LD_PRELOAD
+     </code>
+     and other LD_*
+      variables influence the behavior of the dynamic
+      loader/linker.
+    </p>
+    <p>
+     <code class="constant">
+      POSIXLY_CORRECT
+     </code>
+     makes
+      certain programs and library routines follow the
+      prescriptions of POSIX.
+    </p>
+    <p>
+     The behavior of
+     <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        malloc
+       </span>
+       (3)
+      </span>
+     </a>
+     is influenced by
+     <em class="replaceable">
+      <code>
+       MALLOC_*
+      </code>
+     </em>
+     variables.
+    </p>
+    <p>
+     The variable
+     <code class="constant">
+      HOSTALIASES
+     </code>
+     gives the name of a file containing aliases to be used with
+     <a class="link" href="../htmlman3/gethostbyname.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        gethostbyname
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     <code class="constant">
+      TZ
+     </code>
+     and
+     <code class="constant">
+      TZDIR
+     </code>
+     give timezone information used by
+     <a class="link" href="../htmlman3/tzset.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tzset
+       </span>
+       (3)
+      </span>
+     </a>
+     and through that
+      by functions like
+     <a class="link" href="../htmlman3/ctime.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ctime
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/ctime.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        localtime
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/ctime.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mktime
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/strftime.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        strftime
+       </span>
+       (3)
+      </span>
+     </a>
+     . See also
+     <a class="link" href="../htmlman8/tzselect.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tzselect
+       </span>
+       (8)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     <code class="constant">
+      TERMCAP
+     </code>
+     gives information on
+      how to address a given terminal (or gives the name of a file
+      containing such information).
+    </p>
+    <p>
+     <code class="constant">
+      COLUMNS
+     </code>
+     and
+     <code class="constant">
+      LINES
+     </code>
+     tell applications about the window
+      size, possibly overriding the actual size.
+    </p>
+    <p>
+     <code class="constant">
+      PRINTER
+     </code>
+     or
+     <code class="constant">
+      LPDEST
+     </code>
+     may specify the desired printer to
+      use. See
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       lpr
+      </span>
+      (1)
+     </span>
+     .
+    </p>
+    <p>
+     Etc.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="environ-7_sect2" name="environ-7_sect2" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     Clearly there is a security risk here. Many a system
+      command has been tricked into mischief by a user who
+      specified unusual values for
+     <code class="constant">
+      IFS
+     </code>
+     or
+     <code class="constant">
+      LD_LIBRARY_PATH
+     </code>
+     .
+    </p>
+    <p>
+     There is also the risk of name space pollution. Programs
+      like
+     <em class="replaceable">
+      <code>
+       make
+      </code>
+     </em>
+     and
+     <em class="replaceable">
+      <code>
+       autoconf
+      </code>
+     </em>
+     allow
+      overriding of default utility names from the environment with
+      similarly named variables in all caps. Thus one uses
+     <code class="constant">
+      CC
+     </code>
+     to select the desired C
+      compiler (and similarly
+     <code class="constant">
+      MAKE
+     </code>
+     ,
+     <code class="constant">
+      AR
+     </code>
+     ,
+     <code class="constant">
+      AS
+     </code>
+     ,
+     <code class="constant">
+      FC
+     </code>
+     ,
+     <code class="constant">
+      LD
+     </code>
+     ,
+     <code class="constant">
+      LEX
+     </code>
+     ,
+     <code class="constant">
+      RM
+     </code>
+     ,
+     <code class="constant">
+      YACC
+     </code>
+     , etc.). However, in some
+      traditional uses such an environment variable gives options
+      for the program instead of a pathname. Thus, one has
+     <code class="constant">
+      MORE
+     </code>
+     ,
+     <code class="constant">
+      LESS
+     </code>
+     , and
+     <code class="constant">
+      GZIP
+     </code>
+     . Such usage is considered mistaken,
+      and to be avoided in new programs. The authors of
+     <em class="replaceable">
+      <code>
+       gzip
+      </code>
+     </em>
+     should consider renaming
+      their option to
+     <code class="constant">
+      GZIP_OPT
+     </code>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="environ-7_sect3" name="environ-7_sect3" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/env.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        env
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       bash
+      </span>
+      (1)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       csh
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman1/login.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        login
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/printenv.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        printenv
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       sh
+      </span>
+      (1)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       tcsh
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman2/execve.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        execve
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/clearenv.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clearenv
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/exec.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        exec
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/getenv.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getenv
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/putenv.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        putenv
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/setenv.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setenv
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/setenv.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        unsetenv
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/locale.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        locale
+       </span>
+       (7)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/ld.so.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ld.so
+       </span>
+       (8)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="environ-7_sect4" name="environ-7_sect4" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

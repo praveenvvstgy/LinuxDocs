@@ -1,0 +1,541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   listen(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="listen(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="listen.2" name="listen.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     listen &mdash; listen for connections on a socket
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+#include &lt;sys/types.h&gt;           /* See NOTES */
+#include &lt;sys/socket.h&gt;
+</pre>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          listen
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         sockfd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         backlog
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="listen-2_sect1" name="listen-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      listen
+     </code>
+     () marks the socket
+      referred to by
+     <em class="parameter">
+      <code>
+       sockfd
+      </code>
+     </em>
+     as a passive socket, that is, as a socket that will be used
+      to accept incoming connection requests using
+     <a class="link" href="../htmlman2/accept.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        accept
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       sockfd
+      </code>
+     </em>
+     argument is a file descriptor that refers to a socket of type
+     <code class="constant">
+      SOCK_STREAM
+     </code>
+     or
+     <code class="constant">
+      SOCK_SEQPACKET
+     </code>
+     .
+    </p>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       backlog
+      </code>
+     </em>
+     argument defines the maximum length to which the queue of
+      pending connections for
+     <em class="parameter">
+      <code>
+       sockfd
+      </code>
+     </em>
+     may grow. If a
+      connection request arrives when the queue is full, the client
+      may receive an error with an indication of
+     <span class="errorname">
+      ECONNREFUSED
+     </span>
+     or, if the underlying
+      protocol supports retransmission, the request may be ignored
+      so that a later reattempt at connection succeeds.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="listen-2_sect2" name="listen-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success, zero is returned. On error, &minus;1 is
+      returned, and
+     <code class="varname">
+      errno
+     </code>
+     is set
+      appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="listen-2_sect3" name="listen-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EADDRINUSE
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Another socket is already listening on the same
+            port.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EADDRINUSE
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        (Internet domain sockets) The socket referred to by
+        <em class="parameter">
+         <code>
+          sockfd
+         </code>
+        </em>
+        had not
+            previously been bound to an address and, upon
+            attempting to bind it to an ephemeral port, it was
+            determined that all port numbers in the ephemeral port
+            range are currently in use. See the discussion of
+        <code class="filename">
+         /proc/sys/net/ipv4/ip_local_port_range
+        </code>
+        in
+        <a class="link" href="../htmlman7/ip.7.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           ip
+          </span>
+          (7)
+         </span>
+        </a>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EBADF
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The argument
+        <em class="parameter">
+         <code>
+          sockfd
+         </code>
+        </em>
+        is not a valid
+            descriptor.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOTSOCK
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The argument
+        <em class="parameter">
+         <code>
+          sockfd
+         </code>
+        </em>
+        is not a
+            socket.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EOPNOTSUPP
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The socket is not of a type that supports the
+        <code class="function">
+         listen
+        </code>
+        () operation.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="listen-2_sect4" name="listen-2_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     4.4BSD, POSIX.1-2001. The
+     <code class="function">
+      listen
+     </code>
+     () function call first appeared in
+      4.2BSD.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="listen-2_sect5" name="listen-2_sect5" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     To accept connections, the following steps are
+      performed:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="orderedlist">
+       <ol class="orderedlist" type="1">
+        <li class="listitem">
+         <p>
+          A socket is created with
+          <a class="link" href="../htmlman2/socket.2.html" shape="rect" target="_top">
+           <span class="citerefentry">
+            <span class="refentrytitle">
+             socket
+            </span>
+            (2)
+           </span>
+          </a>
+          .
+         </p>
+        </li>
+        <li class="listitem">
+         <p>
+          The socket is bound to a local address using
+          <a class="link" href="../htmlman2/bind.2.html" shape="rect" target="_top">
+           <span class="citerefentry">
+            <span class="refentrytitle">
+             bind
+            </span>
+            (2)
+           </span>
+          </a>
+          , so that
+                other sockets may be
+          <a class="link" href="../htmlman2/connect.2.html" shape="rect" target="_top">
+           <span class="citerefentry">
+            <span class="refentrytitle">
+             connect
+            </span>
+            (2)
+           </span>
+          </a>
+          ed to
+                it.
+         </p>
+        </li>
+        <li class="listitem">
+         <p>
+          A willingness to accept incoming connections and
+                a queue limit for incoming connections are
+                specified with
+          <code class="function">
+           listen
+          </code>
+          ().
+         </p>
+        </li>
+        <li class="listitem">
+         <p>
+          Connections are accepted with
+          <a class="link" href="../htmlman2/accept.2.html" shape="rect" target="_top">
+           <span class="citerefentry">
+            <span class="refentrytitle">
+             accept
+            </span>
+            (2)
+           </span>
+          </a>
+          .
+         </p>
+        </li>
+       </ol>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     POSIX.1-2001 does not require the inclusion of
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      sys/types.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+     and this header file is not required on
+      Linux. However, some historical (BSD) implementations
+      required this header file, and portable applications are
+      probably wise to include it.
+    </p>
+    <p>
+     The behavior of the
+     <em class="parameter">
+      <code>
+       backlog
+      </code>
+     </em>
+     argument on TCP sockets
+      changed with Linux 2.2. Now it specifies the queue length for
+     <em class="replaceable">
+      <code>
+       completely
+      </code>
+     </em>
+     established sockets waiting to be accepted, instead of the
+      number of incomplete connection requests. The maximum length
+      of the queue for incomplete sockets can be set using
+     <code class="filename">
+      /proc/sys/net/ipv4/tcp_max_syn_backlog
+     </code>
+     .
+      When syncookies are enabled there is no logical maximum
+      length and this setting is ignored. See
+     <a class="link" href="../htmlman7/tcp.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tcp
+       </span>
+       (7)
+      </span>
+     </a>
+     for more
+      information.
+    </p>
+    <p>
+     If the
+     <em class="parameter">
+      <code>
+       backlog
+      </code>
+     </em>
+     argument is greater than the value in
+     <code class="filename">
+      /proc/sys/net/core/somaxconn
+     </code>
+     , then it is
+      silently truncated to that value; the default value in this
+      file is 128. In kernels before 2.4.25, this limit was a hard
+      coded value,
+     <code class="constant">
+      SOMAXCONN
+     </code>
+     , with
+      the value 128.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="listen-2_sect6" name="listen-2_sect6" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <p>
+     See
+     <a class="link" href="../htmlman2/bind.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        bind
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="listen-2_sect7" name="listen-2_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/accept.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        accept
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/bind.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        bind
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/connect.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        connect
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/socket.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        socket
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/socket.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        socket
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="listen-2_sect8" name="listen-2_sect8" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

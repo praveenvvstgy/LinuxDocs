@@ -1,0 +1,2230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   suffixes(7) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="suffixes(7) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="suffixes.7" name="suffixes.7" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     suffixes &mdash; list of file suffixes
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="suffixes-7_sect1" name="suffixes-7_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     It is customary to indicate the contents of a file with
+      the file suffix, which consists of a period, followed by one
+      or more letters. Many standard utilities, such as compilers,
+      use this to recognize the type of file they are dealing with.
+      The
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       make
+      </span>
+      (1)
+     </span>
+     utility is driven by
+      rules based on file suffix.
+    </p>
+    <p>
+     Following is a list of suffixes which are likely to be
+      found on a Linux system.
+    </p>
+    <div class="informaltable">
+     <table style="border-collapse: collapse;border-left: 0.5pt solid ; border-right: 0.5pt solid ;">
+      <colgroup span="1">
+       <col class="c0" span="1">
+       </col>
+       <col class="c1" span="1">
+       </col>
+      </colgroup>
+      <tbody>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Suffix
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         File type
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         ,v
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         files for RCS (Revision
+              Control System)
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         -
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         backup file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .C
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         C++ source code, equivalent
+              to
+         <em class="replaceable">
+          <code>
+           .cc
+          </code>
+         </em>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .F
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Fortran source with
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           cpp
+          </span>
+          (1)
+         </span>
+         directives or
+              file compressed using freeze
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .S
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         assembler source with
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           cpp
+          </span>
+          (1)
+         </span>
+         directives
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .Y
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         file compressed using
+              yabba
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .Z
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         file compressed using
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           compress
+          </span>
+          (1)
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .[0-9]+gf
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         TeX generic font files
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .[0-9]+pk
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         TeX packed font files
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .[1-9]
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         manual page for the
+              corresponding section
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .[1-9][a-z]
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         manual page for section
+              plus subsection
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .a
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         static object code
+              library
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .ad
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         X application default
+              resource file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .ada
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Ada source (may be body,
+              spec, or combination)
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .adb
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Ada body source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .ads
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Ada spec source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .afm
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         PostScript font
+              metrics
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .al
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Perl autoload file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .am
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           automake
+          </span>
+          (1)
+         </span>
+         input
+              file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .arc
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           arc
+          </span>
+          (1)
+         </span>
+         archive
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .arj
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           arj
+          </span>
+          (1)
+         </span>
+         archive
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .asc
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         PGP ASCII-armored data
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .asm
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         (GNU) assembler source
+              file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .au
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Audio sound file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .aux
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         LaTeX auxiliary file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .avi
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         (msvideo) movie
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .awk
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         AWK language program
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .b
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         LILO boot loader image
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .bak
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         backup file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .bash
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           bash
+          </span>
+          (1)
+         </span>
+         shell
+              script
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .bb
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         basic block list data
+              produced by gcc &minus;ftest&minus;coverage
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .bbg
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         basic block graph data
+              produced by gcc &minus;ftest&minus;coverage
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .bbl
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         BibTeX output
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .bdf
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         X font file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .bib
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         TeX bibliographic database,
+              BibTeX input
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .bm
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         bitmap source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .bmp
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         bitmap
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .bz2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         file compressed using
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           bzip2
+          </span>
+          (1)
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .c
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         C source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .cat
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         message catalog files
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .cc
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         C++ source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .cf
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         configuration file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .cfg
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         configuration file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .cgi
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         WWW content generating
+              script or program
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .cls
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         LaTeX Class definition
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .class
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Java compiled
+              byte-code
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .conf
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         configuration file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .config
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         configuration file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .cpp
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         equivalent to
+         <em class="replaceable">
+          <code>
+           .cc
+          </code>
+         </em>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .csh
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           csh
+          </span>
+          (1)
+         </span>
+         shell
+              script
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .cxx
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         equivalent to
+         <em class="replaceable">
+          <code>
+           .cc
+          </code>
+         </em>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .dat
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         data file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .deb
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Debian software
+              package
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .def
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Modula-2 source for
+              definition modules
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .def
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         other definition files
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .desc
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         initial part of mail
+              message unpacked with
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           munpack
+          </span>
+          (1)
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .diff
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         file differences (
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           diff
+          </span>
+          (1)
+         </span>
+         command
+              output)
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .dir
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         dbm data base directory
+              file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .doc
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         documentation file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .dsc
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Debian Source Control
+              (source package)
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .dtx
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         LaTeX package source
+              file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .dvi
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         TeX's device independent
+              output
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .el
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Emacs-Lisp source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .elc
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         compiled Emacs-Lisp
+              source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .eps
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         encapsulated
+              PostScript
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .exp
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Expect source code
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .f
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Fortran source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .f77
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Fortran 77 source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .f90
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Fortran 90 source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .fas
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         precompiled
+              Common-Lisp
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .fi
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Fortran include files
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .fig
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         FIG image file (used by
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           xfig
+          </span>
+          (1)
+         </span>
+         )
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .fmt
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         TeX format file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .gif
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Compuserve Graphics Image
+              File format
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .gmo
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         GNU format message
+              catalog
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .gsf
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Ghostscript fonts
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .gz
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         file compressed using
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           gzip
+          </span>
+          (1)
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .h
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         C or C++ header files
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .help
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         help file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .hf
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         equivalent to
+         <em class="replaceable">
+          <code>
+           .help
+          </code>
+         </em>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .hlp
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         equivalent to
+         <em class="replaceable">
+          <code>
+           .help
+          </code>
+         </em>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .htm
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         poor man's
+         <em class="replaceable">
+          <code>
+           .html
+          </code>
+         </em>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .html
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         HTML document used with the
+              World Wide Web
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .hqx
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         7-bit encoded Macintosh
+              file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .i
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         C source after
+              preprocessing
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .icon
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         bitmap source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .idx
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         reference or datum-index
+              file for hypertext or database system
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .image
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         bitmap source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .in
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         configuration template,
+              especially for GNU Autoconf
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .info
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         files for the Emacs info
+              browser
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .info-[0-9]+
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         split info files
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .ins
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         LaTeX package install file
+              for docstrip
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .itcl
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         itcl source code; itcl
+              ([incr Tcl]) is an OO extension of tcl
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .java
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         a Java source file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .jpeg
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Joint Photographic Experts
+              Group format
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .jpg
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         poor man's
+         <em class="replaceable">
+          <code>
+           .jpeg
+          </code>
+         </em>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .kmap
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           lyx
+          </span>
+          (1)
+         </span>
+         keymap
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .l
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         equivalent to
+         <em class="replaceable">
+          <code>
+           .lex
+          </code>
+         </em>
+         or
+         <em class="replaceable">
+          <code>
+           .lisp
+          </code>
+         </em>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .lex
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           lex
+          </span>
+          (1)
+         </span>
+         or
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           flex
+          </span>
+          (1)
+         </span>
+         files
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .lha
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         lharc archive
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .lib
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Common-Lisp library
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .lisp
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Lisp source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .ln
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         files for use with
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           lint
+          </span>
+          (1)
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .log
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         log file, in particular
+              produced by TeX
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .lsm
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Linux Software Map
+              entry
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .lsp
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Common-Lisp source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .lzh
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         lharc archive
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .m
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Objective-C source
+              code
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .m4
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           m4
+          </span>
+          (1)
+         </span>
+         source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .mac
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         macro files for various
+              programs
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .man
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         manual page (usually source
+              rather than formatted)
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .map
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         map files for various
+              programs
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .me
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Nroff source using the me
+              macro package
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .mf
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Metafont (font generator
+              for TeX) source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .mgp
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         MagicPoint file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .mm
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         sources for
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           groff
+          </span>
+          (1)
+         </span>
+         in mm -
+              format
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .mo
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Message catalog binary
+              file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .mod
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Modula-2 source for
+              implementation modules
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .mov
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         (quicktime) movie
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .mp
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Metapost source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .mp2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         MPEG Layer 2 (audio)
+              file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .mp3
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         MPEG Layer 3 (audio)
+              file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .mpeg
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         movie file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .o
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         object file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .old
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         old or backup file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .orig
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         backup (original) version
+              of a file, from
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           patch
+          </span>
+          (1)
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .out
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         output file, often
+              executable program (a.out)
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .p
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Pascal source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .pag
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         dbm data base data
+              file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .patch
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         file differences for
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           patch
+          </span>
+          (1)
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .pbm
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         portable bitmap format
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .pcf
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         X11 font files
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .pdf
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Adobe Portable Data Format
+              (use Acrobat/
+         <em class="replaceable">
+          <code>
+           acroread
+          </code>
+         </em>
+         or
+         <em class="replaceable">
+          <code>
+           xpdf
+          </code>
+         </em>
+         )
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .perl
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Perl source (see .ph, .pl
+              and .pm)
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .pfa
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         PostScript font definition
+              files, ASCII format
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .pfb
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         PostScript font definition
+              files, binary format
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .pgm
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         portable greymap
+              format
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .pgp
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         PGP binary data
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .ph
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Perl header file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .php
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         PHP program file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .php3
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         PHP3 program file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .pid
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         File to store daemon PID
+              (e.g., crond.pid)
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .pl
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         TeX property list file or
+              Perl library file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .pm
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Perl module
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .png
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Portable Network Graphics
+              file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .po
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Message catalog source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .pod
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           perldoc
+          </span>
+          (1)
+         </span>
+         file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .ppm
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         portable pixmap format
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .pr
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         bitmap source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .ps
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         PostScript file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .py
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Python source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .pyc
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         compiled python
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .qt
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         quicktime movie
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .r
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         RATFOR source
+              (obsolete)
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .rej
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         patches that
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           patch
+          </span>
+          (1)
+         </span>
+         couldn't
+              apply
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .rpm
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         RPM software package
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .rtf
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Rich Text Format file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .rules
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         rules for something
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .s
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         assembler source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .sa
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         stub libraries for a.out
+              shared libraries
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .sc
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           sc
+          </span>
+          (1)
+         </span>
+         spreadsheet
+              commands
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .scm
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Scheme source code
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .sed
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         sed source file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .sgml
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         SGML source file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .sh
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           sh
+          </span>
+          (1)
+         </span>
+         scripts
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .shar
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         archive created by the
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           shar
+          </span>
+          (1)
+         </span>
+         utility
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .so
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Shared library or
+              dynamically loadable object
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .sql
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         SQL source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .sqml
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         SQML schema or query
+              program
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .sty
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         LaTeX style files
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .sym
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Modula-2 compiled
+              definition modules
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .tar
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         archive created by the
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           tar
+          </span>
+          (1)
+         </span>
+         utility
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .tar.Z
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         tar(1) archive compressed
+              with
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           compress
+          </span>
+          (1)
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .tar.bz2
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         tar(1) archive compressed
+              with
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           bzip2
+          </span>
+          (1)
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .tar.gz
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         tar(1) archive compressed
+              with
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           gzip
+          </span>
+          (1)
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .taz
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         tar(1) archive compressed
+              with
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           compress
+          </span>
+          (1)
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .tcl
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         tcl source code
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .tex
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         TeX or LaTeX source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .texi
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         equivalent to
+         <em class="replaceable">
+          <code>
+           .texinfo
+          </code>
+         </em>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .texinfo
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Texinfo documentation
+              source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .text
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         text file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .tfm
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         TeX font metric file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .tgz
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         tar archive compressed with
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           gzip
+          </span>
+          (1)
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .tif
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         poor man's
+         <em class="replaceable">
+          <code>
+           .tiff
+          </code>
+         </em>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .tiff
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Tagged Image File
+              Format
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .tk
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         tcl/tk script
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .tmp
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         temporary file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .tmpl
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         template files
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .txt
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         equivalent to
+         <em class="replaceable">
+          <code>
+           .text
+          </code>
+         </em>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .uu
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         equivalent to
+         <em class="replaceable">
+          <code>
+           .uue
+          </code>
+         </em>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .uue
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         binary file encoded with
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           uuencode
+          </span>
+          (1)
+         </span>
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .vf
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         TeX virtual font file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .vpl
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         TeX virtual property list
+              file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .w
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Silvio Levi's CWEB
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .wav
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         wave sound file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .web
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Donald Knuth's WEB
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .wml
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Source file for Web Meta
+              Language
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .xbm
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         X11 bitmap source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .xcf
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         GIMP graphic
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .xml
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         eXtended Markup Language
+              file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .xpm
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         X11 pixmap source
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .xs
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Perl xsub file produced by
+              h2xs
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .xsl
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         XSL stylesheet
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .y
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           yacc
+          </span>
+          (1)
+         </span>
+         or
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           bison
+          </span>
+          (1)
+         </span>
+         (parser
+              generator) files
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .z
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         File compressed using
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           pack
+          </span>
+          (1)
+         </span>
+         (or an old
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           gzip
+          </span>
+          (1)
+         </span>
+         )
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .zip
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           zip
+          </span>
+          (1)
+         </span>
+         archive
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         .zoo
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           zoo
+          </span>
+          (1)
+         </span>
+         archive
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         ~
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         Emacs or
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           patch
+          </span>
+          (1)
+         </span>
+         backup
+              file
+        </td>
+       </tr>
+       <tr>
+        <td align="left" colspan="1" rowspan="1" style="">
+         rc
+        </td>
+        <td align="left" colspan="1" rowspan="1" style="">
+         startup (`run control')
+              file, e.g.,
+         <em class="replaceable">
+          <code>
+           .newsrc
+          </code>
+         </em>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="suffixes-7_sect2" name="suffixes-7_sect2" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     General UNIX conventions.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="suffixes-7_sect3" name="suffixes-7_sect3" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     This list is not exhaustive.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="suffixes-7_sect4" name="suffixes-7_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       file
+      </span>
+      (1)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       make
+      </span>
+      (1)
+     </span>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="suffixes-7_sect5" name="suffixes-7_sect5" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

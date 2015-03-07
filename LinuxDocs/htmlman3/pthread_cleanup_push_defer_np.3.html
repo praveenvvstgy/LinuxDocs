@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pthread_cleanup_push_defer_np(3) &mdash; Linux manual
+  pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pthread_cleanup_push_defer_np(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="pthread-cleanup-push-defer-np.3" name="pthread-cleanup-push-defer-np.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     pthread_cleanup_push_defer_np,
+      pthread_cleanup_pop_restore_np &mdash; push and pop thread
+      cancellation clean-up handlers while saving cancelability
+      type
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;pthread.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          pthread_cleanup_push_defer_np
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        void
+        <var class="pdparam">
+         (*routine)
+        </var>
+        <code>
+         (
+        </code>
+        void
+            *
+        <code>
+         )
+        </code>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        void *
+        <var class="pdparam">
+         arg
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          pthread_cleanup_pop_restore_np
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         execute
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              pthread_cleanup_push_defer_np
+             </code>
+             (),
+             <code class="function">
+              pthread_cleanup_pop_defer_np
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _GNU_SOURCE
+             </code>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <p>
+         Compile and link with
+         <code class="option">
+          &minus;pthread
+         </code>
+         .
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-cleanup-push-defer-np-3_sect1" name="pthread-cleanup-push-defer-np-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     These functions are the same as
+     <a class="link" href="../htmlman3/pthread_cleanup_push.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_cleanup_push
+       </span>
+       (3)
+      </span>
+     </a>
+     and
+     <a class="link" href="../htmlman3/pthread_cleanup_push.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_cleanup_pop
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+      except for the differences noted on this page.
+    </p>
+    <p>
+     Like
+     <a class="link" href="../htmlman3/pthread_cleanup_push.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_cleanup_push
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <code class="function">
+      pthread_cleanup_push_defer_np
+     </code>
+     ()
+      pushes
+     <em class="parameter">
+      <code>
+       routine
+      </code>
+     </em>
+     onto
+      the thread's stack of cancellation clean-up handlers. In
+      addition, it also saves the thread's current cancelability
+      type, and sets the cancelability type to "deferred" (see
+     <a class="link" href="../htmlman3/pthread_setcancelstate.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_setcanceltype
+       </span>
+       (3)
+      </span>
+     </a>
+     );
+      this ensures that cancellation clean-up will occur even if
+      the thread's cancelability type was "asynchronous" before the
+      call.
+    </p>
+    <p>
+     Like
+     <a class="link" href="../htmlman3/pthread_cleanup_push.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_cleanup_pop
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <code class="function">
+      pthread_cleanup_pop_restore_np
+     </code>
+     () pops the
+      top-most clean-up handler from the thread's stack of
+      cancellation clean-up handlers. In addition, it restores the
+      thread's cancelability type to its value at the time of the
+      matching
+     <code class="function">
+      pthread_cleanup_push_defer_np
+     </code>
+     ().
+    </p>
+    <p>
+     The caller must ensure that calls to these functions are
+      paired within the same function, and at the same lexical
+      nesting level. Other restrictions apply, as described in
+     <a class="link" href="../htmlman3/pthread_cleanup_push.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_cleanup_push
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     This sequence of calls:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+pthread_cleanup_push_defer_np(routine, arg);
+pthread_cleanup_pop_restore_np(execute);
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     is equivalent to (but shorter and more efficient
+      than):
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+int oldtype;
+
+pthread_cleanup_push(routine, arg);
+pthread_setcanceltype(PTHREAD_CANCEL_DEFERRED, &amp;oldtype);
+...
+pthread_setcanceltype(oldtype, NULL);
+pthread_cleanup_pop(execute);
+</pre>
+      </div>
+     </blockquote>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-cleanup-push-defer-np-3_sect2" name="pthread-cleanup-push-defer-np-3_sect2" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     These functions are nonstandard GNU extensions; hence the
+      suffix "_np" (nonportable) in the names.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-cleanup-push-defer-np-3_sect3" name="pthread-cleanup-push-defer-np-3_sect3" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/pthread_cancel.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_cancel
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pthread_cleanup_push.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_cleanup_push
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pthread_setcancelstate.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_setcancelstate
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pthread_testcancel.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_testcancel
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/pthreads.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthreads
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="pthread-cleanup-push-defer-np-3_sect4" name="pthread-cleanup-push-defer-np-3_sect4" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

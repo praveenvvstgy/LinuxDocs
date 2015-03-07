@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   sigreturn(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="sigreturn(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="sigreturn.2" name="sigreturn.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     sigreturn &mdash; return from signal handler and cleanup
+      stack frame
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          sigreturn
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned long
+        <var class="pdparam">
+         __unused
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="sigreturn-2_sect1" name="sigreturn-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     When the Linux kernel creates the stack frame for a signal
+      handler, a call to
+     <code class="function">
+      sigreturn
+     </code>
+     ()
+      is inserted into the stack frame so that upon return from the
+      signal handler,
+     <code class="function">
+      sigreturn
+     </code>
+     ()
+      will be called.
+    </p>
+    <p>
+     This
+     <code class="function">
+      sigreturn
+     </code>
+     () call undoes
+      everything that was done&mdash;changing the process's signal
+      mask, switching stacks (see
+     <a class="link" href="../htmlman2/sigaltstack.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sigaltstack
+       </span>
+       (2)
+      </span>
+     </a>
+     )\(emin order
+      to invoke the signal handler: it restores the process's
+      signal mask, switches stacks, and restores the process's
+      context (registers, processor flags), so that the process
+      directly resumes execution at the point where it was
+      interrupted by the signal.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="sigreturn-2_sect2" name="sigreturn-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     <code class="function">
+      sigreturn
+     </code>
+     () never
+      returns.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="sigreturn-2_sect3" name="sigreturn-2_sect3" shape="rect">
+    </a>
+    <h2>
+     FILES
+    </h2>
+    <p>
+     /usr/src/linux/arch/i386/kernel/signal.c
+    </p>
+    <p>
+     /usr/src/linux/arch/alpha/kernel/entry.S
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="sigreturn-2_sect4" name="sigreturn-2_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     <code class="function">
+      sigreturn
+     </code>
+     () is specific to
+      Linux and should not be used in programs intended to be
+      portable.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="sigreturn-2_sect5" name="sigreturn-2_sect5" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The
+     <code class="function">
+      sigreturn
+     </code>
+     () call is used
+      by the kernel to implement signal handlers. It should
+     <em class="replaceable">
+      <code>
+       never
+      </code>
+     </em>
+     be called
+      directly. Better yet, the specific use of the
+     <em class="parameter">
+      <code>
+       __unused
+      </code>
+     </em>
+     argument varies
+      depending on the architecture.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="sigreturn-2_sect6" name="sigreturn-2_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/kill.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        kill
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/restart_syscall.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        restart_syscall
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/sigaltstack.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sigaltstack
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/signal.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        signal
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/signal.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        signal
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="sigreturn-2_sect7" name="sigreturn-2_sect7" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

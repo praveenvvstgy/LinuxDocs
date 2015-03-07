@@ -1,0 +1,518 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   units(7) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="units(7) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="units.7" name="units.7" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     units, kilo, kibi, mega, mebi, giga, gibi &mdash; decimal
+      and binary prefixes
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="units-7_sect1" name="units-7_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <div class="refsect2">
+     <a id="units-7_sect2" name="units-7_sect2" shape="rect">
+     </a>
+     <h3>
+      Decimal prefixes
+     </h3>
+     <p>
+      The SI system of units uses prefixes that indicate
+        powers of ten. A kilometer is 1000 meter, and a megawatt is
+        1000000 watt. Below the standard prefixes.
+     </p>
+     <div class="blockquote">
+      <blockquote class="blockquote">
+       <div class="informaltable">
+        <table style="border-collapse: collapse;">
+         <colgroup span="1">
+          <col class="c0" span="1">
+          </col>
+          <col class="c1" span="1">
+          </col>
+          <col class="c2" span="1">
+          </col>
+         </colgroup>
+         <tbody>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            Prefix
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            Name
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            Value
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            y
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            yocto
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^-24 =
+                    0.000000000000000000000001
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            z
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            zepto
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^-21 =
+                    0.000000000000000000001
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            a
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            atto
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^-18 =
+                    0.000000000000000001
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            f
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            femto
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^-15 =
+                    0.000000000000001
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            p
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            pico
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^-12 =
+                    0.000000000001
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            n
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            nano
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^-9 =
+                    0.000000001
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            &micro;
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            micro
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^-6 = 0.000001
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            m
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            milli
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^-3 = 0.001
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            c
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            centi
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^-2 = 0.01
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            d
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            deci
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^-1 = 0.1
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            da
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            deka
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^ 1 = 10
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            h
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            hecto
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^ 2 = 100
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            k
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            kilo
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^ 3 = 1000
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            M
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            mega
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^ 6 = 1000000
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            G
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            giga
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^ 9 =
+                    1000000000
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            T
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            tera
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^12 =
+                    1000000000000
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            P
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            peta
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^15 =
+                    1000000000000000
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            E
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            exa
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^18 =
+                    1000000000000000000
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            Z
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            zetta
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^21 =
+                    1000000000000000000000
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            Y
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            yotta
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            10^24 =
+                    1000000000000000000000000
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+      </blockquote>
+     </div>
+     <p>
+      The symbol for micro is the Greek letter mu, often
+        written u in an ASCII context where this Greek letter is
+        not available. See also
+     </p>
+     <div class="blockquote">
+      <blockquote class="blockquote">
+       <p>
+        <a class="literalurl" href="http://physics.nist.gov/cuu/Units/prefixes.html" shape="rect" target="_top">
+         http://physics.nist.gov/cuu/Units/prefixes.html
+        </a>
+       </p>
+      </blockquote>
+     </div>
+    </div>
+    <div class="refsect2">
+     <a id="units-7_sect3" name="units-7_sect3" shape="rect">
+     </a>
+     <h3>
+      Binary prefixes
+     </h3>
+     <p>
+      The binary prefixes resemble the decimal ones, but have
+        an additional 'i' (and "Ki" starts with a capital 'K'). The
+        names are formed by taking the first syllable of the names
+        of the decimal prefix with roughly the same size, followed
+        by "bi" for "binary".
+     </p>
+     <div class="blockquote">
+      <blockquote class="blockquote">
+       <div class="informaltable">
+        <table style="border-collapse: collapse;">
+         <colgroup span="1">
+          <col class="c0" span="1">
+          </col>
+          <col class="c1" span="1">
+          </col>
+          <col class="c2" span="1">
+          </col>
+         </colgroup>
+         <tbody>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            Prefix
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            Name
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            Value
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            Ki
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            kibi
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            2^10 = 1024
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            Mi
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            mebi
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            2^20 = 1048576
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            Gi
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            gibi
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            2^30 =
+                    1073741824
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            Ti
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            tebi
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            2^40 =
+                    1099511627776
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            Pi
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            pebi
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            2^50 =
+                    1125899906842624
+           </td>
+          </tr>
+          <tr>
+           <td align="left" colspan="1" rowspan="1" style="">
+            Ei
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            exbi
+           </td>
+           <td align="left" colspan="1" rowspan="1" style="">
+            2^60 =
+                    1152921504606846976
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+      </blockquote>
+     </div>
+     <p>
+      See also
+     </p>
+     <p>
+      <a class="literalurl" href="http://physics.nist.gov/cuu/Units/binary.html" shape="rect" target="_top">
+       http://physics.nist.gov/cuu/Units/binary.html
+      </a>
+     </p>
+    </div>
+    <div class="refsect2">
+     <a id="units-7_sect4" name="units-7_sect4" shape="rect">
+     </a>
+     <h3>
+      Discussion
+     </h3>
+     <p>
+      Before these binary prefixes were introduced, it was
+        fairly common to use k=1000 and K=1024, just like b=bit,
+        B=byte. Unfortunately, the M is capital already, and cannot
+        be capitalized to indicate binary-ness.
+     </p>
+     <p>
+      At first that didn't matter too much, since memory
+        modules and disks came in sizes that were powers of two, so
+        everyone knew that in such contexts "kilobyte" and
+        "megabyte" meant 1024 and 1048576 bytes, respectively. What
+        originally was a sloppy use of the prefixes "kilo" and
+        "mega" started to become regarded as the "real true
+        meaning" when computers were involved. But then disk
+        technology changed, and disk sizes became arbitrary
+        numbers. After a period of uncertainty all disk
+        manufacturers settled on the standard, namely k=1000,
+        M=1000k, G=1000M.
+     </p>
+     <p>
+      The situation was messy: in the 14k4 modems, k=1000; in
+        the 1.44MB diskettes, M=1024000; and so on. In 1998 the IEC
+        approved the standard that defines the binary prefixes
+        given above, enabling people to be precise and
+        unambiguous.
+     </p>
+     <p>
+      Thus, today, MB = 1000000B and MiB = 1048576B.
+     </p>
+     <p>
+      In the free software world programs are slowly being
+        changed to conform. When the Linux kernel boots and
+        says
+     </p>
+     <div class="blockquote">
+      <blockquote class="blockquote">
+       <div class="informalexample">
+        <pre class="programlisting" xml:space="preserve">
+hda: 120064896 sectors (61473 MB) w/2048KiB Cache
+</pre>
+       </div>
+      </blockquote>
+     </div>
+     <p>
+      the MB are megabytes and the KiB are kibibytes.
+     </p>
+    </div>
+   </div>
+   <div class="colophon">
+    <a id="units-7_sect5" name="units-7_sect5" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

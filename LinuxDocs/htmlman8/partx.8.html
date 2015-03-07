@@ -1,0 +1,859 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   partx(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="partx(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="partx.8" name="partx.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     partx &mdash; tell the Linux kernel about the presence and
+      numbering of on-disk partitions
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       partx
+      </code>
+      [
+      <code class="option">
+       &minus;a
+      </code>
+      |
+      <code class="option">
+       &minus;d
+      </code>
+      |
+      <code class="option">
+       &minus;s
+      </code>
+      |
+      <code class="option">
+       &minus;u
+      </code>
+      ] [
+      <code class="option">
+       &minus;t
+      </code>
+      TYPE ] [
+      <code class="option">
+       &minus;n
+      </code>
+      M:N ] [
+      <code class="option">
+       &minus;
+      </code>
+      ] disk
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       partx
+      </code>
+      [
+      <code class="option">
+       &minus;a
+      </code>
+      |
+      <code class="option">
+       &minus;d
+      </code>
+      |
+      <code class="option">
+       &minus;s
+      </code>
+      |
+      <code class="option">
+       &minus;u
+      </code>
+      ] [
+      <code class="option">
+       &minus;t
+      </code>
+      TYPE ] partition [disk]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="partx-8_sect1" name="partx-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Given a device or disk-image,
+     <span class="command">
+      <strong>
+       partx
+      </strong>
+     </span>
+     tries to parse the
+      partition table and list its contents. It optionally adds or
+      removes partitions.
+    </p>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       disk
+      </code>
+     </em>
+     argument
+      is optional when a
+     <em class="parameter">
+      <code>
+       partition
+      </code>
+     </em>
+     argument is provided.
+      To force scanning a partition as if it were a whole disk (for
+      example to list nested subpartitions), use the argument "-".
+      For example:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="variablelist">
+       <dl class="variablelist">
+        <dt>
+         <span class="term">
+          partx &minus;&minus;show
+              &minus; /dev/sda3
+         </span>
+        </dt>
+       </dl>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     This will see sda3 as a whole-disk rather than a
+      partition.
+    </p>
+    <p>
+     The
+     <span class="emphasis">
+      <em>
+       partx is not an fdisk
+      program
+      </em>
+     </span>
+     &minus;&minus; adding and removing
+      partitions does not change the disk, it just tells the kernel
+      about the presence and numbering of on-disk partitions.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="partx-8_sect2" name="partx-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;a
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;add
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Add the specified partitions, or read the disk and
+            add all partitions.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;b
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;bytes
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print the SIZE column in bytes rather than in
+            human-readable format.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;delete
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Delete the specified partitions or all
+            partitions.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;update
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Update the specified partitions.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;g
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;noheadings
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not print a header line.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;list
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        List the partitions. Note that all numbers are in
+            512-byte sectors. This output format is DEPRECATED in
+            favour of
+        <code class="option">
+         &minus;&minus;show
+        </code>
+        . Do not use it in
+            newly written scripts.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;output
+        </code>
+        <span class="command">
+         <strong>
+          list
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Define the output columns to use for
+        <code class="option">
+         &minus;&minus;show
+        </code>
+        and
+        <code class="option">
+         &minus;&minus;raw
+        </code>
+        output. If no output
+            arrangement is specified, then a default set is used.
+            Use
+        <code class="option">
+         &minus;&minus;help
+        </code>
+        to
+            get
+        <span class="command">
+         <strong>
+          list
+         </strong>
+        </span>
+        of all supported columns. This option cannot be
+            combined with
+        <code class="option">
+         &minus;&minus;add
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;delete
+        </code>
+        or
+        <code class="option">
+         &minus;&minus;list
+        </code>
+        options.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;P
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;pairs
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output using key="value" format.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;nr
+        </code>
+        <em class="parameter">
+         <code>
+          M:N
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the range of partitions. For backward
+            compatibility also the format
+        <em class="replaceable">
+         <code>
+          M-N
+         </code>
+        </em>
+        is supported. The
+            range may contain negative numbers, for example
+        <code class="option">
+         &minus;&minus;nr
+        </code>
+        <em class="replaceable">
+         <code>
+          :&minus;1
+         </code>
+        </em>
+        means the
+            last partition, and
+        <code class="option">
+         &minus;&minus;nr
+        </code>
+        <span class="emphasis">
+         <em>
+          &minus;2:&minus;1
+         </em>
+        </span>
+        means the
+            last two partitions. Supported range specifications
+            are:
+       </p>
+       <div class="blockquote">
+        <blockquote class="blockquote">
+         <div class="variablelist">
+          <dl class="variablelist">
+           <dt>
+            <span class="term">
+             <code class="constant">
+              M
+             </code>
+            </span>
+           </dt>
+           <dd>
+            <p>
+             Specifies just one partition (e.g.
+             <code class="option">
+              &minus;&minus;nr
+             </code>
+             <code class="constant">
+              3
+             </code>
+             ).
+            </p>
+           </dd>
+           <dt>
+            <span class="term">
+             <em class="replaceable">
+              <code>
+               M:
+              </code>
+             </em>
+            </span>
+           </dt>
+           <dd>
+            <p>
+             Specifies lower limit only (e.g.
+             <code class="option">
+              &minus;&minus;nr
+             </code>
+             <em class="replaceable">
+              <code>
+               2:
+              </code>
+             </em>
+             ).
+            </p>
+           </dd>
+           <dt>
+            <span class="term">
+             <em class="replaceable">
+              <code>
+               :N
+              </code>
+             </em>
+            </span>
+           </dt>
+           <dd>
+            <p>
+             Specifies upper limit only (e.g.
+             <code class="option">
+              &minus;&minus;nr
+             </code>
+             <em class="replaceable">
+              <code>
+               :4
+              </code>
+             </em>
+             ).
+            </p>
+           </dd>
+           <dt>
+            <span class="term">
+             <em class="parameter">
+              <code>
+               M:N
+              </code>
+             </em>
+             or
+            </span>
+           </dt>
+           <dt>
+            <span class="term">
+             <em class="replaceable">
+              <code>
+               M-N
+              </code>
+             </em>
+            </span>
+           </dt>
+           <dd>
+            <p>
+             Specifies lower and upper limits (e.g.
+             <code class="option">
+              &minus;&minus;nr
+             </code>
+             <em class="replaceable">
+              <code>
+               2:4
+              </code>
+             </em>
+             ).
+            </p>
+           </dd>
+          </dl>
+         </div>
+        </blockquote>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;raw
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use the raw output format.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;show
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        List the partitions. All numbers (except SIZE) are
+            in 512-byte sectors. The output columns can be
+            rearranged with the
+        <code class="option">
+         &minus;&minus;output
+        </code>
+        option.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;type
+        </code>
+        <span class="command">
+         <strong>
+          type
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the partition table type
+        <span class="command">
+         <strong>
+          aix
+         </strong>
+        </span>
+        ,
+        <span class="command">
+         <strong>
+          bsd
+         </strong>
+        </span>
+        ,
+        <span class="command">
+         <strong>
+          dos
+         </strong>
+        </span>
+        ,
+        <span class="command">
+         <strong>
+          gpt
+         </strong>
+        </span>
+        ,
+        <span class="command">
+         <strong>
+          mac
+         </strong>
+        </span>
+        ,
+        <span class="command">
+         <strong>
+          minix
+         </strong>
+        </span>
+        ,
+        <span class="command">
+         <strong>
+          sgi
+         </strong>
+        </span>
+        ,
+        <span class="command">
+         <strong>
+          solaris_x86
+         </strong>
+        </span>
+        ,
+        <span class="command">
+         <strong>
+          sun
+         </strong>
+        </span>
+        ,
+        <span class="command">
+         <strong>
+          ultrix
+         </strong>
+        </span>
+        or
+        <span class="command">
+         <strong>
+          unixware
+         </strong>
+        </span>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;verbose
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Verbose mode.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="partx-8_sect3" name="partx-8_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+partx &minus;&minus;show /dev/sdb3
+partx &minus;&minus;show --nr 3 /dev/sdb
+partx &minus;&minus;show /dev/sdb3 /dev/sdb
+</pre>
+    </div>
+    <p>
+     All three commands list partition 3 of /dev/sdb.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        partx &minus;&minus;show &minus;
+          /dev/sdb3
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Lists all subpartitions on /dev/sdb3 (the device is
+            used as whole-disk).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        partx &minus;o START -g --nr 5
+          /dev/sdb
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Prints the start sector of partition 5 on /dev/sdb
+            without header.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        partx &minus;o SECTORS,SIZE
+          /dev/sda5 /dev/sda
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Lists the length in sectors and human-readable size
+            of partition 5 on /dev/sda.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        partx &minus;&minus;add --nr 3:5
+          /dev/sdd
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Adds all available partitions from 3 to 5
+            (inclusive) on /dev/sdd.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        partx &minus;d --nr :-1
+          /dev/sdd
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Removes the last partition on /dev/sdd.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="partx-8_sect4" name="partx-8_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman8/addpart.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        addpart
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/delpart.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        delpart
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/fdisk.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fdisk
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       parted
+      </span>
+      (8)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       partprobe
+      </span>
+      (8)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="partx-8_sect5" name="partx-8_sect5" shape="rect">
+    </a>
+    <h2>
+     AUTHORS
+    </h2>
+    <p>
+     <a class="literalurl" href="mailto:dave%20REMOVE%20@%20THIS%20gnu.org" shape="rect" target="_top">
+      Davidlohr Bueso
+     </a>
+    </p>
+    <p>
+     <a class="literalurl" href="mailto:kzak%20REMOVE%20@%20THIS%20redhat.com" shape="rect" target="_top">
+      Karel Zak
+     </a>
+    </p>
+    <p>
+     The original version was written by
+     <a class="literalurl" href="mailto:aeb%20REMOVE%20@%20THIS%20cwi.nl" shape="rect" target="_top">
+      Andries E. Brouwer
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="partx-8_sect6" name="partx-8_sect6" shape="rect">
+    </a>
+    <h2>
+     ENVIRONMENT
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <em class="replaceable">
+         <code>
+          LIBBLKID_DEBUG=0xffff
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        enables debug output.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="partx-8_sect7" name="partx-8_sect7" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The partx command is part of the util-linux package and is
+      available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

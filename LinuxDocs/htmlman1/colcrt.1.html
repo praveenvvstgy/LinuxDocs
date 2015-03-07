@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   colcrt(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="colcrt(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="colcrt.1" name="colcrt.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     colcrt &mdash; filter nroff output for CRT previewing
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       colcrt
+      </code>
+      [options] [ file...
+        ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="colcrt-1_sect1" name="colcrt-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       colcrt
+      </strong>
+     </span>
+     provides virtual half-line and reverse line feed sequences
+      for terminals without such capability, and on which
+      overstriking is destructive. Half-line characters and
+      underlining (changed to dashing `&minus;') are placed on new
+      lines in between the normal output lines.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="colcrt-1_sect2" name="colcrt-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          &minus;
+         </em>
+        </span>
+        ,
+        <code class="option">
+         &minus;&minus;no&minus;underlining
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Suppress all underlining. This option is especially
+            useful for previewing
+        <span class="command">
+         <strong>
+          allboxed
+         </strong>
+        </span>
+        tables from
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          tbl
+         </span>
+         (1)
+        </span>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          &minus;2
+         </em>
+        </span>
+        ,
+        <code class="option">
+         &minus;&minus;half&minus;lines
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Causes all half-lines to be printed, effectively
+            double spacing the output. Normally, a minimal space
+            output format is used which will suppress empty lines.
+            The program never suppresses two consecutive empty
+            lines, however. The
+        <span class="emphasis">
+         <em>
+          &minus;2
+         </em>
+        </span>
+        option is useful
+            for sending output to the line printer when the output
+            contains superscripts and subscripts which would
+            otherwise be invisible.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="colcrt-1_sect3" name="colcrt-1_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <p>
+     A typical use of
+     <span class="command">
+      <strong>
+       colcrt
+      </strong>
+     </span>
+     would be
+    </p>
+    <p>
+     tbl exum2.n | nroff &minus;ms | colcrt &minus; | more
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="colcrt-1_sect4" name="colcrt-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       nroff
+      </span>
+      (1)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       troff
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman1/col.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        col
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/more.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        more
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/ul.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ul
+       </span>
+       (1)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="colcrt-1_sect5" name="colcrt-1_sect5" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     Should fold underlines onto blanks even with the
+     <em class="replaceable">
+      <code>
+       '&minus;'
+      </code>
+     </em>
+     option so
+      that a true underline character would show.
+    </p>
+    <p>
+     Can't back up more than 102 lines.
+    </p>
+    <p>
+     General overstriking is lost; as a special case '|'
+      overstruck with '&minus;' or underline becomes '+'.
+    </p>
+    <p>
+     Lines are trimmed to 132 characters.
+    </p>
+    <p>
+     Some provision should be made for processing superscripts
+      and subscripts in documents which are already
+      double-spaced.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="colcrt-1_sect6" name="colcrt-1_sect6" shape="rect">
+    </a>
+    <h2>
+     HISTORY
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       colcrt
+      </strong>
+     </span>
+     command appeared in 3.0BSD.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="colcrt-1_sect7" name="colcrt-1_sect7" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The colcrt command is part of the util-linux package and
+      is available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

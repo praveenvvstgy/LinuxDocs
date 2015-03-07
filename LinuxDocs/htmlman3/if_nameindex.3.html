@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   if_nameindex(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="if_nameindex(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="if-nameindex.3" name="if-nameindex.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     if_nameindex, if_freenameindex &mdash; get network
+      interface names and indexes
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;net/if.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         struct if_nameindex
+            *
+         <strong>
+          if_nameindex
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <code>
+         void)
+        </code>
+        ;
+       </td>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          if_freenameindex
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        struct if_nameindex *
+        <var class="pdparam">
+         ptr
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="if-nameindex-3_sect1" name="if-nameindex-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      if_nameindex
+     </code>
+     () function
+      returns an array of
+     <span class="structname">
+      if_nameindex
+     </span>
+     structures, each containing
+      information about one of the network interfaces on the local
+      system. The
+     <span class="structname">
+      if_nameindex
+     </span>
+     structure contains at least the following entries:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+    unsigned int if_index; /* Index of interface (1, 2, ...) */
+    char        *if_name;  /* Null-terminated name ("eth0", etc.) */
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     The
+     <code class="function">
+      if_index
+     </code>
+     field contains
+      the interface index. The
+     <code class="function">
+      ifa_name
+     </code>
+     field points to the
+      null-terminated interface name. The end of the array is
+      indicated by entry with
+     <code class="function">
+      if_index
+     </code>
+     set to zero and
+     <code class="function">
+      ifa_name
+     </code>
+     set to NULL.
+    </p>
+    <p>
+     The data structure returned by
+     <code class="function">
+      if_nameindex
+     </code>
+     () is dynamically allocated and
+      should be freed using
+     <code class="function">
+      if_freenameindex
+     </code>
+     () when no longer
+      needed.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="if-nameindex-3_sect2" name="if-nameindex-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success,
+     <code class="function">
+      if_nameindex
+     </code>
+     ()
+      returns pointer to the array; on error, NULL is returned, and
+     <code class="varname">
+      errno
+     </code>
+     is set appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="if-nameindex-3_sect3" name="if-nameindex-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <p>
+     <code class="function">
+      if_nameindex
+     </code>
+     () may fail and
+      set
+     <code class="varname">
+      errno
+     </code>
+     if:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOBUFS
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Insufficient resources available.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     <code class="function">
+      if_nameindex
+     </code>
+     () may also fail
+      for any of the errors specified for
+     <a class="link" href="../htmlman2/socket.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        socket
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/bind.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        bind
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/ioctl.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ioctl
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/getsockname.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getsockname
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/recv.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        recvmsg
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/send.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sendto
+       </span>
+       (2)
+      </span>
+     </a>
+     , or
+     <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        malloc
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="if-nameindex-3_sect4" name="if-nameindex-3_sect4" shape="rect">
+    </a>
+    <h2>
+     VERSIONS
+    </h2>
+    <p>
+     The
+     <code class="function">
+      if_nameindex
+     </code>
+     () function
+      first appeared in glibc 2.1, but before glibc 2.3.4, the
+      implementation supported only interfaces with IPv4 addresses.
+      Support of interfaces that don't have IPv4 addresses is
+      available only on kernels that support netlink.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="if-nameindex-3_sect5" name="if-nameindex-3_sect5" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     RFC 3493, POSIX.1-2001.
+    </p>
+    <p>
+     This function first appeared in BSDi.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="if-nameindex-3_sect6" name="if-nameindex-3_sect6" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <p>
+     The program below demonstrates the use of the functions
+      described on this page. An example of the output this program
+      might produce is the following:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ <em class="replaceable"><code>./a.out</code></em>
+1: lo
+2: wlan0
+3: em1
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <div class="refsect2">
+     <a id="if-nameindex-3_sect7" name="if-nameindex-3_sect7" shape="rect">
+     </a>
+     <h3>
+      Program source
+     </h3>
+     <div class="informalexample">
+      <pre class="programlisting" xml:space="preserve">
+#include &lt;net/if.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+
+int
+main(int argc, char *argv[])
+{
+    struct if_nameindex *if_ni, *i;
+
+    if_ni = if_nameindex();
+    if (if_ni == NULL) {
+        perror("if_nameindex");
+        exit(EXIT_FAILURE);
+    }
+
+    for (i = if_ni; ! (i&minus;&gt;if_index == 0 &amp;&amp; i&minus;&gt;if_name == NULL); i++)
+        printf("%u: %s\n", i&minus;&gt;if_index, i&minus;&gt;if_name);
+
+    if_freenameindex(if_ni);
+
+    exit(EXIT_SUCCESS);
+}
+</pre>
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="if-nameindex-3_sect8" name="if-nameindex-3_sect8" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/getsockopt.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getsockopt
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/getsockopt.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setsockopt
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/getifaddrs.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getifaddrs
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/if_nametoindex.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        if_indextoname
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/if_nametoindex.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        if_nametoindex
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       ifconfig
+      </span>
+      (8)
+     </span>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="if-nameindex-3_sect9" name="if-nameindex-3_sect9" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

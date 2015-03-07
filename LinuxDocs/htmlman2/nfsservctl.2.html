@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   nfsservctl(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="nfsservctl(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="nfsservctl.2" name="nfsservctl.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     nfsservctl &mdash; syscall interface to kernel nfs
+      daemon
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;linux/nfsd/syscall.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         long
+         <strong>
+          nfsservctl
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         cmd
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        struct nfsctl_arg *
+        <var class="pdparam">
+         argp
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        union nfsctl_res *
+        <var class="pdparam">
+         resp
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="nfsservctl-2_sect1" name="nfsservctl-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <p>
+         Since Linux 3.1, this system call no longer
+              exists.
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+/*
+ * These are the commands understood by nfsctl().
+ */
+#define NFSCTL_SVC          0    /* This is a server process. */
+#define NFSCTL_ADDCLIENT    1    /* Add an NFS client. */
+#define NFSCTL_DELCLIENT    2    /* Remove an NFS client. */
+#define NFSCTL_EXPORT       3    /* Export a filesystem. */
+#define NFSCTL_UNEXPORT     4    /* Unexport a filesystem. */
+#define NFSCTL_UGIDUPDATE   5    /* Update a client's UID/GID map
+                                    (only in Linux 2.4.x and earlier). */
+#define NFSCTL_GETFH        6    /* Get a file handle (used by mountd)
+                                    (only in Linux 2.4.x and earlier). */
+
+struct nfsctl_arg {
+    int                       ca_version;     /* safeguard */
+    union {
+        struct nfsctl_svc     u_svc;
+        struct nfsctl_client  u_client;
+        struct nfsctl_export  u_export;
+        struct nfsctl_uidmap  u_umap;
+        struct nfsctl_fhparm  u_getfh;
+        unsigned int          u_debug;
+    } u;
+}
+
+union nfsctl_res {
+        struct knfs_fh          cr_getfh;
+        unsigned int            cr_debug;
+};
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="nfsservctl-2_sect2" name="nfsservctl-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success, zero is returned. On error, &minus;1 is
+      returned, and
+     <code class="varname">
+      errno
+     </code>
+     is set
+      appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="nfsservctl-2_sect3" name="nfsservctl-2_sect3" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     This call is Linux-specific.
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="nfsservctl-2_sect4" name="nfsservctl-2_sect4" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

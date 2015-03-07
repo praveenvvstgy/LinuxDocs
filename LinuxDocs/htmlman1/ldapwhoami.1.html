@@ -1,0 +1,742 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   ldapwhoami(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="ldapwhoami(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="ldapwhoami.1" name="ldapwhoami.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     ldapwhoami &mdash; LDAP who am i? tool
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       ldapwhoami
+      </code>
+      [
+      <code class="option">
+       &minus;V
+      </code>
+      [V] ] [
+      <code class="option">
+       &minus;d
+      </code>
+      debuglevel ] [
+      <code class="option">
+       &minus;n
+      </code>
+      ] [
+      <code class="option">
+       &minus;v
+      </code>
+      ] [
+      <code class="option">
+       &minus;x
+      </code>
+      ] [
+      <code class="option">
+       &minus;D
+      </code>
+      binddn ] [
+      <code class="option">
+       &minus;W
+      </code>
+      ] [
+      <code class="option">
+       &minus;w
+      </code>
+      passwd ] [
+      <code class="option">
+       &minus;y
+      </code>
+      passwdfile ] [
+      <code class="option">
+       &minus;H
+      </code>
+      ldapuri ] [
+      <code class="option">
+       &minus;h
+      </code>
+      ldaphost ] [
+      <code class="option">
+       &minus;p
+      </code>
+      ldapport ] [
+      <code class="option">
+       &minus;e
+      </code>
+      [!] ext [=extparam] ] [
+      <code class="option">
+       &minus;E
+      </code>
+      [!] ext [=extparam] ]
+        [
+      <code class="option">
+       &minus;o
+      </code>
+      opt [ = optparam ] ]
+        [
+      <code class="option">
+       &minus;O
+      </code>
+      security&minus;properties ] [
+      <code class="option">
+       &minus;I
+      </code>
+      ] [
+      <code class="option">
+       &minus;Q
+      </code>
+      ] [
+      <code class="option">
+       &minus;N
+      </code>
+      ] [
+      <code class="option">
+       &minus;U
+      </code>
+      authcid ] [
+      <code class="option">
+       &minus;R
+      </code>
+      realm ] [
+      <code class="option">
+       &minus;X
+      </code>
+      authzid ] [
+      <code class="option">
+       &minus;Y
+      </code>
+      mech ] [
+      <code class="option">
+       &minus;Z
+      </code>
+      [Z] ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ldapwhoami-1_sect1" name="ldapwhoami-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       ldapwhoami
+      </strong>
+     </span>
+     implements the LDAP "Who Am I?" extended operation.
+    </p>
+    <p>
+     <span class="command">
+      <strong>
+       ldapwhoami
+      </strong>
+     </span>
+     opens a connection to an LDAP server, binds, and performs a
+      whoami operation.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ldapwhoami-1_sect2" name="ldapwhoami-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V[V]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print version info. If
+        <code class="option">
+         &minus;VV
+        </code>
+        is given, only the version
+            information is printed.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+          debuglevel
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set the LDAP debugging level to
+        <em class="parameter">
+         <code>
+          debuglevel
+         </code>
+        </em>
+        .
+        <span class="command">
+         <strong>
+          ldapwhoami
+         </strong>
+        </span>
+        must be
+            compiled with LDAP_DEBUG defined for this option to
+            have any effect.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Show what would be done, but don't actually perform
+            the whoami operation. Useful for debugging in
+            conjunction with
+        <code class="option">
+         &minus;v
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Run in verbose mode, with many diagnostics written
+            to standard output.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;x
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use simple authentication instead of SASL.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;D
+          binddn
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use the Distinguished Name
+        <em class="parameter">
+         <code>
+          binddn
+         </code>
+        </em>
+        to bind to the
+            LDAP directory. For SASL binds, the server is expected
+            to ignore this value.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;W
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Prompt for simple authentication. This is used
+            instead of specifying the password on the command
+            line.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;w
+          passwd
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use
+        <em class="parameter">
+         <code>
+          passwd
+         </code>
+        </em>
+        as the password for simple authentication.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;y
+          passwdfile
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use complete contents of
+        <em class="parameter">
+         <code>
+          passwdfile
+         </code>
+        </em>
+        as the
+            password for simple authentication.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;H
+          ldapuri
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify URI(s) referring to the ldap server(s); only
+            the protocol/host/port fields are allowed; a list of
+            URI, separated by whitespace or commas is expected.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+          ldaphost
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify an alternate host on which the ldap server
+            is running. Deprecated in favor of
+        <code class="option">
+         &minus;H
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p
+          ldapport
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify an alternate TCP port where the ldap server
+            is listening. Deprecated in favor of
+        <code class="option">
+         &minus;H
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;e
+          [!]
+         <em class="parameter">
+          <code>
+           ext
+          </code>
+         </em>
+         [=
+         <em class="parameter">
+          <code>
+           extparam
+          </code>
+         </em>
+         ]
+        </code>
+       </span>
+      </dt>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;E
+          [!]
+         <em class="parameter">
+          <code>
+           ext
+          </code>
+         </em>
+         [=
+         <em class="parameter">
+          <code>
+           extparam
+          </code>
+         </em>
+         ]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify general extensions with
+        <code class="option">
+         &minus;e
+        </code>
+        and whoami extensions with
+        <code class="option">
+         &minus;E
+        </code>
+        . '
+        <em class="parameter">
+         <code>
+          !
+         </code>
+        </em>
+        ' indicates
+            criticality.
+       </p>
+       <p>
+        General extensions:
+       </p>
+       <div class="informalexample">
+        <pre class="programlisting" xml:space="preserve">
+  [!]assert=&lt;filter&gt;    (an RFC 4515 Filter)
+  !authzid=&lt;authzid&gt;    ("dn:&lt;dn&gt;" or "u:&lt;user&gt;")
+  [!]bauthzid           (RFC 3829 authzid control)
+  [!]chaining[=&lt;resolve&gt;[/&lt;cont&gt;]]
+  [!]manageDSAit
+  [!]noop
+  ppolicy
+  [!]postread[=&lt;attrs&gt;] (a comma-separated attribute list)
+  [!]preread[=&lt;attrs&gt;]  (a comma-separated attribute list)
+  [!]relax
+  sessiontracking
+  abandon,cancel,ignore (SIGINT sends abandon/cancel,
+  or ignores response; if critical, doesn't wait for SIGINT.
+  not really controls)
+</pre>
+       </div>
+       <p>
+        WhoAmI extensions:
+       </p>
+       <div class="informalexample">
+        <pre class="programlisting" xml:space="preserve">
+  (none)
+</pre>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o
+          opt[=optparam]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify general options.
+       </p>
+       <p>
+        General options:
+       </p>
+       <div class="informalexample">
+        <pre class="programlisting" xml:space="preserve">
+  nettimeout=&lt;timeout&gt;  (in seconds, or "none" or "max")
+  ldif-wrap=&lt;width&gt;     (in columns, or "no" for no wrapping)
+</pre>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;O
+          security&minus;properties
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify SASL security properties.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;I
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable SASL Interactive mode. Always prompt. Default
+            is to prompt only as needed.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;Q
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable SASL Quiet mode. Never prompt.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;N
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not use reverse DNS to canonicalize SASL host
+            name.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;U
+          authcid
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the authentication ID for SASL bind. The
+            form of the ID depends on the actual SASL mechanism
+            used.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;R
+          realm
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the realm of authentication ID for SASL
+            bind. The form of the realm depends on the actual SASL
+            mechanism used.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;X
+          authzid
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the requested authorization ID for SASL
+            bind.
+        <em class="parameter">
+         <code>
+          authzid
+         </code>
+        </em>
+        must be one of the following formats:
+        <em class="replaceable">
+         <code>
+          dn:
+         </code>
+        </em>
+        <span class="emphasis">
+         <em>
+          &lt;distinguished name&gt;
+         </em>
+        </span>
+        or
+        <em class="replaceable">
+         <code>
+          u:
+         </code>
+        </em>
+        <em class="replaceable">
+         <code>
+          &lt;username&gt;
+         </code>
+        </em>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;Y
+          mech
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the SASL mechanism to be used for
+            authentication. If it's not specified, the program will
+            choose the best mechanism the server knows.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;Z[Z]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Issue StartTLS (Transport Layer Security) extended
+            operation. If you use
+        <code class="option">
+         &minus;ZZ
+        </code>
+        , the command will require the
+            operation to be successful.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ldapwhoami-1_sect3" name="ldapwhoami-1_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+    ldapwhoami &minus;x &minus;D "cn=Manager,dc=example,dc=com" &minus;W
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ldapwhoami-1_sect4" name="ldapwhoami-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman5/ldap.conf.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap.conf
+       </span>
+       (5)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/ldap.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/ldap_extended_operation.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap_extended_operation
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ldapwhoami-1_sect5" name="ldapwhoami-1_sect5" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     The OpenLDAP Project &lt;
+     <a class="literalurl" href="http://www.openldap.org/" shape="rect" target="_top">
+      http://www.openldap.org/
+     </a>
+     &gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ldapwhoami-1_sect6" name="ldapwhoami-1_sect6" shape="rect">
+    </a>
+    <h2>
+     ACKNOWLEDGEMENTS
+    </h2>
+    <p>
+     <span class="emphasis">
+      <em>
+       OpenLDAP Software
+      </em>
+     </span>
+     is developed and maintained by The OpenLDAP Project
+      &lt;
+     <a class="literalurl" href="http://www.openldap.org/" shape="rect" target="_top">
+      http://www.openldap.org/
+     </a>
+     &gt;.
+     <span class="emphasis">
+      <em>
+       OpenLDAP Software
+      </em>
+     </span>
+     is derived from
+      University of Michigan LDAP 3.3 Release.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

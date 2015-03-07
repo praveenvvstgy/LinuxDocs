@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pam_getenv(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pam_getenv(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry" title="pam_getenv(3) &mdash; Linux manual pages">
+   <a id="pam-getenv.3" name="pam-getenv.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <a id="pam_getenv-name" name="pam_getenv-name" shape="rect">
+    </a>
+    <h2>
+     Name
+    </h2>
+    <p>
+     pam_getenv &mdash; get a PAM environment variable
+    </p>
+   </div>
+   <div class="refsynopsisdiv" title="Synopsis">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <a id="pam_getenv-synopsis" name="pam_getenv-synopsis" shape="rect">
+     </a>
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;security/pam_appl.h&gt;
+</pre>
+     <table border="0" cellpadding="0" cellspacing="0" class="funcprototype-table" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         const char
+            *
+         <strong>
+          pam_getenv
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        pam_handle_t *
+        <var class="pdparam">
+         pamh
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         name
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1" title="DESCRIPTION">
+    <a id="pam_getenv-description" name="pam_getenv-description" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      pam_getenv
+     </code>
+     function
+      searches the PAM environment list as associated with the
+      handle
+     <span class="emphasis">
+      <em>
+       pamh
+      </em>
+     </span>
+     for an
+      item that matches the string pointed to by
+     <span class="emphasis">
+      <em>
+       name
+      </em>
+     </span>
+     and returns a pointer to the
+      value of the environment variable. The application is not
+      allowed to free the data.
+    </p>
+   </div>
+   <div class="refsect1" title="RETURN VALUES">
+    <a id="pam_getenv-return_values" name="pam_getenv-return_values" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUES
+    </h2>
+    <p>
+     The
+     <code class="function">
+      pam_getenv
+     </code>
+     function
+      returns NULL on failure.
+    </p>
+   </div>
+   <div class="refsect1" title="SEE ALSO">
+    <a id="pam_getenv-see_also" name="pam_getenv-see_also" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/pam_start.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam_start
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pam_getenvlist.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam_getenvlist
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pam_putenv.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam_putenv
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/pam.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam
+       </span>
+       (8)
+      </span>
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   prlimit(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="prlimit(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="prlimit.1" name="prlimit.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     prlimit &mdash; get and set a process resource limits.
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       prlimit
+      </code>
+      [options]
+        [
+      <code class="option">
+       &minus;&minus;{resource_name}[
+      </code>
+      =
+      <em class="replaceable">
+       <code>
+        limits]
+       </code>
+      </em>
+      ] [
+      <code class="option">
+       &minus;&minus;pid
+      </code>
+      PID ]
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       prlimit
+      </code>
+      [options]
+        [
+      <code class="option">
+       &minus;&minus;{resource_name}[
+      </code>
+      =
+      <em class="replaceable">
+       <code>
+        limits]
+       </code>
+      </em>
+      ] command [
+        argument... ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="prlimit-1_sect1" name="prlimit-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Given a process id and one or more resources,
+     <span class="command">
+      <strong>
+       prlimit
+      </strong>
+     </span>
+     tries to retrieve
+      and/or modify the limits.
+    </p>
+    <p>
+     When
+     <em class="parameter">
+      <code>
+       command
+      </code>
+     </em>
+     is
+      given,
+     <span class="command">
+      <strong>
+       prlimit
+      </strong>
+     </span>
+     will run this command with the given arguments.
+    </p>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       limits
+      </strong>
+     </span>
+     format is composed by a soft and a hard (ceiling) value,
+      separated by a semicolon (:), in order to modify the existing
+      value(s). If no limits are used,
+     <span class="command">
+      <strong>
+       prlimit
+      </strong>
+     </span>
+     will only display
+      the current values. If one of the values is not used, then
+      the existing one will be used. To specify the unlimited or
+      infinity limit (RLIM_INFINITY), the -1 or 'unlimited' string
+      can be passed.
+    </p>
+    <p>
+     Because of the nature of limits, the soft value must be
+      lower or equal to the high limit. To see all the available
+      resource limits, refer to the RESOURCE OPTIONS section.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <em class="replaceable">
+         <code>
+          &lt;soft&gt;:&lt;hard&gt;
+         </code>
+        </em>
+        Specify both limits
+       </span>
+      </dt>
+      <dt>
+       <span class="term">
+        <em class="replaceable">
+         <code>
+          &lt;soft&gt;:
+         </code>
+        </em>
+        Specify
+          only the soft limit
+       </span>
+      </dt>
+      <dt>
+       <span class="term">
+        <em class="replaceable">
+         <code>
+          :&lt;hard&gt;
+         </code>
+        </em>
+        Specify
+          only the hard limit
+       </span>
+      </dt>
+      <dt>
+       <span class="term">
+        <em class="replaceable">
+         <code>
+          &lt;value&gt;
+         </code>
+        </em>
+        Specify
+          both soft and hard limits to the same value
+       </span>
+      </dt>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="prlimit-1_sect2" name="prlimit-1_sect2" shape="rect">
+    </a>
+    <h2>
+     GENERAL OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p,
+          &minus;&minus;pid
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the process id, if none is given, it will
+            use the running process.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o,
+          &minus;&minus;output
+        </code>
+        <span class="command">
+         <strong>
+          list
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Define the output columns to use. If no output
+            arrangement is specified, then a default set is used.
+            Use
+        <code class="option">
+         &minus;&minus;help
+        </code>
+        to
+            get list of all supported columns.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V,
+          &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;verbose
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Verbose mode.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;raw
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use the raw output format.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;noheadings
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not print a header line.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="prlimit-1_sect3" name="prlimit-1_sect3" shape="rect">
+    </a>
+    <h2>
+     RESOURCE OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;c,
+          &minus;&minus;core
+        </code>
+        [=limits]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Maximum size of a core file.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d,
+          &minus;&minus;data
+        </code>
+        [=limits]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Maximum data size.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;e,
+          &minus;&minus;nice
+        </code>
+        [=limits]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Maximum nice priority allowed to raise.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f,
+          &minus;&minus;fsize
+        </code>
+        [=limits]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Maximum file size.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i,
+          &minus;&minus;sigpending
+        </code>
+        [=limits]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Maximum number of pending signals.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l,
+          &minus;&minus;memlock
+        </code>
+        [=limits]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Maximum locked-in-memory address space.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;m,
+          &minus;&minus;rss
+        </code>
+        [=limits]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Maximum Resident Set Size (RSS).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n,
+          &minus;&minus;nofile
+        </code>
+        [=limits]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Maximum number of open files.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;q,
+          &minus;&minus;msgqueue
+        </code>
+        [=limits]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Maximum number of bytes in POSIX message queues.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r,
+          &minus;&minus;rtprio
+        </code>
+        [=limits]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Maximum real-time priority.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s,
+          &minus;&minus;stack
+        </code>
+        [=limits]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Maximum size of the stack.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t,
+          &minus;&minus;cpu
+        </code>
+        [=limits]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        CPU time, in seconds.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u,
+          &minus;&minus;nproc
+        </code>
+        [=limits]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Maximum number of processes.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v,
+          &minus;&minus;as
+        </code>
+        [=limits]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Address space limit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;x,
+          &minus;&minus;locks
+        </code>
+        [=limits]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Maximum number of file locks held.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;y,
+          &minus;&minus;rttime
+        </code>
+        [=limits]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Timeout for real-time tasks.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="prlimit-1_sect4" name="prlimit-1_sect4" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          prlimit
+          &minus;&minus;pid 13134
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display limit values for all current resources.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          prlimit
+          &minus;&minus;pid 13134 &minus;-rss
+          --nofile=1024:4095
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display the limits of the RSS and set the soft and
+            hard limits for the number of open files to 1024 and
+            4095, respectively.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          prlimit
+          &minus;&minus;pid 13134
+          --nproc=512:
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Modify only the soft limit for the number of
+            processes.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          prlimit
+          &minus;&minus;pid $$
+          --nproc=unlimited
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set the number of processes for both soft and
+            ceiling values to unlimited.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          prlimit
+          --cpu=10 sort -u hugefile
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set the soft and hard CPU time limit and run
+            'sort'.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="prlimit-1_sect5" name="prlimit-1_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/getrlimit.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        prlimit
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       ulimit
+      </span>
+      (1)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="prlimit-1_sect6" name="prlimit-1_sect6" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+The prlimit system call is supported since Linux 2.6.36, previous kernels will
+break this program.
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="prlimit-1_sect7" name="prlimit-1_sect7" shape="rect">
+    </a>
+    <h2>
+     AUTHORS
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+Davidlohr Bueso &lt;dave@gnu.org&gt; - In memory of Dennis M. Ritchie.
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="prlimit-1_sect8" name="prlimit-1_sect8" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The prlimit command is part of the util-linux package and
+      is available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

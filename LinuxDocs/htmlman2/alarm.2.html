@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   alarm(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="alarm(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="alarm.2" name="alarm.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     alarm &mdash; set an alarm clock for delivery of a
+      signal
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;unistd.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         unsigned int
+         <strong>
+          alarm
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int
+        <var class="pdparam">
+         seconds
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="alarm-2_sect1" name="alarm-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <code class="function">
+      alarm
+     </code>
+     () arranges for a
+     <code class="constant">
+      SIGALRM
+     </code>
+     signal to be delivered
+      to the calling process in
+     <em class="parameter">
+      <code>
+       seconds
+      </code>
+     </em>
+     seconds.
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       seconds
+      </code>
+     </em>
+     is
+      zero, any pending alarm is canceled.
+    </p>
+    <p>
+     In any event any previously set
+     <code class="function">
+      alarm
+     </code>
+     () is canceled.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="alarm-2_sect2" name="alarm-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     <code class="function">
+      alarm
+     </code>
+     () returns the number
+      of seconds remaining until any previously scheduled alarm was
+      due to be delivered, or zero if there was no previously
+      scheduled alarm.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="alarm-2_sect3" name="alarm-2_sect3" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     SVr4, POSIX.1-2001, 4.3BSD.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="alarm-2_sect4" name="alarm-2_sect4" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     <code class="function">
+      alarm
+     </code>
+     () and
+     <a class="link" href="../htmlman2/getitimer.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setitimer
+       </span>
+       (2)
+      </span>
+     </a>
+     share the same
+      timer; calls to one will interfere with use of the other.
+    </p>
+    <p>
+     Alarms created by
+     <code class="function">
+      alarm
+     </code>
+     ()
+      are preserved across
+     <a class="link" href="../htmlman2/execve.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        execve
+       </span>
+       (2)
+      </span>
+     </a>
+     and are not
+      inherited by children created via
+     <a class="link" href="../htmlman2/fork.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fork
+       </span>
+       (2)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     <a class="link" href="../htmlman3/sleep.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sleep
+       </span>
+       (3)
+      </span>
+     </a>
+     may be implemented
+      using
+     <code class="constant">
+      SIGALRM
+     </code>
+     ; mixing calls to
+     <code class="function">
+      alarm
+     </code>
+     () and
+     <a class="link" href="../htmlman3/sleep.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sleep
+       </span>
+       (3)
+      </span>
+     </a>
+     is a bad idea.
+    </p>
+    <p>
+     Scheduling delays can, as ever, cause the execution of the
+      process to be delayed by an arbitrary amount of time.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="alarm-2_sect5" name="alarm-2_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/gettimeofday.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        gettimeofday
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/pause.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pause
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/select.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        select
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/getitimer.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        setitimer
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/sigaction.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sigaction
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/signal.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        signal
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/sleep.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        sleep
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/time.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        time
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="alarm-2_sect6" name="alarm-2_sect6" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

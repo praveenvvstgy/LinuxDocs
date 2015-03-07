@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   mkfs(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="mkfs(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="mkfs.8" name="mkfs.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     mkfs &mdash; build a Linux filesystem
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       mkfs
+      </code>
+      [options] [
+      <code class="option">
+       &minus;t
+      </code>
+      type ]
+        [fs&minus;options] device [size]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="mkfs-8_sect1" name="mkfs-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       mkfs
+      </strong>
+     </span>
+     is used
+      to build a Linux filesystem on a device, usually a hard disk
+      partition. The
+     <em class="parameter">
+      <code>
+       device
+      </code>
+     </em>
+     argument is either the device name (e.g.
+     <code class="filename">
+      /dev/hda1
+     </code>
+     ,
+     <code class="filename">
+      /dev/sdb2
+     </code>
+     ), or a regular file that shall
+      contain the filesystem. The
+     <em class="parameter">
+      <code>
+       size
+      </code>
+     </em>
+     argument is the number of
+      blocks to be used for the filesystem.
+    </p>
+    <p>
+     The exit code returned by
+     <span class="command">
+      <strong>
+       mkfs
+      </strong>
+     </span>
+     is 0 on success and 1
+      on failure.
+    </p>
+    <p>
+     In actuality,
+     <span class="command">
+      <strong>
+       mkfs
+      </strong>
+     </span>
+     is simply a front-end
+      for the various filesystem builders (
+     <em class="replaceable">
+      <code>
+       mkfs.
+      </code>
+     </em>
+     <span class="command">
+      <strong>
+       fstype
+      </strong>
+     </span>
+     ) available under
+      Linux. The filesystem-specific builder is searched for in a
+      number of directories, like perhaps
+     <code class="filename">
+      /sbin
+     </code>
+     ,
+     <code class="filename">
+      /sbin/fs
+     </code>
+     ,
+     <code class="filename">
+      /sbin/fs.d
+     </code>
+     ,
+     <code class="filename">
+      /etc/fs
+     </code>
+     ,
+     <code class="filename">
+      /etc
+     </code>
+     (the precise list is defined at compile time but at least
+      contains
+     <code class="filename">
+      /sbin
+     </code>
+     and
+     <code class="filename">
+      /sbin/fs
+     </code>
+     ), and finally in the directories
+      listed in the PATH environment variable. Please see the
+      filesystem-specific builder manual pages for further
+      details.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mkfs-8_sect2" name="mkfs-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t,
+          &minus;&minus;type
+         <em class="parameter">
+          <code>
+           type
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the
+        <em class="parameter">
+         <code>
+          type
+         </code>
+        </em>
+        of filesystem to be
+            built. If not specified, the default filesystem type
+            (currently ext2) is used.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <em class="parameter">
+         <code>
+          fs-options
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Filesystem-specific options to be passed to the real
+            filesystem builder. Although not guaranteed, the
+            following options are supported by most filesystem
+            builders.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V,
+          &minus;&minus;verbose
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Produce verbose output, including all
+            filesystem-specific commands that are executed.
+            Specifying this option more than once inhibits
+            execution of any filesystem-specific commands. This is
+            really only useful for testing.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V,
+          &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit. (Option
+        <code class="option">
+         &minus;V
+        </code>
+        will display
+            version information only when it is the only parameter,
+            otherwise it will work as
+        <code class="option">
+         &minus;&minus;verbose
+        </code>
+        .)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="mkfs-8_sect3" name="mkfs-8_sect3" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     All generic options must precede and not be combined with
+      filesystem-specific options. Some filesystem-specific
+      programs do not support the
+     <code class="option">
+      &minus;V
+     </code>
+     (verbose) option, nor return
+      meaningful exit codes. Also, some filesystem-specific
+      programs do not automatically detect the device size and
+      require the
+     <em class="parameter">
+      <code>
+       size
+      </code>
+     </em>
+     parameter to be specified.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mkfs-8_sect4" name="mkfs-8_sect4" shape="rect">
+    </a>
+    <h2>
+     AUTHORS
+    </h2>
+    <p>
+     David Engel (david@ods.com)
+    </p>
+    <p>
+     Fred N. van Kempen (waltje@uwalt.nl.mugnet.org)
+    </p>
+    <p>
+     Ron Sommeling (sommel@sci.kun.nl)
+    </p>
+    <p>
+     The manual page was shamelessly adapted from Remy Card's
+      version for the ext2 filesystem.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mkfs-8_sect5" name="mkfs-8_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman5/filesystems.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fs
+       </span>
+       (5)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       badblocks
+      </span>
+      (8)
+     </span>
+     ,
+     <a class="link" href="../htmlman8/fsck.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fsck
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       mkdosfs
+      </span>
+      (8)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       mke2fs
+      </span>
+      (8)
+     </span>
+     ,
+     <a class="link" href="../htmlman8/mkfs.bfs.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mkfs.bfs
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       mkfs.ext2
+      </span>
+      (8)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       mkfs.ext3
+      </span>
+      (8)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       mkfs.ext4
+      </span>
+      (8)
+     </span>
+     ,
+     <a class="link" href="../htmlman8/mkfs.minix.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mkfs.minix
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       mkfs.msdos
+      </span>
+      (8)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       mkfs.vfat
+      </span>
+      (8)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       mkfs.xfs
+      </span>
+      (8)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       mkfs.xiafs
+      </span>
+      (8)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mkfs-8_sect6" name="mkfs-8_sect6" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The mkfs command is part of the util-linux package and is
+      available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,1351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   gnutls-cli(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="gnutls-cli(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="gnutls-cli.1" name="gnutls-cli.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     gnutls-cli &mdash; GnuTLS client
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       gnutls-cli
+      </code>
+      [
+      <code class="option">
+       &minus;flag
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        value
+       </code>
+      </em>
+      ] ...] [
+      <code class="option">
+       &minus;&minus;opt&minus;name
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        [=|]value
+       </code>
+      </em>
+      ] ...] [
+      <em class="replaceable">
+       <code>
+        hostname
+       </code>
+      </em>
+      ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-cli-1_sect1" name="gnutls-cli-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Simple client program to set up a TLS connection to some
+      other computer. It sets up a TLS connection and forwards data
+      from the standard input to the secured socket and vice
+      versa.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-cli-1_sect2" name="gnutls-cli-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+         ,
+          &minus;&minus;debug=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable debugging. This option takes an integer
+            number as its argument. The value of
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+        is constrained
+            to being:
+       </p>
+       <div class="blockquote">
+        <blockquote class="blockquote">
+         <div class="informalexample">
+          <pre class="programlisting" xml:space="preserve">
+in the range  0 through 9999
+</pre>
+         </div>
+        </blockquote>
+       </div>
+       <p>
+        Specifies the debug level.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V,
+          &minus;&minus;verbose
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        More verbose output. This option may appear an
+            unlimited number of times.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;tofu,
+         <code class="option">
+          &minus;&minus;no&minus;tofu
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable trust on first use authentication. The
+        <em class="replaceable">
+         <code>
+          no&minus;tofu
+         </code>
+        </em>
+        form will disable the option.
+       </p>
+       <p>
+        This option will, in addition to certificate
+            authentication, perform authentication based on
+            previously seen public keys, a model similar to SSH
+            authentication. Note that when tofu is specified (PKI)
+            and DANE authentication will become advisory to assist
+            the public key acceptance process.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;strict&minus;tofu,
+         <code class="option">
+          &minus;&minus;no&minus;strict&minus;tofu
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Fail to connect if a known certificate has changed.
+            The
+        <em class="replaceable">
+         <code>
+          no&minus;strict&minus;tofu
+         </code>
+        </em>
+        form will disable the option.
+       </p>
+       <p>
+        This option will perform authentication as with
+            option &minus;-tofu; however, while &minus;-tofu asks
+            whether to trust a changed public key, this option will
+            fail in case of public key changes.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;dane,
+         <code class="option">
+          &minus;&minus;no&minus;dane
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable DANE certificate verification (DNSSEC). The
+        <em class="replaceable">
+         <code>
+          no&minus;dane
+         </code>
+        </em>
+        form will disable the option.
+       </p>
+       <p>
+        This option will, in addition to certificate
+            authentication using the trusted CAs, verify the server
+            certificates using on the DANE information available
+            via DNSSEC.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;local&minus;dns,
+         <code class="option">
+          &minus;&minus;no&minus;local&minus;dns
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use the local DNS server for DNSSEC resolving. The
+        <em class="replaceable">
+         <code>
+          no&minus;local&minus;dns
+         </code>
+        </em>
+        form will disable the option.
+       </p>
+       <p>
+        This option will use the local DNS server for
+            DNSSEC. This is disabled by default due to many servers
+            not allowing DNSSEC.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;ca&minus;verification,
+         <code class="option">
+          &minus;&minus;no&minus;ca&minus;verification
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Disable CA certificate verification. The
+        <em class="replaceable">
+         <code>
+          no&minus;ca&minus;verification
+         </code>
+        </em>
+        form will disable the option. This option is enabled by
+            default.
+       </p>
+       <p>
+        This option will disable CA certificate
+            verification. It is to be used with the &minus;-dane or
+            &minus;-tofu options.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;ocsp,
+         <code class="option">
+          &minus;&minus;no&minus;ocsp
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable OCSP certificate verification. The
+        <em class="replaceable">
+         <code>
+          no&minus;ocsp
+         </code>
+        </em>
+        form will
+            disable the option.
+       </p>
+       <p>
+        This option will enable verification of the peer's
+            certificate using ocsp
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r,
+          &minus;&minus;resume
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Establish a session and resume.
+       </p>
+       <p>
+        Connect, establish a session, reconnect and
+            resume.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;e,
+          &minus;&minus;rehandshake
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Establish a session and rehandshake.
+       </p>
+       <p>
+        Connect, establish a session and rehandshake
+            immediately.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s,
+          &minus;&minus;starttls
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Connect, establish a plain session and start
+            TLS.
+       </p>
+       <p>
+        The TLS session will be initiated when EOF or a
+            SIGALRM is received.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u,
+          &minus;&minus;udp
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use DTLS (datagram TLS) over UDP.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;mtu=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set MTU for datagram TLS. This option takes an
+            integer number as its argument. The value of
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+        is
+            constrained to being:
+       </p>
+       <div class="blockquote">
+        <blockquote class="blockquote">
+         <div class="informalexample">
+          <pre class="programlisting" xml:space="preserve">
+in the range  0 through 17000
+</pre>
+         </div>
+        </blockquote>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;crlf
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Send CR LF instead of LF.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;x509fmtder
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use DER format for certificates to read from.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f,
+          &minus;&minus;fingerprint
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Send the openpgp fingerprint, instead of the
+            key.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;print&minus;cert
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print peer's certificate in PEM format.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;dh&minus;bits=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The minimum number of bits allowed for DH. This
+            option takes an integer number as its argument.
+       </p>
+       <p>
+        This option sets the minimum number of bits allowed
+            for a Diffie-Hellman key exchange. You may want to
+            lower the default value if the peer sends a weak prime
+            and you get an connection error with unacceptable
+            prime.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;priority=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Priorities string.
+       </p>
+       <p>
+        TLS algorithms and protocols to enable. You can use
+            predefined sets of ciphersuites such as PERFORMANCE,
+            NORMAL, PFS, SECURE128, SECURE256. The default is
+            NORMAL.
+       </p>
+       <p>
+        Check the GnuTLS manual on section
+        <span class="quote">
+         &ldquo;
+         <span class="quote">
+          Priority
+            strings
+         </span>
+         &rdquo;
+        </span>
+        for more information on
+            the allowed keywords
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;x509cafile=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Certificate file or PKCS #11 URL to use.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;x509crlfile=
+         <em class="parameter">
+          <code>
+           file
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        CRL file to use.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;pgpkeyfile=
+         <em class="parameter">
+          <code>
+           file
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        PGP Key file to use.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;pgpkeyring=
+         <em class="parameter">
+          <code>
+           file
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        PGP Key ring file to use.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;pgpcertfile=
+         <em class="parameter">
+          <code>
+           file
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        PGP Public Key (certificate) file to use.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;x509keyfile=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        X.509 key file or PKCS #11 URL to use.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;x509certfile=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        X.509 Certificate file or PKCS #11 URL to use.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;pgpsubkey=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        PGP subkey to use (hex or auto).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;srpusername=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        SRP username to use.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;srppasswd=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        SRP password to use.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;pskusername=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        PSK username to use.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;pskkey=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        PSK key (in hex) to use.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+         ,
+          &minus;&minus;port=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The port or service to connect to.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;insecure
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Don't abort program if server certificate can't be
+            validated.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;ranges
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use length-hiding padding to prevent traffic
+            analysis.
+       </p>
+       <p>
+        When possible (e.g., when using CBC ciphersuites),
+            use length-hiding padding to prevent traffic
+            analysis.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;benchmark&minus;ciphers
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Benchmark individual ciphers.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;benchmark&minus;soft&minus;ciphers
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Benchmark individual software ciphers (no hw
+            acceleration).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;benchmark&minus;tls&minus;kx
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Benchmark TLS key exchange methods.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;benchmark&minus;tls&minus;ciphers
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Benchmark TLS ciphers.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l,
+          &minus;&minus;list
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print a list of the supported algorithms and
+            modes.
+       </p>
+       <p>
+        Print a list of the supported algorithms and modes.
+            If a priority string is given then only the enabled
+            ciphersuites are shown.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;noticket
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Don't allow session tickets.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;srtp&minus;profiles=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Offer SRTP profiles.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;alpn=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Application layer protocol. This option may appear
+            an unlimited number of times.
+       </p>
+       <p>
+        This option will set and enable the Application
+            Layer Protocol Negotiation (ALPN) in the TLS
+            protocol.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;b,
+          &minus;&minus;heartbeat
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Activate heartbeat support.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;recordsize=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The maximum record size to advertize. This option
+            takes an integer number as its argument. The value of
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+        is
+            constrained to being:
+       </p>
+       <div class="blockquote">
+        <blockquote class="blockquote">
+         <div class="informalexample">
+          <pre class="programlisting" xml:space="preserve">
+in the range  0 through 4096
+</pre>
+         </div>
+        </blockquote>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;disable&minus;sni
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not send a Server Name Indication (SNI).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;disable&minus;extensions
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Disable all the TLS extensions.
+       </p>
+       <p>
+        This option disables all TLS extensions. Deprecated
+            option. Use the priority string.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;inline&minus;commands
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Inline commands of the form ^&lt;cmd&gt;^.
+       </p>
+       <p>
+        Enable inline commands of the form ^&lt;cmd&gt;^.
+            The inline commands are expected to be in a line by
+            themselves. The available commands are: resume and
+            renegotiate.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;inline&minus;commands&minus;prefix=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Change the default (^) used as a delimiter for
+            inline commands. The value is a single US-ASCII
+            character (octets 0 &minus; 127)..
+       </p>
+       <p>
+        Change the default (^) delimiter used for inline
+            commands. The delimiter is expected to be a single
+            US-ASCII character (octets 0 &minus; 127). This option
+            is only relevant if inline commands are enabled via the
+            inline-commands option
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;provider=
+         <em class="parameter">
+          <code>
+           file
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the PKCS #11 provider library.
+       </p>
+       <p>
+        This will override the default options in
+            /etc/gnutls/pkcs11.conf
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display usage information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;!,
+          &minus;&minus;more&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Pass the extended usage information through a
+            pager.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+          [{
+         <em class="replaceable">
+          <code>
+           v|c|n
+          </code>
+         </em>
+         }],
+          &minus;&minus;version[={
+         <em class="replaceable">
+          <code>
+           v|c|n
+          </code>
+         </em>
+         }]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output version of program and exit. The default mode
+            is `v', a simple version. The `c' mode will print
+            copyright information and `n' will print the full
+            copyright notice.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-cli-1_sect3" name="gnutls-cli-1_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <p>
+     <span class="emphasis">
+      <em>
+       Connecting using PSK
+      authentication
+      </em>
+     </span>
+    </p>
+    <p>
+     To connect to a server using PSK authentication, you need
+      to enable the choice of PSK by using a cipher priority
+      parameter such as in the example below.
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ ./gnutls&minus;cli &minus;p 5556 localhost &minus;&minus;pskusername psk_identity     &minus;&minus;pskkey 88f3824b3e5659f52d00e959bacab954b6540344     &minus;&minus;priority NORMAL:&minus;KX&minus;ALL:+ECDHE&minus;PSK:+DHE&minus;PSK:+PSK
+Resolving 'localhost'...
+Connecting to '127.0.0.1:5556'...
+- PSK authentication.
+- Version: TLS1.1
+- Key Exchange: PSK
+- Cipher: AES&minus;128&minus;CBC
+- MAC: SHA1
+- Compression: NULL
+- Handshake was completed
+- Simple Client Mode:
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     By keeping the &minus;&minus;pskusername parameter and
+      removing the &minus;&minus;pskkey parameter, it will query
+      only for the password during the handshake.
+    </p>
+    <p>
+     <span class="emphasis">
+      <em>
+       Listing ciphersuites in a
+      priority string
+      </em>
+     </span>
+    </p>
+    <p>
+     To list the ciphersuites in a priority string:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ ./gnutls&minus;cli &minus;&minus;priority SECURE192 &minus;l
+Cipher suites for SECURE192
+TLS_ECDHE_ECDSA_AES_256_CBC_SHA384         0xc0, 0x24   TLS1.2
+TLS_ECDHE_ECDSA_AES_256_GCM_SHA384         0xc0, 0x2e   TLS1.2
+TLS_ECDHE_RSA_AES_256_GCM_SHA384           0xc0, 0x30   TLS1.2
+TLS_DHE_RSA_AES_256_CBC_SHA256             0x00, 0x6b   TLS1.2
+TLS_DHE_DSS_AES_256_CBC_SHA256             0x00, 0x6a   TLS1.2
+TLS_RSA_AES_256_CBC_SHA256                 0x00, 0x3d   TLS1.2
+
+Certificate types: CTYPE&minus;X.509
+Protocols: VERS&minus;TLS1.2, VERS&minus;TLS1.1, VERS&minus;TLS1.0, VERS&minus;SSL3.0, VERS&minus;DTLS1.0
+Compression: COMP&minus;NULL
+Elliptic curves: CURVE&minus;SECP384R1, CURVE&minus;SECP521R1
+PK&minus;signatures: SIGN&minus;RSA&minus;SHA384, SIGN&minus;ECDSA&minus;SHA384, SIGN&minus;RSA&minus;SHA512, SIGN&minus;ECDSA&minus;SHA512
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     <span class="emphasis">
+      <em>
+       Connecting using a PKCS #11
+      token
+      </em>
+     </span>
+    </p>
+    <p>
+     To connect to a server using a certificate and a private
+      key present in a PKCS #11 token you need to substitute the
+      PKCS 11 URLs in the x509certfile and x509keyfile
+      parameters.
+    </p>
+    <p>
+     Those can be found using "p11tool
+      &minus;&minus;list&minus;tokens" and then listing all the
+      objects in the needed token, and using the appropriate.
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ p11tool &minus;&minus;list&minus;tokens
+
+Token 0:
+URL: pkcs11:model=PKCS15;manufacturer=MyMan;serial=1234;token=Test
+Label: Test
+Manufacturer: EnterSafe
+Model: PKCS15
+Serial: 1234
+
+$ p11tool &minus;&minus;login &minus;&minus;list&minus;certs "pkcs11:model=PKCS15;manufacturer=MyMan;serial=1234;token=Test"
+
+Object 0:
+URL: pkcs11:model=PKCS15;manufacturer=MyMan;serial=1234;token=Test;object=client;object&minus;type=cert
+Type: X.509 Certificate
+Label: client
+ID: 2a:97:0d:58:d1:51:3c:23:07:ae:4e:0d:72:26:03:7d:99:06:02:6a
+
+$ export MYCERT="pkcs11:model=PKCS15;manufacturer=MyMan;serial=1234;token=Test;object=client;object&minus;type=cert"
+$ export MYKEY="pkcs11:model=PKCS15;manufacturer=MyMan;serial=1234;token=Test;object=client;object&minus;type=private"
+
+$ gnutls&minus;cli www.example.com &minus;&minus;x509keyfile $MYKEY &minus;&minus;x509certfile MYCERT
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     Notice that the private key only differs from the
+      certificate in the object&minus;type.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-cli-1_sect4" name="gnutls-cli-1_sect4" shape="rect">
+    </a>
+    <h2>
+     EXIT STATUS
+    </h2>
+    <p>
+     One of the following exit values will be returned:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         0
+        </code>
+        (EXIT_SUCCESS)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Successful program execution.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         1
+        </code>
+        (EXIT_FAILURE)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The operation failed or the command syntax was not
+            valid.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         70
+        </code>
+        (EX_SOFTWARE)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        libopts had an internal operational error. Please
+            report it to autogen-users@lists.sourceforge.net. Thank
+            you.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-cli-1_sect5" name="gnutls-cli-1_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     gnutls&minus;cli&minus;
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       debug
+      </span>
+      (1)
+     </span>
+     , gnutls&minus;
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       serv
+      </span>
+      (1)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-cli-1_sect6" name="gnutls-cli-1_sect6" shape="rect">
+    </a>
+    <h2>
+     AUTHORS
+    </h2>
+    <p>
+     Nikos Mavrogiannopoulos, Simon Josefsson and others; see
+      /usr/share/doc/gnutls/AUTHORS for a complete list.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-cli-1_sect8" name="gnutls-cli-1_sect8" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     Please send bug reports to: bugs@gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-cli-1_sect9" name="gnutls-cli-1_sect9" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     This manual page was
+     <span class="command">
+      <strong>
+       AutoGen
+      </strong>
+     </span>
+     -erated from the
+     <em class="replaceable">
+      <code>
+       gnutls-cli
+      </code>
+     </em>
+     option
+      definitions.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

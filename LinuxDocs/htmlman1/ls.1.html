@@ -1,0 +1,1299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   ls(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="ls(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="ls.1" name="ls.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     ls &mdash; list directory contents
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       ls
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...] [
+      <em class="replaceable">
+       <code>
+        FILE
+       </code>
+      </em>
+      ...]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ls-1_sect1" name="ls-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     List information about the FILEs (the current directory by
+      default). Sort entries alphabetically if none of
+     <code class="option">
+      &minus;cftuvSUX
+     </code>
+     nor
+     <code class="option">
+      &minus;&minus;sort
+     </code>
+     is specified.
+    </p>
+    <p>
+     Mandatory arguments to long options are mandatory for
+      short options too.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;a
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;all
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not ignore entries starting with .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;A
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;almost&minus;all
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not list implied . and ..
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;author
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        with
+        <code class="option">
+         &minus;l
+        </code>
+        , print the
+            author of each file
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;b
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;escape
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print C&minus;style escapes for nongraphic
+            characters
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;block&minus;size
+        </code>
+        =
+        <code class="constant">
+         SIZE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        scale sizes by SIZE before printing them; e.g.,
+            '&minus;&minus;block&minus;size=M' prints sizes in
+            units of 1,048,576 bytes; see SIZE format below
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;B
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;ignore&minus;backups
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not list implied entries ending with ~
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;c
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        with
+        <code class="option">
+         &minus;lt
+        </code>
+        : sort by,
+            and show, ctime (time of last modification of file
+            status information); with
+        <code class="option">
+         &minus;l
+        </code>
+        : show ctime and sort by name;
+            otherwise: sort by ctime, newest first
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;C
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        list entries by columns
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;color
+        </code>
+        [=
+        <code class="constant">
+         WHEN
+        </code>
+        ]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        colorize the output; WHEN can be 'never', 'auto', or
+            'always' (the default); more info below
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;directory
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        list directories themselves, not their contents
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;D
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;dired
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        generate output designed for Emacs' dired mode
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not sort, enable
+        <code class="option">
+         &minus;aU
+        </code>
+        , disable
+        <code class="option">
+         &minus;ls
+        </code>
+        <code class="option">
+         &minus;&minus;color
+        </code>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;F
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;classify
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        append indicator (one of */=&gt;@|) to entries
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;file&minus;type
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        likewise, except do not append '*'
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;format
+        </code>
+        =
+        <code class="constant">
+         WORD
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        across
+        <code class="option">
+         &minus;x
+        </code>
+        , commas
+        <code class="option">
+         &minus;m
+        </code>
+        , horizontal
+        <code class="option">
+         &minus;x
+        </code>
+        , long
+        <code class="option">
+         &minus;l
+        </code>
+        , single&minus;column
+        <span class="emphasis">
+         <em>
+          &minus;1
+         </em>
+        </span>
+        ,
+            verbose
+        <code class="option">
+         &minus;l
+        </code>
+        , vertical
+        <code class="option">
+         &minus;C
+        </code>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;full&minus;time
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        like
+        <code class="option">
+         &minus;l
+        </code>
+        <code class="option">
+         &minus;&minus;time&minus;style
+        </code>
+        =
+        <em class="replaceable">
+         <code>
+          full&minus;iso
+         </code>
+        </em>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;g
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        like
+        <code class="option">
+         &minus;l
+        </code>
+        , but do
+            not list owner
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;group&minus;directories&minus;first
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        group directories before files;
+       </p>
+       <p>
+        can be augmented with a
+        <code class="option">
+         &minus;&minus;sort
+        </code>
+        option, but any use
+            of
+        <code class="option">
+         &minus;&minus;sort
+        </code>
+        =
+        <em class="parameter">
+         <code>
+          none
+         </code>
+        </em>
+        (
+        <code class="option">
+         &minus;U
+        </code>
+        ) disables grouping
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;G
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;no&minus;group
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        in a long listing, don't print group names
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;human&minus;readable
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        with
+        <code class="option">
+         &minus;l
+        </code>
+        , print
+            sizes in human readable format (e.g., 1K 234M 2G)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;si
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        likewise, but use powers of 1000 not 1024
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;H
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;dereference&minus;command&minus;line
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        follow symbolic links listed on the command line
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;dereference&minus;command&minus;line&minus;symlink&minus;to&minus;dir
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        follow each command line symbolic link
+       </p>
+       <p>
+        that points to a directory
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;hide
+        </code>
+        =
+        <code class="constant">
+         PATTERN
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not list implied entries matching shell PATTERN
+            (overridden by
+        <code class="option">
+         &minus;a
+        </code>
+        or
+        <code class="option">
+         &minus;A
+        </code>
+        )
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;indicator&minus;style
+        </code>
+        =
+        <code class="constant">
+         WORD
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        append indicator with style WORD to entry names:
+            none (default), slash (
+        <code class="option">
+         &minus;p
+        </code>
+        ), file&minus;type
+            (
+        <code class="option">
+         &minus;&minus;file&minus;type
+        </code>
+        ),
+            classify (
+        <code class="option">
+         &minus;F
+        </code>
+        )
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;inode
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print the index number of each file
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;I
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;ignore
+        </code>
+        =
+        <code class="constant">
+         PATTERN
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not list implied entries matching shell
+            PATTERN
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;k
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;kibibytes
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        default to 1024&minus;byte blocks for disk usage
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use a long listing format
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;L
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;dereference
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        when showing file information for a symbolic link,
+            show information for the file the link references
+            rather than for the link itself
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;m
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        fill width with a comma separated list of
+            entries
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;numeric&minus;uid&minus;gid
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        like
+        <code class="option">
+         &minus;l
+        </code>
+        , but list
+            numeric user and group IDs
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;N
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;literal
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print raw entry names (don't treat e.g. control
+            characters specially)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        like
+        <code class="option">
+         &minus;l
+        </code>
+        , but do
+            not list group information
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;indicator&minus;style
+        </code>
+        =
+        <em class="parameter">
+         <code>
+          slash
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        append / indicator to directories
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;q
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;hide&minus;control&minus;chars
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print ? instead of nongraphic characters
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;show&minus;control&minus;chars
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        show nongraphic characters as&minus;is (the default,
+            unless program is 'ls' and output is a terminal)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;Q
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;quote&minus;name
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        enclose entry names in double quotes
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;quoting&minus;style
+        </code>
+        =
+        <code class="constant">
+         WORD
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use quoting style WORD for entry names: literal,
+            locale, shell, shell&minus;always, c, escape
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;reverse
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        reverse order while sorting
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;R
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;recursive
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        list subdirectories recursively
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;size
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print the allocated size of each file, in blocks
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;S
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        sort by file size
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;sort
+        </code>
+        =
+        <code class="constant">
+         WORD
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        sort by WORD instead of name: none (
+        <code class="option">
+         &minus;U
+        </code>
+        ), size (
+        <code class="option">
+         &minus;S
+        </code>
+        ), time (
+        <code class="option">
+         &minus;t
+        </code>
+        ), version (
+        <code class="option">
+         &minus;v
+        </code>
+        ), extension (
+        <code class="option">
+         &minus;X
+        </code>
+        )
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;time
+        </code>
+        =
+        <code class="constant">
+         WORD
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        with
+        <code class="option">
+         &minus;l
+        </code>
+        , show time
+            as WORD instead of default modification time: atime or
+            access or use (
+        <code class="option">
+         &minus;u
+        </code>
+        )
+            ctime or status (
+        <code class="option">
+         &minus;c
+        </code>
+        );
+            also use specified time as sort key if
+        <code class="option">
+         &minus;&minus;sort
+        </code>
+        =
+        <em class="parameter">
+         <code>
+          time
+         </code>
+        </em>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;time&minus;style
+        </code>
+        =
+        <code class="constant">
+         STYLE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        with
+        <code class="option">
+         &minus;l
+        </code>
+        , show
+            times using style STYLE: full&minus;iso,
+            long&minus;iso, iso, locale, or +FORMAT; FORMAT is
+            interpreted like in 'date'; if FORMAT is
+            FORMAT1&lt;newline&gt;FORMAT2, then FORMAT1 applies to
+            non&minus;recent files and FORMAT2 to recent files; if
+            STYLE is prefixed with 'posix&minus;', STYLE takes
+            effect only outside the POSIX locale
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        sort by modification time, newest first
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;T
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;tabsize
+        </code>
+        =
+        <code class="constant">
+         COLS
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        assume tab stops at each COLS instead of 8
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        with
+        <code class="option">
+         &minus;lt
+        </code>
+        : sort by,
+            and show, access time; with
+        <code class="option">
+         &minus;l
+        </code>
+        : show access time and sort by
+            name; otherwise: sort by access time
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;U
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        do not sort; list entries in directory order
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        natural sort of (version) numbers within text
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;w
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;width
+        </code>
+        =
+        <code class="constant">
+         COLS
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        assume screen width instead of current value
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;x
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        list entries by lines instead of by columns
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;X
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        sort alphabetically by entry extension
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;Z
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;context
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        print any SELinux security context of each file
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          &minus;1
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        list one file per line
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display this help and exit
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output version information and exit
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     SIZE is an integer and optional unit (example: 10M is
+      10*1024*1024). Units are K, M, G, T, P, E, Z, Y (powers of
+      1024) or KB, MB, ... (powers of 1000).
+    </p>
+    <p>
+     Using color to distinguish file types is disabled both by
+      default and with
+     <code class="option">
+      &minus;&minus;color
+     </code>
+     =
+     <span class="command">
+      <strong>
+       never
+      </strong>
+     </span>
+     . With
+     <code class="option">
+      &minus;&minus;color
+     </code>
+     =
+     <em class="parameter">
+      <code>
+       auto
+      </code>
+     </em>
+     , ls emits color codes only
+      when standard output is connected to a terminal. The
+      LS_COLORS environment variable can change the settings. Use
+      the dircolors command to set it.
+    </p>
+    <div class="refsect2">
+     <a id="ls-1_sect2" name="ls-1_sect2" shape="rect">
+     </a>
+     <h3>
+      Exit status:
+     </h3>
+     <div class="variablelist">
+      <dl class="variablelist">
+       <dt>
+        <span class="term">
+         <code class="constant">
+          0
+         </code>
+        </span>
+       </dt>
+       <dd>
+        <p>
+         if OK,
+        </p>
+       </dd>
+       <dt>
+        <span class="term">
+         <code class="constant">
+          1
+         </code>
+        </span>
+       </dt>
+       <dd>
+        <p>
+         if minor problems (e.g., cannot access
+              subdirectory),
+        </p>
+       </dd>
+       <dt>
+        <span class="term">
+         <code class="constant">
+          2
+         </code>
+        </span>
+       </dt>
+       <dd>
+        <p>
+         if serious trouble (e.g., cannot access
+              command&minus;line argument).
+        </p>
+       </dd>
+      </dl>
+     </div>
+     <p>
+      GNU coreutils online help: &lt;
+      <a class="literalurl" href="http://www.gnu.org/software/coreutils/" shape="rect" target="_top">
+       http://www.gnu.org/software/coreutils/
+      </a>
+      &gt;
+        Report ls translation bugs to &lt;
+      <a class="literalurl" href="http://translationproject.org/team/" shape="rect" target="_top">
+       http://translationproject.org/team/
+      </a>
+      &gt;
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ls-1_sect3" name="ls-1_sect3" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Written by Richard M. Stallman and David MacKenzie.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ls-1_sect5" name="ls-1_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <span class="command">
+      <strong>
+       ls
+      </strong>
+     </span>
+     is maintained as a
+      Texinfo manual. If the
+     <span class="command">
+      <strong>
+       info
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       ls
+      </strong>
+     </span>
+     programs are properly
+      installed at your site, the command
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <span class="emphasis">
+         <em>
+          info coreutils 'ls
+            invocation'
+         </em>
+        </span>
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p>
+     should give you access to the complete manual.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

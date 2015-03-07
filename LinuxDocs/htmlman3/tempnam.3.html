@@ -1,0 +1,571 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   tempnam(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="tempnam(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="tempnam.3" name="tempnam.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     tempnam &mdash; create a name for a temporary file
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;stdio.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         char
+            *
+         <strong>
+          tempnam
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         dir
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         pfx
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              tempnam
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _BSD_SOURCE
+             </code>
+             ||
+             <code class="constant">
+              _SVID_SOURCE
+             </code>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="tempnam-3_sect1" name="tempnam-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="emphasis">
+      <em>
+       Never use this
+      function.
+      </em>
+     </span>
+     Use
+     <a class="link" href="../htmlman3/mkstemp.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mkstemp
+       </span>
+       (3)
+      </span>
+     </a>
+     or
+     <a class="link" href="../htmlman3/tmpfile.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tmpfile
+       </span>
+       (3)
+      </span>
+     </a>
+     instead.
+    </p>
+    <p>
+     The
+     <code class="function">
+      tempnam
+     </code>
+     () function
+      returns a pointer to a string that is a valid filename, and
+      such that a file with this name did not exist when
+     <code class="function">
+      tempnam
+     </code>
+     () checked. The filename
+      suffix of the pathname generated will start with
+     <em class="parameter">
+      <code>
+       pfx
+      </code>
+     </em>
+     in case
+     <em class="parameter">
+      <code>
+       pfx
+      </code>
+     </em>
+     is a non-NULL string of at
+      most five bytes. The directory prefix part of the pathname
+      generated is required to be "appropriate" (often that at
+      least implies writable).
+    </p>
+    <p>
+     Attempts to find an appropriate directory go through the
+      following steps:
+    </p>
+    <div class="orderedlist">
+     <ol class="orderedlist" type="a">
+      <li class="listitem">
+       <p>
+        In case the environment variable
+        <code class="constant">
+         TMPDIR
+        </code>
+        exists and contains the name
+            of an appropriate directory, that is used.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        Otherwise, if the
+        <em class="parameter">
+         <code>
+          dir
+         </code>
+        </em>
+        argument is non-NULL
+            and appropriate, it is used.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        Otherwise,
+        <code class="varname">
+         P_tmpdir
+        </code>
+        (as
+            defined in
+        <code class="literal">
+         &lt;
+        </code>
+        <code class="filename">
+         stdio.h
+        </code>
+        <code class="literal">
+         &gt;
+        </code>
+        is used when appropriate.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        Finally an implementation-defined directory may be
+            used.
+       </p>
+      </li>
+     </ol>
+    </div>
+    <p>
+     The string returned by
+     <code class="function">
+      tempnam
+     </code>
+     () is allocated using
+     <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        malloc
+       </span>
+       (3)
+      </span>
+     </a>
+     and hence should
+      be freed by
+     <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        free
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="tempnam-3_sect2" name="tempnam-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success, the
+     <code class="function">
+      tempnam
+     </code>
+     ()
+      function returns a pointer to a unique temporary filename. It
+      returns NULL if a unique name cannot be generated, with
+     <code class="varname">
+      errno
+     </code>
+     set to indicate the cause
+      of the error.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="tempnam-3_sect3" name="tempnam-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOMEM
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Allocation of storage failed.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="tempnam-3_sect4" name="tempnam-3_sect4" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     SVr4, 4.3BSD, POSIX.1-2001. POSIX.1-2008 marks
+     <code class="function">
+      tempnam
+     </code>
+     () as obsolete.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="tempnam-3_sect5" name="tempnam-3_sect5" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     Although
+     <code class="function">
+      tempnam
+     </code>
+     () generates
+      names that are difficult to guess, it is nevertheless
+      possible that between the time that
+     <code class="function">
+      tempnam
+     </code>
+     () returns a pathname, and the time
+      that the program opens it, another program might create that
+      pathname using
+     <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        open
+       </span>
+       (2)
+      </span>
+     </a>
+     , or create it as a
+      symbolic link. This can lead to security holes. To avoid such
+      possibilities, use the
+     <a class="link" href="../htmlman2/open.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        open
+       </span>
+       (2)
+      </span>
+     </a>
+     <code class="constant">
+      O_EXCL
+     </code>
+     flag to open the pathname. Or better
+      yet, use
+     <a class="link" href="../htmlman3/mkstemp.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mkstemp
+       </span>
+       (3)
+      </span>
+     </a>
+     or
+     <a class="link" href="../htmlman3/tmpfile.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tmpfile
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     SUSv2 does not mention the use of
+     <code class="constant">
+      TMPDIR
+     </code>
+     ; glibc will use it only when the
+      program is not set-user-ID. On SVr4, the directory used under
+     <em class="replaceable">
+      <code>
+       d)
+      </code>
+     </em>
+     is
+     <code class="filename">
+      /tmp
+     </code>
+     (and this is what glibc does).
+    </p>
+    <p>
+     Because it dynamically allocates memory used to return the
+      pathname,
+     <code class="function">
+      tempnam
+     </code>
+     () is
+      reentrant, and thus thread safe, unlike
+     <a class="link" href="../htmlman3/tmpnam.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tmpnam
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     The
+     <code class="function">
+      tempnam
+     </code>
+     () function
+      generates a different string each time it is called, up to
+     <code class="constant">
+      TMP_MAX
+     </code>
+     (defined in
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      stdio.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+     times. If it is called more than
+     <code class="constant">
+      TMP_MAX
+     </code>
+     times, the behavior is
+      implementation defined.
+    </p>
+    <p>
+     <code class="function">
+      tempnam
+     </code>
+     () uses at most the
+      first five bytes from
+     <em class="parameter">
+      <code>
+       pfx
+      </code>
+     </em>
+     .
+    </p>
+    <p>
+     The glibc implementation of
+     <code class="function">
+      tempnam
+     </code>
+     () will fail with the error
+     <span class="errorname">
+      EEXIST
+     </span>
+     upon failure to find a
+      unique name.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="tempnam-3_sect6" name="tempnam-3_sect6" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     The precise meaning of "appropriate" is undefined; it is
+      unspecified how accessibility of a directory is
+      determined.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="tempnam-3_sect7" name="tempnam-3_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/mkstemp.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mkstemp
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/mktemp.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mktemp
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/tmpfile.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tmpfile
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/tmpnam.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        tmpnam
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="tempnam-3_sect8" name="tempnam-3_sect8" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

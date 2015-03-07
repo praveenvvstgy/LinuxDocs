@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   mkfs.minix(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="mkfs.minix(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="mkfs.minix.8" name="mkfs.minix.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     mkfs.minix &mdash; make a Minix filesystem
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       mkfs.minix
+      </code>
+      [
+      <code class="option">
+       &minus;c
+      </code>
+      |
+      <code class="option">
+       &minus;l
+      </code>
+      filename ] [
+      <code class="option">
+       &minus;n
+      </code>
+      namelength ] [
+      <code class="option">
+       &minus;i
+      </code>
+      inodecount ] [
+      <code class="option">
+       &minus;v
+      </code>
+      ] device
+        [size&minus;in&minus;blocks]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="mkfs-minix-8_sect1" name="mkfs-minix-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       mkfs.minix
+      </strong>
+     </span>
+     creates a Linux MINIX filesystem on a device (usually a disk
+      partition).
+    </p>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       device
+      </code>
+     </em>
+     is
+      usually of the following form:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+        /dev/hda[1-8] (IDE disk 1)
+        /dev/hdb[1-8] (IDE disk 2)
+        /dev/sda[1-8] (SCSI disk 1)
+        /dev/sdb[1-8] (SCSI disk 2)
+</pre>
+    </div>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       size-in-blocks
+      </code>
+     </em>
+     parameter is the desired size of the file system, in blocks.
+      It is present only for backwards compatibility. If omitted
+      the size will be determined automatically. Only block counts
+      strictly greater than 10 and strictly less than 65536 are
+      allowed.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mkfs-minix-8_sect2" name="mkfs-minix-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;c
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Check the device for bad blocks before creating the
+            filesystem. If any are found, the count is printed.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+          namelength
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the maximum length of filenames. Currently,
+            the only allowable values are 14 and 30. The default is
+            30. Note that kernels older than 0.99p7 only accept
+            namelength 14.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i
+          inodecount
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the number of inodes for the filesystem.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l
+          filename
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Read the list of bad blocks from
+        <em class="parameter">
+         <code>
+          filename
+         </code>
+        </em>
+        . The file has
+            one bad-block number per line. The count of bad blocks
+            read is printed.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          &minus;1
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Make a Minix version 1 filesystem.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          &minus;2, &minus;v
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Make a Minix version 2 filesystem.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          &minus;3
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Make a Minix version 3 filesystem.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="mkfs-minix-8_sect3" name="mkfs-minix-8_sect3" shape="rect">
+    </a>
+    <h2>
+     EXIT CODES
+    </h2>
+    <p>
+     The exit code returned by
+     <span class="command">
+      <strong>
+       mkfs.minix
+      </strong>
+     </span>
+     is one of the
+      following:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         0
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        No errors
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         8
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Operational error
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         16
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Usage or syntax error
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="mkfs-minix-8_sect4" name="mkfs-minix-8_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman8/mkfs.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mkfs
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/fsck.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fsck
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       reboot
+      </span>
+      (8)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mkfs-minix-8_sect5" name="mkfs-minix-8_sect5" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The mkfs.minix command is part of the util-linux package
+      and is available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

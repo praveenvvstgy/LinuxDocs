@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   slaptest(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="slaptest(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="slaptest.8" name="slaptest.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     slaptest &mdash; Check the suitability of the OpenLDAP
+      slapd configuration
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       SBINDIR/slaptest
+      </code>
+      [
+      <code class="option">
+       &minus;d
+      </code>
+      debug&minus;level ] [
+      <code class="option">
+       &minus;f
+      </code>
+      slapd.conf ] [
+      <code class="option">
+       &minus;F
+      </code>
+      confdir ] [
+      <code class="option">
+       &minus;n
+      </code>
+      dbnum ] [
+      <code class="option">
+       &minus;o
+      </code>
+      option[= value] ] [
+      <code class="option">
+       &minus;Q
+      </code>
+      ] [
+      <code class="option">
+       &minus;u
+      </code>
+      ] [
+      <code class="option">
+       &minus;v
+      </code>
+      ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="slaptest-8_sect1" name="slaptest-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <em class="replaceable">
+      <code>
+       Slaptest
+      </code>
+     </em>
+     is used
+      to check the conformance of the
+     <a class="link" href="../htmlman8/slapd.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd
+       </span>
+       (8)
+      </span>
+     </a>
+     configuration. It
+      opens the
+     <a class="link" href="../htmlman5/slapd.conf.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd.conf
+       </span>
+       (5)
+      </span>
+     </a>
+     configuration
+      file or the
+     <a class="link" href="../htmlman5/slapd-config.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd-config
+       </span>
+       (5)
+      </span>
+     </a>
+     backend,
+      and parses it according to the general and the
+      backend-specific rules, checking its sanity.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="slaptest-8_sect2" name="slaptest-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+          debug&minus;level
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        enable debugging messages as defined by the
+            specified
+        <em class="parameter">
+         <code>
+          debug-level
+         </code>
+        </em>
+        ; see
+        <a class="link" href="../htmlman8/slapd.8.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           slapd
+          </span>
+          (8)
+         </span>
+        </a>
+        for
+            details.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+          slapd.conf
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        specify an alternative
+        <a class="link" href="../htmlman5/slapd.conf.5.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           slapd.conf
+          </span>
+          (5)
+         </span>
+        </a>
+        file.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;F
+          confdir
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        specify a config directory. If both
+        <code class="option">
+         &minus;f
+        </code>
+        and
+        <code class="option">
+         &minus;F
+        </code>
+        are specified, the config file
+            will be read and converted to config directory format
+            and written to the specified directory. If neither
+            option is specified, slaptest will attempt to read the
+            default config directory before trying to use the
+            default config file. If a valid config directory exists
+            then the default config file is ignored. If dry-run
+            mode is also specified, no conversion will occur.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+          dbnum
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Just open and test the
+        <em class="parameter">
+         <code>
+          dbnum
+         </code>
+        </em>
+        -th database listed
+            in the configuration file. To only test the config
+            database
+        <a class="link" href="../htmlman5/slapd-config.5.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           slapd-config
+          </span>
+          (5)
+         </span>
+        </a>
+        , use
+        <code class="option">
+         &minus;n 0
+        </code>
+        as it is always
+            the first database.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o
+          option[=value]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify an
+        <em class="replaceable">
+         <code>
+          option
+         </code>
+        </em>
+        with a(n
+            optional)
+        <em class="replaceable">
+         <code>
+          value
+         </code>
+        </em>
+        . Possible generic
+            options/values are:
+       </p>
+       <div class="informalexample">
+        <pre class="programlisting" xml:space="preserve">
+              syslog=&lt;subsystems&gt;  (see `&minus;s' in slapd(8))
+              syslog&minus;level=&lt;level&gt; (see `&minus;S' in slapd(8))
+              syslog&minus;user=&lt;user&gt;   (see `&minus;l' in slapd(8))
+</pre>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;Q
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Be extremely quiet: only the exit code indicates
+            success (0) or not (any other value).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        enable dry-run mode (i.e. don't fail if databases
+            cannot be opened, but config is fine).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        enable verbose mode.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="slaptest-8_sect3" name="slaptest-8_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <p>
+     To check a
+     <a class="link" href="../htmlman5/slapd.conf.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd.conf
+       </span>
+       (5)
+      </span>
+     </a>
+     give the
+      command:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+        SBINDIR/slaptest &minus;f /ETCDIR/slapd.conf &minus;v
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="slaptest-8_sect4" name="slaptest-8_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/ldap.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/slapd.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapd
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/slapdn.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        slapdn
+       </span>
+       (8)
+      </span>
+     </a>
+    </p>
+    <p>
+     "OpenLDAP Administrator's Guide"
+      (http://www.OpenLDAP.org/doc/admin/)
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="slaptest-8_sect5" name="slaptest-8_sect5" shape="rect">
+    </a>
+    <h2>
+     ACKNOWLEDGEMENTS
+    </h2>
+    <p>
+     <span class="emphasis">
+      <em>
+       OpenLDAP Software
+      </em>
+     </span>
+     is developed and maintained by The OpenLDAP Project
+      &lt;
+     <a class="literalurl" href="http://www.openldap.org/" shape="rect" target="_top">
+      http://www.openldap.org/
+     </a>
+     &gt;.
+     <span class="emphasis">
+      <em>
+       OpenLDAP Software
+      </em>
+     </span>
+     is derived from
+      University of Michigan LDAP 3.3 Release.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

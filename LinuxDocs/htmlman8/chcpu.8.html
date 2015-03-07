@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   chcpu(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="chcpu(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="chcpu.8" name="chcpu.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     chcpu &mdash; configure CPUs
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       chcpu
+      </code>
+      [
+      <code class="option">
+       &minus;e
+      </code>
+      ] [
+      <code class="option">
+       &minus;d
+      </code>
+      ] [
+      <code class="option">
+       &minus;c
+      </code>
+      ] [
+      <code class="option">
+       &minus;g
+      </code>
+      ] cpu&minus;list
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       chcpu
+      </code>
+      [
+      <code class="option">
+       &minus;p
+      </code>
+      ] mode
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       chcpu
+      </code>
+      <code class="option">
+       &minus;r
+      </code>
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       chcpu
+      </code>
+      [
+      <code class="option">
+       &minus;h
+      </code>
+      ] [
+      <code class="option">
+       &minus;V
+      </code>
+      ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="chcpu-8_sect1" name="chcpu-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       chcpu
+      </strong>
+     </span>
+     can
+      modify the state of CPUs. It can enable or disable CPUs, scan
+      for new CPUs, change the CPU dispatching
+     <em class="parameter">
+      <code>
+       mode
+      </code>
+     </em>
+     of the underlying
+      hypervisor, and request CPUs from the hypervisor (configure)
+      or return CPUs to the hypervisor (deconfigure).
+    </p>
+    <p>
+     Some options have a
+     <em class="parameter">
+      <code>
+       cpu-list
+      </code>
+     </em>
+     argument. Use this
+      argument to specify a comma-separated list of CPUs. The list
+      can contain individual CPU addresses or ranges of addresses.
+      For example,
+     <em class="replaceable">
+      <code>
+       0,5,7,9-11
+      </code>
+     </em>
+     makes the command
+      applicable to the CPUs with the addresses 0, 5, 7, 9, 10, and
+      11.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="chcpu-8_sect2" name="chcpu-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r,
+          &minus;&minus;rescan
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Trigger a rescan of CPUs. Use this option on systems
+            that do not automatically detect newly attached CPUs.
+            The Linux kernel then recognizes the new CPUs.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;c,
+          &minus;&minus;configure
+         <em class="parameter">
+          <code>
+           cpu&minus;list
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Configure all specified CPUs. Configuring a CPU
+            means that the hypervisor takes a CPU from the CPU pool
+            and assigns it to the virtual hardware on which your
+            kernel runs.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;e,
+          &minus;&minus;enable
+         <em class="parameter">
+          <code>
+           cpu&minus;list
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable all specified CPUs. Enabling a CPU means that
+            the kernel sets it online. A CPU must be configured,
+            see
+        <em class="parameter">
+         <code>
+          &minus;c
+         </code>
+        </em>
+        ,
+            before it can be enabled.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p,
+          &minus;&minus;dispatch
+         <em class="parameter">
+          <code>
+           mode
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set the CPU dispatching
+        <em class="parameter">
+         <code>
+          mode
+         </code>
+        </em>
+        (polarization). This
+            option has an effect only if your hardware architecture
+            and hypervisor support CPU polarization. Available
+        <span class="command">
+         <strong>
+          modes
+         </strong>
+        </span>
+        are:
+       </p>
+       <div class="blockquote">
+        <blockquote class="blockquote">
+         <div class="variablelist">
+          <dl class="variablelist">
+           <dt>
+            <span class="term">
+             <span class="command">
+              <strong>
+               horizontal
+              </strong>
+             </span>
+            </span>
+           </dt>
+           <dd>
+            <p>
+             The workload is spread across all
+                      available CPUs.
+            </p>
+           </dd>
+           <dt>
+            <span class="term">
+             <span class="command">
+              <strong>
+               vertical
+              </strong>
+             </span>
+            </span>
+           </dt>
+           <dd>
+            <p>
+             The workload is concentrated on few
+                      CPUs.
+            </p>
+           </dd>
+          </dl>
+         </div>
+        </blockquote>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d,
+          &minus;&minus;disable
+         <em class="parameter">
+          <code>
+           cpu&minus;list
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Disable all specified CPUs. Disabling a CPU means
+            that the kernel sets it offline.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;g,
+          &minus;&minus;deconfigure
+         <em class="parameter">
+          <code>
+           cpu&minus;list
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Deconfigure all specified CPUs. Deconfiguring a CPU
+            means that the hypervisor removes the CPU from the
+            virtual hardware on which the Linux instance runs and
+            returns it to the CPU pool. A CPU must be offline, see
+            &minus;d, before it can be deconfigured.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V,
+          &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="chcpu-8_sect3" name="chcpu-8_sect3" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     <a class="literalurl" href="mailto:heiko.carstens%20REMOVE%20@%20THIS%20de.ibm.com" shape="rect" target="_top">
+      Heiko Carstens
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="chcpu-8_sect5" name="chcpu-8_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/lscpu.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        lscpu
+       </span>
+       (1)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="chcpu-8_sect6" name="chcpu-8_sect6" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The chcpu command is part of the util-linux package and is
+      available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

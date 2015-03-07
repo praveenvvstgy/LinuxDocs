@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   gnutls_x509_crt_get_authority_info_access(3) &mdash; Linux
+  manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="gnutls_x509_crt_get_authority_info_access(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="gnutls-x509-crt-get-authority-info-access.3" name="gnutls-x509-crt-get-authority-info-access.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     gnutls_x509_crt_get_authority_info_access &mdash; API
+      function
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;gnutls/x509.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          gnutls_x509_crt_get_authority_info_access
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_x509_crt_t
+        <var class="pdparam">
+         crt
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int
+        <var class="pdparam">
+         seq
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         what
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_datum_t *
+        <var class="pdparam">
+         data
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int *
+        <var class="pdparam">
+         critical
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crt-get-authority-info-access-3_sect1" name="gnutls-x509-crt-get-authority-info-access-3_sect1" shape="rect">
+    </a>
+    <h2>
+     ARGUMENTS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_x509_crt_t
+          crt
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Holds the certificate
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="type">
+         unsigned int
+          seq
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        specifies the sequence number of the access
+            descriptor (0 for the first one, 1 for the second
+            etc.)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          int
+          what
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        what data to get, a
+        <span class="type">
+         gnutls_info_access_what_t
+        </span>
+        type.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_datum_t *
+          data
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output data to be freed with
+        <code class="function">
+         gnutls_free
+        </code>
+        ().
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          unsigned int *
+          critical
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        pointer to output integer that is set to non&minus;0
+            if the extension is marked as critical (may be
+        <code class="constant">
+         NULL
+        </code>
+        )
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crt-get-authority-info-access-3_sect2" name="gnutls-x509-crt-get-authority-info-access-3_sect2" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Note that a simpler API to access the authority info data
+      is provided by
+     <code class="function">
+      gnutls_x509_aia_get
+     </code>
+     () and
+     <code class="function">
+      gnutls_x509_ext_import_aia
+     </code>
+     ().
+    </p>
+    <p>
+     This function extracts the Authority Information Access
+      (AIA) extension, see RFC 5280 section 4.2.2.1 for more
+      information. The AIA extension holds a sequence of
+      AccessDescription (AD) data.
+    </p>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       seq
+      </code>
+     </em>
+     input
+      parameter is used to indicate which member of the sequence
+      the caller is interested in. The first member is 0, the
+      second member 1 and so on. When the
+     <em class="parameter">
+      <code>
+       seq
+      </code>
+     </em>
+     value is out of bounds,
+     <span class="errorname">
+      GNUTLS_E_REQUESTED_DATA_NOT_AVAILABLE
+     </span>
+     is
+      returned.
+    </p>
+    <p>
+     The type of data returned in
+     <em class="parameter">
+      <code>
+       data
+      </code>
+     </em>
+     is specified via
+     <em class="parameter">
+      <code>
+       what
+      </code>
+     </em>
+     which should be
+     <span class="type">
+      gnutls_info_access_what_t
+     </span>
+     values.
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       what
+      </code>
+     </em>
+     is
+     <code class="constant">
+      GNUTLS_IA_ACCESSMETHOD_OID
+     </code>
+     then
+     <em class="parameter">
+      <code>
+       data
+      </code>
+     </em>
+     will hold the
+      accessMethod OID (e.g., "1.3.6.1.5.5.7.48.1").
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       what
+      </code>
+     </em>
+     is
+     <code class="constant">
+      GNUTLS_IA_ACCESSLOCATION_GENERALNAME_TYPE
+     </code>
+     ,
+     <em class="parameter">
+      <code>
+       data
+      </code>
+     </em>
+     will hold the
+      accessLocation GeneralName type (e.g.,
+      "uniformResourceIdentifier").
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       what
+      </code>
+     </em>
+     is
+     <code class="constant">
+      GNUTLS_IA_URI
+     </code>
+     ,
+     <em class="parameter">
+      <code>
+       data
+      </code>
+     </em>
+     will hold the
+      accessLocation URI data. Requesting this
+     <em class="parameter">
+      <code>
+       what
+      </code>
+     </em>
+     value leads to an error if
+      the accessLocation is not of the "uniformResourceIdentifier"
+      type.
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       what
+      </code>
+     </em>
+     is
+     <code class="constant">
+      GNUTLS_IA_OCSP_URI
+     </code>
+     ,
+     <em class="parameter">
+      <code>
+       data
+      </code>
+     </em>
+     will hold the OCSP URI.
+      Requesting this
+     <em class="parameter">
+      <code>
+       what
+      </code>
+     </em>
+     value leads to an error if the accessMethod is not
+      1.3.6.1.5.5.7.48.1 aka OSCP, or if accessLocation is not of
+      the "uniformResourceIdentifier" type.
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       what
+      </code>
+     </em>
+     is
+     <code class="constant">
+      GNUTLS_IA_CAISSUERS_URI
+     </code>
+     ,
+     <em class="parameter">
+      <code>
+       data
+      </code>
+     </em>
+     will hold the
+      caIssuers URI. Requesting this
+     <em class="parameter">
+      <code>
+       what
+      </code>
+     </em>
+     value leads to an error if
+      the accessMethod is not 1.3.6.1.5.5.7.48.2 aka caIssuers, or
+      if accessLocation is not of the "uniformResourceIdentifier"
+      type.
+    </p>
+    <p>
+     More
+     <em class="parameter">
+      <code>
+       what
+      </code>
+     </em>
+     values
+      may be allocated in the future as needed.
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       data
+      </code>
+     </em>
+     is NULL,
+      the function does the same without storing the output data,
+      that is, it will set
+     <em class="parameter">
+      <code>
+       critical
+      </code>
+     </em>
+     and do error checking
+      as usual.
+    </p>
+    <p>
+     The value of the critical flag is returned in *
+     <em class="parameter">
+      <code>
+       critical
+      </code>
+     </em>
+     . Supply a NULL
+     <em class="parameter">
+      <code>
+       critical
+      </code>
+     </em>
+     if you want
+      the function to make sure the extension is
+      non&minus;critical, as required by RFC 5280.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crt-get-authority-info-access-3_sect3" name="gnutls-x509-crt-get-authority-info-access-3_sect3" shape="rect">
+    </a>
+    <h2>
+     RETURNS
+    </h2>
+    <p>
+     <span class="errorname">
+      GNUTLS_E_SUCCESS
+     </span>
+     on
+      success,
+     <span class="errorname">
+      GNUTLS_E_INVALID_REQUEST
+     </span>
+     on invalid
+     <em class="parameter">
+      <code>
+       crt
+      </code>
+     </em>
+     ,
+     <span class="errorname">
+      GNUTLS_E_CONSTRAINT_ERROR
+     </span>
+     if the extension
+      is incorrectly marked as critical (use a non&minus;NULL
+     <em class="parameter">
+      <code>
+       critical
+      </code>
+     </em>
+     to
+      override),
+     <span class="errorname">
+      GNUTLS_E_UNKNOWN_ALGORITHM
+     </span>
+     if the
+      requested OID does not match (e.g., when using
+     <code class="constant">
+      GNUTLS_IA_OCSP_URI
+     </code>
+     ), otherwise a negative
+      error code.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crt-get-authority-info-access-3_sect4" name="gnutls-x509-crt-get-authority-info-access-3_sect4" shape="rect">
+    </a>
+    <h2>
+     SINCE
+    </h2>
+    <p>
+     3.0
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crt-get-authority-info-access-3_sect5" name="gnutls-x509-crt-get-authority-info-access-3_sect5" shape="rect">
+    </a>
+    <h2>
+     REPORTING BUGS
+    </h2>
+    <p>
+     Report bugs to &lt;bugs@gnutls.org&gt;.
+    </p>
+    <p>
+     Home page: http://www.gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-x509-crt-get-authority-info-access-3_sect7" name="gnutls-x509-crt-get-authority-info-access-3_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <em class="citetitle">
+      gnutls
+     </em>
+     is maintained as a Texinfo manual. If
+      the /usr/share/doc/gnutls/ directory does not contain the
+      HTML form visit
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <a class="literalurl" href="http://www.gnutls.org/manual/" shape="rect" target="_top">
+         http://www.gnutls.org/manual/
+        </a>
+       </p>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

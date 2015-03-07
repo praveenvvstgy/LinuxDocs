@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   lsblk(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="lsblk(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="lsblk.8" name="lsblk.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     lsblk &mdash; list block devices
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       lsblk
+      </code>
+      [options] [ device...
+        ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="lsblk-8_sect1" name="lsblk-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       lsblk
+      </strong>
+     </span>
+     lists
+      information about all available or the specified block
+      devices. The
+     <span class="command">
+      <strong>
+       lsblk
+      </strong>
+     </span>
+     command reads the
+     <span class="command">
+      <strong>
+       sysfs
+      </strong>
+     </span>
+     filesystem to gather information.
+    </p>
+    <p>
+     The command prints all block devices (except RAM disks) in
+      a tree-like format by default. Use
+     <span class="emphasis">
+      <em>
+       lsblk --help
+      </em>
+     </span>
+     to get a list of all
+      available columns.
+    </p>
+    <p>
+     The default output, as well as the default output from
+      options like
+     <code class="option">
+      &minus;&minus;fs
+     </code>
+     and
+     <code class="option">
+      &minus;&minus;topology
+     </code>
+     , is
+      subject to change. So whenever possible, you should avoid
+      using default outputs in your scripts. Always explicitly
+      define expected columns by using
+     <code class="option">
+      &minus;&minus;output
+     </code>
+     <em class="replaceable">
+      <code>
+       columns-list
+      </code>
+     </em>
+     in environments
+      where a stable output is required.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="lsblk-8_sect2" name="lsblk-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;a,
+          &minus;&minus;all
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Also list empty devices. (By default they are
+            skipped.)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;b,
+          &minus;&minus;bytes
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print the SIZE column in bytes rather than in a
+            human-readable format.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;D,
+          &minus;&minus;discard
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print information about the discarding capabilities
+            (TRIM, UNMAP) for each device.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d,
+          &minus;&minus;nodeps
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not print holder devices or slaves. For example,
+        <span class="emphasis">
+         <em>
+          lsblk --nodeps
+            /dev/sda
+         </em>
+        </span>
+        prints information about the sda
+            device only.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;e,
+          &minus;&minus;exclude
+         <em class="parameter">
+          <code>
+           list
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Exclude the devices specified by the comma-separated
+        <span class="command">
+         <strong>
+          list
+         </strong>
+        </span>
+        of
+            major device numbers. Note that RAM disks (major=1) are
+            excluded by default. The filter is applied to the
+            top-level devices only.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f,
+          &minus;&minus;fs
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output info about filesystems. This option is
+            equivalent to
+        <code class="option">
+         &minus;o
+            NAME,FSTYPE,LABEL,MOUNTPOINT
+        </code>
+        . The authoritative
+            information about filesystems and raids is provided by
+            the
+        <a class="link" href="../htmlman8/blkid.8.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           blkid
+          </span>
+          (8)
+         </span>
+        </a>
+        command.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;I,
+          &minus;&minus;include
+         <em class="parameter">
+          <code>
+           list
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Include devices specified by the comma-separated
+        <span class="command">
+         <strong>
+          list
+         </strong>
+        </span>
+        of
+            major device numbers. The filter is applied to the
+            top-level devices only.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i,
+          &minus;&minus;ascii
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use ASCII characters for tree formatting.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l,
+          &minus;&minus;list
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Produce output in the form of a list.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;m,
+          &minus;&minus;perms
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output info about device owner, group and mode. This
+            option is equivalent to
+        <code class="option">
+         &minus;o
+            NAME,SIZE,OWNER,GROUP,MODE
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n,
+          &minus;&minus;noheadings
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not print a header line.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o,
+          &minus;&minus;output
+         <em class="parameter">
+          <code>
+           list
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify which output columns to print. Use
+        <code class="option">
+         &minus;&minus;help
+        </code>
+        to get a
+            list of all supported columns.
+       </p>
+       <p>
+        The default list of columns may be extended if
+        <span class="command">
+         <strong>
+          list
+         </strong>
+        </span>
+        is
+            specified in the format
+        <em class="replaceable">
+         <code>
+          +list
+         </code>
+        </em>
+        (e.g.
+        <span class="emphasis">
+         <em>
+          lsblk -o
+            +UUID
+         </em>
+        </span>
+        ).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;P,
+          &minus;&minus;pairs
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Produce output in the form of key="value" pairs. All
+            potentially unsafe characters are hex-escaped
+            (\x&lt;code&gt;).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p,
+          &minus;&minus;paths
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print full device paths.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r,
+          &minus;&minus;raw
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Produce output in raw format. All potentially unsafe
+            characters are hex-escaped (\x&lt;code&gt;) in the
+            NAME, KNAME, LABEL, PARTLABEL and MOUNTPOINT
+            columns.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;S,
+          &minus;&minus;scsi
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output info about SCSI devices only. All partitions,
+            slaves and holder devices are ignored.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s,
+          &minus;&minus;inverse
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print dependencies in inverse order.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t,
+          &minus;&minus;topology
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output info about block-device topology. This option
+            is equivalent to
+        <code class="option">
+         &minus;o
+            NAME,ALIGNMENT,MIN&minus;IO,OPT&minus;IO,PHY&minus;SEC,LOG&minus;SEC,ROTA,SCHED,RQ&minus;SIZE,WSAME
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V,
+          &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="lsblk-8_sect3" name="lsblk-8_sect3" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     For partitions, some information (e.g. queue attributes)
+      is inherited from the parent device.
+    </p>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       lsblk
+      </strong>
+     </span>
+     command needs to be able to look up each block device by
+      major:minor numbers, which is done by using
+     <code class="filename">
+      /sys/dev/block
+     </code>
+     . This sysfs block directory
+      appeared in kernel 2.6.27 (October 2008). In case of problems
+      with a new enough kernel, check that CONFIG_SYSFS was enabled
+      at the time of the kernel build.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="lsblk-8_sect4" name="lsblk-8_sect4" shape="rect">
+    </a>
+    <h2>
+     AUTHORS
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+Milan Broz &lt;mbroz@redhat.com&gt;
+Karel Zak &lt;kzak@redhat.com&gt;
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="lsblk-8_sect5" name="lsblk-8_sect5" shape="rect">
+    </a>
+    <h2>
+     ENVIRONMENT
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          Setting
+          LIBMOUNT_DEBUG=0xffff enables debug
+          output.
+         </em>
+        </span>
+       </span>
+      </dt>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="lsblk-8_sect6" name="lsblk-8_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman8/findmnt.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        findmnt
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/blkid.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        blkid
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/ls.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ls
+       </span>
+       (1)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="lsblk-8_sect7" name="lsblk-8_sect7" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The lsblk command is part of the util-linux package and is
+      available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

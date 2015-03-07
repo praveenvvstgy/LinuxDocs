@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   srptool(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="srptool(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="srptool.1" name="srptool.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     srptool &mdash; GnuTLS SRP tool
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       srptool
+      </code>
+      [
+      <code class="option">
+       &minus;flag
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        value
+       </code>
+      </em>
+      ] ...] [
+      <code class="option">
+       &minus;&minus;opt&minus;name
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        [=|]value
+       </code>
+      </em>
+      ] ...]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="srptool-1_sect1" name="srptool-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Simple program that emulates the programs in the Stanford
+      SRP (Secure Remote Password) libraries using GnuTLS. It is
+      intended for use in places where you don't expect SRP
+      authentication to be the used for system users.
+    </p>
+    <p>
+     In brief, to use SRP you need to create two files. These
+      are the password file that holds the users and the verifiers
+      associated with them and the configuration file to hold the
+      group parameters (called tpasswd.conf).
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="srptool-1_sect2" name="srptool-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+         ,
+          &minus;&minus;debug=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable debugging. This option takes an integer
+            number as its argument. The value of
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+        is constrained
+            to being:
+       </p>
+       <div class="blockquote">
+        <blockquote class="blockquote">
+         <div class="informalexample">
+          <pre class="programlisting" xml:space="preserve">
+in the range  0 through 9999
+</pre>
+         </div>
+        </blockquote>
+       </div>
+       <p>
+        Specifies the debug level.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+         ,
+          &minus;&minus;index=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        specify the index of the group parameters in
+            tpasswd.conf to use. This option takes an integer
+            number as its argument. The default
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+        for this
+            option is:
+       </p>
+       <div class="blockquote">
+        <blockquote class="blockquote">
+         <p>
+          1
+         </p>
+        </blockquote>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+         ,
+          &minus;&minus;username=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        specify a username.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+         ,
+          &minus;&minus;passwd=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        specify a password file.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+         ,
+          &minus;&minus;salt=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        specify salt size. This option takes an integer
+            number as its argument.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;verify
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        just verify the password..
+       </p>
+       <p>
+        Verifies the password provided against the password
+            file.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+         ,
+          &minus;&minus;passwd&minus;conf=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        specify a password conf file..
+       </p>
+       <p>
+        Specify a filename or a PKCS #11 URL to read the CAs
+            from.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;create&minus;conf=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Generate a password configuration file..
+       </p>
+       <p>
+        This generates a password configuration file
+            (tpasswd.conf) containing the required for TLS
+            parameters.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display usage information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;!,
+          &minus;&minus;more&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Pass the extended usage information through a
+            pager.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+          [{
+         <em class="replaceable">
+          <code>
+           v|c|n
+          </code>
+         </em>
+         }],
+          &minus;&minus;version[={
+         <em class="replaceable">
+          <code>
+           v|c|n
+          </code>
+         </em>
+         }]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output version of program and exit. The default mode
+            is `v', a simple version. The `c' mode will print
+            copyright information and `n' will print the full
+            copyright notice.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="srptool-1_sect3" name="srptool-1_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <p>
+     To create
+     <em class="replaceable">
+      <code>
+       tpasswd.conf
+      </code>
+     </em>
+     which holds the
+      g and n values for SRP protocol (generator and a large
+      prime), run:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ srptool &minus;&minus;create&minus;conf /etc/tpasswd.conf
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     This command will create
+     <code class="filename">
+      /etc/tpasswd
+     </code>
+     and will add user 'test' (you
+      will also be prompted for a password). Verifiers are stored
+      by default in the way libsrp expects.
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ srptool &minus;&minus;passwd /etc/tpasswd &minus;&minus;passwd&minus;conf /etc/tpasswd.conf &minus;u test
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+</pre>
+    </div>
+    <p>
+     This command will check against a password. If the
+      password matches the one in
+     <code class="filename">
+      /etc/tpasswd
+     </code>
+     you will get an ok.
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ srptool &minus;&minus;passwd /etc/tpasswd &minus;&minus;passwd&minus;conf /etc/tpasswd.conf &minus;&minus;verify &minus;u test
+</pre>
+      </div>
+     </blockquote>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="srptool-1_sect4" name="srptool-1_sect4" shape="rect">
+    </a>
+    <h2>
+     EXIT STATUS
+    </h2>
+    <p>
+     One of the following exit values will be returned:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         0
+        </code>
+        (EXIT_SUCCESS)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Successful program execution.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         1
+        </code>
+        (EXIT_FAILURE)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The operation failed or the command syntax was not
+            valid.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         70
+        </code>
+        (EX_SOFTWARE)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        libopts had an internal operational error. Please
+            report it to autogen-users@lists.sourceforge.net. Thank
+            you.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="srptool-1_sect5" name="srptool-1_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     gnutls&minus;cli&minus;debug (1), gnutls&minus;serv (1),
+      srptool (1), psktool (1), certtool (1)
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="srptool-1_sect6" name="srptool-1_sect6" shape="rect">
+    </a>
+    <h2>
+     AUTHORS
+    </h2>
+    <p>
+     Nikos Mavrogiannopoulos, Simon Josefsson and others; see
+      /usr/share/doc/gnutls/AUTHORS for a complete list.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="srptool-1_sect8" name="srptool-1_sect8" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     Please send bug reports to: bugs@gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="srptool-1_sect9" name="srptool-1_sect9" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     This manual page was
+     <span class="command">
+      <strong>
+       AutoGen
+      </strong>
+     </span>
+     -erated from the
+     <span class="command">
+      <strong>
+       srptool
+      </strong>
+     </span>
+     option
+      definitions.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

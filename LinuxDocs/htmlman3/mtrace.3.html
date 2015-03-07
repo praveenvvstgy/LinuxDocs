@@ -1,0 +1,458 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   mtrace(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="mtrace(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="mtrace.3" name="mtrace.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     mtrace, muntrace &mdash; malloc tracing
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;mcheck.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          mtrace
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <code>
+         void)
+        </code>
+        ;
+       </td>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         void
+         <strong>
+          muntrace
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        <code>
+         void)
+        </code>
+        ;
+       </td>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="mtrace-3_sect1" name="mtrace-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      mtrace
+     </code>
+     () function
+      installs hook functions for the memory-allocation functions
+      (
+     <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        malloc
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        realloc
+       </span>
+       (3)
+      </span>
+     </a>
+     <a class="link" href="../htmlman3/posix_memalign.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        memalign
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        free
+       </span>
+       (3)
+      </span>
+     </a>
+     ). These hook
+      functions record tracing information about memory allocation
+      and deallocation. The tracing information can be used to
+      discover memory leaks and attempts to free nonallocated
+      memory in a program.
+    </p>
+    <p>
+     The
+     <code class="function">
+      muntrace
+     </code>
+     () function
+      disables the hook functions installed by
+     <code class="function">
+      mtrace
+     </code>
+     (), so that tracing information is no
+      longer recorded for the memory-allocation functions. If no
+      hook functions were successfully installed by
+     <code class="function">
+      mtrace
+     </code>
+     (),
+     <code class="function">
+      muntrace
+     </code>
+     () does nothing.
+    </p>
+    <p>
+     When
+     <code class="function">
+      mtrace
+     </code>
+     () is called, it
+      checks the value of the environment variable
+     <code class="constant">
+      MALLOC_TRACE
+     </code>
+     , which should contain the
+      pathname of a file in which the tracing information is to be
+      recorded. If the pathname is successfully opened, it is
+      truncated to zero length.
+    </p>
+    <p>
+     If
+     <code class="constant">
+      MALLOC_TRACE
+     </code>
+     is not set,
+      or the pathname it specifies is invalid or not writable, then
+      no hook functions are installed, and
+     <code class="function">
+      mtrace
+     </code>
+     () has no effect. In set-user-ID and
+      set-group-ID programs,
+     <code class="constant">
+      MALLOC_TRACE
+     </code>
+     is ignored, and
+     <code class="function">
+      mtrace
+     </code>
+     () has no effect.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mtrace-3_sect2" name="mtrace-3_sect2" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     These functions are GNU extensions.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mtrace-3_sect3" name="mtrace-3_sect3" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     In normal usage,
+     <code class="function">
+      mtrace
+     </code>
+     () is
+      called once at the start of execution of a program, and
+     <code class="function">
+      muntrace
+     </code>
+     () is never called.
+    </p>
+    <p>
+     The tracing output produced after a call to
+     <code class="function">
+      mtrace
+     </code>
+     () is textual, but not designed to be
+      human readable. The GNU C library provides a Perl script,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       mtrace
+      </span>
+      (1)
+     </span>
+     , that interprets the
+      trace log and produces human-readable output. For best
+      results, the traced program should be compiled with debugging
+      enabled, so that line-number information is recorded in the
+      executable.
+    </p>
+    <p>
+     The tracing performed by
+     <code class="function">
+      mtrace
+     </code>
+     () incurs a performance penalty (if
+     <code class="constant">
+      MALLOC_TRACE
+     </code>
+     points to a valid,
+      writable pathname).
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mtrace-3_sect4" name="mtrace-3_sect4" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     The line-number information produced by
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       mtrace
+      </span>
+      (1)
+     </span>
+     is not always
+      precise: the line number references may refer to the previous
+      or following (nonblank) line of the source code.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mtrace-3_sect5" name="mtrace-3_sect5" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <p>
+     The shell session below demonstrates the use of the
+     <code class="function">
+      mtrace
+     </code>
+     () function and the
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       mtrace
+      </span>
+      (1)
+     </span>
+     command in a program
+      that has memory leaks at two different locations. The
+      demonstration uses the following program:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ <code class="filename">cat t_mtrace.c</code>
+#include &lt;mcheck.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+int
+main(int argc, char *argv[])
+{
+    int j;
+
+    mtrace();
+
+    for (j = 0; j &lt; 2; j++)
+        malloc(100);            /* Never freed&minus;&minus;a memory leak */
+
+    calloc(16, 16);             /* Never freed&minus;&minus;a memory leak */
+    exit(EXIT_SUCCESS);
+}
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     When we run the program as follows, we see that
+     <code class="function">
+      mtrace
+     </code>
+     () diagnosed memory leaks
+      at two different locations in the program:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ <span class="emphasis"><em>cc &minus;g t_mtrace.c &minus;o t_mtrace</em></span>
+$ <span class="emphasis"><em>export MALLOC_TRACE=/tmp/t</em></span>
+$ <em class="replaceable"><code>./t_mtrace</code></em>
+$ <span class="emphasis"><em>mtrace ./t_mtrace $MALLOC_TRACE</em></span>
+Memory not freed:
+-----------------
+   Address     Size     Caller
+0x084c9378     0x64  at /home/cecilia/t_mtrace.c:12
+0x084c93e0     0x64  at /home/cecilia/t_mtrace.c:12
+0x084c9448    0x100  at /home/cecilia/t_mtrace.c:16
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     The first two messages about unfreed memory correspond to
+      the two
+     <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        malloc
+       </span>
+       (3)
+      </span>
+     </a>
+     calls inside the
+     <code class="function">
+      for
+     </code>
+     loop. The final message
+      corresponds to the call to
+     <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        calloc
+       </span>
+       (3)
+      </span>
+     </a>
+     (which in turn
+      calls
+     <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        malloc
+       </span>
+       (3)
+      </span>
+     </a>
+     ).
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="mtrace-3_sect6" name="mtrace-3_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       mtrace
+      </span>
+      (1)
+     </span>
+     ,
+     <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        malloc
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/malloc_hook.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        malloc_hook
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/mcheck.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mcheck
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="mtrace-3_sect7" name="mtrace-3_sect7" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

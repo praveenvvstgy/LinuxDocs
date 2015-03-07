@@ -1,0 +1,578 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   cytune(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="cytune(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="cytune.8" name="cytune.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     cytune &mdash; tune driver parameters for Cyclades-Z
+      multiport serial card
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       cytune
+      </code>
+      [options] tty [ ...
+        ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="cytune-8_sect1" name="cytune-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       cytune
+      </strong>
+     </span>
+     queries and modifies the interruption threshold for the
+      Cyclades driver. Each serial line on a Cyclades card has a
+      12-byte FIFO for input (and another 12-byte FIFO for output).
+      The "threshold" specifies how many input characters must be
+      present in the FIFO before an interruption is raised. When a
+      Cyclades tty is opened, this threshold is set to a default
+      value based on baud rate:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informaltable">
+       <table style="border-collapse: collapse;">
+        <colgroup span="1">
+         <col span="1">
+         </col>
+         <col span="1">
+         </col>
+        </colgroup>
+        <thead>
+         <tr>
+          <th colspan="1" rowspan="1" style="">
+           Baud
+          </th>
+          <th colspan="1" rowspan="1" style="">
+           Threshold
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           50-4800
+          </td>
+          <td colspan="1" rowspan="1" style="">
+           10
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           9600
+          </td>
+          <td colspan="1" rowspan="1" style="">
+           8
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           19200
+          </td>
+          <td colspan="1" rowspan="1" style="">
+           4
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           38400
+          </td>
+          <td colspan="1" rowspan="1" style="">
+           2
+          </td>
+         </tr>
+         <tr>
+          <td colspan="1" rowspan="1" style="">
+           57600-150000
+          </td>
+          <td colspan="1" rowspan="1" style="">
+           1
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     If the threshold is set too low, the large number of
+      interruptions can load the machine and decrease overall
+      system throughput. If the threshold is set too high, the FIFO
+      buffer can overflow, and characters will be lost. Slower
+      machines, however, may not be able to deal with the interrupt
+      load, and will require that the threshold be adjusted
+      upwards.
+    </p>
+    <p>
+     If the cyclades driver was compiled with
+     <code class="constant">
+      ENABLE_MONITORING
+     </code>
+     defined, the cytune
+      command can be used with the
+     <code class="option">
+      &minus;q
+     </code>
+     option to report interrupts over the
+      monitoring interval and characters transferred over the
+      monitoring interval. It will also report the state of the
+      FIFO. The maximum number of characters in the FIFO when an
+      interrupt occurred, the instantaneous count of characters in
+      the FIFO, and how many characters are now in the FIFO are
+      reported. This output might look like this:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       /dev/cubC0: 830 ints, 9130 chars; fifo: 11 threshold,
+          11 max, 11 now
+      </p>
+      <p>
+       166.259866 interrupts/second, 1828.858521
+          characters/second
+      </p>
+     </blockquote>
+    </div>
+    <p>
+     This output indicates that for this monitoring period, the
+      interrupts were always being handled within one character
+      time, because
+     <em class="replaceable">
+      <code>
+       max
+      </code>
+     </em>
+     never rose above
+     <em class="replaceable">
+      <code>
+       threshold
+      </code>
+     </em>
+     . This is good, and
+      you can probably run this way, provided that a large number
+      of samples come out this way. You will lose characters if you
+      overrun the FIFO, as the Cyclades hardware does not seem to
+      support the RTS RS-232 signal line for hardware flow control
+      from the DCE to the DTE.
+    </p>
+    <p>
+     In query mode
+     <span class="command">
+      <strong>
+       cytune
+      </strong>
+     </span>
+     will produce a
+      summary report when ended with a SIGINT or when the threshold
+      or timeout is changed.
+    </p>
+    <p>
+     There may be a responsiveness vs. throughput tradeoff. The
+      Cyclades card, at the higher speeds, is capable of putting a
+      very high interrupt load on the system. This will reduce the
+      amount of CPU time available for other tasks on your system.
+      However, the time it takes to respond to a single character
+      may be increased if you increase the threshold. This might be
+      noticed by monitoring
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       ping
+      </span>
+      (8)
+     </span>
+     times on a SLIP link
+      controlled by a Cyclades card. If your SLIP link is generally
+      used for interactive work such as
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       telnet
+      </span>
+      (1)
+     </span>
+     , you may want to
+      leave the threshold low, so that characters are responded to
+      as quickly as possible. If your SLIP link is generally used
+      for file transfer, WWW, and the like, setting the FIFO to a
+      high value is likely to reduce the load on your system while
+      not significantly affecting throughput. Alternatively, see
+      the
+     <code class="option">
+      &minus;t
+     </code>
+     or
+     <code class="option">
+      &minus;T
+     </code>
+     options to adjust the time that the
+      cyclades waits before flushing its buffer. Units are 5ms.
+    </p>
+    <p>
+     If you are running a mouse on a Cyclades port, it is
+      likely that you would want to maintain the threshold and
+      timeout at a low value.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="cytune-8_sect2" name="cytune-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;set&minus;threshold
+        </code>
+        <span class="command">
+         <strong>
+          value
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set the current threshold to
+        <span class="command">
+         <strong>
+          value
+         </strong>
+        </span>
+        characters.
+            Note that if the
+        <em class="parameter">
+         <code>
+          tty
+         </code>
+        </em>
+        is not being held
+            open by another process, the threshold will be reset on
+            the next open. Only values between 1 and 12, inclusive,
+            are permitted.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;set&minus;flush
+        </code>
+        <span class="command">
+         <strong>
+          value
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set the current flush timeout to
+        <span class="command">
+         <strong>
+          value
+         </strong>
+        </span>
+        units. Note
+            that if the
+        <em class="parameter">
+         <code>
+          tty
+         </code>
+        </em>
+        is not being held open by another process, the
+            threshold will be reset on the next open. Only values
+            between 0 and 255, inclusive, are permitted. Setting
+        <span class="command">
+         <strong>
+          value
+         </strong>
+        </span>
+        to
+            zero forces the default, currently 0x20 (160ms), but
+            soon to be 0x02 (10ms). Units are 5 ms.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;g
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;get&minus;threshold
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Get the current threshold and timeout.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;S
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;set&minus;default&minus;threshold
+        </code>
+        <span class="command">
+         <strong>
+          value
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set the default threshold to
+        <span class="command">
+         <strong>
+          value
+         </strong>
+        </span>
+        characters.
+            When the
+        <em class="parameter">
+         <code>
+          tty
+         </code>
+        </em>
+        is
+            next opened, this value will be used instead of the
+            default. Only values between 1 and 12, inclusive, are
+            permitted.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;T
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;set&minus;default&minus;flush
+        </code>
+        <span class="command">
+         <strong>
+          value
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set the default flush timeout to
+        <span class="command">
+         <strong>
+          value
+         </strong>
+        </span>
+        units. When the
+        <em class="parameter">
+         <code>
+          tty
+         </code>
+        </em>
+        is next
+            opened, this value will be used instead of the default.
+            If
+        <span class="command">
+         <strong>
+          value
+         </strong>
+        </span>
+        is zero, then the value will default to 0x20 (160ms),
+            soon to be 0x02 (10ms).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;G
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;get&minus;glush
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Get the default threshold and flush timeout
+            values.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;q
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;stats
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Gather statistics about the
+        <em class="parameter">
+         <code>
+          tty
+         </code>
+        </em>
+        . The results are only
+            valid if the Cyclades driver has been compiled with
+        <code class="constant">
+         ENABLE_MONITORING
+        </code>
+        defined. This is probably not the default.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;interval
+        </code>
+        <span class="command">
+         <strong>
+          interval
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Statistics will be gathered every
+        <span class="command">
+         <strong>
+          interval
+         </strong>
+        </span>
+        seconds.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="cytune-8_sect3" name="cytune-8_sect3" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     If you run two copies of
+     <span class="command">
+      <strong>
+       cytune
+      </strong>
+     </span>
+     at the same time to
+      report statistics about the same port, the 'ints', 'chars',
+      and 'max' value will be reset and not reported correctly.
+     <span class="command">
+      <strong>
+       cytune
+      </strong>
+     </span>
+     should
+      prevent this, but does not.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="cytune-8_sect4" name="cytune-8_sect4" shape="rect">
+    </a>
+    <h2>
+     FILES
+    </h2>
+    <p>
+     <code class="filename">
+      /dev/ttyC[0-8]
+     </code>
+    </p>
+    <p>
+     <code class="filename">
+      /dev/cubC[0-8]
+     </code>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="cytune-8_sect5" name="cytune-8_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       setserial
+      </span>
+      (8)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="cytune-8_sect6" name="cytune-8_sect6" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The cytune command is part of the util-linux package and
+      is available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

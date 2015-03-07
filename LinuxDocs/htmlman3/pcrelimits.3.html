@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pcrelimits(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pcrelimits(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="pcrelimits.3" name="pcrelimits.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     PCRE &mdash; Perl-compatible regular expressions
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcrelimits-3_sect1" name="pcrelimits-3_sect1" shape="rect">
+    </a>
+    <h2>
+     SIZE AND OTHER LIMITATIONS
+    </h2>
+    <p>
+     There are some size limitations in PCRE but it is hoped
+      that they will never in practice be relevant.
+    </p>
+    <p>
+     The maximum length of a compiled pattern is approximately
+      64K data units (bytes for the 8-bit library, 16-bit units for
+      the 16-bit library, and 32-bit units for the 32-bit library)
+      if PCRE is compiled with the default internal linkage size,
+      which is 2 bytes for the 8-bit and 16-bit libraries, and 4
+      bytes for the 32-bit library. If you want to process regular
+      expressions that are truly enormous, you can compile PCRE
+      with an internal linkage size of 3 or 4 (when building the
+      16-bit or 32-bit library, 3 is rounded up to 4). See the
+     <code class="constant">
+      README
+     </code>
+     file in the source
+      distribution and the
+     <a class="link" href="../htmlman3/pcrebuild.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pcrebuild
+       </span>
+       (3)
+      </span>
+     </a>
+     documentation
+      for details. In these cases the limit is substantially
+      larger. However, the speed of execution is slower.
+    </p>
+    <p>
+     All values in repeating quantifiers must be less than
+      65536.
+    </p>
+    <p>
+     There is no limit to the number of parenthesized
+      subpatterns, but there can be no more than 65535 capturing
+      subpatterns. There is, however, a limit to the depth of
+      nesting of parenthesized subpatterns of all kinds. This is
+      imposed in order to limit the amount of system stack used at
+      compile time. The limit can be specified when PCRE is built;
+      the default is 250.
+    </p>
+    <p>
+     There is a limit to the number of forward references to
+      subsequent subpatterns of around 200,000. Repeated forward
+      references with fixed upper limits, for example, (?2){0,100}
+      when subpattern number 2 is to the right, are included in the
+      count. There is no limit to the number of backward
+      references.
+    </p>
+    <p>
+     The maximum length of name for a named subpattern is 32
+      characters, and the maximum number of named subpatterns is
+      10000.
+    </p>
+    <p>
+     The maximum length of a name in a (*MARK), (*PRUNE),
+      (*SKIP), or (*THEN) verb is 255 for the 8-bit library and
+      65535 for the 16-bit and 32-bit libraries.
+    </p>
+    <p>
+     The maximum length of a subject string is the largest
+      positive number that an integer variable can hold. However,
+      when using the traditional matching function, PCRE uses
+      recursion to handle subpatterns and indefinite repetition.
+      This means that the available stack space may limit the size
+      of a subject string that can be processed by certain
+      patterns. For a discussion of stack issues, see the
+     <a class="link" href="../htmlman3/pcrestack.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pcrestack
+       </span>
+       (3)
+      </span>
+     </a>
+     documentation.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcrelimits-3_sect2" name="pcrelimits-3_sect2" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+Philip Hazel
+University Computing Service
+Cambridge CB2 3QH, England.
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pcrelimits-3_sect3" name="pcrelimits-3_sect3" shape="rect">
+    </a>
+    <h2>
+     REVISION
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+Last updated: 05 November 2013
+Copyright (c) 1997-2013 University of Cambridge.
+</pre>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   lookup_dcookie(2) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="lookup_dcookie(2) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="lookup-dcookie.2" name="lookup-dcookie.2" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     lookup_dcookie &mdash; return a directory entry's path
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          lookup_dcookie
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        u64
+        <var class="pdparam">
+         cookie
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        char *
+        <var class="pdparam">
+         buffer
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        size_t
+        <var class="pdparam">
+         len
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="lookup-dcookie-2_sect1" name="lookup-dcookie-2_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Look up the full path of the directory entry specified by
+      the value
+     <em class="parameter">
+      <code>
+       cookie
+      </code>
+     </em>
+     . The
+      cookie is an opaque identifier uniquely identifying a
+      particular directory entry. The buffer given is filled in
+      with the full path of the directory entry.
+    </p>
+    <p>
+     For
+     <code class="function">
+      lookup_dcookie
+     </code>
+     () to
+      return successfully, the kernel must still hold a cookie
+      reference to the directory entry.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="lookup-dcookie-2_sect2" name="lookup-dcookie-2_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success,
+     <code class="function">
+      lookup_dcookie
+     </code>
+     ()
+      returns the length of the path string copied into the buffer.
+      On error, &minus;1 is returned, and
+     <code class="varname">
+      errno
+     </code>
+     is set appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="lookup-dcookie-2_sect3" name="lookup-dcookie-2_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EFAULT
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The buffer was not valid.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The kernel has no registered cookie/directory entry
+            mappings at the time of lookup, or the cookie does not
+            refer to a valid directory entry.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENAMETOOLONG
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The name could not fit in the buffer.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOMEM
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The kernel could not allocate memory for the
+            temporary buffer holding the path.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EPERM
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The process does not have the capability
+        <code class="constant">
+         CAP_SYS_ADMIN
+        </code>
+        required to
+            look up cookie values.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ERANGE
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The buffer was not large enough to hold the path of
+            the directory entry.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="lookup-dcookie-2_sect4" name="lookup-dcookie-2_sect4" shape="rect">
+    </a>
+    <h2>
+     VERSIONS
+    </h2>
+    <p>
+     Available since Linux 2.5.43. The
+     <span class="errorname">
+      ENAMETOOLONG
+     </span>
+     error return was added in
+      2.5.70.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="lookup-dcookie-2_sect5" name="lookup-dcookie-2_sect5" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     <code class="function">
+      lookup_dcookie
+     </code>
+     () is
+      Linux-specific.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="lookup-dcookie-2_sect6" name="lookup-dcookie-2_sect6" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     <code class="function">
+      lookup_dcookie
+     </code>
+     () is a
+      special-purpose system call, currently used only by the
+      oprofile profiler. It relies on a kernel driver to register
+      cookies for directory entries.
+    </p>
+    <p>
+     The path returned may be suffixed by the string "
+      (deleted)" if the directory entry has been removed.
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="lookup-dcookie-2_sect7" name="lookup-dcookie-2_sect7" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

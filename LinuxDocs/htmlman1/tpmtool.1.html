@@ -1,0 +1,642 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   tpmtool(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="tpmtool(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="tpmtool.1" name="tpmtool.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     tpmtool &mdash; GnuTLS TPM tool
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       tpmtool
+      </code>
+      [
+      <code class="option">
+       &minus;flag
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        value
+       </code>
+      </em>
+      ] ...] [
+      <code class="option">
+       &minus;&minus;opt&minus;name
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        [=|]value
+       </code>
+      </em>
+      ] ...]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="tpmtool-1_sect1" name="tpmtool-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Program that allows handling cryptographic data from the
+      TPM chip.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="tpmtool-1_sect2" name="tpmtool-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+         ,
+          &minus;&minus;debug=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable debugging. This option takes an integer
+            number as its argument. The value of
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+        is constrained
+            to being:
+       </p>
+       <div class="blockquote">
+        <blockquote class="blockquote">
+         <div class="informalexample">
+          <pre class="programlisting" xml:space="preserve">
+in the range  0 through 9999
+</pre>
+         </div>
+        </blockquote>
+       </div>
+       <p>
+        Specifies the debug level.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;infile=
+         <em class="parameter">
+          <code>
+           file
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Input file.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;outfile=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output file.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;generate&minus;rsa
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Generate an RSA private-public key pair.
+       </p>
+       <p>
+        Generates an RSA private-public key pair in the TPM
+            chip. The key may be stored in filesystem and protected
+            by a PIN, or stored (registered) in the TPM chip
+            flash.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;register
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Any generated key will be registered in the TPM.
+            This option must appear in combination with the
+            following options: generate-rsa.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;signing
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Any generated key will be a signing key. This option
+            must appear in combination with the following options:
+            generate-rsa. This option must not appear in
+            combination with any of the following options:
+            legacy.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;legacy
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Any generated key will be a legacy key. This option
+            must appear in combination with the following options:
+            generate-rsa. This option must not appear in
+            combination with any of the following options:
+            signing.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;user
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Any registered key will be a user key. This option
+            must appear in combination with the following options:
+            register. This option must not appear in combination
+            with any of the following options: system.
+       </p>
+       <p>
+        The generated key will be stored in a user specific
+            persistent storage.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;system
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Any registred key will be a system key. This option
+            must appear in combination with the following options:
+            register. This option must not appear in combination
+            with any of the following options: user.
+       </p>
+       <p>
+        The generated key will be stored in system
+            persistent storage.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;pubkey=
+         <em class="parameter">
+          <code>
+           url
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Prints the public key of the provided key.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;list
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Lists all stored keys in the TPM.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;delete=
+         <em class="parameter">
+          <code>
+           url
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Delete the key identified by the given URL
+            (UUID)..
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;sec&minus;param=
+         <span class="emphasis">
+          <em>
+           security
+          parameter
+          </em>
+         </span>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the security level [low, legacy, normal,
+            high, ultra]..
+       </p>
+       <p>
+        This is alternative to the bits option. Note however
+            that the values allowed by the TPM chip are quantized
+            and given values may be rounded up.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;bits=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the number of bits for key generate. This
+            option takes an integer number as its argument.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;inder,
+         <code class="option">
+          &minus;&minus;no&minus;inder
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use the DER format for keys.. The
+        <em class="replaceable">
+         <code>
+          no&minus;inder
+         </code>
+        </em>
+        form
+            will disable the option.
+       </p>
+       <p>
+        The input files will be assumed to be in the
+            portable DER format of TPM. The default format is a
+            custom format used by various TPM tools
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;outder,
+         <code class="option">
+          &minus;&minus;no&minus;outder
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use DER format for output keys. The
+        <em class="replaceable">
+         <code>
+          no&minus;outder
+         </code>
+        </em>
+        form
+            will disable the option.
+       </p>
+       <p>
+        The output will be in the TPM portable DER
+            format.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display usage information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;!,
+          &minus;&minus;more&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Pass the extended usage information through a
+            pager.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+          [{
+         <em class="replaceable">
+          <code>
+           v|c|n
+          </code>
+         </em>
+         }],
+          &minus;&minus;version[={
+         <em class="replaceable">
+          <code>
+           v|c|n
+          </code>
+         </em>
+         }]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output version of program and exit. The default mode
+            is `v', a simple version. The `c' mode will print
+            copyright information and `n' will print the full
+            copyright notice.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="tpmtool-1_sect3" name="tpmtool-1_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <p>
+     To generate a key that is to be stored in filesystem
+      use:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ tpmtool &minus;&minus;generate&minus;rsa &minus;&minus;bits 2048 &minus;&minus;outfile tpmkey.pem
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     To generate a key that is to be stored in TPM's flash
+      use:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ tpmtool &minus;&minus;generate&minus;rsa &minus;&minus;bits 2048 &minus;&minus;register &minus;&minus;user
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     To get the public key of a TPM key use:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ tpmtool &minus;&minus;pubkey tpmkey:uuid=58ad734b&minus;bde6&minus;45c7&minus;89d8&minus;756a55ad1891;storage=user           &minus;&minus;outfile pubkey.pem
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     or if the key is stored in the filesystem:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ tpmtool &minus;&minus;pubkey tpmkey:file=tmpkey.pem &minus;&minus;outfile pubkey.pem
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     To list all keys stored in TPM use:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ tpmtool &minus;&minus;list
+</pre>
+      </div>
+     </blockquote>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="tpmtool-1_sect4" name="tpmtool-1_sect4" shape="rect">
+    </a>
+    <h2>
+     EXIT STATUS
+    </h2>
+    <p>
+     One of the following exit values will be returned:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         0
+        </code>
+        (EXIT_SUCCESS)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Successful program execution.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         1
+        </code>
+        (EXIT_FAILURE)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The operation failed or the command syntax was not
+            valid.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         70
+        </code>
+        (EX_SOFTWARE)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        libopts had an internal operational error. Please
+            report it to autogen-users@lists.sourceforge.net. Thank
+            you.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="tpmtool-1_sect5" name="tpmtool-1_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     p11tool (1), certtool (1)
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="tpmtool-1_sect6" name="tpmtool-1_sect6" shape="rect">
+    </a>
+    <h2>
+     AUTHORS
+    </h2>
+    <p>
+     Nikos Mavrogiannopoulos, Simon Josefsson and others; see
+      /usr/share/doc/gnutls/AUTHORS for a complete list.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="tpmtool-1_sect8" name="tpmtool-1_sect8" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     Please send bug reports to: bugs@gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="tpmtool-1_sect9" name="tpmtool-1_sect9" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     This manual page was
+     <span class="command">
+      <strong>
+       AutoGen
+      </strong>
+     </span>
+     -erated from the
+     <span class="command">
+      <strong>
+       tpmtool
+      </strong>
+     </span>
+     option
+      definitions.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

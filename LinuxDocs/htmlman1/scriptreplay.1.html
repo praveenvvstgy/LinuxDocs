@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   scriptreplay(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="scriptreplay(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="scriptreplay.1" name="scriptreplay.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     scriptreplay &mdash; play back typescripts, using timing
+      information
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       scriptreplay
+      </code>
+      [options]
+        [
+      <code class="option">
+       &minus;t
+      </code>
+      ] timingfile [
+        typescript [divisor] ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="scriptreplay-1_sect1" name="scriptreplay-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This program replays a typescript, using timing
+      information to ensure that output happens at the same speed
+      as it originally appeared when the script was recorded.
+    </p>
+    <p>
+     The replay simply displays the information again; the
+      programs that were run when the typescript was being recorded
+      are not run again. Since the same information is simply being
+      displayed,
+     <span class="command">
+      <strong>
+       scriptreplay
+      </strong>
+     </span>
+     is only
+      guaranteed to work properly if run on the same type of
+      terminal the typescript was recorded on. Otherwise, any
+      escape characters in the typescript may be interpreted
+      differently by the terminal to which
+     <span class="command">
+      <strong>
+       scriptreplay
+      </strong>
+     </span>
+     is sending its
+      output.
+    </p>
+    <p>
+     The timing information is what
+     <a class="link" href="../htmlman1/script.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        script
+       </span>
+       (1)
+      </span>
+     </a>
+     outputs to
+      standard error if it is run with the
+     <code class="option">
+      &minus;t
+     </code>
+     parameter.
+    </p>
+    <p>
+     By default, the typescript to display is assumed to be
+      named
+     <em class="parameter">
+      <code>
+       typescript
+      </code>
+     </em>
+     , but
+      other filenames may be specified, as the second parameter or
+      with option
+     <code class="option">
+      &minus;s
+     </code>
+     .
+    </p>
+    <p>
+     If the third parameter is specified, it is used as a
+      speed-up multiplier. For example, a speed-up of 2 makes
+     <span class="command">
+      <strong>
+       scriptreplay
+      </strong>
+     </span>
+     go
+      twice as fast, and a speed-up of 0.1 makes it go ten times
+      slower than the original session.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="scriptreplay-1_sect2" name="scriptreplay-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <p>
+     The first three options will overide old-style
+      arguments.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t,
+          &minus;&minus;timing
+         <em class="parameter">
+          <code>
+           file
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        File containing script timing output.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s,
+          &minus;&minus;typescript
+         <em class="parameter">
+          <code>
+           file
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        File containing the script terminal output.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d,
+          &minus;&minus;divisor
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Speed up the replay displaying this
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+        of times. The
+            argument is a floating point number. It's called
+            divisor because it divides the timings by this
+            factor.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V,
+          &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="scriptreplay-1_sect3" name="scriptreplay-1_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+% script --timing=file.tm script.out
+Script started, file is script.out
+% ls
+&lt;etc, etc&gt;
+% exit
+Script done, file is script.out
+% scriptreplay --timing file.tm --typescript script.out
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="scriptreplay-1_sect4" name="scriptreplay-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/script.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        script
+       </span>
+       (1)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="scriptreplay-1_sect6" name="scriptreplay-1_sect6" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     The original
+     <span class="command">
+      <strong>
+       scriptreplay
+      </strong>
+     </span>
+     program was
+      written by
+     <a class="literalurl" href="mailto:joey%20REMOVE%20@%20THIS%20kitenet.net" shape="rect" target="_top">
+      Joey Hess
+     </a>
+     The program was re-written in C by
+     <a class="literalurl" href="mailto:jay%20REMOVE%20@%20THIS%20gnu.org" shape="rect" target="_top">
+      James Youngman
+     </a>
+     and
+     <a class="literalurl" href="mailto:kzak%20REMOVE%20@%20THIS%20redhat.com" shape="rect" target="_top">
+      Karel Zak
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="scriptreplay-1_sect7" name="scriptreplay-1_sect7" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The scriptreplay command is part of the util-linux package
+      and is available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

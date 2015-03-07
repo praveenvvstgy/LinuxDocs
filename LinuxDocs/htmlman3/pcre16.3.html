@@ -1,0 +1,2298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pcre(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pcre(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="pcre16.3" name="pcre16.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     PCRE &mdash; Perl-compatible regular expressions
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="refsect2">
+     <a id="idm234459752672" name="idm234459752672" shape="rect">
+     </a>
+     <h3>
+      PCRE 16-BIT API BASIC FUNCTIONS
+     </h3>
+     <div class="funcsynopsis">
+      <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;pcre.h&gt;
+</pre>
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          pcre16
+              *
+          <strong>
+           pcre16_compile
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16
+         <var class="pdparam">
+          pattern
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          options
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         const char **
+         <var class="pdparam">
+          errptr
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int *
+         <var class="pdparam">
+          erroffset
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         const unsigned char *
+         <var class="pdparam">
+          tableptr
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          pcre16
+              *
+          <strong>
+           pcre16_compile2
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16
+         <var class="pdparam">
+          pattern
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          options
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int *
+         <var class="pdparam">
+          errorcodeptr
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         const char **
+         <var class="pdparam">
+          errptr
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int *
+         <var class="pdparam">
+          erroffset
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         const unsigned char *
+         <var class="pdparam">
+          tableptr
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          pcre16_extra
+              *
+          <strong>
+           pcre16_study
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         const pcre16 *
+         <var class="pdparam">
+          code
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          options
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         const char **
+         <var class="pdparam">
+          errptr
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          void
+          <strong>
+           pcre16_free_study
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         pcre16_extra *
+         <var class="pdparam">
+          extra
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          int
+          <strong>
+           pcre16_exec
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         const pcre16 *
+         <var class="pdparam">
+          code
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         const pcre16_extra *
+         <var class="pdparam">
+          extra
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16
+         <var class="pdparam">
+          subject
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          length
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          startoffset
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          options
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int *
+         <var class="pdparam">
+          ovector
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          ovecsize
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          int
+          <strong>
+           pcre16_dfa_exec
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         const pcre16 *
+         <var class="pdparam">
+          code
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         const pcre16_extra *
+         <var class="pdparam">
+          extra
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16
+         <var class="pdparam">
+          subject
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          length
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          startoffset
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          options
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int *
+         <var class="pdparam">
+          ovector
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          ovecsize
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int *
+         <var class="pdparam">
+          workspace
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          wscount
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+    </div>
+    <div class="refsect2">
+     <a id="idm234459699936" name="idm234459699936" shape="rect">
+     </a>
+     <h3>
+      PCRE 16-BIT API STRING EXTRACTION FUNCTIONS
+     </h3>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          int
+          <strong>
+           pcre16_copy_named_substring
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         const pcre16 *
+         <var class="pdparam">
+          code
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16
+         <var class="pdparam">
+          subject
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int *
+         <var class="pdparam">
+          ovector
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          stringcount
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16
+         <var class="pdparam">
+          stringname
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_UCHAR16 *
+         <var class="pdparam">
+          buffer
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          buffersize
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          int
+          <strong>
+           pcre16_copy_substring
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16
+         <var class="pdparam">
+          subject
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int *
+         <var class="pdparam">
+          ovector
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          stringcount
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          stringnumber
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_UCHAR16 *
+         <var class="pdparam">
+          buffer
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          buffersize
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          int
+          <strong>
+           pcre16_get_named_substring
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         const pcre16 *
+         <var class="pdparam">
+          code
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16
+         <var class="pdparam">
+          subject
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int *
+         <var class="pdparam">
+          ovector
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          stringcount
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16
+         <var class="pdparam">
+          stringname
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16 *
+         <var class="pdparam">
+          stringptr
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          int
+          <strong>
+           pcre16_get_stringnumber
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         const pcre16 *
+         <var class="pdparam">
+          code
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16
+         <var class="pdparam">
+          name
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          int
+          <strong>
+           pcre16_get_stringtable_entries
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         const pcre16 *
+         <var class="pdparam">
+          code
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16
+         <var class="pdparam">
+          name
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_UCHAR16 **
+         <var class="pdparam">
+          first
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_UCHAR16 **
+         <var class="pdparam">
+          last
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          int
+          <strong>
+           pcre16_get_substring
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16
+         <var class="pdparam">
+          subject
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int *
+         <var class="pdparam">
+          ovector
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          stringcount
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          stringnumber
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16 *
+         <var class="pdparam">
+          stringptr
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          int
+          <strong>
+           pcre16_get_substring_list
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16
+         <var class="pdparam">
+          subject
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int *
+         <var class="pdparam">
+          ovector
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          stringcount
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16 **
+         <var class="pdparam">
+          listptr
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          void
+          <strong>
+           pcre16_free_substring
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16
+         <var class="pdparam">
+          stringptr
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          void
+          <strong>
+           pcre16_free_substring_list
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16 *
+         <var class="pdparam">
+          stringptr
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+    </div>
+    <div class="refsect2">
+     <a id="idm234459629600" name="idm234459629600" shape="rect">
+     </a>
+     <h3>
+      PCRE 16-BIT API AUXILIARY FUNCTIONS
+     </h3>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          pcre16_jit_stack
+              *
+          <strong>
+           pcre16_jit_stack_alloc
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          startsize
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          maxsize
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          void
+          <strong>
+           pcre16_jit_stack_free
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         pcre16_jit_stack *
+         <var class="pdparam">
+          stack
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          void
+          <strong>
+           pcre16_assign_jit_stack
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         pcre16_extra *
+         <var class="pdparam">
+          extra
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         pcre16_jit_callback
+         <var class="pdparam">
+          callback
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         void *
+         <var class="pdparam">
+          data
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          const unsigned char
+              *
+          <strong>
+           pcre16_maketables
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         <code>
+          void)
+         </code>
+         ;
+        </td>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          int
+          <strong>
+           pcre16_fullinfo
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         const pcre16 *
+         <var class="pdparam">
+          code
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         const pcre16_extra *
+         <var class="pdparam">
+          extra
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          what
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         void *
+         <var class="pdparam">
+          where
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          int
+          <strong>
+           pcre16_refcount
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         pcre16 *
+         <var class="pdparam">
+          code
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          adjust
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          int
+          <strong>
+           pcre16_config
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          what
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         void *
+         <var class="pdparam">
+          where
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          const char
+              *
+          <strong>
+           pcre16_version
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         <code>
+          void)
+         </code>
+         ;
+        </td>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          int
+          <strong>
+           pcre16_pattern_to_host_byte_order
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         pcre16 *
+         <var class="pdparam">
+          code
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         pcre16_extra *
+         <var class="pdparam">
+          extra
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         const unsigned char *
+         <var class="pdparam">
+          tables
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+    </div>
+    <div class="refsect2">
+     <a id="idm234459585088" name="idm234459585088" shape="rect">
+     </a>
+     <h3>
+      PCRE 16-BIT API INDIRECTED FUNCTIONS
+     </h3>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          void
+          <strong>
+           *
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         *pcre16_malloc)(
+         <var class="pdparam">
+          size_t
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          <strong>
+           void
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         <var class="pdparam">
+          *pcre16_free)(void
+              *
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          void
+          <strong>
+           *
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         *pcre16_stack_malloc)(
+         <var class="pdparam">
+          size_t
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          <strong>
+           void
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         <var class="pdparam">
+          *pcre16_stack_free)(void
+              *
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          <strong>
+           int
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         <var class="pdparam">
+          *pcre16_callout)(pcre16_callout_block
+              *
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+    </div>
+    <div class="refsect2">
+     <a id="idm234459567856" name="idm234459567856" shape="rect">
+     </a>
+     <h3>
+      PCRE 16-BIT API 16-BIT-ONLY FUNCTION
+     </h3>
+     <div class="funcsynopsis">
+      <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+       <tr>
+        <td colspan="1" rowspan="1">
+         <code class="funcdef">
+          int
+          <strong>
+           pcre16_utf16_to_host_byte_order
+          </strong>
+          (
+         </code>
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_UCHAR16 *
+         <var class="pdparam">
+          output
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         PCRE_SPTR16
+         <var class="pdparam">
+          input
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          length
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int *
+         <var class="pdparam">
+          byte_order
+         </var>
+         ,
+        </td>
+       </tr>
+       <tr>
+        <td colspan="1" rowspan="1">
+         &nbsp;
+        </td>
+        <td colspan="1" rowspan="1">
+         int
+         <var class="pdparam">
+          keep_boms
+         </var>
+         <code>
+          )
+         </code>
+         ;
+        </td>
+       </tr>
+      </table>
+      <div class="funcprototype-spacer">
+       &nbsp;
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pcre16-3_sect1" name="pcre16-3_sect1" shape="rect">
+    </a>
+    <h2>
+     THE PCRE 16-BIT LIBRARY
+    </h2>
+    <p>
+     Starting with release 8.30, it is possible to compile a
+      PCRE library that supports 16-bit character strings,
+      including UTF-16 strings, as well as or instead of the
+      original 8-bit library. The majority of the work to make this
+      possible was done by Zoltan Herczeg. The two libraries
+      contain identical sets of functions, used in exactly the same
+      way. Only the names of the functions and the data types of
+      their arguments and results are different. To avoid
+      over-complication and reduce the documentation maintenance
+      load, most of the PCRE documentation describes the 8-bit
+      library, with only occasional references to the 16-bit
+      library. This page describes what is different when you use
+      the 16-bit library.
+    </p>
+    <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Warning">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Warning]" src="../stylesheet/warning.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Warning
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <p>
+         A single application can be linked with both
+              libraries, but you must take care when processing any
+              particular pattern to use functions from just one
+              library. For example, if you want to study a pattern
+              that was compiled with
+         <code class="function">
+          pcre16_compile
+         </code>
+         (), you must do so
+              with
+         <code class="function">
+          pcre16_study
+         </code>
+         (),
+              not
+         <code class="function">
+          pcre_study
+         </code>
+         (), and
+              you must free the study data with
+         <code class="function">
+          pcre16_free_study
+         </code>
+         ().
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pcre16-3_sect2" name="pcre16-3_sect2" shape="rect">
+    </a>
+    <h2>
+     THE HEADER FILE
+    </h2>
+    <p>
+     There is only one header file,
+     <code class="filename">
+      pcre.h
+     </code>
+     . It contains prototypes for all the
+      functions in all libraries, as well as definitions of flags,
+      structures, error codes, etc.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcre16-3_sect3" name="pcre16-3_sect3" shape="rect">
+    </a>
+    <h2>
+     THE LIBRARY NAME
+    </h2>
+    <p>
+     In Unix-like systems, the 16-bit library is called
+     <code class="function">
+      libpcre16
+     </code>
+     , and can normally be
+      accesss by adding
+     <code class="option">
+      &minus;lpcre16
+     </code>
+     to the command for linking an application that uses PCRE.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcre16-3_sect4" name="pcre16-3_sect4" shape="rect">
+    </a>
+    <h2>
+     STRING TYPES
+    </h2>
+    <p>
+     In the 8-bit library, strings are passed to PCRE library
+      functions as vectors of bytes with the C type "char *". In
+      the 16-bit library, strings are passed as vectors of unsigned
+      16-bit quantities. The macro PCRE_UCHAR16 specifies an
+      appropriate data type, and PCRE_SPTR16 is defined as "const
+      PCRE_UCHAR16 *". In very many environments, "short int" is a
+      16-bit data type. When PCRE is built, it defines PCRE_UCHAR16
+      as "unsigned short int", but checks that it really is a
+      16-bit data type. If it is not, the build fails with an error
+      message telling the maintainer to modify the definition
+      appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcre16-3_sect5" name="pcre16-3_sect5" shape="rect">
+    </a>
+    <h2>
+     STRUCTURE TYPES
+    </h2>
+    <p>
+     The types of the opaque structures that are used for
+      compiled 16-bit patterns and JIT stacks are
+     <code class="function">
+      pcre16
+     </code>
+     and
+     <code class="function">
+      pcre16_jit_stack
+     </code>
+     respectively. The type of
+      the user-accessible structure that is returned by
+     <code class="function">
+      pcre16_study
+     </code>
+     () is
+     <code class="function">
+      pcre16_extra
+     </code>
+     , and the type of the structure
+      that is used for passing data to a callout function is
+     <code class="function">
+      pcre16_callout_block
+     </code>
+     . These
+      structures contain the same fields, with the same names, as
+      their 8-bit counterparts. The only difference is that
+      pointers to character strings are 16-bit instead of 8-bit
+      types.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcre16-3_sect6" name="pcre16-3_sect6" shape="rect">
+    </a>
+    <h2>
+     16-BIT FUNCTIONS
+    </h2>
+    <p>
+     For every function in the 8-bit library there is a
+      corresponding function in the 16-bit library with a name that
+      starts with
+     <code class="function">
+      pcre16_
+     </code>
+     instead of
+     <code class="function">
+      pcre_
+     </code>
+     . The prototypes are
+      listed above. In addition, there is one extra function,
+     <code class="function">
+      pcre16_utf16_to_host_byte_order
+     </code>
+     (). This is
+      a utility function that converts a UTF-16 character string to
+      host byte order if necessary. The other 16-bit functions
+      expect the strings they are passed to be in host byte
+      order.
+    </p>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       input
+      </code>
+     </em>
+     and
+     <em class="parameter">
+      <code>
+       output
+      </code>
+     </em>
+     arguments of
+     <code class="function">
+      pcre16_utf16_to_host_byte_order
+     </code>
+     () may point
+      to the same address, that is, conversion in place is
+      supported. The output buffer must be at least as long as the
+      input.
+    </p>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       length
+      </code>
+     </em>
+     argument specifies the number of 16-bit data units in the
+      input string; a negative value specifies a zero-terminated
+      string.
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       byte_order
+      </code>
+     </em>
+     is
+      NULL, it is assumed that the string starts off in host byte
+      order. This may be changed by byte-order marks (BOMs)
+      anywhere in the string (commonly as the first character).
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       byte_order
+      </code>
+     </em>
+     is
+      not NULL, a non-zero value of the integer to which it points
+      means that the input starts off in host byte order, otherwise
+      the opposite order is assumed. Again, BOMs in the string can
+      change this. The final byte order is passed back at the end
+      of processing.
+    </p>
+    <p>
+     If
+     <em class="parameter">
+      <code>
+       keep_boms
+      </code>
+     </em>
+     is
+      not zero, byte-order mark characters (0xfeff) are copied into
+      the output string. Otherwise they are discarded.
+    </p>
+    <p>
+     The result of the function is the number of 16-bit units
+      placed into the output buffer, including the zero terminator
+      if the string was zero-terminated.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcre16-3_sect7" name="pcre16-3_sect7" shape="rect">
+    </a>
+    <h2>
+     SUBJECT STRING OFFSETS
+    </h2>
+    <p>
+     The lengths and starting offsets of subject strings must
+      be specified in 16-bit data units, and the offsets within
+      subject strings that are returned by the matching functions
+      are in also 16-bit units rather than bytes.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcre16-3_sect8" name="pcre16-3_sect8" shape="rect">
+    </a>
+    <h2>
+     NAMED SUBPATTERNS
+    </h2>
+    <p>
+     The name-to-number translation table that is maintained
+      for named subpatterns uses 16-bit characters. The
+     <code class="function">
+      pcre16_get_stringtable_entries
+     </code>
+     ()
+      function returns the length of each entry in the table as the
+      number of 16-bit data units.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcre16-3_sect9" name="pcre16-3_sect9" shape="rect">
+    </a>
+    <h2>
+     OPTION NAMES
+    </h2>
+    <p>
+     There are two new general option names, PCRE_UTF16 and
+      PCRE_NO_UTF16_CHECK, which correspond to PCRE_UTF8 and
+      PCRE_NO_UTF8_CHECK in the 8-bit library. In fact, these new
+      options define the same bits in the options word. There is a
+      discussion about the validity of UTF-16 strings in the
+     <a class="link" href="../htmlman3/pcreunicode.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pcreunicode
+       </span>
+       (3)
+      </span>
+     </a>
+     page.
+    </p>
+    <p>
+     For the
+     <code class="function">
+      pcre16_config
+     </code>
+     ()
+      function there is an option PCRE_CONFIG_UTF16 that returns 1
+      if UTF-16 support is configured, otherwise 0. If this option
+      is given to
+     <code class="function">
+      pcre_config
+     </code>
+     () or
+     <code class="function">
+      pcre32_config
+     </code>
+     (), or if the
+      PCRE_CONFIG_UTF8 or PCRE_CONFIG_UTF32 option is given to
+     <code class="function">
+      pcre16_config
+     </code>
+     (), the result is
+      the PCRE_ERROR_BADOPTION error.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcre16-3_sect10" name="pcre16-3_sect10" shape="rect">
+    </a>
+    <h2>
+     CHARACTER CODES
+    </h2>
+    <p>
+     In 16-bit mode, when PCRE_UTF16 is not set, character
+      values are treated in the same way as in 8-bit, non UTF-8
+      mode, except, of course, that they can range from 0 to 0xffff
+      instead of 0 to 0xff. Character types for characters less
+      than 0xff can therefore be influenced by the locale in the
+      same way as before. Characters greater than 0xff have only
+      one case, and no "type" (such as letter or digit).
+    </p>
+    <p>
+     In UTF-16 mode, the character code is Unicode, in the
+      range 0 to 0x10ffff, with the exception of values in the
+      range 0xd800 to 0xdfff because those are "surrogate" values
+      that are used in pairs to encode values greater than
+      0xffff.
+    </p>
+    <p>
+     A UTF-16 string can indicate its endianness by special
+      code knows as a byte-order mark (BOM). The PCRE functions do
+      not handle this, expecting strings to be in host byte order.
+      A utility function called
+     <code class="function">
+      pcre16_utf16_to_host_byte_order
+     </code>
+     () is
+      provided to help with this (see above).
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcre16-3_sect11" name="pcre16-3_sect11" shape="rect">
+    </a>
+    <h2>
+     ERROR NAMES
+    </h2>
+    <p>
+     The errors PCRE_ERROR_BADUTF16_OFFSET and
+      PCRE_ERROR_SHORTUTF16 correspond to their 8-bit counterparts.
+      The error PCRE_ERROR_BADMODE is given when a compiled pattern
+      is passed to a function that processes patterns in the other
+      mode, for example, if a pattern compiled with
+     <code class="function">
+      pcre_compile
+     </code>
+     () is passed to
+     <code class="function">
+      pcre16_exec
+     </code>
+     ().
+    </p>
+    <p>
+     There are new error codes whose names begin with
+      PCRE_UTF16_ERR for invalid UTF-16 strings, corresponding to
+      the PCRE_UTF8_ERR codes for UTF-8 strings that are described
+      in the section entitled "Reason codes for invalid UTF-8
+      strings" in the main
+     <a class="link" href="../htmlman3/pcreapi.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pcreapi
+       </span>
+       (3)
+      </span>
+     </a>
+     page. The UTF-16
+      errors are:
+    </p>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+ PCRE_UTF16_ERR1  Missing low surrogate at end of string
+ PCRE_UTF16_ERR2  Invalid low surrogate follows high surrogate
+ PCRE_UTF16_ERR3  Isolated low surrogate
+ PCRE_UTF16_ERR4  Non-character
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pcre16-3_sect12" name="pcre16-3_sect12" shape="rect">
+    </a>
+    <h2>
+     ERROR TEXTS
+    </h2>
+    <p>
+     If there is an error while compiling a pattern, the error
+      text that is passed back by
+     <code class="function">
+      pcre16_compile
+     </code>
+     () or
+     <code class="function">
+      pcre16_compile2
+     </code>
+     () is still an 8-bit
+      character string, zero-terminated.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcre16-3_sect13" name="pcre16-3_sect13" shape="rect">
+    </a>
+    <h2>
+     CALLOUTS
+    </h2>
+    <p>
+     The
+     <em class="parameter">
+      <code>
+       subject
+      </code>
+     </em>
+     and
+     <code class="function">
+      mark
+     </code>
+     fields in the callout
+      block that is passed to a callout function point to 16-bit
+      vectors.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcre16-3_sect14" name="pcre16-3_sect14" shape="rect">
+    </a>
+    <h2>
+     TESTING
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       pcretest
+      </strong>
+     </span>
+     program continues to operate with 8-bit input and output
+      files, but it can be used for testing the 16-bit library. If
+      it is run with the command line option
+     <span class="emphasis">
+      <em>
+       -16
+      </em>
+     </span>
+     , patterns and subject strings
+      are converted from 8-bit to 16-bit before being passed to
+      PCRE, and the 16-bit library functions are used instead of
+      the 8-bit ones. Returned 16-bit strings are converted to
+      8-bit for output. If both the 8-bit and the 32-bit libraries
+      were not compiled,
+     <span class="command">
+      <strong>
+       pcretest
+      </strong>
+     </span>
+     defaults to 16-bit
+      and the
+     <span class="emphasis">
+      <em>
+       -16
+      </em>
+     </span>
+     option is
+      ignored.
+    </p>
+    <p>
+     When PCRE is being built, the
+     <code class="function">
+      RunTest
+     </code>
+     script that is called by "make
+      check" uses the
+     <span class="command">
+      <strong>
+       pcretest
+      </strong>
+     </span>
+     <code class="option">
+      &minus;C
+     </code>
+     option to discover which of the
+      8-bit, 16-bit and 32-bit libraries has been built, and runs
+      the tests appropriately.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcre16-3_sect15" name="pcre16-3_sect15" shape="rect">
+    </a>
+    <h2>
+     NOT SUPPORTED IN 16-BIT MODE
+    </h2>
+    <p>
+     Not all the features of the 8-bit library are available
+      with the 16-bit library. The C++ and POSIX wrapper functions
+      support only the 8-bit library, and the
+     <span class="command">
+      <strong>
+       pcregrep
+      </strong>
+     </span>
+     program is at
+      present 8-bit only.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pcre16-3_sect16" name="pcre16-3_sect16" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+Philip Hazel
+University Computing Service
+Cambridge CB2 3QH, England.
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pcre16-3_sect17" name="pcre16-3_sect17" shape="rect">
+    </a>
+    <h2>
+     REVISION
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+Last updated: 12 May 2013
+Copyright (c) 1997-2013 University of Cambridge.
+</pre>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

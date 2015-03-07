@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   gnutls-cli-debug(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="gnutls-cli-debug(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="gnutls-cli-debug.1" name="gnutls-cli-debug.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     gnutls-cli-debug &mdash; GnuTLS debug client
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       gnutls-cli-debug
+      </code>
+      [
+      <code class="option">
+       &minus;flag
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        value
+       </code>
+      </em>
+      ] ...] [
+      <code class="option">
+       &minus;&minus;opt&minus;name
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        [=|]value
+       </code>
+      </em>
+      ] ...]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-cli-debug-1_sect1" name="gnutls-cli-debug-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     TLS debug client. It sets up multiple TLS connections to a
+      server and queries its capabilities. It was created to assist
+      in debugging GnuTLS, but it might be useful to extract a TLS
+      server's capabilities. It connects to a TLS server, performs
+      tests and print the server's capabilities. If called with the
+      `-v' parameter more checks will be performed. Can be used to
+      check for servers with special needs or bugs.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-cli-debug-1_sect2" name="gnutls-cli-debug-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+         ,
+          &minus;&minus;debug=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable debugging. This option takes an integer
+            number as its argument. The value of
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+        is constrained
+            to being:
+       </p>
+       <div class="blockquote">
+        <blockquote class="blockquote">
+         <div class="informalexample">
+          <pre class="programlisting" xml:space="preserve">
+in the range  0 through 9999
+</pre>
+         </div>
+        </blockquote>
+       </div>
+       <p>
+        Specifies the debug level.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V,
+          &minus;&minus;verbose
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        More verbose output. This option may appear an
+            unlimited number of times.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+         ,
+          &minus;&minus;port=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The port to connect to. This option takes an integer
+            number as its argument. The value of
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+        is constrained
+            to being:
+       </p>
+       <div class="blockquote">
+        <blockquote class="blockquote">
+         <div class="informalexample">
+          <pre class="programlisting" xml:space="preserve">
+in the range  0 through 65536
+</pre>
+         </div>
+        </blockquote>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display usage information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;!,
+          &minus;&minus;more&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Pass the extended usage information through a
+            pager.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+          [{
+         <em class="replaceable">
+          <code>
+           v|c|n
+          </code>
+         </em>
+         }],
+          &minus;&minus;version[={
+         <em class="replaceable">
+          <code>
+           v|c|n
+          </code>
+         </em>
+         }]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output version of program and exit. The default mode
+            is `v', a simple version. The `c' mode will print
+            copyright information and `n' will print the full
+            copyright notice.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-cli-debug-1_sect3" name="gnutls-cli-debug-1_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ ../src/gnutls&minus;cli&minus;debug localhost
+Resolving 'localhost'...
+Connecting to '127.0.0.1:443'...
+Checking for SSL 3.0 support... yes
+Checking whether %COMPAT is required... no
+Checking for TLS 1.0 support... yes
+Checking for TLS 1.1 support... no
+Checking fallback from TLS 1.1 to... TLS 1.0
+Checking for TLS 1.2 support... no
+Checking whether we need to disable TLS 1.0... N/A
+Checking for Safe renegotiation support... yes
+Checking for Safe renegotiation support (SCSV)... yes
+Checking for HTTPS server name... not checked
+Checking for version rollback bug in RSA PMS... no
+Checking for version rollback bug in Client Hello... no
+Checking whether the server ignores the RSA PMS version... no
+Checking whether the server can accept Hello Extensions... yes
+Checking whether the server can accept small records (512 bytes)... yes
+Checking whether the server can accept cipher suites not in SSL 3.0 spec... yes
+Checking whether the server can accept a bogus TLS record version in the client hello... yes
+Checking for certificate information... N/A
+Checking for trusted CAs... N/A
+Checking whether the server understands TLS closure alerts... partially
+Checking whether the server supports session resumption... yes
+Checking for export&minus;grade ciphersuite support... no
+Checking RSA&minus;export ciphersuite info... N/A
+Checking for anonymous authentication support... no
+Checking anonymous Diffie&minus;Hellman group info... N/A
+Checking for ephemeral Diffie&minus;Hellman support... no
+Checking ephemeral Diffie&minus;Hellman group info... N/A
+Checking for ephemeral EC Diffie&minus;Hellman support... yes
+Checking ephemeral EC Diffie&minus;Hellman group info...
+ Curve SECP256R1 
+Checking for AES&minus;GCM cipher support... no
+Checking for AES&minus;CBC cipher support... yes
+Checking for CAMELLIA cipher support... no
+Checking for 3DES&minus;CBC cipher support... yes
+Checking for ARCFOUR 128 cipher support... yes
+Checking for ARCFOUR 40 cipher support... no
+Checking for MD5 MAC support... yes
+Checking for SHA1 MAC support... yes
+Checking for SHA256 MAC support... no
+Checking for ZLIB compression support... no
+Checking for max record size... no
+Checking for OpenPGP authentication support... no
+</pre>
+      </div>
+     </blockquote>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-cli-debug-1_sect4" name="gnutls-cli-debug-1_sect4" shape="rect">
+    </a>
+    <h2>
+     EXIT STATUS
+    </h2>
+    <p>
+     One of the following exit values will be returned:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         0
+        </code>
+        (EXIT_SUCCESS)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Successful program execution.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         1
+        </code>
+        (EXIT_FAILURE)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The operation failed or the command syntax was not
+            valid.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         70
+        </code>
+        (EX_SOFTWARE)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        libopts had an internal operational error. Please
+            report it to autogen-users@lists.sourceforge.net. Thank
+            you.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-cli-debug-1_sect5" name="gnutls-cli-debug-1_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     gnutls&minus;
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       cli
+      </span>
+      (1)
+     </span>
+     , gnutls&minus;
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       serv
+      </span>
+      (1)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-cli-debug-1_sect6" name="gnutls-cli-debug-1_sect6" shape="rect">
+    </a>
+    <h2>
+     AUTHORS
+    </h2>
+    <p>
+     Nikos Mavrogiannopoulos, Simon Josefsson and others; see
+      /usr/share/doc/gnutls/AUTHORS for a complete list.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-cli-debug-1_sect8" name="gnutls-cli-debug-1_sect8" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     Please send bug reports to: bugs@gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-cli-debug-1_sect9" name="gnutls-cli-debug-1_sect9" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     This manual page was
+     <span class="command">
+      <strong>
+       AutoGen
+      </strong>
+     </span>
+     -erated from the
+     <em class="replaceable">
+      <code>
+       gnutls-cli-debug
+      </code>
+     </em>
+     option definitions.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

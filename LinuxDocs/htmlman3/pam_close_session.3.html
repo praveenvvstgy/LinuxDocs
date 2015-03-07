@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pam_close_session(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pam_close_session(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry" title="pam_close_session(3) &mdash; Linux manual pages">
+   <a id="pam-close-session.3" name="pam-close-session.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <a id="pam_close_session-name" name="pam_close_session-name" shape="rect">
+    </a>
+    <h2>
+     Name
+    </h2>
+    <p>
+     pam_close_session &mdash; terminate PAM session
+      management
+    </p>
+   </div>
+   <div class="refsynopsisdiv" title="Synopsis">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <a id="pam_close_session-synopsis" name="pam_close_session-synopsis" shape="rect">
+     </a>
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;security/pam_appl.h&gt;
+</pre>
+     <table border="0" cellpadding="0" cellspacing="0" class="funcprototype-table" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pam_close_session
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        pam_handle_t *
+        <var class="pdparam">
+         pamh
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         flags
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1" title="DESCRIPTION">
+    <a id="pam_close_session-description" name="pam_close_session-description" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      pam_close_session
+     </code>
+     function is used to indicate that an authenticated session
+      has ended. The session should have been created with a call
+      to
+     <a class="link" href="../htmlman3/pam_open_session.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam_open_session
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     It should be noted that the effective uid,
+     <a class="link" href="../htmlman2/getuid.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        geteuid
+       </span>
+       (2)
+      </span>
+     </a>
+     . of the
+      application should be of sufficient privilege to perform such
+      tasks as unmounting the user's home directory for
+      example.
+    </p>
+    <p>
+     The flags argument is the binary or of zero or more of the
+      following values:
+    </p>
+    <div class="variablelist">
+     <dl>
+      <dt>
+       <span class="term">
+        PAM_SILENT
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not emit any messages.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1" title="RETURN VALUES">
+    <a id="pam_close_session-return_values" name="pam_close_session-return_values" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUES
+    </h2>
+    <div class="variablelist">
+     <dl>
+      <dt>
+       <span class="term">
+        PAM_ABORT
+       </span>
+      </dt>
+      <dd>
+       <p>
+        General failure.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        PAM_BUF_ERR
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Memory buffer error.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        PAM_SESSION_ERR
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Session failure.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        PAM_SUCCESS
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Session was successful terminated.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1" title="SEE ALSO">
+    <a id="pam_close_session-see_also" name="pam_close_session-see_also" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/pam_open_session.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam_open_session
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pam_strerror.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam_strerror
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

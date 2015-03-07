@@ -1,0 +1,508 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   clock_getcpuclockid(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="clock_getcpuclockid(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="clock-getcpuclockid.3" name="clock-getcpuclockid.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     clock_getcpuclockid &mdash; obtain ID of a process
+      CPU-time clock
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;time.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          clock_getcpuclockid
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        pid_t
+        <var class="pdparam">
+         pid
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        clockid_t *
+        <var class="pdparam">
+         clock_id
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <div class="featuretests">
+         <table style="border-collapse: collapse;">
+          <colgroup span="1">
+           <col span="1">
+           </col>
+          </colgroup>
+          <thead>
+           <tr>
+            <th colspan="1" rowspan="1" style="">
+             Feature Test Macro Requirements
+                      for glibc (see
+             <a class="link" href="../htmlman7/feature_test_macros.7.html" shape="rect" target="_top">
+              <span class="citerefentry">
+               <span class="refentrytitle">
+                feature_test_macros
+               </span>
+               (7)
+              </span>
+             </a>
+             ):
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td colspan="1" rowspan="1" style="">
+             <code class="function">
+              clock_getcpuclockid
+             </code>
+             ():
+            </td>
+           </tr>
+           <tr>
+            <td class="featuretestdef" colspan="1" rowspan="1" style="">
+             <code class="constant">
+              _XOPEN_SOURCE
+             </code>
+             &gt;= 600 ||
+             <code class="constant">
+              _POSIX_C_SOURCE
+             </code>
+             &gt;=
+                      200112L
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <p>
+         Link with
+         <code class="option">
+          &minus;lrt
+         </code>
+         (only for glibc versions before 2.17).
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="clock-getcpuclockid-3_sect1" name="clock-getcpuclockid-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      clock_getcpuclockid
+     </code>
+     ()
+      function obtains the ID of the CPU-time clock of the process
+      whose ID is
+     <em class="parameter">
+      <code>
+       pid
+      </code>
+     </em>
+     , and
+      returns it in the location pointed to by
+     <em class="parameter">
+      <code>
+       clock_id
+      </code>
+     </em>
+     . If
+     <em class="parameter">
+      <code>
+       pid
+      </code>
+     </em>
+     is zero, then the clock ID
+      of the CPU-time clock of the calling process is returned.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="clock-getcpuclockid-3_sect2" name="clock-getcpuclockid-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success,
+     <code class="function">
+      clock_getcpuclockid
+     </code>
+     () returns 0; on error,
+      it returns one of the positive error numbers listed in
+      ERRORS.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="clock-getcpuclockid-3_sect3" name="clock-getcpuclockid-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ENOSYS
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The kernel does not support obtaining the
+            per-process CPU-time clock of another process, and
+        <em class="parameter">
+         <code>
+          pid
+         </code>
+        </em>
+        does not
+            specify the calling process.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EPERM
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The caller does not have permission to access the
+            CPU-time clock of the process specified by
+        <em class="parameter">
+         <code>
+          pid
+         </code>
+        </em>
+        . (Specified as an
+            optional error in POSIX.1-2001; does not occur on Linux
+            unless the kernel does not support obtaining the
+            per-process CPU-time clock of another process.)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         ESRCH
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        There is no process with the ID
+        <em class="parameter">
+         <code>
+          pid
+         </code>
+        </em>
+        .
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="clock-getcpuclockid-3_sect4" name="clock-getcpuclockid-3_sect4" shape="rect">
+    </a>
+    <h2>
+     VERSIONS
+    </h2>
+    <p>
+     The
+     <code class="function">
+      clock_getcpuclockid
+     </code>
+     ()
+      function is available in glibc since version 2.2.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="clock-getcpuclockid-3_sect5" name="clock-getcpuclockid-3_sect5" shape="rect">
+    </a>
+    <h2>
+     ATTRIBUTES
+    </h2>
+    <div class="refsect2">
+     <a id="clock-getcpuclockid-3_sect6" name="clock-getcpuclockid-3_sect6" shape="rect">
+     </a>
+     <h3>
+      Multithreading (see pthreads(7))
+     </h3>
+     <p>
+      The
+      <code class="function">
+       clock_getcpuclockid
+      </code>
+      ()
+        function is thread-safe.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="clock-getcpuclockid-3_sect7" name="clock-getcpuclockid-3_sect7" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     POSIX.1-2001.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="clock-getcpuclockid-3_sect8" name="clock-getcpuclockid-3_sect8" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     Calling
+     <a class="link" href="../htmlman2/clock_getres.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clock_gettime
+       </span>
+       (2)
+      </span>
+     </a>
+     with the
+      clock ID obtained by a call to
+     <code class="function">
+      clock_getcpuclockid
+     </code>
+     () with a
+     <em class="parameter">
+      <code>
+       pid
+      </code>
+     </em>
+     of 0, is the same as using
+      the clock ID
+     <code class="constant">
+      CLOCK_PROCESS_CPUTIME_ID
+     </code>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="clock-getcpuclockid-3_sect9" name="clock-getcpuclockid-3_sect9" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <p>
+     The example program below obtains the CPU-time clock ID of
+      the process whose ID is given on the command line, and then
+      uses
+     <a class="link" href="../htmlman2/clock_getres.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clock_gettime
+       </span>
+       (2)
+      </span>
+     </a>
+     to obtain
+      the time on that clock. An example run is the following:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$<span class="emphasis"><em> ./a.out 1</em></span>                 # Show CPU clock of init process
+CPU-time clock for PID 1 is 2.213466748 seconds
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <div class="refsect2">
+     <a id="clock-getcpuclockid-3_sect10" name="clock-getcpuclockid-3_sect10" shape="rect">
+     </a>
+     <h3>
+      Program source
+     </h3>
+     <div class="informalexample">
+      <pre class="programlisting" xml:space="preserve">
+#define _XOPEN_SOURCE 600
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+int
+main(int argc, char *argv[])
+{
+    clockid_t clockid;
+    struct timespec ts;
+
+    if (argc != 2) {
+        fprintf(stderr, "%s &lt;process&minus;ID&gt;\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    if (clock_getcpuclockid(atoi(argv[1]), &amp;clockid) != 0) {
+        perror("clock_getcpuclockid");
+        exit(EXIT_FAILURE);
+    }
+
+    if (clock_gettime(clockid, &amp;ts) == &minus;1) {
+        perror("clock_gettime");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("CPU-time clock for PID %s is %ld.%09ld seconds\n",
+            argv[1], (long) ts.tv_sec, (long) ts.tv_nsec);
+    exit(EXIT_SUCCESS);
+}
+</pre>
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="clock-getcpuclockid-3_sect11" name="clock-getcpuclockid-3_sect11" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman2/clock_getres.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        clock_getres
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman2/timer_create.2.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        timer_create
+       </span>
+       (2)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pthread_getcpuclockid.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_getcpuclockid
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/time.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        time
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="clock-getcpuclockid-3_sect12" name="clock-getcpuclockid-3_sect12" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

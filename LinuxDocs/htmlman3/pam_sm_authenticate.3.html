@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pam_sm_authenticate(3) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pam_sm_authenticate(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="pam-sm-authenticate.3" name="pam-sm-authenticate.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <a id="pam_sm_authenticate-name" name="pam_sm_authenticate-name" shape="rect">
+    </a>
+    <h2>
+     Name
+    </h2>
+    <p>
+     pam_sm_authenticate &mdash; PAM service function for user
+      authentication
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <a id="pam_sm_authenticate-synopsis" name="pam_sm_authenticate-synopsis" shape="rect">
+     </a>
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#define PAM_SM_AUTH
+</pre>
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;security/pam_modules.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         PAM_EXTERN int
+         <strong>
+          pam_sm_authenticate
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        pam_handle_t *
+        <var class="pdparam">
+         pamh
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         flags
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         argc
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char **
+        <var class="pdparam">
+         argv
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pam_sm_authenticate-description" name="pam_sm_authenticate-description" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      pam_sm_authenticate
+     </code>
+     function is the service module's implementation of the
+     <a class="link" href="../htmlman3/pam_authenticate.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam_authenticate
+       </span>
+       (3)
+      </span>
+     </a>
+     interface.
+    </p>
+    <p>
+     This function performs the task of authenticating the
+      user.
+    </p>
+    <p>
+     Valid flags, which may be logically OR'd with
+     <span class="emphasis">
+      <em>
+       PAM_SILENT
+      </em>
+     </span>
+     , are:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        PAM_SILENT
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not emit any messages.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        PAM_DISALLOW_NULL_AUTHTOK
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Return
+        <span class="emphasis">
+         <em>
+          PAM_AUTH_ERR
+         </em>
+        </span>
+        if the database
+            of authentication tokens for this authentication
+            mechanism has a
+        <span class="emphasis">
+         <em>
+          NULL
+         </em>
+        </span>
+        entry for the user.
+            Without this flag, such a
+        <span class="emphasis">
+         <em>
+          NULL
+         </em>
+        </span>
+        token will lead to a
+            success without the user being prompted.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pam_sm_authenticate-return_values" name="pam_sm_authenticate-return_values" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUES
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        PAM_AUTH_ERR
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Authentication failure.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        PAM_CRED_INSUFFICIENT
+       </span>
+      </dt>
+      <dd>
+       <p>
+        For some reason the application does not have
+            sufficient credentials to authenticate the user.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        PAM_AUTHINFO_UNAVAIL
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The modules were not able to access the
+            authentication information. This might be due to a
+            network or hardware failure etc.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        PAM_SUCCESS
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The authentication token was successfully
+            updated.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        PAM_USER_UNKNOWN
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The supplied username is not known to the
+            authentication service.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        PAM_MAXTRIES
+       </span>
+      </dt>
+      <dd>
+       <p>
+        One or more of the authentication modules has
+            reached its limit of tries authenticating the user. Do
+            not try again.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pam_sm_authenticate-see_also" name="pam_sm_authenticate-see_also" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/pam.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pam_authenticate.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam_authenticate
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pam_sm_setcred.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam_sm_setcred
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pam_strerror.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pam_strerror
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       PAM
+      </span>
+      (8)
+     </span>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

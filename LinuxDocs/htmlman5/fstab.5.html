@@ -1,0 +1,899 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   fstab(5) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="fstab(5) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="fstab.5" name="fstab.5" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     fstab &mdash; static information about the filesystems
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+/etc/fstab
+  
+</pre>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="fstab-5_sect1" name="fstab-5_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The file
+     <em class="replaceable">
+      <code>
+       fstab
+      </code>
+     </em>
+     contains descriptive information about the various file
+      systems.
+     <em class="replaceable">
+      <code>
+       fstab
+      </code>
+     </em>
+     is
+      only read by programs, and not written; it is the duty of the
+      system administrator to properly create and maintain this
+      file. Each filesystem is described on a separate line; fields
+      on each line are separated by tabs or spaces. Lines starting
+      with '#' are comments, blank lines are ignored. The order of
+      records in
+     <em class="replaceable">
+      <code>
+       fstab
+      </code>
+     </em>
+     is
+      important because
+     <a class="link" href="../htmlman8/fsck.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fsck
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/mount.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mount
+       </span>
+       (8)
+      </span>
+     </a>
+     , and
+     <a class="link" href="../htmlman8/umount.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        umount
+       </span>
+       (8)
+      </span>
+     </a>
+     sequentially
+      iterate through
+     <em class="replaceable">
+      <code>
+       fstab
+      </code>
+     </em>
+     doing their thing.
+    </p>
+    <p>
+     <span class="emphasis">
+      <em>
+       The first field
+      </em>
+     </span>
+     (
+     <em class="replaceable">
+      <code>
+       fs_spec
+      </code>
+     </em>
+     ).
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       This field describes the block special device or
+          remote filesystem to be mounted.
+      </p>
+      <p>
+       For ordinary mounts it will hold (a link to) a block
+          special device node (as created by
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         mknod
+        </span>
+        (8)
+       </span>
+       ) for the device to
+          be mounted, like `/dev/cdrom' or `/dev/sdb7'. For NFS
+          mounts one will have &lt;host&gt;:&lt;dir&gt;, e.g.,
+          `knuth.aeb.nl:/'. For procfs, use `proc'.
+      </p>
+      <p>
+       Instead of giving the device explicitly, one may
+          indicate the filesystem that is to be mounted by its UUID
+          or LABEL (cf.
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         e2label
+        </span>
+        (8)
+       </span>
+       or
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         xfs_admin
+        </span>
+        (8)
+       </span>
+       ), writing
+          LABEL=&lt;label&gt; or UUID=&lt;uuid&gt;, e.g.,
+          `LABEL=Boot' or
+          `UUID=3e6be9de-8139-11d1-9106-a43f08d823a6'.
+      </p>
+      <p>
+       It's also possible to use PARTUUID= and PARTLABEL=.
+          These partitions identifiers are supported for example
+          for GUID Partition Table (GPT).
+      </p>
+      <p>
+       See
+       <a class="link" href="../htmlman8/mount.8.html" shape="rect" target="_top">
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          mount
+         </span>
+         (8)
+        </span>
+       </a>
+       ,
+       <a class="link" href="../htmlman8/blkid.8.html" shape="rect" target="_top">
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          blkid
+         </span>
+         (8)
+        </span>
+       </a>
+       or
+       <a class="link" href="../htmlman8/lsblk.8.html" shape="rect" target="_top">
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          lsblk
+         </span>
+         (8)
+        </span>
+       </a>
+       for more
+          details about devices identifiers.
+      </p>
+      <p>
+       Note that
+       <a class="link" href="../htmlman8/mount.8.html" shape="rect" target="_top">
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          mount
+         </span>
+         (8)
+        </span>
+       </a>
+       uses UUIDs as
+          strings. The string representation of the UUID should be
+          based on lower case characters.
+      </p>
+     </blockquote>
+    </div>
+    <p>
+     <span class="emphasis">
+      <em>
+       The second field
+      </em>
+     </span>
+     (
+     <em class="replaceable">
+      <code>
+       fs_file
+      </code>
+     </em>
+     ).
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       This field describes the mount point for the
+          filesystem. For swap partitions, this field should be
+          specified as `none'. If the name of the mount point
+          contains spaces these can be escaped as `\040'.
+      </p>
+     </blockquote>
+    </div>
+    <p>
+     <span class="emphasis">
+      <em>
+       The third field
+      </em>
+     </span>
+     (
+     <em class="replaceable">
+      <code>
+       fs_vfstype
+      </code>
+     </em>
+     ).
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       This field describes the type of the filesystem. Linux
+          supports lots of filesystem types, such as
+       <em class="replaceable">
+        <code>
+         adfs
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         affs
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         autofs
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         coda
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         coherent
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         cramfs
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         devpts
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         efs
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         ext2
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         ext3
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         hfs
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         hpfs
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         iso9660
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         jfs
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         minix
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         msdos
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         ncpfs
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         nfs
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         ntfs
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         proc
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         qnx4
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         reiserfs
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         romfs
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         smbfs
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         sysv
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         tmpfs
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         udf
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         ufs
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         umsdos
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         vfat
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         xenix
+        </code>
+       </em>
+       ,
+       <em class="replaceable">
+        <code>
+         xfs
+        </code>
+       </em>
+       , and possibly others.
+          For more details, see
+       <a class="link" href="../htmlman8/mount.8.html" shape="rect" target="_top">
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          mount
+         </span>
+         (8)
+        </span>
+       </a>
+       .
+      </p>
+      <p>
+       For the filesystems currently supported by the running
+          kernel, see
+       <code class="filename">
+        /proc/filesystems
+       </code>
+       .
+      </p>
+      <p>
+       An entry
+       <em class="replaceable">
+        <code>
+         swap
+        </code>
+       </em>
+       denotes a file or
+          partition to be used for swapping, cf.
+       <a class="link" href="../htmlman8/swapon.8.html" shape="rect" target="_top">
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          swapon
+         </span>
+         (8)
+        </span>
+       </a>
+       . An entry
+       <em class="replaceable">
+        <code>
+         none
+        </code>
+       </em>
+       is useful
+          for bind or move mounts.
+      </p>
+      <p>
+       <a class="link" href="../htmlman8/mount.8.html" shape="rect" target="_top">
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          mount
+         </span>
+         (8)
+        </span>
+       </a>
+       and
+       <a class="link" href="../htmlman8/umount.8.html" shape="rect" target="_top">
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          umount
+         </span>
+         (8)
+        </span>
+       </a>
+       support
+          filesystem
+       <em class="replaceable">
+        <code>
+         subtypes
+        </code>
+       </em>
+       . The subtype is
+          defined by '.subtype' suffix. For example 'fuse.sshfs'.
+          It's recommended to use subtype notation rather than add
+          any prefix to the first fstab field (for example
+          'sshfs#example.com' is deprecated).
+      </p>
+     </blockquote>
+    </div>
+    <p>
+     <span class="emphasis">
+      <em>
+       The fourth field
+      </em>
+     </span>
+     (
+     <em class="replaceable">
+      <code>
+       fs_mntops
+      </code>
+     </em>
+     ).
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       This field describes the mount options associated with
+          the filesystem.
+      </p>
+      <p>
+       It is formatted as a comma separated list of options.
+          It contains at least the type of mount plus any
+          additional options appropriate to the filesystem type.
+          For documentation on the available mount options, see
+       <a class="link" href="../htmlman8/mount.8.html" shape="rect" target="_top">
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          mount
+         </span>
+         (8)
+        </span>
+       </a>
+       . For
+          documentation on the available swap options, see
+       <a class="link" href="../htmlman8/swapon.8.html" shape="rect" target="_top">
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          swapon
+         </span>
+         (8)
+        </span>
+       </a>
+       .
+      </p>
+      <p>
+       Basic file system independent options are:
+      </p>
+      <div class="variablelist">
+       <dl class="variablelist">
+        <dt>
+         <span class="term">
+          defaults
+         </span>
+        </dt>
+        <dd>
+         <p>
+          use default options: rw, suid, dev, exec, auto,
+                nouser, and async.
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          noauto
+         </span>
+        </dt>
+        <dd>
+         <p>
+          do not mount when "mount -a" is given (e.g., at
+                boot time)
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          user
+         </span>
+        </dt>
+        <dd>
+         <p>
+          allow a user to mount
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          wner
+         </span>
+        </dt>
+        <dd>
+         <p>
+          allow device owner to mount
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          comment
+         </span>
+        </dt>
+        <dd>
+         <p>
+          or
+          <em class="replaceable">
+           <code>
+            x-&lt;name&gt;
+           </code>
+          </em>
+          for
+                use by fstab-maintaining programs
+         </p>
+        </dd>
+        <dt>
+         <span class="term">
+          nofail
+         </span>
+        </dt>
+        <dd>
+         <p>
+          do not report errors for this device if it does
+                not exist.
+         </p>
+        </dd>
+       </dl>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     <span class="emphasis">
+      <em>
+       The fifth field
+      </em>
+     </span>
+     (
+     <em class="replaceable">
+      <code>
+       fs_freq
+      </code>
+     </em>
+     ).
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       This field is used for these filesystems by the
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         dump
+        </span>
+        (8)
+       </span>
+       command to
+          determine which filesystems need to be dumped. If the
+          fifth field is not present, a value of zero is returned
+          and
+       <em class="replaceable">
+        <code>
+         dump
+        </code>
+       </em>
+       will
+          assume that the filesystem does not need to be
+          dumped.
+      </p>
+     </blockquote>
+    </div>
+    <p>
+     <span class="emphasis">
+      <em>
+       The sixth field
+      </em>
+     </span>
+     (
+     <em class="replaceable">
+      <code>
+       fs_passno
+      </code>
+     </em>
+     ).
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       This field is used by the
+       <a class="link" href="../htmlman8/fsck.8.html" shape="rect" target="_top">
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          fsck
+         </span>
+         (8)
+        </span>
+       </a>
+       program to
+          determine the order in which filesystem checks are done
+          at reboot time. The root filesystem should be specified
+          with a
+       <em class="replaceable">
+        <code>
+         fs_passno
+        </code>
+       </em>
+       of 1, and other
+          filesystems should have a
+       <em class="replaceable">
+        <code>
+         fs_passno
+        </code>
+       </em>
+       of 2.
+          Filesystems within a drive will be checked sequentially,
+          but filesystems on different drives will be checked at
+          the same time to utilize parallelism available in the
+          hardware. If the sixth field is not present or zero, a
+          value of zero is returned and
+       <em class="replaceable">
+        <code>
+         fsck
+        </code>
+       </em>
+       will assume that the
+          filesystem does not need to be checked.
+      </p>
+     </blockquote>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="fstab-5_sect2" name="fstab-5_sect2" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     The proper way to read records from
+     <em class="replaceable">
+      <code>
+       fstab
+      </code>
+     </em>
+     is to use the routines
+     <a class="link" href="../htmlman3/getmntent.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getmntent
+       </span>
+       (3)
+      </span>
+     </a>
+     or
+     <em class="replaceable">
+      <code>
+       libmount
+      </code>
+     </em>
+     .
+    </p>
+    <p>
+     The keyword
+     <em class="replaceable">
+      <code>
+       ignore
+      </code>
+     </em>
+     as filesystem type
+      (3rd field) is not more supported by the pure libmount based
+      mount utility (since util-linux v2.22).
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fstab-5_sect3" name="fstab-5_sect3" shape="rect">
+    </a>
+    <h2>
+     FILES
+    </h2>
+    <p>
+     <code class="filename">
+      /etc/fstab
+     </code>
+     ,
+     <code class="literal">
+      &lt;
+     </code>
+     <code class="filename">
+      fstab.h
+     </code>
+     <code class="literal">
+      &gt;
+     </code>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fstab-5_sect4" name="fstab-5_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman8/findmnt.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        findmnt
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/mount.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mount
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/swapon.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        swapon
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman5/filesystems.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        fs
+       </span>
+       (5)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/getmntent.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        getmntent
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fstab-5_sect5" name="fstab-5_sect5" shape="rect">
+    </a>
+    <h2>
+     HISTORY
+    </h2>
+    <p>
+     The ancestor of this
+     <em class="replaceable">
+      <code>
+       fstab
+      </code>
+     </em>
+     file format appeared in
+      4.0BSD.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="fstab-5_sect6" name="fstab-5_sect6" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     This man page is part of the util-linux package and is
+      available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

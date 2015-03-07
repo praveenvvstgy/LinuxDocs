@@ -1,0 +1,933 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   dmesg(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="dmesg(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="dmesg.1" name="dmesg.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     dmesg &mdash; print or control the kernel ring buffer
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       dmesg
+      </code>
+      [options]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="dmesg-1_sect1" name="dmesg-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       dmesg
+      </strong>
+     </span>
+     is
+      used to examine or control the kernel ring buffer.
+    </p>
+    <p>
+     The default action is to read all messages from the kernel
+      ring buffer.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="dmesg-1_sect2" name="dmesg-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <p>
+     The &minus;&minus;clear, &minus;&minus;read-clear,
+      &minus;&minus;console-on, &minus;&minus;console-off and
+      &minus;&minus;console-level options are mutually
+      exclusive.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;C
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;clear
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Clear the ring buffer.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;c
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;read&minus;clear
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Clear the ring buffer after first printing its
+            contents.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;D
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;console&minus;off
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Disable printing messages to the console.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;show&minus;delta
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display the timestamp and the time delta spent
+            between messages. If used together with
+        <code class="option">
+         &minus;&minus;notime
+        </code>
+        then only the time
+            delta without the timestamp is printed.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;e
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;reltime
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display the local time and the delta in
+            human-readable format.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;E
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;console&minus;on
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable printing messages to the console.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;F
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;file
+        </code>
+        <span class="command">
+         <strong>
+          file
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Read the messages from the given
+        <span class="command">
+         <strong>
+          file
+         </strong>
+        </span>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;facility
+        </code>
+        <span class="command">
+         <strong>
+          list
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Restrict output to the given (comma-separated)
+        <span class="command">
+         <strong>
+          list
+         </strong>
+        </span>
+        of
+            facilities. For example:
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       dmesg &minus;&minus;facility=daemon
+      </p>
+     </blockquote>
+    </div>
+    <p>
+     will print messages from system daemons only. For all
+      supported facilities see
+     <span class="emphasis">
+      <em>
+       dmesg
+      &minus;&minus;help
+      </em>
+     </span>
+     output.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;H
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;human
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable human-readable output. See also
+        <code class="option">
+         &minus;&minus;color
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;reltime
+        </code>
+        and
+        <code class="option">
+         &minus;&minus;nopager
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;k
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;kernel
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print kernel messages.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;L
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;color
+        </code>
+        [=
+        <span class="command">
+         <strong>
+          when
+         </strong>
+        </span>
+        ]
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Colorize important messages. The optional argument
+        <span class="command">
+         <strong>
+          when
+         </strong>
+        </span>
+        can
+            be
+        <span class="command">
+         <strong>
+          auto
+         </strong>
+        </span>
+        ,
+        <span class="command">
+         <strong>
+          never
+         </strong>
+        </span>
+        or
+        <span class="command">
+         <strong>
+          always
+         </strong>
+        </span>
+        .
+            If the
+        <span class="command">
+         <strong>
+          when
+         </strong>
+        </span>
+        argument is
+            omitted, then it defaults to
+        <span class="command">
+         <strong>
+          auto
+         </strong>
+        </span>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;l
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;level
+        </code>
+        <span class="command">
+         <strong>
+          list
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Restrict output to the given (comma-separated)
+        <span class="command">
+         <strong>
+          list
+         </strong>
+        </span>
+        of
+            levels. For example:
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <p>
+       dmesg &minus;&minus;level=err,warn
+      </p>
+     </blockquote>
+    </div>
+    <p>
+     will print error and warning messages only. For all
+      supported levels see
+     <span class="emphasis">
+      <em>
+       dmesg
+      &minus;&minus;help
+      </em>
+     </span>
+     output.
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;console&minus;level
+        </code>
+        <span class="command">
+         <strong>
+          level
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set the
+        <span class="command">
+         <strong>
+          level
+         </strong>
+        </span>
+        at which
+            printing of messages is done to the console. The
+        <span class="command">
+         <strong>
+          level
+         </strong>
+        </span>
+        is
+            a level number or abbreviation of the level name. For
+            all supported levels see
+        <span class="emphasis">
+         <em>
+          dmesg &minus;&minus;help
+         </em>
+        </span>
+        output.
+       </p>
+       <p>
+        For example,
+        <code class="option">
+         &minus;n 1
+        </code>
+        or
+        <code class="option">
+         &minus;n alert
+        </code>
+        prevents
+            all messages, except emergency (panic) messages, from
+            appearing on the console. All levels of messages are
+            still written to
+        <code class="filename">
+         /proc/kmsg
+        </code>
+        , so
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          syslogd
+         </span>
+         (8)
+        </span>
+        can still be
+            used to control exactly where kernel messages appear.
+            When the
+        <code class="option">
+         &minus;n
+        </code>
+        option is
+            used,
+        <span class="command">
+         <strong>
+          dmesg
+         </strong>
+        </span>
+        will not print
+            or clear the kernel ring buffer.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;P
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;nopager
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not pipe output into a pager. A pager is enabled
+            by default for
+        <code class="option">
+         &minus;&minus;human
+        </code>
+        output.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;raw
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print the raw message buffer, i.e. do not strip the
+            log-level prefixes.
+       </p>
+       <p>
+        Note that the real raw format depends on the method
+            how
+        <a class="link" href="../htmlman1/dmesg.1.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           dmesg
+          </span>
+          (1)
+         </span>
+        </a>
+        reads kernel
+            messages. The /dev/kmsg device uses a different format
+            than
+        <a class="link" href="../htmlman2/syslog.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           syslog
+          </span>
+          (2)
+         </span>
+        </a>
+        . For
+            backward compatibility,
+        <a class="link" href="../htmlman1/dmesg.1.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           dmesg
+          </span>
+          (1)
+         </span>
+        </a>
+        returns data
+            always in the
+        <a class="link" href="../htmlman2/syslog.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           syslog
+          </span>
+          (2)
+         </span>
+        </a>
+        format. It
+            is possible to read the real raw data from /dev/kmsg
+            by, for example, the command 'dd if=/dev/kmsg
+            iflag=nonblock'.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;S
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;syslog
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Force
+        <span class="command">
+         <strong>
+          dmesg
+         </strong>
+        </span>
+        to use the
+        <a class="link" href="../htmlman2/syslog.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           syslog
+          </span>
+          (2)
+         </span>
+        </a>
+        kernel
+            interface to read kernel messages. The default is to
+            use /dev/kmsg rather than
+        <a class="link" href="../htmlman2/syslog.2.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           syslog
+          </span>
+          (2)
+         </span>
+        </a>
+        since
+            kernel 3.5.0.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;buffer&minus;size
+        </code>
+        <span class="command">
+         <strong>
+          size
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use a buffer of
+        <span class="command">
+         <strong>
+          size
+         </strong>
+        </span>
+        to query the
+            kernel ring buffer. This is 16392 by default. (The
+            default kernel syslog buffer size was 4096 at first,
+            8192 since 1.3.54, 16384 since 2.1.113.) If you have
+            set the kernel buffer to be larger than the default,
+            then this option can be used to view the entire
+            buffer.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;T
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;ctime
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print human-readable timestamps.
+       </p>
+       <p>
+        Be aware that the timestamp could be inaccurate! The
+        <span class="command">
+         <strong>
+          time
+         </strong>
+        </span>
+        source used for the logs is
+        <span class="emphasis">
+         <em>
+          not updated after
+         </em>
+        </span>
+        system
+        <code class="constant">
+         SUSPEND
+        </code>
+        /
+        <code class="constant">
+         RESUME
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;notime
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not print kernel's timestamps.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;userspace
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print userspace messages.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;w
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;follow
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Wait for new messages. This feature is supported
+            only on systems with a readable /dev/kmsg (since kernel
+            3.5.0).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;x
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;decode
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Decode facility and level (priority) numbers to
+            human-readable prefixes.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;time&minus;format
+        </code>
+        <span class="command">
+         <strong>
+          format
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print timestamps using the given
+        <span class="command">
+         <strong>
+          format
+         </strong>
+        </span>
+        , which can be
+        <span class="command">
+         <strong>
+          ctime
+         </strong>
+        </span>
+        ,
+        <span class="command">
+         <strong>
+          reltime
+         </strong>
+        </span>
+        ,
+        <span class="command">
+         <strong>
+          delta
+         </strong>
+        </span>
+        or
+        <span class="command">
+         <strong>
+          iso
+         </strong>
+        </span>
+        . The
+            first three formats are aliases of the
+            time-format-specific options. The
+        <span class="command">
+         <strong>
+          iso
+         </strong>
+        </span>
+        format is a
+        <span class="command">
+         <strong>
+          dmesg
+         </strong>
+        </span>
+        implementation of the ISO-8601 timestamp format. The
+            purpose of this format is to make the comparing of
+            timestamps between two systems, and any other parsing,
+            easy. The definition of the
+        <span class="command">
+         <strong>
+          iso
+         </strong>
+        </span>
+        timestamp is:
+            YYYY-MM-DD&lt;T&gt;HH:MM:SS,&lt;microseconds&gt;&lt;-+&gt;&lt;timezone
+            offset from UTC&gt;.
+       </p>
+       <p>
+        The
+        <span class="command">
+         <strong>
+          iso
+         </strong>
+        </span>
+        format has the
+            same issue as
+        <span class="command">
+         <strong>
+          ctime
+         </strong>
+        </span>
+        : the time may
+            be inaccurate when a system is suspended and
+            resumed.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="dmesg-1_sect3" name="dmesg-1_sect3" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       syslogd
+      </span>
+      (8)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="dmesg-1_sect4" name="dmesg-1_sect4" shape="rect">
+    </a>
+    <h2>
+     AUTHORS
+    </h2>
+    <p>
+     <a class="literalurl" href="mailto:kzak%20REMOVE%20@%20THIS%20redhat.com" shape="rect" target="_top">
+      Karel Zak
+     </a>
+    </p>
+    <p>
+     <a class="literalurl" href="mailto:tytso%20REMOVE%20@%20THIS%20athena.mit.edu" shape="rect" target="_top">
+      Theodore Ts'o
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="dmesg-1_sect5" name="dmesg-1_sect5" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The dmesg command is part of the util-linux package and is
+      available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,804 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   sort(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="sort(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="sort.1" name="sort.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     sort &mdash; sort lines of text files
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       sort
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...] [
+      <em class="replaceable">
+       <code>
+        FILE
+       </code>
+      </em>
+      ...]
+     </p>
+    </div>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       sort
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        OPTION
+       </code>
+      </em>
+      ...]
+      <code class="option">
+       &minus;&minus;files0&minus;from
+      </code>
+      =
+      <em class="replaceable">
+       <code>
+        F
+       </code>
+      </em>
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="sort-1_sect1" name="sort-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Write sorted concatenation of all FILE(s) to standard
+      output.
+    </p>
+    <p>
+     Mandatory arguments to long options are mandatory for
+      short options too. Ordering options:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;b
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;ignore&minus;leading&minus;blanks
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        ignore leading blanks
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;dictionary&minus;order
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        consider only blanks and alphanumeric characters
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;f
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;ignore&minus;case
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        fold lower case to upper case characters
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;g
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;general&minus;numeric&minus;sort
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        compare according to general numerical value
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;ignore&minus;nonprinting
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        consider only printable characters
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;M
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;month&minus;sort
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        compare (unknown) &lt; 'JAN' &lt; ... &lt; 'DEC'
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;human&minus;numeric&minus;sort
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        compare human readable numbers (e.g., 2K 1G)
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;numeric&minus;sort
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        compare according to string numerical value
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;R
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;random&minus;sort
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        sort by random hash of keys
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;random&minus;source
+        </code>
+        =
+        <em class="parameter">
+         <code>
+          FILE
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        get random bytes from FILE
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;r
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;reverse
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        reverse the result of comparisons
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;sort
+        </code>
+        =
+        <code class="constant">
+         WORD
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        sort according to WORD: general&minus;numeric
+        <code class="option">
+         &minus;g
+        </code>
+        ,
+            human&minus;numeric
+        <code class="option">
+         &minus;h
+        </code>
+        , month
+        <code class="option">
+         &minus;M
+        </code>
+        , numeric
+        <code class="option">
+         &minus;n
+        </code>
+        , random
+        <code class="option">
+         &minus;R
+        </code>
+        , version
+        <code class="option">
+         &minus;V
+        </code>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;version&minus;sort
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        natural sort of (version) numbers within text
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     Other options:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;batch&minus;size
+        </code>
+        =
+        <code class="constant">
+         NMERGE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        merge at most NMERGE inputs at once; for more use
+            temp files
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;c
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;check
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;check
+        </code>
+        =
+        <em class="replaceable">
+         <code>
+          diagnose&minus;first
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        check for sorted input; do not sort
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;C
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;check
+        </code>
+        =
+        <span class="command">
+         <strong>
+          quiet
+         </strong>
+        </span>
+        ,
+        <code class="option">
+         &minus;&minus;check
+        </code>
+        =
+        <em class="parameter">
+         <code>
+          silent
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        like
+        <code class="option">
+         &minus;c
+        </code>
+        , but do
+            not report first bad line
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;compress&minus;program
+        </code>
+        =
+        <code class="constant">
+         PROG
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        compress temporaries with PROG; decompress them with
+            PROG
+        <code class="option">
+         &minus;d
+        </code>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;debug
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        annotate the part of the line used to sort, and warn
+            about questionable usage to stderr
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;files0&minus;from
+        </code>
+        =
+        <code class="constant">
+         F
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        read input from the files specified by
+            NUL&minus;terminated names in file F; If F is &minus;
+            then read names from standard input
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;k
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;key
+        </code>
+        =
+        <code class="constant">
+         KEYDEF
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        sort via a key; KEYDEF gives location and type
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;m
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;merge
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        merge already sorted files; do not sort
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;output
+        </code>
+        =
+        <em class="parameter">
+         <code>
+          FILE
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        write result to FILE instead of standard output
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;s
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;stable
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        stabilize sort by disabling last&minus;resort
+            comparison
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;S
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;buffer&minus;size
+        </code>
+        =
+        <code class="constant">
+         SIZE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use SIZE for main memory buffer
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;field&minus;separator
+        </code>
+        =
+        <code class="constant">
+         SEP
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use SEP instead of non&minus;blank to blank
+            transition
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;T
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;temporary&minus;directory
+        </code>
+        =
+        <code class="constant">
+         DIR
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        use DIR for temporaries, not $TMPDIR or
+        <code class="filename">
+         /tmp
+        </code>
+        ; multiple options specify
+            multiple directories
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;parallel
+        </code>
+        =
+        <code class="constant">
+         N
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        change the number of sorts run concurrently to N
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;u
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;unique
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        with
+        <code class="option">
+         &minus;c
+        </code>
+        , check for
+            strict ordering; without
+        <code class="option">
+         &minus;c
+        </code>
+        , output only the first of an
+            equal run
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;z
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;zero&minus;terminated
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        end lines with 0 byte, not newline
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        display this help and exit
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        output version information and exit
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     KEYDEF is F[.C][OPTS][,F[.C][OPTS]] for start and stop
+      position, where F is a field number and C a character
+      position in the field; both are origin 1, and the stop
+      position defaults to the line's end. If neither
+     <code class="option">
+      &minus;t
+     </code>
+     nor
+     <code class="option">
+      &minus;b
+     </code>
+     is in effect, characters in a field
+      are counted from the beginning of the preceding whitespace.
+      OPTS is one or more single&minus;letter ordering options
+      [bdfgiMhnRrV], which override global ordering options for
+      that key. If no key is given, use the entire line as the
+      key.
+    </p>
+    <p>
+     SIZE may be followed by the following multiplicative
+      suffixes: % 1% of memory, b 1, K 1024 (default), and so on
+      for M, G, T, P, E, Z, Y.
+    </p>
+    <p>
+     With no FILE, or when FILE is &minus;, read standard
+      input.
+    </p>
+    <p>
+     *** WARNING *** The locale specified by the environment
+      affects sort order. Set LC_ALL=C to get the traditional sort
+      order that uses native byte values.
+    </p>
+    <p>
+     GNU coreutils online help: &lt;
+     <a class="literalurl" href="http://www.gnu.org/software/coreutils/" shape="rect" target="_top">
+      http://www.gnu.org/software/coreutils/
+     </a>
+     &gt; Report
+      sort translation bugs to &lt;
+     <a class="literalurl" href="http://translationproject.org/team/" shape="rect" target="_top">
+      http://translationproject.org/team/
+     </a>
+     &gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="sort-1_sect2" name="sort-1_sect2" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     Written by Mike Haertel and Paul Eggert.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="sort-1_sect4" name="sort-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/uniq.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        uniq
+       </span>
+       (1)
+      </span>
+     </a>
+    </p>
+    <p>
+     The full documentation for
+     <span class="command">
+      <strong>
+       sort
+      </strong>
+     </span>
+     is maintained as a
+      Texinfo manual. If the
+     <span class="command">
+      <strong>
+       info
+      </strong>
+     </span>
+     and
+     <span class="command">
+      <strong>
+       sort
+      </strong>
+     </span>
+     programs are properly
+      installed at your site, the command
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <span class="emphasis">
+         <em>
+          info coreutils 'sort
+            invocation'
+         </em>
+        </span>
+       </p>
+      </li>
+     </ul>
+    </div>
+    <p>
+     should give you access to the complete manual.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   pthread_setcancelstate(3) &mdash; Linux manual
+  pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="pthread_setcancelstate(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="pthread-setcancelstate.3" name="pthread-setcancelstate.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     pthread_setcancelstate, pthread_setcanceltype &mdash; set
+      cancelability state and type
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;pthread.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pthread_setcancelstate
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         state
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int *
+        <var class="pdparam">
+         oldstate
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="funcsynopsis">
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          pthread_setcanceltype
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        int
+        <var class="pdparam">
+         type
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        int *
+        <var class="pdparam">
+         oldtype
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+     <table border="0" summary="Note">
+      <tr>
+       <td align="center" colspan="1" rowspan="2" valign="top" width="25">
+        <img alt="[Note]" src="../stylesheet/note.png"/>
+       </td>
+       <th align="left" colspan="1" rowspan="1">
+        Note
+       </th>
+      </tr>
+      <tr>
+       <td align="left" colspan="1" rowspan="1" valign="top">
+        <p>
+         Compile and link with
+         <code class="option">
+          &minus;pthread
+         </code>
+         .
+        </p>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-setcancelstate-3_sect1" name="pthread-setcancelstate-3_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     The
+     <code class="function">
+      pthread_setcancelstate
+     </code>
+     ()
+      sets the cancelability state of the calling thread to the
+      value given in
+     <em class="parameter">
+      <code>
+       state
+      </code>
+     </em>
+     .
+      The previous cancelability state of the thread is returned in
+      the buffer pointed to by
+     <em class="parameter">
+      <code>
+       oldstate
+      </code>
+     </em>
+     . The
+     <em class="parameter">
+      <code>
+       state
+      </code>
+     </em>
+     argument must have one of
+      the following values:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         PTHREAD_CANCEL_ENABLE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The thread is cancelable. This is the default
+            cancelability state in all new threads, including the
+            initial thread. The thread's cancelability type
+            determines when a cancelable thread will respond to a
+            cancellation request.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         PTHREAD_CANCEL_DISABLE
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The thread is not cancelable. If a cancellation
+            request is received, it is blocked until cancelability
+            is enabled.
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     The
+     <code class="function">
+      pthread_setcanceltype
+     </code>
+     ()
+      sets the cancelability type of the calling thread to the
+      value given in
+     <em class="parameter">
+      <code>
+       type
+      </code>
+     </em>
+     .
+      The previous cancelability type of the thread is returned in
+      the buffer pointed to by
+     <em class="parameter">
+      <code>
+       oldtype
+      </code>
+     </em>
+     . The
+     <em class="parameter">
+      <code>
+       type
+      </code>
+     </em>
+     argument must have one of
+      the following values:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         PTHREAD_CANCEL_DEFERRED
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        A cancellation request is deferred until the thread
+            next calls a function that is a cancellation point (see
+        <a class="link" href="../htmlman7/pthreads.7.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           pthreads
+          </span>
+          (7)
+         </span>
+        </a>
+        ). This is
+            the default cancelability type in all new threads,
+            including the initial thread.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         PTHREAD_CANCEL_ASYNCHRONOUS
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The thread can be canceled at any time. (Typically,
+            it will be canceled immediately upon receiving a
+            cancellation request, but the system doesn't guarantee
+            this.)
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     The set-and-get operation performed by each of these
+      functions is atomic with respect to other threads in the
+      process calling the same function.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-setcancelstate-3_sect2" name="pthread-setcancelstate-3_sect2" shape="rect">
+    </a>
+    <h2>
+     RETURN VALUE
+    </h2>
+    <p>
+     On success, these functions return 0; on error, they
+      return a nonzero error number.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-setcancelstate-3_sect3" name="pthread-setcancelstate-3_sect3" shape="rect">
+    </a>
+    <h2>
+     ERRORS
+    </h2>
+    <p>
+     The
+     <code class="function">
+      pthread_setcancelstate
+     </code>
+     ()
+      can fail with the following error:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Invalid value for
+        <em class="parameter">
+         <code>
+          state
+         </code>
+        </em>
+        .
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <p>
+     The
+     <code class="function">
+      pthread_setcanceltype
+     </code>
+     ()
+      can fail with the following error:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="errorname">
+         EINVAL
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Invalid value for
+        <em class="parameter">
+         <code>
+          type
+         </code>
+        </em>
+        .
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-setcancelstate-3_sect4" name="pthread-setcancelstate-3_sect4" shape="rect">
+    </a>
+    <h2>
+     ATTRIBUTES
+    </h2>
+    <div class="refsect2">
+     <a id="pthread-setcancelstate-3_sect5" name="pthread-setcancelstate-3_sect5" shape="rect">
+     </a>
+     <h3>
+      Multithreading (see pthreads(7))
+     </h3>
+     <p>
+      The
+      <code class="function">
+       pthread_setcancelstate
+      </code>
+      () and
+      <code class="function">
+       pthread_setcanceltype
+      </code>
+      () functions are
+        thread-safe.
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-setcancelstate-3_sect6" name="pthread-setcancelstate-3_sect6" shape="rect">
+    </a>
+    <h2>
+     CONFORMING TO
+    </h2>
+    <p>
+     POSIX.1-2001.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-setcancelstate-3_sect7" name="pthread-setcancelstate-3_sect7" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     For details of what happens when a thread is canceled, see
+     <a class="link" href="../htmlman3/pthread_cancel.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_cancel
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+    <p>
+     Briefly disabling cancelability is useful if a thread
+      performs some critical action that must not be interrupted by
+      a cancellation request. Beware of disabling cancelability for
+      long periods, or around operations that may block for long
+      periods, since that will render the thread unresponsive to
+      cancellation requests.
+    </p>
+    <div class="refsect2">
+     <a id="pthread-setcancelstate-3_sect8" name="pthread-setcancelstate-3_sect8" shape="rect">
+     </a>
+     <h3>
+      Asynchronous cancelability
+     </h3>
+     <p>
+      Setting the cancelability type to
+      <code class="constant">
+       PTHREAD_CANCEL_ASYNCHRONOUS
+      </code>
+      is rarely
+        useful. Since the thread could be canceled at
+      <code class="function">
+       any
+      </code>
+      time, it cannot safely reserve
+        resources (e.g., allocating memory with
+      <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         malloc
+        </span>
+        (3)
+       </span>
+      </a>
+      ), acquire
+        mutexes, semaphores, or locks, and so on. Reserving
+        resources is unsafe because the application has no way of
+        knowing what the state of these resources is when the
+        thread is canceled; that is, did cancellation occur before
+        the resources were reserved, while they were reserved, or
+        after they were released? Furthermore, some internal data
+        structures (e.g., the linked list of free blocks managed by
+        the
+      <a class="link" href="../htmlman3/malloc.3.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         malloc
+        </span>
+        (3)
+       </span>
+      </a>
+      family of
+        functions) may be left in an inconsistent state if
+        cancellation occurs in the middle of the function call.
+        Consequently, clean-up handlers cease to be useful.
+     </p>
+     <p>
+      Functions that can be safely asynchronously canceled are
+        called
+      <span class="emphasis">
+       <em>
+        async-cancel-safe
+        functions
+       </em>
+      </span>
+      . POSIX.1-2001 requires only that
+      <a class="link" href="../htmlman3/pthread_cancel.3.html" shape="rect" target="_top">
+       <span class="citerefentry">
+        <span class="refentrytitle">
+         pthread_cancel
+        </span>
+        (3)
+       </span>
+      </a>
+      ,
+      <code class="function">
+       pthread_setcancelstate
+      </code>
+      (), and
+      <code class="function">
+       pthread_setcanceltype
+      </code>
+      () be
+        async-cancel-safe. In general, other library functions
+        can't be safely called from an asynchronously cancelable
+        thread.
+     </p>
+     <p>
+      One of the few circumstances in which asynchronous
+        cancelability is useful is for cancellation of a thread
+        that is in a pure compute-bound loop.
+     </p>
+    </div>
+    <div class="refsect2">
+     <a id="pthread-setcancelstate-3_sect9" name="pthread-setcancelstate-3_sect9" shape="rect">
+     </a>
+     <h3>
+      Portability notes
+     </h3>
+     <p>
+      The Linux threading implementations permit the
+      <em class="parameter">
+       <code>
+        oldstate
+       </code>
+      </em>
+      argument
+        of
+      <code class="function">
+       pthread_setcancelstate
+      </code>
+      ()
+        to be NULL, in which case the information about the
+        previous cancelability state is not returned to the caller.
+        Many other implementations also permit a NULL
+      <code class="function">
+       oldstat
+      </code>
+      argument, but POSIX.1-2001 does
+        not specify this point, so portable applications should
+        always specify a non-NULL value in
+      <em class="parameter">
+       <code>
+        oldstate
+       </code>
+      </em>
+      . A precisely
+        analogous set of statements applies for the
+      <em class="parameter">
+       <code>
+        oldtype
+       </code>
+      </em>
+      argument of
+      <code class="function">
+       pthread_setcanceltype
+      </code>
+      ().
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-setcancelstate-3_sect10" name="pthread-setcancelstate-3_sect10" shape="rect">
+    </a>
+    <h2>
+     EXAMPLE
+    </h2>
+    <p>
+     See
+     <a class="link" href="../htmlman3/pthread_cancel.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_cancel
+       </span>
+       (3)
+      </span>
+     </a>
+     .
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="pthread-setcancelstate-3_sect11" name="pthread-setcancelstate-3_sect11" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman3/pthread_cancel.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_cancel
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pthread_cleanup_push.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_cleanup_push
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/pthread_testcancel.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthread_testcancel
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman7/pthreads.7.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        pthreads
+       </span>
+       (7)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="colophon">
+    <a id="pthread-setcancelstate-3_sect12" name="pthread-setcancelstate-3_sect12" shape="rect">
+    </a>
+    <h2>
+     COLOPHON
+    </h2>
+    <p>
+     This page is part of release 3.72 of the Linux
+     <em class="replaceable">
+      <code>
+       man-pages
+      </code>
+     </em>
+     project. A
+      description of the project, information about reporting bugs,
+      and the latest version of this page, can be found at
+      http://www.kernel.org/doc/man&minus;pages/.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   swaplabel(8) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="swaplabel(8) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="swaplabel.8" name="swaplabel.8" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     swaplabel &mdash; print or change the label or UUID of a
+      swap area
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       swaplabel
+      </code>
+      [
+      <code class="option">
+       &minus;L
+      </code>
+      label ] [
+      <code class="option">
+       &minus;U
+      </code>
+      UUID ] device
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="swaplabel-8_sect1" name="swaplabel-8_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       swaplabel
+      </strong>
+     </span>
+     will display or change the label or UUID of a swap partition
+      located on
+     <em class="parameter">
+      <code>
+       device
+      </code>
+     </em>
+     (or
+      regular file).
+    </p>
+    <p>
+     If the optional arguments
+     <code class="option">
+      &minus;L
+     </code>
+     and
+     <code class="option">
+      &minus;U
+     </code>
+     are not given,
+     <span class="command">
+      <strong>
+       swaplabel
+      </strong>
+     </span>
+     will simply
+      display the current swap-area label and UUID of
+     <em class="parameter">
+      <code>
+       device
+      </code>
+     </em>
+     .
+    </p>
+    <p>
+     If an optional argument is present, then
+     <span class="command">
+      <strong>
+       swaplabel
+      </strong>
+     </span>
+     will change the
+      appropriate value on
+     <em class="parameter">
+      <code>
+       device
+      </code>
+     </em>
+     . These values can also
+      be set during swap creation using
+     <a class="link" href="../htmlman8/mkswap.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mkswap
+       </span>
+       (8)
+      </span>
+     </a>
+     . The
+     <span class="command">
+      <strong>
+       swaplabel
+      </strong>
+     </span>
+     utility allows to
+      change the label or UUID on an actively used swap device.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="swaplabel-8_sect2" name="swaplabel-8_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;L,
+          &minus;&minus;label
+         <em class="parameter">
+          <code>
+           label
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify a new
+        <em class="parameter">
+         <code>
+          label
+         </code>
+        </em>
+        for the device.
+            Swap partition labels can be at most 16 characters
+            long. If
+        <em class="parameter">
+         <code>
+          label
+         </code>
+        </em>
+        is longer than 16 characters,
+        <span class="command">
+         <strong>
+          swaplabel
+         </strong>
+        </span>
+        will
+            truncate it and print a warning message.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;U,
+          &minus;&minus;uuid
+         <em class="parameter">
+          <code>
+           UUID
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify a new
+        <em class="parameter">
+         <code>
+          UUID
+         </code>
+        </em>
+        for the device. The
+        <span class="emphasis">
+         <em>
+          UUID
+         </em>
+        </span>
+        must be in
+            the standard 8-4-4-4-12 character format, such as is
+            output by
+        <a class="link" href="../htmlman1/uuidgen.1.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           uuidgen
+          </span>
+          (1)
+         </span>
+        </a>
+        .
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="swaplabel-8_sect3" name="swaplabel-8_sect3" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       swaplabel
+      </strong>
+     </span>
+     was written by Jason Borden &lt;jborden@bluehost.com&gt; and
+      Karel Zak &lt;kzak@redhat.com&gt;.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="swaplabel-8_sect4" name="swaplabel-8_sect4" shape="rect">
+    </a>
+    <h2>
+     ENVIRONMENT
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <em class="replaceable">
+         <code>
+          LIBBLKID_DEBUG=0xffff
+         </code>
+        </em>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        enables debug output.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="swaplabel-8_sect5" name="swaplabel-8_sect5" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The swaplabel command is part of the util-linux package
+      and is available from
+      ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="swaplabel-8_sect6" name="swaplabel-8_sect6" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman8/mkswap.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        mkswap
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman8/swapon.8.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        swapon
+       </span>
+       (8)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/uuidgen.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        uuidgen
+       </span>
+       (1)
+      </span>
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

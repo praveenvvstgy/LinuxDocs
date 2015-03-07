@@ -1,0 +1,810 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   danetool(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="danetool(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="danetool.1" name="danetool.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     danetool &mdash; GnuTLS DANE tool
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       danetool
+      </code>
+      [
+      <code class="option">
+       &minus;flag
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        value
+       </code>
+      </em>
+      ] ...] [
+      <code class="option">
+       &minus;&minus;opt&minus;name
+      </code>
+      [
+      <em class="replaceable">
+       <code>
+        [=|]value
+       </code>
+      </em>
+      ] ...]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="danetool-1_sect1" name="danetool-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     Tool to generate and check DNS resource records for the
+      DANE protocol.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="danetool-1_sect2" name="danetool-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+         ,
+          &minus;&minus;debug=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable debugging. This option takes an integer
+            number as its argument. The value of
+        <span class="command">
+         <strong>
+          number
+         </strong>
+        </span>
+        is constrained
+            to being:
+       </p>
+       <div class="blockquote">
+        <blockquote class="blockquote">
+         <div class="informalexample">
+          <pre class="programlisting" xml:space="preserve">
+in the range  0 through 9999
+</pre>
+         </div>
+        </blockquote>
+       </div>
+       <p>
+        Specifies the debug level.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V,
+          &minus;&minus;verbose
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        More verbose output. This option may appear an
+            unlimited number of times.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;infile=
+         <em class="parameter">
+          <code>
+           file
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Input file.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;outfile=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output file.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;load&minus;pubkey=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Loads a public key file.
+       </p>
+       <p>
+        This can be either a file or a PKCS #11 URL
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;load&minus;certificate=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Loads a certificate file.
+       </p>
+       <p>
+        This can be either a file or a PKCS #11 URL
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;dlv=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Sets a DLV file.
+       </p>
+       <p>
+        This sets a DLV file to be used for DNSSEC
+            verification.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;hash=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Hash algorithm to use for signing.
+       </p>
+       <p>
+        Available hash functions are SHA1, RMD160, SHA256,
+            SHA384, SHA512.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;check=
+         <em class="parameter">
+          <code>
+           string
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Check a host's DANE TLSA entry.
+       </p>
+       <p>
+        Obtains the DANE TLSA entry from the given hostname
+            and prints information. Note that the actual
+            certificate of the host has to be provided using
+            &minus;-load-certificate.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;check&minus;ee
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Check only the end-entity's certificate.
+       </p>
+       <p>
+        Checks the end-entity's certificate only. Trust
+            anchors or CAs are not considered.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;check&minus;ca
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Check only the CA's certificate.
+       </p>
+       <p>
+        Checks the trust anchor's and CA's certificate only.
+            End-entities are not considered.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;insecure
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not verify any DNSSEC signature.
+       </p>
+       <p>
+        Ignores any DNSSEC signature verification
+            results.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;local&minus;dns,
+         <code class="option">
+          &minus;&minus;no&minus;local&minus;dns
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use the local DNS server for DNSSEC resolving. The
+        <em class="replaceable">
+         <code>
+          no&minus;local&minus;dns
+         </code>
+        </em>
+        form will disable the option.
+       </p>
+       <p>
+        This option will use the local DNS server for
+            DNSSEC. This is disabled by default due to many servers
+            not allowing DNSSEC.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;inder,
+         <code class="option">
+          &minus;&minus;no&minus;inder
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use DER format for input certificates and private
+            keys. The
+        <em class="replaceable">
+         <code>
+          no&minus;inder
+         </code>
+        </em>
+        form
+            will disable the option.
+       </p>
+       <p>
+        The input files will be assumed to be in DER or RAW
+            format. Unlike options that in PEM input would allow
+            multiple input data (e.g. multiple certificates), when
+            reading in DER format a single data structure is
+            read.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;inraw
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This is an alias for the
+        <code class="option">
+         &minus;&minus;inder
+        </code>
+        option.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;tlsa&minus;rr
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print the DANE RR data on a certificate or public
+            key. This option must appear in combination with the
+            following options: host.
+       </p>
+       <p>
+        This command prints the DANE RR data needed to
+            enable DANE on a DNS server.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;host=
+         <em class="parameter">
+          <code>
+           hostname
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the hostname to be used in the DANE RR.
+       </p>
+       <p>
+        This command sets the hostname for the DANE RR.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;proto=
+         <em class="parameter">
+          <code>
+           protocol
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The protocol set for DANE data (tcp, udp etc.).
+       </p>
+       <p>
+        This command specifies the protocol for the service
+            set in the DANE data.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;port=
+         <em class="parameter">
+          <code>
+           number
+          </code>
+         </em>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the port number for the DANE data. This
+            option takes an integer number as its argument.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;ca
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Whether the provided certificate or public key is a
+            Certificate Authority.
+       </p>
+       <p>
+        Marks the DANE RR as a CA certificate if
+            specified.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;x509
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use the hash of the X.509 certificate, rather than
+            the public key.
+       </p>
+       <p>
+        This option forces the generated record to contain
+            the hash of the full X.509 certificate. By default only
+            the hash of the public key is used.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;local
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        This is an alias for the
+        <code class="option">
+         &minus;&minus;domain
+        </code>
+        option.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;&minus;domain,
+         <code class="option">
+          &minus;&minus;no&minus;domain
+         </code>
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The provided certificate or public key is issued by
+            the local domain. The
+        <em class="replaceable">
+         <code>
+          no&minus;domain
+         </code>
+        </em>
+        form
+            will disable the option. This option is enabled by
+            default.
+       </p>
+       <p>
+        DANE distinguishes certificates and public keys
+            offered via the DNSSEC to trusted and local entities.
+            This flag indicates that this is a domain-issued
+            certificate, meaning that there could be no CA
+            involved.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h,
+          &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display usage information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;!,
+          &minus;&minus;more&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Pass the extended usage information through a
+            pager.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+          [{
+         <em class="replaceable">
+          <code>
+           v|c|n
+          </code>
+         </em>
+         }],
+          &minus;&minus;version[={
+         <em class="replaceable">
+          <code>
+           v|c|n
+          </code>
+         </em>
+         }]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Output version of program and exit. The default mode
+            is `v', a simple version. The `c' mode will print
+            copyright information and `n' will print the full
+            copyright notice.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="danetool-1_sect3" name="danetool-1_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+<span class="emphasis"><em>DANE TLSA RR generation</em></span>
+</pre>
+    </div>
+    <p>
+     To create a DANE TLSA resource record for a certificate
+      (or public key) that was issued localy and may or may not be
+      signed by a CA use the following command.
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ danetool &minus;&minus;tlsa&minus;rr &minus;&minus;host www.example.com &minus;&minus;load&minus;certificate cert.pem
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     To create a DANE TLSA resource record for a CA signed
+      certificate, which will be marked as such use the following
+      command.
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ danetool &minus;&minus;tlsa&minus;rr &minus;&minus;host www.example.com &minus;&minus;load&minus;certificate cert.pem   &minus;&minus;no&minus;domain
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     The former is useful to add in your DNS entry even if your
+      certificate is signed by a CA. That way even users who do not
+      trust your CA will be able to verify your certificate using
+      DANE.
+    </p>
+    <p>
+     In order to create a record for the CA signer of your
+      certificate use the following.
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ danetool &minus;&minus;tlsa&minus;rr &minus;&minus;host www.example.com &minus;&minus;load&minus;certificate cert.pem   &minus;&minus;ca &minus;&minus;no&minus;domain
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     To read a server's DANE TLSA entry, use:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ danetool &minus;&minus;check www.example.com &minus;&minus;proto tcp &minus;&minus;port 443
+</pre>
+      </div>
+     </blockquote>
+    </div>
+    <p>
+     To verify a server's DANE TLSA entry, use:
+    </p>
+    <div class="blockquote">
+     <blockquote class="blockquote">
+      <div class="informalexample">
+       <pre class="programlisting" xml:space="preserve">
+$ danetool &minus;&minus;check www.example.com &minus;&minus;proto tcp &minus;&minus;port 443 &minus;&minus;load&minus;certificate chain.pem
+</pre>
+      </div>
+     </blockquote>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="danetool-1_sect4" name="danetool-1_sect4" shape="rect">
+    </a>
+    <h2>
+     EXIT STATUS
+    </h2>
+    <p>
+     One of the following exit values will be returned:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         0
+        </code>
+        (EXIT_SUCCESS)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Successful program execution.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         1
+        </code>
+        (EXIT_FAILURE)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The operation failed or the command syntax was not
+            valid.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="constant">
+         70
+        </code>
+        (EX_SOFTWARE)
+       </span>
+      </dt>
+      <dd>
+       <p>
+        libopts had an internal operational error. Please
+            report it to autogen-users@lists.sourceforge.net. Thank
+            you.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="danetool-1_sect5" name="danetool-1_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     certtool (1)
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="danetool-1_sect6" name="danetool-1_sect6" shape="rect">
+    </a>
+    <h2>
+     AUTHORS
+    </h2>
+    <p>
+     Nikos Mavrogiannopoulos, Simon Josefsson and others; see
+      /usr/share/doc/gnutls/AUTHORS for a complete list.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="danetool-1_sect8" name="danetool-1_sect8" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     Please send bug reports to: bugs@gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="danetool-1_sect9" name="danetool-1_sect9" shape="rect">
+    </a>
+    <h2>
+     NOTES
+    </h2>
+    <p>
+     This manual page was
+     <span class="command">
+      <strong>
+       AutoGen
+      </strong>
+     </span>
+     -erated from the
+     <span class="command">
+      <strong>
+       danetool
+      </strong>
+     </span>
+     option
+      definitions.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

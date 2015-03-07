@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   ul(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="ul(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="ul.1" name="ul.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     ul &mdash; do underlining
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       ul
+      </code>
+      [options] [ file...
+        ]
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ul-1_sect1" name="ul-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       ul
+      </strong>
+     </span>
+     reads the
+      named files (or standard input if none are given) and
+      translates occurrences of underscores to the sequence which
+      indicates underlining for the terminal in use, as specified
+      by the environment variable
+     <code class="constant">
+      TERM
+     </code>
+     . The
+     <span class="command">
+      <strong>
+       terminfo
+      </strong>
+     </span>
+     database is read
+      to determine the appropriate sequences for underlining. If
+      the terminal is incapable of underlining but is capable of a
+      standout mode, then that is used instead. If the terminal can
+      overstrike, or handles underlining automatically,
+     <span class="command">
+      <strong>
+       ul
+      </strong>
+     </span>
+     degenerates
+      to
+     <a class="link" href="../htmlman1/cat.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        cat
+       </span>
+       (1)
+      </span>
+     </a>
+     . If the terminal
+      cannot underline, underlining is ignored.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ul-1_sect2" name="ul-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;i
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;indicated
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Underlining is indicated by a separate line
+            containing appropriate dashes `&minus;'; this is useful
+            when you want to look at the underlining which is
+            present in an
+        <span class="command">
+         <strong>
+          nroff
+         </strong>
+        </span>
+        output stream
+            on a crt-terminal.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;t
+        </code>
+        ,
+        <code class="option">
+         &minus;T
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;terminal
+        </code>
+        <span class="command">
+         <strong>
+          terminal
+         </strong>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Overrides the
+        <span class="command">
+         <strong>
+          terminal
+         </strong>
+        </span>
+        type
+            specified in the environment with
+        <code class="constant">
+         TERM
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;version
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display version information and exit.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+        </code>
+        ,
+        <code class="option">
+         &minus;&minus;help
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Display help text and exit.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ul-1_sect3" name="ul-1_sect3" shape="rect">
+    </a>
+    <h2>
+     ENVIRONMENT
+    </h2>
+    <p>
+     The following environment variable is used:
+    </p>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="constant">
+         TERM
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The
+        <code class="constant">
+         TERM
+        </code>
+        variable is
+            used to relate a tty device with its device capability
+            description (see
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          terminfo
+         </span>
+         (5)
+        </span>
+        ).
+        <code class="constant">
+         TERM
+        </code>
+        is set at login
+            time, either by the default terminal type specified in
+        <code class="filename">
+         /etc/ttys
+        </code>
+        or as set
+            during the login process by the user in their
+        <span class="command">
+         <strong>
+          login
+         </strong>
+        </span>
+        file (see
+        <span class="citerefentry">
+         <span class="refentrytitle">
+          setenv
+         </span>
+         (1)
+        </span>
+        ).
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ul-1_sect4" name="ul-1_sect4" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman1/colcrt.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        colcrt
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman1/login.1.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        login
+       </span>
+       (1)
+      </span>
+     </a>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       man
+      </span>
+      (1)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       nroff
+      </span>
+      (1)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       setenv
+      </span>
+      (1)
+     </span>
+     ,
+     <span class="citerefentry">
+      <span class="refentrytitle">
+       terminfo
+      </span>
+      (5)
+     </span>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ul-1_sect5" name="ul-1_sect5" shape="rect">
+    </a>
+    <h2>
+     BUGS
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       Nroff
+      </strong>
+     </span>
+     usually outputs a series of backspaces and underlines
+      intermixed with the text to indicate underlining. No attempt
+      is made to optimize the backward motion.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ul-1_sect6" name="ul-1_sect6" shape="rect">
+    </a>
+    <h2>
+     HISTORY
+    </h2>
+    <p>
+     The
+     <span class="command">
+      <strong>
+       ul
+      </strong>
+     </span>
+     command appeared in 3.0BSD.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ul-1_sect7" name="ul-1_sect7" shape="rect">
+    </a>
+    <h2>
+     AVAILABILITY
+    </h2>
+    <p>
+     The ul command is part of the util-linux package and is
+      available from
+     <a class="literalurl" href="ftp://ftp.kernel.org/pub/linux/utils/util-linux/" shape="rect" target="_top">
+      Linux Kernel Archive
+     </a>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,911 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   ldapcompare(1) &mdash; Linux manual pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="ldapcompare(1) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="ldapcompare.1" name="ldapcompare.1" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     ldapcompare &mdash; LDAP compare tool
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="cmdsynopsis">
+     <p>
+      <code class="command">
+       ldapcompare
+      </code>
+      [
+      <code class="option">
+       &minus;V
+      </code>
+      [V] ] [
+      <code class="option">
+       &minus;d
+      </code>
+      debuglevel ] [
+      <code class="option">
+       &minus;n
+      </code>
+      ] [
+      <code class="option">
+       &minus;v
+      </code>
+      ] [
+      <code class="option">
+       &minus;z
+      </code>
+      ] [
+      <code class="option">
+       &minus;M
+      </code>
+      [M] ] [
+      <code class="option">
+       &minus;x
+      </code>
+      ] [
+      <code class="option">
+       &minus;D
+      </code>
+      binddn ] [
+      <code class="option">
+       &minus;W
+      </code>
+      ] [
+      <code class="option">
+       &minus;w
+      </code>
+      passwd ] [
+      <code class="option">
+       &minus;y
+      </code>
+      passwdfile ] [
+      <code class="option">
+       &minus;H
+      </code>
+      ldapuri ] [
+      <code class="option">
+       &minus;h
+      </code>
+      ldaphost ] [
+      <code class="option">
+       &minus;p
+      </code>
+      ldapport ] [
+      <code class="option">
+       &minus;P
+      </code>
+      2 | 3 ] [
+      <code class="option">
+       &minus;e
+      </code>
+      [!] ext [=extparam] ] [
+      <code class="option">
+       &minus;E
+      </code>
+      [!] ext [=extparam] ]
+        [
+      <code class="option">
+       &minus;o
+      </code>
+      opt [ = optparam ] ]
+        [
+      <code class="option">
+       &minus;O
+      </code>
+      security&minus;properties ] [
+      <code class="option">
+       &minus;I
+      </code>
+      ] [
+      <code class="option">
+       &minus;Q
+      </code>
+      ] [
+      <code class="option">
+       &minus;N
+      </code>
+      ] [
+      <code class="option">
+       &minus;U
+      </code>
+      authcid ] [
+      <code class="option">
+       &minus;R
+      </code>
+      realm ] [
+      <code class="option">
+       &minus;X
+      </code>
+      authzid ] [
+      <code class="option">
+       &minus;Y
+      </code>
+      mech ] [
+      <code class="option">
+       &minus;Z
+      </code>
+      [Z] ] DN attr: value | attr::
+        b64value
+     </p>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ldapcompare-1_sect1" name="ldapcompare-1_sect1" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     <span class="command">
+      <strong>
+       ldapcompare
+      </strong>
+     </span>
+     is a shell-accessible interface to the
+     <a class="link" href="../htmlman3/ldap_compare.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap_compare_ext
+       </span>
+       (3)
+      </span>
+     </a>
+     library
+      call.
+    </p>
+    <p>
+     <span class="command">
+      <strong>
+       ldapcompare
+      </strong>
+     </span>
+     opens a connection to an LDAP server, binds, and performs a
+      compare using specified parameters. The
+     <em class="parameter">
+      <code>
+       DN
+      </code>
+     </em>
+     should be a distinguished
+      name in the directory.
+     <em class="replaceable">
+      <code>
+       Attr
+      </code>
+     </em>
+     should be a known
+      attribute. If followed by one colon, the assertion
+     <em class="parameter">
+      <code>
+       value
+      </code>
+     </em>
+     should be provided as a
+      string. If followed by two colons, the base64 encoding of the
+      value is provided. The result code of the compare is provided
+      as the exit code and, unless ran with
+     <code class="option">
+      &minus;z
+     </code>
+     , the program prints TRUE, FALSE, or
+      UNDEFINED on standard output.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ldapcompare-1_sect2" name="ldapcompare-1_sect2" shape="rect">
+    </a>
+    <h2>
+     OPTIONS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;V[V]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Print version info. If
+        <code class="option">
+         &minus;VV
+        </code>
+        is given, only the version
+            information is printed.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;d
+          debuglevel
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Set the LDAP debugging level to
+        <em class="parameter">
+         <code>
+          debuglevel
+         </code>
+        </em>
+        .
+        <span class="command">
+         <strong>
+          ldapcompare
+         </strong>
+        </span>
+        must be
+            compiled with LDAP_DEBUG defined for this option to
+            have any effect.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;n
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Show what would be done, but don't actually perform
+            the compare. Useful for debugging in conjunction with
+        <code class="option">
+         &minus;v
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;v
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Run in verbose mode, with many diagnostics written
+            to standard output.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;z
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Run in quiet mode, no output is written. You must
+            check the return status. Useful in shell scripts.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;M[M]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable manage DSA IT control.
+        <code class="option">
+         &minus;MM
+        </code>
+        makes control critical.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;x
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use simple authentication instead of SASL.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;D
+          binddn
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use the Distinguished Name
+        <em class="parameter">
+         <code>
+          binddn
+         </code>
+        </em>
+        to bind to the
+            LDAP directory. For SASL binds, the server is expected
+            to ignore this value.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;W
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Prompt for simple authentication. This is used
+            instead of specifying the password on the command
+            line.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;w
+          passwd
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use
+        <em class="parameter">
+         <code>
+          passwd
+         </code>
+        </em>
+        as the password for simple authentication.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;y
+          passwdfile
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Use complete contents of
+        <em class="parameter">
+         <code>
+          passwdfile
+         </code>
+        </em>
+        as the
+            password for simple authentication. Note that
+        <em class="replaceable">
+         <code>
+          complete
+         </code>
+        </em>
+        means that any leading or trailing whitespaces,
+            including newlines, will be considered part of the
+            password and, unlike other software, they will not be
+            stripped. As a consequence, passwords stored in files
+            by commands like
+        <a class="link" href="../htmlman1/echo.1.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           echo
+          </span>
+          (1)
+         </span>
+        </a>
+        will not
+            behave as expected, since
+        <a class="link" href="../htmlman1/echo.1.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           echo
+          </span>
+          (1)
+         </span>
+        </a>
+        by default
+            appends a trailing newline to the echoed string. The
+            recommended portable way to store a cleartext password
+            in a file for use with this option is to use
+        <a class="link" href="../htmlman8/slappasswd.8.html" shape="rect" target="_top">
+         <span class="citerefentry">
+          <span class="refentrytitle">
+           slappasswd
+          </span>
+          (8)
+         </span>
+        </a>
+        with
+        <em class="replaceable">
+         <code>
+          {CLEARTEXT}
+         </code>
+        </em>
+        as hash and the option
+        <code class="option">
+         &minus;n
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;H
+          ldapuri
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify URI(s) referring to the ldap server(s); only
+            the protocol/host/port fields are allowed; a list of
+            URI, separated by whitespace or commas is expected.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;h
+          ldaphost
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify an alternate host on which the ldap server
+            is running. Deprecated in favor of
+        <code class="option">
+         &minus;H
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;p
+          ldapport
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify an alternate TCP port where the ldap server
+            is listening. Deprecated in favor of
+        <code class="option">
+         &minus;H
+        </code>
+        .
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;P
+          {2|3}
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the LDAP protocol version to use.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;e
+          [!]
+         <em class="parameter">
+          <code>
+           ext
+          </code>
+         </em>
+         [=
+         <em class="parameter">
+          <code>
+           extparam
+          </code>
+         </em>
+         ]
+        </code>
+       </span>
+      </dt>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;E
+          [!]
+         <em class="parameter">
+          <code>
+           ext
+          </code>
+         </em>
+         [=
+         <em class="parameter">
+          <code>
+           extparam
+          </code>
+         </em>
+         ]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify general extensions with
+        <code class="option">
+         &minus;e
+        </code>
+        and compare extensions with
+        <code class="option">
+         &minus;E
+        </code>
+        . '
+        <em class="parameter">
+         <code>
+          !
+         </code>
+        </em>
+        ' indicates
+            criticality.
+       </p>
+       <p>
+        General extensions:
+       </p>
+       <div class="informalexample">
+        <pre class="programlisting" xml:space="preserve">
+  [!]assert=&lt;filter&gt;    (an RFC 4515 Filter)
+  !authzid=&lt;authzid&gt;    ("dn:&lt;dn&gt;" or "u:&lt;user&gt;")
+  [!]bauthzid           (RFC 3829 authzid control)
+  [!]chaining[=&lt;resolve&gt;[/&lt;cont&gt;]]
+  [!]manageDSAit
+  [!]noop
+  ppolicy
+  [!]postread[=&lt;attrs&gt;] (a comma-separated attribute list)
+  [!]preread[=&lt;attrs&gt;]  (a comma-separated attribute list)
+  [!]relax
+  sessiontracking
+  abandon,cancel,ignore (SIGINT sends abandon/cancel,
+  or ignores response; if critical, doesn't wait for SIGINT.
+  not really controls)
+</pre>
+       </div>
+       <p>
+        Compare extensions:
+       </p>
+       <div class="informalexample">
+        <pre class="programlisting" xml:space="preserve">
+  !dontUseCopy
+</pre>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;o
+          opt[=optparam]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify general options.
+       </p>
+       <p>
+        General options:
+       </p>
+       <div class="informalexample">
+        <pre class="programlisting" xml:space="preserve">
+  nettimeout=&lt;timeout&gt;  (in seconds, or "none" or "max")
+  ldif-wrap=&lt;width&gt;     (in columns, or "no" for no wrapping)
+</pre>
+       </div>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;O
+          security&minus;properties
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify SASL security properties.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;I
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable SASL Interactive mode. Always prompt. Default
+            is to prompt only as needed.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;Q
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Enable SASL Quiet mode. Never prompt.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;N
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Do not use reverse DNS to canonicalize SASL host
+            name.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;U
+          authcid
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the authentication ID for SASL bind. The
+            form of the ID depends on the actual SASL mechanism
+            used.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;R
+          realm
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the realm of authentication ID for SASL
+            bind. The form of the realm depends on the actual SASL
+            mechanism used.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;X
+          authzid
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the requested authorization ID for SASL
+            bind.
+        <em class="parameter">
+         <code>
+          authzid
+         </code>
+        </em>
+        must be one of the following formats:
+        <em class="replaceable">
+         <code>
+          dn:
+         </code>
+        </em>
+        <span class="emphasis">
+         <em>
+          &lt;distinguished name&gt;
+         </em>
+        </span>
+        or
+        <em class="replaceable">
+         <code>
+          u:
+         </code>
+        </em>
+        <em class="replaceable">
+         <code>
+          &lt;username&gt;
+         </code>
+        </em>
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;Y
+          mech
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Specify the SASL mechanism to be used for
+            authentication. If it's not specified, the program will
+            choose the best mechanism the server knows.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <code class="option">
+         &minus;Z[Z]
+        </code>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Issue StartTLS (Transport Layer Security) extended
+            operation. If you use
+        <code class="option">
+         &minus;ZZ
+        </code>
+        , the command will require the
+            operation to be successful.
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="ldapcompare-1_sect3" name="ldapcompare-1_sect3" shape="rect">
+    </a>
+    <h2>
+     EXAMPLES
+    </h2>
+    <div class="informalexample">
+     <pre class="programlisting" xml:space="preserve">
+    ldapcompare "uid=babs,dc=example,dc=com"  sn:Jensen
+    ldapcompare "uid=babs,dc=example,dc=com"  sn::SmVuc2Vu
+</pre>
+    </div>
+    <p>
+     are all equivalent.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ldapcompare-1_sect4" name="ldapcompare-1_sect4" shape="rect">
+    </a>
+    <h2>
+     LIMITATIONS
+    </h2>
+    <p>
+     Requiring the value be passed on the command line is
+      limiting and introduces some security concerns. The command
+      should support a mechanism to specify the location (file name
+      or URL) to read the value from.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ldapcompare-1_sect5" name="ldapcompare-1_sect5" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     <a class="link" href="../htmlman5/ldap.conf.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap.conf
+       </span>
+       (5)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman5/ldif.5.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldif
+       </span>
+       (5)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/ldap.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap
+       </span>
+       (3)
+      </span>
+     </a>
+     ,
+     <a class="link" href="../htmlman3/ldap_compare.3.html" shape="rect" target="_top">
+      <span class="citerefentry">
+       <span class="refentrytitle">
+        ldap_compare_ext
+       </span>
+       (3)
+      </span>
+     </a>
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ldapcompare-1_sect6" name="ldapcompare-1_sect6" shape="rect">
+    </a>
+    <h2>
+     AUTHOR
+    </h2>
+    <p>
+     The OpenLDAP Project &lt;
+     <a class="literalurl" href="http://www.openldap.org/" shape="rect" target="_top">
+      http://www.openldap.org/
+     </a>
+     &gt;
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="ldapcompare-1_sect7" name="ldapcompare-1_sect7" shape="rect">
+    </a>
+    <h2>
+     ACKNOWLEDGEMENTS
+    </h2>
+    <p>
+     <span class="emphasis">
+      <em>
+       OpenLDAP Software
+      </em>
+     </span>
+     is developed and maintained by The OpenLDAP Project
+      &lt;
+     <a class="literalurl" href="http://www.openldap.org/" shape="rect" target="_top">
+      http://www.openldap.org/
+     </a>
+     &gt;.
+     <span class="emphasis">
+      <em>
+       OpenLDAP Software
+      </em>
+     </span>
+     is derived from
+      University of Michigan LDAP 3.3 Release.
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   gnutls_privkey_import_ext2(3) &mdash; Linux manual
+  pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="gnutls_privkey_import_ext2(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="gnutls-privkey-import-ext2.3" name="gnutls-privkey-import-ext2.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     gnutls_privkey_import_ext2 &mdash; API function
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;gnutls/abstract.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          gnutls_privkey_import_ext2
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_privkey_t
+        <var class="pdparam">
+         pkey
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_pk_algorithm_t
+        <var class="pdparam">
+         pk
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        void *
+        <var class="pdparam">
+         userdata
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_privkey_sign_func
+        <var class="pdparam">
+         sign_func
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_privkey_decrypt_func
+        <var class="pdparam">
+         decrypt_func
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_privkey_deinit_func
+        <var class="pdparam">
+         deinit_func
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int
+        <var class="pdparam">
+         flags
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-privkey-import-ext2-3_sect1" name="gnutls-privkey-import-ext2-3_sect1" shape="rect">
+    </a>
+    <h2>
+     ARGUMENTS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_privkey_t
+          pkey
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The private key
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_pk_algorithm_t
+          pk
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        The public key algorithm
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          void *
+          userdata
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        private data to be provided to the callbacks
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_privkey_sign_func
+          sign_func
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        callback for signature operations
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_privkey_decrypt_func
+          decrypt_func
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        callback for decryption operations
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_privkey_deinit_func
+          deinit_func
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        a deinitialization function
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="type">
+         unsigned int
+          flags
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        Flags for the import
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-privkey-import-ext2-3_sect2" name="gnutls-privkey-import-ext2-3_sect2" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This function will associate the given callbacks with the
+     <span class="type">
+      gnutls_privkey_t
+     </span>
+     structure. At
+      least one of the two callbacks must be non&minus;null. If a
+      deinitialization function is provided then flags is assumed
+      to contain
+     <code class="constant">
+      GNUTLS_PRIVKEY_IMPORT_AUTO_RELEASE
+     </code>
+     .
+    </p>
+    <p>
+     Note that the signing function is supposed to "raw" sign
+      data, i.e., without any hashing or preprocessing. In case of
+      RSA the DigestInfo will be provided, and the signing function
+      is expected to do the PKCS
+     <code class="constant">
+      1
+     </code>
+     1.5 padding and the exponentiation.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-privkey-import-ext2-3_sect3" name="gnutls-privkey-import-ext2-3_sect3" shape="rect">
+    </a>
+    <h2>
+     RETURNS
+    </h2>
+    <p>
+     On success,
+     <span class="errorname">
+      GNUTLS_E_SUCCESS
+     </span>
+     (0) is returned,
+      otherwise a negative error value.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-privkey-import-ext2-3_sect4" name="gnutls-privkey-import-ext2-3_sect4" shape="rect">
+    </a>
+    <h2>
+     SINCE
+    </h2>
+    <p>
+     3.1
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-privkey-import-ext2-3_sect5" name="gnutls-privkey-import-ext2-3_sect5" shape="rect">
+    </a>
+    <h2>
+     REPORTING BUGS
+    </h2>
+    <p>
+     Report bugs to &lt;bugs@gnutls.org&gt;.
+    </p>
+    <p>
+     Home page: http://www.gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-privkey-import-ext2-3_sect7" name="gnutls-privkey-import-ext2-3_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <em class="citetitle">
+      gnutls
+     </em>
+     is maintained as a Texinfo manual. If
+      the /usr/share/doc/gnutls/ directory does not contain the
+      HTML form visit
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <a class="literalurl" href="http://www.gnutls.org/manual/" shape="rect" target="_top">
+         http://www.gnutls.org/manual/
+        </a>
+       </p>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

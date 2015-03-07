@@ -1,0 +1,470 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   gnutls_pkcs12_simple_parse(3) &mdash; Linux manual
+  pages
+  </title>
+  <link href="../stylesheet/manpages.css" rel="stylesheet" type="text/css"/>
+  <link href="../index.html" rel="home" title="gnutls_pkcs12_simple_parse(3) &mdash; Linux manual pages"/>
+  <script src="../stylesheet/manpages.js" type="text/javascript" xml:space="preserve">
+  </script>
+  <link href="../stylesheet/icon.gif" rel="icon" type="image/gif"/>
+ </head>
+ <body>
+  <div class="refentry">
+   <a id="gnutls-pkcs12-simple-parse.3" name="gnutls-pkcs12-simple-parse.3" shape="rect">
+   </a>
+   <div class="titlepage">
+   </div>
+   <div class="refnamediv">
+    <h2>
+     Name
+    </h2>
+    <p>
+     gnutls_pkcs12_simple_parse &mdash; API function
+    </p>
+   </div>
+   <div class="refsynopsisdiv">
+    <h2>
+     Synopsis
+    </h2>
+    <div class="funcsynopsis">
+     <pre class="funcsynopsisinfo" xml:space="preserve">
+#include &lt;gnutls/pkcs12.h&gt;
+</pre>
+     <table border="0" class="funcprototype-table" style="cellspacing: 0; cellpadding: 0;" summary="Function synopsis">
+      <tr>
+       <td colspan="1" rowspan="1">
+        <code class="funcdef">
+         int
+         <strong>
+          gnutls_pkcs12_simple_parse
+         </strong>
+         (
+        </code>
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_pkcs12_t
+        <var class="pdparam">
+         p12
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        const char *
+        <var class="pdparam">
+         password
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_x509_privkey_t *
+        <var class="pdparam">
+         key
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_x509_crt_t **
+        <var class="pdparam">
+         chain
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int *
+        <var class="pdparam">
+         chain_len
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_x509_crt_t **
+        <var class="pdparam">
+         extra_certs
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int *
+        <var class="pdparam">
+         extra_certs_len
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        gnutls_x509_crl_t *
+        <var class="pdparam">
+         crl
+        </var>
+        ,
+       </td>
+      </tr>
+      <tr>
+       <td colspan="1" rowspan="1">
+        &nbsp;
+       </td>
+       <td colspan="1" rowspan="1">
+        unsigned int
+        <var class="pdparam">
+         flags
+        </var>
+        <code>
+         )
+        </code>
+        ;
+       </td>
+      </tr>
+     </table>
+     <div class="funcprototype-spacer">
+      &nbsp;
+     </div>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-pkcs12-simple-parse-3_sect1" name="gnutls-pkcs12-simple-parse-3_sect1" shape="rect">
+    </a>
+    <h2>
+     ARGUMENTS
+    </h2>
+    <div class="variablelist">
+     <dl class="variablelist">
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_pkcs12_t
+          p12
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        the PKCS12 blob.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          const
+          char * password
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        optional password used to decrypt PKCS12 blob, bags
+            and keys.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_x509_privkey_t *
+          key
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        a structure to store the parsed private key.
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_x509_crt_t **
+          chain
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        the corresponding to key certificate chain (may be
+        <code class="constant">
+         NULL
+        </code>
+        )
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          unsigned int *
+          chain_len
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        will be updated with the number of additional (may
+            be
+        <code class="constant">
+         NULL
+        </code>
+        )
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_x509_crt_t **
+          extra_certs
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        optional pointer to receive an array of additional
+            certificates found in the PKCS12 blob (may be
+        <code class="constant">
+         NULL
+        </code>
+        ).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          unsigned int *
+          extra_certs_len
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        will be updated with the number of additional certs
+            (may be
+        <code class="constant">
+         NULL
+        </code>
+        ).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="emphasis">
+         <em>
+          gnutls_x509_crl_t *
+          crl
+         </em>
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        an optional structure to store the parsed CRL (may
+            be
+        <code class="constant">
+         NULL
+        </code>
+        ).
+       </p>
+      </dd>
+      <dt>
+       <span class="term">
+        <span class="type">
+         unsigned int
+          flags
+        </span>
+       </span>
+      </dt>
+      <dd>
+       <p>
+        should be zero or one of GNUTLS_PKCS12_SP_*
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-pkcs12-simple-parse-3_sect2" name="gnutls-pkcs12-simple-parse-3_sect2" shape="rect">
+    </a>
+    <h2>
+     DESCRIPTION
+    </h2>
+    <p>
+     This function parses a PKCS12 blob in
+     <code class="function">
+      p12blob
+     </code>
+     and extracts the private key, the
+      corresponding certificate chain, and any additional
+      certificates and a CRL.
+    </p>
+    <p>
+     The
+     <code class="function">
+      extra_certs_ret
+     </code>
+     and
+     <em class="parameter">
+      <code>
+       extra_certs_len
+      </code>
+     </em>
+     parameters are optional and both may be set to
+     <code class="constant">
+      NULL
+     </code>
+     . If either is non&minus;
+     <code class="constant">
+      NULL
+     </code>
+     , then both must be set.
+    </p>
+    <p>
+     Encrypted PKCS12 bags and PKCS8 private keys are
+      supported. However, only password based security, and the
+      same password for all operations, are supported.
+    </p>
+    <p>
+     A PKCS12 file may contain many keys and/or certificates,
+      and there is no way to identify which key/certificate pair
+      you want. You should make sure the PKCS12 file only contain
+      one key/certificate pair and/or one CRL.
+    </p>
+    <p>
+     It is believed that the limitations of this function are
+      acceptable for common usage, and that any more flexibility
+      would introduce complexity that would make it harder to use
+      this functionality at all.
+    </p>
+    <p>
+     If the provided structure has encrypted fields but no
+      password is provided then this function returns
+     <span class="errorname">
+      GNUTLS_E_DECRYPTION_FAILED
+     </span>
+     .
+    </p>
+    <p>
+     Note that normally the chain constructed does not include
+      self signed certificates, to comply with TLS' requirements.
+      If, however, the flag
+     <code class="constant">
+      GNUTLS_PKCS12_SP_INCLUDE_SELF_SIGNED
+     </code>
+     is
+      specified then self signed certificates will be included in
+      the chain.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-pkcs12-simple-parse-3_sect3" name="gnutls-pkcs12-simple-parse-3_sect3" shape="rect">
+    </a>
+    <h2>
+     RETURNS
+    </h2>
+    <p>
+     On success,
+     <span class="errorname">
+      GNUTLS_E_SUCCESS
+     </span>
+     (0) is returned,
+      otherwise a negative error value.
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-pkcs12-simple-parse-3_sect4" name="gnutls-pkcs12-simple-parse-3_sect4" shape="rect">
+    </a>
+    <h2>
+     SINCE
+    </h2>
+    <p>
+     3.1
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-pkcs12-simple-parse-3_sect5" name="gnutls-pkcs12-simple-parse-3_sect5" shape="rect">
+    </a>
+    <h2>
+     REPORTING BUGS
+    </h2>
+    <p>
+     Report bugs to &lt;bugs@gnutls.org&gt;.
+    </p>
+    <p>
+     Home page: http://www.gnutls.org
+    </p>
+   </div>
+   <div class="refsect1">
+    <a id="gnutls-pkcs12-simple-parse-3_sect7" name="gnutls-pkcs12-simple-parse-3_sect7" shape="rect">
+    </a>
+    <h2>
+     SEE ALSO
+    </h2>
+    <p>
+     The full documentation for
+     <em class="citetitle">
+      gnutls
+     </em>
+     is maintained as a Texinfo manual. If
+      the /usr/share/doc/gnutls/ directory does not contain the
+      HTML form visit
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc;">
+      <li class="listitem">
+       <p>
+        <a class="literalurl" href="http://www.gnutls.org/manual/" shape="rect" target="_top">
+         http://www.gnutls.org/manual/
+        </a>
+       </p>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
