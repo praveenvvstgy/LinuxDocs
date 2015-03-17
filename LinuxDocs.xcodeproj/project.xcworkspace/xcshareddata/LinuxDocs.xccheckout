@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1B41F9E4-C800-4DC9-A3CA-79A429CCA01F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LinuxDocs</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2B97BFCDC87EA08FCD5E87D721D73DBDC6069A18</key>
+		<string>https://github.com/praveenvvstgy/LinuxDocs.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LinuxDocs.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2B97BFCDC87EA08FCD5E87D721D73DBDC6069A18</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/praveenvvstgy/LinuxDocs.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2B97BFCDC87EA08FCD5E87D721D73DBDC6069A18</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2B97BFCDC87EA08FCD5E87D721D73DBDC6069A18</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LinuxDocs</string>
+		</dict>
+	</array>
+</dict>
+</plist>

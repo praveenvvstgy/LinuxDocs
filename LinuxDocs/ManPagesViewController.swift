@@ -8,15 +8,17 @@
 
 import UIKit
 
-class ManPagesViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
+class ManPagesViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate {
     
     var manPagesIndex = [Int:[ManPage]]()
+    var filteredManPagesIndex = [Int:[ManPage]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.readManPageIndexFromJson()
         self.tableView.reloadData()
+        self.searchDisplayController?.displaysSearchBarInNavigationBar = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,12 +49,16 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
             self.manPagesIndex[i] = manPageForSection
 //            println(manPageForSection.count)
         }
-//        println(self.manPagesIndex[1])
+//        println(self.manPagesIndex)
         
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.manPagesIndex.count
+        if tableView == self.searchDisplayController?.searchResultsTableView {
+            return self.filteredManPagesIndex.count
+        } else {
+            return self.manPagesIndex.count
+        }
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -60,26 +66,77 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.manPagesIndex[section + 1]?.count as Int!
-        
+        if tableView == self.searchDisplayController?.searchResultsTableView {
+            return self.filteredManPagesIndex[section + 1]?.count as Int!
+        } else {
+            return self.manPagesIndex[section + 1]?.count as Int!
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let reuseIdentifier = "manPage"
-        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as UITableViewCell
-        let manPagesInSection = self.manPagesIndex[indexPath.section + 1] as [ManPage]!
+        let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as UITableViewCell
+        var manPagesInSection: [ManPage]!
+        if tableView == self.searchDisplayController?.searchResultsTableView {
+            manPagesInSection = self.filteredManPagesIndex[indexPath.section + 1] as [ManPage]!
+        } else {
+            manPagesInSection = self.manPagesIndex[indexPath.section + 1] as [ManPage]!
+        }
         cell.textLabel?.text = manPagesInSection[indexPath.row].name
         return cell
     }
+    
+    func filterManPageForSearchText(searchText: String, section: String = "All") {
+        self.filteredManPagesIndex.removeAll(keepCapacity: false)
+        if section == "All" {
+            for i in 1...8 {
+                self.filteredManPagesIndex[i] = self.manPagesIndex[i]?.filter({ (manpage: ManPage) -> Bool in
+                    let stringMatch = manpage.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+                    return (stringMatch != nil)
+                })
+            }
+        } else {
+            let sectionNumber = section.toInt()
+            for i in 1...8 {
+                self.filteredManPagesIndex[i] = self.manPagesIndex[i]?.filter({ (manpage: ManPage) -> Bool in
+                    let stringMatch = manpage.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+                    return (stringMatch != nil) && (manpage.section == section)
+                })
+            }
+        }
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
+        let scopes = self.searchDisplayController?.searchBar.scopeButtonTitles as [String]
+        let selectedScope = scopes[self.searchDisplayController!.searchBar.selectedScopeButtonIndex] as String
+        self.filterManPageForSearchText(searchString, section: selectedScope)
+        return true
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+        let scopes = self.searchDisplayController?.searchBar.scopeButtonTitles as [String]
+        self.filterManPageForSearchText(self.searchDisplayController!.searchBar.text, section: scopes[searchOption])
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("manPageBrowser", sender: tableView)
+    }
+    
 
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "manPageBrowser" {
-            if let indexPath = self.tableView.indexPathForCell(sender as UITableViewCell) {
-                let destinationViewController = segue.destinationViewController as ManPageBrowserViewController
-                let manPagesInSection = self.manPagesIndex[indexPath.section + 1] as [ManPage]!
-                destinationViewController.manPage = manPagesInSection[indexPath.row]
+            let destinationViewController = segue.destinationViewController as ManPageBrowserViewController
+            if sender as? UITableView == self.searchDisplayController?.searchResultsTableView {
+                let indexPath = self.searchDisplayController?.searchResultsTableView.indexPathForSelectedRow()
+                let manPagesInSection = self.filteredManPagesIndex[indexPath!.section + 1] as [ManPage]!
+                destinationViewController.manPage = manPagesInSection[indexPath!.row]
+            } else {
+                let indexPath = self.tableView.indexPathForSelectedRow()
+                let manPagesInSection = self.manPagesIndex[indexPath!.section + 1] as [ManPage]!
+                destinationViewController.manPage = manPagesInSection[indexPath!.row]
             }
         }
     }
