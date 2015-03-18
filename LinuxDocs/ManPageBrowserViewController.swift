@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ManPageBrowserViewController: UIViewController, UIWebViewDelegate, MediumScrollFullScreenDelegate, UIGestureRecognizerDelegate {
+
+class ManPageBrowserViewController: UIViewController, UIWebViewDelegate, UIGestureRecognizerDelegate {
     
     enum State {
         case Showing
@@ -17,19 +18,11 @@ class ManPageBrowserViewController: UIViewController, UIWebViewDelegate, MediumS
     
     @IBOutlet weak var manPageBrowser: UIWebView!
     
-    var statement: State = .Hiding
-    var scrollProxy: MediumScrollFullScreen?
-    var scrollView: UIScrollView?
-    var enableTap: Bool = false
+    
     
     var manPage: ManPage!
     
     override func viewDidLoad() {
-        
-        scrollProxy = MediumScrollFullScreen(forwardTarget: manPageBrowser)
-        manPageBrowser.scrollView.delegate = scrollProxy
-        scrollProxy?.delegate = self as MediumScrollFullScreenDelegate
-        
         
         let manHTML = NSBundle.mainBundle().pathForResource(manPage.filename, ofType: "html", inDirectory: "htmlman\(manPage.section!)")
         let manPath = NSURL(fileURLWithPath: manHTML!, isDirectory: true)
@@ -64,32 +57,6 @@ class ManPageBrowserViewController: UIViewController, UIWebViewDelegate, MediumS
         }
     }
     
-    func popView() {
-        navigationController?.popViewControllerAnimated(true)
-    }
-    
-    func tapGesture(sender: UITapGestureRecognizer) {
-        if enableTap {
-            if statement == .Hiding {
-                showNavigationBar(true)
-                statement = .Showing
-            } else {
-                hideNavigationBar(true)
-                statement = .Hiding
-            }
-        }
-    }
-    
-    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-    
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-    
-    
-    
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         if request.URL.host != nil {
             UIApplication.sharedApplication().openURL(request.URL)
@@ -105,44 +72,4 @@ class ManPageBrowserViewController: UIViewController, UIWebViewDelegate, MediumS
         }
         return false
     }
-    
-    
-    
-    func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollUp deltaY: Float, userInteractionEnabled enabled: Bool) {
-        if enabled {
-            enableTap = false
-        } else {
-            enableTap = true
-        }
-        moveNavigationBar(deltaY: deltaY, animated: true)
-    }
-    
-    func scrollFullScreen(fullScreenProxy: MediumScrollFullScreen, scrollViewDidScrollDown deltaY: Float, userInteractionEnabled enabled: Bool) {
-        if enabled {
-            enableTap = false
-            moveNavigationBar(deltaY: deltaY, animated: true)
-        } else {
-            enableTap = true
-            moveNavigationBar(deltaY: -deltaY, animated: true)
-        }
-    }
-    
-    func scrollFullScreenScrollViewDidEndDraggingScrollUp(fullScreenProxy: MediumScrollFullScreen, userInteractionEnabled enabled: Bool) {
-        hideNavigationBar(true)
-        statement = .Hiding
-    }
-    
-    func scrollFullScreenScrollViewDidEndDraggingScrollDown(fullScreenProxy: MediumScrollFullScreen, userInteractionEnabled enabled: Bool) {
-        if enabled {
-            showNavigationBar(true)
-            statement = .Showing
-        } else {
-            hideNavigationBar(true)
-            statement = .Hiding
-        }
-    }
-    
-    
-    
-    
 }

@@ -18,8 +18,41 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
         // Do any additional setup after loading the view, typically from a nib.
         self.readManPageIndexFromJson()
         self.tableView.reloadData()
-        self.searchDisplayController?.displaysSearchBarInNavigationBar = true
+//        self.searchDisplayController?.displaysSearchBarInNavigationBar = true
+        self.navigationController?.hidesBarsOnSwipe = true
+        
     }
+    
+    
+    @IBAction func searchButtonClicked(sender: UIBarButtonItem) {
+//        self.searchDisplayController?.active = true
+        self.searchDisplayController?.searchBar.becomeFirstResponder()
+//        self.searchDisplayController?.searchBar.hidden = false
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        var newBounds: CGRect = self.tableView.bounds
+        if (self.tableView.bounds.origin.y < 44) {
+            newBounds.origin.y = newBounds.origin.y + self.searchDisplayController!.searchBar.bounds.size.height
+            self.tableView.bounds = newBounds
+        }
+        self.searchDisplayController?.searchBar.hidden = true
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        self.viewWillAppear(true)
+    }
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView.contentOffset.y  <= 30 {
+            scrollView.scrollEnabled = false
+            scrollView.contentOffset = CGPointMake(0, 30)
+            scrollView.scrollEnabled = true
+        }
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,7 +95,11 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section \(section + 1)"
+        if self.tableView(tableView, numberOfRowsInSection: section) == 0 {
+            return nil
+        } else {
+            return "Section \(section + 1)"
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -122,7 +159,6 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("manPageBrowser", sender: tableView)
     }
-    
 
     
     
