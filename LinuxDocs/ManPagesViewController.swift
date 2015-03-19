@@ -25,9 +25,7 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
     
     
     @IBAction func searchButtonClicked(sender: UIBarButtonItem) {
-//        self.searchDisplayController?.active = true
         self.searchDisplayController?.searchBar.becomeFirstResponder()
-//        self.searchDisplayController?.searchBar.hidden = false
 
     }
     
@@ -38,7 +36,6 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
             newBounds.origin.y = newBounds.origin.y + self.searchDisplayController!.searchBar.bounds.size.height
             self.tableView.bounds = newBounds
         }
-        self.searchDisplayController?.searchBar.hidden = true
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
