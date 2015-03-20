@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    alias
+   </h1>
+   <blockquote>
+    <p>
+     Creates an alias for a word when used 
+  as the first word of a command
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     creating a generic alias
+    </li>
+   </ul>
+   <p>
+    <pre><code>alias {{word}}="{{command}}"</code></pre>
+   </p>
+   <ul>
+    <li>
+     remove an aliased command
+    </li>
+   </ul>
+   <p>
+    <pre><code>unalias {{word}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     full list of aliased words
+    </li>
+   </ul>
+   <p>
+    <pre><code>alias -p</code></pre>
+   </p>
+   <ul>
+    <li>
+     turning rm an interative command
+    </li>
+   </ul>
+   <p>
+    <pre><code>alias {{rm}}="{{rm -i}}"</code></pre>
+   </p>
+   <ul>
+    <li>
+     overriding la as ls -a
+    </li>
+   </ul>
+   <p>
+    <pre><code>alias {{la}}="{{ls -a}}"</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    sox
+   </h1>
+   <blockquote>
+    <p>
+     SoX - Sound eXchange
+  Play, record and convert audio files
+  Audioformats are identified by extension
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Merge two audio files into one
+    </li>
+   </ul>
+   <p>
+    <pre><code>sox -m {{input_audiofile1}} {{input_audiofile2}} {{output_audiofile}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Trim an audio file to the specified times
+    </li>
+   </ul>
+   <p>
+    <pre><code>sox {{input_audiofile}} {{output_audiofile}} trim {{start}} {{end}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Normalize an audio file (adjust volume to the maximum peak level, without clipping)
+    </li>
+   </ul>
+   <p>
+    <pre><code>sox --norm {{input_audiofile}} {{output_audiofile}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Reverse and save an audio file
+    </li>
+   </ul>
+   <p>
+    <pre><code>sox {{input_audiofile}} {{output_audiofile}} reverse</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print statistical data of an audio file
+    </li>
+   </ul>
+   <p>
+    <pre><code>sox {{input_audiofile}} -n stat</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

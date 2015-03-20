@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    sudo
+   </h1>
+   <blockquote>
+    <p>
+     execute a command as another user
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Listing of an unreadable directory:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo {{ls}} {{/usr/local/scrt}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     To edit a file as user www:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo -u {{www}} {{vi}} {{/var/www/index.html}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     To shutdown the machine:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo {{shutdown}} -r +10 {{"Cya soon!"}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     To repeat the last command as sudo
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo {{!!}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

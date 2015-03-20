@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    wc
+   </h1>
+   <blockquote>
+    <p>
+     Count words, bytes, or lines
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     count lines in file
+    </li>
+   </ul>
+   <p>
+    <pre><code>wc -l {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     count bytes in file
+    </li>
+   </ul>
+   <p>
+    <pre><code>wc -c {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     count characters in file (taking multi-byte character sets into account)
+    </li>
+   </ul>
+   <p>
+    <pre><code>wc -m {{file}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

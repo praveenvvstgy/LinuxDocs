@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    awk
+   </h1>
+   <blockquote>
+    <p>
+     A versatile programming language for working on files
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Print the fifth column in a space separated file
+    </li>
+   </ul>
+   <p>
+    <pre><code>awk '{print $5}' {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print the third column in a comma separated file
+    </li>
+   </ul>
+   <p>
+    <pre><code>awk -F ',' '{print $3}' {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Sum the values in the first column and print the total
+    </li>
+   </ul>
+   <p>
+    <pre><code>awk '{s+=$1} END {print s}' {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Sum the values in the first column and pretty-print the values and then the total
+    </li>
+   </ul>
+   <p>
+    <pre><code>awk '{s+=$1; print $1} END {print "--------"; print s}' {{filename}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    gcc
+   </h1>
+   <blockquote>
+    <p>
+     Preprocesses and compiles C and C++ source files, then assembles and links them together.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Compile multiple source files into executable
+    </li>
+   </ul>
+   <p>
+    <pre><code>gcc {{source1.c}} {{source2.c}} -o {{executable}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Allow warnings, debug symbols in output
+    </li>
+   </ul>
+   <p>
+    <pre><code>gcc {{source.c}} -Wall -Og -o {{executable}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Include libraries from a different path
+    </li>
+   </ul>
+   <p>
+    <pre><code>gcc {{source.c}} -o {{executable}} -I{{header_path}} -L{{library_path}} -l{{library_name}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

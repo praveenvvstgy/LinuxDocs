@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    split
+   </h1>
+   <blockquote>
+    <p>
+     Split a file into pieces
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Split a file, each split having 10 lines (except the last split)
+    </li>
+   </ul>
+   <p>
+    <pre><code>split -l 10 {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Split a file into 5 files. File is split such that each split has same size (except the last split)
+    </li>
+   </ul>
+   <p>
+    <pre><code>split -n 5 {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Split a file with at most 512 bytes of lines in each split.
+    </li>
+   </ul>
+   <p>
+    <pre><code>split -C 512 {{filename}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

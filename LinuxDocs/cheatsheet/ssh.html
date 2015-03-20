@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    SSH
+   </h1>
+   <blockquote>
+    <p>
+     Secure Shell is a protocol used to securely log onto remote systems.
+  It can be used for logging or executing commands on a remote server.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     connecting to a remote server
+    </li>
+   </ul>
+   <p>
+    <pre><code>ssh {{username}}@{{remote_host}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     connecting to a remote server with a specific identity (private key)
+    </li>
+   </ul>
+   <p>
+    <pre><code>ssh -i {{/path/to/key_file}} {{username}}@{{remote_host}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     connecting to a remote server with specific port
+    </li>
+   </ul>
+   <p>
+    <pre><code>ssh {{username}}@{{remote_host}} -p {{2222}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     run a command on a remote server
+    </li>
+   </ul>
+   <p>
+    <pre><code>ssh {{remote_host}} "{{command -with -flags}}"</code></pre>
+   </p>
+   <ul>
+    <li>
+     ssh tunneling: dynamic port forwarding (SOCKS proxy on localhost:9999)
+    </li>
+   </ul>
+   <p>
+    <pre><code>ssh -D {{9999}} -C {{username}}@{{remote_host}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     ssh tunneling: forward a specific port (localhost:9999 to slashdot.org:80)
+    </li>
+   </ul>
+   <p>
+    <pre><code>ssh -L {{9999}}:slashdot.org:80 {{username}}@{{remote_host}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     ssh enable agent forward
+    </li>
+   </ul>
+   <p>
+    <pre><code>ssh -A {{username}}@{{remote_host}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

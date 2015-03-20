@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    iconv
+   </h1>
+   <blockquote>
+    <p>
+     Converts text from one encoding to another
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     convert file and print to stdout
+    </li>
+   </ul>
+   <p>
+    <pre><code>iconv -f {{from_encoding}} -t {{to_encoding}} {{input_file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     convert file to current locale
+    </li>
+   </ul>
+   <p>
+    <pre><code>iconv -f {{from_encoding}} {{input_file}} &gt; {{output_file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     list supported encodings
+    </li>
+   </ul>
+   <p>
+    <pre><code>iconv -l</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

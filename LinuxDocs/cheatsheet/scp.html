@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    scp
+   </h1>
+   <blockquote>
+    <p>
+     Copies files between hosts on a network
+  Works over a secure connection (SSH)
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     upload a file, or upload and rename a file
+    </li>
+   </ul>
+   <p>
+    <pre><code>scp {{/local/file.txt}} {{10.0.0.1}}:{{/remote/path/}}</code></pre>
+    <pre><code>scp {{/local/file.txt}} {{10.0.0.1}}:{{/remote/path/newname.txt}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     download a file
+    </li>
+   </ul>
+   <p>
+    <pre><code>scp {{10.0.0.1}}:{{/remote/path/file.txt}} {{/local/folder}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     upload or download a directory
+    </li>
+   </ul>
+   <p>
+    <pre><code>scp -r {{/local/folder}} {{10.0.0.1}}:{{/remote/path/}}</code></pre>
+    <pre><code>scp -r {{10.0.0.1}}:{{/remote/path}} {{/local/folder}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     specify username on host
+    </li>
+   </ul>
+   <p>
+    <pre><code>scp {{/local/file.txt}} {{my_user}}@{{10.0.0.1}}:{{/remote/path}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     specify port on host
+    </li>
+   </ul>
+   <p>
+    <pre><code>scp -P {{port}} {{/local/file.txt}} {{10.0.0.1}}:{{/remote/path}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     copy a file from one host to another
+    </li>
+   </ul>
+   <p>
+    <pre><code>scp {{10.0.0.1}}:{{/remote/path/file.txt}} {{20.0.0.2}}:{{/other/remote/path}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

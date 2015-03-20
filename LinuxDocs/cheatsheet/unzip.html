@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    unzip
+   </h1>
+   <blockquote>
+    <p>
+     Extract compressed files in a ZIP archive
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     extract zip file(s) (for multiple files, seperate file paths by spaces)
+    </li>
+   </ul>
+   <p>
+    <pre><code>unzip {{file(s)}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     extract zip files(s) to given path
+    </li>
+   </ul>
+   <p>
+    <pre><code>unzip {{files(s)}} -d {{/path/to/put/extracted/files}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     list the contents of a zip file without extracting
+    </li>
+   </ul>
+   <p>
+    <pre><code>unzip -l {{file}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

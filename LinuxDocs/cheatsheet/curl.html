@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    curl
+   </h1>
+   <blockquote>
+    <p>
+     Transfers data from or to a server
+  Supports most protocols including HTTP, FTP, POP
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Download a URL to a file
+    </li>
+   </ul>
+   <p>
+    <pre><code>curl "{{URL}}" -o filename</code></pre>
+   </p>
+   <ul>
+    <li>
+     send form-encoded data
+    </li>
+   </ul>
+   <p>
+    <pre><code>curl --data {{name=bob}} {{http://localhost/form}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     send JSON data
+    </li>
+   </ul>
+   <p>
+    <pre><code>curl -X POST -H "Content-Type: application/json" -d {{'{"name":"bob"}'}} {{http://localhost/login}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     specify an HTTP method
+    </li>
+   </ul>
+   <p>
+    <pre><code>curl -X {{DELETE}} {{http://localhost/item/123}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     head request
+    </li>
+   </ul>
+   <p>
+    <pre><code>curl --head {{http://localhost}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     pass a user name and password for server authentication
+    </li>
+   </ul>
+   <p>
+    <pre><code>curl -u myusername:mypassword {{http://localhost}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

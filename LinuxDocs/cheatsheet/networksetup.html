@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    networksetup
+   </h1>
+   <blockquote>
+    <p>
+     Configuration tool for Network System Preferences
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     List available network service providers (Ethernet, Wi-Fi, Bluetooth, etc)
+    </li>
+   </ul>
+   <p>
+    <pre><code>networksetup -listallnetworkservices</code></pre>
+   </p>
+   <ul>
+    <li>
+     Show network settings for a particular networking device
+    </li>
+   </ul>
+   <p>
+    <pre><code>networksetup -getinfo {{"Wi-Fi"}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Get currently connected Wi-Fi network name (Wi-Fi device usually en0 or en1)
+    </li>
+   </ul>
+   <p>
+    <pre><code>networksetup -getairportnetwork {{en0}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Connect to a particular Wi-Fi network
+    </li>
+   </ul>
+   <p>
+    <pre><code>networksetup -setairportnetwork {{en0}} {{"Airport Network SSID"}} {{password}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

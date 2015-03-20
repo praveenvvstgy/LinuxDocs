@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    electrum
+   </h1>
+   <blockquote>
+    <p>
+     Ergonomic Bitcoin wallet and private key management
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Create a new wallet
+    </li>
+   </ul>
+   <p>
+    <pre><code>electrum -w {{new-wallet.dat}} create</code></pre>
+   </p>
+   <ul>
+    <li>
+     Restore an existing wallet from seed offline
+    </li>
+   </ul>
+   <p>
+    <pre><code>electrum -w {{recovery-wallet.dat}} restore -o</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create a signed transaction offline
+    </li>
+   </ul>
+   <p>
+    <pre><code>electrum mktx {{recipient}} {{amount}} -f 0.0000001 -F {{from}} -o</code></pre>
+   </p>
+   <ul>
+    <li>
+     Display all wallet receiving addresses
+    </li>
+   </ul>
+   <p>
+    <pre><code>electrum listaddresses -a</code></pre>
+   </p>
+   <ul>
+    <li>
+     Sign a message
+    </li>
+   </ul>
+   <p>
+    <pre><code>electrum signmessage {{address}} {{message}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Verify a message
+    </li>
+   </ul>
+   <p>
+    <pre><code>electrum verifymessage {{address}} {{signature}} {{message}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Connect only to a specific electrum-server instance
+    </li>
+   </ul>
+   <p>
+    <pre><code>electrum -p socks5:{{127.0.0.1}}:9050 -s {{56ckl5obj37gypcu.onion}}:50001:t -1</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

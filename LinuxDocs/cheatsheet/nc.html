@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    nc
+   </h1>
+   <blockquote>
+    <p>
+     reads and writes tcp or udp data
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     listen on a specified port
+    </li>
+   </ul>
+   <p>
+    <pre><code>nc  -l {{port}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     connect to a certain port (you can then write to this port)
+    </li>
+   </ul>
+   <p>
+    <pre><code>nc {{ip_address}} {{port}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     set a timeout
+    </li>
+   </ul>
+   <p>
+    <pre><code>nc -w {{timeout_in_seconds}} {{ipaddress}} {{port}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     serve a file
+    </li>
+   </ul>
+   <p>
+    <pre><code>cat somefile.txt | nc -l {{port}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     receive a file
+    </li>
+   </ul>
+   <p>
+    <pre><code>nc {{ip_address}} {{port}} &gt; somefile.txt</code></pre>
+   </p>
+   <ul>
+    <li>
+     server stay up after client detach
+    </li>
+   </ul>
+   <p>
+    <pre><code>nc -k -l {{port}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     client stay up after EOF
+    </li>
+   </ul>
+   <p>
+    <pre><code>nc -q {{timeout}} {{ip_address}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

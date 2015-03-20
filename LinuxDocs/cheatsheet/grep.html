@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    grep
+   </h1>
+   <blockquote>
+    <p>
+     Matches patterns in input text
+  Supports simple patterns and regular expressions
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     search for an exact string
+    </li>
+   </ul>
+   <p>
+    <pre><code>grep {{something}} {{file_path}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     search recursively in current directory for an exact string
+    </li>
+   </ul>
+   <p>
+    <pre><code>grep -r {{something}} .</code></pre>
+   </p>
+   <ul>
+    <li>
+     use a regex
+    </li>
+   </ul>
+   <p>
+    <pre><code>grep -e {{^regex$}} {{file_path}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     see 3 lines of context
+    </li>
+   </ul>
+   <p>
+    <pre><code>grep -C 3 {{something}} {{file_path}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     print the count of matches instead of the matching text
+    </li>
+   </ul>
+   <p>
+    <pre><code>grep -c {{something}} {{file_path}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     use the standard input instead of a file
+    </li>
+   </ul>
+   <p>
+    <pre><code>cat {{file_path}} | grep {{something}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     invert match for excluding specific strings
+    </li>
+   </ul>
+   <p>
+    <pre><code>grep -v {{something}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

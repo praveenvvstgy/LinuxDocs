@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    shuf
+   </h1>
+   <blockquote>
+    <p>
+     generate random permutations
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     randomize the order of lines in a file and output the result
+    </li>
+   </ul>
+   <p>
+    <pre><code>shuf {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     only output the first n entries of the result
+    </li>
+   </ul>
+   <p>
+    <pre><code>shuf -n {{n}} {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     write output to another file
+    </li>
+   </ul>
+   <p>
+    <pre><code>shuf -o {{another_filename}} {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     generate random numbers in range
+    </li>
+   </ul>
+   <p>
+    <pre><code>shuf -i {{low}}-{{high}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

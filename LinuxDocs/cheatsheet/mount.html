@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    mount
+   </h1>
+   <blockquote>
+    <p>
+     Provides access to an entire filesystem in one directory.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Show all mounted filesystems
+    </li>
+   </ul>
+   <p>
+    <pre><code>mount</code></pre>
+   </p>
+   <ul>
+    <li>
+     Mount a device
+    </li>
+   </ul>
+   <p>
+    <pre><code>mount -t {{filesystem_type}} {{path_to_device_file}} {{directory_to_mount_to}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Mount a CD-ROM device (with the filetype ISO9660) to /cdrom (readonly)
+    </li>
+   </ul>
+   <p>
+    <pre><code>mount -t {{iso9660}} -o ro {{/dev/cdrom}} {{/cdrom}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Mount all the filesystem defined in /etc/fstab
+    </li>
+   </ul>
+   <p>
+    <pre><code>mount -a</code></pre>
+   </p>
+   <ul>
+    <li>
+     Mount a specific filesystem described in /etc/fstab (e.g. "/dev/sda1 /my_drive ext2 defaults 0 2")
+    </li>
+   </ul>
+   <p>
+    <pre><code>mount {{/my_drive}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

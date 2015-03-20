@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    redis-cli
+   </h1>
+   <blockquote>
+    <p>
+     Opens a connection to a Redis server
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Connect to the local server
+    </li>
+   </ul>
+   <p>
+    <pre><code>redis-cli</code></pre>
+   </p>
+   <ul>
+    <li>
+     Connect to a remote server
+    </li>
+   </ul>
+   <p>
+    <pre><code>redis-cli -h {{host}}</code></pre>
+    <pre><code>redis-cli -h {{host}} -p {{port}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Specify a password
+    </li>
+   </ul>
+   <p>
+    <pre><code>redis-cli -a {{password}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Executes Redis command
+    </li>
+   </ul>
+   <p>
+    <pre><code>redis-cli {{redis command}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

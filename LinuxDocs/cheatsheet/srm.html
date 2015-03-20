@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    srm
+   </h1>
+   <blockquote>
+    <p>
+     Securely remove files or directories
+  Overwrites the existing data one or multiple. Drop in replacement for rm.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Removes a file after overwriting (single pass, 7 pass, 35 pass)
+    </li>
+   </ul>
+   <p>
+    <pre><code>srm -s {{/path/to/file}}</code></pre>
+    <pre><code>srm -m {{/path/to/file}}</code></pre>
+    <pre><code>srm {{/path/to/file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Scurely remove recursively a directory and all it's subdirectories
+    </li>
+   </ul>
+   <p>
+    <pre><code>srm -r {{/path/to/folder}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Prompt before every removal
+    </li>
+   </ul>
+   <p>
+    <pre><code>srm -i {{\*}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

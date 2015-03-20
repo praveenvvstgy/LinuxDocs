@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    rename
+   </h1>
+   <blockquote>
+    <p>
+     renames multiple files
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Change foo to bar in matching files
+    </li>
+   </ul>
+   <p>
+    <pre><code>rename {{'s/foo/bar/'}} {{*.txt}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Convert to lower case
+    </li>
+   </ul>
+   <p>
+    <pre><code>rename -c {{*.txt}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Replace whitespace with underscores
+    </li>
+   </ul>
+   <p>
+    <pre><code>rename --nows {{*.txt}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

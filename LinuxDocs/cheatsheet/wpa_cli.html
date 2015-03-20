@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    wpa_cli
+   </h1>
+   <blockquote>
+    <p>
+     add and configure wlan interfaces
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     scan for available networks
+    </li>
+   </ul>
+   <p>
+    <pre><code>wpa_cli scan</code></pre>
+    <pre><code>wpa_cli scan_results</code></pre>
+   </p>
+   <ul>
+    <li>
+     add a network
+    </li>
+   </ul>
+   <p>
+    <pre><code>wpa_cli add_network {{number}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     configure the network, e.g. set SSID and passkey
+    </li>
+   </ul>
+   <p>
+    <pre><code>wpa_cli set_network {{number}} ssid {{SSID}}</code></pre>
+    <pre><code>wpa_cli set_network {{number}} psk {{passkey}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     enable network
+    </li>
+   </ul>
+   <p>
+    <pre><code>wpa_cli enable_network {{number}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     save config
+    </li>
+   </ul>
+   <p>
+    <pre><code>wpa_cli save_config</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

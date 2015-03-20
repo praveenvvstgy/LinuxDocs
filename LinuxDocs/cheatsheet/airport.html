@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    Airport
+   </h1>
+   <blockquote>
+    <p>
+     Airport utility
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Create a symlink so you can easily run 'airport' without specifying a path.
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/sbin/airport</code></pre>
+   </p>
+   <ul>
+    <li>
+     Scan for available wireless networks
+    </li>
+   </ul>
+   <p>
+    <pre><code>airport -s</code></pre>
+   </p>
+   <ul>
+    <li>
+     Disassociate from current airport network
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo airport -z</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

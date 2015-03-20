@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    gifsicle
+   </h1>
+   <blockquote>
+    <p>
+     Create gifs
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Making a GIF animation with gifsicle
+    </li>
+   </ul>
+   <p>
+    <pre><code>gifsicle --delay={{10}} --loop *.gif &gt; {{anim.gif}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Extracting frames from an animation
+    </li>
+   </ul>
+   <p>
+    <pre><code>gifsicle {{anim.gif}} '#0' &gt; {{firstframe.gif}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     You can also edit animations by replacing, deleting, or inserting frames
+    </li>
+   </ul>
+   <p>
+    <pre><code>gifsicle -b {{anim.gif}} --replace '#0' {{new.gif}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

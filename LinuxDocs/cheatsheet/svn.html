@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    svn
+   </h1>
+   <blockquote>
+    <p>
+     Subversion command line client tool
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Check out a working copy from a repository
+    </li>
+   </ul>
+   <p>
+    <pre><code>svn co {{url/to/repository}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Bring changes from the repository into the working copy
+    </li>
+   </ul>
+   <p>
+    <pre><code>svn up</code></pre>
+   </p>
+   <ul>
+    <li>
+     Put files and directories under version control, scheduling them for addition to repository. They will be added in next commit.
+    </li>
+   </ul>
+   <p>
+    <pre><code>svn add PATH...</code></pre>
+   </p>
+   <ul>
+    <li>
+     Send changes from your working copy to the repository
+    </li>
+   </ul>
+   <p>
+    <pre><code>svn ci -m {{commit log message}} {{[PATH...]}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Show detailed help
+    </li>
+   </ul>
+   <p>
+    <pre><code>svn help</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

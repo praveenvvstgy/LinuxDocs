@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    findmnt
+   </h1>
+   <blockquote>
+    <p>
+     Find your filesystem
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     List all mounted filesystems
+    </li>
+   </ul>
+   <p>
+    <pre><code>findmnt</code></pre>
+   </p>
+   <ul>
+    <li>
+     Search for a device
+    </li>
+   </ul>
+   <p>
+    <pre><code>findmnt {{/dev/sdb1}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Search for a mountpoint
+    </li>
+   </ul>
+   <p>
+    <pre><code>findmnt {{/}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Find filesystems in specific type
+    </li>
+   </ul>
+   <p>
+    <pre><code>findmnt -t {{ext4}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Find filesystems with specific label
+    </li>
+   </ul>
+   <p>
+    <pre><code>findmnt LABEL={{BigStorage}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

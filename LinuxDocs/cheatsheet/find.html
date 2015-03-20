@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    find
+   </h1>
+   <blockquote>
+    <p>
+     Find files under the given directory tree, recursively
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     find files by extension
+    </li>
+   </ul>
+   <p>
+    <pre><code>find {{root_path}} -name {{'*.py'}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     run a command for each file
+    </li>
+    <li>
+     use {} within the command to access the filename
+    </li>
+   </ul>
+   <p>
+    <pre><code>find {{root_path}} -name {{'*.py'}} -exec {{wc -l {} }}\;</code></pre>
+    <pre><code>find {{root_path}} -name {{'*.py'}} -exec {{rm {} }}\;</code></pre>
+   </p>
+   <ul>
+    <li>
+     find files modified since a certain time
+    </li>
+   </ul>
+   <p>
+    <pre><code>find {{root_path}} -name {{'*.py'}} -mtime {{-1d}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     find files using case insensitive name matching, of a certain size
+    </li>
+   </ul>
+   <p>
+    <pre><code>find {{root_path}} -size +500k -size -10MB -iname {{'*.TaR.gZ'}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

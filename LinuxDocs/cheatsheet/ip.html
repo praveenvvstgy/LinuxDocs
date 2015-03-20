@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    ip
+   </h1>
+   <blockquote>
+    <p>
+     Show / manipulate routing, devices, policy routing and tunnels
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     List interfaces with detailed info
+    </li>
+   </ul>
+   <p>
+    <pre><code>ip a</code></pre>
+   </p>
+   <ul>
+    <li>
+     Display the routing table
+    </li>
+   </ul>
+   <p>
+    <pre><code>ip r</code></pre>
+   </p>
+   <ul>
+    <li>
+     Make an interface up/down
+    </li>
+   </ul>
+   <p>
+    <pre><code>ip link set {{interface}} up/down</code></pre>
+   </p>
+   <ul>
+    <li>
+     Add/Delete an ip address to an interface
+    </li>
+   </ul>
+   <p>
+    <pre><code>ip addr add/del {{ip}}/{{mask}} dev {{interface}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Add an default route
+    </li>
+   </ul>
+   <p>
+    <pre><code>ip route add default via {{ip}} dev {{interface}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

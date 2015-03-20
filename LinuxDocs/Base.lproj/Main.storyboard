@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="U2P-gg-0Am">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="P7u-ue-vfS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -13,24 +13,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="prominent" placeholder="Search is Amazing!" showsScopeBar="YES" id="1Dq-Ks-xmc">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                            <scopeButtonTitles>
-                                <string>All</string>
-                                <string>1</string>
-                                <string>2</string>
-                                <string>3</string>
-                                <string>4</string>
-                                <string>5</string>
-                                <string>7</string>
-                                <string>8</string>
-                            </scopeButtonTitles>
-                            <connections>
-                                <outlet property="delegate" destination="SN6-7S-iB0" id="cx3-VR-Esg"/>
-                            </connections>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="manPage" id="865-jD-RwY">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -44,30 +26,78 @@
                             <outlet property="delegate" destination="SN6-7S-iB0" id="ioh-F0-8PH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Man Pages" id="TR5-W7-c2e">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="N4z-5j-n5H">
-                            <connections>
-                                <action selector="searchButtonClicked:" destination="SN6-7S-iB0" id="HM5-JP-pUm"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Man Pages" id="TR5-W7-c2e"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="Ttl-LM-VLb" id="aWR-Hv-XFC"/>
                         <segue destination="w5a-C0-mOZ" kind="push" identifier="manPageBrowser" id="iET-yu-X64"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtc-8X-XPf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="Ttl-LM-VLb">
-                    <connections>
-                        <outlet property="delegate" destination="SN6-7S-iB0" id="cZV-qR-AFc"/>
-                        <outlet property="searchBar" destination="1Dq-Ks-xmc" id="wOY-0i-qDk"/>
-                        <outlet property="searchContentsController" destination="SN6-7S-iB0" id="mvk-nq-64C"/>
-                        <outlet property="searchResultsDataSource" destination="SN6-7S-iB0" id="Pgd-3p-wDQ"/>
-                        <outlet property="searchResultsDelegate" destination="SN6-7S-iB0" id="bTe-kp-L0D"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1060" y="341"/>
+            <point key="canvasLocation" x="1592" y="341"/>
+        </scene>
+        <!--Cheat Sheets View Controller-->
+        <scene sceneID="PJp-Pd-1WP">
+            <objects>
+                <tableViewController id="7vh-3h-x41" customClass="CheatSheetsViewController" customModule="LinuxDocs" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hVg-Xc-6X0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cheatSheet" id="WQH-ag-bif">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WQH-ag-bif" id="3HZ-EP-p2V">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7vh-3h-x41" id="TsK-NW-xwa"/>
+                            <outlet property="delegate" destination="7vh-3h-x41" id="wpE-gQ-X0r"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="uG9-ws-4xD"/>
+                    <connections>
+                        <segue destination="0Qu-4s-ZGn" kind="push" identifier="cheatSheetBrowser" id="Q0I-cV-cvT"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PdK-Hm-Jza" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1592" y="1019"/>
+        </scene>
+        <!--Cheat Sheet Browser View Controller-->
+        <scene sceneID="s5z-f9-ExV">
+            <objects>
+                <viewController id="0Qu-4s-ZGn" customClass="CheatSheetBrowserViewController" customModule="LinuxDocs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="enG-um-oDC"/>
+                        <viewControllerLayoutGuide type="bottom" id="mjo-SB-wUb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LjW-lV-VCj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7eR-cs-8AZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7eR-cs-8AZ" firstAttribute="leading" secondItem="LjW-lV-VCj" secondAttribute="leadingMargin" constant="-16" id="DP5-nc-n0H"/>
+                            <constraint firstItem="7eR-cs-8AZ" firstAttribute="bottom" secondItem="LjW-lV-VCj" secondAttribute="bottomMargin" id="DvS-1o-HGc"/>
+                            <constraint firstItem="7eR-cs-8AZ" firstAttribute="top" secondItem="LjW-lV-VCj" secondAttribute="topMargin" id="djA-z5-eIB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7eR-cs-8AZ" secondAttribute="trailing" constant="-16" id="foK-mC-1TQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="aW2-YQ-aVp"/>
+                    <connections>
+                        <outlet property="cheatSheetBrowser" destination="7eR-cs-8AZ" id="Pd0-q8-ic2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dMj-Na-uCO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1994" y="1019"/>
         </scene>
         <!--Man Page Browser View Controller-->
         <scene sceneID="W97-Di-lHy">
@@ -82,7 +112,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6EC-YL-Dbj">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
@@ -101,12 +131,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Gd-NB-UbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1462" y="341"/>
+            <point key="canvasLocation" x="1994" y="341"/>
         </scene>
         <!--Man Pages-->
         <scene sceneID="oSd-RZ-l1T">
             <objects>
                 <navigationController title="Man Pages" automaticallyAdjustsScrollViewInsets="NO" id="U2P-gg-0Am" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Man Pages" id="Vpb-Mf-Ci1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mdU-Lh-GFO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -119,7 +150,45 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hpx-Tm-uoR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="542" y="341"/>
+            <point key="canvasLocation" x="1074" y="341"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ggq-CH-UAb">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="P7u-ue-vfS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Nzz-2I-yKG">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="U2P-gg-0Am" kind="relationship" relationship="viewControllers" id="daK-Da-0UA"/>
+                        <segue destination="acT-pk-Nqz" kind="relationship" relationship="viewControllers" id="0uF-XE-mzv"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cT8-lP-qV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="496" y="1019"/>
+        </scene>
+        <!--CheatSheets-->
+        <scene sceneID="8Sa-Nf-zEP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="acT-pk-Nqz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="CheatSheets" id="J3m-ce-2tR"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HnA-HN-0g2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7vh-3h-x41" kind="relationship" relationship="rootViewController" id="f7b-qi-ZbW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vjt-3H-8ka" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1074" y="1019"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

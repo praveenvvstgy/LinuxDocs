@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    umount
+   </h1>
+   <blockquote>
+    <p>
+     Revokes access to an entire filesystem mounted to a directory.
+  A filesystem cannot be unmounted when it is busy.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Unmount a filesystem
+    </li>
+   </ul>
+   <p>
+    <pre><code>umount {{path_to_device_file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     OR
+    </li>
+   </ul>
+   <p>
+    <pre><code>umount {{path_to_mounted_directory}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Unmount all mounted filesystems (dangerous!)
+    </li>
+   </ul>
+   <p>
+    <pre><code>umount -a</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    zpool
+   </h1>
+   <blockquote>
+    <p>
+     Manage ZFS pools
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Show the configuration and status of all ZFS zpools
+    </li>
+   </ul>
+   <p>
+    <pre><code>zpool status [{{poolname}}]</code></pre>
+   </p>
+   <ul>
+    <li>
+     Check a ZFS pool for errors (verifies the checksum of EVERY block). Very CPU and disk intensive.
+    </li>
+   </ul>
+   <p>
+    <pre><code>zpool scrub {{poolname}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     List zpools available for import
+    </li>
+   </ul>
+   <p>
+    <pre><code>zpool import</code></pre>
+   </p>
+   <ul>
+    <li>
+     Import a zpool, optionally specifying a new name
+    </li>
+   </ul>
+   <p>
+    <pre><code>zpool import {{poolname}}</code></pre>
+    <pre><code>zpool import {{poolname}} {{newpoolname}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Export a zpool (unmount all filesystems)
+    </li>
+   </ul>
+   <p>
+    <pre><code>zpool export {{poolname}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Show the history of all pool operations
+    </li>
+   </ul>
+   <p>
+    <pre><code>zpool histrory {{poolname}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create a mirrored pool.
+    </li>
+   </ul>
+   <p>
+    <pre><code>zpool create {{poolname}} mirror {{disk1}} {{disk2}}</code></pre>
+    <pre><code>zpool create {{poolname}} mirror {{disk1}} {{disk2}} mirror {{disk3}} {{disk4}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

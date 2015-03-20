@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    svcs
+   </h1>
+   <blockquote>
+    <p>
+     List information about running services
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     list all running services
+    </li>
+   </ul>
+   <p>
+    <pre><code>svcs</code></pre>
+   </p>
+   <ul>
+    <li>
+     list services that are not running
+    </li>
+   </ul>
+   <p>
+    <pre><code>svcs -vx</code></pre>
+   </p>
+   <ul>
+    <li>
+     list information about a service
+    </li>
+   </ul>
+   <p>
+    <pre><code>svcs apache</code></pre>
+   </p>
+   <ul>
+    <li>
+     show location of service log file
+    </li>
+   </ul>
+   <p>
+    <pre><code>svcs -L apache</code></pre>
+   </p>
+   <ul>
+    <li>
+     display end of a service log file
+    </li>
+   </ul>
+   <p>
+    <pre><code>tail $(svcs -L apache)</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

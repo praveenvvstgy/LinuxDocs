@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    ab
+   </h1>
+   <blockquote>
+    <p>
+     Apache Benchmarking tool. The simplest tool to perform a load testing.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Execute 100 HTTP GET requests to given URL.
+    </li>
+   </ul>
+   <p>
+    <pre><code>ab -n 100 {{url}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Execute 100 HTTP GET requests, processing up to 10 requests concurrently, to given URL.
+    </li>
+   </ul>
+   <p>
+    <pre><code>ab -n 100 -c 10 {{url}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

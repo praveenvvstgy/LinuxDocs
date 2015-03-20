@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    systemsetup
+   </h1>
+   <blockquote>
+    <p>
+     Configure System Preferences machine settings
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Enable remote login (SSH)
+    </li>
+   </ul>
+   <p>
+    <pre><code>systemsetup -setremotelogin on</code></pre>
+   </p>
+   <ul>
+    <li>
+     Specify TimeZone, NTP Server and enable network time
+    </li>
+   </ul>
+   <p>
+    <pre><code>systemsetup -settimezone {{US/Pacific}}</code></pre>
+    <pre><code>systemsetup -setnetworktimeserver {{us.pool.ntp.org}}</code></pre>
+    <pre><code>systemsetup -setusingnetworktime on</code></pre>
+   </p>
+   <ul>
+    <li>
+     Make the machine never sleep; restart on freeze &amp; power failure
+    </li>
+   </ul>
+   <p>
+    <pre><code>systemsetup -setsleep off</code></pre>
+    <pre><code>systemsetup -setrestartpowerfailure on</code></pre>
+    <pre><code>systemsetup -setrestartfreeze on</code></pre>
+   </p>
+   <ul>
+    <li>
+     List valid startup disks, specify a new startup disk
+    </li>
+   </ul>
+   <p>
+    <pre><code>systemsetup -liststartupdisks</code></pre>
+    <pre><code>systemsetup -setstartupdisk {{path}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

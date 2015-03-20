@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    tr
+   </h1>
+   <blockquote>
+    <p>
+     translate characters - run replacements based on single characters and character sets
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Replace all occurrences of a character in a file, and print the result
+    </li>
+   </ul>
+   <p>
+    <pre><code>tr {{find_characters}} {{replace_characters}} &lt; {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Map each character of the first set to the corresponding character of the second set.
+    </li>
+   </ul>
+   <p>
+    <pre><code>tr 'abcd' 'jkmn' &lt; {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Delete all occurances of the specified set of characters from the input.
+    </li>
+   </ul>
+   <p>
+    <pre><code>tr -d '{{input_characters}}'</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compress a series of identical characters to a single character.
+    </li>
+   </ul>
+   <p>
+    <pre><code>tr -s '\n'</code></pre>
+   </p>
+   <ul>
+    <li>
+     Translate the contents of the file to upper-case and print result.
+    </li>
+   </ul>
+   <p>
+    <pre><code>tr "[:lower:]" "[:upper:]" &lt; {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Strip out non-printable characters from the file and print result.
+    </li>
+   </ul>
+   <p>
+    <pre><code>tr -cd "[:print:]" &lt; {{filename}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

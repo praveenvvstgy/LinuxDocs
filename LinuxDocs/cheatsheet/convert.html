@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    convert
+   </h1>
+   <blockquote>
+    <p>
+     Imagemagick image conversion tool
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Convert an image from JPG to PNG
+    </li>
+   </ul>
+   <p>
+    <pre><code>convert {{image.jpg}} {{image.png}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Scale an image 50% it's original size
+    </li>
+   </ul>
+   <p>
+    <pre><code>convert {{image.png}} -resize 50% {{image2.png}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Horizontally append images
+    </li>
+   </ul>
+   <p>
+    <pre><code>convert {{image1.png}} {{image2.png}} {{image3.png}} +append {{image123.png}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

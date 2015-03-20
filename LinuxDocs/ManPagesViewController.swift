@@ -8,49 +8,43 @@
 
 import UIKit
 
-class ManPagesViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate {
+class ManPagesViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
     
     var manPagesIndex = [Int:[ManPage]]()
     var filteredManPagesIndex = [Int:[ManPage]]()
     
+    var searchController: UISearchController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         self.readManPageIndexFromJson()
-        self.tableView.reloadData()
-//        self.searchDisplayController?.displaysSearchBarInNavigationBar = true
-        self.navigationController?.hidesBarsOnSwipe = true
+        
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.sizeToFit()
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        
+        definesPresentationContext = true
+        
+        searchController.searchBar.scopeButtonTitles = [
+            "All",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "7",
+            "8"
+        ]
+        
+//        navigationItem.titleView = searchController.searchBar
+        self.tableView.tableHeaderView = searchController.searchBar
         
     }
     
-    
-    @IBAction func searchButtonClicked(sender: UIBarButtonItem) {
-        self.searchDisplayController?.searchBar.becomeFirstResponder()
 
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        var newBounds: CGRect = self.tableView.bounds
-        if (self.tableView.bounds.origin.y < 44) {
-            newBounds.origin.y = newBounds.origin.y + self.searchDisplayController!.searchBar.bounds.size.height
-            self.tableView.bounds = newBounds
-        }
-    }
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        self.viewWillAppear(true)
-    }
-    
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
-        if scrollView.contentOffset.y  <= 30 {
-            scrollView.scrollEnabled = false
-            scrollView.contentOffset = CGPointMake(0, 30)
-            scrollView.scrollEnabled = true
-        }
-    }
-
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -77,14 +71,18 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
                 manPageForSection.append(ManPage(data: manPage as NSDictionary))
             }
             self.manPagesIndex[i] = manPageForSection
-//            println(manPageForSection.count)
         }
-//        println(self.manPagesIndex)
         
     }
     
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let searchText = searchController.searchBar.text
+        filterManPageForSearchText(searchText, section: "All")
+        tableView.reloadData()
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if tableView == self.searchDisplayController?.searchResultsTableView {
+        if searchController.active {
             return self.filteredManPagesIndex.count
         } else {
             return self.manPagesIndex.count
@@ -100,7 +98,7 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == self.searchDisplayController?.searchResultsTableView {
+        if searchController.active {
             return self.filteredManPagesIndex[section + 1]?.count as Int!
         } else {
             return self.manPagesIndex[section + 1]?.count as Int!
@@ -110,12 +108,7 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let reuseIdentifier = "manPage"
         let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as UITableViewCell
-        var manPagesInSection: [ManPage]!
-        if tableView == self.searchDisplayController?.searchResultsTableView {
-            manPagesInSection = self.filteredManPagesIndex[indexPath.section + 1] as [ManPage]!
-        } else {
-            manPagesInSection = self.manPagesIndex[indexPath.section + 1] as [ManPage]!
-        }
+        let manPagesInSection: [ManPage]! = (searchController.active) ? self.filteredManPagesIndex[indexPath.section + 1] : self.manPagesIndex[indexPath.section + 1]
         cell.textLabel?.text = manPagesInSection[indexPath.row].name
         return cell
     }
@@ -140,19 +133,6 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
         }
     }
     
-    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
-        let scopes = self.searchDisplayController?.searchBar.scopeButtonTitles as [String]
-        let selectedScope = scopes[self.searchDisplayController!.searchBar.selectedScopeButtonIndex] as String
-        self.filterManPageForSearchText(searchString, section: selectedScope)
-        return true
-    }
-    
-    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
-        let scopes = self.searchDisplayController?.searchBar.scopeButtonTitles as [String]
-        self.filterManPageForSearchText(self.searchDisplayController!.searchBar.text, section: scopes[searchOption])
-        return true
-    }
-    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("manPageBrowser", sender: tableView)
     }
@@ -162,15 +142,10 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "manPageBrowser" {
             let destinationViewController = segue.destinationViewController as ManPageBrowserViewController
-            if sender as? UITableView == self.searchDisplayController?.searchResultsTableView {
-                let indexPath = self.searchDisplayController?.searchResultsTableView.indexPathForSelectedRow()
-                let manPagesInSection = self.filteredManPagesIndex[indexPath!.section + 1] as [ManPage]!
-                destinationViewController.manPage = manPagesInSection[indexPath!.row]
-            } else {
-                let indexPath = self.tableView.indexPathForSelectedRow()
-                let manPagesInSection = self.manPagesIndex[indexPath!.section + 1] as [ManPage]!
-                destinationViewController.manPage = manPagesInSection[indexPath!.row]
-            }
+            let indexPath = self.tableView.indexPathForSelectedRow()
+            let manPagesInSection: [ManPage]! = (searchController.active) ? self.filteredManPagesIndex[indexPath!.section + 1] : self.manPagesIndex[indexPath!.section + 1]
+
+            destinationViewController.manPage = manPagesInSection[indexPath!.row]
         }
     }
     

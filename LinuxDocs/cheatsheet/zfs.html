@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    zfs
+   </h1>
+   <blockquote>
+    <p>
+     Manage ZFS filesystems
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     List all available zfs filesystems
+    </li>
+   </ul>
+   <p>
+    <pre><code>zfs list</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create a new ZFS filesystem
+    </li>
+   </ul>
+   <p>
+    <pre><code>zfs create poolname/newfsname</code></pre>
+   </p>
+   <ul>
+    <li>
+     Delete a ZFS filesystem
+    </li>
+   </ul>
+   <p>
+    <pre><code>zfs destroy {{poolname/newfsname}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create a Snapshot of a ZFS filesystem
+    </li>
+   </ul>
+   <p>
+    <pre><code>zfs snapshot {{poolname/filesystem@snapshot-name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Enable compression on a filesystem
+    </li>
+   </ul>
+   <p>
+    <pre><code>zfs set compression=on {{poolname/fileystem}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Change mountpoint for a filesytem
+    </li>
+   </ul>
+   <p>
+    <pre><code>zfs set mountpoint={{/my/mount/path}} {{poolname/filesystem}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

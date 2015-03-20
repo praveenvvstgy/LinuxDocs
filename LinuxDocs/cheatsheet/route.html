@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    route
+   </h1>
+   <blockquote>
+    <p>
+     Manually manipulate the routing tables
+  Necessitates to be root.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     add a route to a destination through a gateway
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo route add {{dest_ip_address}} {{gateway_address}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     add a route to a /24 subnet through a gateway
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo route add {{subnet_ip_address}}/24 {{gateway_address}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     run in test mode (does not do anything, just print)
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo route -t add {{dest_ip_address}}/24 {{gateway_address}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     remove all routes
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo route flush</code></pre>
+   </p>
+   <ul>
+    <li>
+     delete a specific route
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo route delete {{dest_ip_address}}/24</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

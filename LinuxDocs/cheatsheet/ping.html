@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    ping
+   </h1>
+   <blockquote>
+    <p>
+     send ICMP ECHO_REQUEST packets to network hosts
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Ping host
+    </li>
+   </ul>
+   <p>
+    <pre><code>ping {{host}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Ping host limiting the number of packages to be send to four
+    </li>
+   </ul>
+   <p>
+    <pre><code>ping -c 4 {{host}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Ping host, waiting for 0.5 s between each request (default is 1 s)
+    </li>
+   </ul>
+   <p>
+    <pre><code>ping -i 0.5 {{host}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Ping host without trying to lookup symbolic names for addresses
+    </li>
+   </ul>
+   <p>
+    <pre><code>ping -n {{host}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

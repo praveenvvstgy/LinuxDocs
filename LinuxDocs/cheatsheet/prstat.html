@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    prstat
+   </h1>
+   <blockquote>
+    <p>
+     Report active process statistics
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     examine all processes and reports statistics sorted by CPU usage
+    </li>
+   </ul>
+   <p>
+    <pre><code>prstat</code></pre>
+   </p>
+   <ul>
+    <li>
+     examine all processes and reports statistics sorted by memory usage
+    </li>
+   </ul>
+   <p>
+    <pre><code>prstat -s rss</code></pre>
+   </p>
+   <ul>
+    <li>
+     report total usage summary for each user
+    </li>
+   </ul>
+   <p>
+    <pre><code>prstat -t</code></pre>
+   </p>
+   <ul>
+    <li>
+     report microstate process accounting information
+    </li>
+   </ul>
+   <p>
+    <pre><code>prstat -m</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print out a list of top 5 cpu using processes every second.
+    </li>
+   </ul>
+   <p>
+    <pre><code>prstat -c -n 5 -s cpu 1</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

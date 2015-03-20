@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    ffmpeg
+   </h1>
+   <blockquote>
+    <p>
+     Video conversion tool
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Extract the sound from a video and save it as MP3
+    </li>
+   </ul>
+   <p>
+    <pre><code>ffmpeg -i {{video-filename}} -vn -ar 44100 -ac 2 -ab 192 -f mp3 {{sound.mp3}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Convert frames from a video into individual numbered images
+    </li>
+   </ul>
+   <p>
+    <pre><code>ffmpeg -i {{video-filename}} {{image%d.png}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Combine numbered images (image1.jpg, image2.jpg, etc) into a video
+    </li>
+   </ul>
+   <p>
+    <pre><code>ffmpeg -f image2 -i {{image%d.jpg}} {{video.mpg}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Convert AVI video to MP4. AAC Audio @ 128kbit, Video @ 1250Kbit
+    </li>
+   </ul>
+   <p>
+    <pre><code>ffmpeg -i {{in.avi}} -acodec libfaac -ab 128k -vcodec mpeg4 -b 1250K {{out.mp4}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

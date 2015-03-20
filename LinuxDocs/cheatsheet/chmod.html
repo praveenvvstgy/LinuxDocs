@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    chmod
+   </h1>
+   <blockquote>
+    <p>
+     Change the access permissions of a file or directory
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Give the (u)ser who owns a file the right to e(x)ecute it
+    </li>
+   </ul>
+   <p>
+    <pre><code>chmod u+x {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Give the user rights to (r)ead and (w)rite to a file/directory
+    </li>
+   </ul>
+   <p>
+    <pre><code>chmod u+rw {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Remove executable rights from the (g)roup
+    </li>
+   </ul>
+   <p>
+    <pre><code>chmod g-x {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Give (a)ll users rights to read and execute
+    </li>
+   </ul>
+   <p>
+    <pre><code>chmod a+rx {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Give (o)thers (not in the file owner's group) the same rights as the group
+    </li>
+   </ul>
+   <p>
+    <pre><code>chmod o=g {{file}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

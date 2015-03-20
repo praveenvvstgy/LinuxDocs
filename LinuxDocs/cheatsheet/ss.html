@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    ss
+   </h1>
+   <blockquote>
+    <p>
+     Utility to investigate sockets
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Dump all TCP/UDP/RAW/UNIX sockets
+    </li>
+   </ul>
+   <p>
+    <pre><code>ss -a {{-t/-u/-w/-x}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Show process(es) that using socket
+    </li>
+   </ul>
+   <p>
+    <pre><code>ss -p</code></pre>
+   </p>
+   <ul>
+    <li>
+     Filter TCP sockets by states, only/exclude
+    </li>
+   </ul>
+   <p>
+    <pre><code>ss {{state/exclude}} {{bucket/big/connected/synchronized/...}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Filter sockets by address and/or port
+    </li>
+   </ul>
+   <p>
+    <pre><code>ss -t dst 1.2.3.4:80</code></pre>
+    <pre><code>ss -u src 127/8</code></pre>
+    <pre><code>ss -t 'dport &gt;= :1024'</code></pre>
+    <pre><code>ss -x "src /tmp/.X11-unix/*"</code></pre>
+    <pre><code>ss -t state established '( dport = :ssh or sport = :ssh )'</code></pre>
+   </p>
+   <ul>
+    <li>
+     Only list IPv4 or IPv6 sockets
+    </li>
+   </ul>
+   <p>
+    <pre><code>ss {{-4/-6}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

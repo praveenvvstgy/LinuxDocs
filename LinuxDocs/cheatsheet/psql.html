@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    psql
+   </h1>
+   <blockquote>
+    <p>
+     PostgreSQL command-line client
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Connect to
+     <em>
+      database
+     </em>
+     . It connects to localhost using default port
+     <em>
+      5432
+     </em>
+     with default user
+    </li>
+   </ul>
+   <p>
+    <pre><code>psql {{database}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Connect to
+     <em>
+      database
+     </em>
+     on given server
+     <em>
+      host
+     </em>
+     running on given
+     <em>
+      port
+     </em>
+     with
+     <em>
+      username
+     </em>
+     given
+    </li>
+   </ul>
+   <p>
+    <pre><code>psql -h {{host}} -p {{port}} -U {{username}} {{database}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Run single
+     <em>
+      query
+     </em>
+     against the given
+     <em>
+      database
+     </em>
+     . Note: useful in shell scripts
+    </li>
+   </ul>
+   <p>
+    <pre><code>psql -c '{{query}}' {{database}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Run several queries against the given
+     <em>
+      database
+     </em>
+     . Note: useful in shell scripts
+    </li>
+   </ul>
+   <p>
+    <pre><code>echo '{{query1}}; {{query2}}' | psql {{database}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

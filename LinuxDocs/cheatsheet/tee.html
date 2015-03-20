@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    TEE
+   </h1>
+   <blockquote>
+    <p>
+     read from standard input and write to standard output and files
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Copy standard input to each FILE, and also to standard output.
+    </li>
+   </ul>
+   <p>
+    <pre><code>echo "example" | tee {{FILE}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     append to the given FILEs, do not overwrite
+    </li>
+   </ul>
+   <p>
+    <pre><code>echo "example" | tee -a {{FILE}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

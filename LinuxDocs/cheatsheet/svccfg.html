@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    svccfg
+   </h1>
+   <blockquote>
+    <p>
+     Import, export, and modify service configurations
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     validate configuration file
+    </li>
+   </ul>
+   <p>
+    <pre><code>svccfg validate {{smf.xml}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     export service configurations to file
+    </li>
+   </ul>
+   <p>
+    <pre><code>svccfg export {{servicename}} &gt; {{smf.xml}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     import/update service configurations from file.
+    </li>
+   </ul>
+   <p>
+    <pre><code>svccfg import {{smf.xml}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

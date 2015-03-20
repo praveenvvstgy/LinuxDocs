@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    mv
+   </h1>
+   <blockquote>
+    <p>
+     Move or rename files and directories
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Move files in abitrary locations
+    </li>
+   </ul>
+   <p>
+    <pre><code>mv {{source}} {{target}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Do not prompt for confirmation before overwriting existing files
+    </li>
+   </ul>
+   <p>
+    <pre><code>mv -f {{source}} {{target}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Do not prompt for confirmation before overwriting existing files but write to standard error before overriding
+    </li>
+   </ul>
+   <p>
+    <pre><code>mv -fi {{source}} {{target}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Move files in verbose mode, showing files after they are moved
+    </li>
+   </ul>
+   <p>
+    <pre><code>mv -v {{source}} {{target}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    chown
+   </h1>
+   <blockquote>
+    <p>
+     Change the owning user/group of the specified files
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     change the user of a file
+    </li>
+   </ul>
+   <p>
+    <pre><code>chown {{user}} {{path/to/file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     change the user and group of a file
+    </li>
+   </ul>
+   <p>
+    <pre><code>chown {{user}}:{{group}} {{path/to/file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     recursively change the owner of an entire folder
+    </li>
+   </ul>
+   <p>
+    <pre><code>chown -R {{user}} {{path/to/folder}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     change the owner of a symbolic link
+    </li>
+   </ul>
+   <p>
+    <pre><code>chown -h {{user}} {{path/to/symlink}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     use the owner and group of a reference file and apply those values to another file
+    </li>
+   </ul>
+   <p>
+    <pre><code>chown --reference={{reference-file}} {{path/to/file}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

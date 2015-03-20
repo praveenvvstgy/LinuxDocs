@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    shutdown
+   </h1>
+   <blockquote>
+    <p>
+     Shutdown and reboot the system
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Power off (halt) immediately
+    </li>
+   </ul>
+   <p>
+    <pre><code>shutdown -h now</code></pre>
+   </p>
+   <ul>
+    <li>
+     Reboot immediately
+    </li>
+   </ul>
+   <p>
+    <pre><code>shutdown -r now</code></pre>
+   </p>
+   <ul>
+    <li>
+     Reboot in 5 minutes
+    </li>
+   </ul>
+   <p>
+    <pre><code>shutdown -r +{{5}} &amp;</code></pre>
+   </p>
+   <ul>
+    <li>
+     Cancel a pending shutdown/reboot operation
+    </li>
+   </ul>
+   <p>
+    <pre><code>shutdown -c</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

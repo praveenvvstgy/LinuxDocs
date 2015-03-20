@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    tar
+   </h1>
+   <blockquote>
+    <p>
+     Archiving utility
+  Optional compression with gzip / bzip
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     create an archive from files
+    </li>
+   </ul>
+   <p>
+    <pre><code>tar cf {{target.tar}} {{file1 file2 file3}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     create a gzipped archive
+    </li>
+   </ul>
+   <p>
+    <pre><code>tar czf {{target.tar.gz}} {{file1 file2 file3}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     extract an archive in a target folder
+    </li>
+   </ul>
+   <p>
+    <pre><code>tar xf {{source.tar}} -C {{folder}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     extract a gzipped archive in the current directory
+    </li>
+   </ul>
+   <p>
+    <pre><code>tar xzf {{source.tar.gz}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     extract a bzipped archive in the current directory
+    </li>
+   </ul>
+   <p>
+    <pre><code>tar xjf {{source.tar.bz2}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     create a compressed archive, using archive suffix to determine the compression program
+    </li>
+   </ul>
+   <p>
+    <pre><code>tar caf {{target.tar.xz}} {{file1 file2 file3}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     list the contents of a tar file
+    </li>
+   </ul>
+   <p>
+    <pre><code>tar -tvf {{source.tar}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

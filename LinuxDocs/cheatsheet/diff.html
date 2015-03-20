@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    diff
+   </h1>
+   <blockquote>
+    <p>
+     Compare files and directories
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Compare files
+    </li>
+   </ul>
+   <p>
+    <pre><code>diff {{file1}} {{file2}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compare files, ignoring white spaces
+    </li>
+   </ul>
+   <p>
+    <pre><code>diff -w {{file1}} {{file2}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compare files, showing differences side by side
+    </li>
+   </ul>
+   <p>
+    <pre><code>diff -y {{file1}} {{file2}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compare directories recursively
+    </li>
+   </ul>
+   <p>
+    <pre><code>diff -r {{directory1}} {{directory2}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compare directories, only showing the names of files that differ
+    </li>
+   </ul>
+   <p>
+    <pre><code>diff -rq {{directory1}} {{directory2}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

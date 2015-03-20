@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    deluser
+   </h1>
+   <blockquote>
+    <p>
+     Remove a user account or remove a user from a group
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Remove a user
+    </li>
+   </ul>
+   <p>
+    <pre><code>deluser {{name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Remove a user along with their home directory and mail spool
+    </li>
+   </ul>
+   <p>
+    <pre><code>deluser -r {{name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Remove a user from a group
+    </li>
+   </ul>
+   <p>
+    <pre><code>deluser {{name}} {{group}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

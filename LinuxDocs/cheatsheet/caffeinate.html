@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    caffeinate
+   </h1>
+   <blockquote>
+    <p>
+     Prevent a system from sleeping
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Prevent mac from sleeping for 1 hour (3600 seconds)
+    </li>
+   </ul>
+   <p>
+    <pre><code>caffeinate -u -t 3600</code></pre>
+   </p>
+   <ul>
+    <li>
+     Prevent mac from sleeping until a command completes
+    </li>
+   </ul>
+   <p>
+    <pre><code>caffeinate -s {{command}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    mtr
+   </h1>
+   <blockquote>
+    <p>
+     Combined traceroute and ping tool
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Traceroute to a host and continuously ping all intermediary hops
+    </li>
+   </ul>
+   <p>
+    <pre><code>mtr {{host}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Disable IP address and host name mapping
+    </li>
+   </ul>
+   <p>
+    <pre><code>mtr -n {{host}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Generate output after pinging each hop 10 times
+    </li>
+   </ul>
+   <p>
+    <pre><code>mtr -w {{host}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Force IP IPv4 or IPV6
+    </li>
+   </ul>
+   <p>
+    <pre><code>mtr -4 {{host}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

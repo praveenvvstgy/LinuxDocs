@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    sed
+   </h1>
+   <blockquote>
+    <p>
+     Run replacements based on regular expressions
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     replace all occurrences of a string in a file, and print the result
+    </li>
+   </ul>
+   <p>
+    <pre><code>sed 's/{{find}}/{{replace}}/g' {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     replace all occurrences of a string in a file, and overwrite the file
+contents
+    </li>
+   </ul>
+   <p>
+    <pre><code>sed -i '' 's/{{find}}/{{replace}}/g' {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     replace all occurrences of an extended regular expression in a file
+    </li>
+   </ul>
+   <p>
+    <pre><code>sed -E 's/{{regex}}/{{replace}}/g' {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     replace all occurrences of multiple strings in a file
+    </li>
+   </ul>
+   <p>
+    <pre><code>sed -e 's/{{find}}/{{replace}}/g' -e 's/{{find}}/{{replace}}/g' {{filename}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

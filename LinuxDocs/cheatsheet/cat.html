@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    cat
+   </h1>
+   <blockquote>
+    <p>
+     Print and concatenate files.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Print the contents of
+     <em>
+      file1
+     </em>
+     to the standard output
+    </li>
+   </ul>
+   <p>
+    <pre><code>cat {{file1}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Sequentially print the contents of
+     <em>
+      file1
+     </em>
+     and
+     <em>
+      file2
+     </em>
+     to the file
+     <em>
+      file3
+     </em>
+     .
+    </li>
+   </ul>
+   <p>
+    <pre><code>cat {{file1}} {{file2}} &gt; {{file3}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

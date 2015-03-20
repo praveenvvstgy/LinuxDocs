@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    wall
+   </h1>
+   <blockquote>
+    <p>
+     write a message on the terminals of users currently logged in
+  only available to super-user
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     send a message
+    </li>
+   </ul>
+   <p>
+    <pre><code>echo "{{message}}" | wall</code></pre>
+   </p>
+   <ul>
+    <li>
+     send a message from a file
+    </li>
+   </ul>
+   <p>
+    <pre><code>wall {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     send a message with timeout (default 300)
+    </li>
+   </ul>
+   <p>
+    <pre><code>wall -t {{seconds}} {{file}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

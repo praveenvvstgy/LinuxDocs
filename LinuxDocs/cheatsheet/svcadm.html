@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    svcadm
+   </h1>
+   <blockquote>
+    <p>
+     Manipulate service instances
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     enable a service in the service database
+    </li>
+   </ul>
+   <p>
+    <pre><code>svcadm enable {{service_name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     disable service
+    </li>
+   </ul>
+   <p>
+    <pre><code>svcadm disable {{service_name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     restart a running service
+    </li>
+   </ul>
+   <p>
+    <pre><code>svcadm restart {{service_name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     command service to re-read configuration files
+    </li>
+   </ul>
+   <p>
+    <pre><code>svcadm refresh {{service_name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     clear a service from maintenance state and command it to start
+    </li>
+   </ul>
+   <p>
+    <pre><code>svcadm clear {{service_name}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

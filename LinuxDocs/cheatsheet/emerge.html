@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    emerge
+   </h1>
+   <blockquote>
+    <p>
+     Gentoo Linux package manager utility
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     synchronize all packages
+    </li>
+   </ul>
+   <p>
+    <pre><code>emerge --sync</code></pre>
+   </p>
+   <ul>
+    <li>
+     update all packages, including dependencies
+    </li>
+   </ul>
+   <p>
+    <pre><code>emerge -uDNav @world</code></pre>
+   </p>
+   <ul>
+    <li>
+     resume a failed updated, skipping the failing package
+    </li>
+   </ul>
+   <p>
+    <pre><code>emerge --resume --skipfirst</code></pre>
+   </p>
+   <ul>
+    <li>
+     install a new package, with confirmation
+    </li>
+   </ul>
+   <p>
+    <pre><code>emerge -av {{package-name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     remove a package, with confirmation
+    </li>
+   </ul>
+   <p>
+    <pre><code>emerge -Cav {{package-name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     remove orphaned packages (that were installed only as dependencies)
+    </li>
+   </ul>
+   <p>
+    <pre><code>emerge -avc</code></pre>
+   </p>
+   <ul>
+    <li>
+     search the package database for a keyword
+    </li>
+   </ul>
+   <p>
+    <pre><code>emerge -S {{keyword}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

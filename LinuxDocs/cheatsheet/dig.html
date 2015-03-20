@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    dig
+   </h1>
+   <blockquote>
+    <p>
+     DNS Lookup utility
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Lookup the IP(s) associated with a hostname (A records)
+    </li>
+   </ul>
+   <p>
+    <pre><code>dig +short {{hostname.com}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Lookup the mail server associated with a given domain name (MX record)
+    </li>
+   </ul>
+   <p>
+    <pre><code>dig +short {{hostname.com}} MX</code></pre>
+   </p>
+   <ul>
+    <li>
+     Specify an alternate DNS server to query (8.8.8.8 is google's public DNS)
+    </li>
+   </ul>
+   <p>
+    <pre><code>dig @8.8.8.8 {{hostname.com}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

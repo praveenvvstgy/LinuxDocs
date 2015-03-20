@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    pgrep
+   </h1>
+   <blockquote>
+    <p>
+     Find or signal process by name
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     return PIDs of any running processes with a matching command string
+    </li>
+   </ul>
+   <p>
+    <pre><code>pgrep {{Finder}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     case insensitive greping
+    </li>
+   </ul>
+   <p>
+    <pre><code>pgrep -i {{fireFOx}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     search full command line with parameters instead of just the process name
+    </li>
+   </ul>
+   <p>
+    <pre><code>pgrep -f "{{ssh root}}"</code></pre>
+   </p>
+   <ul>
+    <li>
+     search for process run by a specific user
+    </li>
+   </ul>
+   <p>
+    <pre><code>pgrep -u root {{firefox}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     kill all processes which match
+    </li>
+   </ul>
+   <p>
+    <pre><code>pkill -9 {{Finder}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

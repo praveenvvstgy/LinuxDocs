@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    cp
+   </h1>
+   <blockquote>
+    <p>
+     Copy files
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Copy files in arbitrary locations
+    </li>
+   </ul>
+   <p>
+    <pre><code>cp {{/path/to/original}} {{/path/to/copy}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Copy a file to a parent directory
+    </li>
+   </ul>
+   <p>
+    <pre><code>cp {{/path/to/original}} ../{{/path/to/copy}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Copy directories recursive using the option -r. Optionally showing files as they are copied.
+    </li>
+   </ul>
+   <p>
+    <pre><code>cp -r {{/path/to/original}} {{/path/to/copy}}</code></pre>
+    <pre><code>cp -vr {{/path/to/original}} {{/path/to/copy}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Make a copy of a file adding and extension or changing an extension
+    </li>
+   </ul>
+   <p>
+    <pre><code>cp {{file.html}}\{,.backup\}</code></pre>
+    <pre><code>cp file.\{html,backup\}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

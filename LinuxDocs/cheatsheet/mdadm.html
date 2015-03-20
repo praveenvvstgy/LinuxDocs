@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    mdadm
+   </h1>
+   <blockquote>
+    <p>
+     RAID management utility
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     create array
+    </li>
+   </ul>
+   <p>
+    <pre><code>mdadm --create {{/path/to/raid_device_file}} --level {{ raid level }} --raid-devices {{ number of disks}} {{/path/to/disk_device_file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     stop array
+    </li>
+   </ul>
+   <p>
+    <pre><code>mdadm -S {{/path/to/raid_device_file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     mark disk as failed
+    </li>
+   </ul>
+   <p>
+    <pre><code>mdadm {{/path/to/raid_device_file}} -f {{/path/to/disk_device_file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     remove disk
+    </li>
+   </ul>
+   <p>
+    <pre><code>mdadm {{/path/to/raid_device_file}} -r {{/path/to/disk_device_file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     add disk to array
+    </li>
+   </ul>
+   <p>
+    <pre><code>mdadm {{/path/to/raid_device_file}} -a {{/path/to/disk_device_file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     show RAID info
+    </li>
+   </ul>
+   <p>
+    <pre><code>mdadm -D {{/path/to/raid_device_file}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

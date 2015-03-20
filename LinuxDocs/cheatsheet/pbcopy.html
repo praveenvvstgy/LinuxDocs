@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    pbcopy
+   </h1>
+   <blockquote>
+    <p>
+     Place standard output in the clipboard
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Place the contents of a file in the clipboard.
+    </li>
+   </ul>
+   <p>
+    <pre><code>pbcopy &lt; {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Place the results of a command in the clipboard
+    </li>
+   </ul>
+   <p>
+    <pre><code>find . -type t -name "*.png" | pbcopy</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

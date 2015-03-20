@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    xargs
+   </h1>
+   <blockquote>
+    <p>
+     execute a command with piped arguments
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     main use
+    </li>
+   </ul>
+   <p>
+    <pre><code>{{arguments}} | xargs {{command}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     handling whitespace in arguments
+    </li>
+   </ul>
+   <p>
+    <pre><code>{{arguments_null_terminated}} | xargs -0 {{command}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     example: list unneeded packages with deborphan and remove them with apt-get
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo deborphan | xargs sudo apt-get remove</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

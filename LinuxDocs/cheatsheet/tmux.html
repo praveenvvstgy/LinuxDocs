@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    tmux
+   </h1>
+   <blockquote>
+    <p>
+     Multiplex several virtual consoles
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Start a new tmux session
+    </li>
+   </ul>
+   <p>
+    <pre><code>tmux</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start a new named tmux session
+    </li>
+   </ul>
+   <p>
+    <pre><code>tmux new -s {{name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     List sessions
+    </li>
+   </ul>
+   <p>
+    <pre><code>tmux ls</code></pre>
+   </p>
+   <ul>
+    <li>
+     Attach to a session
+    </li>
+   </ul>
+   <p>
+    <pre><code>tmux a</code></pre>
+   </p>
+   <ul>
+    <li>
+     Attach to a named session
+    </li>
+   </ul>
+   <p>
+    <pre><code>tmux a -t {{name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Detach from session
+    </li>
+   </ul>
+   <p>
+    <pre><code>ctrl+b d</code></pre>
+   </p>
+   <ul>
+    <li>
+     Kill session
+    </li>
+   </ul>
+   <p>
+    <pre><code>tmux kill-session -t {{name}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

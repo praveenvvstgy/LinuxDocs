@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    rsync
+   </h1>
+   <blockquote>
+    <p>
+     Transfers a file either to or from a remote host
+  Does not allow transfer between two remote hosts
+  Can transfer single files or files matched by pattern
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     transfer file from local to remote host
+    </li>
+   </ul>
+   <p>
+    <pre><code>rsync {{path_to_file}} {{remote_host_name}}:{{remote_host_location}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     transfer file from remote host to local
+    </li>
+   </ul>
+   <p>
+    <pre><code>rsync {{remote_host_name}}:{{remote_file_location}} {{local_file_location}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     transfer all *.js files in current directory to host 'devbox' as user 'mike'
+    </li>
+   </ul>
+   <p>
+    <pre><code>rsync *.js mike@devbox:~/projects/cakeStore/styles/</code></pre>
+   </p>
+   <ul>
+    <li>
+     transfer a directory and all its children from a remote to local
+    </li>
+   </ul>
+   <p>
+    <pre><code>rsync -r mike@devbox:~/projects/cakeStore /Users/mike/devProjects/</code></pre>
+   </p>
+   <ul>
+    <li>
+     transfer file over SSH and show progress
+    </li>
+   </ul>
+   <p>
+    <pre><code>rsync -e ssh --progress {{remote_host_name}}:{{remote_file}} {{local_file}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

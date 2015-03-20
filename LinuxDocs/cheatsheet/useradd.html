@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    useradd
+   </h1>
+   <blockquote>
+    <p>
+     Create a new user
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Create new user
+    </li>
+   </ul>
+   <p>
+    <pre><code>useradd {{name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create new user with a default home directory
+    </li>
+   </ul>
+   <p>
+    <pre><code>useradd -m {{name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create new user with specified shell
+    </li>
+   </ul>
+   <p>
+    <pre><code>useradd -s {{/path/to/shell}} {{name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create new user with supplementary groups (mind the lack of whitespace)
+    </li>
+   </ul>
+   <p>
+    <pre><code>useradd -G {{group1,group2}} {{name}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

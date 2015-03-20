@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    watch
+   </h1>
+   <blockquote>
+    <p>
+     Execute a command repeatedly, and monitor the output in full-screen mode
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     monitor files in the current folder
+    </li>
+   </ul>
+   <p>
+    <pre><code>watch {{ls}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     monitor disk space and highlight the changes
+    </li>
+   </ul>
+   <p>
+    <pre><code>watch -d {{df}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     monitor "node" processes, refreshing every 3 seconds
+    </li>
+   </ul>
+   <p>
+    <pre><code>watch -n {{3}} "{{ps aux | grep node}}"</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

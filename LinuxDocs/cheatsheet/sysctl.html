@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    sysctl
+   </h1>
+   <blockquote>
+    <p>
+     Access kernel state information
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Show all available variables and their values
+    </li>
+   </ul>
+   <p>
+    <pre><code>sysctl -a</code></pre>
+   </p>
+   <ul>
+    <li>
+     Show Apple model identifier
+    </li>
+   </ul>
+   <p>
+    <pre><code>sysctl -n hw.model</code></pre>
+   </p>
+   <ul>
+    <li>
+     Show CPU model
+    </li>
+   </ul>
+   <p>
+    <pre><code>sysctl -n machdep.cpu.brand_string</code></pre>
+   </p>
+   <ul>
+    <li>
+     Show available CPU features (MMX, SSE, SSE2, SSE3, AES, etc)
+    </li>
+   </ul>
+   <p>
+    <pre><code>sysctl -n machdep.cpu.feature</code></pre>
+   </p>
+   <ul>
+    <li>
+     Set a changeable kernel state variable
+    </li>
+   </ul>
+   <p>
+    <pre><code>sysctl -w name=value</code></pre>
+    <pre><code>sysctl -w kern.maxfiles=15000</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

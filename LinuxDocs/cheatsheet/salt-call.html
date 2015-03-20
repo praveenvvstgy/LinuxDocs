@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="../style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    salt-key
+   </h1>
+   <blockquote>
+    <p>
+     Invoke salt locally on a salt minion.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Perform a highstate on this minion
+    </li>
+   </ul>
+   <p>
+    <pre><code>salt-call state.highstate</code></pre>
+   </p>
+   <ul>
+    <li>
+     Perform a highstate dry-run, compute all changes but don't actually perform them
+    </li>
+   </ul>
+   <p>
+    <pre><code>salt-call state.highstate test=true</code></pre>
+   </p>
+   <ul>
+    <li>
+     Perform a highstate with verbose debugging output
+    </li>
+   </ul>
+   <p>
+    <pre><code>salt-call -l debug state.highstate</code></pre>
+   </p>
+   <ul>
+    <li>
+     List this minion's grains
+    </li>
+   </ul>
+   <p>
+    <pre><code>salt-call grains.items</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

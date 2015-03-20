@@ -9,12 +9,7 @@
 import UIKit
 
 
-class ManPageBrowserViewController: UIViewController, UIWebViewDelegate, UIGestureRecognizerDelegate {
-    
-    enum State {
-        case Showing
-        case Hiding
-    }
+class ManPageBrowserViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var manPageBrowser: UIWebView!
     
@@ -29,22 +24,7 @@ class ManPageBrowserViewController: UIViewController, UIWebViewDelegate, UIGestu
         self.manPageBrowser.loadRequest(NSURLRequest(URL: manPath!, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 0))
         self.manPageBrowser.delegate = self
         
-        
-        let screenTap = UITapGestureRecognizer(target: self, action: "tapGesture:")
-        screenTap.numberOfTapsRequired = 1
-        screenTap.delegate = self
-        manPageBrowser.addGestureRecognizer(screenTap)
-        
         title =  "\(manPage.name!)(\(manPage.section!))"
-//        navigationItem.hidesBackButton = true
-        
-        let rightFavButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
-        rightFavButton.frame = CGRectMake(40, 10, 40, 40)
-        rightFavButton.addTarget(self, action: "favPage:", forControlEvents: UIControlEvents.TouchUpInside)
-        rightFavButton.setImage(UIImage(named: "ic_star_outline_black_48dp"), forState: UIControlState.Normal)
-        rightFavButton.setImage(UIImage(named: "ic_star_black_48dp"), forState: UIControlState.Selected)
-        let barButtonItem: UIBarButtonItem = UIBarButtonItem(customView: rightFavButton)
-        navigationItem.rightBarButtonItem = barButtonItem
         
     }
     
