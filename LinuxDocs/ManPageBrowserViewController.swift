@@ -28,6 +28,7 @@ class ManPageBrowserViewController: UIViewController, UIWebViewDelegate {
         
     }
     
+    
     func favPage(sender: UIButton) {
         let btn = sender
         if btn.selected {

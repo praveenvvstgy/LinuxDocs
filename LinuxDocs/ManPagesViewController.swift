@@ -18,6 +18,17 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var searchController: UISearchController!
     
+    let colorArray: [UIColor] = [
+        UIColor(red:0.2, green:0.76, blue:0.65, alpha:1),
+        UIColor(red:0.54, green:0.8, blue:0.45, alpha:1),
+        UIColor(red:0.99, green:0.47, blue:0.13, alpha:1),
+        UIColor(red:0.98, green:0.73, blue:0.38, alpha:1),
+        UIColor(red:0.99, green:0.51, blue:0.5, alpha:1),
+        UIColor(red:0.99, green:0.51, blue:0.5, alpha:1),
+        UIColor(red:0.85, green:0.88, blue:0.89, alpha:1),
+        UIColor(red:0.56, green:0.56, blue:0.96, alpha:1)
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,12 +56,27 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
 
         searchView.addSubview(searchController.searchBar)
         
-        self.automaticallyAdjustsScrollViewInsets = false
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        self.tableView.separatorColor = UIColor.clearColor()
         
-        navigationController?.hidesBarsOnSwipe = true
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Bordered, target: nil, action: nil)
+        
+        tableView.estimatedRowHeight = 80.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        searchController.searchBar.tintColor = UIColor(red:0.91, green:0.91, blue:0.92, alpha:1)
+        searchController.searchBar.barTintColor = UIColor(red:0.13, green:0.17, blue:0.22, alpha:1)
         
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerSectionView = view as UITableViewHeaderFooterView
+        headerSectionView.backgroundView?.backgroundColor = colorArray[section]
+        headerSectionView.textLabel.textColor = UIColor.whiteColor()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -132,9 +158,27 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let reuseIdentifier = "manPage"
-        let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as UITableViewCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as ManPageTableCell
         let manPagesInSection: [ManPage]! = (searchController.active) ? self.filteredManPagesIndex[indexPath.section + 1] : self.manPagesIndex[indexPath.section + 1]
-        cell.textLabel?.text = manPagesInSection[indexPath.row].name
+        cell.nameLabel.text = manPagesInSection[indexPath.row].name
+        cell.sectionLabel.text = manPagesInSection[indexPath.row].section
+        cell.descriptionLabel.text = manPagesInSection[indexPath.row].description
+        
+        cell.backgroundColor = UIColor.clearColor()
+        cell.roundedBackground.layer.cornerRadius = 5
+        cell.roundedBackground.clipsToBounds = true
+        
+        cell.sectionLabel.layer.cornerRadius = 10
+        cell.sectionLabel.clipsToBounds = true
+        
+        cell.descriptionLabel.textColor = UIColor(red:0.59, green:0.56, blue:0.59, alpha:1)
+        
+        cell.nameLabel.textColor = UIColor(red:0.2, green:0.2, blue:0.18, alpha:1)
+        
+        cell.sectionLabel.textColor = UIColor.whiteColor()
+        cell.sectionLabel.backgroundColor = colorArray[manPagesInSection[indexPath.row].section!.toInt()! - 1]
+        cell.sectionLabel.layer.cornerRadius = 5
+        cell.sectionLabel.clipsToBounds = true
         return cell
     }
     
@@ -160,6 +204,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("manPageBrowser", sender: tableView)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
     

@@ -8,7 +8,10 @@
 
 import UIKit
 
-class CheatSheetsViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
+class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchView: UIView!
     
     var cheatSheetsIndex = [CheatSheet]()
     var searchResults = [CheatSheet]()
@@ -21,14 +24,22 @@ class CheatSheetsViewController: UITableViewController, UITableViewDataSource, U
         readCheatSheetFromJSON()
         
         searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.sizeToFit()
-        definesPresentationContext = true
+        
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.searchBar.searchBarStyle = UISearchBarStyle.Minimal
+        searchController.searchBar.delegate = self
         
-        navigationItem.titleView = searchController.searchBar
+        definesPresentationContext = true
+        
+        searchController.searchBar.scopeButtonTitles = [
+            "All",
+            "Common",
+            "Linux",
+            "OSX",
+            "SunOS"
+        ]
+        
+        searchView.addSubview(searchController.searchBar)
     }
     
     
@@ -50,24 +61,48 @@ class CheatSheetsViewController: UITableViewController, UITableViewDataSource, U
         }
     }
     
-    func filterCheatSheetsForSearchText(searchText: String) {
-        searchResults = cheatSheetsIndex.filter({ (cheatSheet: CheatSheet) -> Bool in
-            let nameMatch = cheatSheet.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-            return nameMatch != nil
-        })
+    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+        super.willAnimateRotationToInterfaceOrientation(toInterfaceOrientation, duration: duration)
+        var searchFrame: CGRect = searchController.searchBar.frame
+        searchFrame.size.width = searchView.frame.size.width
+        searchController.searchBar.frame = searchFrame
+    }
+    
+    func filterCheatSheetsForSearchText(searchText: String, platform: String) {
+        if platform == "All" {
+            searchResults = cheatSheetsIndex.filter({ (cheatSheet: CheatSheet) -> Bool in
+                let nameMatch = cheatSheet.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+                return (nameMatch != nil || searchText == "")
+            })
+        } else {
+            searchResults = cheatSheetsIndex.filter({ (cheatSheet: CheatSheet) -> Bool in
+                let nameMatch = cheatSheet.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+                return ((nameMatch != nil && cheatSheet.platform == platform.lowercaseString) || searchText == "" && cheatSheet.platform == platform.lowercaseString)
+            })
+        }
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         let searchText = searchController.searchBar.text
-        filterCheatSheetsForSearchText(searchText)
+        let scopeButtonTitles = searchController.searchBar.scopeButtonTitles as [String]
+        let scopeSelection = scopeButtonTitles[searchController.searchBar.selectedScopeButtonIndex]
+        filterCheatSheetsForSearchText(searchText, platform: scopeSelection)
         tableView.reloadData()
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        let searchText = searchController.searchBar.text
+        let scopeButtonTitles = searchController.searchBar.scopeButtonTitles as [String]
+        let scopeSelection = scopeButtonTitles[selectedScope]
+        filterCheatSheetsForSearchText(searchText, platform: scopeSelection)
+        tableView.reloadData()
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.active {
             return searchResults.count
         } else {
@@ -75,7 +110,7 @@ class CheatSheetsViewController: UITableViewController, UITableViewDataSource, U
         }
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let reuseIdentifier = "cheatSheet"
         let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as UITableViewCell
         let cheatSheet = (searchController.active) ? searchResults : cheatSheetsIndex
@@ -83,7 +118,7 @@ class CheatSheetsViewController: UITableViewController, UITableViewDataSource, U
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("cheatSheetBrowser", sender: tableView)
     }
     

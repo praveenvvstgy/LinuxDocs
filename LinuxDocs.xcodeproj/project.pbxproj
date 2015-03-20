@@ -22,6 +22,7 @@
 		AC6332C11AA79C010021AA57 /* LinuxDocsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6332C01AA79C010021AA57 /* LinuxDocsTests.swift */; };
 		AC6332CB1AA79D420021AA57 /* ManPageBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6332CA1AA79D420021AA57 /* ManPageBrowserViewController.swift */; };
 		AC6332CD1AA79DCB0021AA57 /* ManPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6332CC1AA79DCB0021AA57 /* ManPage.swift */; };
+		AC79FCA71ABCBAB6009298E8 /* ManPageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79FCA61ABCBAB6009298E8 /* ManPageTableCell.swift */; };
 		AC8C50221AAB778A0068A731 /* pages.json in Resources */ = {isa = PBXBuildFile; fileRef = AC8C50211AAB778A0068A731 /* pages.json */; };
 		AC8C518A1AAB8AF30068A731 /* stylesheet in Resources */ = {isa = PBXBuildFile; fileRef = AC8C51891AAB8AF30068A731 /* stylesheet */; };
 		AC8C518C1AAB8C2F0068A731 /* htmlman2 in Resources */ = {isa = PBXBuildFile; fileRef = AC8C518B1AAB8C2F0068A731 /* htmlman2 */; };
@@ -66,6 +67,7 @@
 		AC6332C01AA79C010021AA57 /* LinuxDocsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxDocsTests.swift; sourceTree = "<group>"; };
 		AC6332CA1AA79D420021AA57 /* ManPageBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManPageBrowserViewController.swift; sourceTree = "<group>"; };
 		AC6332CC1AA79DCB0021AA57 /* ManPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManPage.swift; sourceTree = "<group>"; };
+		AC79FCA61ABCBAB6009298E8 /* ManPageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManPageTableCell.swift; sourceTree = "<group>"; };
 		AC8C50211AAB778A0068A731 /* pages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pages.json; sourceTree = "<group>"; };
 		AC8C51891AAB8AF30068A731 /* stylesheet */ = {isa = PBXFileReference; lastKnownFileType = folder; path = stylesheet; sourceTree = "<group>"; };
 		AC8C518B1AAB8C2F0068A731 /* htmlman2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = htmlman2; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				AC6332AE1AA79C010021AA57 /* Main.storyboard */,
 				AC6332CA1AA79D420021AA57 /* ManPageBrowserViewController.swift */,
 				AC0A8B811ABAAA9400DF8880 /* CheatSheetBrowserViewController.swift */,
+				AC79FCA61ABCBAB6009298E8 /* ManPageTableCell.swift */,
 				AC6332A81AA79C010021AA57 /* Supporting Files */,
 			);
 			path = LinuxDocs;
@@ -366,6 +369,7 @@
 			files = (
 				AC0A8B821ABAAA9400DF8880 /* CheatSheetBrowserViewController.swift in Sources */,
 				AC0A8B801ABA9F8300DF8880 /* CheatSheetsViewController.swift in Sources */,
+				AC79FCA71ABCBAB6009298E8 /* ManPageTableCell.swift in Sources */,
 				AC6332AD1AA79C010021AA57 /* ManPagesViewController.swift in Sources */,
 				AC0A8B7E1ABA9F2B00DF8880 /* CheatSheet.swift in Sources */,
 				AC6332CD1AA79DCB0021AA57 /* ManPage.swift in Sources */,
