@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ManPagesViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
+class ManPagesViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate {
     
     var manPagesIndex = [Int:[ManPage]]()
     var filteredManPagesIndex = [Int:[ManPage]]()
@@ -25,6 +25,7 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
         searchController.searchBar.sizeToFit()
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
         
         definesPresentationContext = true
         
@@ -77,9 +78,20 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         let searchText = searchController.searchBar.text
-        filterManPageForSearchText(searchText, section: "All")
+        let scopeButtonTitles = searchController.searchBar.scopeButtonTitles as [String]
+        let scopeSelection = scopeButtonTitles[searchController.searchBar.selectedScopeButtonIndex]
+        filterManPageForSearchText(searchText, section: scopeSelection)
         tableView.reloadData()
     }
+    
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        let searchText = searchController.searchBar.text
+        let scopeButtonTitles = searchController.searchBar.scopeButtonTitles as [String]
+        let scopeSelection = scopeButtonTitles[selectedScope]
+        filterManPageForSearchText(searchText, section: scopeSelection)
+        tableView.reloadData()
+    }
+    
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if searchController.active {
