@@ -5,36 +5,6 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Man Pages-->
-        <scene sceneID="lkF-vs-OuQ">
-            <objects>
-                <tableViewController id="SN6-7S-iB0" customClass="ManPagesViewController" customModule="LinuxDocs" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QQz-L0-e41">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="manPage" id="865-jD-RwY">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="865-jD-RwY" id="BC2-1y-dE0">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="SN6-7S-iB0" id="SYJ-DF-Yyo"/>
-                            <outlet property="delegate" destination="SN6-7S-iB0" id="ioh-F0-8PH"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Man Pages" id="TR5-W7-c2e"/>
-                    <connections>
-                        <segue destination="w5a-C0-mOZ" kind="push" identifier="manPageBrowser" id="iET-yu-X64"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jtc-8X-XPf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1592" y="341"/>
-        </scene>
         <!--Cheat Sheets View Controller-->
         <scene sceneID="PJp-Pd-1WP">
             <objects>
@@ -145,12 +115,68 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="SN6-7S-iB0" kind="relationship" relationship="rootViewController" id="TVU-ie-5zl"/>
+                        <segue destination="04F-G5-bZ4" kind="relationship" relationship="rootViewController" id="x46-GF-ld4"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hpx-Tm-uoR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1074" y="341"/>
+        </scene>
+        <!--Man Pages View Controller-->
+        <scene sceneID="sTJ-e0-aNz">
+            <objects>
+                <viewController id="04F-G5-bZ4" customClass="ManPagesViewController" customModule="LinuxDocs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C3M-4X-xLx"/>
+                        <viewControllerLayoutGuide type="bottom" id="c11-lz-uEU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Uyf-EM-hye">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="KGE-bM-ghJ">
+                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="manPage" id="mnf-W3-QZk">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mnf-W3-QZk" id="Hs5-Vd-Epg">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="04F-G5-bZ4" id="AfC-gc-zhq"/>
+                                    <outlet property="delegate" destination="04F-G5-bZ4" id="wvw-ia-XYF"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfI-Yv-p4i">
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KGE-bM-ghJ" firstAttribute="leading" secondItem="Uyf-EM-hye" secondAttribute="leadingMargin" constant="-16" id="4Wf-Si-YJn"/>
+                            <constraint firstItem="KGE-bM-ghJ" firstAttribute="bottom" secondItem="Uyf-EM-hye" secondAttribute="bottomMargin" id="PJe-2E-Jkd"/>
+                            <constraint firstItem="KGE-bM-ghJ" firstAttribute="top" secondItem="lfI-Yv-p4i" secondAttribute="bottom" id="e1f-mL-kMm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KGE-bM-ghJ" secondAttribute="trailing" constant="-16" id="eIt-cy-fnK"/>
+                            <constraint firstItem="lfI-Yv-p4i" firstAttribute="leading" secondItem="Uyf-EM-hye" secondAttribute="leadingMargin" constant="-16" id="kQM-k0-ggv"/>
+                            <constraint firstItem="lfI-Yv-p4i" firstAttribute="top" secondItem="C3M-4X-xLx" secondAttribute="bottom" id="kuJ-WY-sxy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lfI-Yv-p4i" secondAttribute="trailing" constant="-16" id="u55-BX-zmV"/>
+                            <constraint firstItem="KGE-bM-ghJ" firstAttribute="top" secondItem="C3M-4X-xLx" secondAttribute="bottom" constant="44" id="uIM-nm-lvC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="UK8-pu-pyB"/>
+                    <connections>
+                        <outlet property="searchView" destination="lfI-Yv-p4i" id="GVx-8a-1C9"/>
+                        <outlet property="tableView" destination="KGE-bM-ghJ" id="Zae-jM-Ghg"/>
+                        <segue destination="w5a-C0-mOZ" kind="push" identifier="manPageBrowser" id="t0G-XX-DOi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gTR-ey-iT8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1592" y="341"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ggq-CH-UAb">

@@ -8,7 +8,10 @@
 
 import UIKit
 
-class ManPagesViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate {
+class ManPagesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchView: UIView!
     
     var manPagesIndex = [Int:[ManPage]]()
     var filteredManPagesIndex = [Int:[ManPage]]()
@@ -22,7 +25,7 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
         self.readManPageIndexFromJson()
         
         searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.sizeToFit()
+        
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
@@ -39,9 +42,12 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
             "7",
             "8"
         ]
+
+        searchView.addSubview(searchController.searchBar)
         
-//        navigationItem.titleView = searchController.searchBar
-        self.tableView.tableHeaderView = searchController.searchBar
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        navigationController?.hidesBarsOnSwipe = true
         
     }
     
@@ -76,6 +82,13 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
         
     }
     
+    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+        super.willAnimateRotationToInterfaceOrientation(toInterfaceOrientation, duration: duration)
+        var searchFrame: CGRect = searchController.searchBar.frame
+        searchFrame.size.width = searchView.frame.size.width
+        searchController.searchBar.frame = searchFrame
+    }
+    
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         let searchText = searchController.searchBar.text
         let scopeButtonTitles = searchController.searchBar.scopeButtonTitles as [String]
@@ -93,7 +106,7 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
     }
     
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if searchController.active {
             return self.filteredManPagesIndex.count
         } else {
@@ -101,7 +114,7 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
         }
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if self.tableView(tableView, numberOfRowsInSection: section) == 0 {
             return nil
         } else {
@@ -109,7 +122,7 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
         }
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.active {
             return self.filteredManPagesIndex[section + 1]?.count as Int!
         } else {
@@ -117,7 +130,7 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
         }
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let reuseIdentifier = "manPage"
         let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as UITableViewCell
         let manPagesInSection: [ManPage]! = (searchController.active) ? self.filteredManPagesIndex[indexPath.section + 1] : self.manPagesIndex[indexPath.section + 1]
@@ -131,7 +144,7 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
             for i in 1...8 {
                 self.filteredManPagesIndex[i] = self.manPagesIndex[i]?.filter({ (manpage: ManPage) -> Bool in
                     let stringMatch = manpage.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-                    return (stringMatch != nil)
+                    return (stringMatch != nil || searchText == "")
                 })
             }
         } else {
@@ -139,13 +152,13 @@ class ManPagesViewController: UITableViewController, UITableViewDataSource, UITa
             for i in 1...8 {
                 self.filteredManPagesIndex[i] = self.manPagesIndex[i]?.filter({ (manpage: ManPage) -> Bool in
                     let stringMatch = manpage.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-                    return (stringMatch != nil) && (manpage.section == section)
+                    return ((stringMatch != nil && manpage.section == section) || (searchText == ""  && manpage.section == section))
                 })
             }
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("manPageBrowser", sender: tableView)
     }
 
