@@ -19,14 +19,14 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     var searchController: UISearchController!
     
     let colorArray: [UIColor] = [
-        UIColor(red:0.2, green:0.76, blue:0.65, alpha:1),
-        UIColor(red:0.54, green:0.8, blue:0.45, alpha:1),
-        UIColor(red:0.99, green:0.47, blue:0.13, alpha:1),
-        UIColor(red:0.98, green:0.73, blue:0.38, alpha:1),
-        UIColor(red:0.99, green:0.51, blue:0.5, alpha:1),
-        UIColor(red:0.99, green:0.51, blue:0.5, alpha:1),
-        UIColor(red:0.85, green:0.88, blue:0.89, alpha:1),
-        UIColor(red:0.56, green:0.56, blue:0.96, alpha:1)
+        UIColor(red:1, green:0.35, blue:0.25, alpha:1),
+        UIColor(red:0.71, green:0.28, blue:0.96, alpha:1),
+        UIColor(red:0.56, green:0.56, blue:0.58, alpha:1),
+        UIColor(red:0.86, green:0.84, blue:0.78, alpha:1),
+        UIColor(red:0.36, green:0.8, blue:0.98, alpha:1),
+        UIColor(red:0.36, green:0.8, blue:0.98, alpha:1),
+        UIColor(red:0.79, green:0.45, blue:0.88, alpha:1),
+        UIColor(red:1, green:0.44, blue:0.15, alpha:1)
     ]
     
     override func viewDidLoad() {

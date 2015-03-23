@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Cheat Sheets View Controller-->
+        <!--Cheatsheets-->
         <scene sceneID="yo5-MV-lGl">
             <objects>
                 <viewController id="JbP-Mc-u7O" customClass="CheatSheetsViewController" customModule="LinuxDocs" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,13 +23,65 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="42R-fb-qLj">
                                 <rect key="frame" x="0.0" y="108" width="320" height="460"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.94509803921568625" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cheatSheet" id="Te9-qh-Lhh">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cheatSheet" rowHeight="90" id="VFf-O9-ezO" customClass="CheatSheetTableCell" customModule="LinuxDocs" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Te9-qh-Lhh" id="NiN-FK-eA2">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VFf-O9-ezO" id="WrA-qu-XWO">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEx-i0-5My">
+                                                    <rect key="frame" x="4" y="2" width="312" height="86"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIO-PJ-3Hr">
+                                                    <rect key="frame" x="10" y="10" width="200" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="8AY-cF-KhJ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Platform" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wu-ME-ebo">
+                                                    <rect key="frame" x="218" y="10" width="91" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="91" id="161-7f-pey"/>
+                                                        <constraint firstAttribute="height" constant="36" id="GpF-Yy-KFG"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0U-nh-pmJ">
+                                                    <rect key="frame" x="10" y="52" width="299" height="28"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-LightOblique" family="Avenir" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4wu-ME-ebo" firstAttribute="leading" secondItem="RIO-PJ-3Hr" secondAttribute="trailing" constant="8" id="45w-tB-77Y"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="dEx-i0-5My" secondAttribute="bottom" constant="-6" id="7Ce-GU-YAN"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="x0U-nh-pmJ" secondAttribute="trailing" constant="3" id="ChC-St-9uA"/>
+                                                <constraint firstItem="dEx-i0-5My" firstAttribute="leading" secondItem="WrA-qu-XWO" secondAttribute="leadingMargin" constant="-4" id="KZq-SR-aNs"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="RIO-PJ-3Hr" secondAttribute="trailing" constant="102" id="P1g-IA-LtB"/>
+                                                <constraint firstItem="4wu-ME-ebo" firstAttribute="top" secondItem="WrA-qu-XWO" secondAttribute="topMargin" constant="2" id="ToF-Nb-iXn"/>
+                                                <constraint firstItem="RIO-PJ-3Hr" firstAttribute="leading" secondItem="WrA-qu-XWO" secondAttribute="leadingMargin" constant="2" id="auT-Ah-Wsi"/>
+                                                <constraint firstItem="RIO-PJ-3Hr" firstAttribute="top" secondItem="WrA-qu-XWO" secondAttribute="topMargin" constant="2" id="d6n-xI-srC"/>
+                                                <constraint firstItem="dEx-i0-5My" firstAttribute="top" secondItem="WrA-qu-XWO" secondAttribute="topMargin" constant="-6" id="d8q-Yt-cHw"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="dEx-i0-5My" secondAttribute="trailing" constant="-4" id="jLT-mY-N82"/>
+                                                <constraint firstItem="x0U-nh-pmJ" firstAttribute="bottom" secondItem="WrA-qu-XWO" secondAttribute="bottomMargin" constant="-1.5" id="uht-NT-uCv"/>
+                                                <constraint firstItem="x0U-nh-pmJ" firstAttribute="top" secondItem="RIO-PJ-3Hr" secondAttribute="bottom" constant="6" id="yCg-iM-Jzd"/>
+                                                <constraint firstItem="RIO-PJ-3Hr" firstAttribute="leading" secondItem="x0U-nh-pmJ" secondAttribute="leading" id="yYS-R7-uvi"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="x0U-nh-pmJ" id="PLe-JH-ALf"/>
+                                            <outlet property="nameLabel" destination="RIO-PJ-3Hr" id="ht2-ED-FKf"/>
+                                            <outlet property="platformLabel" destination="4wu-ME-ebo" id="pKa-nj-sID"/>
+                                            <outlet property="roundedBackground" destination="dEx-i0-5My" id="6Bj-FI-me5"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -50,7 +102,7 @@
                             <constraint firstAttribute="centerX" secondItem="42R-fb-qLj" secondAttribute="centerX" id="isG-1a-cOs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2Oh-3K-S3K"/>
+                    <navigationItem key="navigationItem" title="Cheatsheets" id="2Oh-3K-S3K"/>
                     <connections>
                         <outlet property="searchView" destination="aEd-on-bgD" id="45w-mj-DwA"/>
                         <outlet property="tableView" destination="42R-fb-qLj" id="5uG-d8-1It"/>
