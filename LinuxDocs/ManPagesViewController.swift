@@ -87,7 +87,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         tabBarController?.tabBar.translucent = false
         
     }
-
+    
     
     // White color of Status Bar Title for dark background
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -110,10 +110,9 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     // Reads the local JSON file containing the man pages index
     func readManPageIndexFromJson() {
         
-        let qualityOfServiceClass = QOS_CLASS_BACKGROUND
+        let qualityOfServiceClass = Int(QOS_CLASS_BACKGROUND.value)
         let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
         dispatch_async(backgroundQueue, {
-            println("This is run on the background queue")
             let filePath = NSBundle.mainBundle().pathForResource("pages", ofType: "json")
             
             var error: NSError?
