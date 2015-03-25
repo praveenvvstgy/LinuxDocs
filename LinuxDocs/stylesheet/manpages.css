@@ -437,3 +437,7 @@ body {
     
     #rt1 tbody { display: block; width: auto; position: relative; overflow-x: auto; white-space: nowrap; }
 }
+
+a {
+    word-wrap: break-word;
+}

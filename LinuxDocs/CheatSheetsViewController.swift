@@ -40,7 +40,6 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
         
         searchController.searchBar.scopeButtonTitles = [
             "All",
-            "Common",
             "Linux",
             "OSX",
             "SunOS"
@@ -57,6 +56,7 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.rowHeight = UITableViewAutomaticDimension
         searchController.searchBar.tintColor = UIColor(red:0.91, green:0.91, blue:0.92, alpha:1)
         searchController.searchBar.barTintColor = UIColor(red:0.13, green:0.17, blue:0.22, alpha:1)
+
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -98,7 +98,7 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
         } else {
             searchResults = cheatSheetsIndex.filter({ (cheatSheet: CheatSheet) -> Bool in
                 let nameMatch = cheatSheet.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-                return ((nameMatch != nil && cheatSheet.platform == platform.lowercaseString) || searchText == "" && cheatSheet.platform == platform.lowercaseString)
+                return ((nameMatch != nil && (cheatSheet.platform == platform.lowercaseString || cheatSheet.platform == "common")) || searchText == "" && (cheatSheet.platform == platform.lowercaseString || cheatSheet.platform == "common"))
             })
         }
     }

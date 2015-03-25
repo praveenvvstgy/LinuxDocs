@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-LinuxDocs-SKSplashView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-LinuxDocs-pop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,22 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0F3B13550C3494EF3BAC3241</key>
+		<key>10DB0620865A890281CC4B96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B97F0724588CF7C6475075A2</key>
+		<key>25B11AED68DACBB25D92B68D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BBA544EE3CFF94671171850E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C85E6DF5A59B84B621CB1F69</key>
+		<key>C74FFC54129E44D0AC944F82</key>
 		<dict>
 			<key>primary</key>
 			<true/>

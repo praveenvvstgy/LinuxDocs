@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="P7u-ue-vfS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="P7u-ue-vfS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -184,7 +184,7 @@
         <!--Man Pages-->
         <scene sceneID="oSd-RZ-l1T">
             <objects>
-                <navigationController title="Man Pages" automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="U2P-gg-0Am" sceneMemberID="viewController">
+                <navigationController title="Man Pages" automaticallyAdjustsScrollViewInsets="NO" id="U2P-gg-0Am" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Man Pages" image="manpage" id="Vpb-Mf-Ci1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mdU-Lh-GFO">
@@ -307,10 +307,10 @@
             </objects>
             <point key="canvasLocation" x="1592" y="341"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="ggq-CH-UAb">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="P7u-ue-vfS" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="P7u-ue-vfS" customClass="MainTabBarController" customModule="LinuxDocs" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Nzz-2I-yKG">

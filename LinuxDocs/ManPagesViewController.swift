@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ManPagesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
@@ -31,13 +32,13 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view, typically from a nib.
         self.readManPageIndexFromJson()
         
         searchController = UISearchController(searchResultsController: nil)
         
-        searchController.dimsBackgroundDuringPresentation = false
+//        searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         
@@ -65,6 +66,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.rowHeight = UITableViewAutomaticDimension
         searchController.searchBar.tintColor = UIColor(red:0.91, green:0.91, blue:0.92, alpha:1)
         searchController.searchBar.barTintColor = UIColor(red:0.13, green:0.17, blue:0.22, alpha:1)
+        automaticallyAdjustsScrollViewInsets = true
         
     }
     
