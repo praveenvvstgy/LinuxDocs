@@ -14,11 +14,13 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchView: UIView!
     
-    var manPagesIndex = [Int:[ManPage]]()
+    lazy var manPagesIndex = [Int:[ManPage]]()
     var filteredManPagesIndex = [Int:[ManPage]]()
     
+    // UISearchController for handling search of man pages
     var searchController: UISearchController!
     
+    // Array of UIColors, used as background color for section indicators
     let colorArray: [UIColor] = [
         UIColor(red:1, green:0.35, blue:0.25, alpha:1),
         UIColor(red:0.71, green:0.28, blue:0.96, alpha:1),
@@ -31,6 +33,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     ]
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view, typically from a nib.
@@ -38,12 +41,13 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         
         searchController = UISearchController(searchResultsController: nil)
         
-//        searchController.dimsBackgroundDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         
         definesPresentationContext = true
         
+        // Set the titles of the scope bar, indicating man page sections
         searchController.searchBar.scopeButtonTitles = [
             "All",
             "1",
@@ -55,25 +59,40 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
             "8"
         ]
 
+        // Add SearchBar to the UIView Above tableview
         searchView.addSubview(searchController.searchBar)
         
+        // Remove footer of the tableview
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        
+        // Remove the tableview seperator by giving it clear color
         self.tableView.separatorColor = UIColor.clearColor()
         
+        // Remove the title from the back button and use only one arrow
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Bordered, target: nil, action: nil)
         
+        // Estimated height for tableview cell
         tableView.estimatedRowHeight = 80.0
+        
+        // Use Auto resizing cell
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        // Color for the text and scopebar border in searchbar - White
         searchController.searchBar.tintColor = UIColor(red:0.91, green:0.91, blue:0.92, alpha:1)
+        
+        // Background Color of the searchbar - Dark Blue
         searchController.searchBar.barTintColor = UIColor(red:0.13, green:0.17, blue:0.22, alpha:1)
-        automaticallyAdjustsScrollViewInsets = true
         
     }
+
     
+    // White color of Status Bar Title for dark background
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
     
+    
+    // Change text color of section headers to white
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let headerSectionView = view as UITableViewHeaderFooterView
         headerSectionView.backgroundView?.backgroundColor = colorArray[section]
@@ -87,29 +106,40 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // Reads the local JSON file containing the man pages index
     func readManPageIndexFromJson() {
-        let filePath = NSBundle.mainBundle().pathForResource("pages", ofType: "json")
         
-        var error: NSError?
-        
-        let manPagesJSONData = NSData(contentsOfFile: filePath!)
-        
-        if error != nil {
-            println("Error reading file: \(error?.localizedDescription)")
-        }
-        
-        let manPagesData = NSJSONSerialization.JSONObjectWithData(manPagesJSONData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSArray
-        
-        for i in 1...8 {
-            var manPageForSection = [ManPage]()
-            let j = String(i)
-            for manPage in manPagesData[0][j] as NSArray {
-                manPageForSection.append(ManPage(data: manPage as NSDictionary))
+        let qualityOfServiceClass = QOS_CLASS_BACKGROUND
+        let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
+        dispatch_async(backgroundQueue, {
+            println("This is run on the background queue")
+            let filePath = NSBundle.mainBundle().pathForResource("pages", ofType: "json")
+            
+            var error: NSError?
+            
+            let manPagesJSONData = NSData(contentsOfFile: filePath!)
+            
+            if error != nil {
+                println("Error reading file: \(error?.localizedDescription)")
             }
-            self.manPagesIndex[i] = manPageForSection
-        }
-        
+            
+            let manPagesData = NSJSONSerialization.JSONObjectWithData(manPagesJSONData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSArray
+            
+            for i in 1...8 {
+                var manPageForSection = [ManPage]()
+                let j = String(i)
+                for manPage in manPagesData[0][j] as NSArray {
+                    manPageForSection.append(ManPage(data: manPage as NSDictionary))
+                }
+                self.manPagesIndex[i] = manPageForSection
+            }
+
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
+        })
     }
     
+    // Adjust the width of the search bar when rotated
     override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         super.willAnimateRotationToInterfaceOrientation(toInterfaceOrientation, duration: duration)
         var searchFrame: CGRect = searchController.searchBar.frame
@@ -117,6 +147,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         searchController.searchBar.frame = searchFrame
     }
     
+    // Update Search Results when text changes
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         let searchText = searchController.searchBar.text
         let scopeButtonTitles = searchController.searchBar.scopeButtonTitles as [String]
@@ -125,6 +156,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.reloadData()
     }
     
+    //  Change Search Results when selected scopebar button changes
     func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         let searchText = searchController.searchBar.text
         let scopeButtonTitles = searchController.searchBar.scopeButtonTitles as [String]
@@ -133,7 +165,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.reloadData()
     }
     
-    
+    // Number of sections in the tableview
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if searchController.active {
             return self.filteredManPagesIndex.count
@@ -142,6 +174,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    // Set the title of the section header, return nil if no rows in that section
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if self.tableView(tableView, numberOfRowsInSection: section) == 0 {
             return nil
@@ -150,6 +183,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    // Number of rows in each section
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.active {
             return self.filteredManPagesIndex[section + 1]?.count as Int!
@@ -157,6 +191,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
             return self.manPagesIndex[section + 1]?.count as Int!
         }
     }
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let reuseIdentifier = "manPage"
@@ -185,7 +220,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func filterManPageForSearchText(searchText: String, section: String = "All") {
-        self.filteredManPagesIndex.removeAll(keepCapacity: false)
+        self.filteredManPagesIndex.removeAll(keepCapacity: true)
         if section == "All" {
             for i in 1...8 {
                 self.filteredManPagesIndex[i] = self.manPagesIndex[i]?.filter({ (manpage: ManPage) -> Bool in
