@@ -88,12 +88,14 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         
     }
     
-    
     // White color of Status Bar Title for dark background
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
-    
+
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        tableView.reloadData()
+    }
     
     // Change text color of section headers to white
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

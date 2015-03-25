@@ -66,6 +66,9 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
         return UIStatusBarStyle.LightContent
     }
     
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        tableView.reloadData()
+    }
     
     func readCheatSheetFromJSON() {
         let filePath = NSBundle.mainBundle().pathForResource("cheatsheet", ofType: "json")
