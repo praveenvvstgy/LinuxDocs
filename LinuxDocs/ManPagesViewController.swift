@@ -83,6 +83,9 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         // Background Color of the searchbar - Dark Blue
         searchController.searchBar.barTintColor = UIColor(red:0.13, green:0.17, blue:0.22, alpha:1)
         
+        // prevents tab bar from overlapping last tableviewcell
+        tabBarController?.tabBar.translucent = false
+        
     }
 
     

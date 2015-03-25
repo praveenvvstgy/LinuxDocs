@@ -56,6 +56,9 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.rowHeight = UITableViewAutomaticDimension
         searchController.searchBar.tintColor = UIColor(red:0.91, green:0.91, blue:0.92, alpha:1)
         searchController.searchBar.barTintColor = UIColor(red:0.13, green:0.17, blue:0.22, alpha:1)
+        
+        // prevents tab bar from overlapping last tableviewcell
+        tabBarController?.tabBar.translucent = false
 
     }
     
