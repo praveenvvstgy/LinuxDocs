@@ -15,5 +15,7 @@
 
 #import "UIImage+ImageWithColor.h"
 
+#import "CTFeedbackViewController.h"
+
 
 #endif

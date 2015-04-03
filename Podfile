@@ -5,6 +5,7 @@ target 'LinuxDocs' do
 pod 'UIImage-Helpers'
 pod 'DZNEmptyDataSet'
 pod 'SKSplashView'
+pod 'CTFeedback'
 end
 
 target 'LinuxDocsTests' do

@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-LinuxDocs-CTFeedback-CTFeedback.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-LinuxDocs-CTFeedback.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-LinuxDocs-DZNEmptyDataSet.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>76FB615188C9CC8DD40A40A1</key>
+		<key>30474C18CB1D061FABED9952</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8BAB6C2A556639AE68BA7C0A</key>
+		<key>5EA96AAB4F426584D0A03CA8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E0FCAD9FD17B60AF37CE6DAF</key>
+		<key>88ECC57C5CACC10EFF6E294D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FDA7964E6D979CA5F1ABB4A5</key>
+		<key>D3CDE7E64DDA4DD934803DFE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E96E1361375FDBA24480CA10</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEC1821957B634F16753F9A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

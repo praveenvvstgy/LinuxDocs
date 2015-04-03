@@ -142,7 +142,10 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func emptyDataSetDidTapButton(scrollView: UIScrollView!) {
-        println("Request New Man Page")
+        let feedbackViewController = CTFeedbackViewController(topics: CTFeedbackViewController.defaultTopics(), localizedTopics: CTFeedbackViewController.defaultLocalizedTopics())
+        feedbackViewController.toRecipients = NSArray(array: [NSString(string: "support@hitherto.desk-mail.com")])
+        let navigationController = UINavigationController(rootViewController: feedbackViewController)
+        self.presentViewController(navigationController, animated: true, completion: nil)
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
