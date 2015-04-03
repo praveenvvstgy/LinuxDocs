@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-LinuxDocs-UIImage-Helpers.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-LinuxDocs.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>046C41A0FE38262B978FF4F8</key>
+		<key>76FB615188C9CC8DD40A40A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BB11CDB7D637D34D07124957</key>
+		<key>8BAB6C2A556639AE68BA7C0A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F6A3811755981AE3ED882E6A</key>
+		<key>E0FCAD9FD17B60AF37CE6DAF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FDA7964E6D979CA5F1ABB4A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
