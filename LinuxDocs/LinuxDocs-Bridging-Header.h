@@ -11,5 +11,7 @@
 
 #import "SKSplashIcon.h"
 
+#import "JNWSpringAnimation.h"
+
 
 #endif

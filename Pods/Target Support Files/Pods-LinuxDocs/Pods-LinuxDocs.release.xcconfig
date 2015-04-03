@@ -1,8 +1,6 @@
-CLANG_CXX_LANGUAGE_STANDARD = c++11
-CLANG_CXX_LIBRARY = libc++
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/SKSplashView" "${PODS_ROOT}/Headers/Public/pop"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/SKSplashView" -isystem "${PODS_ROOT}/Headers/Public/pop"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-LinuxDocs-SKSplashView" -l"Pods-LinuxDocs-pop" -l"c++"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/JNWSpringAnimation" "${PODS_ROOT}/Headers/Public/SKSplashView"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/JNWSpringAnimation" -isystem "${PODS_ROOT}/Headers/Public/SKSplashView"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-LinuxDocs-JNWSpringAnimation" -l"Pods-LinuxDocs-SKSplashView" -framework "QuartzCore"
 OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
 PODS_ROOT = ${SRCROOT}/Pods

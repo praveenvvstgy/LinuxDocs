@@ -2,7 +2,7 @@
 platform :ios, '8.0'
 
 target 'LinuxDocs' do
-pod 'pop', '~> 1.0.7'
+pod 'JNWSpringAnimation', '~> 0.5'
 pod 'SKSplashView'
 end
 

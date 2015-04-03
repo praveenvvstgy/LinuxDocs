@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ManPagesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate {
+class ManPagesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchView: UIView!
@@ -86,6 +86,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         // prevents tab bar from overlapping last tableviewcell
         tabBarController?.tabBar.translucent = false
         
+        self.searchController.delegate = self
     }
     
     // White color of Status Bar Title for dark background
@@ -149,10 +150,29 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         var searchFrame: CGRect = searchController.searchBar.frame
         searchFrame.size.width = searchView.frame.size.width
         searchController.searchBar.frame = searchFrame
+        if toInterfaceOrientation.isLandscape {
+            tableView.contentInset.top = 0
+        } else if toInterfaceOrientation.isPortrait {
+            if searchController.active {
+                tableView.contentInset.top = 44
+            } else {
+                tableView.contentInset.top = 0
+            }
+        }
+    }
+    
+    // Change the tableview contentInset when the searchController is presented
+    func didPresentSearchController(searchController: UISearchController) {
+        if UIDevice.currentDevice().orientation.isPortrait {
+            self.tableView.contentInset.top = 44
+        }
     }
     
     // Update Search Results when text changes
     func updateSearchResultsForSearchController(searchController: UISearchController) {
+        if !searchController.active {
+            tableView.contentInset.top = 0
+        }
         let searchText = searchController.searchBar.text
         let scopeButtonTitles = searchController.searchBar.scopeButtonTitles as [String]
         let scopeSelection = scopeButtonTitles[searchController.searchBar.selectedScopeButtonIndex]
@@ -197,6 +217,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     
+    // Create the ManPageTableCell for a given section and row
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let reuseIdentifier = "manPage"
         let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as ManPageTableCell
@@ -223,33 +244,47 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
+    // Filters the manpages based on the search text and stores it in filteredManPagesIndex
     func filterManPageForSearchText(searchText: String, section: String = "All") {
-        self.filteredManPagesIndex.removeAll(keepCapacity: true)
+        for i in 1...8 {
+            self.filteredManPagesIndex[i] = []
+        }
         if section == "All" {
-            for i in 1...8 {
-                self.filteredManPagesIndex[i] = self.manPagesIndex[i]?.filter({ (manpage: ManPage) -> Bool in
-                    let stringMatch = manpage.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-                    return (stringMatch != nil || searchText == "")
-                })
+            if searchText == "" {
+                self.filteredManPagesIndex = self.manPagesIndex
+            } else {
+                for i in 1...8 {
+                    self.filteredManPagesIndex[i] = self.manPagesIndex[i]?.filter({ (manpage: ManPage) -> Bool in
+                        let stringMatch = manpage.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+                        return (stringMatch != nil)
+                    })
+                }
             }
         } else {
             let sectionNumber = section.toInt()
-            for i in 1...8 {
-                self.filteredManPagesIndex[i] = self.manPagesIndex[i]?.filter({ (manpage: ManPage) -> Bool in
-                    let stringMatch = manpage.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-                    return ((stringMatch != nil && manpage.section == section) || (searchText == ""  && manpage.section == section))
-                })
+            if searchText == "" {
+                self.filteredManPagesIndex[sectionNumber!] = self.manPagesIndex[sectionNumber!]
+            } else {
+                for i in 1...8 {
+                    self.filteredManPagesIndex[i] = self.manPagesIndex[i]?.filter({ (manpage: ManPage) -> Bool in
+                        let stringMatch = manpage.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+                        return (stringMatch != nil && manpage.section == section)
+                    })
+                }
             }
         }
+        tableView.reloadData()
     }
     
+    
+    // Peform Segue when a tableview cell row is selected
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("manPageBrowser", sender: tableView)
+        // deseelect the selected row
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-
     
-    
+    // prepareForSegue before performing the segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "manPageBrowser" {
             let destinationViewController = segue.destinationViewController as ManPageBrowserViewController
