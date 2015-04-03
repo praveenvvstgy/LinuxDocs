@@ -14,6 +14,7 @@
 		AC0A8B821ABAAA9400DF8880 /* CheatSheetBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0A8B811ABAAA9400DF8880 /* CheatSheetBrowserViewController.swift */; };
 		AC0A8B881ABAB36A00DF8880 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = AC0A8B871ABAB36A00DF8880 /* style.css */; };
 		AC0A8B8A1ABAB93600DF8880 /* cheatsheet in Resources */ = {isa = PBXBuildFile; fileRef = AC0A8B891ABAB93600DF8880 /* cheatsheet */; };
+		AC4DF2A11ACEA651008785F2 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4DF2A01ACEA651008785F2 /* AppColors.swift */; };
 		AC6332AB1AA79C010021AA57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6332AA1AA79C010021AA57 /* AppDelegate.swift */; };
 		AC6332AD1AA79C010021AA57 /* ManPagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6332AC1AA79C010021AA57 /* ManPagesViewController.swift */; };
 		AC6332B01AA79C010021AA57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6332AE1AA79C010021AA57 /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 		AC0A8B811ABAAA9400DF8880 /* CheatSheetBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheatSheetBrowserViewController.swift; sourceTree = "<group>"; };
 		AC0A8B871ABAB36A00DF8880 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		AC0A8B891ABAB93600DF8880 /* cheatsheet */ = {isa = PBXFileReference; lastKnownFileType = folder; path = cheatsheet; sourceTree = "<group>"; };
+		AC4DF2A01ACEA651008785F2 /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		AC6332A51AA79C010021AA57 /* LinuxDocs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinuxDocs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6332A91AA79C010021AA57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC6332AA1AA79C010021AA57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				AC8C51891AAB8AF30068A731 /* stylesheet */,
 				AC8C50201AAB74560068A731 /* Model */,
 				AC6332AC1AA79C010021AA57 /* ManPagesViewController.swift */,
+				AC4DF2A01ACEA651008785F2 /* AppColors.swift */,
 				AC0A8B7F1ABA9F8300DF8880 /* CheatSheetsViewController.swift */,
 				AC6332AE1AA79C010021AA57 /* Main.storyboard */,
 				AC6E4CD91AC0E0BB001BC5FC /* MainTabBarController.swift */,
@@ -380,6 +383,7 @@
 				AC0A8B801ABA9F8300DF8880 /* CheatSheetsViewController.swift in Sources */,
 				AC6E4CDA1AC0E0BB001BC5FC /* MainTabBarController.swift in Sources */,
 				AC79FCA71ABCBAB6009298E8 /* ManPageTableCell.swift in Sources */,
+				AC4DF2A11ACEA651008785F2 /* AppColors.swift in Sources */,
 				AC6332AD1AA79C010021AA57 /* ManPagesViewController.swift in Sources */,
 				AC0A8B7E1ABA9F2B00DF8880 /* CheatSheet.swift in Sources */,
 				AC6E4CBC1AC0A4C6001BC5FC /* CheatSheetTableCell.swift in Sources */,

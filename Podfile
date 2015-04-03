@@ -2,6 +2,7 @@
 platform :ios, '8.0'
 
 target 'LinuxDocs' do
+pod 'UIImage-Helpers'
 pod 'DZNEmptyDataSet'
 pod 'SKSplashView'
 end

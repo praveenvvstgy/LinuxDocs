@@ -22,14 +22,14 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // Array of UIColors, used as background color for section indicators
     let colorArray: [UIColor] = [
-        UIColor(red:1, green:0.35, blue:0.25, alpha:1),
-        UIColor(red:0.71, green:0.28, blue:0.96, alpha:1),
-        UIColor(red:0.56, green:0.56, blue:0.58, alpha:1),
-        UIColor(red:0.86, green:0.84, blue:0.78, alpha:1),
-        UIColor(red:0.36, green:0.8, blue:0.98, alpha:1),
-        UIColor(red:0.36, green:0.8, blue:0.98, alpha:1),
-        UIColor(red:0.79, green:0.45, blue:0.88, alpha:1),
-        UIColor(red:1, green:0.44, blue:0.15, alpha:1)
+        UIColor(red:0.95, green:0.26, blue:0.21, alpha:1),
+        UIColor(red:0.25, green:0.32, blue:0.71, alpha:1),
+        UIColor(red:0.29, green:0.68, blue:0.31, alpha:1),
+        UIColor(red:1, green:0.59, blue:0, alpha:1),
+        UIColor(red:0, green:0.58, blue:0.53, alpha:1),
+        UIColor(red:0, green:0.58, blue:0.53, alpha:1),
+        UIColor(red:0.47, green:0.33, blue:0.28, alpha:1),
+        UIColor(red:0.62, green:0.62, blue:0.62, alpha:1)
     ]
     
     override func viewDidLoad() {
@@ -81,10 +81,11 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.rowHeight = UITableViewAutomaticDimension
         
         // Color for the text and scopebar border in searchbar - White
-        searchController.searchBar.tintColor = UIColor(red:0.91, green:0.91, blue:0.92, alpha:1)
+        searchController.searchBar.tintColor = UIColor.lightPrimaryColor()
         
         // Background Color of the searchbar - Dark Blue
-        searchController.searchBar.barTintColor = UIColor(red:0.13, green:0.17, blue:0.22, alpha:1)
+        searchController.searchBar.barTintColor = UIColor.darkPrimaryColor()
+        searchController.searchBar.translucent = true
         
         // prevents tab bar from overlapping last tableviewcell
         tabBarController?.tabBar.translucent = false
@@ -103,7 +104,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let emptyMessage = "No manpages match your search"
-        let attributes  = [NSFontAttributeName: UIFont.boldSystemFontOfSize(18), NSForegroundColorAttributeName: UIColor.blackColor()]
+        let attributes  = [NSFontAttributeName: UIFont.boldSystemFontOfSize(18), NSForegroundColorAttributeName: UIColor.primaryTextColor()]
         return NSAttributedString(string: emptyMessage, attributes: attributes)
     }
     
@@ -114,7 +115,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         paragraphStyle.alignment = NSTextAlignment.Center
         paragraphStyle.lineSpacing = 4.0
         
-        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(14), NSForegroundColorAttributeName: UIColor.lightGrayColor(), NSParagraphStyleAttributeName: paragraphStyle]
+        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(14), NSForegroundColorAttributeName: UIColor.secondaryTextColor(), NSParagraphStyleAttributeName: paragraphStyle]
         
         return NSAttributedString(string: emptyDescription, attributes: attributes)
     }
@@ -124,7 +125,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
-        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(14), NSForegroundColorAttributeName: UIColor(red:0.51, green:0.51, blue:0.51, alpha:1)]
+        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(14), NSForegroundColorAttributeName: UIColor.primaryTextColor()]
         
         return NSAttributedString(string: "Request New ManPage", attributes: attributes)
     }
@@ -152,7 +153,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let headerSectionView = view as UITableViewHeaderFooterView
         headerSectionView.backgroundView?.backgroundColor = colorArray[section]
-        headerSectionView.textLabel.textColor = UIColor.whiteColor()
+        headerSectionView.textLabel.textColor = UIColor.textIconColor()
     }
 
     override func didReceiveMemoryWarning() {
@@ -276,18 +277,18 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.sectionLabel.text = manPagesInSection[indexPath.row].section
         cell.descriptionLabel.text = manPagesInSection[indexPath.row].description
         
-        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor.lightPrimaryColor()
         cell.roundedBackground.layer.cornerRadius = 5
         cell.roundedBackground.clipsToBounds = true
         
         cell.sectionLabel.layer.cornerRadius = 10
         cell.sectionLabel.clipsToBounds = true
         
-        cell.descriptionLabel.textColor = UIColor(red:0.59, green:0.56, blue:0.59, alpha:1)
+        cell.descriptionLabel.textColor = UIColor.secondaryTextColor()
         
-        cell.nameLabel.textColor = UIColor(red:0.2, green:0.2, blue:0.18, alpha:1)
+        cell.nameLabel.textColor = UIColor.primaryTextColor()
         
-        cell.sectionLabel.textColor = UIColor.whiteColor()
+        cell.sectionLabel.textColor = UIColor.textIconColor()
         cell.sectionLabel.backgroundColor = colorArray[manPagesInSection[indexPath.row].section!.toInt()! - 1]
         cell.sectionLabel.layer.cornerRadius = 5
         cell.sectionLabel.clipsToBounds = true

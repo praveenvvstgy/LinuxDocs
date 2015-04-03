@@ -18,3 +18,9 @@
 #define COCOAPODS_VERSION_MINOR_SKSplashView 1
 #define COCOAPODS_VERSION_PATCH_SKSplashView 0
 
+// UIImage-Helpers
+#define COCOAPODS_POD_AVAILABLE_UIImage_Helpers
+#define COCOAPODS_VERSION_MAJOR_UIImage_Helpers 0
+#define COCOAPODS_VERSION_MINOR_UIImage_Helpers 0
+#define COCOAPODS_VERSION_PATCH_UIImage_Helpers 3
+

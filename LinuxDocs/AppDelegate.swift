@@ -21,16 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Fabric.with([Crashlytics()])
         
-        UINavigationBar.appearance().barTintColor = UIColor(red:0.13, green:0.17, blue:0.22, alpha:1)
+
+        UINavigationBar.appearance().barTintColor = UIColor(red:0.15, green:0.23, blue:0.27, alpha:1)
         
         if let barFont = UIFont(name: "AvenirNextCondensed-Bold", size: 22.0) {
-            UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: barFont]
+            UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.lightPrimaryColor(), NSFontAttributeName: barFont]
             
         }
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().tintColor = UIColor.lightPrimaryColor()
         
-        UITabBar.appearance().tintColor = UIColor.whiteColor()
-        UITabBar.appearance().barTintColor = UIColor(red:0.13, green:0.17, blue:0.22, alpha:1)
+        UITabBar.appearance().tintColor = UIColor.lightPrimaryColor()
+        UITabBar.appearance().barTintColor = UIColor.darkPrimaryColor()
         
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         

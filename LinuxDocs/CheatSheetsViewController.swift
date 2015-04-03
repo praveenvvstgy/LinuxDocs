@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
+class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource, UISearchControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchView: UIView!
@@ -18,11 +18,12 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
     var searchController: UISearchController!
     
     let colorArray: [String: UIColor] = [
-        "common": UIColor(red:0.35, green:0.34, blue:0.84, alpha:1),
-        "linux" : UIColor(red:0.29, green:0.29, blue:0.29, alpha:1),
-        "osx": UIColor(red:0.33, green:0.91, blue:0.81, alpha:1),
-        "sunos": UIColor(red:1, green:0.55, blue:0.04, alpha:1)
+        "common": UIColor(red:0.95, green:0.26, blue:0.21, alpha:1),
+        "linux" : UIColor(red:0.25, green:0.32, blue:0.71, alpha:1),
+        "osx": UIColor(red:0.29, green:0.68, blue:0.31, alpha:1),
+        "sunos": UIColor(red:1, green:0.59, blue:0, alpha:1)
     ]
+
     
     
     override func viewDidLoad() {
@@ -35,6 +36,7 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
+        searchController.delegate = self
         
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
@@ -57,8 +59,13 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
         
         tableView.estimatedRowHeight = 80.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        searchController.searchBar.tintColor = UIColor(red:0.91, green:0.91, blue:0.92, alpha:1)
-        searchController.searchBar.barTintColor = UIColor(red:0.13, green:0.17, blue:0.22, alpha:1)
+        
+        // Color for the text and scopebar border in searchbar - White
+        searchController.searchBar.tintColor = UIColor.lightPrimaryColor()
+        
+        // Background Color of the searchbar - Dark Blue
+        searchController.searchBar.barTintColor = UIColor.darkPrimaryColor()
+        searchController.searchBar.translucent = true
         
         // prevents tab bar from overlapping last tableviewcell
         tabBarController?.tabBar.translucent = false
@@ -75,18 +82,18 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
     
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let emptyMessage = "No cheatsheets match your search"
-        let attributes  = [NSFontAttributeName: UIFont.boldSystemFontOfSize(18), NSForegroundColorAttributeName: UIColor.blackColor()]
+        let attributes  = [NSFontAttributeName: UIFont.boldSystemFontOfSize(18), NSForegroundColorAttributeName: UIColor.primaryTextColor()]
         return NSAttributedString(string: emptyMessage, attributes: attributes)
     }
     
     func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-        let emptyDescription = "We are working on adding cheatsheets for commands"
+        let emptyDescription = "We are working on adding cheatsheets for more commands"
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
         paragraphStyle.alignment = NSTextAlignment.Center
         paragraphStyle.lineSpacing = 4.0
         
-        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(14), NSForegroundColorAttributeName: UIColor.lightGrayColor(), NSParagraphStyleAttributeName: paragraphStyle]
+        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(14), NSForegroundColorAttributeName: UIColor.secondaryTextColor(), NSParagraphStyleAttributeName: paragraphStyle]
         
         return NSAttributedString(string: emptyDescription, attributes: attributes)
     }
@@ -123,14 +130,28 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
         var searchFrame: CGRect = searchController.searchBar.frame
         searchFrame.size.width = searchView.frame.size.width
         searchController.searchBar.frame = searchFrame
+        if toInterfaceOrientation.isLandscape {
+            tableView.contentInset.top = 0
+        } else if toInterfaceOrientation.isPortrait {
+            if searchController.active {
+                tableView.contentInset.top = 44
+                scrollToTop()
+            } else {
+                tableView.contentInset.top = 0
+            }
+        }
     }
     
     func filterCheatSheetsForSearchText(searchText: String, platform: String) {
         if platform == "All" {
-            searchResults = cheatSheetsIndex.filter({ (cheatSheet: CheatSheet) -> Bool in
-                let nameMatch = cheatSheet.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-                return (nameMatch != nil || searchText == "")
-            })
+            if searchText == "" {
+                searchResults = cheatSheetsIndex
+            } else {
+                searchResults = cheatSheetsIndex.filter({ (cheatSheet: CheatSheet) -> Bool in
+                    let nameMatch = cheatSheet.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+                    return (nameMatch != nil)
+                })
+            }
         } else {
             searchResults = cheatSheetsIndex.filter({ (cheatSheet: CheatSheet) -> Bool in
                 let nameMatch = cheatSheet.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
@@ -140,6 +161,9 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
+        if !searchController.active {
+            tableView.contentInset.top = 0
+        }
         let searchText = searchController.searchBar.text
         let scopeButtonTitles = searchController.searchBar.scopeButtonTitles as [String]
         let scopeSelection = scopeButtonTitles[searchController.searchBar.selectedScopeButtonIndex]
@@ -167,6 +191,22 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
+    func scrollToTop() {
+        if (self.numberOfSectionsInTableView(self.tableView) > 0 ) {
+            
+            var top = NSIndexPath(forRow: Foundation.NSNotFound, inSection: 0);
+            self.tableView.scrollToRowAtIndexPath(top, atScrollPosition: UITableViewScrollPosition.Top, animated: true);
+        }
+    }
+    
+    // Change the tableview contentInset when the searchController is presented
+    func didPresentSearchController(searchController: UISearchController) {
+        if UIDevice.currentDevice().orientation.isPortrait {
+            self.tableView.contentInset.top = 44
+            scrollToTop()
+        }
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let reuseIdentifier = "cheatSheet"
         let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as CheatSheetTableCell
@@ -175,18 +215,18 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
         cell.platformLabel.text = cheatSheet[indexPath.row].platform
         cell.descriptionLabel.text = cheatSheet[indexPath.row].description
         
-        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor.lightPrimaryColor()
         cell.roundedBackground.layer.cornerRadius = 5
         cell.roundedBackground.clipsToBounds = true
         
         cell.platformLabel.layer.cornerRadius = 10
         cell.platformLabel.clipsToBounds = true
         
-        cell.descriptionLabel.textColor = UIColor(red:0.59, green:0.56, blue:0.59, alpha:1)
+        cell.descriptionLabel.textColor = UIColor.secondaryTextColor()
         
-        cell.nameLabel.textColor = UIColor(red:0.2, green:0.2, blue:0.18, alpha:1)
+        cell.nameLabel.textColor = UIColor.primaryTextColor()
         
-        cell.platformLabel.textColor = UIColor.whiteColor()
+        cell.platformLabel.textColor = UIColor.textIconColor()
         cell.platformLabel.backgroundColor = colorArray[cheatSheet[indexPath.row].platform!]
         cell.platformLabel.layer.cornerRadius = 5
         cell.platformLabel.clipsToBounds = true

@@ -13,5 +13,7 @@
 
 #import "UIScrollView+EmptyDataSet.h"
 
+#import "UIImage+ImageWithColor.h"
+
 
 #endif

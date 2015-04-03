@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "76FB615188C9CC8DD40A40A1"
-               BuildableName = "libPods-LinuxDocs-DZNEmptyDataSet.a"
-               BlueprintName = "Pods-LinuxDocs-DZNEmptyDataSet"
+               BlueprintIdentifier = "E0FCAD9FD17B60AF37CE6DAF"
+               BuildableName = "libPods-LinuxDocs-UIImage-Helpers.a"
+               BlueprintName = "Pods-LinuxDocs-UIImage-Helpers"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
