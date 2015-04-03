@@ -102,9 +102,50 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-        let emptyMessage = "Your search didn't match any manpage"
-        let attributes  = [NSFontAttributeName: UIFont.boldSystemFontOfSize(18), NSForegroundColorAttributeName: UIColor.grayColor()]
+        let emptyMessage = "No manpages match your search"
+        let attributes  = [NSFontAttributeName: UIFont.boldSystemFontOfSize(18), NSForegroundColorAttributeName: UIColor.blackColor()]
         return NSAttributedString(string: emptyMessage, attributes: attributes)
+    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let emptyDescription = "You can request new manpages to be added in the next update"
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        paragraphStyle.alignment = NSTextAlignment.Center
+        paragraphStyle.lineSpacing = 4.0
+        
+        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(14), NSForegroundColorAttributeName: UIColor.lightGrayColor(), NSParagraphStyleAttributeName: paragraphStyle]
+        
+        return NSAttributedString(string: emptyDescription, attributes: attributes)
+    }
+    
+    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "nopage")
+    }
+    
+    func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
+        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(14), NSForegroundColorAttributeName: UIColor(red:0.51, green:0.51, blue:0.51, alpha:1)]
+        
+        return NSAttributedString(string: "Request New ManPage", attributes: attributes)
+    }
+    
+    func buttonBackgroundImageForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> UIImage! {
+        let rectInsets = UIEdgeInsetsMake(-23.0, -60.0, -23.0, -60.0);
+        let capInsets = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0);
+        
+        return UIImage(named: "roundbutton")?.resizableImageWithCapInsets(capInsets, resizingMode: UIImageResizingMode.Stretch).imageWithAlignmentRectInsets(rectInsets)
+    }
+    
+    func emptyDataSetShouldAllowScroll(scrollView: UIScrollView!) -> Bool {
+        return true
+    }
+    
+    func emptyDataSetDidTapButton(scrollView: UIScrollView!) {
+        println("Request New Man Page")
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchController.searchBar.endEditing(true)
     }
     
     // Change text color of section headers to white

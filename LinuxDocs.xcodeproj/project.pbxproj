@@ -162,7 +162,6 @@
 				AC8C51891AAB8AF30068A731 /* stylesheet */,
 				AC8C50201AAB74560068A731 /* Model */,
 				AC6332AC1AA79C010021AA57 /* ManPagesViewController.swift */,
-				AC6E4CBF1AC0B6D1001BC5FC /* LinuxDocs-Bridging-Header.h */,
 				AC0A8B7F1ABA9F8300DF8880 /* CheatSheetsViewController.swift */,
 				AC6332AE1AA79C010021AA57 /* Main.storyboard */,
 				AC6E4CD91AC0E0BB001BC5FC /* MainTabBarController.swift */,
@@ -178,6 +177,7 @@
 		AC6332A81AA79C010021AA57 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AC6E4CBF1AC0B6D1001BC5FC /* LinuxDocs-Bridging-Header.h */,
 				AC6E4CDB1AC0E732001BC5FC /* Launch Screen.xib */,
 				AC6332B11AA79C010021AA57 /* Images.xcassets */,
 				AC6332AA1AA79C010021AA57 /* AppDelegate.swift */,

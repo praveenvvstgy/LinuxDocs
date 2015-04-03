@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate {
+class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchView: UIView!
@@ -35,6 +35,9 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
+        
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         
         definesPresentationContext = true
         
@@ -69,6 +72,33 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         tableView.reloadData()
     }
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let emptyMessage = "No cheatsheets match your search"
+        let attributes  = [NSFontAttributeName: UIFont.boldSystemFontOfSize(18), NSForegroundColorAttributeName: UIColor.blackColor()]
+        return NSAttributedString(string: emptyMessage, attributes: attributes)
+    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let emptyDescription = "We are working on adding cheatsheets for commands"
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        paragraphStyle.alignment = NSTextAlignment.Center
+        paragraphStyle.lineSpacing = 4.0
+        
+        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(14), NSForegroundColorAttributeName: UIColor.lightGrayColor(), NSParagraphStyleAttributeName: paragraphStyle]
+        
+        return NSAttributedString(string: emptyDescription, attributes: attributes)
+    }
+    
+    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "nopage")
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchController.searchBar.endEditing(true)
+    }
+
     
     func readCheatSheetFromJSON() {
         let filePath = NSBundle.mainBundle().pathForResource("cheatsheet", ofType: "json")
