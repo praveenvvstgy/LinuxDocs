@@ -1,13 +1,13 @@
 PODS:
-  - JNWSpringAnimation (0.5)
+  - DZNEmptyDataSet (1.5.2)
   - SKSplashView (0.1.0)
 
 DEPENDENCIES:
-  - JNWSpringAnimation (~> 0.5)
+  - DZNEmptyDataSet
   - SKSplashView
 
 SPEC CHECKSUMS:
-  JNWSpringAnimation: 1ad895dfddf372e9b1318ff4d11493b157fa1f86
+  DZNEmptyDataSet: 741da409081a4bf707c949c964623a6ad1799772
   SKSplashView: 8cdb1bfccb5857cb141751d01b03cf132b110168
 
 COCOAPODS: 0.36.0

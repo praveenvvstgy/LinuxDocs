@@ -7,285 +7,261 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		066981846FBFEFD12FB57D49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807DA11ADCF94783D7DB4A23 /* Foundation.framework */; };
-		0B4D7469FEB080D2B152FFC0 /* SKSplashView.h in Headers */ = {isa = PBXBuildFile; fileRef = 193FAC31BB11C818D00C188F /* SKSplashView.h */; };
-		24B91D0E03092F7E4B92D759 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807DA11ADCF94783D7DB4A23 /* Foundation.framework */; };
-		25E5F61A11DB926977B573FC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28029106B72DF6E2C81C257 /* QuartzCore.framework */; };
-		2782F4D3EE11FE80FAAC1CD8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807DA11ADCF94783D7DB4A23 /* Foundation.framework */; };
-		27BB84B0478F66ED71374E19 /* Pods-LinuxDocs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E17841245FF5B88F998192A /* Pods-LinuxDocs-dummy.m */; };
-		3E2711997894E0FD369466B4 /* NSValue+JNWAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA27D657680D736B68EFC8 /* NSValue+JNWAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		45B1E5B92FABD0B90AFC5596 /* Pods-LinuxDocs-SKSplashView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 202A6B3762E36C64330B26E6 /* Pods-LinuxDocs-SKSplashView-dummy.m */; };
-		5FE5781100673B1EC0104BFD /* SKSplashIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = FE864C88A3AA144F3E6D068F /* SKSplashIcon.h */; };
-		6DAC47C88F672DB68947274D /* Pods-LinuxDocs-JNWSpringAnimation-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E2440BBC2E85DA65356F39C6 /* Pods-LinuxDocs-JNWSpringAnimation-dummy.m */; };
-		7619B6BD2278E30EF89B8285 /* NSValue+JNWAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6881DAC63545089A925BF1B3 /* NSValue+JNWAdditions.h */; };
-		85B8030F66CC18BC5517ED57 /* SKSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E9E506649A92F9A8E0CB66 /* SKSplashView.m */; };
-		86C06A8507356DC8F967BFA9 /* JNWSpringAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = B1F454CBA330ACA8BF74022D /* JNWSpringAnimation.h */; };
-		87686B352BE258C3B447D8BA /* JNWSpringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 87331A8F48EBAA6A2C8ED3BB /* JNWSpringAnimation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		C66BEBCF89C66F7AD1947401 /* SKSplashIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B74E98144C913D506EEA34 /* SKSplashIcon.m */; };
+		1B9BA87E749DB554C148C67D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946AB7859192CE3CE35CE269 /* UIKit.framework */; };
+		3C036F13C0DF9084CD9F3082 /* SKSplashIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D02AADFF59B0CFB4E6C0722 /* SKSplashIcon.h */; };
+		3DE6081A295B3D44593F5309 /* UIScrollView+EmptyDataSet.h in Headers */ = {isa = PBXBuildFile; fileRef = E3D5C8855BAE116099124AF5 /* UIScrollView+EmptyDataSet.h */; };
+		57BD56DADF282AB0B202A2F5 /* Pods-LinuxDocs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CE6A3B86A0358A758E3333 /* Pods-LinuxDocs-dummy.m */; };
+		629C9B8B829EA7023AD96B60 /* SKSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24729248EE7004ABD0E3F276 /* SKSplashView.m */; };
+		78380EA24BCB4D5AF3093FBA /* Pods-LinuxDocs-DZNEmptyDataSet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC84E901764E0B3A179CD53 /* Pods-LinuxDocs-DZNEmptyDataSet-dummy.m */; };
+		7C404AE6F813E9BFB1B0C508 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF415D1E8F7A7CFC82CB9CA1 /* Foundation.framework */; };
+		81F7353D4D68EF688286758D /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AC599D18D86544837078A763 /* UIScrollView+EmptyDataSet.m */; };
+		94571D6C2FDD7E5CFD1C3386 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF415D1E8F7A7CFC82CB9CA1 /* Foundation.framework */; };
+		9804B1A6F685B41D5A4AFA91 /* SKSplashIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = D72120CCB19E19AEA5804361 /* SKSplashIcon.m */; };
+		BC35451B025DC13BDB2741D9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF415D1E8F7A7CFC82CB9CA1 /* Foundation.framework */; };
+		C15FCEF2DB7C0AD092CD955D /* Pods-LinuxDocs-SKSplashView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5398C0B64ECB395F5B69A1E2 /* Pods-LinuxDocs-SKSplashView-dummy.m */; };
+		ED66EDDCC85398ED971EF8DA /* SKSplashView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3644BC63ED305C06A4E4A243 /* SKSplashView.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		383DAC2E81DF8259D41C68FE /* PBXContainerItemProxy */ = {
+		40DD011571431B85C5F5D0EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F326E52B72839395D0AE9240 /* Project object */;
+			containerPortal = F2C8563715A67194B6285A9E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A8FA017A79501738E8B7A905;
-			remoteInfo = "Pods-LinuxDocs-JNWSpringAnimation";
+			remoteGlobalIDString = F6A3811755981AE3ED882E6A;
+			remoteInfo = "Pods-LinuxDocs-DZNEmptyDataSet";
 		};
-		BD6580958E0FF3F5C94AC3AC /* PBXContainerItemProxy */ = {
+		5007272F59E7A9FDB2DA30A6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F326E52B72839395D0AE9240 /* Project object */;
+			containerPortal = F2C8563715A67194B6285A9E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F3D06535FA17CFFC2A497DD6;
+			remoteGlobalIDString = BB11CDB7D637D34D07124957;
 			remoteInfo = "Pods-LinuxDocs-SKSplashView";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		193FAC31BB11C818D00C188F /* SKSplashView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SKSplashView.h; path = SKSplashView/SKSplashView.h; sourceTree = "<group>"; };
-		202A6B3762E36C64330B26E6 /* Pods-LinuxDocs-SKSplashView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LinuxDocs-SKSplashView-dummy.m"; sourceTree = "<group>"; };
-		2244C6B5D267950CBDCFC4D4 /* libPods-LinuxDocs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LinuxDocs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		54E9E506649A92F9A8E0CB66 /* SKSplashView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SKSplashView.m; path = SKSplashView/SKSplashView.m; sourceTree = "<group>"; };
-		62529208A1929EAFCA832947 /* Pods-LinuxDocs-JNWSpringAnimation.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LinuxDocs-JNWSpringAnimation.xcconfig"; sourceTree = "<group>"; };
-		6881DAC63545089A925BF1B3 /* NSValue+JNWAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSValue+JNWAdditions.h"; sourceTree = "<group>"; };
-		6D4CF589F711708820DAE0E5 /* Pods-LinuxDocs-SKSplashView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LinuxDocs-SKSplashView-prefix.pch"; sourceTree = "<group>"; };
-		6FDFD43EDABEAF03AFA197B9 /* Pods-LinuxDocs-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LinuxDocs-environment.h"; sourceTree = "<group>"; };
-		807DA11ADCF94783D7DB4A23 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		87331A8F48EBAA6A2C8ED3BB /* JNWSpringAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JNWSpringAnimation.m; sourceTree = "<group>"; };
-		8B5B1CFD76DDC837263B0A65 /* Pods-LinuxDocs-JNWSpringAnimation-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LinuxDocs-JNWSpringAnimation-Private.xcconfig"; sourceTree = "<group>"; };
-		8E17841245FF5B88F998192A /* Pods-LinuxDocs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LinuxDocs-dummy.m"; sourceTree = "<group>"; };
-		9A8B649BFC5A484424F727B6 /* libPods-LinuxDocs-JNWSpringAnimation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LinuxDocs-JNWSpringAnimation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9ABA27D657680D736B68EFC8 /* NSValue+JNWAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSValue+JNWAdditions.m"; sourceTree = "<group>"; };
-		9CE27170849705172A5B5783 /* Pods-LinuxDocs-SKSplashView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LinuxDocs-SKSplashView-Private.xcconfig"; sourceTree = "<group>"; };
-		A6710F1997BA5EB01E5611BF /* Pods-LinuxDocs-JNWSpringAnimation-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LinuxDocs-JNWSpringAnimation-prefix.pch"; sourceTree = "<group>"; };
-		B02ABC2481A6F9E49EC448B9 /* Pods-LinuxDocs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LinuxDocs.debug.xcconfig"; sourceTree = "<group>"; };
-		B1F454CBA330ACA8BF74022D /* JNWSpringAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JNWSpringAnimation.h; sourceTree = "<group>"; };
-		B28029106B72DF6E2C81C257 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		CAEABCAF865FB8C5F64A6407 /* libPods-LinuxDocs-SKSplashView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LinuxDocs-SKSplashView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB2836A409E30B09B8DB9C5C /* Pods-LinuxDocs-SKSplashView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LinuxDocs-SKSplashView.xcconfig"; sourceTree = "<group>"; };
-		CB7F7041C2B8C9841057C5A0 /* Pods-LinuxDocs-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LinuxDocs-acknowledgements.plist"; sourceTree = "<group>"; };
-		E150BCE5A1B420045D8ED8D6 /* Pods-LinuxDocs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LinuxDocs.release.xcconfig"; sourceTree = "<group>"; };
-		E2440BBC2E85DA65356F39C6 /* Pods-LinuxDocs-JNWSpringAnimation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LinuxDocs-JNWSpringAnimation-dummy.m"; sourceTree = "<group>"; };
-		E4DFA1B00A006D6B0DF114B0 /* Pods-LinuxDocs-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LinuxDocs-acknowledgements.markdown"; sourceTree = "<group>"; };
-		E99A3C3DB3D943098CEE9F53 /* Pods-LinuxDocs-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LinuxDocs-resources.sh"; sourceTree = "<group>"; };
-		E9B74E98144C913D506EEA34 /* SKSplashIcon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SKSplashIcon.m; path = SKSplashView/SKSplashIcon.m; sourceTree = "<group>"; };
-		F7AB68AF5C14D77AE1D565AC /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		FE864C88A3AA144F3E6D068F /* SKSplashIcon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SKSplashIcon.h; path = SKSplashView/SKSplashIcon.h; sourceTree = "<group>"; };
+		17BFD2777EB52B7449144E3B /* Pods-LinuxDocs-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LinuxDocs-environment.h"; sourceTree = "<group>"; };
+		1CC84E901764E0B3A179CD53 /* Pods-LinuxDocs-DZNEmptyDataSet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LinuxDocs-DZNEmptyDataSet-dummy.m"; sourceTree = "<group>"; };
+		223A33153068F3809BEDF8AF /* libPods-LinuxDocs-SKSplashView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LinuxDocs-SKSplashView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24729248EE7004ABD0E3F276 /* SKSplashView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SKSplashView.m; path = SKSplashView/SKSplashView.m; sourceTree = "<group>"; };
+		25A4E1F4E0AC86000284A4ED /* Pods-LinuxDocs-DZNEmptyDataSet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LinuxDocs-DZNEmptyDataSet.xcconfig"; sourceTree = "<group>"; };
+		278A619609912624B89DA02C /* Pods-LinuxDocs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LinuxDocs.release.xcconfig"; sourceTree = "<group>"; };
+		2D2B48E755C65DE23D0AC7C4 /* Pods-LinuxDocs-SKSplashView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LinuxDocs-SKSplashView-prefix.pch"; sourceTree = "<group>"; };
+		2D8F1BDE7361F17652DE80F8 /* Pods-LinuxDocs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LinuxDocs.debug.xcconfig"; sourceTree = "<group>"; };
+		3644BC63ED305C06A4E4A243 /* SKSplashView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SKSplashView.h; path = SKSplashView/SKSplashView.h; sourceTree = "<group>"; };
+		3F2BCB24C299A78CA40EE2B5 /* libPods-LinuxDocs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LinuxDocs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		51A8E00CED3B550FF522E7F4 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		5398C0B64ECB395F5B69A1E2 /* Pods-LinuxDocs-SKSplashView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LinuxDocs-SKSplashView-dummy.m"; sourceTree = "<group>"; };
+		573956754C6FCE6ED2A198FF /* Pods-LinuxDocs-SKSplashView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LinuxDocs-SKSplashView.xcconfig"; sourceTree = "<group>"; };
+		858D0736A5E5087588665638 /* Pods-LinuxDocs-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LinuxDocs-resources.sh"; sourceTree = "<group>"; };
+		8D02AADFF59B0CFB4E6C0722 /* SKSplashIcon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SKSplashIcon.h; path = SKSplashView/SKSplashIcon.h; sourceTree = "<group>"; };
+		90222F0E7DF5261FC50878D0 /* Pods-LinuxDocs-DZNEmptyDataSet-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LinuxDocs-DZNEmptyDataSet-prefix.pch"; sourceTree = "<group>"; };
+		946AB7859192CE3CE35CE269 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		AC599D18D86544837078A763 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+EmptyDataSet.m"; path = "Source/UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
+		BDC29FF2949CBAFA255A7256 /* Pods-LinuxDocs-DZNEmptyDataSet-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LinuxDocs-DZNEmptyDataSet-Private.xcconfig"; sourceTree = "<group>"; };
+		CF415D1E8F7A7CFC82CB9CA1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D3CE6A3B86A0358A758E3333 /* Pods-LinuxDocs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LinuxDocs-dummy.m"; sourceTree = "<group>"; };
+		D72120CCB19E19AEA5804361 /* SKSplashIcon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SKSplashIcon.m; path = SKSplashView/SKSplashIcon.m; sourceTree = "<group>"; };
+		DDED909402E75FAF9BA0A8F8 /* Pods-LinuxDocs-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LinuxDocs-acknowledgements.plist"; sourceTree = "<group>"; };
+		E3D5C8855BAE116099124AF5 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+EmptyDataSet.h"; path = "Source/UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
+		E9F4F21E93E419978E4593A0 /* Pods-LinuxDocs-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LinuxDocs-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FBFEB491E2A23FA6FCAEE663 /* Pods-LinuxDocs-SKSplashView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LinuxDocs-SKSplashView-Private.xcconfig"; sourceTree = "<group>"; };
+		FD83AD1F9BCBAB59FEDF951B /* libPods-LinuxDocs-DZNEmptyDataSet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LinuxDocs-DZNEmptyDataSet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1E83085FD8B7134C7E9EE472 /* Frameworks */ = {
+		6A6D721E3480755BBAA86584 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2782F4D3EE11FE80FAAC1CD8 /* Foundation.framework in Frameworks */,
-				25E5F61A11DB926977B573FC /* QuartzCore.framework in Frameworks */,
+				7C404AE6F813E9BFB1B0C508 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		85AD1A00C1B0D7C51CE275A7 /* Frameworks */ = {
+		D7BAB4147454FADF625B6172 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				066981846FBFEFD12FB57D49 /* Foundation.framework in Frameworks */,
+				BC35451B025DC13BDB2741D9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8E78D5A90FF0A640E97448BF /* Frameworks */ = {
+		F0D448C4713504DFED937B89 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24B91D0E03092F7E4B92D759 /* Foundation.framework in Frameworks */,
+				94571D6C2FDD7E5CFD1C3386 /* Foundation.framework in Frameworks */,
+				1B9BA87E749DB554C148C67D /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0831A9E9F65985402C6E5505 /* SKSplashView */ = {
+		06734EA38060C4DE5B386683 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FE864C88A3AA144F3E6D068F /* SKSplashIcon.h */,
-				E9B74E98144C913D506EEA34 /* SKSplashIcon.m */,
-				193FAC31BB11C818D00C188F /* SKSplashView.h */,
-				54E9E506649A92F9A8E0CB66 /* SKSplashView.m */,
-				35B4B241C20708FA041BD7B3 /* Support Files */,
+				5FF96A43F22E9DDBF2B5D2EE /* DZNEmptyDataSet */,
+				B595AB19061A6B36C8E65F06 /* SKSplashView */,
 			);
-			path = SKSplashView;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		0EAFF6A9A4096F3BFF15D647 /* JNWSpringAnimation */ = {
+		23E62F8C42733897C0FAD49F /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				B1F454CBA330ACA8BF74022D /* JNWSpringAnimation.h */,
-				87331A8F48EBAA6A2C8ED3BB /* JNWSpringAnimation.m */,
-				6881DAC63545089A925BF1B3 /* NSValue+JNWAdditions.h */,
-				9ABA27D657680D736B68EFC8 /* NSValue+JNWAdditions.m */,
-				1A507E809DCF57B14192A0A7 /* Support Files */,
-			);
-			path = JNWSpringAnimation;
-			sourceTree = "<group>";
-		};
-		1A507E809DCF57B14192A0A7 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				62529208A1929EAFCA832947 /* Pods-LinuxDocs-JNWSpringAnimation.xcconfig */,
-				8B5B1CFD76DDC837263B0A65 /* Pods-LinuxDocs-JNWSpringAnimation-Private.xcconfig */,
-				E2440BBC2E85DA65356F39C6 /* Pods-LinuxDocs-JNWSpringAnimation-dummy.m */,
-				A6710F1997BA5EB01E5611BF /* Pods-LinuxDocs-JNWSpringAnimation-prefix.pch */,
+				25A4E1F4E0AC86000284A4ED /* Pods-LinuxDocs-DZNEmptyDataSet.xcconfig */,
+				BDC29FF2949CBAFA255A7256 /* Pods-LinuxDocs-DZNEmptyDataSet-Private.xcconfig */,
+				1CC84E901764E0B3A179CD53 /* Pods-LinuxDocs-DZNEmptyDataSet-dummy.m */,
+				90222F0E7DF5261FC50878D0 /* Pods-LinuxDocs-DZNEmptyDataSet-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Pods-LinuxDocs-JNWSpringAnimation";
+			path = "../Target Support Files/Pods-LinuxDocs-DZNEmptyDataSet";
 			sourceTree = "<group>";
 		};
-		35B4B241C20708FA041BD7B3 /* Support Files */ = {
+		243EEC990477D65F8F12C0B8 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CB2836A409E30B09B8DB9C5C /* Pods-LinuxDocs-SKSplashView.xcconfig */,
-				9CE27170849705172A5B5783 /* Pods-LinuxDocs-SKSplashView-Private.xcconfig */,
-				202A6B3762E36C64330B26E6 /* Pods-LinuxDocs-SKSplashView-dummy.m */,
-				6D4CF589F711708820DAE0E5 /* Pods-LinuxDocs-SKSplashView-prefix.pch */,
+				573956754C6FCE6ED2A198FF /* Pods-LinuxDocs-SKSplashView.xcconfig */,
+				FBFEB491E2A23FA6FCAEE663 /* Pods-LinuxDocs-SKSplashView-Private.xcconfig */,
+				5398C0B64ECB395F5B69A1E2 /* Pods-LinuxDocs-SKSplashView-dummy.m */,
+				2D2B48E755C65DE23D0AC7C4 /* Pods-LinuxDocs-SKSplashView-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-LinuxDocs-SKSplashView";
 			sourceTree = "<group>";
 		};
-		4759FD1B58D2B3391DD1C410 /* iOS */ = {
+		3EF2E9FB7147A3B798EC17FA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				807DA11ADCF94783D7DB4A23 /* Foundation.framework */,
-				B28029106B72DF6E2C81C257 /* QuartzCore.framework */,
+				3F2BCB24C299A78CA40EE2B5 /* libPods-LinuxDocs.a */,
+				FD83AD1F9BCBAB59FEDF951B /* libPods-LinuxDocs-DZNEmptyDataSet.a */,
+				223A33153068F3809BEDF8AF /* libPods-LinuxDocs-SKSplashView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5E7FCB502ECB1737B687D2AE /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CF415D1E8F7A7CFC82CB9CA1 /* Foundation.framework */,
+				946AB7859192CE3CE35CE269 /* UIKit.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		62F087CA46615C68EB06BC6F /* Pods-LinuxDocs */ = {
+		5FF96A43F22E9DDBF2B5D2EE /* DZNEmptyDataSet */ = {
 			isa = PBXGroup;
 			children = (
-				E4DFA1B00A006D6B0DF114B0 /* Pods-LinuxDocs-acknowledgements.markdown */,
-				CB7F7041C2B8C9841057C5A0 /* Pods-LinuxDocs-acknowledgements.plist */,
-				8E17841245FF5B88F998192A /* Pods-LinuxDocs-dummy.m */,
-				6FDFD43EDABEAF03AFA197B9 /* Pods-LinuxDocs-environment.h */,
-				E99A3C3DB3D943098CEE9F53 /* Pods-LinuxDocs-resources.sh */,
-				B02ABC2481A6F9E49EC448B9 /* Pods-LinuxDocs.debug.xcconfig */,
-				E150BCE5A1B420045D8ED8D6 /* Pods-LinuxDocs.release.xcconfig */,
+				E3D5C8855BAE116099124AF5 /* UIScrollView+EmptyDataSet.h */,
+				AC599D18D86544837078A763 /* UIScrollView+EmptyDataSet.m */,
+				23E62F8C42733897C0FAD49F /* Support Files */,
+			);
+			path = DZNEmptyDataSet;
+			sourceTree = "<group>";
+		};
+		77D595F866309EB137F1C5AC /* Pods-LinuxDocs */ = {
+			isa = PBXGroup;
+			children = (
+				E9F4F21E93E419978E4593A0 /* Pods-LinuxDocs-acknowledgements.markdown */,
+				DDED909402E75FAF9BA0A8F8 /* Pods-LinuxDocs-acknowledgements.plist */,
+				D3CE6A3B86A0358A758E3333 /* Pods-LinuxDocs-dummy.m */,
+				17BFD2777EB52B7449144E3B /* Pods-LinuxDocs-environment.h */,
+				858D0736A5E5087588665638 /* Pods-LinuxDocs-resources.sh */,
+				2D8F1BDE7361F17652DE80F8 /* Pods-LinuxDocs.debug.xcconfig */,
+				278A619609912624B89DA02C /* Pods-LinuxDocs.release.xcconfig */,
 			);
 			name = "Pods-LinuxDocs";
 			path = "Target Support Files/Pods-LinuxDocs";
 			sourceTree = "<group>";
 		};
-		BE05CDC35BAA29E8AEFCA265 /* Pods */ = {
+		9656D46B71490AAD2B590864 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0EAFF6A9A4096F3BFF15D647 /* JNWSpringAnimation */,
-				0831A9E9F65985402C6E5505 /* SKSplashView */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		BF2F4EFC3BBDC523FB4205E5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4759FD1B58D2B3391DD1C410 /* iOS */,
+				5E7FCB502ECB1737B687D2AE /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F90B45B2D2CB8E784ED812E9 /* Products */ = {
+		A3A479F6EA990245FB5B83B7 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				2244C6B5D267950CBDCFC4D4 /* libPods-LinuxDocs.a */,
-				9A8B649BFC5A484424F727B6 /* libPods-LinuxDocs-JNWSpringAnimation.a */,
-				CAEABCAF865FB8C5F64A6407 /* libPods-LinuxDocs-SKSplashView.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FD2076F5A483872EA3C789B3 = {
-			isa = PBXGroup;
-			children = (
-				F7AB68AF5C14D77AE1D565AC /* Podfile */,
-				BF2F4EFC3BBDC523FB4205E5 /* Frameworks */,
-				BE05CDC35BAA29E8AEFCA265 /* Pods */,
-				F90B45B2D2CB8E784ED812E9 /* Products */,
-				FDD233E5230A6BF817B0CA7F /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		FDD233E5230A6BF817B0CA7F /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				62F087CA46615C68EB06BC6F /* Pods-LinuxDocs */,
+				77D595F866309EB137F1C5AC /* Pods-LinuxDocs */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		B595AB19061A6B36C8E65F06 /* SKSplashView */ = {
+			isa = PBXGroup;
+			children = (
+				8D02AADFF59B0CFB4E6C0722 /* SKSplashIcon.h */,
+				D72120CCB19E19AEA5804361 /* SKSplashIcon.m */,
+				3644BC63ED305C06A4E4A243 /* SKSplashView.h */,
+				24729248EE7004ABD0E3F276 /* SKSplashView.m */,
+				243EEC990477D65F8F12C0B8 /* Support Files */,
+			);
+			path = SKSplashView;
+			sourceTree = "<group>";
+		};
+		D160E547031DCFEB75D8BCFD = {
+			isa = PBXGroup;
+			children = (
+				51A8E00CED3B550FF522E7F4 /* Podfile */,
+				9656D46B71490AAD2B590864 /* Frameworks */,
+				06734EA38060C4DE5B386683 /* Pods */,
+				3EF2E9FB7147A3B798EC17FA /* Products */,
+				A3A479F6EA990245FB5B83B7 /* Targets Support Files */,
+			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2E44CC75E620DDD109FECD81 /* Headers */ = {
+		1225786D90B6745BE9F2A6AC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FE5781100673B1EC0104BFD /* SKSplashIcon.h in Headers */,
-				0B4D7469FEB080D2B152FFC0 /* SKSplashView.h in Headers */,
+				3C036F13C0DF9084CD9F3082 /* SKSplashIcon.h in Headers */,
+				ED66EDDCC85398ED971EF8DA /* SKSplashView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		366B717B7998E22A62BA5B1F /* Headers */ = {
+		F08E4DA76002843B2E0927AE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86C06A8507356DC8F967BFA9 /* JNWSpringAnimation.h in Headers */,
-				7619B6BD2278E30EF89B8285 /* NSValue+JNWAdditions.h in Headers */,
+				3DE6081A295B3D44593F5309 /* UIScrollView+EmptyDataSet.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2B7F704046D93F98C0B6CAC1 /* Pods-LinuxDocs */ = {
+		046C41A0FE38262B978FF4F8 /* Pods-LinuxDocs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F238179128BE79DBFDC12C4D /* Build configuration list for PBXNativeTarget "Pods-LinuxDocs" */;
+			buildConfigurationList = 84285DF0209A9FE49BB1EC42 /* Build configuration list for PBXNativeTarget "Pods-LinuxDocs" */;
 			buildPhases = (
-				FB2E10F351DD334AC4D6CB9E /* Sources */,
-				8E78D5A90FF0A640E97448BF /* Frameworks */,
+				A734A66BEA54E27882FAC1EC /* Sources */,
+				D7BAB4147454FADF625B6172 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E19C887A85FAF1A58E46C0D6 /* PBXTargetDependency */,
-				E4A66779AAF4AEB666AACE61 /* PBXTargetDependency */,
+				75689FD3B214583387AC3A23 /* PBXTargetDependency */,
+				FC284D58ED8AA30265A4DEF7 /* PBXTargetDependency */,
 			);
 			name = "Pods-LinuxDocs";
 			productName = "Pods-LinuxDocs";
-			productReference = 2244C6B5D267950CBDCFC4D4 /* libPods-LinuxDocs.a */;
+			productReference = 3F2BCB24C299A78CA40EE2B5 /* libPods-LinuxDocs.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		A8FA017A79501738E8B7A905 /* Pods-LinuxDocs-JNWSpringAnimation */ = {
+		BB11CDB7D637D34D07124957 /* Pods-LinuxDocs-SKSplashView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29378E2334EDF7358AD33D13 /* Build configuration list for PBXNativeTarget "Pods-LinuxDocs-JNWSpringAnimation" */;
+			buildConfigurationList = 30FF2075BF867A956458A04B /* Build configuration list for PBXNativeTarget "Pods-LinuxDocs-SKSplashView" */;
 			buildPhases = (
-				F2CBE70E776038D22D532DE7 /* Sources */,
-				1E83085FD8B7134C7E9EE472 /* Frameworks */,
-				366B717B7998E22A62BA5B1F /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-LinuxDocs-JNWSpringAnimation";
-			productName = "Pods-LinuxDocs-JNWSpringAnimation";
-			productReference = 9A8B649BFC5A484424F727B6 /* libPods-LinuxDocs-JNWSpringAnimation.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		F3D06535FA17CFFC2A497DD6 /* Pods-LinuxDocs-SKSplashView */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B73B912DD78F4E33AF8943D2 /* Build configuration list for PBXNativeTarget "Pods-LinuxDocs-SKSplashView" */;
-			buildPhases = (
-				0892D5787CC5E7FA6D2F6BE9 /* Sources */,
-				85AD1A00C1B0D7C51CE275A7 /* Frameworks */,
-				2E44CC75E620DDD109FECD81 /* Headers */,
+				29C423CCE357C170A148A416 /* Sources */,
+				6A6D721E3480755BBAA86584 /* Frameworks */,
+				1225786D90B6745BE9F2A6AC /* Headers */,
 			);
 			buildRules = (
 			);
@@ -293,84 +269,150 @@
 			);
 			name = "Pods-LinuxDocs-SKSplashView";
 			productName = "Pods-LinuxDocs-SKSplashView";
-			productReference = CAEABCAF865FB8C5F64A6407 /* libPods-LinuxDocs-SKSplashView.a */;
+			productReference = 223A33153068F3809BEDF8AF /* libPods-LinuxDocs-SKSplashView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F6A3811755981AE3ED882E6A /* Pods-LinuxDocs-DZNEmptyDataSet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22BB3ADBD8E89538D699070B /* Build configuration list for PBXNativeTarget "Pods-LinuxDocs-DZNEmptyDataSet" */;
+			buildPhases = (
+				3B0230B4D7187593F07BB560 /* Sources */,
+				F0D448C4713504DFED937B89 /* Frameworks */,
+				F08E4DA76002843B2E0927AE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-LinuxDocs-DZNEmptyDataSet";
+			productName = "Pods-LinuxDocs-DZNEmptyDataSet";
+			productReference = FD83AD1F9BCBAB59FEDF951B /* libPods-LinuxDocs-DZNEmptyDataSet.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F326E52B72839395D0AE9240 /* Project object */ = {
+		F2C8563715A67194B6285A9E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 			};
-			buildConfigurationList = 5BEEE33B27B57A74BF809827 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 7FD1A7B47A09DE6F7E7CD3D3 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = FD2076F5A483872EA3C789B3;
-			productRefGroup = F90B45B2D2CB8E784ED812E9 /* Products */;
+			mainGroup = D160E547031DCFEB75D8BCFD;
+			productRefGroup = 3EF2E9FB7147A3B798EC17FA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2B7F704046D93F98C0B6CAC1 /* Pods-LinuxDocs */,
-				A8FA017A79501738E8B7A905 /* Pods-LinuxDocs-JNWSpringAnimation */,
-				F3D06535FA17CFFC2A497DD6 /* Pods-LinuxDocs-SKSplashView */,
+				046C41A0FE38262B978FF4F8 /* Pods-LinuxDocs */,
+				F6A3811755981AE3ED882E6A /* Pods-LinuxDocs-DZNEmptyDataSet */,
+				BB11CDB7D637D34D07124957 /* Pods-LinuxDocs-SKSplashView */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0892D5787CC5E7FA6D2F6BE9 /* Sources */ = {
+		29C423CCE357C170A148A416 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45B1E5B92FABD0B90AFC5596 /* Pods-LinuxDocs-SKSplashView-dummy.m in Sources */,
-				C66BEBCF89C66F7AD1947401 /* SKSplashIcon.m in Sources */,
-				85B8030F66CC18BC5517ED57 /* SKSplashView.m in Sources */,
+				C15FCEF2DB7C0AD092CD955D /* Pods-LinuxDocs-SKSplashView-dummy.m in Sources */,
+				9804B1A6F685B41D5A4AFA91 /* SKSplashIcon.m in Sources */,
+				629C9B8B829EA7023AD96B60 /* SKSplashView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F2CBE70E776038D22D532DE7 /* Sources */ = {
+		3B0230B4D7187593F07BB560 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87686B352BE258C3B447D8BA /* JNWSpringAnimation.m in Sources */,
-				3E2711997894E0FD369466B4 /* NSValue+JNWAdditions.m in Sources */,
-				6DAC47C88F672DB68947274D /* Pods-LinuxDocs-JNWSpringAnimation-dummy.m in Sources */,
+				78380EA24BCB4D5AF3093FBA /* Pods-LinuxDocs-DZNEmptyDataSet-dummy.m in Sources */,
+				81F7353D4D68EF688286758D /* UIScrollView+EmptyDataSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB2E10F351DD334AC4D6CB9E /* Sources */ = {
+		A734A66BEA54E27882FAC1EC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27BB84B0478F66ED71374E19 /* Pods-LinuxDocs-dummy.m in Sources */,
+				57BD56DADF282AB0B202A2F5 /* Pods-LinuxDocs-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E19C887A85FAF1A58E46C0D6 /* PBXTargetDependency */ = {
+		75689FD3B214583387AC3A23 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-LinuxDocs-JNWSpringAnimation";
-			target = A8FA017A79501738E8B7A905 /* Pods-LinuxDocs-JNWSpringAnimation */;
-			targetProxy = 383DAC2E81DF8259D41C68FE /* PBXContainerItemProxy */;
+			name = "Pods-LinuxDocs-DZNEmptyDataSet";
+			target = F6A3811755981AE3ED882E6A /* Pods-LinuxDocs-DZNEmptyDataSet */;
+			targetProxy = 40DD011571431B85C5F5D0EC /* PBXContainerItemProxy */;
 		};
-		E4A66779AAF4AEB666AACE61 /* PBXTargetDependency */ = {
+		FC284D58ED8AA30265A4DEF7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-LinuxDocs-SKSplashView";
-			target = F3D06535FA17CFFC2A497DD6 /* Pods-LinuxDocs-SKSplashView */;
-			targetProxy = BD6580958E0FF3F5C94AC3AC /* PBXContainerItemProxy */;
+			target = BB11CDB7D637D34D07124957 /* Pods-LinuxDocs-SKSplashView */;
+			targetProxy = 5007272F59E7A9FDB2DA30A6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1878915DA7147365D30C61EC /* Debug */ = {
+		8FC35138260A6E612E3BDFFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDC29FF2949CBAFA255A7256 /* Pods-LinuxDocs-DZNEmptyDataSet-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-LinuxDocs-DZNEmptyDataSet/Pods-LinuxDocs-DZNEmptyDataSet-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9C3DE621D48F45F106CCE72F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B29F1176F245BB8FF89BD9E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -409,75 +451,9 @@
 			};
 			name = Debug;
 		};
-		366975B03193D52F726D292F /* Debug */ = {
+		B4742DE935E6B9A12F2F48F0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9CE27170849705172A5B5783 /* Pods-LinuxDocs-SKSplashView-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-LinuxDocs-SKSplashView/Pods-LinuxDocs-SKSplashView-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		3EBD7C73E89BFF3CCDFD01B0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		3FE91E2F13261D9B2E4E6813 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B5B1CFD76DDC837263B0A65 /* Pods-LinuxDocs-JNWSpringAnimation-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-LinuxDocs-JNWSpringAnimation/Pods-LinuxDocs-JNWSpringAnimation-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		6DC61C9EE7C6CE557D396812 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9CE27170849705172A5B5783 /* Pods-LinuxDocs-SKSplashView-Private.xcconfig */;
+			baseConfigurationReference = FBFEB491E2A23FA6FCAEE663 /* Pods-LinuxDocs-SKSplashView-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-LinuxDocs-SKSplashView/Pods-LinuxDocs-SKSplashView-prefix.pch";
@@ -491,9 +467,9 @@
 			};
 			name = Release;
 		};
-		953B0D740F303A77A77DE440 /* Release */ = {
+		B6928225B47069FDE8EC810F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E150BCE5A1B420045D8ED8D6 /* Pods-LinuxDocs.release.xcconfig */;
+			baseConfigurationReference = 278A619609912624B89DA02C /* Pods-LinuxDocs.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -507,9 +483,41 @@
 			};
 			name = Release;
 		};
-		F9802910200DEB923360A831 /* Debug */ = {
+		BB81AE188D32DEB93497B5A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B02ABC2481A6F9E49EC448B9 /* Pods-LinuxDocs.debug.xcconfig */;
+			baseConfigurationReference = FBFEB491E2A23FA6FCAEE663 /* Pods-LinuxDocs-SKSplashView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-LinuxDocs-SKSplashView/Pods-LinuxDocs-SKSplashView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DB55AC929D3403DE448658A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDC29FF2949CBAFA255A7256 /* Pods-LinuxDocs-DZNEmptyDataSet-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-LinuxDocs-DZNEmptyDataSet/Pods-LinuxDocs-DZNEmptyDataSet-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		F092280ECAAE0C6467421894 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D8F1BDE7361F17652DE80F8 /* Pods-LinuxDocs.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -517,22 +525,6 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		FBF090D3357E6DEA8F09D833 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B5B1CFD76DDC837263B0A65 /* Pods-LinuxDocs-JNWSpringAnimation-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-LinuxDocs-JNWSpringAnimation/Pods-LinuxDocs-JNWSpringAnimation-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -542,43 +534,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		29378E2334EDF7358AD33D13 /* Build configuration list for PBXNativeTarget "Pods-LinuxDocs-JNWSpringAnimation" */ = {
+		22BB3ADBD8E89538D699070B /* Build configuration list for PBXNativeTarget "Pods-LinuxDocs-DZNEmptyDataSet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FBF090D3357E6DEA8F09D833 /* Debug */,
-				3FE91E2F13261D9B2E4E6813 /* Release */,
+				8FC35138260A6E612E3BDFFA /* Debug */,
+				DB55AC929D3403DE448658A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5BEEE33B27B57A74BF809827 /* Build configuration list for PBXProject "Pods" */ = {
+		30FF2075BF867A956458A04B /* Build configuration list for PBXNativeTarget "Pods-LinuxDocs-SKSplashView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1878915DA7147365D30C61EC /* Debug */,
-				3EBD7C73E89BFF3CCDFD01B0 /* Release */,
+				BB81AE188D32DEB93497B5A3 /* Debug */,
+				B4742DE935E6B9A12F2F48F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B73B912DD78F4E33AF8943D2 /* Build configuration list for PBXNativeTarget "Pods-LinuxDocs-SKSplashView" */ = {
+		7FD1A7B47A09DE6F7E7CD3D3 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				366975B03193D52F726D292F /* Debug */,
-				6DC61C9EE7C6CE557D396812 /* Release */,
+				B29F1176F245BB8FF89BD9E6 /* Debug */,
+				9C3DE621D48F45F106CCE72F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F238179128BE79DBFDC12C4D /* Build configuration list for PBXNativeTarget "Pods-LinuxDocs" */ = {
+		84285DF0209A9FE49BB1EC42 /* Build configuration list for PBXNativeTarget "Pods-LinuxDocs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F9802910200DEB923360A831 /* Debug */,
-				953B0D740F303A77A77DE440 /* Release */,
+				F092280ECAAE0C6467421894 /* Debug */,
+				B6928225B47069FDE8EC810F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F326E52B72839395D0AE9240 /* Project object */;
+	rootObject = F2C8563715A67194B6285A9E /* Project object */;
 }

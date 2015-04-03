@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ManPagesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
+class ManPagesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchView: UIView!
@@ -44,6 +44,9 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
+        
+        tableView.emptyDataSetDelegate = self
+        tableView.emptyDataSetSource = self
         
         definesPresentationContext = true
         
@@ -96,6 +99,12 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
 
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         tableView.reloadData()
+    }
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let emptyMessage = "Your search didn't match any manpage"
+        let attributes  = [NSFontAttributeName: UIFont.boldSystemFontOfSize(18), NSForegroundColorAttributeName: UIColor.grayColor()]
+        return NSAttributedString(string: emptyMessage, attributes: attributes)
     }
     
     // Change text color of section headers to white

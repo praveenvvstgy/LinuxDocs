@@ -1,1 +1,0 @@
-../../../JNWSpringAnimation/JNWSpringAnimation.h

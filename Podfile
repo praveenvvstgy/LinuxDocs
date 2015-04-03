@@ -2,7 +2,7 @@
 platform :ios, '8.0'
 
 target 'LinuxDocs' do
-pod 'JNWSpringAnimation', '~> 0.5'
+pod 'DZNEmptyDataSet'
 pod 'SKSplashView'
 end
 
