@@ -69,6 +69,8 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
         
         // prevents tab bar from overlapping last tableviewcell
         tabBarController?.tabBar.translucent = false
+        
+        self.view.backgroundColor = UIColor.darkPrimaryColor()
 
     }
     

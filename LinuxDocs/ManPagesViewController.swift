@@ -91,6 +91,8 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         tabBarController?.tabBar.translucent = false
         
         self.searchController.delegate = self
+        
+        self.view.backgroundColor = UIColor.darkPrimaryColor()
     }
     
     // White color of Status Bar Title for dark background
