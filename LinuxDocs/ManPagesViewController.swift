@@ -72,7 +72,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         self.tableView.separatorColor = UIColor.clearColor()
         
         // Remove the title from the back button and use only one arrow
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Bordered, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         
         // Estimated height for tableview cell
         tableView.estimatedRowHeight = 80.0
@@ -143,7 +143,8 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func emptyDataSetDidTapButton(scrollView: UIScrollView!) {
         let feedbackViewController = CTFeedbackViewController(topics: CTFeedbackViewController.defaultTopics(), localizedTopics: CTFeedbackViewController.defaultLocalizedTopics())
-        feedbackViewController.toRecipients = NSArray(array: [NSString(string: "support@hitherto.desk-mail.com")])
+        feedbackViewController.toRecipients = NSArray(array: [NSString(string: "support@hitherto.desk-mail.com")]) as [AnyObject]
+        feedbackViewController.tableView.backgroundColor = UIColor.lightPrimaryColor()
         let navigationController = UINavigationController(rootViewController: feedbackViewController)
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
@@ -154,9 +155,9 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // Change text color of section headers to white
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let headerSectionView = view as UITableViewHeaderFooterView
+        let headerSectionView = view as! UITableViewHeaderFooterView
         headerSectionView.backgroundView?.backgroundColor = colorArray[section]
-        headerSectionView.textLabel.textColor = UIColor.textIconColor()
+        headerSectionView.textLabel!.textColor = UIColor.textIconColor()
     }
 
     override func didReceiveMemoryWarning() {
@@ -167,26 +168,27 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     // Reads the local JSON file containing the man pages index
     func readManPageIndexFromJson() {
         
-        let qualityOfServiceClass = Int(QOS_CLASS_BACKGROUND.value)
+        let qualityOfServiceClass = Int(QOS_CLASS_BACKGROUND.rawValue)
         let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
         dispatch_async(backgroundQueue, {
             let filePath = NSBundle.mainBundle().pathForResource("pages", ofType: "json")
-            
-            var error: NSError?
-            
+                        
             let manPagesJSONData = NSData(contentsOfFile: filePath!)
             
-            if error != nil {
-                println("Error reading file: \(error?.localizedDescription)")
+            var manPagesData = NSArray()
+            
+            do {
+                manPagesData = (try NSJSONSerialization.JSONObjectWithData(manPagesJSONData!, options: NSJSONReadingOptions.MutableContainers)) as! NSArray
+            } catch let error as NSError {
+                print("Error reading file: \(error.localizedDescription)")
             }
             
-            let manPagesData = NSJSONSerialization.JSONObjectWithData(manPagesJSONData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSArray
             
             for i in 1...8 {
                 var manPageForSection = [ManPage]()
                 let j = String(i)
-                for manPage in manPagesData[0][j] as NSArray {
-                    manPageForSection.append(ManPage(data: manPage as NSDictionary))
+                for manPage in manPagesData[0][j] as! NSArray {
+                    manPageForSection.append(ManPage(data: manPage as! NSDictionary))
                 }
                 self.manPagesIndex[i] = manPageForSection
             }
@@ -214,6 +216,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }
     }
+
     
     // Change the tableview contentInset when the searchController is presented
     func didPresentSearchController(searchController: UISearchController) {
@@ -228,18 +231,18 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
             tableView.contentInset.top = 0
         }
         let searchText = searchController.searchBar.text
-        let scopeButtonTitles = searchController.searchBar.scopeButtonTitles as [String]
+        let scopeButtonTitles = searchController.searchBar.scopeButtonTitles as [String]!
         let scopeSelection = scopeButtonTitles[searchController.searchBar.selectedScopeButtonIndex]
-        filterManPageForSearchText(searchText, section: scopeSelection)
+        filterManPageForSearchText(searchText!, section: scopeSelection)
         tableView.reloadData()
     }
     
     //  Change Search Results when selected scopebar button changes
     func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         let searchText = searchController.searchBar.text
-        let scopeButtonTitles = searchController.searchBar.scopeButtonTitles as [String]
+        let scopeButtonTitles = searchController.searchBar.scopeButtonTitles as [String]!
         let scopeSelection = scopeButtonTitles[selectedScope]
-        filterManPageForSearchText(searchText, section: scopeSelection)
+        filterManPageForSearchText(searchText!, section: scopeSelection)
         tableView.reloadData()
     }
     
@@ -274,7 +277,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     // Create the ManPageTableCell for a given section and row
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let reuseIdentifier = "manPage"
-        let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as ManPageTableCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as! ManPageTableCell
         let manPagesInSection: [ManPage]! = (searchController.active) ? self.filteredManPagesIndex[indexPath.section + 1] : self.manPagesIndex[indexPath.section + 1]
         cell.nameLabel.text = manPagesInSection[indexPath.row].name
         cell.sectionLabel.text = manPagesInSection[indexPath.row].section
@@ -292,7 +295,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.nameLabel.textColor = UIColor.primaryTextColor()
         
         cell.sectionLabel.textColor = UIColor.textIconColor()
-        cell.sectionLabel.backgroundColor = colorArray[manPagesInSection[indexPath.row].section!.toInt()! - 1]
+        cell.sectionLabel.backgroundColor = colorArray[Int(manPagesInSection[indexPath.row].section!)! - 1]
         cell.sectionLabel.layer.cornerRadius = 5
         cell.sectionLabel.clipsToBounds = true
         return cell
@@ -315,7 +318,7 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
                 }
             }
         } else {
-            let sectionNumber = section.toInt()
+            let sectionNumber = Int(section)
             if searchText == "" {
                 self.filteredManPagesIndex[sectionNumber!] = self.manPagesIndex[sectionNumber!]
             } else {
@@ -341,8 +344,8 @@ class ManPagesViewController: UIViewController, UITableViewDataSource, UITableVi
     // prepareForSegue before performing the segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "manPageBrowser" {
-            let destinationViewController = segue.destinationViewController as ManPageBrowserViewController
-            let indexPath = self.tableView.indexPathForSelectedRow()
+            let destinationViewController = segue.destinationViewController as! ManPageBrowserViewController
+            let indexPath = self.tableView.indexPathForSelectedRow
             let manPagesInSection: [ManPage]! = (searchController.active) ? self.filteredManPagesIndex[indexPath!.section + 1] : self.manPagesIndex[indexPath!.section + 1]
 
             destinationViewController.manPage = manPagesInSection[indexPath!.row]

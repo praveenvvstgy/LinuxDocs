@@ -371,7 +371,6 @@ static NSString * const ATTACHMENT_FILENAME = @"screenshot.jpg";
         MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
         controller.mailComposeDelegate = self;
         [controller setToRecipients:self.toRecipients];
-        NSLog([NSString stringWithFormat:@"%@", self.toRecipients]);
         [controller setCcRecipients:self.ccRecipients];
         [controller setBccRecipients:self.bccRecipients];
         [controller setSubject:self.mailSubject];

@@ -21,7 +21,7 @@ class ManPageBrowserViewController: UIViewController, UIWebViewDelegate {
         
         let manHTML = NSBundle.mainBundle().pathForResource(manPage.filename, ofType: "html", inDirectory: "htmlman\(manPage.section!)")
         let manPath = NSURL(fileURLWithPath: manHTML!, isDirectory: true)
-        self.manPageBrowser.loadRequest(NSURLRequest(URL: manPath!, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 0))
+        self.manPageBrowser.loadRequest(NSURLRequest(URL: manPath, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 0))
         self.manPageBrowser.delegate = self
         
         title =  "\(manPage.name!)(\(manPage.section!))"
@@ -39,14 +39,14 @@ class ManPageBrowserViewController: UIViewController, UIWebViewDelegate {
     }
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if request.URL.host != nil {
-            UIApplication.sharedApplication().openURL(request.URL)
+        if request.URL!.host != nil {
+            UIApplication.sharedApplication().openURL(request.URL!)
         } else {
             if navigationType == UIWebViewNavigationType.LinkClicked {
-                let requestComponents = request.URL.pathComponents!
+                let requestComponents = request.URL!.pathComponents!
                 let manHTML = NSBundle.mainBundle().pathForResource(requestComponents[requestComponents.count - 1] as? String, ofType: nil, inDirectory: requestComponents[requestComponents.count - 2] as? String)
                 let manPath = NSURL(fileURLWithPath: manHTML!, isDirectory: true)
-                self.manPageBrowser.loadRequest(NSURLRequest(URL: manPath!, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 0))
+                self.manPageBrowser.loadRequest(NSURLRequest(URL: manPath, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 0))
             } else {
                 return true
             }

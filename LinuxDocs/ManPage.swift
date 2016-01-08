@@ -20,6 +20,6 @@ class ManPage {
         self.filename = data["filename"] as? String
         self.section = data["section"] as? String
         self.folder = data["folder"] as? String
-        self.description = data["description"] as String
+        self.description = data["description"] as! String
     }
 }

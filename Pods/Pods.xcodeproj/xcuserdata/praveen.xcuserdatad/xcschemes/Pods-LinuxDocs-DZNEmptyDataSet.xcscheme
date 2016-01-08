@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0640"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E96E1361375FDBA24480CA10"
+               BlueprintIdentifier = "BCE1AB3F9C6BCA99B7F8A222"
                BuildableName = "libPods-LinuxDocs-DZNEmptyDataSet.a"
                BlueprintName = "Pods-LinuxDocs-DZNEmptyDataSet"
                ReferencedContainer = "container:Pods.xcodeproj">

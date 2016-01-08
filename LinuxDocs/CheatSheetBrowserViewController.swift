@@ -18,7 +18,7 @@ class CheatSheetBrowserViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         let cheatSheetHTML = NSBundle.mainBundle().pathForResource(cheatSheet.name!, ofType: "html", inDirectory: "cheatsheet")
         let cheatSheetPath = NSURL(fileURLWithPath: cheatSheetHTML!, isDirectory: true)
-        self.cheatSheetBrowser.loadRequest(NSURLRequest(URL: cheatSheetPath!, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 0))
+        self.cheatSheetBrowser.loadRequest(NSURLRequest(URL: cheatSheetPath, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 0))
         self.cheatSheetBrowser.delegate = self
         
         title =  self.cheatSheet.name

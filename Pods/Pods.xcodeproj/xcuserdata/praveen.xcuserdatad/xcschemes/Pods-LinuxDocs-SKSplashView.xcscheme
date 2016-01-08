@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0640"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5EA96AAB4F426584D0A03CA8"
+               BlueprintIdentifier = "356290EEFD6BE3C9C3242CDC"
                BuildableName = "libPods-LinuxDocs-SKSplashView.a"
                BlueprintName = "Pods-LinuxDocs-SKSplashView"
                ReferencedContainer = "container:Pods.xcodeproj">

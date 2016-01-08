@@ -109,19 +109,21 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
     
     func readCheatSheetFromJSON() {
         let filePath = NSBundle.mainBundle().pathForResource("cheatsheet", ofType: "json")
-        
-        var error: NSError?
-        
+                
         let cheatSheetsJSONData = NSData(contentsOfFile: filePath!)
         
-        if error != nil {
-            println("Error reading file: \(error?.localizedDescription)")
+        var cheatSheetsData = NSArray()
+        
+        do {
+            cheatSheetsData = (try NSJSONSerialization.JSONObjectWithData(cheatSheetsJSONData!, options: NSJSONReadingOptions.MutableContainers)) as! NSArray
+        } catch let error as NSError {
+            print("Error reading file: \(error.localizedDescription)")
         }
         
-        let cheatSheetsData = NSJSONSerialization.JSONObjectWithData(cheatSheetsJSONData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSArray
+        
         
         for cheatSheet in cheatSheetsData {
-            self.cheatSheetsIndex.append(CheatSheet(data: cheatSheet as NSDictionary))
+            self.cheatSheetsIndex.append(CheatSheet(data: cheatSheet as! NSDictionary))
         }
     }
     
@@ -165,17 +167,17 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
             tableView.contentInset.top = 0
         }
         let searchText = searchController.searchBar.text
-        let scopeButtonTitles = searchController.searchBar.scopeButtonTitles as [String]
+        let scopeButtonTitles = searchController.searchBar.scopeButtonTitles as [String]!
         let scopeSelection = scopeButtonTitles[searchController.searchBar.selectedScopeButtonIndex]
-        filterCheatSheetsForSearchText(searchText, platform: scopeSelection)
+        filterCheatSheetsForSearchText(searchText!, platform: scopeSelection)
         tableView.reloadData()
     }
     
     func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         let searchText = searchController.searchBar.text
-        let scopeButtonTitles = searchController.searchBar.scopeButtonTitles as [String]
+        let scopeButtonTitles = searchController.searchBar.scopeButtonTitles as [String]!
         let scopeSelection = scopeButtonTitles[selectedScope]
-        filterCheatSheetsForSearchText(searchText, platform: scopeSelection)
+        filterCheatSheetsForSearchText(searchText!, platform: scopeSelection)
         tableView.reloadData()
     }
     
@@ -194,7 +196,7 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
     func scrollToTop() {
         if (self.numberOfSectionsInTableView(self.tableView) > 0 ) {
             
-            var top = NSIndexPath(forRow: Foundation.NSNotFound, inSection: 0);
+            let top = NSIndexPath(forRow: Foundation.NSNotFound, inSection: 0);
             self.tableView.scrollToRowAtIndexPath(top, atScrollPosition: UITableViewScrollPosition.Top, animated: true);
         }
     }
@@ -209,7 +211,7 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let reuseIdentifier = "cheatSheet"
-        let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as CheatSheetTableCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as! CheatSheetTableCell
         let cheatSheet = (searchController.active) ? searchResults : cheatSheetsIndex
         cell.nameLabel.text = cheatSheet[indexPath.row].name
         cell.platformLabel.text = cheatSheet[indexPath.row].platform
@@ -240,10 +242,10 @@ class CheatSheetsViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "cheatSheetBrowser" {
-            let destinationViewController = segue.destinationViewController as CheatSheetBrowserViewController
-            let indexPath = sender?.indexPathForSelectedRow()
+            let destinationViewController = segue.destinationViewController as! CheatSheetBrowserViewController
+            let indexPath = sender?.indexPathForSelectedRow
             let cheatSheet = (searchController.active) ? searchResults : cheatSheetsIndex
-            destinationViewController.cheatSheet = cheatSheet[indexPath!.row]
+            destinationViewController.cheatSheet = cheatSheet[indexPath!!.row]
         }
     }
     
