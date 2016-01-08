@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    ditto
+   </h1>
+   <blockquote>
+    <p>
+     Copy files and folders.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Overwrites contents of destination folder with contents of source folder:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ditto {{path/to/source}} {{path/to/destination}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print a line to the Terminal window for every file that&rsquo;s being copied:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ditto -V {{path/to/source}} {{path/to/destination}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Copy a given file or folder, while retaining the original file permissions:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ditto -rsrc {{path/to/source}} {{path/to/destination}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    Sass
+   </h1>
+   <blockquote>
+    <p>
+     Converts SCSS or Sass files to CSS.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Output converted file to stdout:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sass {{inputfile.(scss|sass)}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Immediately convert SCSS or Sass file to CSS to specified output file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sass {{inputfile.(scss|sass)}} {{outputfile.css}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Watch SCSS or Sass file for changes and output or update CSS file with same filename:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sass --watch {{inputfile.(scss|sass)}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Watch SCSS or Sass file for changes and output or update CSS file with specified filename:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sass --watch {{inputfile.(scss|sass)}}:{{outputfile.css}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

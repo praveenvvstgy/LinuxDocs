@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,14 +15,14 @@
    </h1>
    <blockquote>
     <p>
-     Transfers a file either to or from a remote host
-  Does not allow transfer between two remote hosts
-  Can transfer single files or files matched by pattern
+     Transfers a file either to or from a remote host.
+  Does not allow transfer between two remote hosts.
+  Can transfer single files or files matched by pattern.
     </p>
    </blockquote>
    <ul>
     <li>
-     transfer file from local to remote host
+     Transfer file from local to remote host:
     </li>
    </ul>
    <p>
@@ -27,7 +30,7 @@
    </p>
    <ul>
     <li>
-     transfer file from remote host to local
+     Transfer file from remote host to local:
     </li>
    </ul>
    <p>
@@ -35,7 +38,7 @@
    </p>
    <ul>
     <li>
-     transfer all *.js files in current directory to host 'devbox' as user 'mike'
+     Transfer all *.js files in current directory to host 'devbox' as user 'mike':
     </li>
    </ul>
    <p>
@@ -43,7 +46,7 @@
    </p>
    <ul>
     <li>
-     transfer a directory and all its children from a remote to local
+     Transfer a directory and all its children from a remote to local:
     </li>
    </ul>
    <p>
@@ -51,7 +54,15 @@
    </p>
    <ul>
     <li>
-     transfer file over SSH and show progress
+     Transfer only updated files from remote host:
+    </li>
+   </ul>
+   <p>
+    <pre><code>rsync -ru mike@devbox:~/projects/ ./projects/</code></pre>
+   </p>
+   <ul>
+    <li>
+     Transfer file over SSH and show progress:
     </li>
    </ul>
    <p>

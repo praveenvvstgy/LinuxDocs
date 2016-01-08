@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,24 +15,24 @@
    </h1>
    <blockquote>
     <p>
-     Backups mysql databases
+     Backups mysql databases.
     </p>
    </blockquote>
    <ul>
     <li>
-     creating a backup
+     Create a backup, user will be prompted for a password:
     </li>
    </ul>
    <p>
-    <pre><code>mysqldump -u {{user}} -p{{password}} {{database_name}} &gt; {{filename.sql}}</code></pre>
+    <pre><code>mysqldump -u {{user}} --password {{database_name}} &gt; {{filename.sql}}</code></pre>
    </p>
    <ul>
     <li>
-     restoring a backup
+     Restoring a backup, user will be prompted for a password:
     </li>
    </ul>
    <p>
-    <pre><code>mysql -u {{user}} -p{{password}} {{database_name}} &lt; {{filename.sql}}</code></pre>
+    <pre><code>mysql -u {{user}} --password {{database_name}} &lt; {{filename.sql}}</code></pre>
    </p>
   </article>
  </body>

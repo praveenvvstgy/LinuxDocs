@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    salt
+   </h1>
+   <blockquote>
+    <p>
+     Execute commands and assert state on remote salt minions.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     List connected minions:
+    </li>
+   </ul>
+   <p>
+    <pre><code>salt '*' test.ping</code></pre>
+   </p>
+   <ul>
+    <li>
+     Execute a highstate on all connected minions:
+    </li>
+   </ul>
+   <p>
+    <pre><code>salt '*' state.highstate</code></pre>
+   </p>
+   <ul>
+    <li>
+     Upgrade packages using the OS package manager (apt, yum, brew) on a subset of minions:
+    </li>
+   </ul>
+   <p>
+    <pre><code>salt '*.domain.com' pkg.upgrade</code></pre>
+   </p>
+   <ul>
+    <li>
+     Execute an arbitrary command on a particular minion:
+    </li>
+   </ul>
+   <p>
+    <pre><code>salt '{{minion_id}}' cmd.run "ls "</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

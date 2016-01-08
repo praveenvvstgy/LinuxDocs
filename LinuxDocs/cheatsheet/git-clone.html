@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,12 +15,12 @@
    </h1>
    <blockquote>
     <p>
-     Clone an existing repository
+     Clone an existing repository.
     </p>
    </blockquote>
    <ul>
     <li>
-     Clone an existing repository
+     Clone an existing repository:
     </li>
    </ul>
    <p>
@@ -25,7 +28,7 @@
    </p>
    <ul>
     <li>
-     For cloning from the local machine
+     For cloning from the local machine:
     </li>
    </ul>
    <p>
@@ -33,11 +36,19 @@
    </p>
    <ul>
     <li>
-     Do it quietly
+     Do it quietly:
     </li>
    </ul>
    <p>
     <pre><code>git clone -q</code></pre>
+   </p>
+   <ul>
+    <li>
+     Clone an existing repository, and truncate to the specified number of revisions, save your time mostly:
+    </li>
+   </ul>
+   <p>
+    <pre><code>git clone --depth 10 {{REMOTE-REPOSITORY-LOCATION}}</code></pre>
    </p>
   </article>
  </body>

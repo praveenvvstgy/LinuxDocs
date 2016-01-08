@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,48 +15,32 @@
    </h1>
    <blockquote>
     <p>
-     Find or signal process by name
+     Find or signal process by name.
     </p>
    </blockquote>
    <ul>
     <li>
-     return PIDs of any running processes with a matching command string
+     Return PIDs of any running processes with a matching command string:
     </li>
    </ul>
    <p>
-    <pre><code>pgrep {{Finder}}</code></pre>
+    <pre><code>pgrep {{process_name}}</code></pre>
    </p>
    <ul>
     <li>
-     case insensitive greping
+     Search full command line with parameters instead of just the process name:
     </li>
    </ul>
    <p>
-    <pre><code>pgrep -i {{fireFOx}}</code></pre>
+    <pre><code>pgrep -f "{{process_name}} {{parameter}}"</code></pre>
    </p>
    <ul>
     <li>
-     search full command line with parameters instead of just the process name
+     Search for process run by a specific user:
     </li>
    </ul>
    <p>
-    <pre><code>pgrep -f "{{ssh root}}"</code></pre>
-   </p>
-   <ul>
-    <li>
-     search for process run by a specific user
-    </li>
-   </ul>
-   <p>
-    <pre><code>pgrep -u root {{firefox}}</code></pre>
-   </p>
-   <ul>
-    <li>
-     kill all processes which match
-    </li>
-   </ul>
-   <p>
-    <pre><code>pkill -9 {{Finder}}</code></pre>
+    <pre><code>pgrep -u root {{process_name}}</code></pre>
    </p>
   </article>
  </body>

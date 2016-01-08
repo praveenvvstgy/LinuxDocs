@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -17,7 +20,7 @@
    </blockquote>
    <ul>
     <li>
-     Start a new screen session
+     Start a new screen session:
     </li>
    </ul>
    <p>
@@ -25,7 +28,15 @@
    </p>
    <ul>
     <li>
-     Show open screen sessions
+     Start a new named screen session:
+    </li>
+   </ul>
+   <p>
+    <pre><code>screen -S {{name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Show open screen sessions:
     </li>
    </ul>
    <p>
@@ -33,7 +44,7 @@
    </p>
    <ul>
     <li>
-     Reattach to an open screen
+     Reattach to an open screen:
     </li>
    </ul>
    <p>
@@ -41,11 +52,19 @@
    </p>
    <ul>
     <li>
-     Detach from inside a screen
+     Detach from inside a screen:
     </li>
    </ul>
    <p>
     <pre><code>ctrl+A D</code></pre>
+   </p>
+   <ul>
+    <li>
+     Kill a detached screen:
+    </li>
+   </ul>
+   <p>
+    <pre><code>screen -X -S {{screen id}} quit</code></pre>
    </p>
   </article>
  </body>

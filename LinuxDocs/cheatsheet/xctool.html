@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    XCTool
+   </h1>
+   <blockquote>
+    <p>
+     Tool for building Xcode projects.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Build a single project without any workspace:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xctool.sh -project {{YourProject.xcodeproj}} -scheme {{YourScheme}} build</code></pre>
+   </p>
+   <ul>
+    <li>
+     Build a project that is part of a workspace:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xctool -workspace {{YourWorkspace.xcworkspace}} -scheme {{YourScheme}} build</code></pre>
+   </p>
+   <ul>
+    <li>
+     Clean, build and execute all the tests:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xctool -workspace {{YourWorkspace.xcworkspace}} -scheme {{YourScheme}} clean build test</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

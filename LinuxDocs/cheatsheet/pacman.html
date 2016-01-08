@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,20 +15,20 @@
    </h1>
    <blockquote>
     <p>
-     Arch Linux package manager utility
+     Arch Linux package manager utility.
     </p>
    </blockquote>
    <ul>
     <li>
-     synchronize and update all packages
+     Synchronize and update all packages:
     </li>
    </ul>
    <p>
-    <pre><code>pacman -Syyu</code></pre>
+    <pre><code>pacman -Syu</code></pre>
    </p>
    <ul>
     <li>
-     install a new package
+     Install a new package:
     </li>
    </ul>
    <p>
@@ -33,7 +36,7 @@
    </p>
    <ul>
     <li>
-     remove a package and its dependencies
+     Remove a package and its dependencies:
     </li>
    </ul>
    <p>
@@ -41,7 +44,7 @@
    </p>
    <ul>
     <li>
-     search the package database for a keyword
+     Search the package database for a keyword:
     </li>
    </ul>
    <p>
@@ -49,11 +52,35 @@
    </p>
    <ul>
     <li>
-     list installed packages and versions
+     List installed packages and versions:
     </li>
    </ul>
    <p>
     <pre><code>pacman -Q</code></pre>
+   </p>
+   <ul>
+    <li>
+     List only the explicitly installed packages and versions:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pacman -Qe</code></pre>
+   </p>
+   <ul>
+    <li>
+     Find which package owns a certain file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pacman -Qo filename</code></pre>
+   </p>
+   <ul>
+    <li>
+     Empty package cache to free up space:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pacman -Scc</code></pre>
    </p>
   </article>
  </body>

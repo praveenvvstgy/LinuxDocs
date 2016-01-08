@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,40 +15,24 @@
    </h1>
    <blockquote>
     <p>
-     Output the first part of files
+     Output the first part of files.
     </p>
    </blockquote>
    <ul>
     <li>
-     Output the first few lines of a file
+     Output the first few lines of a file:
     </li>
    </ul>
    <p>
-    <pre><code>head -n {{count of lines}} {{filename}}</code></pre>
+    <pre><code>head -n {{count_of_lines}} {{filename}}</code></pre>
    </p>
    <ul>
     <li>
-     Output the first few bytes of a file
+     Output the first few bytes of a file:
     </li>
    </ul>
    <p>
-    <pre><code>head -c {{size in kilobytes}} {{filename}}</code></pre>
-   </p>
-   <ul>
-    <li>
-     Output everything but the last few lines of a file
-    </li>
-   </ul>
-   <p>
-    <pre><code>head -n -{{count of lines}} {{filename}}</code></pre>
-   </p>
-   <ul>
-    <li>
-     Output everything but the last few bytes of a file
-    </li>
-   </ul>
-   <p>
-    <pre><code>head -c -{{size in kilobytes}} {{filename}}</code></pre>
+    <pre><code>head -c {{number_in_bytes}} {{filename}}</code></pre>
    </p>
   </article>
  </body>

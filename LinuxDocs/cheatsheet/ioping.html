@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    ioping
+   </h1>
+   <blockquote>
+    <p>
+     Monitor I/O latency in real time.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Show disk I/O latency using the default values and the current directory:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ioping .</code></pre>
+   </p>
+   <ul>
+    <li>
+     Measure latency on /tmp using 10 requests of 1 megabyte each:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ioping -c 10 -s 1M /tmp</code></pre>
+   </p>
+   <ul>
+    <li>
+     Measure disk seek rate on /dev/sda:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ioping -R /dev/sda</code></pre>
+   </p>
+   <ul>
+    <li>
+     Measure disk sequential speed on /dev/sda:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ioping -RL /dev/sda</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

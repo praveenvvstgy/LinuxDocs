@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    host
+   </h1>
+   <blockquote>
+    <p>
+     Lookup Domain Name Server.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Lookup A, AAAA, and MX records of a domain:
+    </li>
+   </ul>
+   <p>
+    <pre><code>host {{domain}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Lookup a field (CNAME, TXT,...) of a domain:
+    </li>
+   </ul>
+   <p>
+    <pre><code>host -t {{field}} {{domain}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Reverse lookup an IP:
+    </li>
+   </ul>
+   <p>
+    <pre><code>host {{ip_address}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    enca
+   </h1>
+   <blockquote>
+    <p>
+     Detect and convert encoding of text files.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Detect file(s) encoding according to your system's locale:
+    </li>
+   </ul>
+   <p>
+    <pre><code>enca {{file(s)}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Detect file(s) encoding; -L option tells enca the current language; language is in the POSIX/C locale format, e.g. zh
+     <em>
+      CN, en
+     </em>
+     US etc:
+    </li>
+   </ul>
+   <p>
+    <pre><code>enca -L {{language}} {{file(s)}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Convert file(s) to specified encoding:
+    </li>
+   </ul>
+   <p>
+    <pre><code>enca -L {{language}} -x {{to_encoding}} {{file(s)}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Save original
+     <em>
+      file as new
+     </em>
+     file and convert new_file to specified encoding:
+    </li>
+   </ul>
+   <p>
+    <pre><code>enca -L {{language}} -x {{to_encoding}} &lt; {{original_file}} &gt; {{new_file}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

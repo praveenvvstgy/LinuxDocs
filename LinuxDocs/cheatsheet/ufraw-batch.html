@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    ufraw-batch
+   </h1>
+   <blockquote>
+    <p>
+     Convert RAW files from cameras into standard image files.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Simply convert RAW files to jpg:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ufraw-batch --out-type=jpg {{input-file(s)}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Simply convert RAW files to png:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ufraw-batch --out-type=png {{input-file(s)}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Extract the preview image from the raw file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ufraw-batch --embedded-image {{input-file(s)}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Save the file with size up to the given maximums MAX1 and MAX2:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ufraw-batch --size=MAX1,MAX2 {{input-file(s)}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

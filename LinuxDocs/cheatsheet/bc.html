@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    bc
+   </h1>
+   <blockquote>
+    <p>
+     Calculator.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Run calculator in interactive mode:
+    </li>
+   </ul>
+   <p>
+    <pre><code>bc -i</code></pre>
+   </p>
+   <ul>
+    <li>
+     Calculate the result of an expression:
+    </li>
+   </ul>
+   <p>
+    <pre><code>bc &lt;&lt;&lt; "(1 + 2) * 2 ^ 2"</code></pre>
+   </p>
+   <ul>
+    <li>
+     Calculate with the given precision:
+    </li>
+   </ul>
+   <p>
+    <pre><code>bc &lt;&lt;&lt; "scale=10; 5 / 3"</code></pre>
+   </p>
+   <ul>
+    <li>
+     Calculate expression with sine and cosine using mathlib:
+    </li>
+   </ul>
+   <p>
+    <pre><code>bc -l &lt;&lt;&lt; "s(1) + c(1)"</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

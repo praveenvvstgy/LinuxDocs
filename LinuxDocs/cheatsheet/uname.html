@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,32 +15,43 @@
    </h1>
    <blockquote>
     <p>
-     Print operating system name
+     Print details about the current machine and the operating system running on it.
+  Note: If you're on Linux, try also the
+     <pre><code>lsb_release</code></pre>
+     command.
     </p>
    </blockquote>
    <ul>
     <li>
-     Print all available operating system and kernel information
+     Print hardware-related information: machine and processor:
     </li>
    </ul>
    <p>
-    <pre><code>uname -a</code></pre>
+    <pre><code>uname -mp</code></pre>
    </p>
    <ul>
     <li>
-     Print the current operating system name (e.g. Linux, Darwin, SunOS, etc)
+     Print software-related information: operating system, release number, and version:
     </li>
    </ul>
    <p>
-    <pre><code>uname -s</code></pre>
+    <pre><code>uname -srv</code></pre>
    </p>
    <ul>
     <li>
-     Print the nodename (hostname) of the system
+     Print the nodename (hostname) of the system:
     </li>
    </ul>
    <p>
     <pre><code>uname -n</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print all available system information (hardware, software, nodename):
+    </li>
+   </ul>
+   <p>
+    <pre><code>uname -a</code></pre>
    </p>
   </article>
  </body>

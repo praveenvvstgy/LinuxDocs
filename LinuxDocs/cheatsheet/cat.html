@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -17,35 +20,27 @@
    </blockquote>
    <ul>
     <li>
-     Print the contents of
-     <em>
-      file1
-     </em>
-     to the standard output
+     Print the contents of a file to the standard output:
     </li>
    </ul>
    <p>
-    <pre><code>cat {{file1}}</code></pre>
+    <pre><code>cat {{file}}</code></pre>
    </p>
    <ul>
     <li>
-     Sequentially print the contents of
-     <em>
-      file1
-     </em>
-     and
-     <em>
-      file2
-     </em>
-     to the file
-     <em>
-      file3
-     </em>
-     .
+     Concatenate several files into the target file:
     </li>
    </ul>
    <p>
-    <pre><code>cat {{file1}} {{file2}} &gt; {{file3}}</code></pre>
+    <pre><code>cat {{file1}} {{file2}} &gt; {{target-file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Append serveral files into the target file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>cat {{file1}} {{file2}} &gt;&gt; {{target-file}}</code></pre>
    </p>
   </article>
  </body>

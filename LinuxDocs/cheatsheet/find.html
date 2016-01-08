@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,12 +15,12 @@
    </h1>
    <blockquote>
     <p>
-     Find files under the given directory tree, recursively
+     Find files under the given directory tree, recursively.
     </p>
    </blockquote>
    <ul>
     <li>
-     find files by extension
+     Find files by extension:
     </li>
    </ul>
    <p>
@@ -25,19 +28,23 @@
    </p>
    <ul>
     <li>
-     run a command for each file
+     Find files matching path pattern:
     </li>
+   </ul>
+   <p>
+    <pre><code>find {{root_path}} -path {{'**/lib/**/*.py'}}</code></pre>
+   </p>
+   <ul>
     <li>
-     use {} within the command to access the filename
+     Run a command for each file, use {} within the command to access the filename:
     </li>
    </ul>
    <p>
     <pre><code>find {{root_path}} -name {{'*.py'}} -exec {{wc -l {} }}\;</code></pre>
-    <pre><code>find {{root_path}} -name {{'*.py'}} -exec {{rm {} }}\;</code></pre>
    </p>
    <ul>
     <li>
-     find files modified since a certain time
+     Find files modified since a certain time:
     </li>
    </ul>
    <p>
@@ -45,11 +52,19 @@
    </p>
    <ul>
     <li>
-     find files using case insensitive name matching, of a certain size
+     Find files using case insensitive name matching, of a certain size:
     </li>
    </ul>
    <p>
     <pre><code>find {{root_path}} -size +500k -size -10MB -iname {{'*.TaR.gZ'}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Delete files by name, older than a certain number of days:
+    </li>
+   </ul>
+   <p>
+    <pre><code>find {{root_path}} -name {{'*.py'}} -mtime {{-180d}} -delete</code></pre>
    </p>
   </article>
  </body>

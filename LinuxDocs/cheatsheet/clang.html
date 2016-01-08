@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    clang
+   </h1>
+   <blockquote>
+    <p>
+     Compiler for C, C++, and Objective-C source files. Can be used as a drop-in replacement for GCC.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Compile a source code file into an executable binary:
+    </li>
+   </ul>
+   <p>
+    <pre><code>clang {{input_source.c}} -o {{output_executable}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Activate output of all errors and warnings:
+    </li>
+   </ul>
+   <p>
+    <pre><code>clang {{input_source.c}} -Wall -o {{output_executable}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Include libraries located at a different path than the source file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>clang {{input_source.c}} -o {{output_executable}} -I{{header_path}} -L{{library_path}} -l{{library_name}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

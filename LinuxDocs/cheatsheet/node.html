@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,12 +15,20 @@
    </h1>
    <blockquote>
     <p>
-     Main node command
+     Server-side JavaScript platform (Node.js).
     </p>
    </blockquote>
    <ul>
     <li>
-     Call an interactive node shell
+     Run a JavaScript file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>node {{file}}.js</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start a REPL loop (interactive shell):
     </li>
    </ul>
    <p>
@@ -25,11 +36,11 @@
    </p>
    <ul>
     <li>
-     Execute node on a JS file
+     Evaluate JavaScript by passing it in the command:
     </li>
    </ul>
    <p>
-    <pre><code>node {{FILENAME}}.js</code></pre>
+    <pre><code>node -e "{{code}}"</code></pre>
    </p>
   </article>
  </body>

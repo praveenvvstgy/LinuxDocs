@@ -1,0 +1,63 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    printf
+   </h1>
+   <blockquote>
+    <p>
+     Format and print text.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Print a text message:
+    </li>
+   </ul>
+   <p>
+    <pre><code>printf {{"%s\n"}} {{"Hello world"}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print an integer in bold blue:
+    </li>
+   </ul>
+   <p>
+    <pre><code>printf {{"\e[1;34m%.3d\e[0m\n"}} {{42}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print a float number with the unicode Euro sign:
+    </li>
+   </ul>
+   <p>
+    <pre><code>printf {{"\u20AC %.2f\n"}} {{123.4}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print a text message composed with environment variables:
+    </li>
+   </ul>
+   <p>
+    <pre><code>printf {{"var1: %s\tvar2: %s\n"}} {{"$VAR1"}} {{"$VAR2"}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Store a formatted message in a variable (does not work on zsh):
+    </li>
+   </ul>
+   <p>
+    <pre><code>printf -v {{myvar}} {{"This is %s = %d\n" "a year" 2016}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

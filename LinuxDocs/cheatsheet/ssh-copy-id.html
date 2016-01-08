@@ -1,0 +1,39 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    ssh-copy-id
+   </h1>
+   <blockquote>
+    <p>
+     Install your public key in a remote machine's authorized_keys.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Copy the given public key to the remote:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ssh-copy-id -i {{path/to/certificate}} {{username}}@{{remote_host}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Copy the given public key to the remote with specific port:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ssh-copy-id -i {{path/to/certificate}} -p {{port}} {{username}}@{{remote_host}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

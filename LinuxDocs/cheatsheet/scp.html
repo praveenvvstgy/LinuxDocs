@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,13 +15,13 @@
    </h1>
    <blockquote>
     <p>
-     Copies files between hosts on a network
-  Works over a secure connection (SSH)
+     Copies files between hosts on a network.
+  Works over a secure connection (SSH).
     </p>
    </blockquote>
    <ul>
     <li>
-     upload a file, or upload and rename a file
+     Upload a file, or upload and rename a file:
     </li>
    </ul>
    <p>
@@ -27,7 +30,7 @@
    </p>
    <ul>
     <li>
-     download a file
+     Download a file:
     </li>
    </ul>
    <p>
@@ -35,7 +38,7 @@
    </p>
    <ul>
     <li>
-     upload or download a directory
+     Upload or download a directory:
     </li>
    </ul>
    <p>
@@ -44,7 +47,7 @@
    </p>
    <ul>
     <li>
-     specify username on host
+     Specify username on host:
     </li>
    </ul>
    <p>
@@ -52,19 +55,19 @@
    </p>
    <ul>
     <li>
-     specify port on host
-    </li>
-   </ul>
-   <p>
-    <pre><code>scp -P {{port}} {{/local/file.txt}} {{10.0.0.1}}:{{/remote/path}}</code></pre>
-   </p>
-   <ul>
-    <li>
-     copy a file from one host to another
+     Copy a file from one host to another:
     </li>
    </ul>
    <p>
     <pre><code>scp {{10.0.0.1}}:{{/remote/path/file.txt}} {{20.0.0.2}}:{{/other/remote/path}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Download a file with ssh key:
+    </li>
+   </ul>
+   <p>
+    <pre><code>scp -i {{/local/key}} {{10.0.0.1}}:{{/remote/path/file.txt}} {{/local/folder}}</code></pre>
    </p>
   </article>
  </body>

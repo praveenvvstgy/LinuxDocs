@@ -1,0 +1,71 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    last
+   </h1>
+   <blockquote>
+    <p>
+     View the last logged in users.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     View last logins, their duration  and other information as read from /var/log/wtmp:
+    </li>
+   </ul>
+   <p>
+    <pre><code>last</code></pre>
+   </p>
+   <ul>
+    <li>
+     Specify how many of the last logins to show:
+    </li>
+   </ul>
+   <p>
+    <pre><code>last -n {{login_count}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     View full login times and dates:
+    </li>
+   </ul>
+   <p>
+    <pre><code>last -F</code></pre>
+   </p>
+   <ul>
+    <li>
+     View the last login by a specific user:
+    </li>
+   </ul>
+   <p>
+    <pre><code>last {{user_name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     View the last reboot (last login of the pseudo user reboot):
+    </li>
+   </ul>
+   <p>
+    <pre><code>last reboot</code></pre>
+   </p>
+   <ul>
+    <li>
+     View the last shutdown (last login of the pseudo user shutdown):
+    </li>
+   </ul>
+   <p>
+    <pre><code>last shutdown</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

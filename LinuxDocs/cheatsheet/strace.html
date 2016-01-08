@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    strace
+   </h1>
+   <blockquote>
+    <p>
+     Troubleshooting tool for tracing system calls.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Start tracing a specific process by its PID:
+    </li>
+   </ul>
+   <p>
+    <pre><code>strace -p {{pid}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Trace a process and filter output by system call:
+    </li>
+   </ul>
+   <p>
+    <pre><code>strace -p {{pid}} -e {{system call name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Count time, calls, and errors for each system call and report a summary on program exit:
+    </li>
+   </ul>
+   <p>
+    <pre><code>strace -p {{pid}} -c</code></pre>
+   </p>
+   <ul>
+    <li>
+     Show the time spent in every system call:
+    </li>
+   </ul>
+   <p>
+    <pre><code>strace -p {{pid}} -T</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

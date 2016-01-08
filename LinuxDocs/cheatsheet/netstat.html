@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,38 +15,48 @@
    </h1>
    <blockquote>
     <p>
-     Displays various networks related information such as open connections, open socket ports etc
+     Displays various networks related information such as open connections, open socket ports etc.
     </p>
    </blockquote>
-   <p>
-    -List all ports
-   </p>
+   <ul>
+    <li>
+     List all ports:
+    </li>
+   </ul>
    <p>
     <pre><code>netstat -a</code></pre>
    </p>
-   <p>
-    -List all listening ports
-   </p>
+   <ul>
+    <li>
+     List all listening ports:
+    </li>
+   </ul>
    <p>
     <pre><code>netstat -l</code></pre>
    </p>
+   <ul>
+    <li>
+     List listening TCP ports:
+    </li>
+   </ul>
    <p>
-    -Display PID and program names
+    <pre><code>netstat -t</code></pre>
    </p>
+   <ul>
+    <li>
+     Display PID and program names for a specific port:
+    </li>
+   </ul>
    <p>
-    <pre><code>netstat -p</code></pre>
+    <pre><code>netstat -p {PROTOCOL}</code></pre>
    </p>
+   <ul>
+    <li>
+     List information continuously:
+    </li>
+   </ul>
    <p>
-    -Find out which port a process is running (e.g. find out which port ssh is listening on)
-   </p>
-   <p>
-    <pre><code>netstat -ap | grep ssh</code></pre>
-   </p>
-   <p>
-    -Find out which process is listening on a particular port
-   </p>
-   <p>
-    <pre><code>netstat -ap | grep ':80'</code></pre>
+    <pre><code>netstat -c</code></pre>
    </p>
   </article>
  </body>

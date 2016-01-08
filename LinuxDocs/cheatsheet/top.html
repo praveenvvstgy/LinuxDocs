@@ -1,0 +1,63 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    top
+   </h1>
+   <blockquote>
+    <p>
+     Display dynamic real-time information about running processes.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Start top, all options are available in the interface:
+    </li>
+   </ul>
+   <p>
+    <pre><code>top</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start top sorting processes by internal memory size (default order - process ID):
+    </li>
+   </ul>
+   <p>
+    <pre><code>top -o mem</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start top sorting processes first by CPU, then by running time:
+    </li>
+   </ul>
+   <p>
+    <pre><code>top -o cpu -O time</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start top displaying only processes owned by given user:
+    </li>
+   </ul>
+   <p>
+    <pre><code>top -user {{user-name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Get help about interactive commands:
+    </li>
+   </ul>
+   <p>
+    <pre><code>?</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -17,7 +20,7 @@
    </blockquote>
    <ul>
     <li>
-     Create a new project in the current folder
+     Create a new project in the current folder:
     </li>
    </ul>
    <p>
@@ -25,7 +28,7 @@
    </p>
    <ul>
     <li>
-     Download all dependencies referenced in package.json
+     Download all dependencies referenced in package.json:
     </li>
    </ul>
    <p>
@@ -33,7 +36,15 @@
    </p>
    <ul>
     <li>
-     Download a given dependency, and add it to the package.json
+     Download and install a module globally:
+    </li>
+   </ul>
+   <p>
+    <pre><code>npm install -g {{module_name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Download a given dependency, and add it to the package.json:
     </li>
    </ul>
    <p>
@@ -41,7 +52,7 @@
    </p>
    <ul>
     <li>
-     Set the version of the current project
+     Set the version of the current project:
     </li>
    </ul>
    <p>
@@ -49,11 +60,21 @@
    </p>
    <ul>
     <li>
-     Publish the current project
+     Publish the current project:
     </li>
    </ul>
    <p>
     <pre><code>npm publish</code></pre>
+   </p>
+   <ul>
+    <li>
+     Cleanup packages (removes packages which are installed but are not listed in
+     <pre><code>package.json</code></pre>
+     ):
+    </li>
+   </ul>
+   <p>
+    <pre><code>npm prune</code></pre>
    </p>
   </article>
  </body>

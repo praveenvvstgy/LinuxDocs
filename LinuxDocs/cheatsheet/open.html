@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,28 +15,28 @@
    </h1>
    <blockquote>
     <p>
-     Opens files, directories and applications
+     Opens files, directories and applications.
     </p>
    </blockquote>
    <ul>
     <li>
-     Open a file with the associated application
+     Open a file with the associated application:
     </li>
    </ul>
    <p>
-    <pre><code>open filename.ext</code></pre>
+    <pre><code>open {{file.ext}}</code></pre>
    </p>
    <ul>
     <li>
-     Run a graphical MacOSX application
+     Run a graphical MacOSX application:
     </li>
    </ul>
    <p>
-    <pre><code>open /Applications/iTunes.app</code></pre>
+    <pre><code>open /Applications/{{Application.app}}</code></pre>
    </p>
    <ul>
     <li>
-     Open the current directory in Finder
+     Open the current directory in Finder:
     </li>
    </ul>
    <p>
@@ -41,19 +44,19 @@
    </p>
    <ul>
     <li>
-     Reveal a file in finder
+     Reveal a file in finder:
     </li>
    </ul>
    <p>
-    <pre><code>open -R /path/dir/file</code></pre>
+    <pre><code>open -R /path/dir/{{file}}</code></pre>
    </p>
    <ul>
     <li>
-     Open all the word docs in the current directory with Microsoft Word
+     Open all the files of a given extension in the current directory with the associated application:
     </li>
    </ul>
    <p>
-    <pre><code>open *.doc</code></pre>
+    <pre><code>open {{*.ext}}</code></pre>
    </p>
   </article>
  </body>

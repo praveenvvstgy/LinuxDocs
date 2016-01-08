@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,12 +15,12 @@
    </h1>
    <blockquote>
     <p>
-     Shutdown and reboot the system
+     Shutdown and reboot the system.
     </p>
    </blockquote>
    <ul>
     <li>
-     Power off (halt) immediately
+     Power off (halt) immediately:
     </li>
    </ul>
    <p>
@@ -25,7 +28,15 @@
    </p>
    <ul>
     <li>
-     Reboot immediately
+     Sleep immediately:
+    </li>
+   </ul>
+   <p>
+    <pre><code>shutdown -s now</code></pre>
+   </p>
+   <ul>
+    <li>
+     Reboot immediately:
     </li>
    </ul>
    <p>
@@ -33,19 +44,11 @@
    </p>
    <ul>
     <li>
-     Reboot in 5 minutes
+     Reboot in 5 minutes:
     </li>
    </ul>
    <p>
-    <pre><code>shutdown -r +{{5}} &amp;</code></pre>
-   </p>
-   <ul>
-    <li>
-     Cancel a pending shutdown/reboot operation
-    </li>
-   </ul>
-   <p>
-    <pre><code>shutdown -c</code></pre>
+    <pre><code>shutdown -r +{{5}}</code></pre>
    </p>
   </article>
  </body>

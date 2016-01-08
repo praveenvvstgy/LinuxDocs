@@ -1,0 +1,63 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    comm
+   </h1>
+   <blockquote>
+    <p>
+     Select or reject lines common to two files. Both files must be sorted.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Produce three tab-separated columns: lines only in first file, lines only in second file and common lines:
+    </li>
+   </ul>
+   <p>
+    <pre><code>comm {{file1}} {{file2}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print only lines common to both files:
+    </li>
+   </ul>
+   <p>
+    <pre><code>comm -12 {{file1}} {{file2}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print only lines common to both files, read one file from stdin:
+    </li>
+   </ul>
+   <p>
+    <pre><code>cat {{file1}} | comm -12 - {{file2}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print lines only found in first file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>comm -23 {{file1}} {{file2}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print lines only found in second file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>comm -13 {{file1}} {{file2}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

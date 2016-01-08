@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    dd
+   </h1>
+   <blockquote>
+    <p>
+     Convert and copy a file.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Make a bootable usb drive from an isohybrid file (such like archlinux-xxx.iso):
+    </li>
+   </ul>
+   <p>
+    <pre><code>dd if={{file.iso}} of=/dev/{{usb_drive}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Clone a drive to another drive with 4MB block and ignore error:
+    </li>
+   </ul>
+   <p>
+    <pre><code>dd if=/dev/{{source_drive}} of=/dev/{{dest_drive}} bs=4m conv=noerror</code></pre>
+   </p>
+   <ul>
+    <li>
+     Generating a file of 100 random bytes by using kernel random driver:
+    </li>
+   </ul>
+   <p>
+    <pre><code>dd if=/dev/urandom of={{random_file}} bs=100 count=1</code></pre>
+   </p>
+   <ul>
+    <li>
+     Benchmark the write performance of a disk:
+    </li>
+   </ul>
+   <p>
+    <pre><code>dd if=/dev/zero of={{file_1GB}} bs=1024 count=1000000</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

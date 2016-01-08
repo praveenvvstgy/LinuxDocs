@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    Android Debug Bridge
+   </h1>
+   <blockquote>
+    <p>
+     Communicate with an Android emulator instance or connected Android devices.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Check whether the adb server process is running and start it:
+    </li>
+   </ul>
+   <p>
+    <pre><code>adb start-server</code></pre>
+   </p>
+   <ul>
+    <li>
+     Terminate the adb server process:
+    </li>
+   </ul>
+   <p>
+    <pre><code>adb kill-server</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start a remote shell in the target emulator/device instance:
+    </li>
+   </ul>
+   <p>
+    <pre><code>adb shell</code></pre>
+   </p>
+   <ul>
+    <li>
+     Push an Android application to an emulator/device:
+    </li>
+   </ul>
+   <p>
+    <pre><code>adb install -r {{apk.path}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    git config
+   </h1>
+   <blockquote>
+    <p>
+     Get and set repository or global options.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Print list of options for current repository:
+    </li>
+   </ul>
+   <p>
+    <pre><code>git config --list --local</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print global list of options, set in ~/.gitconfig:
+    </li>
+   </ul>
+   <p>
+    <pre><code>git config --list --global</code></pre>
+   </p>
+   <ul>
+    <li>
+     Get full list of options:
+    </li>
+   </ul>
+   <p>
+    <pre><code>git config --list</code></pre>
+   </p>
+   <ul>
+    <li>
+     Get value of alias.ls option:
+    </li>
+   </ul>
+   <p>
+    <pre><code>git config alias.st</code></pre>
+   </p>
+   <ul>
+    <li>
+     Set option alias.ls=status in file ~/.gitconfig:
+    </li>
+   </ul>
+   <p>
+    <pre><code>git config --global alias.ls "status"</code></pre>
+   </p>
+   <ul>
+    <li>
+     Remove option alias.st from ~/.gitconfig:
+    </li>
+   </ul>
+   <p>
+    <pre><code>git config --global --unset alias.st</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

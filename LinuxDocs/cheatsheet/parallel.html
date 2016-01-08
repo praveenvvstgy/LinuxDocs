@@ -1,0 +1,71 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    GNU Parallel
+   </h1>
+   <blockquote>
+    <p>
+     Run commands on multiple CPU cores.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Gzip several files at once, using all cores:
+    </li>
+   </ul>
+   <p>
+    <pre><code>parallel gzip ::: {{file1}} {{file2}} {{file3}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Read arguments from stdin, run 4 jobs at once:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ls *.txt | parallel -j4 gzip</code></pre>
+   </p>
+   <ul>
+    <li>
+     Convert JPG images to PNG using replacement strings:
+    </li>
+   </ul>
+   <p>
+    <pre><code>parallel convert {} {.}.png ::: *.jpg</code></pre>
+   </p>
+   <ul>
+    <li>
+     Parallel xargs, cram as many args as possible onto one command:
+    </li>
+   </ul>
+   <p>
+    <pre><code>{{args}} | parallel -X {{command}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Break stdin into ~1M blocks, feed each block to stdin of new command:
+    </li>
+   </ul>
+   <p>
+    <pre><code>cat {{bigfile.txt}} | parallel --pipe --block 1M {{command}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Run on multiple machines via SSH:
+    </li>
+   </ul>
+   <p>
+    <pre><code>parallel -S {{machine1}},{{machine2}} {{command}} ::: {{arg1}} {{arg2}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

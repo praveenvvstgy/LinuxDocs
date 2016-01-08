@@ -1,0 +1,48 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    transcode
+   </h1>
+   <blockquote>
+    <p>
+     Suite of command line utilities for transcoding video and audio codecs.
+  And converting between formats.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Create stabilisation file to be able to remove camera shakes:
+    </li>
+   </ul>
+   <p>
+    <pre><code>transcode -J stabilize -i {{inputfile}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Remove camera shakes after creating stabilisation file, transform video using xvid:
+    </li>
+   </ul>
+   <p>
+    <pre><code>transcode -J transform -i {{inputfile}} -y xvid -o {{outputfile}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Resize the video to 640x480 pixels and convert to MPEG4 codec using xvid:
+    </li>
+   </ul>
+   <p>
+    <pre><code>transcode -Z 640x480 -i {{inputfile}} -y xvid -o {{outputfile}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

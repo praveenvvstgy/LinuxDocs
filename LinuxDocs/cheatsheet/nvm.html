@@ -1,0 +1,72 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    nvm
+   </h1>
+   <blockquote>
+    <p>
+     Node.js version manager.
+  Switch between NodeJS versions: system, node, 0.10, 0.12, 4.2 etc.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Install a specific version of NodeJS:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nvm install {{node_version}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Use a specific version NodeJS in the current shell:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nvm use {{node_version}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Set the default NodeJS version:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nvm alias default {{node_version}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     List all available NodeJS versions and print the default one:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nvm list</code></pre>
+   </p>
+   <ul>
+    <li>
+     Run a specific version NodeJS REPL:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nvm run {{node_version}} --version</code></pre>
+   </p>
+   <ul>
+    <li>
+     Run app in a specific version of NodeJS:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nvm exec {{node_version}} node {{app.js}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

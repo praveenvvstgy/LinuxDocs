@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,12 +15,12 @@
    </h1>
    <blockquote>
     <p>
-     renames multiple files
+     Renames multiple files.
     </p>
    </blockquote>
    <ul>
     <li>
-     Change foo to bar in matching files
+     Change foo to bar in matching filenames:
     </li>
    </ul>
    <p>
@@ -25,7 +28,7 @@
    </p>
    <ul>
     <li>
-     Convert to lower case
+     Convert to lower case:
     </li>
    </ul>
    <p>
@@ -33,11 +36,20 @@
    </p>
    <ul>
     <li>
-     Replace whitespace with underscores
+     Replace whitespace with underscores:
     </li>
    </ul>
    <p>
     <pre><code>rename --nows {{*.txt}}</code></pre>
+    <pre><code>rename 's/\s+/_/g' {{*.txt}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     No action, just show what renames would occur:
+    </li>
+   </ul>
+   <p>
+    <pre><code>rename -n {{'s/foo/bar/'}} {{*.txt}}</code></pre>
    </p>
   </article>
  </body>

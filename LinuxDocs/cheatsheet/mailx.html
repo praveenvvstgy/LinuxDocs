@@ -1,0 +1,71 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    mailx
+   </h1>
+   <blockquote>
+    <p>
+     Send and receive mail.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     To send mail, the content is typed after the command and ended with Control-D:
+    </li>
+   </ul>
+   <p>
+    <pre><code>mailx -s "{{subject}}" {{to_addr}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Send mail with short content:
+    </li>
+   </ul>
+   <p>
+    <pre><code>echo "{{content}}" | mailx -s "{{subject}}" {{to_addr}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Send mail with content which written in a file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>mailx -s "{{subject}}" {{to_addr}} &lt; {{content.txt}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Send mail to a recipient and CC to another address:
+    </li>
+   </ul>
+   <p>
+    <pre><code>mailx -s "{{subject}}" -c {{cc_addr}} {{to_addr}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Send mail and set sender address:
+    </li>
+   </ul>
+   <p>
+    <pre><code>mailx -s "{{subject}}" -r {{from_addr}} {{to_addr}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Send mail with an attachment:
+    </li>
+   </ul>
+   <p>
+    <pre><code>mailx -a {{file}} -s "{{subject}}" {{to_addr}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

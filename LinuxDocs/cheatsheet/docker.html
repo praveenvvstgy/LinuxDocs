@@ -1,0 +1,72 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    docker
+   </h1>
+   <blockquote>
+    <p>
+     Docker allows you to package an application with all of its.
+  Dependencies into a standardized unit for software development.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     List of running docker containers:
+    </li>
+   </ul>
+   <p>
+    <pre><code>docker ps</code></pre>
+   </p>
+   <ul>
+    <li>
+     List all docker containers (running and stopped):
+    </li>
+   </ul>
+   <p>
+    <pre><code>docker ps -a</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start a container:
+    </li>
+   </ul>
+   <p>
+    <pre><code>docker start {{container}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Stop a container:
+    </li>
+   </ul>
+   <p>
+    <pre><code>docker stop {{container}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start a container from an image and get a shell inside of it:
+    </li>
+   </ul>
+   <p>
+    <pre><code>docker run -it {{image}} bash</code></pre>
+   </p>
+   <ul>
+    <li>
+     Run a command inside of an already running container:
+    </li>
+   </ul>
+   <p>
+    <pre><code>docker exec {{container}} {{command}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

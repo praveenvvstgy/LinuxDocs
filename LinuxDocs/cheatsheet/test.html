@@ -1,0 +1,64 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    test
+   </h1>
+   <blockquote>
+    <p>
+     Evaluate condition.
+  If it is true, returns 0 exit status, otherwise returns 1.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Test if given variable is equal to given string:
+    </li>
+   </ul>
+   <p>
+    <pre><code>test $MY_VAR == '/bin/zsh'</code></pre>
+   </p>
+   <ul>
+    <li>
+     Test if given variable is empty:
+    </li>
+   </ul>
+   <p>
+    <pre><code>test -z $GIT_BRANCH</code></pre>
+   </p>
+   <ul>
+    <li>
+     Test if file exists:
+    </li>
+   </ul>
+   <p>
+    <pre><code>test -e {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Test if directory not exists:
+    </li>
+   </ul>
+   <p>
+    <pre><code>test ! -d {{path/to/directory}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     If-else statement:
+    </li>
+   </ul>
+   <p>
+    <pre><code>test {{condition}} &amp;&amp; echo "true" || echo "false"</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

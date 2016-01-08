@@ -1,0 +1,57 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    7za
+   </h1>
+   <blockquote>
+    <p>
+     A file archiver with high compression ratio.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Compress directory or file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>7za a {{compressed.7z}} {{directory_or_file_to_compress}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Decompress an existing 7z file with original directory structure:
+    </li>
+   </ul>
+   <p>
+    <pre><code>7za x {{compressed.7z}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compress to zip format:
+    </li>
+   </ul>
+   <p>
+    <pre><code>7za a -tzip {{compressed.zip}} {{directory_or_file_to_compress}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create multipart 7zip file;
+     <pre><code>part_size</code></pre>
+     specifies part size in Bytes, Kilobytes, Megabytes or Gigabytes:
+    </li>
+   </ul>
+   <p>
+    <pre><code>7za -v{{part_size}}{{[b|k|m|g]}} {{compressed.7z}} {{directory_or_file_to_compress}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

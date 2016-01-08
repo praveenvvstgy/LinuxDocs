@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    renice
+   </h1>
+   <blockquote>
+    <p>
+     Alters the scheduling priority/nicenesses of one or more running processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process).
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Change priority of a running process:
+    </li>
+   </ul>
+   <p>
+    <pre><code>renice -n {{niceness_value}} -p {{pid}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Change priority of all processes owned by a user:
+    </li>
+   </ul>
+   <p>
+    <pre><code>renice -n {{niceness_value}} -u {{user}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Change priority of all processes that belongs to a group:
+    </li>
+   </ul>
+   <p>
+    <pre><code>renice -n {{niceness_value}} -g {{group}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,24 +15,57 @@
    </h1>
    <blockquote>
     <p>
-     Network exploration tool and security / port scanner
+     Network exploration tool and security / port scanner.
+  Some features only activate when Nmap is run with privileges.
     </p>
    </blockquote>
    <ul>
     <li>
-     scan open ports of a single host
+     Try to determine whether the specified hosts are up and what are their names:
     </li>
    </ul>
    <p>
-    <pre><code>nmap {{192.168.0.1}}</code></pre>
+    <pre><code>nmap -sn {{ip_or_hostname}} {{optional_another_address}}</code></pre>
    </p>
    <ul>
     <li>
-     discover hosts in the 192.168.0.X area (no port scan)
+     Like above, but also run a default 1000-port TCP scan if host seems up:
     </li>
    </ul>
    <p>
-    <pre><code>nmap -sn {{192.168.0.1/24}}</code></pre>
+    <pre><code>nmap {{ip_or_hostname}} {{optional_another_address}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Also enable service detection, OS fingerprinting and traceroute:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nmap -A {{address_or_addresses}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Assume good network connection and speed up execution:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nmap -T4 {{address_or_addresses}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Scan a specific list of ports (use -p- for all ports 1-65535):
+    </li>
+   </ul>
+   <p>
+    <pre><code>nmap -p {{port1,port2,...,portN}} {{address_or_addresses}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Perform TCP and UDP scanning (use -sU for UDP only, -sZ for SCTP, -sO for IP):
+    </li>
+   </ul>
+   <p>
+    <pre><code>nmap -sSU {{address_or_addresses}}</code></pre>
    </p>
   </article>
  </body>

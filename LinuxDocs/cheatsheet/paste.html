@@ -1,0 +1,63 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    paste
+   </h1>
+   <blockquote>
+    <p>
+     Merge lines of files.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Join all the lines into a single line, using TAB as delimiter:
+    </li>
+   </ul>
+   <p>
+    <pre><code>paste -s {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Join all the lines into a single line, using the specified delimiter:
+    </li>
+   </ul>
+   <p>
+    <pre><code>paste -s -d {{delimiter}} {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Merge two files side by side, each in its column, using TAB as delimiter:
+    </li>
+   </ul>
+   <p>
+    <pre><code>paste {{file1}} {{file2}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Merge two files side by side, each in its column, using the specified delimiter:
+    </li>
+   </ul>
+   <p>
+    <pre><code>paste -d {{delimiter}} {{file1}} {{file2}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Merge two files, with lines added alternatively:
+    </li>
+   </ul>
+   <p>
+    <pre><code>paste -d '\n' {{file1}} {{file2}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

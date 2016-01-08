@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    timedatectl
+   </h1>
+   <blockquote>
+    <p>
+     Control the system time and date.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     To check the current system clock time:
+    </li>
+   </ul>
+   <p>
+    <pre><code>timedatectl</code></pre>
+   </p>
+   <ul>
+    <li>
+     To set the local time of the system clock directly:
+    </li>
+   </ul>
+   <p>
+    <pre><code>timedatectl set-time {{"yyyy-MM-dd hh:mm:ss"}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     To list available timezones:
+    </li>
+   </ul>
+   <p>
+    <pre><code>timedatectl list-timezones</code></pre>
+   </p>
+   <ul>
+    <li>
+     To change timezones:
+    </li>
+   </ul>
+   <p>
+    <pre><code>timedatectl set-timezone {{timezone}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

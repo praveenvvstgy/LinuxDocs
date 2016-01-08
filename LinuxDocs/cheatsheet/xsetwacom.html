@@ -1,0 +1,65 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    xsetwacom
+   </h1>
+   <blockquote>
+    <p>
+     Command line tool to change settings for Wacom pen tablets at runtime.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     List all the available wacom devices. The device name is in the first column:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xsetwacom list</code></pre>
+   </p>
+   <ul>
+    <li>
+     Set Wacom area to specific screen. Get name of the screen with
+     <pre><code>xrandr</code></pre>
+     :
+    </li>
+   </ul>
+   <p>
+    <pre><code>xsetwacom set "{{device name}}" MapToOutput {{screen}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Set mode to relative (like a mouse) or absolute (like a pen) mode:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xsetwacom set "{{device name}}" Mode "{{Relative|Absolute}}"</code></pre>
+   </p>
+   <ul>
+    <li>
+     Rotate the input (useful for tablet-PC when rotating screen) by 0|90|180|270 degrees from "natural" rotation:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xsetwacom set "{{device name}}" Rotate {{none|half|cw|ccw}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Set button to only work when the tip of the pen is touching the tablet:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xsetwacom set "{{device name}}" TabletPCButton "on"</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

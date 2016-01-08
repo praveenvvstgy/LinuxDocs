@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,24 +15,50 @@
    </h1>
    <blockquote>
     <p>
-     Create, modify, and extract from archives (.a .so .o)
+     Create, modify, and extract from archives (.a .so .o).
     </p>
    </blockquote>
    <ul>
     <li>
-     Extract members of the archive
+     Extract all members from an archive:
     </li>
    </ul>
    <p>
-    <pre><code>ar -x libfoo.a</code></pre>
+    <pre><code>ar -x {{libfoo.a}}</code></pre>
    </p>
    <ul>
     <li>
-     List the content (files) of libfoo.a
+     List the members of an archive:
     </li>
    </ul>
    <p>
-    <pre><code>ar -t libfoo.a</code></pre>
+    <pre><code>ar -t {{libfoo.a}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Replace or add files to an archive:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ar -r {{libfoo.a}} {{foo.o}} {{bar.o}} {{baz.o}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Insert an object file index (equivalent to using
+     <pre><code>ranlib</code></pre>
+     ):
+    </li>
+   </ul>
+   <p>
+    <pre><code>ar -s {{libfoo.a}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create an archive with files and an accompanying object file index:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ar -rs {{libfoo.a}} {{foo.o}} {{bar.o}} {{baz.o}}</code></pre>
    </p>
   </article>
  </body>

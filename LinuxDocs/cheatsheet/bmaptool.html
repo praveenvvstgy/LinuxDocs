@@ -1,0 +1,59 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    bmaptool
+   </h1>
+   <blockquote>
+    <p>
+     Create or Copy blockmaps intelligently (and therefore faster than
+     <pre><code>cp</code></pre>
+     or
+     <pre><code>dd</code></pre>
+     ).
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Create a blockmap from image file.
+    </li>
+   </ul>
+   <p>
+    <pre><code>bmaptool create -o {{blockmap.bmap}} {{source.img}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Copy an image file into sdb.
+    </li>
+   </ul>
+   <p>
+    <pre><code>bmaptool copy --bmap {{blockmap.bmap}} {{source.img}} {{/dev/sdb}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Copy a compressed image file into sdb.
+    </li>
+   </ul>
+   <p>
+    <pre><code>bmaptool copy --bmap {{blockmap.bmap}} {{source.img.gz}} {{/dev/sdb}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Copy an image file into sdb without using a blockmap.
+    </li>
+   </ul>
+   <p>
+    <pre><code>bmaptool copy --nobmap {{source.img}} {{/dev/sdb}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,12 +15,12 @@
    </h1>
    <blockquote>
     <p>
-     PHP Command Line Interface 'CLI'
+     PHP Command Line Interface 'CLI'.
     </p>
    </blockquote>
    <ul>
     <li>
-     Parse and execute a file
+     Parse and execute a file:
     </li>
    </ul>
    <p>
@@ -25,7 +28,7 @@
    </p>
    <ul>
     <li>
-     Check syntax (lint)
+     Check syntax (lint):
     </li>
    </ul>
    <p>
@@ -33,7 +36,7 @@
    </p>
    <ul>
     <li>
-     Run PHP interactively
+     Run PHP interactively:
     </li>
    </ul>
    <p>
@@ -41,11 +44,21 @@
    </p>
    <ul>
     <li>
-     Run PHP code. Notes: a) Don't use  ?&gt; tags; b) Escape double quotes with backslash
+     Run PHP code. Notes: a) Don't use
+     <? ?>
+     tags; b) Escape double quotes with backslash:
     </li>
    </ul>
    <p>
     <pre><code>php -r "{{code}}"</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start a PHP built-in web server in the current directory:
+    </li>
+   </ul>
+   <p>
+    <pre><code>php -S {{host:port}}</code></pre>
    </p>
   </article>
  </body>

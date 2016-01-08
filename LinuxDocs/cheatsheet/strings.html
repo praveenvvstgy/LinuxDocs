@@ -1,0 +1,59 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    strings
+   </h1>
+   <blockquote>
+    <p>
+     Find printable strings in an object file or binary.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Print all strings in a binary:
+    </li>
+   </ul>
+   <p>
+    <pre><code>strings {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Limit results to strings at least
+     <em>
+      length
+     </em>
+     characters long:
+    </li>
+   </ul>
+   <p>
+    <pre><code>strings -n {{length}} {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Prefix each result with its offset within the file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>strings -t d {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Prefix each result with its offset within the file in hexadecimal:
+    </li>
+   </ul>
+   <p>
+    <pre><code>strings -t x {{file}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

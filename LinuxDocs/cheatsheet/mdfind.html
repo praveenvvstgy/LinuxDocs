@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    mdfind
+   </h1>
+   <blockquote>
+    <p>
+     List files matching a given query.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Find a file by its name:
+    </li>
+   </ul>
+   <p>
+    <pre><code>mdfind -name {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Find a file by its content:
+    </li>
+   </ul>
+   <p>
+    <pre><code>mdfind {{query}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Find a file containing a string, in a given directory:
+    </li>
+   </ul>
+   <p>
+    <pre><code>mdfind -onlyin {{directory}} {{query}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

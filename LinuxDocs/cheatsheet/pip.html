@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,36 +15,44 @@
    </h1>
    <blockquote>
     <p>
-     Python package manager
+     Python package manager.
     </p>
    </blockquote>
    <ul>
     <li>
-     Install a package
+     Install a package:
     </li>
    </ul>
    <p>
-    <pre><code>pip install {{somepackage}}</code></pre>
+    <pre><code>pip install {{package_name}}</code></pre>
    </p>
    <ul>
     <li>
-     Upgrade a package
+     Install a specific version of a package:
     </li>
    </ul>
    <p>
-    <pre><code>pip install -U {{somepackage}}</code></pre>
+    <pre><code>pip install {{package_name}}=={{package_version}}</code></pre>
    </p>
    <ul>
     <li>
-     Uninstall a package
+     Upgrade a package:
     </li>
    </ul>
    <p>
-    <pre><code>pip uninstall {{somepackage}}</code></pre>
+    <pre><code>pip install -U {{package_name}}</code></pre>
    </p>
    <ul>
     <li>
-     Save installed packages to file
+     Uninstall a package:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pip uninstall {{package_name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Save installed packages to file:
     </li>
    </ul>
    <p>
@@ -49,7 +60,7 @@
    </p>
    <ul>
     <li>
-     Install packages from file
+     Install packages from file:
     </li>
    </ul>
    <p>

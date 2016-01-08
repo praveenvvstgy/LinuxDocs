@@ -1,0 +1,49 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    ionice
+   </h1>
+   <blockquote>
+    <p>
+     Get or set program I/O scheduling class and priority.
+  Scheduling classes: 1 (realtime), 2 (best-effort), 3 (idle).
+  Priority levels: 0 (the highest) - 7 (the lowest).
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Set I/O scheduling class of a running process:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ionice -c {{scheduling_class}} -p {{pid}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Run a command with custom I/O scheduling class and priority:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ionice -c {{scheduling_class}} -n {{priority}} {{command}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print the I/O scheduling class and priority of a running process:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ionice -p {{pid}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

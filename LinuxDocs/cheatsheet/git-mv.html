@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    git mv
+   </h1>
+   <blockquote>
+    <p>
+     Move or rename files and update the git index.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Move file inside the repo and add the movement to the next commit:
+    </li>
+   </ul>
+   <p>
+    <pre><code>git mv {{path/to/file}} {{new/path/to/file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Rename file and add renaming to the next commit:
+    </li>
+   </ul>
+   <p>
+    <pre><code>git mv {{filename}} {{new_filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Overwrite the file in the target path if it exists:
+    </li>
+   </ul>
+   <p>
+    <pre><code>git mv --force {{file}} {{target}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

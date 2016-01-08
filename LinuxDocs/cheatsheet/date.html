@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE doctype html>
 <html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
  </head>
  <body>
   <article class="markdown-body">
@@ -12,12 +15,12 @@
    </h1>
    <blockquote>
     <p>
-     Set or display the system date
+     Set or display the system date.
     </p>
    </blockquote>
    <ul>
     <li>
-     Display the date using the default locale
+     Display the date using the default locale:
     </li>
    </ul>
    <p>
@@ -25,11 +28,11 @@
    </p>
    <ul>
     <li>
-     Display the date using a custom format
+     Display the date in UTC and ISO 8601 format:
     </li>
    </ul>
    <p>
-    <pre><code>date +"%d/%m/%Y %H:%M:%S"</code></pre>
+    <pre><code>date -u +"%Y-%m-%dT%H:%M:%SZ"</code></pre>
    </p>
   </article>
  </body>

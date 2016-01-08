@@ -1,0 +1,63 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    ifconfig
+   </h1>
+   <blockquote>
+    <p>
+     Ifconfig - Interface Configurator, used to configure network interfaces.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     View network settings of an ethernet adapter:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ifconfig eth0</code></pre>
+   </p>
+   <ul>
+    <li>
+     Display details of all interfaces, including disabled interfaces:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ifconfig -a</code></pre>
+   </p>
+   <ul>
+    <li>
+     Disable eth0 interface:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ifconfig eth0 down</code></pre>
+   </p>
+   <ul>
+    <li>
+     Enable eth0 interface:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ifconfig eth0 up</code></pre>
+   </p>
+   <ul>
+    <li>
+     Assign IP address to eth0 interface:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ifconfig eth0 {{ip_address}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

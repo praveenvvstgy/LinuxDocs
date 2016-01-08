@@ -1,0 +1,39 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    for
+   </h1>
+   <blockquote>
+    <p>
+     Shell loop over parameters
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Perform a command with different arguments.
+    </li>
+   </ul>
+   <p>
+    <pre><code>for argument in 1 2 3; do {{command $argument}}; done</code></pre>
+   </p>
+   <ul>
+    <li>
+     Perform a command in every directory.
+    </li>
+   </ul>
+   <p>
+    <pre><code>for d in *; do (cd $d; {{command}}); done</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

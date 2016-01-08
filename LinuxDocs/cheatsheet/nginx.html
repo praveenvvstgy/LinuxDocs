@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    nginx
+   </h1>
+   <blockquote>
+    <p>
+     Nginx web server.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Start server with default config:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nginx</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start server with custom config file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nginx -c {{config_file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start server with a prefix for all relative paths in config file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nginx -c {{config_file}} -p {{prefix/for/relative/paths}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Test configuration without affecting the running server:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nginx -t</code></pre>
+   </p>
+  </article>
+ </body>
+</html>
