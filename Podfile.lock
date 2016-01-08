@@ -1,7 +1,7 @@
 PODS:
-  - CTFeedback (1.0.17)
-  - DZNEmptyDataSet (1.5.2)
-  - SKSplashView (0.1.0)
+  - CTFeedback (1.0.21)
+  - DZNEmptyDataSet (1.7.3)
+  - SKSplashView (0.1.2)
   - UIImage-Helpers (0.0.3)
 
 DEPENDENCIES:
@@ -11,9 +11,9 @@ DEPENDENCIES:
   - UIImage-Helpers
 
 SPEC CHECKSUMS:
-  CTFeedback: 8706fc51355f04646262441193983f6d10702d0c
-  DZNEmptyDataSet: 741da409081a4bf707c949c964623a6ad1799772
-  SKSplashView: 8cdb1bfccb5857cb141751d01b03cf132b110168
+  CTFeedback: 30a7d644dc113f524f7969149dc9b6c11dc5ab6d
+  DZNEmptyDataSet: dd7cca17c1d07dfa78956859b1e70a52505678ef
+  SKSplashView: c65333b6707be6f237d09e7c8977941114b0a70d
   UIImage-Helpers: 06b04a42bdd222844035602e87e936765c80f620
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.39.0

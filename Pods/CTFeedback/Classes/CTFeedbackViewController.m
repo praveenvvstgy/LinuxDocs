@@ -15,7 +15,8 @@
 #import <MessageUI/MessageUI.h>
 
 typedef NS_ENUM(NSInteger, CTFeedbackSection){
-    CTFeedbackSectionInput = 0,
+    CTFeedbackSectionEmail = 0,
+    CTFeedbackSectionInput,
     CTFeedbackSectionScreenshot,
     CTFeedbackSectionDeviceInfo,
     CTFeedbackSectionAppInfo
@@ -27,12 +28,14 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
 
 @property (nonatomic, strong) NSArray *cellItems;
 
+@property (nonatomic, readonly) NSArray *emailCellItems;
 @property (nonatomic, readonly) NSArray *inputCellItems;
 @property (nonatomic, readonly) NSArray *deviceInfoCellItems;
 @property (nonatomic, readonly) NSArray *appInfoCellItems;
 @property (nonatomic, readonly) NSArray *additionCellItems;
 @property (nonatomic, strong) CTFeedbackTopicCellItem *topicCellItem;
 @property (nonatomic, strong) CTFeedbackContentCellItem *contentCellItem;
+@property (nonatomic, strong) CTFeedbackFieldCellItem *emailCellItem;
 @property (nonatomic, strong) CTFeedbackAdditionInfoCellItem *additionCellItem;
 @property (nonatomic, readonly) NSString *mailSubject;
 @property (nonatomic, readonly) NSString *mailBody;
@@ -91,10 +94,11 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
 
     [self.tableView registerClass:[CTFeedbackCell class] forCellReuseIdentifier:[CTFeedbackTopicCellItem reuseIdentifier]];
     [self.tableView registerClass:[CTFeedbackCell class] forCellReuseIdentifier:[CTFeedbackContentCellItem reuseIdentifier]];
+    [self.tableView registerClass:[CTFeedbackCell class] forCellReuseIdentifier:[CTFeedbackFieldCellItem reuseIdentifier]];
     [self.tableView registerClass:[CTFeedbackCell class] forCellReuseIdentifier:[CTFeedbackInfoCellItem reuseIdentifier]];
     [self.tableView registerClass:[CTFeedbackCell class] forCellReuseIdentifier:[CTFeedbackAdditionInfoCellItem reuseIdentifier]];
 
-    self.cellItems = @[self.inputCellItems, self.additionCellItems ,self.deviceInfoCellItems, self.appInfoCellItems];
+    self.cellItems = @[self.emailCellItems, self.inputCellItems, self.additionCellItems ,self.deviceInfoCellItems, self.appInfoCellItems];
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:CTFBLocalizedString(@"Mail") style:UIBarButtonItemStylePlain target:self action:@selector(sendButtonTapped:)];
 }
@@ -161,6 +165,14 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
 - (NSUInteger)selectedTopicIndex
 {
     return [self.topics indexOfObject:self.selectedTopic];
+}
+
+- (NSArray *)emailCellItems
+{
+    self.emailCellItem = [CTFeedbackFieldCellItem new];
+    self.emailCellItem.textField.placeholder = CTFBLocalizedString(@"E-mail");
+    self.emailCellItem.textField.keyboardType = UIKeyboardTypeEmailAddress;
+    return @[self.emailCellItem];
 }
 
 - (NSArray *)inputCellItems
@@ -300,7 +312,9 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
 
 - (NSString *)appName
 {
-    return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
+    return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]?
+    [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]:
+    [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
 }
 
 - (NSString *)appVersion
@@ -367,7 +381,12 @@ static NSString * const ATTACHMENT_FILENAME = @"screenshot.jpg";
 #pragma mark - send email
 - (void)sendButtonTapped:(id)sender
 {
-    if ([MFMailComposeViewController canSendMail]) {
+    if (self.useCustomCallback) {
+        NSAssert(self.delegate, @"No delegate provided");
+        if (self.delegate && [self.delegate respondsToSelector:@selector(feedbackViewController:didFinishWithCustomCallback:topic:content:attachment:)]) {
+            [self.delegate feedbackViewController:self didFinishWithCustomCallback:self.emailCellItem.textField.text topic:self.mailSubject content:self.contentCellItem.textView.text.length ? self.mailBody : nil attachment:[UIImage imageWithData:self.mailAttachment]];
+        }
+    } else if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
         controller.mailComposeDelegate = self;
         [controller setToRecipients:self.toRecipients];
@@ -380,13 +399,28 @@ static NSString * const ATTACHMENT_FILENAME = @"screenshot.jpg";
             [controller addAttachmentData:self.mailAttachment mimeType:MIME_TYPE_JPEG fileName:ATTACHMENT_FILENAME];
         }
         [self presentViewController:controller animated:YES completion:nil];
-    }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:CTFBLocalizedString(@"Error")
-                                                        message:CTFBLocalizedString(@"Mail no configuration")
-                                                       delegate:nil
-                                              cancelButtonTitle:CTFBLocalizedString(@"Dismiss")
-                                              otherButtonTitles:nil];
-        [alert show];
+    } else {
+        if ([UIAlertController class]) {
+            UIAlertController *alert= [UIAlertController alertControllerWithTitle:CTFBLocalizedString(@"Error")
+                                                                          message:CTFBLocalizedString(@"Mail no configuration")
+                                                                   preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *dismiss = [UIAlertAction actionWithTitle:CTFBLocalizedString(@"Dismiss")
+                                                              style:UIAlertActionStyleCancel
+                                                            handler:^(UIAlertAction *action) {
+                                                                [alert dismissViewControllerAnimated:YES completion:nil];
+                                                            }];
+            
+            [alert addAction:dismiss];
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:CTFBLocalizedString(@"Error")
+                                                            message:CTFBLocalizedString(@"Mail no configuration")
+                                                           delegate:nil
+                                                  cancelButtonTitle:CTFBLocalizedString(@"Dismiss")
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
     }
 }
 
@@ -408,6 +442,17 @@ static NSString * const ATTACHMENT_FILENAME = @"screenshot.jpg";
     CTFeedbackCellItem *cellItem = self.cellItems[(NSUInteger)indexPath.section][(NSUInteger)indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[[cellItem class] reuseIdentifier] forIndexPath:indexPath];
 
+    switch (indexPath.section) {
+        case CTFeedbackSectionEmail:
+            cell.hidden = !self.showsUserEmail;
+            break;
+        case CTFeedbackSectionScreenshot:
+            cell.hidden = self.hidesAdditionalContent;
+            break;
+        default:
+            cell.hidden = NO;
+            break;
+    }
     [cellItem configureCell:cell atIndexPath:indexPath];
 
     return cell;
@@ -416,10 +461,12 @@ static NSString * const ATTACHMENT_FILENAME = @"screenshot.jpg";
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     switch (section) {
+        case CTFeedbackSectionEmail:
+            return self.showsUserEmail ? CTFBLocalizedString(@"User detail") : nil;
         case CTFeedbackSectionInput:
             return nil;
         case CTFeedbackSectionScreenshot:
-            return CTFBLocalizedString(@"Additional Info");
+            return self.hidesAdditionalContent ? nil : CTFBLocalizedString(@"Additional Info");
         case CTFeedbackSectionDeviceInfo:
             return CTFBLocalizedString(@"Device Info");
         case CTFeedbackSectionAppInfo:
@@ -434,7 +481,44 @@ static NSString * const ATTACHMENT_FILENAME = @"screenshot.jpg";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CTFeedbackCellItem *cellItem = self.cellItems[(NSUInteger)indexPath.section][(NSUInteger)indexPath.row];
+    switch (indexPath.section) {
+        case CTFeedbackSectionEmail:
+            if (!self.showsUserEmail) return CGFLOAT_MIN;;
+            break;
+        case CTFeedbackSectionScreenshot:
+            if (self.hidesAdditionalContent) return CGFLOAT_MIN;
+            break;
+    }
     return cellItem.cellHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
+        case CTFeedbackSectionEmail:
+            if (!self.showsUserEmail) return CGFLOAT_MIN;
+            break;
+        case CTFeedbackSectionInput:
+            if (self.showsUserEmail) return CGFLOAT_MIN;
+            break;
+        case CTFeedbackSectionScreenshot:
+            if (self.hidesAdditionalContent) return CGFLOAT_MIN;
+            break;
+    }
+    return 34;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    switch (section) {
+        case CTFeedbackSectionEmail:
+            if (!self.showsUserEmail) return CGFLOAT_MIN;
+            break;
+        case CTFeedbackSectionScreenshot:
+            if (self.hidesAdditionalContent) return CGFLOAT_MIN;
+            break;
+    }
+    return [super tableView:tableView heightForFooterInSection:section];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -472,12 +556,27 @@ static NSString * const ATTACHMENT_FILENAME = @"screenshot.jpg";
     if (result == MFMailComposeResultCancelled) {
         completion = nil;
     } else if (result == MFMailComposeResultFailed && error) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:CTFBLocalizedString(@"Error")
-                                                        message:error.localizedDescription
-                                                       delegate:nil
-                                              cancelButtonTitle:CTFBLocalizedString(@"Dismiss")
-                                              otherButtonTitles:nil];
-        [alert show];
+        if ([UIAlertController class]) {
+            UIAlertController *alert= [UIAlertController alertControllerWithTitle:CTFBLocalizedString(@"Error")
+                                                                          message:error.localizedDescription
+                                                                   preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *dismiss = [UIAlertAction actionWithTitle:CTFBLocalizedString(@"Dismiss")
+                                                              style:UIAlertActionStyleCancel
+                                                            handler:^(UIAlertAction *action) {
+                                                                [alert dismissViewControllerAnimated:YES completion:nil];
+                                                            }];
+            
+            [alert addAction:dismiss];
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:CTFBLocalizedString(@"Error")
+                                                            message:error.localizedDescription
+                                                           delegate:nil
+                                                  cancelButtonTitle:CTFBLocalizedString(@"Dismiss")
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
     }
 
     [controller dismissViewControllerAnimated:YES completion:completion];
