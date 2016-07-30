@@ -152,6 +152,12 @@
 		AC6332A71AA79C010021AA57 /* LinuxDocs */ = {
 			isa = PBXGroup;
 			children = (
+				AC8C50201AAB74560068A731 /* Model */,
+				ACC106241D4D23FB00325B3B /* Views */,
+				ACC106251D4D240000325B3B /* Controllers */,
+				ACC106261D4D241100325B3B /* Helpers */,
+				AC6332A81AA79C010021AA57 /* Supporting Files */,
+				ACC106231D4D23F400325B3B /* Storyboards */,
 				AC0A8B891ABAB93600DF8880 /* cheatsheet */,
 				AC0A8B871ABAB36A00DF8880 /* style.css */,
 				AC8C51A11AAB8FEF0068A731 /* htmlman8 */,
@@ -162,17 +168,6 @@
 				AC8C518D1AAB8EFA0068A731 /* htmlman1 */,
 				AC8C518B1AAB8C2F0068A731 /* htmlman2 */,
 				AC8C51891AAB8AF30068A731 /* stylesheet */,
-				AC8C50201AAB74560068A731 /* Model */,
-				AC6332AC1AA79C010021AA57 /* ManPagesViewController.swift */,
-				AC4DF2A01ACEA651008785F2 /* AppColors.swift */,
-				AC0A8B7F1ABA9F8300DF8880 /* CheatSheetsViewController.swift */,
-				AC6332AE1AA79C010021AA57 /* Main.storyboard */,
-				AC6E4CD91AC0E0BB001BC5FC /* MainTabBarController.swift */,
-				AC6332CA1AA79D420021AA57 /* ManPageBrowserViewController.swift */,
-				AC0A8B811ABAAA9400DF8880 /* CheatSheetBrowserViewController.swift */,
-				AC79FCA61ABCBAB6009298E8 /* ManPageTableCell.swift */,
-				AC6E4CBB1AC0A4C6001BC5FC /* CheatSheetTableCell.swift */,
-				AC6332A81AA79C010021AA57 /* Supporting Files */,
 			);
 			path = LinuxDocs;
 			sourceTree = "<group>";
@@ -215,6 +210,43 @@
 				AC6332CC1AA79DCB0021AA57 /* ManPage.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		ACC106231D4D23F400325B3B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				AC6332AE1AA79C010021AA57 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		ACC106241D4D23FB00325B3B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AC79FCA61ABCBAB6009298E8 /* ManPageTableCell.swift */,
+				AC6E4CBB1AC0A4C6001BC5FC /* CheatSheetTableCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		ACC106251D4D240000325B3B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AC6332AC1AA79C010021AA57 /* ManPagesViewController.swift */,
+				AC0A8B7F1ABA9F8300DF8880 /* CheatSheetsViewController.swift */,
+				AC6E4CD91AC0E0BB001BC5FC /* MainTabBarController.swift */,
+				AC6332CA1AA79D420021AA57 /* ManPageBrowserViewController.swift */,
+				AC0A8B811ABAAA9400DF8880 /* CheatSheetBrowserViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		ACC106261D4D241100325B3B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AC4DF2A01ACEA651008785F2 /* AppColors.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
