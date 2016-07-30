@@ -1,0 +1,39 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    systemd-analyze
+   </h1>
+   <blockquote>
+    <p>
+     Show timing details about the boot process of units (services, mount points, devices, sockets).
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     List time of each unit to start up:
+    </li>
+   </ul>
+   <p>
+    <pre><code>systemd-analyze blame</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print a tree of the time critical chain of units:
+    </li>
+   </ul>
+   <p>
+    <pre><code>systemd-analyze critical-chain</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

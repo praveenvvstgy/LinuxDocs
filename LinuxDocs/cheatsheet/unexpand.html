@@ -1,0 +1,63 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    unexpand
+   </h1>
+   <blockquote>
+    <p>
+     Convert spaces to tabs.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Convert blanks in each file to tabs, writing to standard output:
+    </li>
+   </ul>
+   <p>
+    <pre><code>unexpand {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Convert blanks to tabs, reading from standard output:
+    </li>
+   </ul>
+   <p>
+    <pre><code>unexpand</code></pre>
+   </p>
+   <ul>
+    <li>
+     Convert all blanks, instead of just initial blanks:
+    </li>
+   </ul>
+   <p>
+    <pre><code>unexpand -a {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Convert only leading sequences of blanks (overrides -a):
+    </li>
+   </ul>
+   <p>
+    <pre><code>unexpand --first-only {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Have tabs a certain number of characters apart, not 8 (enables -a):
+    </li>
+   </ul>
+   <p>
+    <pre><code>unexpand -t {{number}} {{file}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

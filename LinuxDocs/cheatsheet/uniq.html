@@ -1,0 +1,64 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    uniq
+   </h1>
+   <blockquote>
+    <p>
+     Output the unique lines from the given input or file.
+  Since it does not detect repeated lines unless they are adjacent, we need to sort them first.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Display each line once:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sort {{file}} | uniq</code></pre>
+   </p>
+   <ul>
+    <li>
+     Display only unique lines:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sort {{file}} | uniq -u</code></pre>
+   </p>
+   <ul>
+    <li>
+     Display only duplicate lines:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sort {{file}} | uniq -d</code></pre>
+   </p>
+   <ul>
+    <li>
+     Display number of occurences of each line along with that line:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sort {{file}} | uniq -c</code></pre>
+   </p>
+   <ul>
+    <li>
+     Display number of occurences of each line, sorted by the most frequent:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sort {{file}} | uniq -c | sort -nr</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    http
+   </h1>
+   <blockquote>
+    <p>
+     HTTPie: HTTP client, a user-friendly cURL replacement.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Download a URL to a file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>http -d {{example.org}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Send form-encoded data:
+    </li>
+   </ul>
+   <p>
+    <pre><code>http -f {{example.org}} {{name='bob'}} {{profile_picture@'bob.png'}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Send JSON object:
+    </li>
+   </ul>
+   <p>
+    <pre><code>http {{example.org}} {{name='bob'}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Specify an HTTP method:
+    </li>
+   </ul>
+   <p>
+    <pre><code>http {{HEAD}} {{example.org}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Include an extra header:
+    </li>
+   </ul>
+   <p>
+    <pre><code>http {{example.org}} {{X-MyHeader:123}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Pass a user name and password for server authentication:
+    </li>
+   </ul>
+   <p>
+    <pre><code>http -a {{username:password}} {{example.org}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Specify raw request body via stdin:
+    </li>
+   </ul>
+   <p>
+    <pre><code>cat data.txt | http PUT example.org</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

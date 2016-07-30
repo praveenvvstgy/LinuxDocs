@@ -1,0 +1,63 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    openssl
+   </h1>
+   <blockquote>
+    <p>
+     OpenSSL cryptographic toolkit.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Generate a 2048bit RSA private key and save it to a file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>openssl genrsa -out {{filename.key}} 2048</code></pre>
+   </p>
+   <ul>
+    <li>
+     Generate a certificate signing request to be sent to a certificate authority:
+    </li>
+   </ul>
+   <p>
+    <pre><code>openssl req -new -sha256 -key {{filename.key}} -out {{filename.csr}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Generate a self-signed certificate from a certificate signing request valid for some number of days:
+    </li>
+   </ul>
+   <p>
+    <pre><code>openssl x509 -req -days {{days}} -in {{filename.csr}} -signkey {{filename.key}} -out {{filename.crt}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Display the certificate presented by an SSL/TLS server:
+    </li>
+   </ul>
+   <p>
+    <pre><code>openssl s_client -connect {{host}}:{{port}} &lt;/dev/null</code></pre>
+   </p>
+   <ul>
+    <li>
+     Display the complete certificate chain of an HTTPS server:
+    </li>
+   </ul>
+   <p>
+    <pre><code>openssl s_client -connect {{host}}:443 -showcerts &lt;/dev/null</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

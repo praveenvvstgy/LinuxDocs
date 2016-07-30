@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    jmap
+   </h1>
+   <blockquote>
+    <p>
+     Java Memory Map Tool.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Print shared object mappings for a java process (output like pmap):
+    </li>
+   </ul>
+   <p>
+    <pre><code>jmap {{java_pid}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print heap summary information:
+    </li>
+   </ul>
+   <p>
+    <pre><code>jmap -heap {{filename.jar}} {{java_pid}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print histogram of heap usage by type:
+    </li>
+   </ul>
+   <p>
+    <pre><code>jmap -histo {{java_pid}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Dump contents of the heap into a binary file for analysis with jhat:
+    </li>
+   </ul>
+   <p>
+    <pre><code>jmap -dump:format=b,file={{filename}} {{java_pid}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

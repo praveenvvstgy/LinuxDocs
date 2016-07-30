@@ -59,6 +59,14 @@
    <p>
     <pre><code>wget --ftp-user={{username}} --ftp-password={{password}} {{url}}</code></pre>
    </p>
+   <ul>
+    <li>
+     Retry a given number of times if the download doesn't succeed at first:
+    </li>
+   </ul>
+   <p>
+    <pre><code>wget -t {{number_of_retries}} {{url}}</code></pre>
+   </p>
   </article>
  </body>
 </html>

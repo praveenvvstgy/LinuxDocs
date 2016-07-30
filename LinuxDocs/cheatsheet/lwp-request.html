@@ -1,0 +1,72 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    lwp-request
+   </h1>
+   <blockquote>
+    <p>
+     Simple command-line HTTP client.
+  Built with libwww-perl.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Make a simple GET request:
+    </li>
+   </ul>
+   <p>
+    <pre><code>lwp-request -m GET {{http://example.com/some/path}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Upload a file with a POST request:
+    </li>
+   </ul>
+   <p>
+    <pre><code>cat {{/path/to/file}} | lwp-request -m POST {{http://example.com/some/path}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Make a request with a custom user agent:
+    </li>
+   </ul>
+   <p>
+    <pre><code>lwp-request -H 'User-Agent: {{user_agent}} -m {{METHOD}} {{http://example.com/some/path}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Make a request with HTTP authentication:
+    </li>
+   </ul>
+   <p>
+    <pre><code>lwp-request -C {{username}}:{{password}} -m {{METHOD}} {{http://example.com/some/path}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Make a request and print request headers:
+    </li>
+   </ul>
+   <p>
+    <pre><code>lwp-request -U -m {{METHOD}} {{http://example.com/some/path}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Make a request and print response headers and status chain:
+    </li>
+   </ul>
+   <p>
+    <pre><code>lwp-request -E -m {{METHOD}} {{http://example.com/some/path}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

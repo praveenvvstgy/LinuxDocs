@@ -1,0 +1,63 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    redshift
+   </h1>
+   <blockquote>
+    <p>
+     Adjust the color temperature of your screen according to your surroundings.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Turn on Redshift with 5700K temperature during day and 3600K at night:
+    </li>
+   </ul>
+   <p>
+    <pre><code>redshift -t {{5700}}:{{3600}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Turn on Redshift with a manually-specified custom location:
+    </li>
+   </ul>
+   <p>
+    <pre><code>redshift -l {{latitude}}:{{longitude}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Turn on Redshift with 70% screen brightness during day and 40% brightness at night:
+    </li>
+   </ul>
+   <p>
+    <pre><code>redshift -b {{0.7}}:{{0.4}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Turn on Redshift with custom gamma levels (between 0 and 1):
+    </li>
+   </ul>
+   <p>
+    <pre><code>redshift -g {{red}}:{{green}}:{{blue}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Turn on Redshift with a constant unchanging color temperature:
+    </li>
+   </ul>
+   <p>
+    <pre><code>redshift -O {{temperature}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

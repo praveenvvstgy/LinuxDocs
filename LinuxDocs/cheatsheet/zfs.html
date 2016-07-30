@@ -32,7 +32,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>zfs create poolname/newfsname</code></pre>
+    <pre><code>zfs create {{pool_name/filesystem_name}}</code></pre>
    </p>
    <ul>
     <li>
@@ -40,7 +40,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>zfs destroy {{poolname/newfsname}}</code></pre>
+    <pre><code>zfs destroy {{pool_name/filesystem_name}}</code></pre>
    </p>
    <ul>
     <li>
@@ -48,7 +48,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>zfs snapshot {{poolname/filesystem@snapshot-name}}</code></pre>
+    <pre><code>zfs snapshot {{pool_name/filesystem_name}}@{{snapshot_name}}</code></pre>
    </p>
    <ul>
     <li>
@@ -56,7 +56,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>zfs set compression=on {{poolname/fileystem}}</code></pre>
+    <pre><code>zfs set compression=on {{pool_name/filesystem_name}}</code></pre>
    </p>
    <ul>
     <li>
@@ -64,7 +64,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>zfs set mountpoint={{/my/mount/path}} {{poolname/filesystem}}</code></pre>
+    <pre><code>zfs set mountpoint={{/my/mount/path}} {{pool_name/filesystem_name}}</code></pre>
    </p>
   </article>
  </body>

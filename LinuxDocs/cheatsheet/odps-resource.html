@@ -1,0 +1,71 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    odps resource
+   </h1>
+   <blockquote>
+    <p>
+     Manage resources in ODPS (Open Data Processing Service).
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Show resources in the current project:
+    </li>
+   </ul>
+   <p>
+    <pre><code>list resources;</code></pre>
+   </p>
+   <ul>
+    <li>
+     Add file resource:
+    </li>
+   </ul>
+   <p>
+    <pre><code>add file {{file_name}} as {{alias}};</code></pre>
+   </p>
+   <ul>
+    <li>
+     Add archive resource:
+    </li>
+   </ul>
+   <p>
+    <pre><code>add archive {{archive.tar.gz}} as {{alias}};</code></pre>
+   </p>
+   <ul>
+    <li>
+     Add .jar resource:
+    </li>
+   </ul>
+   <p>
+    <pre><code>add jar {{package.jar}};</code></pre>
+   </p>
+   <ul>
+    <li>
+     Add .py resource:
+    </li>
+   </ul>
+   <p>
+    <pre><code>add py {{script.py}};</code></pre>
+   </p>
+   <ul>
+    <li>
+     Delete resource:
+    </li>
+   </ul>
+   <p>
+    <pre><code>drop resource {{resource_name}};</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

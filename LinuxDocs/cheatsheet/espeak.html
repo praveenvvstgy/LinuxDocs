@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    espeak
+   </h1>
+   <blockquote>
+    <p>
+     Uses text-to-speech to speak through the default sound device.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Speak a phrase aloud:
+    </li>
+   </ul>
+   <p>
+    <pre><code>espeak "I like to ride my bike."</code></pre>
+   </p>
+   <ul>
+    <li>
+     Speak a file aloud:
+    </li>
+   </ul>
+   <p>
+    <pre><code>espeak -f {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Save output to a WAV audio file, rather than speaking it directly:
+    </li>
+   </ul>
+   <p>
+    <pre><code>espeak -w {{filename.wav}} "It's GNU plus Linux"</code></pre>
+   </p>
+   <ul>
+    <li>
+     Use a different voice:
+    </li>
+   </ul>
+   <p>
+    <pre><code>espeak -v {{voice}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

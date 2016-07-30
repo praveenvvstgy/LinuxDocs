@@ -15,7 +15,7 @@
    </h1>
    <blockquote>
     <p>
-     Encode or decode file or standard input, to standard output.
+     Encode and decode using Base64 representation.
     </p>
    </blockquote>
    <ul>
@@ -24,7 +24,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>base64 {{filename}}</code></pre>
+    <pre><code>base64 -i {{plain_file}}</code></pre>
    </p>
    <ul>
     <li>
@@ -32,7 +32,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>base64 -d {{filename}}</code></pre>
+    <pre><code>base64 -D -i {{base64_file}}</code></pre>
    </p>
    <ul>
     <li>
@@ -40,7 +40,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>{{somecommand}} | base64</code></pre>
+    <pre><code>echo {{plain_text}} | base64</code></pre>
    </p>
    <ul>
     <li>
@@ -48,7 +48,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>{{somecommand}} | base64 -d</code></pre>
+    <pre><code>echo {{base64_text}} | base64 -D</code></pre>
    </p>
   </article>
  </body>

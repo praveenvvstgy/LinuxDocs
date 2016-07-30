@@ -1,0 +1,48 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    csvgrep
+   </h1>
+   <blockquote>
+    <p>
+     Filter CSV rows with string and pattern matching.
+  Included in csvkit.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Find rows that have a certain string in column 1:
+    </li>
+   </ul>
+   <p>
+    <pre><code>csvgrep -c {{1}} -m {{string_to_match}} {{data.csv}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Find rows in which columns 3 or 4 match a certain regex pattern:
+    </li>
+   </ul>
+   <p>
+    <pre><code>csvgrep -c {{3,4}} -r {{regex_pattern}} {{data.csv}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Find rows in which the "name" column does NOT include the string "John Doe":
+    </li>
+   </ul>
+   <p>
+    <pre><code>csvgrep -i -c {{name}} -m {{"John Doe"}} {{data.csv}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

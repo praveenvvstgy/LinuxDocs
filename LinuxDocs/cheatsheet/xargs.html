@@ -28,7 +28,15 @@
    </p>
    <ul>
     <li>
-     Handling whitespace in arguments:
+     Specific example: delete all files that start with 'M':
+    </li>
+   </ul>
+   <p>
+    <pre><code>find . -name 'M*' | xargs rm</code></pre>
+   </p>
+   <ul>
+    <li>
+     Handle whitespace in arguments:
     </li>
    </ul>
    <p>
@@ -36,11 +44,11 @@
    </p>
    <ul>
     <li>
-     Example: list unneeded packages with deborphan and remove them with apt-get:
+     Insert arguments at chosen position, using '%' as the placeholder marker:
     </li>
    </ul>
    <p>
-    <pre><code>sudo deborphan | xargs sudo apt-get remove</code></pre>
+    <pre><code>{{arguments}} | xargs -I '%' {{command}} % {{extra_arguments}}</code></pre>
    </p>
   </article>
  </body>

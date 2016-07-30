@@ -1,0 +1,64 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    run-mailcap
+   </h1>
+   <blockquote>
+    <p>
+     Run MailCap Programs.
+  Run mailcap view,  see,  edit,  compose, print - execute programs via entries in the mailcap file (or any of its  aliases)  will  use  the  given  action  to process  each  mime-type/file.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Individual actions/programs on run-mailcap can be invoked with action flag:
+    </li>
+   </ul>
+   <p>
+    <pre><code>run-mailcap --action=ACTION [--option[=value]]</code></pre>
+   </p>
+   <ul>
+    <li>
+     In simple language:
+    </li>
+   </ul>
+   <p>
+    <pre><code>run-mailcap --action=ACTION {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Turn on extra information:
+    </li>
+   </ul>
+   <p>
+    <pre><code>run-mailcap  --action=ACTION --debug {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Ignore any "copiousoutput" directive and forward output to STD‐OUT:
+    </li>
+   </ul>
+   <p>
+    <pre><code>run-mailcap --action=ACTION --nopager {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Display the found command without actually executing it:
+    </li>
+   </ul>
+   <p>
+    <pre><code>run-mailcap --action=ACTION --norun {{filename}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

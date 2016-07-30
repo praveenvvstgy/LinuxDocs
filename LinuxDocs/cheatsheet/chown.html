@@ -15,12 +15,12 @@
    </h1>
    <blockquote>
     <p>
-     Change the owning user/group of the specified files.
+     Change user and group ownership of files and folders.
     </p>
    </blockquote>
    <ul>
     <li>
-     Change the user of a file:
+     Change the owner user of a file/folder:
     </li>
    </ul>
    <p>
@@ -28,7 +28,7 @@
    </p>
    <ul>
     <li>
-     Change the user and group of a file:
+     Change the owner user and group of a file/folder:
     </li>
    </ul>
    <p>
@@ -36,7 +36,7 @@
    </p>
    <ul>
     <li>
-     Recursively change the owner of an entire folder:
+     Recursively change the owner of a folder and its contents:
     </li>
    </ul>
    <p>
@@ -52,11 +52,11 @@
    </p>
    <ul>
     <li>
-     Use the owner and group of a reference file and apply those values to another file:
+     Change the owner of a file/folder to match a reference file:
     </li>
    </ul>
    <p>
-    <pre><code>chown --reference={{reference-file}} {{path/to/file}}</code></pre>
+    <pre><code>chown --reference={{path/to/reference_file}} {{path/to/file}}</code></pre>
    </p>
   </article>
  </body>

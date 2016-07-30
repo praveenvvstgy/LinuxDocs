@@ -1,0 +1,72 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    latexmk
+   </h1>
+   <blockquote>
+    <p>
+     Compile LaTeX source files into finished documents.
+  Automatically does multiple runs when needed.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Compile a dvi (DeVice Independent file) document from every source:
+    </li>
+   </ul>
+   <p>
+    <pre><code>latexmk</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compile a dvi document from a specific source file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>latexmk {{source.tex}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compile a pdf document:
+    </li>
+   </ul>
+   <p>
+    <pre><code>latexmk -pdf {{source.tex}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Clean up all temporary tex files in the folder:
+    </li>
+   </ul>
+   <p>
+    <pre><code>latexmk -c</code></pre>
+   </p>
+   <ul>
+    <li>
+     Clean up temporary tex files created for a specific tex file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>latexmk -c {{source.tex}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Clean up temporary tex and output files:
+    </li>
+   </ul>
+   <p>
+    <pre><code>latexmk -C</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    youtube-dl
+   </h1>
+   <blockquote>
+    <p>
+     Download videos from YouTube and other websites.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Download a video or playlist:
+    </li>
+   </ul>
+   <p>
+    <pre><code>youtube-dl {{https://www.youtube.com/watch?v=oHg5SJYRHA0}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Download the audio from a video and convert it to an MP3:
+    </li>
+   </ul>
+   <p>
+    <pre><code>youtube-dl -x --audio-format {{mp3}} {{url}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Download video(s) as MP4 files with custom filenames:
+    </li>
+   </ul>
+   <p>
+    <pre><code>youtube-dl --format {{mp4}} --output {{"%(title) by %(uploader) on %(upload_date) in %(playlist).%(ext)"}} {{url}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Download a video and save its description, metadata, annotations, subtitles, and thumbnail:
+    </li>
+   </ul>
+   <p>
+    <pre><code>youtube-dl --write-description --write-info-json --write-annotations --write-sub --write-thumbnail {{url}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     From a playlist, download all "Let's Play" videos that aren't marked "NSFW" or age-restricted for 7 year-olds:
+    </li>
+   </ul>
+   <p>
+    <pre><code>youtube-dl --match-title {{"let's play"}} --age-limit {{7}} --reject-title {{"nsfw"}} {{playlist_url}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

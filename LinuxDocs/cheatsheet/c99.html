@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    C99
+   </h1>
+   <blockquote>
+    <p>
+     Compiles C programs according to the ISO C standard.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Compile source file(s) and create an executable:
+    </li>
+   </ul>
+   <p>
+    <pre><code>c99 {{file.c}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compile source file(s) and create an executable with a custom name:
+    </li>
+   </ul>
+   <p>
+    <pre><code>c99 -o {{executable_name}} {{file.c}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compile source file(s) and create object file(s):
+    </li>
+   </ul>
+   <p>
+    <pre><code>c99 -c {{file.c}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compile source file(s), link with object file(s), and create an executable:
+    </li>
+   </ul>
+   <p>
+    <pre><code>c99 {{file.c}} {{file.o}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

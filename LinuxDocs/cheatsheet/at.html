@@ -1,0 +1,49 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    at
+   </h1>
+   <blockquote>
+    <p>
+     Executes commands at a specified time.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Open an
+     <pre><code>at</code></pre>
+     prompt to create a new set of scheduled commands, press Ctrl+D to save and exit:
+    </li>
+   </ul>
+   <p>
+    <pre><code>at {{hh:mm:ss}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Execute the commands and email the result using a local mailing program such as sendmail:
+    </li>
+   </ul>
+   <p>
+    <pre><code>at {{hh:mm:ss}} -m</code></pre>
+   </p>
+   <ul>
+    <li>
+     Execute a script at the given time:
+    </li>
+   </ul>
+   <p>
+    <pre><code>at {{hh:mm:ss}} -f {{path/to/file}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

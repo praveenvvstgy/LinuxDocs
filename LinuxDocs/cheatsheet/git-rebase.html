@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    git rebase
+   </h1>
+   <blockquote>
+    <p>
+     Apply local commits on top of another branch's history.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Rebase your local branch interactively with the latest changes in local master:
+    </li>
+   </ul>
+   <p>
+    <pre><code>git rebase -i master</code></pre>
+   </p>
+   <ul>
+    <li>
+     Rebase your local branch  interactively with the latest changes from upstream:
+    </li>
+   </ul>
+   <p>
+    <pre><code>git fetch origin; git rebase -i origin/master</code></pre>
+   </p>
+   <ul>
+    <li>
+     Handle an active rebase merge failure, after editing conflicting file(s):
+    </li>
+   </ul>
+   <p>
+    <pre><code>git rebase --continue</code></pre>
+   </p>
+   <ul>
+    <li>
+     Abort a rebase in-progress:
+    </li>
+   </ul>
+   <p>
+    <pre><code>git rebase --abort</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

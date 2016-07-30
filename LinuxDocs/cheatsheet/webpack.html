@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    webpack
+   </h1>
+   <blockquote>
+    <p>
+     Bundle a web project's js files and other assets into a single output file.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Create a single output file from an entry point file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>webpack {{app.js}} {{bundle.js}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Load css files too from the js file (this uses the css loader for .css files):
+    </li>
+   </ul>
+   <p>
+    <pre><code>webpack {{app.js}} {{bundle.js}} --module-bind 'css=css'</code></pre>
+   </p>
+   <ul>
+    <li>
+     Pass a config file (with eg. the entry script and the output filename) and show compilation progress:
+    </li>
+   </ul>
+   <p>
+    <pre><code>webpack --config {{webpack.config.js}} --progress</code></pre>
+   </p>
+   <ul>
+    <li>
+     Automatically recompile on changes to project files:
+    </li>
+   </ul>
+   <p>
+    <pre><code>webpack --watch {{app.js}} {{bundle.js}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

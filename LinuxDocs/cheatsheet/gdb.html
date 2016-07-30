@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    gdb
+   </h1>
+   <blockquote>
+    <p>
+     The GNU Debugger.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Debug an executable:
+    </li>
+   </ul>
+   <p>
+    <pre><code>gdb {{executable}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Attach a process to gdb:
+    </li>
+   </ul>
+   <p>
+    <pre><code>gdb -p {{procID}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Execute given GDB commands upon start:
+    </li>
+   </ul>
+   <p>
+    <pre><code>gdb -ex "{{commands}}" {{executable}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start gdb and pass arguments:
+    </li>
+   </ul>
+   <p>
+    <pre><code>gdb --args {{executable}} {{argument1}} {{argument2}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

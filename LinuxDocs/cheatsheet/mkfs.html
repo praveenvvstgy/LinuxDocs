@@ -1,0 +1,57 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    mkfs.vfat
+   </h1>
+   <blockquote>
+    <p>
+     Creates an MS-DOS filesystem inside a partition.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Create a.vfat filesystem inside partition 1 on device b (
+     <pre><code>sdb1</code></pre>
+     ):
+    </li>
+   </ul>
+   <p>
+    <pre><code>mkfs.vfat {{/dev/sdb1}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create filesystem with a volume-name:
+    </li>
+   </ul>
+   <p>
+    <pre><code>mkfs.vfat -n {{volume_name}} {{/dev/sdb1}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create filesystem with a volume-id:
+    </li>
+   </ul>
+   <p>
+    <pre><code>mkfs.vfat -i {{volume_id}} {{/dev/sdb1}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Use 5 instead of 2 file allocation tables:
+    </li>
+   </ul>
+   <p>
+    <pre><code>mkfs.vfat -f 5 {{/dev/sdb1}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

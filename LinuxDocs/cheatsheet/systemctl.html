@@ -28,11 +28,11 @@
    </p>
    <ul>
     <li>
-     Start/Stop/Restart a service:
+     Start/Stop/Restart/Reload a service:
     </li>
    </ul>
    <p>
-    <pre><code>systemctl start/stop/restart {{unit}}</code></pre>
+    <pre><code>systemctl start/stop/restart/reload {{unit}}</code></pre>
    </p>
    <ul>
     <li>
@@ -49,6 +49,14 @@
    </ul>
    <p>
     <pre><code>systemctl enable/disable {{unit}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Mask/Unmask a unit, prevent it to be started on bootup:
+    </li>
+   </ul>
+   <p>
+    <pre><code>systemctl mask/unmask {{unit}}</code></pre>
    </p>
    <ul>
     <li>

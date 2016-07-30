@@ -1,0 +1,80 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    cargo
+   </h1>
+   <blockquote>
+    <p>
+     Rust package manager.
+  Manage Rust projects and their module dependencies (crates).
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Search for crates:
+    </li>
+   </ul>
+   <p>
+    <pre><code>cargo search {{search_string}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Install a crate:
+    </li>
+   </ul>
+   <p>
+    <pre><code>cargo install {{crate_name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     List installed crates:
+    </li>
+   </ul>
+   <p>
+    <pre><code>cargo install --list</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create a new binary Rust project in the current directory:
+    </li>
+   </ul>
+   <p>
+    <pre><code>cargo init --bin</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create a new library Rust project in the current directory:
+    </li>
+   </ul>
+   <p>
+    <pre><code>cargo init</code></pre>
+   </p>
+   <ul>
+    <li>
+     Build the Rust project in the current directory:
+    </li>
+   </ul>
+   <p>
+    <pre><code>cargo build</code></pre>
+   </p>
+   <ul>
+    <li>
+     Build with multiple parallel jobs:
+    </li>
+   </ul>
+   <p>
+    <pre><code>cargo build -j {{jobs}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

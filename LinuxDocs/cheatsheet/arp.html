@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    arp
+   </h1>
+   <blockquote>
+    <p>
+     Show and manipulate your system's ARP cache.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Show current arp table:
+    </li>
+   </ul>
+   <p>
+    <pre><code>arp -a</code></pre>
+   </p>
+   <ul>
+    <li>
+     Clear the entire cache:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo arp -a -d</code></pre>
+   </p>
+   <ul>
+    <li>
+     Delete a specific entry:
+    </li>
+   </ul>
+   <p>
+    <pre><code>arp -d {{address}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create an entry:
+    </li>
+   </ul>
+   <p>
+    <pre><code>arp -s {{address}} {{mac address}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

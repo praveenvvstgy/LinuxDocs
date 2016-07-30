@@ -15,16 +15,17 @@
    </h1>
    <blockquote>
     <p>
-     Node package manager, to manage Node.js projects and install module dependencies.
+     JavaScript and Node.js package manager.
+  Manage Node.js projects and their module dependencies.
     </p>
    </blockquote>
    <ul>
     <li>
-     Create a new project in the current folder:
+     Download and install a module globally:
     </li>
    </ul>
    <p>
-    <pre><code>npm init</code></pre>
+    <pre><code>npm install -g {{module_name}}</code></pre>
    </p>
    <ul>
     <li>
@@ -36,15 +37,7 @@
    </p>
    <ul>
     <li>
-     Download and install a module globally:
-    </li>
-   </ul>
-   <p>
-    <pre><code>npm install -g {{module_name}}</code></pre>
-   </p>
-   <ul>
-    <li>
-     Download a given dependency, and add it to the package.json:
+     Download a given dependency required for the application to run, and add it to the package.json:
     </li>
    </ul>
    <p>
@@ -52,29 +45,35 @@
    </p>
    <ul>
     <li>
-     Set the version of the current project:
+     Download a given dependency for development purposes, and add it to the package.json:
     </li>
    </ul>
    <p>
-    <pre><code>npm version {{1.2.3}}</code></pre>
+    <pre><code>npm install {{module_name}}@{{version}} --save-dev</code></pre>
    </p>
    <ul>
     <li>
-     Publish the current project:
+     Uninstall a module:
     </li>
    </ul>
    <p>
-    <pre><code>npm publish</code></pre>
+    <pre><code>npm uninstall {{module_name}}</code></pre>
    </p>
    <ul>
     <li>
-     Cleanup packages (removes packages which are installed but are not listed in
-     <pre><code>package.json</code></pre>
-     ):
+     List a tree of installed modules:
     </li>
    </ul>
    <p>
-    <pre><code>npm prune</code></pre>
+    <pre><code>npm list</code></pre>
+   </p>
+   <ul>
+    <li>
+     Interactively create a package.json file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>npm init</code></pre>
    </p>
   </article>
  </body>

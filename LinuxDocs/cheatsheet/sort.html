@@ -36,11 +36,29 @@
    </p>
    <ul>
     <li>
-     Sort passwd file by the 3rd field:
+     Sort a file using numeric rather than alphabetic order:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sort -n {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Sort the passwd file by the 3rd field, numerically:
     </li>
    </ul>
    <p>
     <pre><code>sort -t: -k 3n /etc/passwd</code></pre>
+   </p>
+   <ul>
+    <li>
+     Sort human-readable numbers (in this case the 5th field of
+     <pre><code>ls -lh</code></pre>
+     ):
+    </li>
+   </ul>
+   <p>
+    <pre><code>ls -lh | sort -h -k 5</code></pre>
    </p>
   </article>
  </body>

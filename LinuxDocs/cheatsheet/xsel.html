@@ -1,0 +1,71 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    xsel
+   </h1>
+   <blockquote>
+    <p>
+     X11 selection and clipboard manipulation tool.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Use a command's output as input of the clip[b]oard (equivalent to Ctrl+C):
+    </li>
+   </ul>
+   <p>
+    <pre><code>echo 123 | xsel -ib</code></pre>
+   </p>
+   <ul>
+    <li>
+     Use the contents of a file as input of the clipboard:
+    </li>
+   </ul>
+   <p>
+    <pre><code>cat {{file}} | xsel -ib</code></pre>
+   </p>
+   <ul>
+    <li>
+     Output the clipboard's contents into the terminal (equivalent to Ctrl+V):
+    </li>
+   </ul>
+   <p>
+    <pre><code>xsel -ob</code></pre>
+   </p>
+   <ul>
+    <li>
+     Output the clipboard's contents into a file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xsel -ob &gt; {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Clear the clipboard:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xsel -cb</code></pre>
+   </p>
+   <ul>
+    <li>
+     Output the X11 primary selection's contents into the terminal (equivalent to a mouse middle-click):
+    </li>
+   </ul>
+   <p>
+    <pre><code>xsel -op</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

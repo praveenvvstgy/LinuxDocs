@@ -26,6 +26,30 @@
    <p>
     <pre><code>javac {{filename.java}}</code></pre>
    </p>
+   <ul>
+    <li>
+     Compile several .java files:
+    </li>
+   </ul>
+   <p>
+    <pre><code>javac {{filename1.java}} {{filename2.java}} {{filename3.java}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compile all .java files in current directory:
+    </li>
+   </ul>
+   <p>
+    <pre><code>javac {{*.java}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compile a .java file and place the resulting class file in a specific directory:
+    </li>
+   </ul>
+   <p>
+    <pre><code>javac -d {{path/to/some/directory}} {{filename.java}}</code></pre>
+   </p>
   </article>
  </body>
 </html>

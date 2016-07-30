@@ -16,6 +16,7 @@
    <blockquote>
     <p>
      Lists open files and the corresponding processes.
+  Note: In most cases, you need root privilege (or use sudo) because you want to list files opened by others.
     </p>
    </blockquote>
    <ul>
@@ -32,15 +33,31 @@
     </li>
    </ul>
    <p>
-    <pre><code>lsof -i :{{8080}}</code></pre>
+    <pre><code>lsof -i :{{port}}</code></pre>
    </p>
    <ul>
     <li>
-     Only output the process PID (e.g. to pipe into kill):
+     Only output the process PID:
     </li>
    </ul>
    <p>
-    <pre><code>lsof -t {{/path/to/file}} | xargs kill -9</code></pre>
+    <pre><code>lsof -t {{/path/to/file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     List files opened by the given user:
+    </li>
+   </ul>
+   <p>
+    <pre><code>lsof -u {{username}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     List files opened by the given command or process:
+    </li>
+   </ul>
+   <p>
+    <pre><code>lsof -c {{process_or_command_name}}</code></pre>
    </p>
   </article>
  </body>

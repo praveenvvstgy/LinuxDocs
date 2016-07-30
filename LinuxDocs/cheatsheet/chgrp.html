@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    chgrp
+   </h1>
+   <blockquote>
+    <p>
+     Change group ownership of files and folders.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Change the owner of a file/folder:
+    </li>
+   </ul>
+   <p>
+    <pre><code>chgrp {{group}} {{path/to/file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Recursively change the owner of a folder and its contents:
+    </li>
+   </ul>
+   <p>
+    <pre><code>chgrp -R {{group}} {{path/to/folder}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Change the owner of a symbolic link:
+    </li>
+   </ul>
+   <p>
+    <pre><code>chgrp -h {{user}} {{path/to/symlink}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Change the owner of a file/folder to match a reference file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>chgrp --reference={{path/to/reference_file}} {{path/to/file}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

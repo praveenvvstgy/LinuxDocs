@@ -66,6 +66,22 @@
    <p>
     <pre><code>find {{root_path}} -name {{'*.py'}} -mtime {{-180d}} -delete</code></pre>
    </p>
+   <ul>
+    <li>
+     Find empty files or directories:
+    </li>
+   </ul>
+   <p>
+    <pre><code>find {{root_path}} -empty</code></pre>
+   </p>
+   <ul>
+    <li>
+     Find files matching more than one search criteria:
+    </li>
+   </ul>
+   <p>
+    <pre><code>find {{root_path}} -name {{'*.py'}} -or -name {{'*.r'}}</code></pre>
+   </p>
   </article>
  </body>
 </html>

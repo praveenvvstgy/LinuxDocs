@@ -16,26 +16,32 @@
    <blockquote>
     <p>
      Securely remove files or directories.
-  Overwrites the existing data one or multiple. Drop in replacement for rm.
+  Overwrites the existing data one or multiple times. Drop in replacement for rm.
     </p>
    </blockquote>
    <ul>
     <li>
-     Removes a file after overwriting (single pass, 7 pass, 35 pass):
+     Remove a file after a single-pass overwriting with random data:
     </li>
    </ul>
    <p>
     <pre><code>srm -s {{/path/to/file}}</code></pre>
-    <pre><code>srm -m {{/path/to/file}}</code></pre>
-    <pre><code>srm {{/path/to/file}}</code></pre>
    </p>
    <ul>
     <li>
-     Scurely remove recursively a directory and all it's subdirectories:
+     Remove a file after seven passes of overwriting with random data:
     </li>
    </ul>
    <p>
-    <pre><code>srm -r {{/path/to/folder}}</code></pre>
+    <pre><code>srm -m {{/path/to/file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Recursively remove a directory and its contents overwriting each file with a single-pass of random data:
+    </li>
+   </ul>
+   <p>
+    <pre><code>srm -r -s {{/path/to/folder}}</code></pre>
    </p>
    <ul>
     <li>

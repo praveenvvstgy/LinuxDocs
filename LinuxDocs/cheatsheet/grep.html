@@ -25,31 +25,49 @@
     </li>
    </ul>
    <p>
-    <pre><code>grep {{something}} {{file_path}}</code></pre>
+    <pre><code>grep {{search_string}} {{path/to/file}}</code></pre>
    </p>
    <ul>
     <li>
-     Search recursively in current directory for an exact string:
+     Search in case-insensitive mode:
     </li>
    </ul>
    <p>
-    <pre><code>grep -r {{something}} .</code></pre>
+    <pre><code>grep -i {{search_string}} {{path/to/file}}</code></pre>
    </p>
    <ul>
     <li>
-     Use a regex:
+     Search recursively (ignoring non-text files) in current directory for an exact string:
     </li>
    </ul>
    <p>
-    <pre><code>grep -e {{^regex$}} {{file_path}}</code></pre>
+    <pre><code>grep -rI {{search_string}} .</code></pre>
    </p>
    <ul>
     <li>
-     See 3 lines of context:
+     Use extended regular expressions (supporting
+     <pre><code>?</code></pre>
+     ,
+     <pre><code>+</code></pre>
+     ,
+     <pre><code>{}</code></pre>
+     ,
+     <pre><code>()</code></pre>
+     and
+     <pre><code>|</code></pre>
+     ):
     </li>
    </ul>
    <p>
-    <pre><code>grep -C 3 {{something}} {{file_path}}</code></pre>
+    <pre><code>grep -E {{^regex$}} {{path/to/file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print 3 lines of context around each match:
+    </li>
+   </ul>
+   <p>
+    <pre><code>grep -C 3 {{search_string}} {{path/to/file}}</code></pre>
    </p>
    <ul>
     <li>
@@ -57,7 +75,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>grep -c {{something}} {{file_path}}</code></pre>
+    <pre><code>grep -c {{search_string}} {{path/to/file}}</code></pre>
    </p>
    <ul>
     <li>
@@ -65,7 +83,15 @@
     </li>
    </ul>
    <p>
-    <pre><code>grep -n {{something}} {{file_path}}</code></pre>
+    <pre><code>grep -n {{search_string}} {{path/to/file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print file names with matches:
+    </li>
+   </ul>
+   <p>
+    <pre><code>grep -l {{search_string}} {{path/to/file}}</code></pre>
    </p>
    <ul>
     <li>
@@ -73,7 +99,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>cat {{file_path}} | grep {{something}}</code></pre>
+    <pre><code>cat {{path/to/file}} | grep {{search_string}}</code></pre>
    </p>
    <ul>
     <li>
@@ -81,7 +107,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>grep -v {{something}}</code></pre>
+    <pre><code>grep -v {{search_string}}</code></pre>
    </p>
   </article>
  </body>

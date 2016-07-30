@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    odps tunnel
+   </h1>
+   <blockquote>
+    <p>
+     Data tunnel in ODPS (Open Data Processing Service).
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Download table to local file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>tunnel download {{table_name}} {{file}};</code></pre>
+   </p>
+   <ul>
+    <li>
+     Upload local file to a table partition:
+    </li>
+   </ul>
+   <p>
+    <pre><code>tunnel upload {{file}} {{table_name}}/{{partition_spec}};</code></pre>
+   </p>
+   <ul>
+    <li>
+     Upload table specifying field and record delimiters:
+    </li>
+   </ul>
+   <p>
+    <pre><code>tunnel upload {{file}} {{table_name}} -fd {{field_delim}} -rd {{record_delim}};</code></pre>
+   </p>
+   <ul>
+    <li>
+     Upload table using multiple threads:
+    </li>
+   </ul>
+   <p>
+    <pre><code>tunnel upload {{file}} {{table_name}} -threads {{num}};</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

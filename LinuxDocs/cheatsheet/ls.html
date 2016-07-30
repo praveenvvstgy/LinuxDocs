@@ -20,7 +20,15 @@
    </blockquote>
    <ul>
     <li>
-     List all files, even hidden:
+     List files one per line:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ls -1</code></pre>
+   </p>
+   <ul>
+    <li>
+     List all files, including hidden files:
     </li>
    </ul>
    <p>
@@ -28,23 +36,15 @@
    </p>
    <ul>
     <li>
-     List all file names (no extra info):
+     Long format list (permissions, ownership, size and modification date) of all files:
     </li>
    </ul>
    <p>
-    <pre><code>ls -A1</code></pre>
+    <pre><code>ls -la</code></pre>
    </p>
    <ul>
     <li>
-     List all files with their rights, groups, owner:
-    </li>
-   </ul>
-   <p>
-    <pre><code>ls -l</code></pre>
-   </p>
-   <ul>
-    <li>
-     List all files and display the file size in a human readable format:
+     Long format list with size displayed using human readable units (KB, MB, GB):
     </li>
    </ul>
    <p>
@@ -52,30 +52,19 @@
    </p>
    <ul>
     <li>
-     List all files with a prefix/suffix:
+     Long format list sorted by size (descending):
     </li>
    </ul>
    <p>
-    <pre><code>ls {{prefix}}*</code></pre>
-    <pre><code>ls *{{suffix}}</code></pre>
+    <pre><code>ls -lS</code></pre>
    </p>
    <ul>
     <li>
-     Sort the results by size, last modified date, or creation date:
+     Long format list of all files, sorted by modification date (oldest first):
     </li>
    </ul>
    <p>
-    <pre><code>ls -S</code></pre>
-    <pre><code>ls -t</code></pre>
-    <pre><code>ls -U</code></pre>
-   </p>
-   <ul>
-    <li>
-     Reverse the order of the results:
-    </li>
-   </ul>
-   <p>
-    <pre><code>ls -r</code></pre>
+    <pre><code>ls -ltr</code></pre>
    </p>
   </article>
  </body>

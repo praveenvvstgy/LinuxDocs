@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    apt-key
+   </h1>
+   <blockquote>
+    <p>
+     Key management utility for the APT Package Manager on Debian and Ubuntu.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     List trusted keys:
+    </li>
+   </ul>
+   <p>
+    <pre><code>apt-key list</code></pre>
+   </p>
+   <ul>
+    <li>
+     Add a key to the trusted keystore:
+    </li>
+   </ul>
+   <p>
+    <pre><code>apt-key add {{public_key_file.asc}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Delete a key from the trusted keystore:
+    </li>
+   </ul>
+   <p>
+    <pre><code>apt-key del {{key_id}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Add a remote key to the trusted keystore:
+    </li>
+   </ul>
+   <p>
+    <pre><code>wget -qO - {{https://host.tld/filename.key}} | apt-key add -</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

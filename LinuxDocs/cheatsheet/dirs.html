@@ -1,0 +1,60 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    dirs
+   </h1>
+   <blockquote>
+    <p>
+     Displays or manipulates the directory stack.
+  The directory stack is a list of recently visited directories that can be manipulated with the
+     <pre><code>pushd</code></pre>
+     and
+     <pre><code>popd</code></pre>
+     commands.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Display the directory stack with a space between each entry:
+    </li>
+   </ul>
+   <p>
+    <pre><code>dirs</code></pre>
+   </p>
+   <ul>
+    <li>
+     Display the directory stack with one entry per line:
+    </li>
+   </ul>
+   <p>
+    <pre><code>dirs -p</code></pre>
+   </p>
+   <ul>
+    <li>
+     Display only the nth entry in the directory stack, starting at 0:
+    </li>
+   </ul>
+   <p>
+    <pre><code>dirs +{{N}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Clear the directory stack:
+    </li>
+   </ul>
+   <p>
+    <pre><code>dirs -c</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

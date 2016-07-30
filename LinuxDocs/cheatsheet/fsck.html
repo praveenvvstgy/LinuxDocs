@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    fsck
+   </h1>
+   <blockquote>
+    <p>
+     Check the integrity of a filesystem or repair it. The filesystem should be unmounted at the time the command is run.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Check filesystem /dev/sda, reporting any damaged blocks:
+    </li>
+   </ul>
+   <p>
+    <pre><code>fsck {{/dev/sda}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Check filesystem /dev/sda, reporting any damaged blocks and interactively letting the user choose to repair each one:
+    </li>
+   </ul>
+   <p>
+    <pre><code>fsck -r {{/dev/sda}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Check filesystem /dev/sda, reporting any damaged blocks and automatically repairing them:
+    </li>
+   </ul>
+   <p>
+    <pre><code>fsck -a {{/dev/sda}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

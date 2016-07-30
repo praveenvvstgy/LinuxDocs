@@ -1,0 +1,72 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    autossh
+   </h1>
+   <blockquote>
+    <p>
+     Runs, monitors and restarts SSH connections.
+  Auto-reconnects to keep port forwarding tunnels up. Accepts all ssh flags.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Open an SSH session, restarting when a monitoring port fails return data:
+    </li>
+   </ul>
+   <p>
+    <pre><code>autossh -M {{monitor_port}} {{ssh_command}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Open an SSH session which forwards a local port to a remote one, restarting if necessary:
+    </li>
+   </ul>
+   <p>
+    <pre><code>autossh -M {{monitor_port}} -L {{local_port}}:localhost:{{remote_port}} {{user}}@{{host}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Fork before executing ssh (runs in the background) and don't open a remote shell:
+    </li>
+   </ul>
+   <p>
+    <pre><code>autossh -f -M {{monitor_port}} -N {{ssh_command}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Run autossh in the background, with no monitoring port, instead relying on SSH keep-alives every 10 seconds to detect failure:
+    </li>
+   </ul>
+   <p>
+    <pre><code>autossh -f -M 0 -N -o "ServerAliveInterval 10" -o "ServerAliveCountMax 3"  {{ssh_command}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Run autossh in the background, with no monitoring port, no remote shell, exiting if the port forward fails:
+    </li>
+   </ul>
+   <p>
+    <pre><code>autossh -f -M 0 -N -o "ServerAliveInterval 10" -o "ServerAliveCountMax 3" -o ExitOnForwardFailure=yes -L {{local_port}}:localhost:{{remote_port}} {{user}}@{{host}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Run autossh in the background with debug output logged to a file and ssh verbose output logged to a second file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>AUTOSSH_DEBUG=1 AUTOSSH_LOGFILE={{log_file}} autossh -f -M {{monitor_port}} -v -E {{ssh_log_file}} {{ssh_command}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

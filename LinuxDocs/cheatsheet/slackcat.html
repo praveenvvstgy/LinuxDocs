@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    slackcat
+   </h1>
+   <blockquote>
+    <p>
+     Utility for passing files and command output to Slack.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Post a file to Slack:
+    </li>
+   </ul>
+   <p>
+    <pre><code>slackcat --channel {{channel_name}} {{path/to/file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Post a file to Slack with a custom filename:
+    </li>
+   </ul>
+   <p>
+    <pre><code>slackcat --channel {{channel_name}} --filename={{filename}} {{path/to/file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Pipe command output to Slack as a text snippet:
+    </li>
+   </ul>
+   <p>
+    <pre><code>{{command}} | slackcat --channel {{channel_name}} --filename={{snippet_name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Stream command output to Slack continuously:
+    </li>
+   </ul>
+   <p>
+    <pre><code>{{command}} | slackcat --channel {{channel_name}} --stream</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

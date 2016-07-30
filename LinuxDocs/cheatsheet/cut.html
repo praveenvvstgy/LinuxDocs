@@ -44,7 +44,7 @@
    </p>
    <ul>
     <li>
-     Cut out the fifth field, split on the colon character of each line:
+     Cut out the fifth field of each line, using a colon as a field delimiter (default delimiter is tab):
     </li>
    </ul>
    <p>
@@ -52,19 +52,19 @@
    </p>
    <ul>
     <li>
-     Cut out the fields five and 10, split on the colon character of each line:
+     Cut out the 2nd and 10th fields of each line, using a semicolon as a delimiter:
     </li>
    </ul>
    <p>
-    <pre><code>cut -d'{{:}}' -f{{5,10}}</code></pre>
+    <pre><code>cut -d'{{;}}' -f{{2,10}}</code></pre>
    </p>
    <ul>
     <li>
-     Cut out the fields five through 10, split on the colon character of each line:
+     Cut out the fields 3 through 7 of each line, using a space as a delimiter:
     </li>
    </ul>
    <p>
-    <pre><code>cut -d'{{:}}' -f{{5-10}}</code></pre>
+    <pre><code>cut -d'{{ }}' -f{{3-7}}</code></pre>
    </p>
   </article>
  </body>

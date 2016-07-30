@@ -1,0 +1,66 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    Dokku
+   </h1>
+   <blockquote>
+    <p>
+     Docker powered mini-Heroku (PaaS).
+  Easily deploy multiple apps to your server in different languages using a single
+     <pre><code>git-push</code></pre>
+     command.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     List runinng apps:
+    </li>
+   </ul>
+   <p>
+    <pre><code>dokku apps</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create an app:
+    </li>
+   </ul>
+   <p>
+    <pre><code>dokku apps:create {{app_name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Remove an app:
+    </li>
+   </ul>
+   <p>
+    <pre><code>dokku apps:destroy {{app_name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Install plugin:
+    </li>
+   </ul>
+   <p>
+    <pre><code>dokku plugin:install {{full_repo_url}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Link database to an app:
+    </li>
+   </ul>
+   <p>
+    <pre><code>dokku {{db}}:link {{db_name}} {{app_name}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

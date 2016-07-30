@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    pngcrush
+   </h1>
+   <blockquote>
+    <p>
+     PNG image compression utility.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Compress a PNG file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pngcrush {{in.png}} {{out.png}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compress all PNGs and output to directory:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pngcrush -d {{path/to/output}} *.png</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compress PNG file with all 114 available algorithms and pick the best result:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pngcrush -rem allb -brute -reduce {{in.png}} {{out.png}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

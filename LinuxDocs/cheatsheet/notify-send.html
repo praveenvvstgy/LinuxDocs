@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    notify-send
+   </h1>
+   <blockquote>
+    <p>
+     Uses the current desktop environment's notification system to create a notification.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Show a notification with the title "Test" and the content "This is a test":
+    </li>
+   </ul>
+   <p>
+    <pre><code>notify-send {{"Test"}} {{"This is a test"}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Show a notification with a custom icon:
+    </li>
+   </ul>
+   <p>
+    <pre><code>notify-send -i {{icon.png}} {{"Test"}} {{"This is a test"}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Show a notification for 5 seconds:
+    </li>
+   </ul>
+   <p>
+    <pre><code>notify-send -t 5000 {{"Test"}} {{"This is a test"}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

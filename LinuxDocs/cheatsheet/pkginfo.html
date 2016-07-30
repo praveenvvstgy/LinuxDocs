@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    pkginfo
+   </h1>
+   <blockquote>
+    <p>
+     Query the package database on a CRUX system.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     List installed packages and their versions:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pkginfo -i</code></pre>
+   </p>
+   <ul>
+    <li>
+     List files owned by a package:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pkginfo -l {{package_name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     List the owner(s) of files matching a pattern:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pkginfo -o {{pattern}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print the footprint of a file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pkginfo -f {{file}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

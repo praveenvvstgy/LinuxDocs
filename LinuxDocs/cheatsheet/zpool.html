@@ -24,7 +24,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>zpool status [{{poolname}}]</code></pre>
+    <pre><code>zpool status</code></pre>
    </p>
    <ul>
     <li>
@@ -32,7 +32,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>zpool scrub {{poolname}}</code></pre>
+    <pre><code>zpool scrub {{pool_name}}</code></pre>
    </p>
    <ul>
     <li>
@@ -44,12 +44,11 @@
    </p>
    <ul>
     <li>
-     Import a zpool, optionally specifying a new name:
+     Import a zpool:
     </li>
    </ul>
    <p>
-    <pre><code>zpool import {{poolname}}</code></pre>
-    <pre><code>zpool import {{poolname}} {{newpoolname}}</code></pre>
+    <pre><code>zpool import {{pool_name}}</code></pre>
    </p>
    <ul>
     <li>
@@ -57,7 +56,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>zpool export {{poolname}}</code></pre>
+    <pre><code>zpool export {{pool_name}}</code></pre>
    </p>
    <ul>
     <li>
@@ -65,7 +64,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>zpool histrory {{poolname}}</code></pre>
+    <pre><code>zpool histrory {{pool_name}}</code></pre>
    </p>
    <ul>
     <li>
@@ -73,8 +72,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>zpool create {{poolname}} mirror {{disk1}} {{disk2}}</code></pre>
-    <pre><code>zpool create {{poolname}} mirror {{disk1}} {{disk2}} mirror {{disk3}} {{disk4}}</code></pre>
+    <pre><code>zpool create {{pool_name}} mirror {{disk1}} {{disk2}} mirror {{disk3}} {{disk4}}</code></pre>
    </p>
   </article>
  </body>

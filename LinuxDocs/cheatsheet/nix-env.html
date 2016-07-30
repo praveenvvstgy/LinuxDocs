@@ -1,0 +1,71 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    nix-env
+   </h1>
+   <blockquote>
+    <p>
+     Manipulate or query Nix user environments.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Show available package with name or without name:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nix-env -qa {{pkg_name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Show the status of available packages:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nix-env -qas</code></pre>
+   </p>
+   <ul>
+    <li>
+     Install package:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nix-env -i {{pkg_name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Uninstall package:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nix-env -e {{pkg_name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Upgrade one package:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nix-env -u {{pkg_name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Upgrade all packages:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nix-env -u</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

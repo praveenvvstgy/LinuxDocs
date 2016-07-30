@@ -26,7 +26,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>rsync {{path_to_file}} {{remote_host_name}}:{{remote_host_location}}</code></pre>
+    <pre><code>rsync {{path/to/file}} {{remote_host_name}}:{{remote_host_location}}</code></pre>
    </p>
    <ul>
     <li>
@@ -38,11 +38,11 @@
    </p>
    <ul>
     <li>
-     Transfer all *.js files in current directory to host 'devbox' as user 'mike':
+     Transfer file in archive (to preserve attributes) and compressed (zipped) mode:
     </li>
    </ul>
    <p>
-    <pre><code>rsync *.js mike@devbox:~/projects/cakeStore/styles/</code></pre>
+    <pre><code>rsync -az {{path/to/file}} {{remote_host_name}}:{{remote_host_location}}</code></pre>
    </p>
    <ul>
     <li>
@@ -50,7 +50,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>rsync -r mike@devbox:~/projects/cakeStore /Users/mike/devProjects/</code></pre>
+    <pre><code>rsync -r {{remote_host_name}}:{{remote_folder_location}} {{local_folder_location}}</code></pre>
    </p>
    <ul>
     <li>
@@ -58,7 +58,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>rsync -ru mike@devbox:~/projects/ ./projects/</code></pre>
+    <pre><code>rsync -ru {{remote_host_name}}:{{remote_folder_location}} {{local_folder_location}}</code></pre>
    </p>
    <ul>
     <li>

@@ -1,0 +1,66 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    git-imerge
+   </h1>
+   <blockquote>
+    <p>
+     Perform a merge or rebase between two git branches incrementally.
+  Conflicts between branches are tracked down to pairs of individual commits, to simplify conflict resolution.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Start imerge-based rebase (checkout the branch to be rebased, first):
+    </li>
+   </ul>
+   <p>
+    <pre><code>git imerge rebase {{branch_to_rebase_onto}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start imerge-based merge (checkout the branch to merge into, first):
+    </li>
+   </ul>
+   <p>
+    <pre><code>git imerge merge {{branch_to_be_merged}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Show ASCII diagram of in-progress merge or rebase:
+    </li>
+   </ul>
+   <p>
+    <pre><code>git imerge diagram</code></pre>
+   </p>
+   <ul>
+    <li>
+     Continue imerge operation after resolving conflicts (
+     <pre><code>git add</code></pre>
+     the conflicted files, first):
+    </li>
+   </ul>
+   <p>
+    <pre><code>git imerge continue --no-edit</code></pre>
+   </p>
+   <ul>
+    <li>
+     Wrap up the imerge operation, after all conflicts are resolved:
+    </li>
+   </ul>
+   <p>
+    <pre><code>git imerge finish</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

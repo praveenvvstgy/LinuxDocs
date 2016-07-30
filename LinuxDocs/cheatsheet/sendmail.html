@@ -1,0 +1,53 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    sendmail
+   </h1>
+   <blockquote>
+    <p>
+     Send email from the command line.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Send a message with the content of message.txt to the mail folder of local user
+     <pre><code>user_name</code></pre>
+     :
+    </li>
+   </ul>
+   <p>
+    <pre><code>sendmail user_name &lt; message.txt</code></pre>
+   </p>
+   <ul>
+    <li>
+     Send an email from you@yourdomain.com (assuming your local mail server is configured for this) to test@gmail.com containing the message in
+     <pre><code>message.txt</code></pre>
+     :
+    </li>
+   </ul>
+   <p>
+    <pre><code>sendmail -f test@gmail.com you@yourdomain.com &lt; message.txt</code></pre>
+   </p>
+   <ul>
+    <li>
+     Send an email from you@yourdomain.com (assuming your local mail server is configured for this) to test@gmail.com containing the file
+     <pre><code>file.zip</code></pre>
+     :
+    </li>
+   </ul>
+   <p>
+    <pre><code>sendmail -f test@gmail.com you@yourdomain.com &lt; file.zip</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

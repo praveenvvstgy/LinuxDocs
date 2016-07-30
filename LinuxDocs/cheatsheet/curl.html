@@ -61,11 +61,27 @@
    </p>
    <ul>
     <li>
+     Include an extra header:
+    </li>
+   </ul>
+   <p>
+    <pre><code>curl -H "{{X-MyHeader: 123}}" {{http://localhost}}</code></pre>
+   </p>
+   <ul>
+    <li>
      Pass a user name and password for server authentication:
     </li>
    </ul>
    <p>
     <pre><code>curl -u myusername:mypassword {{http://localhost}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Pass client certificate and key for a secure resource:
+    </li>
+   </ul>
+   <p>
+    <pre><code>curl -v -key {{key.pem}} -cacert {{ca.pem}} -cert {{client.pem}} -k {{https://localhost}}</code></pre>
    </p>
   </article>
  </body>

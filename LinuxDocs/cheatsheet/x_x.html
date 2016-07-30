@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    x_x
+   </h1>
+   <blockquote>
+    <p>
+     View Excel and CSV files from the command-line.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     View an XLSX or CSV file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>x_x {{file.xlsx|file.csv}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     View an XLSX or CSV file, using the first row as table headers:
+    </li>
+   </ul>
+   <p>
+    <pre><code>x_x -h {{0}} {{file.xlsx|file.csv}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     View a CSV file with unconventional delimiters:
+    </li>
+   </ul>
+   <p>
+    <pre><code>x_x --delimiter={{';'}} --quotechar={{'|'}} {{file.csv}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

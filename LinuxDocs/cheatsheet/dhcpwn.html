@@ -1,0 +1,39 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    dhcpwn
+   </h1>
+   <blockquote>
+    <p>
+     Test DHCP IP exhaustion attacks and sniff local DHCP traffic.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Flood the network with IP requests:
+    </li>
+   </ul>
+   <p>
+    <pre><code>dhcpwn --interface {{network_interface}} flood --count {{number_of_requests}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Sniff local DHCP traffic:
+    </li>
+   </ul>
+   <p>
+    <pre><code>dhcpwn --interface {{network_interface}} sniff</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

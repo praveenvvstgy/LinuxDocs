@@ -42,6 +42,14 @@
    <p>
     <pre><code>zip -d {{compressed.zip}} "{{foo/*.tmp}}"</code></pre>
    </p>
+   <ul>
+    <li>
+     Exclude unwanted files from being added to the compressed archive:
+    </li>
+   </ul>
+   <p>
+    <pre><code>zip -r {{compressed.zip}} {{path/to/dir}} -x \*.git\* \*node_modules\* ...</code></pre>
+   </p>
   </article>
  </body>
 </html>

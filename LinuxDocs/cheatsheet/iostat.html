@@ -15,24 +15,24 @@
    </h1>
    <blockquote>
     <p>
-     Report stats for devices and partitions.
+     Report statistics for devices and partitions.
     </p>
    </blockquote>
    <ul>
     <li>
-     Display disk statistics with disk IDs in human readable format:
+     Display a report of CPU and disk statistics since system startup:
     </li>
    </ul>
    <p>
-    <pre><code>iostat -h</code></pre>
+    <pre><code>iostat</code></pre>
    </p>
    <ul>
     <li>
-     Display disk statistics with disk names (including LVM) in human readable format:
+     Display a report of CPU and disk statistics with units converted to megabytes:
     </li>
    </ul>
    <p>
-    <pre><code>iostat -Nh</code></pre>
+    <pre><code>iostat -m</code></pre>
    </p>
    <ul>
     <li>
@@ -44,11 +44,27 @@
    </p>
    <ul>
     <li>
-     Display extended disk statistics with disk names:
+     Display disk statistics with disk names (including LVM):
     </li>
    </ul>
    <p>
-    <pre><code>iostat -xN</code></pre>
+    <pre><code>iostat -N</code></pre>
+   </p>
+   <ul>
+    <li>
+     Display extended disk statistics with disk names for device "sda":
+    </li>
+   </ul>
+   <p>
+    <pre><code>iostat -xN {{sda}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Display incremental reports of CPU and disk statistics every 2 seconds:
+    </li>
+   </ul>
+   <p>
+    <pre><code>iostat {{2}}</code></pre>
    </p>
   </article>
  </body>

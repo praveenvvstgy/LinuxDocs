@@ -15,32 +15,32 @@
    </h1>
    <blockquote>
     <p>
-     Uses text to speech to speak through the default sound device.
+     Converts text to speech.
     </p>
    </blockquote>
    <ul>
     <li>
-     Speak a phrase aloud:
+     Say a phrase aloud:
     </li>
    </ul>
    <p>
-    <pre><code>say "I like to ride my bike."</code></pre>
+    <pre><code>say {{"I like to ride my bike."}}</code></pre>
    </p>
    <ul>
     <li>
-     Speak a file aloud:
+     Read a file aloud:
     </li>
    </ul>
    <p>
-    <pre><code>say -f {{filename}}</code></pre>
+    <pre><code>say -f {{filename.txt}}</code></pre>
    </p>
    <ul>
     <li>
-     Create an AAC compressed audio file with the spoken text:
+     Say a phrase with a custom voice and speech rate:
     </li>
    </ul>
    <p>
-    <pre><code>say -o {{filename.m4a}} "Everyone loves iTunes"</code></pre>
+    <pre><code>say -v {{voice}} -r {{words_per_minute}} {{"I'm sorry Dave, I can't let you do that."}}</code></pre>
    </p>
    <ul>
     <li>
@@ -48,7 +48,15 @@
     </li>
    </ul>
    <p>
-    <pre><code>say -v '?'</code></pre>
+    <pre><code>say -v ?</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create an audio file of the spoken text:
+    </li>
+   </ul>
+   <p>
+    <pre><code>say -o {{filename.aiff}} {{"Here's to the Crazy Ones."}}</code></pre>
    </p>
   </article>
  </body>

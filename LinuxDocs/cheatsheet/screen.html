@@ -32,7 +32,15 @@
     </li>
    </ul>
    <p>
-    <pre><code>screen -S {{name}}</code></pre>
+    <pre><code>screen -S {{session_name}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start a new deamon and log the output to screenlog.x:
+    </li>
+   </ul>
+   <p>
+    <pre><code>screen -dmLS {{session_name}} {{command}}</code></pre>
    </p>
    <ul>
     <li>
@@ -48,7 +56,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>screen -r {{screen id}}</code></pre>
+    <pre><code>screen -r {{session_name}}</code></pre>
    </p>
    <ul>
     <li>
@@ -64,7 +72,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>screen -X -S {{screen id}} quit</code></pre>
+    <pre><code>screen -X -S {{session_name}} quit</code></pre>
    </p>
   </article>
  </body>

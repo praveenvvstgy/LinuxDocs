@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    xclip
+   </h1>
+   <blockquote>
+    <p>
+     Copy STDIN to clipboard or print clipboard to STDOUT.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Copy output to clipboard:
+    </li>
+   </ul>
+   <p>
+    <pre><code>echo 123 | xclip -i</code></pre>
+   </p>
+   <ul>
+    <li>
+     Copy output to system clipboard:
+    </li>
+   </ul>
+   <p>
+    <pre><code>echo 123 | xclip -sel clip</code></pre>
+   </p>
+   <ul>
+    <li>
+     Paste clipboard:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xclip -o &gt; file.txt</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

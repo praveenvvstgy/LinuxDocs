@@ -20,19 +20,19 @@
    </blockquote>
    <ul>
     <li>
-     Create a symbolic link to a file or folder:
+     Create a symbolic link to a file (or folder):
     </li>
    </ul>
    <p>
-    <pre><code>ln -s {{path/to/original/file}} {{path/to/link}}</code></pre>
+    <pre><code>ln -s {{path/to/file}} {{path/to/symlink}}</code></pre>
    </p>
    <ul>
     <li>
-     Overwrite a symbolic link to a file:
+     Overwrite an existing symbolic to point to a different file:
     </li>
    </ul>
    <p>
-    <pre><code>ln -sf {{path/to/new/original/file}} {{path/to/file/link}}</code></pre>
+    <pre><code>ln -sf {{path/to/new_file}} {{path/to/symlink}}</code></pre>
    </p>
    <ul>
     <li>
@@ -40,7 +40,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>ln {{path/to/original/file}} {{path/to/link}}</code></pre>
+    <pre><code>ln {{path/to/file}} {{path/to/hardlink}}</code></pre>
    </p>
   </article>
  </body>

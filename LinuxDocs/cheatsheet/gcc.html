@@ -42,6 +42,22 @@
    <p>
     <pre><code>gcc {{source.c}} -o {{executable}} -I{{header_path}} -L{{library_path}} -l{{library_name}}</code></pre>
    </p>
+   <ul>
+    <li>
+     Compile source code into Assembler instructions:
+    </li>
+   </ul>
+   <p>
+    <pre><code>gcc -S {{source.c}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compile source code without linking:
+    </li>
+   </ul>
+   <p>
+    <pre><code>gcc -c {{source.c}}</code></pre>
+   </p>
   </article>
  </body>
 </html>

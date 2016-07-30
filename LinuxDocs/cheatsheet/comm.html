@@ -36,7 +36,7 @@
    </p>
    <ul>
     <li>
-     Print only lines common to both files, read one file from stdin:
+     Print only lines common to both files, reading one file from stdin:
     </li>
    </ul>
    <p>
@@ -44,19 +44,19 @@
    </p>
    <ul>
     <li>
-     Print lines only found in first file:
+     Get lines only found in first file, saving the result to a third file:
     </li>
    </ul>
    <p>
-    <pre><code>comm -23 {{file1}} {{file2}}</code></pre>
+    <pre><code>comm -23 {{file1}} {{file2}} &gt; {{file1_only}}</code></pre>
    </p>
    <ul>
     <li>
-     Print lines only found in second file:
+     Print lines only found in second file, when the files aren't sorted:
     </li>
    </ul>
    <p>
-    <pre><code>comm -13 {{file1}} {{file2}}</code></pre>
+    <pre><code>comm -13 &lt;(sort {{file1}}) &lt;(sort {{file2}})</code></pre>
    </p>
   </article>
  </body>

@@ -20,19 +20,11 @@
    </blockquote>
    <ul>
     <li>
-     Replace all occurrences of a string in a file, and print the result:
+     Replace the first occurrence of a string in a file, and print the result:
     </li>
    </ul>
    <p>
-    <pre><code>sed 's/{{find}}/{{replace}}/g' {{filename}}</code></pre>
-   </p>
-   <ul>
-    <li>
-     Replace all occurrences of a string in a file, and overwrite the file contents:
-    </li>
-   </ul>
-   <p>
-    <pre><code>sed -i 's/{{find}}/{{replace}}/g' {{filename}}</code></pre>
+    <pre><code>sed 's/{{find}}/{{replace}}/' {{filename}}</code></pre>
    </p>
    <ul>
     <li>
@@ -44,11 +36,35 @@
    </p>
    <ul>
     <li>
-     Replace all occurrences of multiple strings in a file:
+     Replace all occurrences of a string in a file, overwriting the file (i.e. in-place):
     </li>
    </ul>
    <p>
-    <pre><code>sed -e 's/{{find}}/{{replace}}/g' -e 's/{{find}}/{{replace}}/g' {{filename}}</code></pre>
+    <pre><code>sed -i '' 's/{{find}}/{{replace}}/g' {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Replace only on lines matching the line pattern:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sed '/{{line_pattern}}/s/{{find}}/{{replace}}/'</code></pre>
+   </p>
+   <ul>
+    <li>
+     Apply multiple find-replace expressions to a file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sed -e 's/{{find}}/{{replace}}/' -e 's/{{find}}/{{replace}}/' {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Replace separator / by any other character not used in the find or replace patterns, e.g., #:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sed 's#{{find}}#{{replace}}#' {{filename}}</code></pre>
    </p>
   </article>
  </body>

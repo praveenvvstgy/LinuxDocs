@@ -1,0 +1,63 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    optipng
+   </h1>
+   <blockquote>
+    <p>
+     PNG image file optimization utility.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Compress a PNG with default settings:
+    </li>
+   </ul>
+   <p>
+    <pre><code>optipng {{file.png}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compress a PNG with best compression:
+    </li>
+   </ul>
+   <p>
+    <pre><code>optipng -o{{7}} {{file.png}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compress a PNG with fastest compression:
+    </li>
+   </ul>
+   <p>
+    <pre><code>optipng -o{{0}} {{file.png}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compress a PNG and add interlacing:
+    </li>
+   </ul>
+   <p>
+    <pre><code>optipng -i {{1}} {{file.png}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compress a PNG and remove all metadata:
+    </li>
+   </ul>
+   <p>
+    <pre><code>optipng -strip all {{file.png}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

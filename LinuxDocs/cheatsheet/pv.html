@@ -1,0 +1,75 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    pv
+   </h1>
+   <blockquote>
+    <p>
+     Monitor the progress of data through a pipe.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Print the contents of the file and display a progress bar:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pv {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Measure the speed and amount of data flow between pipes (
+     <pre><code>-s</code></pre>
+     is optional):
+    </li>
+   </ul>
+   <p>
+    <pre><code>command1 | pv -s {{expected_amount_of_data_for_eta}} | command2</code></pre>
+   </p>
+   <ul>
+    <li>
+     Filter a file, see both progress and amount of output data:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pv -cN in {{big_text_file}} | grep {{pattern}} | pv -cN out &gt; {{filtered_file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Attach to an already running process and see its file reading progress:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pv -d {{PID}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Read an erroneous file, skip errors as
+     <pre><code>dd conv=sync,noerror</code></pre>
+     would:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pv -EE {{path/to/faulty_media}} &gt; image.img</code></pre>
+   </p>
+   <ul>
+    <li>
+     Stop reading after reading specified amount of data, rate limit to 1K/s:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pv -L 1K -S {{maximum_file_size_to_be_read}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

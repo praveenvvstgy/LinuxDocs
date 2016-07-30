@@ -1,0 +1,72 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    qemu
+   </h1>
+   <blockquote>
+    <p>
+     Generic machine emulator and virtualizer.
+  Supports a large variety of CPU architectures.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Create disk image with a specific size (in gigabytes):
+    </li>
+   </ul>
+   <p>
+    <pre><code>qemu-img create {{image_name.img}} {{gigabites}}G</code></pre>
+   </p>
+   <ul>
+    <li>
+     Boot from image emulating i386 architecture:
+    </li>
+   </ul>
+   <p>
+    <pre><code>qemu-system-i386 -hda {{image_name.img}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Boot from image emulating x64 architecture:
+    </li>
+   </ul>
+   <p>
+    <pre><code>qemu-system-x86_64 -hda {{image_name.img}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Boot QEMU instance with a live ISO image:
+    </li>
+   </ul>
+   <p>
+    <pre><code>qemu-system-i386 -hda {{image_name.img}} -cdrom {{os-image.iso}} -boot d</code></pre>
+   </p>
+   <ul>
+    <li>
+     Specify amount of RAM for instance:
+    </li>
+   </ul>
+   <p>
+    <pre><code>qemu-system-i386 -m 256 -hda image_name.img -cdrom os-image.iso -boot d</code></pre>
+   </p>
+   <ul>
+    <li>
+     Boot from physical device (e.g. from USB to test bootable medium):
+    </li>
+   </ul>
+   <p>
+    <pre><code>qemu-system-i386 -hda /dev/{{storage_device}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

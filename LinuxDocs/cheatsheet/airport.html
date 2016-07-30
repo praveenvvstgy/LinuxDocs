@@ -11,20 +11,28 @@
  <body>
   <article class="markdown-body">
    <h1>
-    Airport
+    airport
    </h1>
    <blockquote>
     <p>
-     Airport utility.
+     Wireless network configuration utility.
     </p>
    </blockquote>
    <ul>
     <li>
-     Create a symlink so you can easily run 'airport' without specifying a path:
+     Show current wireless status information:
     </li>
    </ul>
    <p>
-    <pre><code>sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/sbin/airport</code></pre>
+    <pre><code>airport -I</code></pre>
+   </p>
+   <ul>
+    <li>
+     Sniff wireless traffic on channel 1:
+    </li>
+   </ul>
+   <p>
+    <pre><code>airport sniff {{1}}</code></pre>
    </p>
    <ul>
     <li>

@@ -1,0 +1,63 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    defaults
+   </h1>
+   <blockquote>
+    <p>
+     Read and write OS X user configuration for applications.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Read system defaults for an application option:
+    </li>
+   </ul>
+   <p>
+    <pre><code>defaults read {{application}} {{option}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Read default values for an application option:
+    </li>
+   </ul>
+   <p>
+    <pre><code>defaults read -app {{application}} {{option}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Write the default value of an application option:
+    </li>
+   </ul>
+   <p>
+    <pre><code>defaults write {{application}} {{option}} {{-type}} {{value}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Speed up Mission Control animations:
+    </li>
+   </ul>
+   <p>
+    <pre><code>defaults write com.apple.Dock expose-animation-duration -float 0.1</code></pre>
+   </p>
+   <ul>
+    <li>
+     Delete all defaults of an application:
+    </li>
+   </ul>
+   <p>
+    <pre><code>defaults delete {{application}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

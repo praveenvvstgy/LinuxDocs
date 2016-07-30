@@ -1,0 +1,63 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    read
+   </h1>
+   <blockquote>
+    <p>
+     BASH builtin for retrieving data from standard input.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Store data that you type from the keyboard:
+    </li>
+   </ul>
+   <p>
+    <pre><code>read {{variable}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Store each of the next lines you enter as values of an array:
+    </li>
+   </ul>
+   <p>
+    <pre><code>read -a {{array}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Enable backspace and GNU readline hotkeys when entering input with read:
+    </li>
+   </ul>
+   <p>
+    <pre><code>read -e {{variable}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Specify the number of maximum characters to be read:
+    </li>
+   </ul>
+   <p>
+    <pre><code>read -n {{character_count}} {{variable}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Use a specific character as a delimiter instead of a new line:
+    </li>
+   </ul>
+   <p>
+    <pre><code>read -d {{new_delimiter}} {{variable}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

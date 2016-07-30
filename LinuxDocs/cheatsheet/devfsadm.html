@@ -1,0 +1,51 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    devfsadm
+   </h1>
+   <blockquote>
+    <p>
+     Administration command for
+     <pre><code>/dev</code></pre>
+     . Maintains the
+     <pre><code>/dev</code></pre>
+     namespace.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Scan for new disks:
+    </li>
+   </ul>
+   <p>
+    <pre><code>devfsadm -c disk</code></pre>
+   </p>
+   <ul>
+    <li>
+     Cleanup any dangling /dev links and scan for new device:
+    </li>
+   </ul>
+   <p>
+    <pre><code>devfsadm -C -v</code></pre>
+   </p>
+   <ul>
+    <li>
+     Dry-run - output what would be changed but make no modifications:
+    </li>
+   </ul>
+   <p>
+    <pre><code>devfsadm -C -v -n</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

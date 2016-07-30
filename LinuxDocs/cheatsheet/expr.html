@@ -1,0 +1,63 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    expr
+   </h1>
+   <blockquote>
+    <p>
+     Evaluate expressions and manipulate strings.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Get string length:
+    </li>
+   </ul>
+   <p>
+    <pre><code>expr length {{string}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Evaluate logical or math expression with an operator ('+', '-', '*', '&amp;', '|', etc.). Special symbols should be escaped:
+    </li>
+   </ul>
+   <p>
+    <pre><code>expr {{first_argument}} {{operator}} {{second_argument}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Get position of the first character in 'string' that matches 'substring':
+    </li>
+   </ul>
+   <p>
+    <pre><code>echo $(expr index {{string}} {{substring}})</code></pre>
+   </p>
+   <ul>
+    <li>
+     Extract part of the string:
+    </li>
+   </ul>
+   <p>
+    <pre><code>echo $(expr substr {{string}} {{position_to_start}} {{number_of_characters}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Extract part of the string which matches a regular expression:
+    </li>
+   </ul>
+   <p>
+    <pre><code>echo $(expr {{string}} : '\({{regular_expression}}\)')</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

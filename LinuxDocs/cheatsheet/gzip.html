@@ -32,7 +32,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>gzip -d {{file.ext.gz}}</code></pre>
+    <pre><code>gzip -d {{file.ext}}.gz</code></pre>
    </p>
    <ul>
     <li>
@@ -40,7 +40,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>gzip -c {{file.ext}} &gt; compressed-file.ext.gz</code></pre>
+    <pre><code>gzip -c {{file.ext}} &gt; {{compressed_file.ext}}.gz</code></pre>
    </p>
    <ul>
     <li>
@@ -48,7 +48,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>gzip -c -d {{file.ext.gz}} &gt; uncompressed-file.ext</code></pre>
+    <pre><code>gzip -c -d {{file.ext}}.gz &gt; {{uncompressed_file.ext}}</code></pre>
    </p>
    <ul>
     <li>
@@ -56,7 +56,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>gzip -9 -c {{file.ext}} &gt; compressed-file.ext.gz</code></pre>
+    <pre><code>gzip -9 -c {{file.ext}} &gt; {{compressed_file.ext}}.gz</code></pre>
    </p>
   </article>
  </body>

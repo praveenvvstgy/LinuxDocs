@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    nm
+   </h1>
+   <blockquote>
+    <p>
+     List symbol names in object files (see c++filt).
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     List global (extern) functions in a file (prefixed with T):
+    </li>
+   </ul>
+   <p>
+    <pre><code>nm -g {{file.o}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     List only undefined symbols in a file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nm -u {{file.o}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     List all symbols, even debugging symbols:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nm -a {{file.o}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

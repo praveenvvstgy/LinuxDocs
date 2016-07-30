@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    cryptsetup
+   </h1>
+   <blockquote>
+    <p>
+     Manage plain dm-crypt and LUKS (Linux Unified Key Setup) encrypted volumes.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Initialize a LUKS volume (overwrites all data on the partition):
+    </li>
+   </ul>
+   <p>
+    <pre><code>cryptsetup luksFormat {{/dev/sda1}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Open a LUKS volume and create a decrypted mapping at /dev/mapper/{{target}}:
+    </li>
+   </ul>
+   <p>
+    <pre><code>cryptsetup luksOpen {{/dev/sda1}} {{target}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Remove an existing mapping:
+    </li>
+   </ul>
+   <p>
+    <pre><code>cryptsetup luksClose {{target}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

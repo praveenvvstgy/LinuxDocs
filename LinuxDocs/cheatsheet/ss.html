@@ -20,19 +20,11 @@
    </blockquote>
    <ul>
     <li>
-     Dump all TCP/UDP/RAW/UNIX sockets:
+     Show all TCP/UDP/RAW/UNIX sockets:
     </li>
    </ul>
    <p>
-    <pre><code>ss -a {{-t/-u/-w/-x}}</code></pre>
-   </p>
-   <ul>
-    <li>
-     Show process(es) that using socket:
-    </li>
-   </ul>
-   <p>
-    <pre><code>ss -p</code></pre>
+    <pre><code>ss -a {{-t|-u|-w|-x}}</code></pre>
    </p>
    <ul>
     <li>
@@ -44,23 +36,35 @@
    </p>
    <ul>
     <li>
-     Filter sockets by address and/or port:
+     Show all TCP sockets connected to the local HTTPS port (443):
     </li>
    </ul>
    <p>
-    <pre><code>ss -t dst 1.2.3.4:80</code></pre>
-    <pre><code>ss -u src 127/8</code></pre>
-    <pre><code>ss -t 'dport &gt;= :1024'</code></pre>
-    <pre><code>ss -x "src /tmp/.X11-unix/*"</code></pre>
-    <pre><code>ss -t state established '( dport = :ssh or sport = :ssh )'</code></pre>
+    <pre><code>ss -t src :{{443}}</code></pre>
    </p>
    <ul>
     <li>
-     Only list IPv4 or IPv6 sockets:
+     Show all TCP sockets along with processes connected to a remote ssh port:
     </li>
    </ul>
    <p>
-    <pre><code>ss {{-4/-6}}</code></pre>
+    <pre><code>ss -pt dst :{{ssh}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Show all UDP sockets connected on specific source and destination ports:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ss -u 'sport == :{{source_port}} and dport == :{{destination_port}}'</code></pre>
+   </p>
+   <ul>
+    <li>
+     Show all TCP IPv4 sockets locally connected on the subnet 192.168.0.0/16:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ss -4t src {{192.168/16}}</code></pre>
    </p>
   </article>
  </body>

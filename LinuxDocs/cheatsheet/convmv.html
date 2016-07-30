@@ -1,0 +1,39 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    convmv
+   </h1>
+   <blockquote>
+    <p>
+     Convert filenames (NOT file content) from one encoding to another.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Test filename encoding conversion (don't actually change the filename):
+    </li>
+   </ul>
+   <p>
+    <pre><code>convmv -f {{from_encoding}} -t {{to_encoding}} {{input_file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Convert filename encoding and rename the file to the new enconding:
+    </li>
+   </ul>
+   <p>
+    <pre><code>convmv -f {{from_encoding}} -t {{to_encoding}} --notest {{input_file}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

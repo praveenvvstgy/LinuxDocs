@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    base32
+   </h1>
+   <blockquote>
+    <p>
+     Encode or decode file or standard input, to standard output.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Encode a file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>base32 {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Decode a file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>base32 -d {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Encode from stdin:
+    </li>
+   </ul>
+   <p>
+    <pre><code>{{somecommand}} | base32</code></pre>
+   </p>
+   <ul>
+    <li>
+     Decode from stdin:
+    </li>
+   </ul>
+   <p>
+    <pre><code>{{somecommand}} | base32 -d</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

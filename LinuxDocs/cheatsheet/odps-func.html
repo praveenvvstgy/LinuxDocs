@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    odps func
+   </h1>
+   <blockquote>
+    <p>
+     Manage functions in ODPS (Open Data Processing Service).
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Show functions in the current project:
+    </li>
+   </ul>
+   <p>
+    <pre><code>list functions;</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create a Java function using a .jar resource:
+    </li>
+   </ul>
+   <p>
+    <pre><code>create function {{func_name}} as {{path.to.package.Func}} using '{{package.jar}}';</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create a Python function using a .py resource:
+    </li>
+   </ul>
+   <p>
+    <pre><code>create function {{func_name}} as {{script.Func}} using '{{script.py}}';</code></pre>
+   </p>
+   <ul>
+    <li>
+     Delete a function:
+    </li>
+   </ul>
+   <p>
+    <pre><code>drop function {{func_name}};</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

@@ -32,15 +32,23 @@
     </li>
    </ul>
    <p>
-    <pre><code>cat {{file1}} {{file2}} &gt; {{target-file}}</code></pre>
+    <pre><code>cat {{file1}} {{file2}} &gt; {{target_file}}</code></pre>
    </p>
    <ul>
     <li>
-     Append serveral files into the target file:
+     Append several files into the target file:
     </li>
    </ul>
    <p>
-    <pre><code>cat {{file1}} {{file2}} &gt;&gt; {{target-file}}</code></pre>
+    <pre><code>cat {{file1}} {{file2}} &gt;&gt; {{target_file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Number all output lines:
+    </li>
+   </ul>
+   <p>
+    <pre><code>cat -n {{file}}</code></pre>
    </p>
   </article>
  </body>

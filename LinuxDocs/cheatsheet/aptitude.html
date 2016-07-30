@@ -28,7 +28,7 @@
    </p>
    <ul>
     <li>
-     Install a new package:
+     Install a new package and its dependencies:
     </li>
    </ul>
    <p>
@@ -44,11 +44,21 @@
    </p>
    <ul>
     <li>
-     Remove a package:
+     Remove a package and all packages depending on it:
     </li>
    </ul>
    <p>
     <pre><code>aptitude remove {{package}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Do an
+     <pre><code>aptitude remove {{package}}</code></pre>
+     and remove all config files:
+    </li>
+   </ul>
+   <p>
+    <pre><code>aptitude purge {{package}}</code></pre>
    </p>
    <ul>
     <li>

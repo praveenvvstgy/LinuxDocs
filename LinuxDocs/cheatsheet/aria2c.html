@@ -1,0 +1,64 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    aria2c
+   </h1>
+   <blockquote>
+    <p>
+     Fast download utility.
+  Supports HTTP(S), FTP, SFTP, BitTorrent, and Metalink.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Download a URI to a file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>aria2c {{url}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Download from multiple sources:
+    </li>
+   </ul>
+   <p>
+    <pre><code>aria2c {{url_1}} {{url_2}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Download the URIs listed in a file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>aria2c -i {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Download with multiple connections:
+    </li>
+   </ul>
+   <p>
+    <pre><code>aria2c -s {{connections_num}} {{url}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     FTP download with username and password:
+    </li>
+   </ul>
+   <p>
+    <pre><code>aria2c --ftp-user={{username}} --ftp-passwd={{password}} {{url}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

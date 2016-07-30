@@ -20,11 +20,27 @@
    </blockquote>
    <ul>
     <li>
-     Find files containing "foo":
+     Find files containing "foo", and print the line matches in context:
     </li>
    </ul>
    <p>
     <pre><code>ag foo</code></pre>
+   </p>
+   <ul>
+    <li>
+     Find files containing "foo", but only list the filenames:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ag -l foo</code></pre>
+   </p>
+   <ul>
+    <li>
+     Find files containing "FOO" case-insensitively, and print only the match, rather than the whole line:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ag -i -o FOO</code></pre>
    </p>
    <ul>
     <li>

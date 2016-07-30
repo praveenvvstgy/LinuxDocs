@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    socat
+   </h1>
+   <blockquote>
+    <p>
+     Multipurpose relay (SOcket CAT).
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Listen to a port, wait for an incoming connection and transfer data to STDIO:
+    </li>
+   </ul>
+   <p>
+    <pre><code>socat - TCP-LISTEN:8080,fork</code></pre>
+   </p>
+   <ul>
+    <li>
+     Create a connection to a host and port, transfer data in STDIO to connected host:
+    </li>
+   </ul>
+   <p>
+    <pre><code>socat - TCP4:www.domain.com:80</code></pre>
+   </p>
+   <ul>
+    <li>
+     Forward incoming data of a local port to another host and port:
+    </li>
+   </ul>
+   <p>
+    <pre><code>socat TCP-LISTEN:80,fork TCP4:www.domain.com:80</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

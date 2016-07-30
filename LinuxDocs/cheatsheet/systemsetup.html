@@ -32,27 +32,30 @@
     </li>
    </ul>
    <p>
-    <pre><code>systemsetup -settimezone {{US/Pacific}}</code></pre>
-    <pre><code>systemsetup -setnetworktimeserver {{us.pool.ntp.org}}</code></pre>
-    <pre><code>systemsetup -setusingnetworktime on</code></pre>
+    <pre><code>systemsetup -settimezone {{US/Pacific}} -setnetworktimeserver {{us.pool.ntp.org}} -setusingnetworktime on</code></pre>
    </p>
    <ul>
     <li>
-     Make the machine never sleep; restart on freeze &amp; power failure:
+     Make the machine never sleep and automatically restart on power failure or kernel panic:
     </li>
    </ul>
    <p>
-    <pre><code>systemsetup -setsleep off</code></pre>
-    <pre><code>systemsetup -setrestartpowerfailure on</code></pre>
-    <pre><code>systemsetup -setrestartfreeze on</code></pre>
+    <pre><code>systemsetup -setsleep off -setrestartpowerfailure on -setrestartfreeze on</code></pre>
    </p>
    <ul>
     <li>
-     List valid startup disks, specify a new startup disk:
+     List valid startup disks:
     </li>
    </ul>
    <p>
     <pre><code>systemsetup -liststartupdisks</code></pre>
+   </p>
+   <ul>
+    <li>
+     Specify a new startup disk:
+    </li>
+   </ul>
+   <p>
     <pre><code>systemsetup -setstartupdisk {{path}}</code></pre>
    </p>
   </article>

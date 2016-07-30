@@ -28,20 +28,19 @@
    </p>
    <ul>
     <li>
-     Set the times on a file to those specified:
+     Set the times on a file to a specific date and time:
     </li>
    </ul>
    <p>
-    <pre><code>touch -t 201412250801.59 {{filename}}</code></pre>
     <pre><code>touch -t {{YYYYMMDDHHMM.SS}} {{filename}}</code></pre>
    </p>
    <ul>
     <li>
-     Set the times on a file to match those on second file:
+     Use the times from a file to set the times on a second file:
     </li>
    </ul>
    <p>
-    <pre><code>touch -r {{filename2}} {{filename}}</code></pre>
+    <pre><code>touch -r {{filename}} {{filename2}}</code></pre>
    </p>
   </article>
  </body>

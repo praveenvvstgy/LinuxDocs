@@ -1,0 +1,71 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    xz
+   </h1>
+   <blockquote>
+    <p>
+     Compress or decompress .xz and .lzma files.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Compress a file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xz {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Decompress a file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xz -d {{file.xz}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Decompress a file and write to stdout:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xz -dc {{file.xz}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compress a file, but don't delete the original:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xz -k {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compress a file using the fastest compression:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xz -0 {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compress a file using the best compression:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xz -9 {{file}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

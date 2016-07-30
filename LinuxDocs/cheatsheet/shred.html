@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    shred
+   </h1>
+   <blockquote>
+    <p>
+     Overwrite files to securely delete data.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Overwrite a file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>shred {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Overwrite a file, leaving zeroes instead of random data:
+    </li>
+   </ul>
+   <p>
+    <pre><code>shred --zero {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Overwrite a file 25 times:
+    </li>
+   </ul>
+   <p>
+    <pre><code>shred -n25 {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Overwrite a file and remove it:
+    </li>
+   </ul>
+   <p>
+    <pre><code>shred --remove {{file}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

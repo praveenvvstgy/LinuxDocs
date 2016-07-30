@@ -1,0 +1,71 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    rpm
+   </h1>
+   <blockquote>
+    <p>
+     RPM Package Manager.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Show version of httpd package:
+    </li>
+   </ul>
+   <p>
+    <pre><code>rpm -q {{httpd}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     List versions of all matching packages:
+    </li>
+   </ul>
+   <p>
+    <pre><code>rpm -qa '{{mariadb*}}'</code></pre>
+   </p>
+   <ul>
+    <li>
+     Identify owner of a file and show version of the package:
+    </li>
+   </ul>
+   <p>
+    <pre><code>rpm -qf {{/etc/postfix/main.cf}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     List package-owned files:
+    </li>
+   </ul>
+   <p>
+    <pre><code>rpm -ql {{kernel}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Show scriptlets from an RPM file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>rpm -qp --scripts {{some.rpm}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Show changed, missing and/or incorrectly installed files of matching packages:
+    </li>
+   </ul>
+   <p>
+    <pre><code>rpm -Va '{{php-*}}'</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

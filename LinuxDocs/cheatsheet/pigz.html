@@ -1,0 +1,63 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    pigz
+   </h1>
+   <blockquote>
+    <p>
+     Multithreaded zlib compression utility.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Compress a file with default options:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pigz {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compress a file using the best compression method:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pigz -9 {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Compress a file using no compression and 4 processors:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pigz -0 -p{{4}} {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Decompress a file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pigz -d {{archive.gz}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     List the contents of an archive:
+    </li>
+   </ul>
+   <p>
+    <pre><code>pigz -l {{archive.tar.gz}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

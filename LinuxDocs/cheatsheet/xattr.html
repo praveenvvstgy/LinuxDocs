@@ -1,0 +1,63 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    xattr
+   </h1>
+   <blockquote>
+    <p>
+     Utility to work with extended filesystem attributes.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     List key:value extended attributes for a given file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xattr -l {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Write an attribute for a given file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xattr -w {{attribute_key}} {{attribute_value}} {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Delete an attribute from a given file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xattr -d {{attribute_key}} {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Delete all extended attributes from a given file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xattr -c {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Recursively delete an attribute in a given directory:
+    </li>
+   </ul>
+   <p>
+    <pre><code>xattr -rd {{attribute_key}} {{directory}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

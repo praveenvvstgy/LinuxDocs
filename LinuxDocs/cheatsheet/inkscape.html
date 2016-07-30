@@ -1,0 +1,72 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    inkscape
+   </h1>
+   <blockquote>
+    <p>
+     An SVG (Scalable Vector Graphics) editing program.
+  Use -z to not open the GUI and only process files in the console.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Open an SVG file in the Inkscape GUI:
+    </li>
+   </ul>
+   <p>
+    <pre><code>inkscape {{filename.svg}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Export an SVG file into a bitmap with the default format (PNG) and the default resolution (90 DPI):
+    </li>
+   </ul>
+   <p>
+    <pre><code>inkscape {{filename.svg}} -e {{filename.png}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Export an SVG file into a bitmap of 600x400 pixels (aspect ratio distortion may occur):
+    </li>
+   </ul>
+   <p>
+    <pre><code>inkscape {{filename.svg}} -e {{filename.png}} -w {{600}} -h {{400}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Export a single object, given its ID, into a bitmap:
+    </li>
+   </ul>
+   <p>
+    <pre><code>inkscape {{filename.svg}} -i {{id}} -e {{object.png}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Export an SVG document to PDF, converting all texts to paths:
+    </li>
+   </ul>
+   <p>
+    <pre><code>inkscape {{filename.svg}} --export-pdf=={{filename.pdf}} --export-text-to-path</code></pre>
+   </p>
+   <ul>
+    <li>
+     Duplicate the object with id="path1555", rotate the duplicate 90 degrees, save the SVG, and quit:
+    </li>
+   </ul>
+   <p>
+    <pre><code>inkscape {{filename.svg}} --select=path1555 --verb=EditDuplicate --verb=ObjectRotate90 --verb=FileSave --verb=FileClose</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

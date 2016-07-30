@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    chattr
+   </h1>
+   <blockquote>
+    <p>
+     Change attributes of files or folders.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Make a file or folder immutable to changes and deletion, even by superuser:
+    </li>
+   </ul>
+   <p>
+    <pre><code>chattr +i {{path}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Make a file or folder mutable:
+    </li>
+   </ul>
+   <p>
+    <pre><code>chattr -i {{path}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Recursively make an entire folder and contents immutable:
+    </li>
+   </ul>
+   <p>
+    <pre><code>chattr -R +i {{folder}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

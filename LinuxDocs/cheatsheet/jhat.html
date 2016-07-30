@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    jhat
+   </h1>
+   <blockquote>
+    <p>
+     Java Heap Analysis Tool.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Analyze a heap dump (from jmap), view via http on port 7000:
+    </li>
+   </ul>
+   <p>
+    <pre><code>jhat {{dump_file.bin}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Analyze a heap dump, specifying an alternate port for the http server:
+    </li>
+   </ul>
+   <p>
+    <pre><code>jhat -p {{port}} {{dump_file.bin}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Analyze a dump letting jhat use up to 8GB RAM (2-4x dump size recommended):
+    </li>
+   </ul>
+   <p>
+    <pre><code>jhat -J-mx8G {{dump_file.bin}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

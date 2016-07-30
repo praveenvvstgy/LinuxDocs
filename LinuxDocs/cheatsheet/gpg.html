@@ -58,6 +58,22 @@
    <p>
     <pre><code>gpg --import {{public.gpg}}</code></pre>
    </p>
+   <ul>
+    <li>
+     Export public key for alice@example.com (output to STDOUT):
+    </li>
+   </ul>
+   <p>
+    <pre><code>gpg --export --armor {{alice@example.com}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Export private key for alice@example.com (output to STDOUT):
+    </li>
+   </ul>
+   <p>
+    <pre><code>gpg --export-secret-keys --armor {{alice@example.com}}</code></pre>
+   </p>
   </article>
  </body>
 </html>

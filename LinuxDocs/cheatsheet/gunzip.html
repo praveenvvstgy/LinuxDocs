@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    gunzip
+   </h1>
+   <blockquote>
+    <p>
+     Extract file(s) from a gzip (.gz) archive.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Extract a file from an archive, replacing the original file if it exists:
+    </li>
+   </ul>
+   <p>
+    <pre><code>gunzip {{archive.tar.gz}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Extract a file to a target destination:
+    </li>
+   </ul>
+   <p>
+    <pre><code>gunzip -c {{archive.tar.gz}} &gt; {{archive.tar}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     List the contents of a compressed file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>gunzip -l {{file.txt.gz}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

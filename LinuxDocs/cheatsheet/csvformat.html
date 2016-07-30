@@ -1,0 +1,64 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    csvformat
+   </h1>
+   <blockquote>
+    <p>
+     Convert a CSV file to a custom output format.
+  Included in csvkit.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Convert to a tab-delimited file (TSV):
+    </li>
+   </ul>
+   <p>
+    <pre><code>csvformat -T {{data.csv}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Convert delimiters to a custom character:
+    </li>
+   </ul>
+   <p>
+    <pre><code>csvformat -D "{{custom_character}}" {{data.csv}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Convert line endings to carriage return (^M) + line feed:
+    </li>
+   </ul>
+   <p>
+    <pre><code>csvformat -M "{{\r\n}}" {{data.csv}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Minimize use of quote characters:
+    </li>
+   </ul>
+   <p>
+    <pre><code>csvformat -U 0 {{data.csv}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Maximize use of quote characters:
+    </li>
+   </ul>
+   <p>
+    <pre><code>csvformat -U 1 {{data.csv}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

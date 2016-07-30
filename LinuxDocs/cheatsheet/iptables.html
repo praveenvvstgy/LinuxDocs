@@ -1,0 +1,71 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    iptables
+   </h1>
+   <blockquote>
+    <p>
+     Program that allows to configure tables, chains and rules provided by the Linux kernel firewall.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     See chains and rules for specific table:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo iptables -t {{table_name}} -vnL</code></pre>
+   </p>
+   <ul>
+    <li>
+     Set chain policy rule:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo iptables -p {{chain}} {{rule}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Append rule to chain policy for IP:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo iptables -A {{chain}} -s {{ip}} -j {{rule}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Append rule to chain policy for IP considering protocol and port:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo iptables -A {{chain}} -s {{ip}} -p {{protocol}} --dport {{port}} -j {{rule}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Delete chain rule:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo iptables -D {{chain}} {{rule_line_number}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Save iptables configuration:
+    </li>
+   </ul>
+   <p>
+    <pre><code>sudo iptables-save &gt; {{path/to/iptables_file}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

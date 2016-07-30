@@ -1,0 +1,79 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    ssh-keygen
+   </h1>
+   <blockquote>
+    <p>
+     Generate ssh keys user for authentication, password-less logins, and other things.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Generate a key interactively:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ssh-keygen</code></pre>
+   </p>
+   <ul>
+    <li>
+     Specify file in which to save the key:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ssh-keygen -f ~/.ssh/{{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Generate a DSA 2048 bit (default) key:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ssh-keygen -t dsa</code></pre>
+   </p>
+   <ul>
+    <li>
+     Generate an RSA 4096 bit key with your email as a comment:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ssh-keygen -t rsa -b 4096 -C "{{email}}"</code></pre>
+   </p>
+   <ul>
+    <li>
+     Retrieve the key fingerprint from a host (useful for confirming the authenticity of the host when first connecting to it via SSH):
+    </li>
+   </ul>
+   <p>
+    <pre><code>ssh-keygen -l -F {{remote_host}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Retrieve the fingerprint of a key in MD5 Hex:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ssh-keygen -l -E md5 -f ~/.ssh/{{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Change the password of a key:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ssh-keygen -p -f ~/.ssh/{{filename}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

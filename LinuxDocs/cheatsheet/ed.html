@@ -1,0 +1,97 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    ed
+   </h1>
+   <blockquote>
+    <p>
+     The original Unix text editor.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Start ed, editing an empty document (which can be saved as a new file in the current directory):
+    </li>
+   </ul>
+   <p>
+    <pre><code>ed</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start ed, editing an empty document, with
+     <pre><code>:</code></pre>
+     as a command prompt indicator:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ed -p :</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start ed editing an existing file (this shows the byte count of the loaded file):
+    </li>
+   </ul>
+   <p>
+    <pre><code>ed -p : {{path/to/file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Toggle the printing of error explanations. (By default, explanations are not printed and only a
+     <pre><code>?</code></pre>
+     appears):
+    </li>
+   </ul>
+   <p>
+    <pre><code>H</code></pre>
+   </p>
+   <ul>
+    <li>
+     Add text to the current document. Mark completion by entering a period by itself in a new line:
+    </li>
+   </ul>
+   <p>
+    <pre><code>a&lt;Enter&gt;{{text_to_insert}}&lt;Enter&gt;.</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print the entire document (
+     <pre><code>,</code></pre>
+     is a shortcut to the range
+     <pre><code>1,$</code></pre>
+     which covers the start to the end of the document):
+    </li>
+   </ul>
+   <p>
+    <pre><code>,p</code></pre>
+   </p>
+   <ul>
+    <li>
+     Write the current document to a new file (the filename can be omitted if
+     <pre><code>ed</code></pre>
+     was called with an existing file):
+    </li>
+   </ul>
+   <p>
+    <pre><code>w {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Quit ed:
+    </li>
+   </ul>
+   <p>
+    <pre><code>q</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

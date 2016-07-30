@@ -1,0 +1,63 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    expand
+   </h1>
+   <blockquote>
+    <p>
+     Convert tabs to spaces.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Convert tabs in each file to spaces, writing to standard output:
+    </li>
+   </ul>
+   <p>
+    <pre><code>expand {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Convert tabs to spaces, reading from standard input:
+    </li>
+   </ul>
+   <p>
+    <pre><code>expand</code></pre>
+   </p>
+   <ul>
+    <li>
+     Do not convert tabs after non blanks:
+    </li>
+   </ul>
+   <p>
+    <pre><code>expand -i {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Have tabs a certain number of characters apart, not 8:
+    </li>
+   </ul>
+   <p>
+    <pre><code>expand -t={{number}} {{file}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Use comma separated list of explicit tab positions:
+    </li>
+   </ul>
+   <p>
+    <pre><code>expand -t={{list}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

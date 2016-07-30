@@ -1,0 +1,47 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    jstack
+   </h1>
+   <blockquote>
+    <p>
+     Java Stack Trace Tool.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Print java stack traces for all threads in a java process:
+    </li>
+   </ul>
+   <p>
+    <pre><code>jstack {{java_pid}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print mixed mode (java/c++) stack traces for all threads in a java process:
+    </li>
+   </ul>
+   <p>
+    <pre><code>jstack -m {{java_pid}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Print stack traces from java core dump:
+    </li>
+   </ul>
+   <p>
+    <pre><code>jstack {{/usr/bin/java}} {{file.core}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

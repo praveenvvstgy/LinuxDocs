@@ -48,7 +48,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>cat somefile.txt | nc -l {{port}}</code></pre>
+    <pre><code>nc -l {{port}} &lt; {{file}}</code></pre>
    </p>
    <ul>
     <li>
@@ -56,7 +56,7 @@
     </li>
    </ul>
    <p>
-    <pre><code>nc {{ip_address}} {{port}} &gt; somefile.txt</code></pre>
+    <pre><code>nc {{ip_address}} {{port}} &gt; {{file}}</code></pre>
    </p>
    <ul>
     <li>
@@ -73,6 +73,22 @@
    </ul>
    <p>
     <pre><code>nc -q {{timeout}} {{ip_address}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Port scanning:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nc -v -z {{ip_address}} {{port}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Proxy and port forwarding:
+    </li>
+   </ul>
+   <p>
+    <pre><code>nc -l {{port}} | nc {{hostname}} {{port}}</code></pre>
    </p>
   </article>
  </body>

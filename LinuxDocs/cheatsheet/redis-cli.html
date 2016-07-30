@@ -28,11 +28,18 @@
    </p>
    <ul>
     <li>
-     Connect to a remote server:
+     Connect to a remote server on the default port (6379):
     </li>
    </ul>
    <p>
     <pre><code>redis-cli -h {{host}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Connect to a remote server specifying a port number:
+    </li>
+   </ul>
+   <p>
     <pre><code>redis-cli -h {{host}} -p {{port}}</code></pre>
    </p>
    <ul>
@@ -45,11 +52,11 @@
    </p>
    <ul>
     <li>
-     Executes Redis command:
+     Execute Redis command:
     </li>
    </ul>
    <p>
-    <pre><code>redis-cli {{redis command}}</code></pre>
+    <pre><code>redis-cli {{redis_command}}</code></pre>
    </p>
   </article>
  </body>

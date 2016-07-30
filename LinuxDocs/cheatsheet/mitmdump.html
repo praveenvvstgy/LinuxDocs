@@ -1,0 +1,48 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    mitmdump
+   </h1>
+   <blockquote>
+    <p>
+     View, record, and programmatically transform HTTP traffic.
+  The command-line counterpart to mitmproxy.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Start a proxy and save all output to a file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>mitmdump -w {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Filter a saved traffic file to just POST requests:
+    </li>
+   </ul>
+   <p>
+    <pre><code>mitmdump -nr {{input_filename}} -w {{output_filename}} {{"~m post"}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Replay a saved traffic file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>mitmdump -nc {{filename}}</code></pre>
+   </p>
+  </article>
+ </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../style.css" rel="stylesheet">
+    </link>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <article class="markdown-body">
+   <h1>
+    fzf
+   </h1>
+   <blockquote>
+    <p>
+     Command line fuzzy finder.
+    </p>
+   </blockquote>
+   <ul>
+    <li>
+     Start finder on all files from arbitrary locations:
+    </li>
+   </ul>
+   <p>
+    <pre><code>find {{path/to/search}} -type f | fzf</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start finder on running processes:
+    </li>
+   </ul>
+   <p>
+    <pre><code>ps axu | fzf</code></pre>
+   </p>
+   <ul>
+    <li>
+     Select mutliple files with
+     <pre><code>Shift-TAB</code></pre>
+     and write to a file:
+    </li>
+   </ul>
+   <p>
+    <pre><code>find {{path/to/search_files}} -type f | fzf -m &gt; {{filename}}</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start finder with a given query:
+    </li>
+   </ul>
+   <p>
+    <pre><code>fzf -q "{{query}}"</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start finder on entries that start with core and end with either go, rb, or py:
+    </li>
+   </ul>
+   <p>
+    <pre><code>fzf -q "^core go$ | rb$ | py$"</code></pre>
+   </p>
+   <ul>
+    <li>
+     Start finder on entries that not match pyc and match exactly travis:
+    </li>
+   </ul>
+   <p>
+    <pre><code>fzf -q "!pyc 'travis"</code></pre>
+   </p>
+  </article>
+ </body>
+</html>
