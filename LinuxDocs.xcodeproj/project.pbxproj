@@ -304,7 +304,6 @@
 				TargetAttributes = {
 					AC6332A41AA79C010021AA57 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 42K4FLWU7X;
 					};
 					AC6332B91AA79C010021AA57 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -564,6 +563,7 @@
 				INFOPLIST_FILE = LinuxDocs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "295c6d19-e472-4289-8000-60618f760f6f";
 				SWIFT_OBJC_BRIDGING_HEADER = "LinuxDocs/LinuxDocs-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -583,6 +583,7 @@
 				INFOPLIST_FILE = LinuxDocs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "295c6d19-e472-4289-8000-60618f760f6f";
 				SWIFT_OBJC_BRIDGING_HEADER = "LinuxDocs/LinuxDocs-Bridging-Header.h";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "LinuxDocs/LinuxDocs-Bridging-Header.h";
 			};
