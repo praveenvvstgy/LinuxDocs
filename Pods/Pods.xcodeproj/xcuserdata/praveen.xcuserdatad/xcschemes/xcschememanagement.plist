@@ -24,7 +24,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SKSplashView.xcscheme</key>
+		<key>Pods-LinuxDocsTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,17 +37,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>28D495B782DD6402FB3FFAEEF98B18BA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>40C564D9F66B4361CACAD951CE3206A1</key>
+		<key>57555646E44EBF2E5F13D77D4C24DFC4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>5D01A50CCFE2E30AADA4F93F8729C9CE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>64B1D95560479F3BFE325D6E0B8CF4E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D71CB66AFB8B62336C66E059F26AE532</key>
+		<key>C81393BFFB805766BAF130CC95C42881</key>
 		<dict>
 			<key>primary</key>
 			<true/>
