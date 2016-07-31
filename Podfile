@@ -1,13 +1,13 @@
 # Uncomment this line to define a global platform for your project
-platform :ios, '8.0'
+# platform :ios, '9.0'
 
 target 'LinuxDocs' do
-pod 'UIImage-Helpers'
-pod 'DZNEmptyDataSet'
-pod 'CTFeedback'
+    # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+    use_frameworks!
+    
+    # Pods for LinuxDocs
+    pod 'UIImage-Helpers'
+    pod 'DZNEmptyDataSet'
+    pod 'CTFeedback'
+    
 end
-
-target 'LinuxDocsTests' do
-
-end
-

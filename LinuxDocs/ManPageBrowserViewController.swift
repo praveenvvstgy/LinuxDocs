@@ -44,7 +44,7 @@ class ManPageBrowserViewController: UIViewController, UIWebViewDelegate {
         } else {
             if navigationType == UIWebViewNavigationType.LinkClicked {
                 let requestComponents = request.URL!.pathComponents!
-                let manHTML = NSBundle.mainBundle().pathForResource(requestComponents[requestComponents.count - 1] as? String, ofType: nil, inDirectory: requestComponents[requestComponents.count - 2] as? String)
+                let manHTML = NSBundle.mainBundle().pathForResource(requestComponents[requestComponents.count - 1], ofType: nil, inDirectory: requestComponents[requestComponents.count - 2])
                 let manPath = NSURL(fileURLWithPath: manHTML!, isDirectory: true)
                 self.manPageBrowser.loadRequest(NSURLRequest(URL: manPath, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 0))
             } else {

@@ -1,0 +1,6 @@
+framework module Pods_LinuxDocs {
+  umbrella header "Pods-LinuxDocs-umbrella.h"
+
+  export *
+  module * { export * }
+}

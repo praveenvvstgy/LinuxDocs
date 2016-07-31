@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Praveen Gowda I V. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension UIColor {
     class func darkPrimaryColor() -> (UIColor) {
