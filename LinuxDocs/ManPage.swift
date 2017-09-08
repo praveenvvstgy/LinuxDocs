@@ -13,13 +13,13 @@ class ManPage {
     let filename: String?
     let section: String?
     let folder: String?
-    let description: String!
+    let description: String?
     
-    init(data: NSDictionary) {
+    init(data: [String: Any]) {
         self.name = data["name"] as? String
         self.filename = data["filename"] as? String
         self.section = data["section"] as? String
         self.folder = data["folder"] as? String
-        self.description = data["description"] as! String
+        self.description = data["description"] as? String
     }
 }

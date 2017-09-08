@@ -58,10 +58,10 @@ class CheatSheetsViewController: UIViewController {
         searchBar.showsScopeBar = true
         searchBarHeightConstraint.constant = 88
         
-        self.tableView.tableFooterView = UIView(frame: CGRectZero)
-        self.tableView.separatorColor = UIColor.clearColor()
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        self.tableView.separatorColor = UIColor.clear
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
         tableView.estimatedRowHeight = 80.0
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -71,28 +71,28 @@ class CheatSheetsViewController: UIViewController {
         
         // Background Color of the searchbar - Dark Blue
         searchBar.barTintColor = UIColor.darkPrimaryColor()
-        searchBar.translucent = true
+        searchBar.isTranslucent = true
         
         // prevents tab bar from overlapping last tableviewcell
-        tabBarController?.tabBar.translucent = false
+        tabBarController?.tabBar.isTranslucent = false
         
         self.view.backgroundColor = UIColor.darkPrimaryColor()
 
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
     func readCheatSheetFromJSON() {
-        let filePath = NSBundle.mainBundle().pathForResource("cheatsheet", ofType: "json")
+        let filePath = Bundle.main.path(forResource: "cheatsheet", ofType: "json")
                 
-        let cheatSheetsJSONData = NSData(contentsOfFile: filePath!)
+        let cheatSheetsJSONData = try? Data(contentsOf: URL(fileURLWithPath: filePath!))
         
         var cheatSheetsData = NSArray()
         
         do {
-            cheatSheetsData = (try NSJSONSerialization.JSONObjectWithData(cheatSheetsJSONData!, options: NSJSONReadingOptions.MutableContainers)) as! NSArray
+            cheatSheetsData = (try JSONSerialization.jsonObject(with: cheatSheetsJSONData!, options: JSONSerialization.ReadingOptions.mutableContainers)) as! NSArray
         } catch let error as NSError {
             print("Error reading file: \(error.localizedDescription)")
         }
@@ -104,28 +104,28 @@ class CheatSheetsViewController: UIViewController {
         }
     }
     
-    func filterCheatSheetsForSearchText(searchText: String, platform: String) {
+    func filterCheatSheetsForSearchText(_ searchText: String, platform: String) {
         if platform == "All" {
             if searchText == "" {
                 searchResults = cheatSheetsIndex
             } else {
                 searchResults = cheatSheetsIndex.filter({ (cheatSheet: CheatSheet) -> Bool in
-                    let nameMatch = cheatSheet.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+                    let nameMatch = cheatSheet.name?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
                     return (nameMatch != nil)
                 })
             }
         } else {
             searchResults = cheatSheetsIndex.filter({ (cheatSheet: CheatSheet) -> Bool in
-                let nameMatch = cheatSheet.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-                return ((nameMatch != nil && (cheatSheet.platform == platform.lowercaseString || cheatSheet.platform == "common")) || searchText == "" && (cheatSheet.platform == platform.lowercaseString || cheatSheet.platform == "common"))
+                let nameMatch = cheatSheet.name?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+                return ((nameMatch != nil && (cheatSheet.platform == platform.lowercased() || cheatSheet.platform == "common")) || searchText == "" && (cheatSheet.platform == platform.lowercased() || cheatSheet.platform == "common"))
             })
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "cheatSheetBrowser" {
-            let destinationViewController = segue.destinationViewController as! CheatSheetBrowserViewController
-            let indexPath = sender?.indexPathForSelectedRow
+            let destinationViewController = segue.destination as! CheatSheetBrowserViewController
+            let indexPath = (sender as AnyObject).indexPathForSelectedRow
             let cheatSheet = (isSearchActive) ? searchResults : cheatSheetsIndex
             destinationViewController.cheatSheet = cheatSheet[indexPath!!.row]
         }
@@ -133,19 +133,19 @@ class CheatSheetsViewController: UIViewController {
     
     func getSelectedCheatsheetPlatform() -> String {
         let scopeButtonTitles = searchBar.scopeButtonTitles as [String]!
-        let scopeSelection = scopeButtonTitles[searchBar.selectedScopeButtonIndex]
-        return scopeSelection
+        let scopeSelection = scopeButtonTitles?[searchBar.selectedScopeButtonIndex]
+        return scopeSelection!
     }
 
 }
 
 // MARK: UITableViewDataSource
 extension CheatSheetsViewController: UITableViewDataSource {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearchActive {
             return searchResults.count
         } else {
@@ -153,9 +153,9 @@ extension CheatSheetsViewController: UITableViewDataSource {
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let reuseIdentifier = "cheatSheet"
-        let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as! CheatSheetTableCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as! CheatSheetTableCell
         let cheatSheet = (isSearchActive) ? searchResults : cheatSheetsIndex
         cell.nameLabel.text = cheatSheet[indexPath.row].name
         cell.platformLabel.text = cheatSheet[indexPath.row].platform
@@ -183,33 +183,33 @@ extension CheatSheetsViewController: UITableViewDataSource {
 
 // MARK: UITableViewDelegate
 extension CheatSheetsViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("cheatSheetBrowser", sender: tableView)
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "cheatSheetBrowser", sender: tableView)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 // MARK: DZNEmptyDataSetSource
 extension CheatSheetsViewController: DZNEmptyDataSetSource {
-    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let emptyMessage = "No cheatsheets match your search"
-        let attributes  = [NSFontAttributeName: UIFont.boldSystemFontOfSize(18), NSForegroundColorAttributeName: UIColor.primaryTextColor()]
+        let attributes  = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 18), NSForegroundColorAttributeName: UIColor.primaryTextColor()]
         return NSAttributedString(string: emptyMessage, attributes: attributes)
     }
     
-    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let emptyDescription = "We are working on adding cheatsheets for more commands"
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        paragraphStyle.alignment = NSTextAlignment.Center
+        paragraphStyle.lineBreakMode = NSLineBreakMode.byWordWrapping
+        paragraphStyle.alignment = NSTextAlignment.center
         paragraphStyle.lineSpacing = 4.0
         
-        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(14), NSForegroundColorAttributeName: UIColor.secondaryTextColor(), NSParagraphStyleAttributeName: paragraphStyle]
+        let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.secondaryTextColor(), NSParagraphStyleAttributeName: paragraphStyle]
         
         return NSAttributedString(string: emptyDescription, attributes: attributes)
     }
     
-    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return UIImage(named: "nopage")
     }
 
@@ -217,30 +217,30 @@ extension CheatSheetsViewController: DZNEmptyDataSetSource {
 
 // MARK: UISearchBarDelegate
 extension CheatSheetsViewController: UISearchBarDelegate {
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filterCheatSheetsForSearchText(searchText, platform: getSelectedCheatsheetPlatform())
         tableView.reloadData()
     }
     
-    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         let searchText = searchBar.text
         filterCheatSheetsForSearchText(searchText!, platform: getSelectedCheatsheetPlatform())
         tableView.reloadData()
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
     }
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
     }
     
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
     }
 }

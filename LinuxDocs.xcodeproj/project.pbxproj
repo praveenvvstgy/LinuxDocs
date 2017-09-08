@@ -10,11 +10,8 @@
 		954E8A0DD7DBB615798169F4 /* Pods_LinuxDocs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E78AE847E0B79FD31CCEC7 /* Pods_LinuxDocs.framework */; };
 		AC0A8B7A1ABA9EF800DF8880 /* cheatsheet.json in Resources */ = {isa = PBXBuildFile; fileRef = AC0A8B791ABA9EF800DF8880 /* cheatsheet.json */; };
 		AC0A8B7E1ABA9F2B00DF8880 /* CheatSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0A8B7D1ABA9F2B00DF8880 /* CheatSheet.swift */; };
-		AC0A8B801ABA9F8300DF8880 /* CheatSheetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0A8B7F1ABA9F8300DF8880 /* CheatSheetsViewController.swift */; };
-		AC0A8B821ABAAA9400DF8880 /* CheatSheetBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0A8B811ABAAA9400DF8880 /* CheatSheetBrowserViewController.swift */; };
 		AC0A8B881ABAB36A00DF8880 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = AC0A8B871ABAB36A00DF8880 /* style.css */; };
 		AC0A8B8A1ABAB93600DF8880 /* cheatsheet in Resources */ = {isa = PBXBuildFile; fileRef = AC0A8B891ABAB93600DF8880 /* cheatsheet */; };
-		AC4DF2A11ACEA651008785F2 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4DF2A01ACEA651008785F2 /* AppColors.swift */; };
 		AC6332AB1AA79C010021AA57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6332AA1AA79C010021AA57 /* AppDelegate.swift */; };
 		AC6332AD1AA79C010021AA57 /* ManPagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6332AC1AA79C010021AA57 /* ManPagesViewController.swift */; };
 		AC6332B01AA79C010021AA57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6332AE1AA79C010021AA57 /* Main.storyboard */; };
@@ -37,6 +34,8 @@
 		AC8C51A21AAB8FEF0068A731 /* htmlman8 in Resources */ = {isa = PBXBuildFile; fileRef = AC8C51A11AAB8FEF0068A731 /* htmlman8 */; };
 		AC8C51A81AABB46C0068A731 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8C51A61AABB46C0068A731 /* Crashlytics.framework */; };
 		AC8C51A91AABB46D0068A731 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8C51A71AABB46C0068A731 /* Fabric.framework */; };
+		ACC238E61F4AC3820054E99B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC238E51F4AC3820054E99B /* Color.swift */; };
+		ACC238E81F4ACAE40054E99B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC238E71F4ACAE40054E99B /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,11 +53,8 @@
 		A4151884318F9298106F3149 /* Pods-LinuxDocs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinuxDocs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LinuxDocs/Pods-LinuxDocs.debug.xcconfig"; sourceTree = "<group>"; };
 		AC0A8B791ABA9EF800DF8880 /* cheatsheet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cheatsheet.json; sourceTree = "<group>"; };
 		AC0A8B7D1ABA9F2B00DF8880 /* CheatSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheatSheet.swift; sourceTree = "<group>"; };
-		AC0A8B7F1ABA9F8300DF8880 /* CheatSheetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheatSheetsViewController.swift; sourceTree = "<group>"; };
-		AC0A8B811ABAAA9400DF8880 /* CheatSheetBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheatSheetBrowserViewController.swift; sourceTree = "<group>"; };
 		AC0A8B871ABAB36A00DF8880 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		AC0A8B891ABAB93600DF8880 /* cheatsheet */ = {isa = PBXFileReference; lastKnownFileType = folder; path = cheatsheet; sourceTree = "<group>"; };
-		AC4DF2A01ACEA651008785F2 /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		AC6332A51AA79C010021AA57 /* LinuxDocs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinuxDocs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6332A91AA79C010021AA57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC6332AA1AA79C010021AA57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +82,8 @@
 		AC8C51A11AAB8FEF0068A731 /* htmlman8 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = htmlman8; sourceTree = "<group>"; };
 		AC8C51A61AABB46C0068A731 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		AC8C51A71AABB46C0068A731 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		ACC238E51F4AC3820054E99B /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		ACC238E71F4ACAE40054E99B /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B937B4A33267B19ABBAE3566 /* Pods-LinuxDocs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinuxDocs.release.xcconfig"; path = "Pods/Target Support Files/Pods-LinuxDocs/Pods-LinuxDocs.release.xcconfig"; sourceTree = "<group>"; };
 		CC731129EB3E2A32839DC118 /* libPods-LinuxDocsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LinuxDocsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -226,10 +224,9 @@
 			isa = PBXGroup;
 			children = (
 				AC6332AC1AA79C010021AA57 /* ManPagesViewController.swift */,
-				AC0A8B7F1ABA9F8300DF8880 /* CheatSheetsViewController.swift */,
 				AC6E4CD91AC0E0BB001BC5FC /* MainTabBarController.swift */,
 				AC6332CA1AA79D420021AA57 /* ManPageBrowserViewController.swift */,
-				AC0A8B811ABAAA9400DF8880 /* CheatSheetBrowserViewController.swift */,
+				ACC238E71F4ACAE40054E99B /* BaseViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -237,7 +234,7 @@
 		ACC106261D4D241100325B3B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				AC4DF2A01ACEA651008785F2 /* AppColors.swift */,
+				ACC238E51F4AC3820054E99B /* Color.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -258,13 +255,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC6332C41AA79C010021AA57 /* Build configuration list for PBXNativeTarget "LinuxDocs" */;
 			buildPhases = (
-				0F93B0014598CAFA5F3F28B0 /* 📦 Check Pods Manifest.lock */,
+				0F93B0014598CAFA5F3F28B0 /* [CP] Check Pods Manifest.lock */,
 				AC6332A11AA79C010021AA57 /* Sources */,
 				AC6332A21AA79C010021AA57 /* Frameworks */,
 				AC6332A31AA79C010021AA57 /* Resources */,
 				AC8C51A51AABB4060068A731 /* ShellScript */,
-				7B37C392DE3D9E8400DD4F28 /* 📦 Embed Pods Frameworks */,
-				AFD318A4CB7E95FA77B34805 /* 📦 Copy Pods Resources */,
+				7B37C392DE3D9E8400DD4F28 /* [CP] Embed Pods Frameworks */,
+				AFD318A4CB7E95FA77B34805 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -306,9 +303,12 @@
 				TargetAttributes = {
 					AC6332A41AA79C010021AA57 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 42K4FLWU7X;
+						LastSwiftMigration = 0830;
 					};
 					AC6332B91AA79C010021AA57 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = AC6332A41AA79C010021AA57;
 					};
 				};
@@ -365,29 +365,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0F93B0014598CAFA5F3F28B0 /* 📦 Check Pods Manifest.lock */ = {
+		0F93B0014598CAFA5F3F28B0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		7B37C392DE3D9E8400DD4F28 /* 📦 Embed Pods Frameworks */ = {
+		7B37C392DE3D9E8400DD4F28 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,14 +408,14 @@
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 8a4d7ef10a9619936e99973e4855e6db26030b24 ccb643ff31e6638f3ae59c1b1de90d6aa8e8b7f7c1453252296f674061a64d24";
 		};
-		AFD318A4CB7E95FA77B34805 /* 📦 Copy Pods Resources */ = {
+		AFD318A4CB7E95FA77B34805 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,11 +430,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC0A8B821ABAAA9400DF8880 /* CheatSheetBrowserViewController.swift in Sources */,
-				AC0A8B801ABA9F8300DF8880 /* CheatSheetsViewController.swift in Sources */,
 				AC6E4CDA1AC0E0BB001BC5FC /* MainTabBarController.swift in Sources */,
 				AC79FCA71ABCBAB6009298E8 /* ManPageTableCell.swift in Sources */,
-				AC4DF2A11ACEA651008785F2 /* AppColors.swift in Sources */,
+				ACC238E61F4AC3820054E99B /* Color.swift in Sources */,
+				ACC238E81F4ACAE40054E99B /* BaseViewController.swift in Sources */,
 				AC6332AD1AA79C010021AA57 /* ManPagesViewController.swift in Sources */,
 				AC0A8B7E1ABA9F2B00DF8880 /* CheatSheet.swift in Sources */,
 				AC6E4CBC1AC0A4C6001BC5FC /* CheatSheetTableCell.swift in Sources */,
@@ -558,6 +557,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 42K4FLWU7X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -568,6 +568,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "LinuxDocs/LinuxDocs-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -578,6 +579,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 42K4FLWU7X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -588,6 +590,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "LinuxDocs/LinuxDocs-Bridging-Header.h";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "LinuxDocs/LinuxDocs-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -603,6 +606,7 @@
 				INFOPLIST_FILE = LinuxDocsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LinuxDocs.app/LinuxDocs";
 			};
 			name = Debug;
@@ -615,6 +619,7 @@
 				INFOPLIST_FILE = LinuxDocsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LinuxDocs.app/LinuxDocs";
 			};
 			name = Release;

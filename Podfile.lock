@@ -1,5 +1,5 @@
 PODS:
-  - CTFeedback (1.1.0)
+  - CTFeedback (1.1.1)
   - DZNEmptyDataSet (1.8.1)
   - UIImage-Helpers (0.0.3)
 
@@ -9,10 +9,10 @@ DEPENDENCIES:
   - UIImage-Helpers
 
 SPEC CHECKSUMS:
-  CTFeedback: 80227f36788287be4cccb0e3995af84885237f03
+  CTFeedback: 6f128606e0d26d46075c3fa9fc33884372df8675
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   UIImage-Helpers: 06b04a42bdd222844035602e87e936765c80f620
 
 PODFILE CHECKSUM: ec04576d5484f2861078fec9f8e50c9e765c7fae
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.1.1

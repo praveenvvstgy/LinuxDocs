@@ -19,9 +19,9 @@ class ManPageBrowserViewController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         
-        let manHTML = NSBundle.mainBundle().pathForResource(manPage.filename, ofType: "html", inDirectory: "htmlman\(manPage.section!)")
-        let manPath = NSURL(fileURLWithPath: manHTML!, isDirectory: true)
-        self.manPageBrowser.loadRequest(NSURLRequest(URL: manPath, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 0))
+        let manHTML = Bundle.main.path(forResource: manPage.filename, ofType: "html", inDirectory: "htmlman\(manPage.section!)")
+        let manPath = URL(fileURLWithPath: manHTML!, isDirectory: true)
+        self.manPageBrowser.loadRequest(URLRequest(url: manPath, cachePolicy: NSURLRequest.CachePolicy.returnCacheDataElseLoad, timeoutInterval: 0))
         self.manPageBrowser.delegate = self
         
         title =  "\(manPage.name!)(\(manPage.section!))"
@@ -29,24 +29,24 @@ class ManPageBrowserViewController: UIViewController, UIWebViewDelegate {
     }
     
     
-    func favPage(sender: UIButton) {
+    func favPage(_ sender: UIButton) {
         let btn = sender
-        if btn.selected {
-            btn.selected = false
+        if btn.isSelected {
+            btn.isSelected = false
         } else {
-            btn.selected = true
+            btn.isSelected = true
         }
     }
     
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if request.URL!.host != nil {
-            UIApplication.sharedApplication().openURL(request.URL!)
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if request.url!.host != nil {
+            UIApplication.shared.openURL(request.url!)
         } else {
-            if navigationType == UIWebViewNavigationType.LinkClicked {
-                let requestComponents = request.URL!.pathComponents!
-                let manHTML = NSBundle.mainBundle().pathForResource(requestComponents[requestComponents.count - 1], ofType: nil, inDirectory: requestComponents[requestComponents.count - 2])
-                let manPath = NSURL(fileURLWithPath: manHTML!, isDirectory: true)
-                self.manPageBrowser.loadRequest(NSURLRequest(URL: manPath, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 0))
+            if navigationType == UIWebViewNavigationType.linkClicked {
+                let requestComponents = request.url!.pathComponents
+                let manHTML = Bundle.main.path(forResource: requestComponents[requestComponents.count - 1], ofType: nil, inDirectory: requestComponents[requestComponents.count - 2])
+                let manPath = URL(fileURLWithPath: manHTML!, isDirectory: true)
+                self.manPageBrowser.loadRequest(URLRequest(url: manPath, cachePolicy: NSURLRequest.CachePolicy.returnCacheDataElseLoad, timeoutInterval: 0))
             } else {
                 return true
             }

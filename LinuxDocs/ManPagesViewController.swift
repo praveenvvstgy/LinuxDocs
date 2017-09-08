@@ -11,30 +11,19 @@ import DZNEmptyDataSet
 import CTFeedback
 
 
-class ManPagesViewController: UIViewController {
+class ManPagesViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    lazy var manPagesIndex = [Int:[ManPage]]()
-    var filteredManPagesIndex = [Int:[ManPage]]()
+    lazy var manPagesIndex: [String: [ManPage]] = [:]
+    var filteredManPagesIndex: [String: [ManPage]] = [:]
     
-    // Array of UIColors, used as background color for section indicators
-    let colorArray: [UIColor] = [
-        UIColor(red:0.95, green:0.26, blue:0.21, alpha:1),
-        UIColor(red:0.25, green:0.32, blue:0.71, alpha:1),
-        UIColor(red:0.29, green:0.68, blue:0.31, alpha:1),
-        UIColor(red:1, green:0.59, blue:0, alpha:1),
-        UIColor(red:0, green:0.58, blue:0.53, alpha:1),
-        UIColor(red:0, green:0.58, blue:0.53, alpha:1),
-        UIColor(red:0.47, green:0.33, blue:0.28, alpha:1),
-        UIColor(red:0.62, green:0.62, blue:0.62, alpha:1)
-    ]
     @IBOutlet weak var searchbarHeightConstraint: NSLayoutConstraint!
     
     var isSearchActive: Bool {
-        if searchBar.text!.isEmpty {
-            if getSelectedManPageSection() == "All" {
+        if let searchText = searchBar.text, searchText.isEmpty {
+            if selectedSection == 0 {
                 return false
             } else {
                 return true
@@ -44,13 +33,15 @@ class ManPagesViewController: UIViewController {
         }
     }
     
+    var selectedSection: Int {
+        return searchBar.selectedScopeButtonIndex
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view, typically from a nib.
         
-        // Read man page from disk
+        // Read man pages from disk
         self.readManPageIndexFromJson()
         
         searchBar.delegate = self
@@ -74,20 +65,20 @@ class ManPagesViewController: UIViewController {
         searchbarHeightConstraint.constant = 88
         
         // Color for the text and scopebar border in searchbar - White
-        searchBar.tintColor = UIColor.lightPrimaryColor()
+        searchBar.tintColor = Color.UI.lightPrimary
         
         // Background Color of the searchbar - Dark Blue
-        searchBar.barTintColor = UIColor.darkPrimaryColor()
-        searchBar.translucent = true
+        searchBar.barTintColor = Color.UI.darkPrimary
+        searchBar.isTranslucent = true
         
         tableView.dataSource = self
         tableView.delegate = self
 
         // Remove footer of the tableview
-        tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         // Remove the tableview seperator by giving it clear color
-        tableView.separatorColor = UIColor.clearColor()
+        tableView.separatorColor = UIColor.clear
         
         // Estimated height for tableview cell
         tableView.estimatedRowHeight = 80.0
@@ -96,17 +87,12 @@ class ManPagesViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         
         // Remove the title from the back button and use only one arrow
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
         // prevents tab bar from overlapping last tableviewcell
-        tabBarController?.tabBar.translucent = false
+        tabBarController?.tabBar.isTranslucent = false
         
-        view.backgroundColor = UIColor.darkPrimaryColor()
-    }
-    
-    // White color of Status Bar Title for dark background
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+        view.backgroundColor = Color.UI.darkPrimary
     }
 
     override func didReceiveMemoryWarning() {
@@ -116,75 +102,61 @@ class ManPagesViewController: UIViewController {
     
     // Reads the local JSON file containing the man pages index
     func readManPageIndexFromJson() {
-        
-        let qualityOfServiceClass = Int(QOS_CLASS_BACKGROUND.rawValue)
-        let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
-        dispatch_async(backgroundQueue, {
-            let filePath = NSBundle.mainBundle().pathForResource("pages", ofType: "json")
-                        
-            let manPagesJSONData = NSData(contentsOfFile: filePath!)
+        DispatchQueue.global(qos: .background).async {
             
-            var manPagesData = NSArray()
-            
-            do {
-                manPagesData = (try NSJSONSerialization.JSONObjectWithData(manPagesJSONData!, options: NSJSONReadingOptions.MutableContainers)) as! NSArray
-            } catch let error as NSError {
-                print("Error reading file: \(error.localizedDescription)")
+            guard let filePath = Bundle.main.path(forResource: "pages", ofType: "json"),
+                let manPagesJSONData = try? Data(contentsOf: URL(fileURLWithPath: filePath)),
+            let manPagesData = (try? JSONSerialization.jsonObject(with: manPagesJSONData, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: [[String: Any]]] else {
+                    return
             }
             
-            
-            for i in 1...8 {
-                var manPageForSection = [ManPage]()
-                let j = String(i)
-                for manPage in manPagesData[0][j] as! NSArray {
-                    manPageForSection.append(ManPage(data: manPage as! NSDictionary))
-                }
-                self.manPagesIndex[i] = manPageForSection
+            for (section, manPages) in manPagesData {
+                self.manPagesIndex[section] = manPages.map({ (manPageDict) -> ManPage in
+                    return ManPage(data: manPageDict)
+                })
             }
-
             
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.async{
                 self.tableView.reloadData()
-            })
-        })
+            }
+        }
     }
     
     // Filters the manpages based on the search text and stores it in filteredManPagesIndex
-    func filterManPageForSearchText(searchText: String, section: String = "All") {
-        for i in 1...8 {
-            self.filteredManPagesIndex[i] = []
-        }
-        if section == "All" {
+    func filterManPageForSearchText(_ searchText: String, section: Int) {
+
+        if section == 0 {
             if searchText.isEmpty {
                 filteredManPagesIndex = manPagesIndex
             } else {
-                for i in 1...8 {
-                    self.filteredManPagesIndex[i] = self.manPagesIndex[i]?.filter({ (manpage: ManPage) -> Bool in
-                        let stringMatch = manpage.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-                        return (stringMatch != nil)
+                manPagesIndex.forEach({ (key, value) in
+                    
+                })
+                manPagesIndex.forEach({ ((manPagesEntry)) in
+                    filteredManPagesIndex[String(section)] = manPages.filter({ (manPage) in
+                        let stringMatch = manPage.name?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+                        return stringMatch != nil
                     })
-                }
+                })
             }
         } else {
-            let sectionNumber = Int(section)
-            if searchText == "" {
-                filteredManPagesIndex[sectionNumber!] = manPagesIndex[sectionNumber!]
+            let section = String(section)
+            if searchText.isEmpty {
+                filteredManPagesIndex[section] = manPagesIndex[section]
             } else {
-                for i in 1...8 {
-                    filteredManPagesIndex[i] = manPagesIndex[i]?.filter({ (manpage: ManPage) -> Bool in
-                        let stringMatch = manpage.name?.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-                        return (stringMatch != nil && manpage.section == section)
-                    })
-                }
+                filteredManPagesIndex[section] = manPagesIndex[section]?.filter({ (manPage) in
+                    let stringMatch = manPage.name?.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+                    return stringMatch != nil
+                })
             }
         }
         tableView.reloadData()
     }
     
     // prepareForSegue before performing the segue
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "manPageBrowser" {
-            let destinationViewController = segue.destinationViewController as! ManPageBrowserViewController
+            let destinationViewController = segue.destination as! ManPageBrowserViewController
             let indexPath = self.tableView.indexPathForSelectedRow
             let manPagesInSection: [ManPage]! = (!searchBar.text!.isEmpty) ? self.filteredManPagesIndex[indexPath!.section + 1] : self.manPagesIndex[indexPath!.section + 1]
 
@@ -192,14 +164,8 @@ class ManPagesViewController: UIViewController {
         }
     }
     
-    func getSelectedManPageSection() -> String {
-        let scopeButtonTitles = searchBar.scopeButtonTitles as [String]!
-        let scopeSelection = scopeButtonTitles[searchBar.selectedScopeButtonIndex]
-        return scopeSelection
-    }
-    
     // Hide keyboard when clicked outside
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         searchBar.endEditing(true)
     }
 }
@@ -207,7 +173,7 @@ class ManPagesViewController: UIViewController {
 // MARK: UITableViewDataSource
 extension ManPagesViewController: UITableViewDataSource {
     // Number of sections in the tableview
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         if isSearchActive {
             return filteredManPagesIndex.count
         } else {
@@ -216,7 +182,7 @@ extension ManPagesViewController: UITableViewDataSource {
     }
     
     // Set the title of the section header, return nil if no rows in that section
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if self.tableView(tableView, numberOfRowsInSection: section) == 0 {
             return nil
         } else {
@@ -225,7 +191,7 @@ extension ManPagesViewController: UITableViewDataSource {
     }
     
     // Number of rows in each section
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearchActive {
             return filteredManPagesIndex[section + 1]?.count as Int!
         } else {
@@ -235,27 +201,27 @@ extension ManPagesViewController: UITableViewDataSource {
     
     
     // Create the ManPageTableCell for a given section and row
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let reuseIdentifier = "manPage"
-        let cell = self.tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as! ManPageTableCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as! ManPageTableCell
         let manPagesInSection: [ManPage]! = (!searchBar.text!.isEmpty) ? self.filteredManPagesIndex[indexPath.section + 1] : self.manPagesIndex[indexPath.section + 1]
         cell.nameLabel.text = manPagesInSection[indexPath.row].name
         cell.sectionLabel.text = manPagesInSection[indexPath.row].section
         cell.descriptionLabel.text = manPagesInSection[indexPath.row].description
         
-        cell.backgroundColor = UIColor.lightPrimaryColor()
+        cell.backgroundColor = Color.UI.lightPrimary
         cell.roundedBackground.layer.cornerRadius = 5
         cell.roundedBackground.clipsToBounds = true
         
         cell.sectionLabel.layer.cornerRadius = 10
         cell.sectionLabel.clipsToBounds = true
         
-        cell.descriptionLabel.textColor = UIColor.secondaryTextColor()
+        cell.descriptionLabel.textColor = Color.UI.secondaryText
         
-        cell.nameLabel.textColor = UIColor.primaryTextColor()
+        cell.nameLabel.textColor = Color.UI.primaryText
         
-        cell.sectionLabel.textColor = UIColor.textIconColor()
-        cell.sectionLabel.backgroundColor = colorArray[Int(manPagesInSection[indexPath.row].section!)! - 1]
+        cell.sectionLabel.textColor = Color.UI.textIcon
+        cell.sectionLabel.backgroundColor = Color.Section(value: Int(manPagesInSection[indexPath.row].section!)! - 1)
         cell.sectionLabel.layer.cornerRadius = 5
         cell.sectionLabel.clipsToBounds = true
         return cell
@@ -265,14 +231,14 @@ extension ManPagesViewController: UITableViewDataSource {
 // MARK: UITableViewDelegate
 extension ManPagesViewController: UITableViewDelegate {
     // Peform Segue when a tableview cell row is selected
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("manPageBrowser", sender: tableView)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "manPageBrowser", sender: tableView)
         // deseelect the selected row
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // Change text color of section headers to white
-    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let headerSectionView = view as! UITableViewHeaderFooterView
         headerSectionView.backgroundView?.backgroundColor = colorArray[section]
         headerSectionView.textLabel!.textColor = UIColor.textIconColor()
@@ -282,85 +248,85 @@ extension ManPagesViewController: UITableViewDelegate {
 // MARK: DZNEmptyDataSetSource
 extension ManPagesViewController: DZNEmptyDataSetSource {
     
-    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let emptyMessage = "No manpages match your search"
-        let attributes  = [NSFontAttributeName: UIFont.boldSystemFontOfSize(18), NSForegroundColorAttributeName: UIColor.primaryTextColor()]
+        let attributes  = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 18), NSForegroundColorAttributeName: UIColor.primaryTextColor()]
         return NSAttributedString(string: emptyMessage, attributes: attributes)
     }
     
-    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let emptyDescription = "You can request new manpages to be added in the next update"
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        paragraphStyle.alignment = NSTextAlignment.Center
+        paragraphStyle.lineBreakMode = NSLineBreakMode.byWordWrapping
+        paragraphStyle.alignment = NSTextAlignment.center
         paragraphStyle.lineSpacing = 4.0
         
-        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(14), NSForegroundColorAttributeName: UIColor.secondaryTextColor(), NSParagraphStyleAttributeName: paragraphStyle]
+        let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.secondaryTextColor(), NSParagraphStyleAttributeName: paragraphStyle]
         
         return NSAttributedString(string: emptyDescription, attributes: attributes)
     }
     
-    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return UIImage(named: "nopage")
     }
     
-    func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
-        let attributes = [NSFontAttributeName: UIFont.systemFontOfSize(14), NSForegroundColorAttributeName: UIColor.primaryTextColor()]
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+        let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.primaryTextColor()]
         
         return NSAttributedString(string: "Request New ManPage", attributes: attributes)
     }
     
-    func buttonBackgroundImageForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> UIImage! {
+    func buttonBackgroundImage(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> UIImage! {
         let rectInsets = UIEdgeInsetsMake(-23.0, -60.0, -23.0, -60.0);
         let capInsets = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0);
         
-        return UIImage(named: "roundbutton")?.resizableImageWithCapInsets(capInsets, resizingMode: UIImageResizingMode.Stretch).imageWithAlignmentRectInsets(rectInsets)
+        return UIImage(named: "roundbutton")?.resizableImage(withCapInsets: capInsets, resizingMode: UIImageResizingMode.stretch).withAlignmentRectInsets(rectInsets)
     }
 }
 
 // MARK: DZNEmptyDataSetDelegate
 extension ManPagesViewController: DZNEmptyDataSetDelegate {
-    func emptyDataSetShouldAllowScroll(scrollView: UIScrollView!) -> Bool {
+    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
         return true
     }
     
-    func emptyDataSetDidTapButton(scrollView: UIScrollView!) {
+    func emptyDataSetDidTapButton(_ scrollView: UIScrollView!) {
         let feedbackViewController = CTFeedbackViewController(topics: CTFeedbackViewController.defaultTopics(), localizedTopics: CTFeedbackViewController.defaultLocalizedTopics())
-        feedbackViewController.toRecipients = NSArray(array: [NSString(string: "support@hitherto.desk-mail.com")]) as [AnyObject]
-        feedbackViewController.tableView.backgroundColor = UIColor.lightPrimaryColor()
-        let navigationController = UINavigationController(rootViewController: feedbackViewController)
-        self.presentViewController(navigationController, animated: true, completion: nil)
+        feedbackViewController?.toRecipients = NSArray(array: [NSString(string: "support@hitherto.desk-mail.com")]) as [AnyObject]
+        feedbackViewController?.tableView.backgroundColor = UIColor.lightPrimaryColor()
+        let navigationController = UINavigationController(rootViewController: feedbackViewController!)
+        self.present(navigationController, animated: true, completion: nil)
     }
 }
 
 // MARK: UISearchBarDelegate
 extension ManPagesViewController: UISearchBarDelegate {
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        filterManPageForSearchText(searchText, section: getSelectedManPageSection())
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterManPageForSearchText(searchText, section: selectedManPageSection())
         tableView.reloadData()
     }
     
     //  Change Search Results when selected scopebar button changes
-    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         let scopeSelection = getSelectedManPageSection()
         filterManPageForSearchText(searchBar.text!, section: scopeSelection)
         tableView.reloadData()
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
     }
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
     }
     
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
     }
 
