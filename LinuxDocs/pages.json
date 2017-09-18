@@ -1,4 +1,4 @@
-[{
+{
   "1": [
     {
       "description": " base64 encode/decode data and print to standard output",
@@ -16212,4 +16212,4 @@
       "section": "8"
     }
   ]
-}]
+}
